@@ -1,0 +1,1104 @@
+{
+	"ID": "20230331093028-kb9ntnf",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331093028-kb9ntnf",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230331093028-sgkd0he\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230331093028-tnh04sl\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230331093350-zrd56sd\u0026quot;,\u0026quot;focusStart\u0026quot;:36,\u0026quot;focusEnd\u0026quot;:36}",
+		"title": "Spring框架中的设计模式(四)_安迪源文的博客-CSDN博客",
+		"updated": "20230331093431"
+	},
+	"Children": [
+		{
+			"ID": "20230331093028-sgkd0he",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331093028-sgkd0he",
+				"updated": "20230331093028"
+			}
+		},
+		{
+			"ID": "20230331093350-zrd56sd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230331093350-zrd56sd",
+				"updated": "20230331093431"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "adapter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​,"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "decorator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​,"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "singleton"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-b6y5u0z",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331093028-b6y5u0z",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"ID": "20230331093028-kzy4t6f",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331093028-kzy4t6f",
+						"updated": "20230331093028"
+					},
+					"Children": [
+						{
+							"ID": "20230331093028-qfeln3y",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331093028-qfeln3y",
+								"updated": "20230331093028"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/andy_zhang2007/article/details/79781914",
+									"TextMarkTextContent": "https://blog.csdn.net/andy_zhang2007/article/details/79781914"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331093028-32j028h",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331093028-32j028h",
+						"updated": "20230331093028"
+					},
+					"Children": [
+						{
+							"ID": "20230331093028-4oyjh8h",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331093028-4oyjh8h",
+								"updated": "20230331093028"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "这篇文章是该系列关于spring框架设计模式文章的第四篇，会继续介绍3个框架使用的设计模式。最开始，我们会介绍两个结构设计模式：适配器模式adapter和装饰模式decorator。第三个，也就是本文最后一部分，我们会介绍一个对象创建设计模式：单例singleton。Spring设计模式 - 适配器adapter适配器模式应用在当我们需要将接口适配到特定的环境而且不需要修改接口自身..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331093028-1of03rh",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331093028-1of03rh",
+						"updated": "20230331093028"
+					},
+					"Children": [
+						{
+							"ID": "20230331093028-heqsya1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331093028-heqsya1",
+								"updated": "20230331093028"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:30:28"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-g65eqeq",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331093028-g65eqeq",
+				"updated": "20230331093028"
+			}
+		},
+		{
+			"ID": "20230331093028-11k45qi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-11k45qi",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "这篇文章是该系列关于spring框架设计模式文章的第四篇，会继续介绍3个框架使用的设计模式。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-86o43ky",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-86o43ky",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "最开始，我们会介绍两个结构"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "设计模式"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "：适配器模式"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "adapter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​和装饰模式"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "decorator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。第三个，也就是本文最后一部分，我们会介绍一个对象创建设计模式：单例"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "singleton"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-wbyefvo",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093028-wbyefvo",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring设计模式 - 适配器"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "adapter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-ueorezn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-ueorezn",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "适配器模式"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "应用在当我们需要将接口适配到特定的环境而且不需要修改接口自身行为的场合。这意味着在调用一个对象之前我们采用了一个非修改机制修改了所使用的对象。要在现实世界中描述这一点，想像一下你要用钻打一个洞的场景。要打一个小洞，你要使用小钻头，而大洞需要大钻头。用下面的代码演示这一点："
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-p9427zn",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093028-p9427zn",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class AdapterTest { \n \n  public static void main(String[] args) { \n    HoleMaker maker = new HoleMakerImpl();\n    maker.makeHole(1);\n    maker.makeHole(2);\n    maker.makeHole(30);\n    maker.makeHole(40);\n  }\n}\n \ninterface HoleMaker { \n  public void makeHole(int diameter);\n}\n \ninterface DrillBit { \n  public void makeSmallHole();\n  public void makeBigHole();\n}\n \n// Two adaptee objects\nclass BigDrillBit implements DrillBit { \n       \n  @Override\n  public void makeSmallHole() { \n    // do nothing\n  }\n \n  @Override\n  public void makeBigHole() { \n    System.out.println(\"Big hole is made byt WallBigHoleMaker\");\n  }\n}\n \nclass SmallDrillBit implements DrillBit { \n       \n  @Override\n  public void makeSmallHole() { \n    System.out.println(\"Small hole is made byt WallSmallHoleMaker\");\n  }\n \n  @Override\n  public void makeBigHole() { \n    // do nothing\n  }\n}\n \n// Adapter class\nclass Drill implements HoleMaker { \n \n  private DrillBit drillBit;\n \n  public Drill(int diameter) { \n    drillBit = getMakerByDiameter(diameter);\n  }\n \n  @Override\n  public void makeHole(int diameter) { \n    if (isSmallDiameter(diameter)) { \n            drillBit.makeSmallHole();\n    } else { \n            drillBit.makeBigHole();\n    }\n  }\n \n  private DrillBit getMakerByDiameter(int diameter) { \n    if (isSmallDiameter(diameter)) { \n            return new SmallDrillBit();\n    }\n    return new BigDrillBit();\n  }\n \n  private boolean isSmallDiameter(int diameter) { \n    return diameter \u003c 10;\n  }\n}\n \n// Client class\nclass HoleMakerImpl implements HoleMaker { \n       \n  @Override\n  public void makeHole(int diameter) { \n    HoleMaker maker = new Drill(diameter);\n    maker.makeHole(diameter);\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-ycf1uxg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-ycf1uxg",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这段代码会输出:"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-a20pni7",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230331093028-a20pni7",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230331093028-hadkd5x",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230331093028-hadkd5x",
+						"updated": "20230331093028"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "Small hole is made byt SmallDrillBit\nSmall hole is made byt SmallDrillBit\nBig hole is made byt BigDrillBit\nBig hole is made byt BigDrillBit"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-ec7aq5m",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-ec7aq5m",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "你可以看到，打洞使用了适配对象"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DrillBit"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。如果要打的洞的直径小于10，使用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SmallDrillBit"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​,否则我们使用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BigDrillBit"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-j2wn637",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-j2wn637",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring使用了适配器模式来处理不同的servlet容器中加载时织入( load-time-weaving)。加载时织入被用在AOP中在类加载时用来注入AspectJ方面到字节码。其他的方面注入方法有编译时注入或者编译后类上的静态注入。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-tvypoqg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-tvypoqg",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "描述这种情况的一个比较好的例子是JBoss，在包"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.instrument.classloading.jboss"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​里面。我们在这里抽取了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "JBossLoadTimeWeaver"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类用于负责JBoss容器的织入管理。然而，JBoss6(使用JBossMCAdapter 实例)和JBoss7/8(使用JBossModulesAdapter 实例)的类加载器是不同的。根据JBoss版本的不同，我们在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "JBossLoadTimeWeaver"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​构造函数中初始化相应的适配器(就像我们上面的例子中选钻头的例子一样)："
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-k8ylx6q",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093028-k8ylx6q",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public JBossLoadTimeWeaver(ClassLoader classLoader) { \n  private final JBossClassLoaderAdapter adapter;\n \n  Assert.notNull(classLoader, \"ClassLoader must not be null\");\n  if (classLoader.getClass().getName().startsWith(\"org.jboss.modules\")) { \n    // JBoss AS 7 or WildFly 8\n    this.adapter = new JBossModulesAdapter(classLoader);\n  }\n  else { \n    // JBoss AS 6\n    this.adapter = new JBossMCAdapter(classLoader);\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-mtkqpac",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-mtkqpac",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "更进一步，这个适配器实例根据所运行的servlet容器的版本被用来做织入操作："
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-nseocys",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093028-nseocys",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Override\npublic void addTransformer(ClassFileTransformer transformer) { \n  this.adapter.addTransformer(transformer);\n}\n \n@Override\npublic ClassLoader getInstrumentableClassLoader() { \n  return this.adapter.getInstrumentableClassLoader();\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-144vjxq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093028-144vjxq",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring设计模式 - 装饰器"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "decorator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-9gxxyxl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-9gxxyxl",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里我们要看的第二种设计模式跟适配器模式看起来很像。它是装饰器模式。该模式的主要角色是向指定对象补充增加功能。现实世界中，该模式可以用咖啡来描述。通常黑咖啡口感很浓烈，你可以加(装饰)点糖和牛奶来淡化咖啡口感。这里咖啡就是被装饰的对象，而糖和牛奶就是装饰器。下面你可以看到这个咖啡装饰的例子："
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-o5mdi4e",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093028-o5mdi4e",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class DecoratorSample { \n \n  @Test\n  public void test() { \n    Coffee sugarMilkCoffee=new MilkDecorator(new SugarDecorator(new BlackCoffee()));\n    assertEquals(sugarMilkCoffee.getPrice(), 6d, 0d);\n  }\n}\n \n// decorated\nabstract class Coffee{ \n  protected int candied=0;\n  protected double price=2d;\n  public abstract int makeMoreCandied();\n  public double getPrice(){ \n    return this.price;\n  }\n  public void setPrice(double price){ \n    this.price+=price;\n  }\n}\nclass BlackCoffee extends Coffee{ \n  @Override\n  public int makeMoreCandied(){ \n    return 0;\n  }\n  @Override\n  public double getPrice(){ \n    return this.price;\n  }\n}\n \n// abstract decorator\nabstract class CoffeeDecorator extends Coffee{ \n  protected Coffee coffee;\n  public CoffeeDecorator(Coffee coffee){ \n    this.coffee=coffee;\n  }\n  @Override\n  public double getPrice(){ \n    return this.coffee.getPrice();\n  }\n  @Override\n  public int makeMoreCandied(){ \n    return this.coffee.makeMoreCandied();\n  }\n}\n \n// concrete decorators\nclass MilkDecorator extends CoffeeDecorator{ \n  public MilkDecorator(Coffee coffee){ \n    super(coffee);\n  }\n  @Override\n  public double getPrice(){ \n    return super.getPrice()+1d;\n  }\n  @Override\n  public int makeMoreCandied(){ \n    return super.makeMoreCandied()+1;\n  }\n}\nclass SugarDecorator extends CoffeeDecorator{ \n  public SugarDecorator(Coffee coffee){ \n    super(coffee);\n  }\n  @Override\n  public double getPrice(){ \n    return super.getPrice()+3d;\n  }\n  @Override\n  public int makeMoreCandied(){ \n    return super.makeMoreCandied()+1;\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-nuo4ugx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-nuo4ugx",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个装饰器例子的基础是调用父类不同的用于调整最终属性的方法(这里是价格和糖水平)。Spring中，我们把装饰器设计模式抽取到了一个处理Spring事务管理的缓存同步的类。这个类是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.cache.transaction.TransactionAwareCacheDecorator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-fh5rdyx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-fh5rdyx",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个类的哪些特点证明了它是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.cache.Cache"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​对象的装饰器呢?首先，跟在我们的咖啡例子里面的一样，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAwareCacheDecorator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的构造方法在参数中接收被装饰对象(Cache)："
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-f73whnq",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093028-f73whnq",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "private final Cache targetCache;\n/**\n * Create a new TransactionAwareCache for the given target Cache.\n * @param targetCache the target Cache to decorate\n */\npublic TransactionAwareCacheDecorator(Cache targetCache) { \n  Assert.notNull(targetCache, \"Target Cache must not be null\");\n  this.targetCache = targetCache;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-2v3z0s7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-2v3z0s7",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "接下来，一个新的行为被添加到了被装饰的Cache上。正如我们在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAwareCacheDecorator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的注释上所看到的，它的主要目的是提供缓存和Spring事物之间的同步级别。要达到此目的，要感谢"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.transaction.support.TransactionSynchronizationManager"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的两个Cache方法:put和evict :"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-rq56i9g",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093028-rq56i9g",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Override\npublic void put(final Object key, final Object value) { \n  if (TransactionSynchronizationManager.isSynchronizationActive()) { \n    TransactionSynchronizationManager.registerSynchronization(\n      new TransactionSynchronizationAdapter() { \n        @Override\n        public void afterCommit() { \n          targetCache.put(key, value);\n        }\n    });\n  }\n  else { \n    this.targetCache.put(key, value);\n  }\n}\n \n@Override\npublic void evict(final Object key) { \n  if (TransactionSynchronizationManager.isSynchronizationActive()) { \n          TransactionSynchronizationManager.registerSynchronization(\n            new TransactionSynchronizationAdapter() { \n              @Override\n              public void afterCommit() { \n                targetCache.evict(key);\n              }\n          });\n  }\n  else { \n    this.targetCache.evict(key);\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-u5s1peg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-u5s1peg",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个模式跟适配器模式很像是不是？然而，它们是不同的。正如我们所看到的，适配器适配对象到运行时环境，比如，假如我们在JBoss 6中运行，我们会使用和JBoss 7不同的类加载器。而装饰器每次都和同一个主对象(Cache)一起工作而且仅向它增加新的行为(在我们的例子中，就像是同步和Spring事务的关系)。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-2inx81g",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093028-2inx81g",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring设计模式 - 单例"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "singleton"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-hvle36e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-hvle36e",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "现在，轮到非常流行的设计模式单例了。正如我们在Spring框架有关单例和原型bean的文章中所解释的，单例被看作是几种bean作用域的一种。**这个作用域在应用上下文中对给定的bean仅创建一个实例。跟单例设计模式不同，Spring在应用上下文中限制了实例的数量。而Java应用中的单例设计模式是在整个类加载器的整个管理空间内限制这些实例的数量。**这意味着你可以使用同一个类加载器管理两个应用上下文，每个上下文中有某个bean的一个实例，加起来也就是在这个类加载器空间中有两个这样的单例bean实例。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-f5aa400",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-f5aa400",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在深入Spring单例之前，我们来看一个Java单例的例子："
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-1k2dyru",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093028-1k2dyru",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class SingletonTest { \n \n  @Test\n  public void test() { \n    President president1 = (President) SingletonsHolder.PRESIDENT.getHoldedObject();\n    President president2 = (President) SingletonsHolder.PRESIDENT.getHoldedObject();\n    assertTrue(\"Both references of President should point to the same object\", \n\t    president1 == president2);\n    System.out.println(\"president1 = \"+president1+\" and president2 = \"+president2);\n    // 例子输出 : \n    // president1 = com.waitingforcode.test.President@17414c8 \n    // and president2 = com.waitingforcode.test.President@17414c8\n \n  }\n \n}\n \nenum SingletonsHolder { \n   \n  PRESIDENT(new President());\n   \n  private Object holdedObject;\n   \n  private SingletonsHolder(Object o) { \n          this.holdedObject = o;\n  }\n   \n  public Object getHoldedObject() { \n          return this.holdedObject;\n  }\n       \n}\n \nclass President { \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-gtjre6v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-gtjre6v",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个测试用例证明了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SingletonsHolder"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​持有的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "President"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实例一共只有一个。在Spring中，我们可以在bean工厂中发现单例bean的概念（比如在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.beans.factory.config.AbstractFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中）："
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-ou0srzs",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093028-ou0srzs",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "/**\n * Expose the singleton instance or create a new prototype instance.\n * @see #createInstance()\n * @see #getEarlySingletonInterfaces()\n */\n@Override\npublic final T getObject() throws Exception { \n  if (isSingleton()) { \n    return (this.initialized ? this.singletonInstance : getEarlySingletonInstance());\n  }\n  else { \n    return createInstance();\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-q7oeh3h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-q7oeh3h",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到如果被请求的bean是单例bean，它仅会被初始化一次而随后每次对该bean的访问都返回同样的对象。在所给的例子中，我们可以看到这一点，跟我们之前看到的President的例子很类似。测试bean定义如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-dokm0oy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093028-dokm0oy",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003cbean id=\"shoppingCart\" class=\"com.waitingforcode.data.ShoppingCart\" /\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-zgxq6jk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-zgxq6jk",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "测试用例如下:"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-7ebcshm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093028-7ebcshm",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class SingletonSpringTest { \n \n  @Test\n  public void test() { \n    // retreive two different contexts\n    ApplicationContext firstContext = \n\t    new FileSystemXmlApplicationContext(\"applicationContext-test.xml\");\n    ApplicationContext secondContext \n\t    = new FileSystemXmlApplicationContext(\"applicationContext-test.xml\");\n   \n    // prove that both contexts are loaded by the same class loader\n    assertTrue(\"Class loaders for both contexts should be the same\", \n      firstContext.getClassLoader() == secondContext.getClassLoader());\n    // compare the objects from different contexts\n    ShoppingCart firstShoppingCart = (ShoppingCart) firstContext.getBean(\"shoppingCart\");\n    ShoppingCart secondShoppingCart = (ShoppingCart) secondContext.getBean(\"shoppingCart\");\n    assertFalse(\"ShoppingCart instances got from different application \n\t    context shouldn't be the same\", \n      firstShoppingCart == secondShoppingCart);\n   \n    // compare the objects from the same context\n    ShoppingCart firstShoppingCartBis = (ShoppingCart) firstContext.getBean(\"shoppingCart\");\n    assertTrue(\"ShoppingCart instances got from the same application context should \n\t    be the same\", \n      firstShoppingCart == firstShoppingCartBis);\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-dai5ood",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-dai5ood",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个测试用例展示了Spring单例和纯粹的Java单例设计模式的主要不同。尽管使用了同一个类加载器加载了两个应用上下文，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ShoppingCart"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的实例却不同。但当我们从同一个应用上下文中两次获取同一个bean类的实例作比较，我们能认识到它们是同一个。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-or2d19y",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093028-or2d19y",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-dxom48v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-dxom48v",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这篇文章中描述的设计模式被Spring用于处理bean的创建。通过单例模式，Spring可以控制每个应用上下文中某个特定类型的bean仅有一个实例。通过适配器模式，Spring决定哪一层会被用于处理JBoss servlet容器的加载时织入。第三种设计模式，装饰器，被用来向缓存Cache对象增加同步功能。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-y1dzgkj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093028-y1dzgkj",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-4/read",
+					"TextMarkTextContent": "英文原文"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-fpzfnus",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093028-fpzfnus",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "该系列文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331093028-tnh04sl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093028-tnh04sl",
+				"updated": "20230331093028"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-5/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(五)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-4/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(四)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-3/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(三)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-2/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(二)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-1/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(一)"
+				}
+			]
+		}
+	]
+}

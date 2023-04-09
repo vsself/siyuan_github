@@ -1,0 +1,948 @@
+{
+	"ID": "20230404010254-rlw4e74",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010254-rlw4e74",
+		"title": "吃透Spring源码（六）：spring事件通知机制源码解析_spring事件与通知源码_吃透Java的博客-CSDN博客",
+		"updated": "20230404010254"
+	},
+	"Children": [
+		{
+			"ID": "20230404010254-wbgax0e",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010254-wbgax0e",
+				"updated": "20230404010254"
+			}
+		},
+		{
+			"ID": "20230404010254-fl0op84",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010254-fl0op84",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"ID": "20230404010254-819qqqj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010254-819qqqj",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"ID": "20230404010254-9eh60sk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010254-9eh60sk",
+								"updated": "20230404010254"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/109581507",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/109581507"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010254-5od7rsr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010254-5od7rsr",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"ID": "20230404010254-6x9cif7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010254-6x9cif7",
+								"updated": "20230404010254"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一，Spring事件机制Spring 中的事件通知机制就是观察者模式的一种实现。观察者是 ApplicationListener，可以实现接口定义观察者，也可以使用注解@EventListener定义观察者。观察者感兴趣的是某种状态的变化，这种状态变化使用 ApplicationEvent 来传达，也就是事件对象。我们说的 Spring 中的事件，就是 ApplicationEvent。在事件中，被观察者可以认为是发出事件的一方，只有在状态变化时才发布事件。当有状态发生变化时，发布者调用 Applicat"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010254-w887xl0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010254-w887xl0",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"ID": "20230404010254-hytyvuz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010254-hytyvuz",
+								"updated": "20230404010254"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:02:54"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-jfq0jk5",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010254-jfq0jk5",
+				"updated": "20230404010254"
+			}
+		},
+		{
+			"ID": "20230404010254-7yeuz4h",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010254-7yeuz4h",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一，Spring事件机制"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-go9xmhr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-go9xmhr",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 中的事件通知机制就是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "观察者模式"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "的一种实现。观察者是 ApplicationListener，可以实现接口定义观察者，也可以使用注解@EventListener定义观察者。观察者感兴趣的是某种状态的变化，这种状态变化使用 ApplicationEvent 来传达，也就是事件对象。我们说的 Spring 中的事件，就是 ApplicationEvent。在事件中，被观察者可以认为是发出事件的一方，只有在状态变化时才发布事件。当有状态发生变化时，发布者调用 ApplicationEventPublisher 的 publishEvent 方法发布一个事件，Spring 容器广播事件给符合条件的观察者，调用观察者的 onApplicationEvent 方法把事件对象传递给观察者。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-ljlb19e",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-ljlb19e",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1,ApplicationEvent(事件源)"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-bvv533d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-bvv533d",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 框架提供了四种容器事件，包含了整个容器的生命周期。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-eaae4eq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-eaae4eq",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201109170808719-20230404010254-mp96xe5.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-y9zpf1i",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010254-y9zpf1i",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"ID": "20230404010254-o08exn1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010254-o08exn1",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"ID": "20230404010254-mq0mcoq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010254-mq0mcoq",
+								"updated": "20230404010254"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ContextStartedEvent：ApplicationContext 启动事件；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010254-2ffnaur",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010254-2ffnaur",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"ID": "20230404010254-jedfegt",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010254-jedfegt",
+								"updated": "20230404010254"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ContextRefreshedEvent：ApplicationContext 更新事件；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010254-1exf5jx",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010254-1exf5jx",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"ID": "20230404010254-kyz4xw1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010254-kyz4xw1",
+								"updated": "20230404010254"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ContextStoppedEvent：ApplicationContext 停止事件；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010254-9hg6agl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010254-9hg6agl",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"ID": "20230404010254-6on3aqi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010254-6on3aqi",
+								"updated": "20230404010254"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ContextClosedEvent：ApplicationContext 关闭事件。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-spdt468",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-spdt468",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 4.2 之前的版本，事件必须继承 ApplicationEvent，从 Spring 4.2 版开始，框架提供了 PayloadApplicationEvent 用于包装任意类型，不强制事件对象继承 ApplicationEvent。当我们发送一个任意类型的事件对象时，框架内部自动包装为 PayloadApplicationEvent 事件对象。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-mze81tt",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-mze81tt",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2,ApplicationListener(事件监听者)"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-y78a93l",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010254-y78a93l",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "实现接口定义："
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-bq9aq6k",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-bq9aq6k",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "事件监听者 ApplicationListener 继承自 JDK 的 EventListener ，JDK 要求所有监听者继承它。监听者只有一个方法 onApplicationEvent，用来处理事件 ApplicationEvent。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-gyhwob7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-gyhwob7",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@FunctionalInterface\npublic interface ApplicationListener\u003cE extends ApplicationEvent\u003e extends EventListener { \n\n\t/**\n\t * Handle an application event.\n\t * @param event the event to respond to\n\t */\n\tvoid onApplicationEvent(E event);\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-773liwp",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-773liwp",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class MyApplicationListener implements ApplicationListener\u003cApplicationEvent\u003e { \n\n    @Override\n    public void onApplicationEvent(ApplicationEvent event) { \n        System.out.println(\"接收到事件：ApplicationEvent \"+event);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-rejny2o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-rejny2o",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在容器启动的时候检测应用中的监听者并把用户实现的监听者注册到 SimpleApplicationEventMulticaster 集合中。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-zd37iad",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-zd37iad",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "源码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-qih86un",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-qih86un",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t/**\n\t * 注册监听器\n\t *\n\t * Add beans that implement ApplicationListener as listeners.\n\t * Doesn't affect other listeners, which can be added without being beans.\n\t */\n\tprotected void registerListeners() { \n\t\t// Register statically specified listeners first.\n\t\t// 遍历应用程序中存在的监听器集合，并将对应的监听器添加到监听器的多路广播器中\n\t\tfor (ApplicationListener\u003c?\u003e listener : getApplicationListeners()) { \n\t\t\tgetApplicationEventMulticaster().addApplicationListener(listener);\n\t\t}\n\n\t\t// Do not initialize FactoryBeans here: We need to leave all regular beans\n\t\t// uninitialized to let post-processors apply to them!\n\t\t// 从容器中获取所有实现了ApplicationListener接口的bd的bdName\n\t\t// 放入ApplicationListenerBeans集合中\n\t\tString[] listenerBeanNames = getBeanNamesForType(ApplicationListener.class, true, false);\n\t\tfor (String listenerBeanName : listenerBeanNames) { \n\t\t\tgetApplicationEventMulticaster().addApplicationListenerBean(listenerBeanName);\n//\t\t\tgetApplicationEventMulticaster().addApplicationListener(this.getBean(listenerBeanName,ApplicationListener.class));\n\t\t}\n\n\t\t// Publish early application events now that we finally have a multicaster...\n\t\t// 此处先发布早期的监听器集合\n\t\tSet\u003cApplicationEvent\u003e earlyEventsToProcess = this.earlyApplicationEvents;\n\t\tthis.earlyApplicationEvents = null;\n\t\tif (!CollectionUtils.isEmpty(earlyEventsToProcess)) { \n\t\t\tfor (ApplicationEvent earlyEvent : earlyEventsToProcess) { \n\t\t\t\tgetApplicationEventMulticaster().multicastEvent(earlyEvent);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-js5a8kc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010254-js5a8kc",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注解定义"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-iculb3y",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-iculb3y",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class MyAnnotationListener { \n    @EventListener\n    public void listen(ApplicationEvent event) { \n        System.out.println(\"接收到事件：MyAnnotationListener \" + event);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-ntyy6qi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-ntyy6qi",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注解形式的监听者是通过 EventListenerMethodProcessor 注册到容器中的。该类定义了一个 Bean，在初始化完成后，调用它的后置回调方法 afterSingletonsInstantiated，在方法中遍历容器中所有的 bean，提取出 EventListener 注解修饰的方法并根据注解的参数创建 ApplicationListener 对象加入到 ApplicationContext 监听列表中。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-ak3y642",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-ak3y642",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3,ApplicationEventPublisher(发布事件)"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-5czkysh",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-5czkysh",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected void initApplicationEventMulticaster() { \n\t\t// 获取当前bean工厂,一般是DefaultListableBeanFactory\n\t\tConfigurableListableBeanFactory beanFactory = getBeanFactory();\n\t\t// 判断容器中是否存在bdName为applicationEventMulticaster的bd，也就是说自定义的事件监听多路广播器，必须实现ApplicationEventMulticaster接口\n\t\tif (beanFactory.containsLocalBean(APPLICATION_EVENT_MULTICASTER_BEAN_NAME)) { \n\t\t\t// 如果有，则从bean工厂得到这个bean对象\n\t\t\tthis.applicationEventMulticaster =\n\t\t\t\t\tbeanFactory.getBean(APPLICATION_EVENT_MULTICASTER_BEAN_NAME, ApplicationEventMulticaster.class);\n\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\tlogger.trace(\"Using ApplicationEventMulticaster [\" + this.applicationEventMulticaster + \"]\");\n\t\t\t}\n\t\t}\n\t\telse { \n\t\t\t// 如果没有，则默认采用SimpleApplicationEventMulticaster\n\t\t\tthis.applicationEventMulticaster = new SimpleApplicationEventMulticaster(beanFactory);\n\t\t\tbeanFactory.registerSingleton(APPLICATION_EVENT_MULTICASTER_BEAN_NAME, this.applicationEventMulticaster);\n\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\tlogger.trace(\"No '\" + APPLICATION_EVENT_MULTICASTER_BEAN_NAME + \"' bean, using \" +\n\t\t\t\t\t\t\"[\" + this.applicationEventMulticaster.getClass().getSimpleName() + \"]\");\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-ruhkmu4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-ruhkmu4",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ApplicationEventMulticaster 接口定义了对监听者的操作，如增加监听者、移除监听者，以及发布事件的方法。框架提供了 ApplicationEventMulticaster 接口的默认实现 SimpleApplicationEventMulticaster，如果本地容器中没有 ApplicationEventMulticaster 的实现就会使用这个默认实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-5x43w6o",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-5x43w6o",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class SimpleApplicationEventMulticaster extends AbstractApplicationEventMulticaster { \n    @Nullable\n    private Executor taskExecutor;\n\n    @Override\n    public void multicastEvent(final ApplicationEvent event, \n                               @Nullable ResolvableType eventType) { \n        ResolvableType type = \n        (eventType != null ? eventType : resolveDefaultEventType(event));\n        for (final ApplicationListener\u003c?\u003e listener : getApplicationListeners(event, type)) { \n            Executor executor = getTaskExecutor();\n            if (executor != null) { \n                executor.execute(() -\u003e invokeListener(listener, event));\n            }\n            else { \n                invokeListener(listener, event);\n            }\n        }\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-06lbbru",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-06lbbru",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected Collection\u003cApplicationListener\u003c?\u003e\u003e getApplicationListeners(\n\t\t\tApplicationEvent event, ResolvableType eventType) { \n\n\t\t// 事件源，事件最初发生在其上的对象\n\t\tObject source = event.getSource();\n\t\t// 事件源class对象\n\t\tClass\u003c?\u003e sourceType = (source != null ? source.getClass() : null);\n\t\t// 创建基于事件源和事件源类型的监听器助手cacheKey\n\t\tListenerCacheKey cacheKey = new ListenerCacheKey(eventType, sourceType);\n\n\t\t// Quick check for existing entry on ConcurrentHashMap...\n\t\t// 快速检测监听器助手缓存Concurrenthashmap中是否存在指定的cacheKey\n\t\tListenerRetriever retriever = this.retrieverCache.get(cacheKey);\n\t\tif (retriever != null) { \n\t\t\t// 如果存在指定的key，则返回应用程序的监听器对象\n\t\t\treturn retriever.getApplicationListeners();\n\t\t}\n\n\t\t// 如果类加载器为null，或者事件源在给定的类加载器上下文是安全的并且源类型为null或者源类型在指定上下文是安全的\n\t\tif (this.beanClassLoader == null ||\n\t\t\t\t(ClassUtils.isCacheSafe(event.getClass(), this.beanClassLoader) \u0026\u0026\n\t\t\t\t\t\t(sourceType == null || ClassUtils.isCacheSafe(sourceType, this.beanClassLoader)))) { \n\t\t\t// Fully synchronized building and caching of a ListenerRetriever\n\t\t\t// 同步从ListenerRetriever监听器助手中获取指定的监听器\n\t\t\tsynchronized (this.retrievalMutex) { \n\t\t\t\tretriever = this.retrieverCache.get(cacheKey);\n\t\t\t\tif (retriever != null) { \n\t\t\t\t\t// 返回监听器助手中存储的监听器对象\n\t\t\t\t\treturn retriever.getApplicationListeners();\n\t\t\t\t}\n\t\t\t\tretriever = new ListenerRetriever(true);\n\t\t\t\t// 实际检索给定事件和源类型的应用程序监听器\n\t\t\t\tCollection\u003cApplicationListener\u003c?\u003e\u003e listeners =\n\t\t\t\t\t\tretrieveApplicationListeners(eventType, sourceType, retriever);\n\t\t\t\tthis.retrieverCache.put(cacheKey, retriever);\n\t\t\t\treturn listeners;\n\t\t\t}\n\t\t}\n\t\telse { \n\t\t\t// No ListenerRetriever caching -\u003e no synchronization necessary\n\t\t\t// 无ListenerRetriever监听器助手 -\u003e 无需同步缓存\n\t\t\treturn retrieveApplicationListeners(eventType, sourceType, null);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-e1dbukt",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-e1dbukt",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "private Collection\u003cApplicationListener\u003c?\u003e\u003e retrieveApplicationListeners(\n\t\t\tResolvableType eventType, @Nullable Class\u003c?\u003e sourceType, @Nullable ListenerRetriever retriever) { \n\n\t\t// 创建应用程序所有监听器的集合\n\t\tList\u003cApplicationListener\u003c?\u003e\u003e allListeners = new ArrayList\u003c\u003e();\n\t\t// 创建应用程序监听器集合，去重\n\t\tSet\u003cApplicationListener\u003c?\u003e\u003e listeners;\n\t\tSet\u003cString\u003e listenerBeans;\n\t\t// 锁定监听器助手对象\n\t\tsynchronized (this.retrievalMutex) { \n\t\t\t// 初始化监听器集合对象\n\t\t\tlisteners = new LinkedHashSet\u003c\u003e(this.defaultRetriever.applicationListeners);\n\t\t\tlistenerBeans = new LinkedHashSet\u003c\u003e(this.defaultRetriever.applicationListenerBeans);\n\t\t}\n\n\t\t// Add programmatically registered listeners, including ones coming\n\t\t// from ApplicationListenerDetector (singleton beans and inner beans).\n\t\t// 遍历所有的监听器集合，筛选出符合条件的监听器\n\t\tfor (ApplicationListener\u003c?\u003e listener : listeners) { \n\t\t\tif (supportsEvent(listener, eventType, sourceType)) { \n\t\t\t\tif (retriever != null) { \n\t\t\t\t\tretriever.applicationListeners.add(listener);\n\t\t\t\t}\n\t\t\t\tallListeners.add(listener);\n\t\t\t}\n\t\t}\n\t\t...\n\t\t...\n\t\t...\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-xplt5xq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-xplt5xq",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 SimpleApplicationEventMulticaster 中，可以看到 multicastEvent 方法中通过getApplicationListeners方法获取符合条件的监听器集合，然后遍历了所有的符合条件的 Listener，并依次调用 Listener 的 onApplicationEvent 方法发布事件。Spring 还提供了异步发布事件的能力，taskExecutor 不为 null 时即异步执行。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-jxww97q",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010254-jxww97q",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二，简单实现事件发布通知"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-c5ovuex",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-c5ovuex",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，自定义ApplicationEvent"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-wssi8ov",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-wssi8ov",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MyApplicationEvent extends ApplicationEvent { \n    private static final long serialVersionUID = 7099057708183571937L;\n    public MyApplicationEvent(Object source) { \n        super(source);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-vp1re1r",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-vp1re1r",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2,自定义ApplicationListener"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-8p3u1mr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-8p3u1mr",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class MyApplicationListener implements ApplicationListener\u003cMyApplicationEvent\u003e { \n\n    @Override\n    public void onApplicationEvent(MyApplicationEvent event) { \n        System.out.println(\"波波测试：MyApplicationListener \" + event);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-ytss08q",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-ytss08q",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3,获取默认applicationEventMulticaster并发布事件"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-qcbd99k",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-qcbd99k",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Test { \n\n    public static void main(String[] args) { \n        MyClassPathXmlApplicationContext ac = new MyClassPathXmlApplicationContext(\"boboTest.xml\");\n        ApplicationEventMulticaster applicationEventMulticaster = ac.getBean(\"applicationEventMulticaster\", ApplicationEventMulticaster.class);\n        applicationEventMulticaster.multicastEvent(new MyApplicationEvent(Test.class));\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-xlvm9l0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010254-xlvm9l0",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三，异步响应Event"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-3yeu94g",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-3yeu94g",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "默认情况下，Spring是同步执行Event的响应方法的。如果响应方法的执行时间很长会阻塞发送事件的方法，因此很多场景下，我们需要让事件的响应异步化。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-1sjmcqr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-1sjmcqr",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通过前面的代码分析，我们发现如果SimpleApplicationEventMulticaster中的taskExecutor如果不为null，将在taskExecutor中异步执行响应程序。applicationEventMulticaster的新建在initApplicationEventMulticaster方法中，默认情况下它会新建一个SimpleApplicationEventMulticaster，其中的taskExecutor为null。因此想要taskExecutor不为null，我们可以自己手动创建一个SimpleApplicationEventMulticaster然后设置一个taskExecutor。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-lw44ovy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-lw44ovy",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "/**\n * @author bobo\n * @date 2020-11-09\n */\n@Configuration\npublic class MyConfig { \n    @Bean\n    public ApplicationEventMulticaster multicaster() { \n        SimpleApplicationEventMulticaster simpleApplicationEventMulticaster = new SimpleApplicationEventMulticaster();\n        simpleApplicationEventMulticaster.setTaskExecutor(new SimpleAsyncTaskExecutor());\n        return simpleApplicationEventMulticaster;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		}
+	]
+}

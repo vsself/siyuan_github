@@ -1,0 +1,1838 @@
+{
+	"ID": "20230325104202-ojr4x1c",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230325104202-ojr4x1c",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230325104644-in82ezl\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230326225308-djfr3eh\u0026quot;,\u0026quot;scrollTop\u0026quot;:2600,\u0026quot;focusId\u0026quot;:\u0026quot;20230325132540-gbz8w1p\u0026quot;,\u0026quot;focusStart\u0026quot;:3,\u0026quot;focusEnd\u0026quot;:3}",
+		"title": "JVM内存",
+		"updated": "20230326225519"
+	},
+	"Children": [
+		{
+			"ID": "20230325104644-in82ezl",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230325104644-in82ezl",
+				"updated": "20230325104705"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "整体概述"
+				}
+			]
+		},
+		{
+			"ID": "20230325104232-iqphuix",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325104232-iqphuix",
+				"updated": "20230325132716"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325104232-58rl3es.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				}
+			]
+		},
+		{
+			"ID": "20230325104237-1w8ejpn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325104237-1w8ejpn",
+				"updated": "20230325104325"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "jvm有三块组成，执行引擎、运行时数据区、类加载子系统。"
+				}
+			]
+		},
+		{
+			"ID": "20230325133258-7gad2c4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325133258-7gad2c4",
+				"updated": "20230325133534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中栈，本地方法栈（native方法），程序计数器都是线程私有的。"
+				}
+			]
+		},
+		{
+			"ID": "20230325133337-0x2psp4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325133337-0x2psp4",
+				"updated": "20230325133620"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "堆（实例存放处，垃圾回收）和元空间是线程共有的"
+				}
+			]
+		},
+		{
+			"ID": "20230325133644-4f4jh3y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325133644-4f4jh3y",
+				"updated": "20230325133813"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "直接内存：java是c编写的，直接内存是java这个进程所占有的内存中在jvm内存之外的一个内存区域，用于NIO"
+				}
+			]
+		},
+		{
+			"ID": "20230325133410-y91z8xj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230325133410-y91z8xj",
+				"updated": "20230325133420"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "栈"
+				}
+			]
+		},
+		{
+			"ID": "20230325133437-x75l8lf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325133437-x75l8lf",
+				"updated": "20230325133442"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325133437-l6monxn.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				}
+			]
+		},
+		{
+			"ID": "20230325133444-e3wgn0t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325133444-e3wgn0t"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230325104637-8wjuacc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230325104637-8wjuacc",
+				"updated": "20230325104721"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "类加载子系统"
+				}
+			]
+		},
+		{
+			"ID": "20230325104730-3rjkzg2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325104730-3rjkzg2",
+				"updated": "20230325104742"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325104730-4x1xxoi.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				}
+			]
+		},
+		{
+			"ID": "20230325104746-88nrau2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325104746-88nrau2",
+				"updated": "20230325104859"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "类加载子系统，将字节码加载到jvm的方法区，并在堆区创建Class obj。"
+				}
+			]
+		},
+		{
+			"ID": "20230325132207-jddz8bg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230325132207-jddz8bg",
+				"updated": "20230325132447"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "类加载过程"
+				}
+			]
+		},
+		{
+			"ID": "20230325132318-s60cpi2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325132318-s60cpi2",
+				"updated": "20230325132324"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325132318-ee1aewi.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				}
+			]
+		},
+		{
+			"ID": "20230325132335-a6qg1tz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325132335-a6qg1tz",
+				"updated": "20230325132426"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中初始化：执行静态代码块以及静态变量赋值。"
+				}
+			]
+		},
+		{
+			"ID": "20230325132510-1t8rsq1",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230325132510-1t8rsq1",
+				"updated": "20230325132517"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "加载器种类"
+				}
+			]
+		},
+		{
+			"ID": "20230325132540-gbz8w1p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325132540-gbz8w1p",
+				"updated": "20230325132552"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325132539-9wlhezp.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				}
+			]
+		},
+		{
+			"ID": "20230325132555-bb8emxr",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230325132555-bb8emxr",
+				"updated": "20230325134004"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "垃圾回收"
+				}
+			]
+		},
+		{
+			"ID": "20230325132719-99u0s22",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230325132719-99u0s22",
+				"updated": "20230325134111"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "堆内存"
+				}
+			]
+		},
+		{
+			"ID": "20230325134136-t0g8cah",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325134136-t0g8cah",
+				"updated": "20230325140543"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325134136-2hbonrc.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				}
+			]
+		},
+		{
+			"ID": "20230325140619-iw38sar",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230325140619-iw38sar",
+				"updated": "20230325140638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "老年代空间分配担保机制"
+				}
+			]
+		},
+		{
+			"ID": "20230325140532-8q1idsc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325140532-8q1idsc",
+				"updated": "20230325140538"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325140532-k0jt5sj.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​"
+				}
+			]
+		},
+		{
+			"ID": "20230325134142-29dongx",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230325134142-29dongx",
+				"updated": "20230325134157"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Minor GC 和 Full GC"
+				}
+			]
+		},
+		{
+			"ID": "20230325134200-d5eoqai",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325134200-d5eoqai",
+				"updated": "20230325134443"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Minor GC/Young GC：指发生年轻代的垃圾收集动作"
+				}
+			]
+		},
+		{
+			"ID": "20230325134247-58iqc3j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325134247-58iqc3j"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Major GC/Full GC：一般会回收老年代，年轻代，方法区的垃圾"
+				}
+			]
+		},
+		{
+			"ID": "20230325134249-sm28p57",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230325134249-sm28p57",
+				"updated": "20230325145128"
+			},
+			"Children": [
+				{
+					"ID": "20230325134546-8ib89mb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230325134546-8ib89mb",
+						"updated": "20230325134546"
+					},
+					"Children": [
+						{
+							"ID": "20230325134546-lfxpzzz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230325134546-lfxpzzz",
+								"updated": "20230325135321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当创建一个小对象时，会分配在Eden区，第一次Minor GC之后，就会被放到Survivor区，age+1，第二次Minor GC，Survivor区的另一块区域中，age+1；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230325134723-s3jvszd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230325134723-s3jvszd"
+					},
+					"Children": [
+						{
+							"ID": "20230325134723-53yzxkf",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230325134723-53yzxkf",
+								"updated": "20230325135607"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当这个对象age超过一定年龄之后一般为15，就会被放入老年代。Dden from to的内存大小是8:1:1，这就导致有可能Eden区出来的对象，From区放不下，那这个对象会直接被放到老年代。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230325135615-3my0kc6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230325135615-3my0kc6"
+					},
+					"Children": [
+						{
+							"ID": "20230325135615-rq7skgr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230325135615-rq7skgr",
+								"updated": "20230325140002"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当From或者To区中，一些个年龄小的对象加起来占中了50%的空间，那么比这些对象最大年龄还大的的对象，会在下一个Minor GC中被放入老年代。提前让长期存在的对象进入老年代。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230325134938-2uam2ro",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230325134938-2uam2ro"
+					},
+					"Children": [
+						{
+							"ID": "20230325134938-7njlu6d",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230325134938-7njlu6d",
+								"updated": "20230325135136"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当创建一个大对象时，如数组，字符串等，这个大对象会直接放入老年代。JVM参数-XX:PretenureSizeThreshold(Serial和ParNew)这个参数可以规定多大的对象算大对象"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230325140141-7uulrg3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230325140141-7uulrg3",
+						"updated": "20230325144953"
+					},
+					"Children": [
+						{
+							"ID": "20230325140141-my94qjr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230325140141-my94qjr",
+								"updated": "20230325144953"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一般Dden区满了，年轻代中的所有对象总和所占用的空间小于老年代剩余空间，就会触发一次Minor GC"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230325140202-e3h8krm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ni4=",
+						"Num": 6
+					},
+					"Properties": {
+						"id": "20230325140202-e3h8krm",
+						"updated": "20230325145128"
+					},
+					"Children": [
+						{
+							"ID": "20230325140202-t5pkmgh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230325140202-t5pkmgh",
+								"updated": "20230325145128"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "block-ref",
+									"TextMarkBlockRefID": "20230325140619-iw38sar",
+									"TextMarkBlockRefSubtype": "s",
+									"TextMarkTextContent": "老年代空间分配担保机制"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "：每次Minor GC进入到老年代中的对象大小，可以计算出一个平均值被保存。当参数-XX:-HandlePromotionFailure为true时，默认也是true，当老年代剩余空间大于这个平均值，就触发Minor GC，但是当老年代剩余空间小于平均值，或者参数-XX:-HandlePromotionFailure参数是false，就触发Full GC"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230325140853-n55lp5m",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230325140853-n55lp5m",
+				"updated": "20230325145622"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对象存活"
+				}
+			]
+		},
+		{
+			"ID": "20230325145627-r6fa8r2",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230325145627-r6fa8r2",
+				"updated": "20230325150044"
+			},
+			"Children": [
+				{
+					"ID": "20230325145713-1p2yzbn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230325145713-1p2yzbn",
+						"updated": "20230325145856"
+					},
+					"Children": [
+						{
+							"ID": "20230325145713-vi02dwt",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230325145713-vi02dwt",
+								"updated": "20230325145856"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "引用计数：每个对象中保存一个计数，当有人引用它时，计数+1，当计数为0时，标记为垃圾。循环引用时，这一方法失效"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230325145716-6aiwiff",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230325145716-6aiwiff",
+						"updated": "20230325150044"
+					},
+					"Children": [
+						{
+							"ID": "20230325145716-qgys6rr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230325145716-qgys6rr",
+								"updated": "20230325150044"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "根可达：可做根的对象，方法栈中，本地方法栈中，元空间中常量和静态变量"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230325150107-j6mjavq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325150107-j6mjavq",
+				"updated": "20230325150123"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、强引用，程序中普遍存在的的对象引用；"
+				}
+			]
+		},
+		{
+			"ID": "20230325150126-jbi2ijf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325150126-jbi2ijf"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、软引用，SoftReference实现，内存溢出前回收；"
+				}
+			]
+		},
+		{
+			"ID": "20230325150128-a8gkr90",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325150128-a8gkr90"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、弱引用，WeakReference实现，下一次垃圾回收"
+				}
+			]
+		},
+		{
+			"ID": "20230325150131-54fe49w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325150131-54fe49w"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4、虚引用，PhantomReference实现，形同虚设"
+				}
+			]
+		},
+		{
+			"ID": "20230325161707-hx3kmd7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230325161707-hx3kmd7",
+				"updated": "20230325161712"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "垃圾回收算法"
+				}
+			]
+		},
+		{
+			"ID": "20230325161751-j3ugnae",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325161751-j3ugnae",
+				"updated": "20230325161756"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325161751-kh7a4c0.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				}
+			]
+		},
+		{
+			"ID": "20230325161803-kjmmwyh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325161803-kjmmwyh",
+				"updated": "20230325161841"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325161836-gaia6qj.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230325161906-1n5i8c0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325161906-1n5i8c0",
+				"updated": "20230325161910"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325161906-78lwt13.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				}
+			]
+		},
+		{
+			"ID": "20230325161913-9xrj5de",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325161913-9xrj5de",
+				"updated": "20230325162051"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​​​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325162046-zi3fv38.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				}
+			]
+		},
+		{
+			"ID": "20230325162054-4hd1jba",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230325162054-4hd1jba",
+				"updated": "20230325162100"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "垃圾收集器"
+				}
+			]
+		},
+		{
+			"ID": "20230325161949-v2x8qvl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325161949-v2x8qvl",
+				"updated": "20230325162601"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325162556-c74k89m.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				}
+			]
+		},
+		{
+			"ID": "20230325162811-g57ahp4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325162811-g57ahp4",
+				"updated": "20230325162818"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325162811-2osuqom.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230325162603-sr6higu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325162603-sr6higu",
+				"updated": "20230325163019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325163015-mz6i3iy.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230325163209-19v5u78",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325163209-19v5u78",
+				"updated": "20230325163214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325163209-hfz87n0.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230325163216-0topy5y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325163216-0topy5y",
+				"updated": "20230325163416"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ParNew收集器，是Serial的多线程版本，一般GC线程数和CPU核数相同。是java在server端的首要选择。只有Servial和ParNew能和CMS收集器配合工作。"
+				}
+			]
+		},
+		{
+			"ID": "20230325163534-j76zcko",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325163534-j76zcko",
+				"updated": "20230325163538"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230325163533-hmsj4w0.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				}
+			]
+		},
+		{
+			"ID": "20230325163553-uzsle55",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325163553-uzsle55",
+				"updated": "20230325163650"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这两种收集器，关注点在CPU的吞吐量"
+				}
+			]
+		},
+		{
+			"ID": "20230325163651-o6s0z19",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325163651-o6s0z19",
+				"updated": "20230325163736"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "吞吐量=用户线程运行时间/（用户线程运行时间+GC线程用户时间）"
+				}
+			]
+		},
+		{
+			"ID": "20230325163738-dml3a89",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230325163738-dml3a89",
+				"updated": "20230325163949"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "提供了参数给用户用于调节最优的吞吐量。也可以交由收集器自适应调节策略，把内存管理的调优任务交给虚拟机去完成。"
+				}
+			]
+		},
+		{
+			"ID": "20230326224902-0hhrrxn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326224902-0hhrrxn",
+				"updated": "20230326224908"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230326224902-twtrgfk.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230326225021-wpxlx27",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225021-wpxlx27",
+				"updated": "20230326225022"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、初始标记：标记GCRoots能直接关联到的对象"
+				}
+			]
+		},
+		{
+			"ID": "20230326225025-t6umigs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225025-t6umigs",
+				"updated": "20230326225105"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、并发标记：用一个闭包结构去记录可达对象；跟踪记录发生引用更新的地方 （70~80%时间都花在这里）"
+				}
+			]
+		},
+		{
+			"ID": "20230326225028-s44bpn9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225028-s44bpn9"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、重新标记：修正并发标记期间因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录"
+				}
+			]
+		},
+		{
+			"ID": "20230326225031-goq0bf6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225031-goq0bf6"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4、并发清除：开启用户线程，同时GC线程开始对未标记的区域做清扫"
+				}
+			]
+		},
+		{
+			"ID": "20230326225302-58naxxx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225302-58naxxx",
+				"updated": "20230326225306"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230326225302-7ffcus3.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				}
+			]
+		},
+		{
+			"ID": "20230326225351-znzd32w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225351-znzd32w",
+				"updated": "20230326225351"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、G1将堆划分为多个大小相等的独立区域（Region）"
+				}
+			]
+		},
+		{
+			"ID": "20230326225354-u3v9iue",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225354-u3v9iue"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、一般Region大小等于堆大小除以2048"
+				}
+			]
+		},
+		{
+			"ID": "20230326225359-cd9kx01",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225359-cd9kx01"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、G1保留了年轻代和老年代的概念，但不再是物理隔阂了，它们都是（可以不连续）Region的集合。"
+				}
+			]
+		},
+		{
+			"ID": "20230326225417-4do1ee6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225417-4do1ee6"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4、默认年轻代对堆内存的占比是5%"
+				}
+			]
+		},
+		{
+			"ID": "20230326225420-mjk0g7r",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225420-mjk0g7r"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5、Region的区域功能可能会动态变化"
+				}
+			]
+		},
+		{
+			"ID": "20230326225422-rhcpjdc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225422-rhcpjdc",
+				"updated": "20230326225422"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "G1有专门分配大对象的Region叫Humongous区在G1中，大对象的判定规则就是一个大对象超过了一个Region大小的50%"
+				}
+			]
+		},
+		{
+			"ID": "20230326225425-2p0eydg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225425-2p0eydg",
+				"updated": "20230326225506"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、初始标记（STW）：暂停所有的其他线程，并记录下GC Roots直接能引用的对象"
+				}
+			]
+		},
+		{
+			"ID": "20230326225509-624svyh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225509-624svyh"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、并发标记：用一个闭包结构去记录可达对象；跟踪记录发生引用更新的地方"
+				}
+			]
+		},
+		{
+			"ID": "20230326225511-u55gxi1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225511-u55gxi1"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、最终标记（STW)：修正并发标记期间因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录"
+				}
+			]
+		},
+		{
+			"ID": "20230326225519-mns8c4f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225519-mns8c4f"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4、筛选回收（STW）：首先对各个Region的回收价值和成本进行排序，根据用户所期望的GC停顿时间来制定回收计划"
+				}
+			]
+		},
+		{
+			"ID": "20230326225308-djfr3eh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326225308-djfr3eh"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		}
+	]
+}

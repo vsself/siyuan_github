@@ -1,0 +1,126 @@
+{
+	"ID": "20230326133441-gglct6l",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230326133441-gglct6l",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230326133507-2s6gws0\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230326133556-24y1ocy\u0026quot;,\u0026quot;scrollTop\u0026quot;:248,\u0026quot;focusId\u0026quot;:\u0026quot;20230326133556-24y1ocy\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "Volatile",
+		"updated": "20230326133556"
+	},
+	"Children": [
+		{
+			"ID": "20230326133507-2s6gws0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326133507-2s6gws0",
+				"updated": "20230326133507"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "DCL：double check lock"
+				}
+			]
+		},
+		{
+			"ID": "20230326133507-0sba4e4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326133507-0sba4e4",
+				"updated": "20230326133507"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "一个判断只有几个ns，而如果有锁竞争则会消耗几十上百ns。"
+				}
+			]
+		},
+		{
+			"ID": "20230326133507-zx405sm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326133507-zx405sm",
+				"updated": "20230326133507"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "https://cdn.nlark.com/yuque/0/2021/png/2984281/1623074749788-cd4af5fc-1b8f-4f76-a44b-cf7cbb2bdb93.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230326133507-fprwqlc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326133507-fprwqlc",
+				"updated": "20230326133507"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "内存屏障，既是一条特殊的指令，当cpu看到这一指令，会将这个指令前所有的指令执行完成之后，才开始执行该指令，而后执行这个指令之后的指令。"
+				}
+			]
+		},
+		{
+			"ID": "20230326133507-a945s8u",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326133507-a945s8u",
+				"updated": "20230326133507"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "volatile:保证了线程的可见性和指令的重排序"
+				}
+			]
+		},
+		{
+			"ID": "20230326133556-24y1ocy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326133556-24y1ocy"
+			}
+		}
+	]
+}

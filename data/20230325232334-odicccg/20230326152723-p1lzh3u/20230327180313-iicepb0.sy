@@ -1,0 +1,73 @@
+{
+	"ID": "20230327180313-iicepb0",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230327180313-iicepb0",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230327180313-nqr7l6l\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230327180408-ktd4a5c\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230327180313-nqr7l6l\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "Bean是线程安全的吗",
+		"updated": "20230327180437"
+	},
+	"Children": [
+		{
+			"ID": "20230327180313-nqr7l6l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327180313-nqr7l6l",
+				"updated": "20230327180337"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring本身并没有针对Bean做线程安全的处理，所以："
+				}
+			]
+		},
+		{
+			"ID": "20230327180343-nkin0qz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327180343-nkin0qz"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.如果Bean是无状态的，那么Bean则是线程安全的"
+				}
+			]
+		},
+		{
+			"ID": "20230327180350-214tv29",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327180350-214tv29"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.如果Bean是有状态的，那么Bean则不是线程安全的"
+				}
+			]
+		},
+		{
+			"ID": "20230327180437-mpqb10j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327180437-mpqb10j"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "另外，Bean是不是线程安全，跟Bean的作用域没有关系，Bean的作用域只是表示Bean的生命周期范围，对于任何生命周期的Bean都是一个对象，这个对象是不是线程安全的，还是得看这个Bean对象本身。"
+				}
+			]
+		},
+		{
+			"ID": "20230327180408-ktd4a5c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327180408-ktd4a5c"
+			}
+		}
+	]
+}

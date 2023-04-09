@@ -1,0 +1,1995 @@
+{
+	"ID": "20230404010815-az0x6w6",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010815-az0x6w6",
+		"title": "吃透Spring源码（二十一）：事物初始化流程之注解配置方式_infrastructureadvisorautoproxycreator_吃透Java的博客-CSDN博客",
+		"updated": "20230404010815"
+	},
+	"Children": [
+		{
+			"ID": "20230404010815-em77jb1",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010815-em77jb1",
+				"updated": "20230404010815"
+			}
+		},
+		{
+			"ID": "20230404010815-fiiaboi",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010815-fiiaboi",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"ID": "20230404010815-0fkp331",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010815-0fkp331",
+						"updated": "20230404010815"
+					},
+					"Children": [
+						{
+							"ID": "20230404010815-jc6yfbc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010815-jc6yfbc",
+								"updated": "20230404010815"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114886302",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/114886302"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010815-ee27z6v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010815-ee27z6v",
+						"updated": "20230404010815"
+					},
+					"Children": [
+						{
+							"ID": "20230404010815-glewdsq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010815-glewdsq",
+								"updated": "20230404010815"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一，例子准备BookDao.javapublic class BookDao {    @Autowired    JdbcTemplate jdbcTemplate;    public JdbcTemplate getJdbcTemplate() {        return jdbcTemplate;    }    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {        this.jdbcTemplat"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010815-n6isy7s",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010815-n6isy7s",
+						"updated": "20230404010815"
+					},
+					"Children": [
+						{
+							"ID": "20230404010815-fm3432g",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010815-fm3432g",
+								"updated": "20230404010815"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:08:15"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-ijd45uw",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010815-ijd45uw",
+				"updated": "20230404010815"
+			}
+		},
+		{
+			"ID": "20230404010815-nec2z1b",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010815-nec2z1b",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一，例子准备"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-vrb8sf1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-vrb8sf1",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "BookDao.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-v0cfvwr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010815-v0cfvwr",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class BookDao { \n\n    @Autowired\n    JdbcTemplate jdbcTemplate;\n\n    public JdbcTemplate getJdbcTemplate() { \n        return jdbcTemplate;\n    }\n\n    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) { \n        this.jdbcTemplate = jdbcTemplate;\n    }\n\n    /**\n     * 减去某个用户的余额\n     * @param userName\n     * @param price\n     */\n    @Transactional(propagation = Propagation.SUPPORTS)\n    public void updateBalance(String userName,int price){ \n        String sql = \"update account set balance=balance-? where username=?\";\n        jdbcTemplate.update(sql,price,userName);\n    }\n\n    /**\n     * 按照图书的id来获取图书的价格\n     * @param id\n     * @return\n     */\n    @Transactional(propagation = Propagation.REQUIRED)\n    public int getPrice(int id){ \n        String sql = \"select price from book where id=?\";\n        return jdbcTemplate.queryForObject(sql,Integer.class,id);\n    }\n\n    /**\n     * 减库存，减去某本书的库存\n     * @param id\n     */\n    @Transactional(propagation = Propagation.REQUIRES_NEW)\n    public void updateStock(int id){ \n        String sql = \"update book_stock set stock=stock-1 where id=?\";\n        jdbcTemplate.update(sql,id);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-rf0vvz7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-rf0vvz7",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "BookService.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-5wc73ze",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010815-5wc73ze",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class BookService { \n\n    @Autowired\n    BookDao bookDao;\n\n    public BookDao getBookDao() { \n        return bookDao;\n    }\n\n    public void setBookDao(BookDao bookDao) { \n        this.bookDao = bookDao;\n    }\n\n    /**\n     * 结账：传入哪个用户买了哪本书\n     * @param username\n     * @param id\n     */\n    @Transactional(propagation = Propagation.REQUIRED)\n    public void checkout(String username,int id){ \n        // 减库存\n        bookDao.updateStock(id);\n        // 获取图书价格\n        int price = bookDao.getPrice(id);\n        // 更新余额\n        bookDao.updateBalance(username,price);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-vcso5w4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-vcso5w4",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "TransactionConfig.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-56d792p",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010815-56d792p",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Configuration\n@PropertySource(\"classpath:dbconfig.properties\")\n@EnableTransactionManagement\npublic class TransactionConfig { \n    @Value(\"${jdbc.driverClassName}\")\n    private String driverClassname;\n    @Value(\"${jdbc.url}\")\n    private String url;\n    @Value(\"${jdbc.username}\")\n    private String username;\n    @Value(\"${jdbc.password}\")\n    private String password;\n\n    @Bean\n    public DataSource dataSource() { \n        DruidDataSource data = new DruidDataSource();\n        data.setDriverClassName(driverClassname);\n        data.setUrl(url);\n        data.setUsername(username);\n        data.setPassword(password);\n        return data;\n    }\n\n    @Bean\n    public JdbcTemplate jdbcTemplate(DataSource dataSource) { \n        return new JdbcTemplate(dataSource);\n    }\n\n    @Bean\n    public BookDao bookDao() { \n        return new BookDao();\n    }\n\n    @Bean\n    public BookService bookService() { \n        bookDao();\n        return new BookService();\n    }\n\n\n    @Bean\n    public PlatformTransactionManager transactionManager(DataSource dataSource) { \n        return new DataSourceTransactionManager(dataSource);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-17twtan",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-17twtan",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "TransactionTest.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-5gjfobm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010815-5gjfobm",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class TransactionTest { \n    public static void main(String[] args) { \n        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(TransactionConfig.class);\n        BookService bean = applicationContext.getBean(BookService.class);\n        bean.checkout(\"小明\",1);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-1paid8l",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010815-1paid8l",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二，解析Configuration配置类"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-o6v9sgj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-o6v9sgj",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在创建"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotationConfigApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​容器的时候会注入几个inner类（前面提过，这里再提一下）："
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-bgo186m",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010815-bgo186m",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"ID": "20230404010815-kb626qj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010815-kb626qj",
+						"updated": "20230404010815"
+					},
+					"Children": [
+						{
+							"ID": "20230404010815-cado8m9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010815-cado8m9",
+								"updated": "20230404010815"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ConfigurationClassPostProcessor：用于处理@configuration注解的后置处理器的bean（BFPP）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010815-7ksj9xt",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010815-7ksj9xt",
+						"updated": "20230404010815"
+					},
+					"Children": [
+						{
+							"ID": "20230404010815-9k4m9tk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010815-9k4m9tk",
+								"updated": "20230404010815"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "AutowiredAnnotationBeanPostProcessor：用于处理@Autowired，@Value,@Inject以及@Lookup注解的后置处理器bean（BPP）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010815-oegcm20",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010815-oegcm20",
+						"updated": "20230404010815"
+					},
+					"Children": [
+						{
+							"ID": "20230404010815-o2esc9o",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010815-o2esc9o",
+								"updated": "20230404010815"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "CommonAnnotationBeanPostProcessor：用于处理JSR-250注解，例如"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@Resource,@PostConstruct,@PreDestroy"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​的后置处理器bean（BPP）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010815-00xr9l7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010815-00xr9l7",
+						"updated": "20230404010815"
+					},
+					"Children": [
+						{
+							"ID": "20230404010815-z275tb9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010815-z275tb9",
+								"updated": "20230404010815"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "EventListenerMethodProcessor：用于处理@EventListener注解的后置处理器的bean（BFPP）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010815-tkh36cd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010815-tkh36cd",
+						"updated": "20230404010815"
+					},
+					"Children": [
+						{
+							"ID": "20230404010815-nimavu8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010815-nimavu8",
+								"updated": "20230404010815"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "DefaultEventListenerFactory：用于生产ApplicationListener对象的EventListenerFactory对象"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-7egf63m",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-7egf63m",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注入之后，会在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invokeBeanFactoryPostProcessors(beanFactory)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法中执行"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ConfigurationClassPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​来对Configuration配置类进行"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "解析"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​和"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "CGLIB增强"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-nsvmj1c",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010815-nsvmj1c",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，配置类的解析"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-zjlqt0n",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010815-zjlqt0n",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Configuration\n@PropertySource(\"classpath:dbconfig.properties\")\n@EnableTransactionManagement\npublic class TransactionConfig { \n    @Value(\"${jdbc.driverClassName}\")\n    private String driverClassname;\n    @Value(\"${jdbc.url}\")\n    private String url;\n    @Value(\"${jdbc.username}\")\n    private String username;\n    @Value(\"${jdbc.password}\")\n    private String password;\n\n    @Bean\n    public DataSource dataSource() { \n        DruidDataSource data = new DruidDataSource();\n        data.setDriverClassName(driverClassname);\n        data.setUrl(url);\n        data.setUsername(username);\n        data.setPassword(password);\n        return data;\n    }\n\n    @Bean\n    public JdbcTemplate jdbcTemplate(DataSource dataSource) { \n        return new JdbcTemplate(dataSource);\n    }\n\n    @Bean\n    public BookDao bookDao() { \n        return new BookDao();\n    }\n\n    @Bean\n    public BookService bookService() { \n        bookDao();\n        return new BookService();\n    }\n\n\n    @Bean\n    public PlatformTransactionManager transactionManager(DataSource dataSource) { \n        return new DataSourceTransactionManager(dataSource);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-kbb0jfe",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010815-kbb0jfe",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1，解析"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Component"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-ldcx00n",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010815-ldcx00n",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Target(ElementType.TYPE)\n@Retention(RetentionPolicy.RUNTIME)\n@Documented\n@Component\npublic @interface Configuration { \n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-2590gwa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-2590gwa",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Configuration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​注解继承了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Component"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​注解，所以要对其解析。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-rgzrgwg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-rgzrgwg",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里主要完成对内部类的解析，由于配置类中也可以有配置类的内部类，所以也要去递归解析内部类的配置类。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-eqsp56q",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-eqsp56q",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如下面这样的："
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-unm5kxa",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010815-unm5kxa",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Configuration\npublic class A { \n  \n    @Configuration\n    class B{ \n      \n        @Configuration\n        class C{ \n\n        }\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-mti4pin",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010815-mti4pin",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2，解析"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@PropertySource(\u0026quot;classpath:dbconfig.properties\u0026quot;)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-mfasxhq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-mfasxhq",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "解析"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "dbconfig.properties"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​然后把解析出来的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "key，value"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​键值对放入到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "propertySourceList"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​里面："
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-dqndcv0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-dqndcv0",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210316161812219-20230404010815-61zwrq7.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n后面实例化时会在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "populateBean()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法中对其属性赋值。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-yq40wzv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010815-yq40wzv",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3，解析"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Import"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-ob8ms4w",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010815-ob8ms4w",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Target(ElementType.TYPE)\n@Retention(RetentionPolicy.RUNTIME)\n@Documented\n@Import(TransactionManagementConfigurationSelector.class)\npublic @interface EnableTransactionManagement { \n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-3l4t0ri",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-3l4t0ri",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@EnableTransactionManagement"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中有"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Import"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​所以也要对其进行解析："
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-5laq41c",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010815-5laq41c",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class TransactionManagementConfigurationSelector extends AdviceModeImportSelector\u003cEnableTransactionManagement\u003e { \n\n\t/**\n\t * 此处是AdviceMode的作用，默认是用代理，另外一个是ASPECTJ\n\t */\n\t@Override\n\tprotected String[] selectImports(AdviceMode adviceMode) { \n\t\tswitch (adviceMode) { \n\t\t\tcase PROXY:\n\t\t\t\treturn new String[] { AutoProxyRegistrar.class.getName(),\n\t\t\t\t\t\tProxyTransactionManagementConfiguration.class.getName()};\n\t\t\tcase ASPECTJ:\n\t\t\t\treturn new String[] { determineTransactionAspectClass()};\n\t\t\tdefault:\n\t\t\t\treturn null;\n\t\t}\n\t}\n\n\tprivate String determineTransactionAspectClass() { \n\t\treturn (ClassUtils.isPresent(\"javax.transaction.Transactional\", getClass().getClassLoader()) ?\n\t\t\t\tTransactionManagementConfigUtils.JTA_TRANSACTION_ASPECT_CONFIGURATION_CLASS_NAME :\n\t\t\t\tTransactionManagementConfigUtils.TRANSACTION_ASPECT_CONFIGURATION_CLASS_NAME);\n\t}\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-japf9aj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-japf9aj",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "发现"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionManagementConfigurationSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类实现了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ImportSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​接口，然后执行"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "selectImports()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法导入"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoProxyRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​和"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-72w8bfm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-72w8bfm",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoProxyRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实现了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ImportBeanDefinitionRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​接口，注入了："
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-pwnv4j3",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010815-pwnv4j3",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"ID": "20230404010815-wa64avk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010815-wa64avk",
+						"updated": "20230404010815"
+					},
+					"Children": [
+						{
+							"ID": "20230404010815-go9v1z4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010815-go9v1z4",
+								"updated": "20230404010815"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "InfrastructureAdvisorAutoProxyCreator：继承于"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AbstractAdvisorAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​用于创建AOP代理对象。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-9h6sbt8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-9h6sbt8",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​又是一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Configuration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​修饰的配置类，其中它导入了导入三个重要的类："
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-ecorvdw",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010815-ecorvdw",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"ID": "20230404010815-fg5ta2k",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010815-fg5ta2k",
+						"updated": "20230404010815"
+					},
+					"Children": [
+						{
+							"ID": "20230404010815-4uekqek",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010815-4uekqek",
+								"updated": "20230404010815"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "TransactionAttributeSource：用来解析事务注解属性"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010815-ecgumqt",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010815-ecgumqt",
+						"updated": "20230404010815"
+					},
+					"Children": [
+						{
+							"ID": "20230404010815-b21j3bm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010815-b21j3bm",
+								"updated": "20230404010815"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "TransactionInterceptor：事务拦截器，实现了方法拦截器MethodInterceptor"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010815-gbg9t0v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010815-gbg9t0v",
+						"updated": "20230404010815"
+					},
+					"Children": [
+						{
+							"ID": "20230404010815-jr4z1vh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010815-jr4z1vh",
+								"updated": "20230404010815"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "BeanFactoryTransactionAttributeSourceAdvisor：AOP增强的通知器"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-4unm8zh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010815-4unm8zh",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.4，解析@Bean"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-4wdmbm1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-4wdmbm1",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注入"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DataSource"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "JdbcTemplate"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BookDao"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BookService"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DataSourceTransactionManager"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-5vygyxo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-5vygyxo",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "解析完"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionConfig"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​配置类注入以下BeanDefinition到BeanDefinitionMap中："
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-9iouym9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-9iouym9",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2021031616183286-20230404010815-rqgsrgy.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-e3urz09",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010815-e3urz09",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，对配置类CGLIB增强"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-mqad9ae",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-mqad9ae",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionConfig"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​创建代理类，主要是为了保证通过@Bean方式导入的类的单例！"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-ptzjadd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010815-ptzjadd",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三，实例化InfrastructureAdvisorAutoProxyCreator"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-2ygg1m5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-2ygg1m5",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "registerBeanPostProcessors(beanFactory);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法中主要是对注入到注入到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinitionMap"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​进行初始化，这里提前初始化是为了后面实例化Bean时使用！"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-qo5f0mw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-qo5f0mw",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本例子中主要对如下三个BeanPostProcessor实例化："
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-spi0s97",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-spi0s97",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2021031616184999-20230404010815-gl7kyyl.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-1bn4zu1",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010815-1bn4zu1",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"ID": "20230404010815-qt7aaok",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010815-qt7aaok",
+						"updated": "20230404010815"
+					},
+					"Children": [
+						{
+							"ID": "20230404010815-w094ibq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010815-w094ibq",
+								"updated": "20230404010815"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "internalAutowiredAnnotationProcessor：AutowiredAnnotationBeanPostProcessor，用于处理@Autowired，@Value,@Inject以及@Lookup注解的后置处理器bean（BPP）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010815-mur6oh1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010815-mur6oh1",
+						"updated": "20230404010815"
+					},
+					"Children": [
+						{
+							"ID": "20230404010815-4rtp930",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010815-4rtp930",
+								"updated": "20230404010815"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "internalCommonAnnotationProcessor：CommonAnnotationBeanPostProcessor，用于处理JSR-250注解，例如"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@Resource,@PostConstruct,@PreDestroy"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​的后置处理器bean（BPP）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010815-w4v2d8f",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010815-w4v2d8f",
+						"updated": "20230404010815"
+					},
+					"Children": [
+						{
+							"ID": "20230404010815-mlgtfgl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010815-mlgtfgl",
+								"updated": "20230404010815"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "internalAutoProxyCreator：InfrastructureAdvisorAutoProxyCreator，用于代理对象的创建"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-azhq5j6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010815-azhq5j6",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四，实例化"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-56ukm3t",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010815-56ukm3t",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，BeanFactoryTransactionAttributeSourceAdvisor的创建"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-akop6fp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-akop6fp",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的第一次"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "postProcessAfterInitialization()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "wrapIfNecessary()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法中就会创建"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryTransactionAttributeSourceAdvisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，因为"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryTransactionAttributeSourceAdvisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​是bean注解的工厂方法，所以要先实例化工厂factoryBean，也就是实例化"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-v981b2h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-v981b2h",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryTransactionAttributeSourceAdvisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​工厂方法有参数依赖，所以需要注入依赖，创建"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAttributeSource"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​和"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-xv4vrpp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-xv4vrpp",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当参数准备好后，最后利用反射来创建"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryTransactionAttributeSourceAdvisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-4fygpip",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010815-4fygpip",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，代理类的创建"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-quydu3d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-quydu3d",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所有实例化类都会经过"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "postProcessAfterInitialization()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "wrapIfNecessary()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法，判断是否需要创建事物代理类。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-p0t877z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-p0t877z",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里只需要为"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "bookService"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​和"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "bookDao"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​创建事物代理类："
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-bnwonov",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-bnwonov",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210316161907563-20230404010814-vw3vfim.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-w9bxgmr",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010815-w9bxgmr",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "五，总结"
+				}
+			]
+		},
+		{
+			"ID": "20230404010815-usgoybm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010815-usgoybm",
+				"updated": "20230404010815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210316161933334-20230404010814-zckb9vu.jpg"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		}
+	]
+}

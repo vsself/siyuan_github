@@ -1,0 +1,1417 @@
+{
+	"ID": "20230331082722-dei9kwr",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331082722-dei9kwr",
+		"title": "Spring 源码分析衍生篇二 ： Spring中的循环依赖_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331082722"
+	},
+	"Children": [
+		{
+			"ID": "20230331082722-9cwmg2g",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082722-9cwmg2g",
+				"updated": "20230331082722"
+			}
+		},
+		{
+			"ID": "20230331082722-xzf5kj2",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331082722-xzf5kj2",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"ID": "20230331082722-1ngt7nf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082722-1ngt7nf",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-4sddbuo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-4sddbuo",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105756945",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/105756945"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082722-0kuvgt6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082722-0kuvgt6",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-e103n7x",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-e103n7x",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一、前言本文仍是Spring源码分析的衍生文章，所以部分知识点并不那么详细，需要结合 正文去观看。二、简介什么是循环依赖？循环依赖就是循环引用，就是两个或多个Bean相互之间持有对方，即A类中包含B类属性b, B类中也包含A类属性a，或者依次依赖，即成为循环依赖。三、Spring的解决方案Spring 将循环依赖的处理分为了三种情况：构造器循环依赖setter循环依赖pro..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082722-1ssdn4e",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082722-1ssdn4e",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-ewlg48o",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-ewlg48o",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 08:27:22"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-lkgbv8a",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082722-lkgbv8a",
+				"updated": "20230331082722"
+			}
+		},
+		{
+			"ID": "20230331082722-57y7r6k",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082722-57y7r6k",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-tfzavy6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-tfzavy6",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是 Spring"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E6%BA%90%E7%A0%81\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "源码"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "分析："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105667530",
+					"TextMarkTextContent": "Spring 源码分析三 ：bean的加载① - doGetBean概述"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 的衍生文章。主要是因为本人菜鸡，在分析源码的过程中还有一些其他的内容不理解，故开设衍生篇来完善内容以学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-lxlvnzf",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082722-lxlvnzf",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、Spring的解决方案"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-psvq9i2",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331082722-psvq9i2",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"ID": "20230331082722-sq9cglc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082722-sq9cglc",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-h3hdma5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-h3hdma5",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "什么是循环依赖？"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "\n循环依赖就是循环引用，就是两个或多个Bean相互之间持有对方，即A类中包含B类属性b, B类中也包含A类属性a，或者依次依赖，即成为循环依赖。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-xrgg10y",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082722-xrgg10y",
+				"updated": "20230331082722"
+			}
+		},
+		{
+			"ID": "20230331082722-qhe84lu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-qhe84lu",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 将"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "循环依赖"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "的处理分为了三种情况："
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-2zzbsaj",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331082722-2zzbsaj",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"ID": "20230331082722-ls0ta5n",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082722-ls0ta5n",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-41nizbd",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-41nizbd",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "构造器循环依赖"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082722-3tj8w3s",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082722-3tj8w3s",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-awq1mk7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-awq1mk7",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "setter循环依赖"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082722-y7h6sva",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082722-y7h6sva",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-0v4hu4z",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-0v4hu4z",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "prototype范围的依赖处理\n对于 singleton 作用域的bean，可以通过 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "setAllowCircularReference(false)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 来禁用循环引用。\n下面详解每一种情况。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-ylfo419",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082722-ylfo419",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1 构造器循环依赖"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-hzeo6ty",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-hzeo6ty",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "表示通过构造器注入构成的循环依赖，这种依赖是无法解决的只能抛出 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanCurrentlyInCreationException"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​异常表示循环依赖。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-wiiquqh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-wiiquqh",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如在创建A类时，构造器需要创建B类，则回去创建B类，在创建B类过程中又发现要去创造C类，又去创建C类，而 创建C类有需要A类。则会形成一个闭环，无法解决。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-4udvns6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-4udvns6",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因此Spring 将每一个正在创建的bean标识符放在了一个“当前创建bean池”("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "singletonsCurrentlyInCreation"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 集合)。当bean标识符在创建过程中将一直保持在这个池中，，因此如果创建bean过程中发现自己已经在“当前创建bean池”中，则会抛出 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanCurrentlyInCreationException"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​异常，并将创建完毕的bean从“当前创建bean池”中清除。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-fz4ebu7",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082722-fz4ebu7",
+				"updated": "20230331082722"
+			}
+		},
+		{
+			"ID": "20230331082722-vrn76xg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-vrn76xg",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如下的构造注入的方式在启动时会抛出异常"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-w4lr5x7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082722-w4lr5x7",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class ACircular { \n    private BCircular bCircular;\n    public ACircular(BCircular bCircular) { \n        this.bCircular = bCircular;\n    }\n}\n...\n@Component\npublic class BCircular { \n    private ACircular aCircular;\n    public BCircular(ACircular aCircular) { \n        this.aCircular = aCircular;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-2e6ya6h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-2e6ya6h",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200516130017150-20230331082722-sy0mzm1.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-g4j0jap",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082722-g4j0jap",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2 setter 循环依赖"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-rpsoel2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-rpsoel2",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "表示通过setter 注入方式构成的循环依赖。对于setter 注入造成的依赖是通过Spring容器提前暴露刚完构造器注入但并未完成其他步骤(如setter注入,即仅仅自己完成了创建，但是对里面引用的属性还未创建完成) 的bean来完成的。而且只能解决单例作用域的bean循环依赖。通过提前暴露一个单例工厂方法，从而使其他bean能引用到该bean。\n如下代码所示："
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-8feivvp",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082722-8feivvp",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "     addSingletonFactory(beanName, new ObjectFactory() { \n            @Override\n            public Object getObject() throws BeansException { \n                return getEarlyBeanReference(beanName, mbd, bean);\n            }\n        });\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-i0eq3c8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-i0eq3c8",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "具体步骤如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-qsmgj8l",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331082722-qsmgj8l",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"ID": "20230331082722-56hri9z",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331082722-56hri9z",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-a4do1ki",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-a4do1ki",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Spring 容器创建单例 “testA” bean, 首先根据无参构造器创建bean，并暴露一个“ObjectFactory” 用于返回一个提前暴露一个创建中的bean，并将“testA” 标识符放到“当前创建bean池”，然后通过setter 注入 “testB”;"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082722-2azr6cl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331082722-2azr6cl",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-549jzyk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-549jzyk",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Spring 容器创建单例“testB” bean，首先根据无参构造器创建bean，并暴露一个“ObjectFactory” 用于返回一个提前暴露一个创建中的bean，并将“testB” 标识符放到“当前创建bean池”，然后通过setter 注入 “testC”;"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082722-73taewk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331082722-73taewk",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-6v5aivb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-6v5aivb",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Spring 容器创建单例“testC” bean，首先根据无参构造器创建bean，并暴露一个“ObjectFactory” 用于返回一个提前暴露一个创建中的bean，并将“testC” 标识符放到“当前创建bean池”，然后通过setter 注入 “testA”。进行诸如“testA”时由于提前暴露了“ObjectFactory” 工厂，从而使它返回提前暴露一个创建中的bean"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082722-uvp306w",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331082722-uvp306w",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-uoq5ucl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-uoq5ucl",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "最后再依赖注入“testB” 和“testA”,完成setter 注入。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-3r8z503",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082722-3r8z503",
+				"updated": "20230331082722"
+			}
+		},
+		{
+			"ID": "20230331082722-d90rsfn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-d90rsfn",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如下方式则不会出现异常。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-eza9izj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082722-eza9izj",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class ACircular { \n    private BCircular bCircular;\n    @Autowired\n    public void setbCircular(BCircular bCircular) { \n        this.bCircular = bCircular;\n    }\n}\n...\n@Component\npublic class BCircular { \n    private ACircular aCircular;\n    @Autowired\n    public void setaCircular(ACircular aCircular) { \n        this.aCircular = aCircular;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-gr98rgi",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082722-gr98rgi",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3. prototype 范围的依赖处理"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-qvh9vj5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-qvh9vj5",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对于 prototype 作用域的bean，Spring容器无法完成依赖注入，因为Spring容器中无法缓存prototype 作用域的bean，因此无法暴露一个创建中的bean。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-4f9qpoe",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082722-4f9qpoe",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\n@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)\npublic class ACircular { \n    private BCircular bCircular;\n    @Autowired\n    public void setbCircular(BCircular bCircular) { \n        this.bCircular = bCircular;\n    }\n}\n...\n@Component\n@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)\npublic class BCircular { \n    private ACircular aCircular;\n    @Autowired\n    public void setaCircular(ACircular aCircular) { \n        this.aCircular = aCircular;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-2pg1cwx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-2pg1cwx",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "调用时会抛出异常。注意这里是调用时，并非是服务启动时，因为原型模式的特性并不需要启动时就创建好bean。在调用的时候才会尝试创建，所以这里在使用bean 的时候才会抛出异常。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2020051613213741-20230331082722-4zymy0r.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-e4sfijv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082722-e4sfijv",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、详细流程分析"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-ay7689j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-ay7689j",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本来想以源码形式分析，不过感觉不够直观，所以直接用白话文来讲解。我们以上述的 ACircular 和 BCircular的创建过程为例，以下简称AB;"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-mlxvvuj",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331082722-mlxvvuj",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"ID": "20230331082722-q3cxr8y",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331082722-q3cxr8y",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-bmbaku9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-bmbaku9",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Spring 创建bean A"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082722-rb8e4k4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331082722-rb8e4k4",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-8ylkwvv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-8ylkwvv",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "尝试从缓存中获取，逻辑上依次是从 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "singletonObjects"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 、"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "earlySingletonObjects"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​、"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "singletonFactories"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中依次获取。这里我们只需关注 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "singletonFactories"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ，不再关注"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "earlySingletonObjects"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。因为其互斥，这里为了讲解逻辑，讲解并不那么细节。由于是第一次创建，必然无法从缓存中拿到，于是Spring 开始创建A。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082722-iq00jmy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331082722-iq00jmy",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-4b3j6qb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-4b3j6qb",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "A 的创建这里模糊分为两步，A初始化完成和 A属性注入完成阶段。A初始化完成即A对象已经创建，但是内部属性尚未赋值，即内部的B变量依旧为空。A属性注入完成即已经给B变量赋值，这时候A的创建已经完成。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082722-ahwcrag",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331082722-ahwcrag",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-bpiq9vc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-bpiq9vc",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "首先 A 完成了初始化阶段，开始进行属性注入阶段（这里划分为两阶段并不代表只有两阶段，实际上的过程是非常复杂的，在属性注入阶段后还有一堆后续工作要处理，但并非此次重点，因此忽略）。在属性注入开始之前，也就是 populateBean 之前。Spring 会先创建一个"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ObjectFactory\u0026lt;A\u0026gt;"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的实例，并保存到缓存"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "singletonFactories"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中, 这时候singletonFactories 中有A类缓存(以ObjectFactory形式存在)。完成缓存操作后，Spring开始对A类进行属性注入。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082722-mdtl5kw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230331082722-mdtl5kw",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-gx6wunj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-gx6wunj",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "注入过程中发现 A类中有B类属性，于是去获取B的实例。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082722-t1oic0b",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ni4=",
+						"Num": 6
+					},
+					"Properties": {
+						"id": "20230331082722-t1oic0b",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-1xnicdb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-1xnicdb",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "由于B也是第一次创建，所以B的流程和上面类似，也是缓存获取，B初始化完成，同样在B属性注入前，也会创建一个 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ObjectFactory\u0026lt;B\u0026gt;"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的实例，并保存到"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "singletonFactories"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中。"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "singletonFactories"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 此时具有A、B两个类的缓存，不过需要注意的是，这里的A，B类属性都未注入，也就是创建不完全的Bean。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082722-4pyhfgo",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ny4=",
+						"Num": 7
+					},
+					"Properties": {
+						"id": "20230331082722-4pyhfgo",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-gn48wzb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-gn48wzb",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "随后B类开始属性注入，调用populateBean 方法去 注入A属性，同样和之前的步骤一样，从缓存中获取，但是和之前不同的是，这时候的 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "singletonFactories"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 缓存中有A的缓存，将A的实例缓存。B即完成属性注入。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082722-8t8i0ow",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "OC4=",
+						"Num": 8
+					},
+					"Properties": {
+						"id": "20230331082722-8t8i0ow",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-yooze3p",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-yooze3p",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "别忘了这时候的逻辑是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "A.createBean -\u0026gt; A.populateBean -\u0026gt; B.createBean -\u0026gt; B.populate"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 。所以当B创建完成后，A.populateBean 的工作也完成了，随后整个A属性的创建工作就完成了。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082722-gxp0ojl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "OS4=",
+						"Num": 9
+					},
+					"Properties": {
+						"id": "20230331082722-gxp0ojl",
+						"updated": "20230331082722"
+					},
+					"Children": [
+						{
+							"ID": "20230331082722-r7dbu18",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082722-r7dbu18",
+								"updated": "20230331082722"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "至此解决了单例模式下的循环依赖的问题。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-mrskpku",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082722-mrskpku",
+				"updated": "20230331082722"
+			}
+		},
+		{
+			"ID": "20230331082722-0vewjtl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-0vewjtl",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从上面的流程我们可以理解单例模式下循环依赖的解决："
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-wd0uvv6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-wd0uvv6",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "A创建 -\u0026gt; A缓存 -\u0026gt; A属性注入 -\u0026gt; B创建 -\u0026gt; B缓存 -》B属性注入"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-w30pmk4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-w30pmk4",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "同时举一反三我们可以得知："
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n1 . "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "构造器依赖无法解决循环依赖 : 因为A创建的过程即需要B参与，创建B的过程也要A的参与，但A尚未完成初始化阶段，无法缓存，导致B创建失败，从而A创建失败。"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n2. "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "原型模式无法解决循环依赖：因为原型模式无法缓存bean，缓存bean的前提是单例模式下，原型模式下的bean即多例的，无法进行缓存。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082722-zl0df71",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082722-zl0df71",
+				"updated": "20230331082722"
+			}
+		},
+		{
+			"ID": "20230331082722-eiilr9l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082722-eiilr9l",
+				"updated": "20230331082722"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考《Spring源码深度解析》如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

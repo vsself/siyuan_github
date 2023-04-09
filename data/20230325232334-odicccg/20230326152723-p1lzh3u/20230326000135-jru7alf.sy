@@ -1,0 +1,207 @@
+{
+	"ID": "20230326000135-jru7alf",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230326000135-jru7alf",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230326152902-uukbrjl\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230326001346-tcxvvjt\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230326001439-rtff28b\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "什么是bean对象",
+		"updated": "20230326152902"
+	},
+	"Children": [
+		{
+			"ID": "20230326152902-uukbrjl",
+			"Type": "NodeSuperBlock",
+			"Properties": {
+				"id": "20230326152902-uukbrjl",
+				"updated": "20230326152902"
+			},
+			"Children": [
+				{
+					"Type": "NodeSuperBlockOpenMarker"
+				},
+				{
+					"Type": "NodeSuperBlockLayoutMarker",
+					"Data": "row"
+				},
+				{
+					"ID": "20230326000135-75gtglz",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230326000135-75gtglz",
+						"updated": "20230326152902"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "就是将一个object对象放入到单例池中，那么这个object就是bean对象"
+						}
+					]
+				},
+				{
+					"ID": "20230326000219-quq59l3",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230326000219-quq59l3",
+						"updated": "20230326152902"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "单力池是一个hashmap，就是我们所说的三级缓存中的第一级缓存，singletonObjects​"
+						},
+						{
+							"Type": "NodeImage",
+							"Data": "span",
+							"Properties": {
+								"parent-style": "width: 50%;",
+								"style": "width: 10000px;"
+							},
+							"Children": [
+								{
+									"Type": "NodeBang"
+								},
+								{
+									"Type": "NodeOpenBracket"
+								},
+								{
+									"Type": "NodeLinkText",
+									"Data": "image"
+								},
+								{
+									"Type": "NodeCloseBracket"
+								},
+								{
+									"Type": "NodeOpenParen"
+								},
+								{
+									"Type": "NodeLinkDest",
+									"Data": "assets/image-20230326001332-kmfjmfg.png"
+								},
+								{
+									"Type": "NodeCloseParen"
+								}
+							]
+						},
+						{
+							"Type": "NodeKramdownSpanIAL",
+							"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+						}
+					]
+				},
+				{
+					"ID": "20230326001555-e0mi7a3",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230326001555-e0mi7a3",
+						"updated": "20230326152902"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "这样xxx 作为key，o 作为value 会被放入singletonObjects中去了"
+						}
+					]
+				},
+				{
+					"ID": "20230326000241-o1nqtxu",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230326000241-o1nqtxu",
+						"updated": "20230326152902"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "​"
+						},
+						{
+							"Type": "NodeImage",
+							"Data": "span",
+							"Properties": {
+								"parent-style": "width: 50%;",
+								"style": "width: 10000px;"
+							},
+							"Children": [
+								{
+									"Type": "NodeBang"
+								},
+								{
+									"Type": "NodeOpenBracket"
+								},
+								{
+									"Type": "NodeLinkText",
+									"Data": "image"
+								},
+								{
+									"Type": "NodeCloseBracket"
+								},
+								{
+									"Type": "NodeOpenParen"
+								},
+								{
+									"Type": "NodeLinkDest",
+									"Data": "assets/image-20230326000241-vo5p92i.png"
+								},
+								{
+									"Type": "NodeCloseParen"
+								}
+							]
+						},
+						{
+							"Type": "NodeKramdownSpanIAL",
+							"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+						}
+					]
+				},
+				{
+					"Type": "NodeSuperBlockCloseMarker"
+				}
+			]
+		},
+		{
+			"ID": "20230326133642-fu9r5tb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326133642-fu9r5tb"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230326001529-izbfgk4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326001529-izbfgk4",
+				"updated": "20230326001542"
+			}
+		},
+		{
+			"ID": "20230326001439-rtff28b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326001439-rtff28b",
+				"updated": "20230326001522"
+			}
+		},
+		{
+			"ID": "20230326001459-i4p3tw3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326001459-i4p3tw3",
+				"updated": "20230326001518"
+			}
+		},
+		{
+			"ID": "20230326001346-tcxvvjt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326001346-tcxvvjt"
+			}
+		}
+	]
+}

@@ -1,0 +1,983 @@
+{
+	"ID": "20230331180211-1bje1kh",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331180211-1bje1kh",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230331180211-y9l8lln\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230331180211-wr9tc6g\u0026quot;,\u0026quot;scrollTop\u0026quot;:3696.666748046875,\u0026quot;focusId\u0026quot;:\u0026quot;20230331180211-0zl5jti\u0026quot;,\u0026quot;focusStart\u0026quot;:4,\u0026quot;focusEnd\u0026quot;:4}",
+		"title": "Spring的bean定义 3 : BeanDefinition实现类例子演示_安迪源文的博客-CSDN博客",
+		"updated": "20230331180211"
+	},
+	"Children": [
+		{
+			"ID": "20230331180211-y9l8lln",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331180211-y9l8lln",
+				"updated": "20230331180211"
+			}
+		},
+		{
+			"ID": "20230331180211-49j2v6f",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331180211-49j2v6f",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"ID": "20230331180211-muho336",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331180211-muho336",
+						"updated": "20230331180211"
+					},
+					"Children": [
+						{
+							"ID": "20230331180211-u6xgfbd",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331180211-u6xgfbd",
+								"updated": "20230331180211"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/andy_zhang2007/article/details/85421417",
+									"TextMarkTextContent": "https://blog.csdn.net/andy_zhang2007/article/details/85421417"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331180211-e8ta6tj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331180211-e8ta6tj",
+						"updated": "20230331180211"
+					},
+					"Children": [
+						{
+							"ID": "20230331180211-229fny8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331180211-229fny8",
+								"updated": "20230331180211"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "演示源码辅助演示使用的bean类package tut.zero;import lombok.Data;@Datapublic class Pet {    String type;    String name;}演示BeanDefinition各个实现类例如何被使用package tut.zero;import lombok.extern.slf4j.Slf4j..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331180211-cnubjeh",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331180211-cnubjeh",
+						"updated": "20230331180211"
+					},
+					"Children": [
+						{
+							"ID": "20230331180211-cg0z43u",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331180211-cg0z43u",
+								"updated": "20230331180211"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 18:02:11"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-hhi8gcb",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331180211-hhi8gcb",
+				"updated": "20230331180211"
+			}
+		},
+		{
+			"ID": "20230331180211-69hvm5n",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331180211-69hvm5n",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "各"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 实现类使用注意事项"
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-gk2hfsp",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331180211-gk2hfsp",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一般使用建议"
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-mjt88yo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331180211-mjt88yo",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一般情况下，建议使用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "GenericBeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​用于定义用户可见的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​定义。而对于一些父子关系已经确定的情况，使用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RootBeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​/"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ChildBeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-8tolozh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331180211-8tolozh",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "各个实现类的区别/特点"
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-gh7r2u7",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331180211-gh7r2u7",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"ID": "20230331180211-aex1810",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331180211-aex1810",
+						"updated": "20230331180211"
+					},
+					"Children": [
+						{
+							"ID": "20230331180211-41gf2mp",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331180211-41gf2mp",
+								"updated": "20230331180211"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RootBeanDefinition"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​– 不能设置"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "parent bean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​定义"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-rgqnd9n",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230331180211-rgqnd9n",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230331180211-ukecg44",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230331180211-ukecg44",
+						"updated": "20230331180211"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "由此可见,"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "RootBeanDefinition"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​不能用于用于父子"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "bean"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​定义关系中的\"子"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "bean"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​定义\""
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-8flwvgz",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331180211-8flwvgz",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"ID": "20230331180211-fscnlf7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331180211-fscnlf7",
+						"updated": "20230331180211"
+					},
+					"Children": [
+						{
+							"ID": "20230331180211-9uyyjh8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331180211-9uyyjh8",
+								"updated": "20230331180211"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ChildBeanDefinition"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ – 必须设置"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "parent bean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​定义,而且必须是通过构造函数指定"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-ri8xtd5",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230331180211-ri8xtd5",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230331180211-5nk6vp6",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230331180211-5nk6vp6",
+						"updated": "20230331180211"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "​"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "ChildBeanDefinition"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​很适合父子"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "bean"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​定义关系明确的情况下基于双亲"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "bean"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​定义和自身少量设置一些个性化属性从而进行子"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "bean"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​定义。\n实际上，真正在创建子"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "bean"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​定义规定的"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "bean"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​对象时，"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "Spring"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​框架内部是将双亲"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "bean"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​定义和孩子"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "bean"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​定义合并形成一个最终使用的"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "RootBeanDefinition"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​，这里孩子"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "bean"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​定义中设置的属性会被优先使用，没有指定的都会继承使用双亲"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "bean"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​定义中的设置。"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-znlzm6g",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331180211-znlzm6g",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"ID": "20230331180211-oo7gh12",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331180211-oo7gh12",
+						"updated": "20230331180211"
+					},
+					"Children": [
+						{
+							"ID": "20230331180211-m4orvvm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331180211-m4orvvm",
+								"updated": "20230331180211"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "GenericBeanDefinition"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ – 可以动态设置"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "parent bean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​定义,也可以不设置"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "parent bean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​定义"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-f79xl29",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230331180211-f79xl29",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230331180211-vv18w9w",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230331180211-vv18w9w",
+						"updated": "20230331180211"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "由此可见，"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "GenericBeanDefinition"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​既可以替代 "
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "RootBeanDefinition"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​,也可以替代"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "ChildBeanDefinition"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​,所以"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "GenericBeanDefinition"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​更一般化("
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "generic"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​)"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-85vtzca",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331180211-85vtzca",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "演示源码"
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-hoc09px",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331180211-hoc09px",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "辅助演示使用的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类"
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-v1dj0ul",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331180211-v1dj0ul",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package tut.zero;\n\n\nimport lombok.Data;\n\n@Data\npublic class Pet { \n    String type;\n    String name;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-m9p3ikz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331180211-m9p3ikz",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "演示"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​各个实现类例如何被使用"
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-q2hgpvv",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331180211-q2hgpvv",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package tut.zero;\n\nimport lombok.extern.slf4j.Slf4j;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.beans.factory.support.ChildBeanDefinition;\nimport org.springframework.beans.factory.support.GenericBeanDefinition;\nimport org.springframework.beans.factory.support.RootBeanDefinition;\nimport org.springframework.boot.CommandLineRunner;\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\nimport org.springframework.context.ApplicationContext;\nimport org.springframework.context.annotation.AnnotationConfigApplicationContext;\n\nimport java.util.Properties;\n\n@Slf4j\n@SpringBootApplication\npublic class Application implements CommandLineRunner { \n    @Autowired\n    AnnotationConfigApplicationContext applicationContext;\n\n    public static void main(String[] args) { \n        SpringApplication.run(Application.class, args);\n    }\n\n    @Override\n    public void run(String... args) { \n        // RootBeanDefinition\n        demoRootBeanDefinition();\n\n        // ChildBeanDefinition\n        demoChildBeanDefinition();\n\n        // GenericBeanDefinition\n        demoGenericBeanDefinition();\n    }\n\n    private void demoRootBeanDefinition() { \n        // 此例子演示 RootBeanDefinition 的使用，通过它，提供了创建一个 bean 所需\n        // 的所有信息\n        RootBeanDefinition rbd = new RootBeanDefinition();\n        rbd.setBeanClass(Pet.class);\n        rbd.getPropertyValues().add(\"type\", \"dog\");\n        rbd.getPropertyValues().add(\"name\", \"Jack\");\n        applicationContext.registerBeanDefinition(\"rootPetDog\", rbd);\n        Pet pet = (Pet) applicationContext.getBean(\"rootPetDog\");\n        log.info(\"Parent pet dog is :{}\", pet);\n    }\n\n    private void demoChildBeanDefinition() { \n        // 创建一个 ChildBeanDefinition 总是要依赖于另外一个 bean定义，也就是该孩子 bean定义的双亲bean定义\n        // 此例子演示 ChildBeanDefinition 的使用，该例子中，所创建的 ChildBeanDefinition 使用了上面定义的名\n        // 为rootPet的 RootBeanDefinition。\n        // 实际上 ChildBeanDefinition 的双亲parent bean定义的类型不必要是 RootBeanDefinition,也可以是\n        // ChildBeanDefinition 或者 GenericBeanDefinition\n        ChildBeanDefinition cbd = new ChildBeanDefinition(\"rootPetDog\");\n        cbd.getPropertyValues().add(\"name\", \"Little Jack\");\n        applicationContext.registerBeanDefinition(\"childPetDog\", cbd);\n        Object pet = applicationContext.getBean(\"childPetDog\");\n        log.info(\"Child pet dog is :{}\", pet);\n\n        // 从 Spring 2.5 之后，ChildBeanDefinition 被建议使用 GenericBeanDefinition 替换。\n        // 通过 GenericBeanDefinition 可以动态地设置双亲bean定义。\n    }\n\n    private void demoGenericBeanDefinition() { \n        // 这里演示 GenericBeanDefinition 的使用\n        // 基于 GenericBeanDefinition 的双亲bean定义\n        GenericBeanDefinition rbd = new GenericBeanDefinition();\n        rbd.setBeanClass(Pet.class);\n        rbd.getPropertyValues().add(\"type\", \"cat\");\n        rbd.getPropertyValues().add(\"name\", \"Tom\");\n        applicationContext.registerBeanDefinition(\"parentPetCat\", rbd);\n        Pet petParent = (Pet) applicationContext.getBean(\"parentPetCat\");\n        log.info(\"Parent pet cat is :{}\", petParent);\n\n        // 基于 GenericBeanDefinition 的孩子bean定义\n        GenericBeanDefinition cbd = new GenericBeanDefinition();\n        cbd.setParentName(\"parentPetCat\");\n        cbd.getPropertyValues().add(\"name\", \"Little Tom\");\n        applicationContext.registerBeanDefinition(\"childPetCat\", cbd);\n        Object petChild = applicationContext.getBean(\"childPetCat\");\n        log.info(\"Child pet cat is :{}\", petChild);\n    }\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-xs56url",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331180211-xs56url",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "演示输出"
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-0zl5jti",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331180211-0zl5jti",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": " Parent pet dog is :Pet(type=dog, name=Jack)\n Child pet dog is :Pet(type=dog, name=Little Jack)\n Parent pet cat is :Pet(type=cat, name=Tom)\n Child pet cat is :Pet(type=cat, name=Little Tom)\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-au8aqo0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331180211-au8aqo0",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从该输出可以看出:"
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-nbve6p0",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331180211-nbve6p0",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"ID": "20230331180211-tp1gqla",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331180211-tp1gqla",
+						"updated": "20230331180211"
+					},
+					"Children": [
+						{
+							"ID": "20230331180211-fbp85wm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331180211-fbp85wm",
+								"updated": "20230331180211"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "对于子"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "bean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​定义生成的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "bean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​实例，优先采用子"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "bean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​定义中设置的属性，其他继承使用自双亲"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "bean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​定义。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-ji2ugtd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331180211-ji2ugtd",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "相关文章"
+				}
+			]
+		},
+		{
+			"ID": "20230331180211-wr9tc6g",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331180211-wr9tc6g",
+				"updated": "20230331180211"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/andy_zhang2007/article/details/85381148",
+					"TextMarkTextContent": "Spring的bean定义 1 : 基础建模–接口BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/andy_zhang2007/article/details/85413055",
+					"TextMarkTextContent": "Spring的bean定义 2 : 通用bean定义逻辑 – AbstractBeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/andy_zhang2007/article/details/85421417",
+					"TextMarkTextContent": "Spring的bean定义 3 : BeanDefinition实现类例子演示"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/andy_zhang2007/article/details/86514320",
+					"TextMarkTextContent": "Spring的bean定义 4 : 合并了的bean定义–MergedBeanDefinition"
+				}
+			]
+		}
+	]
+}

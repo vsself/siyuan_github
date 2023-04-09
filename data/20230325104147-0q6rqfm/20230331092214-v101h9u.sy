@@ -1,0 +1,1357 @@
+{
+	"ID": "20230331092214-v101h9u",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331092214-v101h9u",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230331092214-igf9um9\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230331092214-1y54z4b\u0026quot;,\u0026quot;scrollTop\u0026quot;:1800,\u0026quot;focusId\u0026quot;:\u0026quot;20230331092214-igf9um9\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "JVM内存模型（通俗易懂）_抵制平庸 拥抱变化的博客-CSDN博客",
+		"updated": "20230331092214"
+	},
+	"Children": [
+		{
+			"ID": "20230331092214-igf9um9",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331092214-igf9um9",
+				"updated": "20230331092214"
+			}
+		},
+		{
+			"ID": "20230331092214-2tf74fj",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331092214-2tf74fj",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"ID": "20230331092214-3dqsy2k",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331092214-3dqsy2k",
+						"updated": "20230331092214"
+					},
+					"Children": [
+						{
+							"ID": "20230331092214-873af6u",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092214-873af6u",
+								"updated": "20230331092214"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36704549/article/details/109390566?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168022554716800215046256%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168022554716800215046256\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-109390566-null-null.142^v80^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jvm\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36704549/article/details/109390566?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168022554716800215046256%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026amp;request_id=168022554716800215046256\u0026amp;biz_id=0\u0026amp;utm_medium=distribute.pc_search_result.none-task-blog-2"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a sub",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36704549/article/details/109390566?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168022554716800215046256%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168022554716800215046256\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-109390566-null-null.142^v80^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jvm\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "all"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36704549/article/details/109390566?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168022554716800215046256%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168022554716800215046256\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-109390566-null-null.142^v80^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jvm\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "top_positive~default-2-109390566-null-null.142"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a sup",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36704549/article/details/109390566?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168022554716800215046256%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168022554716800215046256\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-109390566-null-null.142^v80^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jvm\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "v80"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36704549/article/details/109390566?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168022554716800215046256%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168022554716800215046256\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-109390566-null-null.142^v80^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jvm\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "insert_down38,201"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a sup",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36704549/article/details/109390566?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168022554716800215046256%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168022554716800215046256\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-109390566-null-null.142^v80^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jvm\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "v4"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36704549/article/details/109390566?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168022554716800215046256%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168022554716800215046256\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-109390566-null-null.142^v80^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jvm\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "add_ask,239"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a sup",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36704549/article/details/109390566?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168022554716800215046256%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168022554716800215046256\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-109390566-null-null.142^v80^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jvm\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "v2"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36704549/article/details/109390566?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168022554716800215046256%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168022554716800215046256\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-109390566-null-null.142^v80^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jvm\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "insert_chatgpt\u0026amp;utm_term=jvm\u0026amp;spm=1018.2226.3001.4187"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331092214-vfotvdo",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331092214-vfotvdo",
+						"updated": "20230331092214"
+					},
+					"Children": [
+						{
+							"ID": "20230331092214-j8qjtty",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092214-j8qjtty",
+								"updated": "20230331092214"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "1.什么是jvm?（1）jvm是一种用于计算设备的规范，它是一个虚构出来的机器，是通过在实际的计算机上仿真模拟各种功能实现的。（2）jvm包含一套字节码指令集，一组寄存器，一个栈，一个垃圾回收堆和一个存储方法域。（3）JVM屏蔽了与具体操作系统平台相关的信息，使Java程序只需生成在Java虚拟机上运行的目标代码（字节码）,就可以在多种平台上不加修改地运行。JVM在执行字节码时，实际上最终还是把字节码解释成具体平台上的机器指令执行。2.jdk、jre、jvm是什么关系？（1）JRE(Java R"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331092214-tfi6jed",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331092214-tfi6jed",
+						"updated": "20230331092214"
+					},
+					"Children": [
+						{
+							"ID": "20230331092214-71t3a68",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092214-71t3a68",
+								"updated": "20230331092214"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:22:14"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-4yn10c3",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331092214-4yn10c3",
+				"updated": "20230331092214"
+			}
+		},
+		{
+			"ID": "20230331092214-4rflyxn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-4rflyxn",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "1.什么是jvm?"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n（1）jvm是一种用于计算设备的规范，它是一个虚构出来的机器，是通过在实际的计算机上仿真模拟各种功能实现的。\n（2）jvm包含一套字节码指令集，一组寄存器，一个栈，一个垃圾回收堆和一个存储方法域。\n（3）JVM屏蔽了与具体操作系统平台相关的信息，使Java程序只需生成在Java虚拟机上运行的目标代码（字节码）,就可以在多种平台上不加修改地运行。\nJVM在执行字节码时，实际上最终还是把字节码解释成具体平台上的机器指令执行。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-fkhbcy5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-fkhbcy5",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "2.jdk、jre、jvm是什么关系？"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n（1）JRE(Java Runtime Environment)，也就是java平台。所有的java程序都要在JRE环境下才能运行。\n（2）JDK(Java Development Kit)，是开发者用来编译、调试程序用的开发包。JDK也是JAVA程序需要在JRE上运行。\n（3）JVM(Java Virtual Machine)，是JRE的一部分。它是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的。\nJVM有自己完善的硬件架构，如处理器、堆栈、寄存器等，还具有相应的指令系统。\nJava语言最重要的特点就是跨平台运行。使用JVM就是为了支持与操作系统无关，实现跨平台。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-yw6v07i",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-yw6v07i",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "3.JVM原理"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n（1）jvm是java的核心和基础，在java编译器和os平台之间的虚拟处理器，可在上面执行字节码程序。\n（2）java编译器只要面向jvm，生成jvm能理解的字节码文件。java源文件经编译成字节码程序，通过jvm将每条指令翻译成不同的机器码\n，通过特定平台运行。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-tqk2w93",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-tqk2w93",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/4fe980c4b6ad0277e6bda2432d716b7a-20230331092213-3lsjn01.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-56azxfl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-56azxfl",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "4. JVM执行程序的过程"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-4uxgfhu",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331092214-4uxgfhu",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"ID": "20230331092214-uwn83zg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331092214-uwn83zg",
+						"updated": "20230331092214"
+					},
+					"Children": [
+						{
+							"ID": "20230331092214-og0r5gs",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092214-og0r5gs",
+								"updated": "20230331092214"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "加载.class文件"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331092214-773qjc7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331092214-773qjc7",
+						"updated": "20230331092214"
+					},
+					"Children": [
+						{
+							"ID": "20230331092214-ypf32ej",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092214-ypf32ej",
+								"updated": "20230331092214"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "管理并分配内存"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331092214-bo26w3k",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331092214-bo26w3k",
+						"updated": "20230331092214"
+					},
+					"Children": [
+						{
+							"ID": "20230331092214-v1aowga",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092214-v1aowga",
+								"updated": "20230331092214"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "执行垃圾收集\nJRE（java运行时环境）由JVM构造的java程序的运行环，也是Java程序运行的环境，但是他同时一个操作系统的一个应用程序一个进程，\n因此他也有他自己的运行的生命周期，也有自己的代码和数据空间。\nJVM在整个jdk中处于最底层，负责于操作系统的交互，用来屏蔽操作系统环境，\n提供一个完整的Java运行环境，因此也就虚拟计算机。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-jk7zyh1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-jk7zyh1",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "操作系统装入JVM是通过jdk中Java.exe来完成，\n通过下面4步来完成JVM环境："
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-hagla16",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331092214-hagla16",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"ID": "20230331092214-b08uuq6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331092214-b08uuq6",
+						"updated": "20230331092214"
+					},
+					"Children": [
+						{
+							"ID": "20230331092214-3g6bl91",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092214-3g6bl91",
+								"updated": "20230331092214"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "创建JVM装载环境和配置"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331092214-02pvx9p",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331092214-02pvx9p",
+						"updated": "20230331092214"
+					},
+					"Children": [
+						{
+							"ID": "20230331092214-rt395w3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092214-rt395w3",
+								"updated": "20230331092214"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "装载JVM.dll"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331092214-clnd2ou",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331092214-clnd2ou",
+						"updated": "20230331092214"
+					},
+					"Children": [
+						{
+							"ID": "20230331092214-ruo0psv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092214-ruo0psv",
+								"updated": "20230331092214"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "初始化JVM.dll并挂界到JNIENV(JNI调用接口)实例"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331092214-qh5i86u",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331092214-qh5i86u",
+						"updated": "20230331092214"
+					},
+					"Children": [
+						{
+							"ID": "20230331092214-fy85w3n",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092214-fy85w3n",
+								"updated": "20230331092214"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "调用JNIEnv实例装载并处理class类。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-bf7x262",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-bf7x262",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "5. JVM的生命周期"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-y5d9frb",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331092214-y5d9frb",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"ID": "20230331092214-50hhev7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331092214-50hhev7",
+						"updated": "20230331092214"
+					},
+					"Children": [
+						{
+							"ID": "20230331092214-5e5d6r0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092214-5e5d6r0",
+								"updated": "20230331092214"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "JVM实例对应了一个独立运行的java程序它是进程级别\na) 启动。启动一个Java程序时，一个JVM实例就产生了，任何一个拥有public static void\nmain(String[] args)函数的class都可以作为JVM实例运行的起点\nb) 运行。main()作为该程序初始线程的起点，任何其他线程均由该线程启动。JVM内部有两种线程：守护线程和非守护线程，main()属于非守护线程，守护线程通常由JVM自己使用，java程序也可以表明自己创建的线程是守护线程\nc) 消亡。当程序中的所有非守护线程都终止时，JVM才退出；若安全管理器允许，程序也可以使用Runtime类或者System.exit()来退出"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331092214-m0f6my1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331092214-m0f6my1",
+						"updated": "20230331092214"
+					},
+					"Children": [
+						{
+							"ID": "20230331092214-6muofoq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092214-6muofoq",
+								"updated": "20230331092214"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "JVM执行引擎实例则对应了属于用户运行程序的线程它是线程级别的"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-xd8nk5n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-xd8nk5n",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "6、JVM内存模型"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-z5k9cac",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-z5k9cac",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "（1）java代码具体执行过程如下图，"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-lk1r6e7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-lk1r6e7",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/8dd3d27afa4d6591d64d270ff09e9240-20230331092214-2wv7x2x.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-0jvrgbv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-0jvrgbv",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "（2）运行时数据区，即jvm内存结构图如下图"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-oetic2n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-oetic2n",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/3c62f8d0b3ed1ece0988503b2d31057e-20230331092213-0wssc4y.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-61dhucy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-61dhucy",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "（3）运行时数据区存储了哪些数据？"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-a4p3v4p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-a4p3v4p",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "a) 程序计数器(PC寄存器)"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-exvizfn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-exvizfn",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于在JVM中，多线程是通过线程轮流切换来获得CPU执行时间的，因此，在任一具体时刻，一个CPU的内核只会执行一条线程中的指令，"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-pm75mnx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-pm75mnx",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因此，为了能够使得每个线程都在线程切换后能够恢复在切　换　之前的程序执行位置，每个线程都需要有自己独立的程序计数器，并且不能互相被干扰，"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-i525dyr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-i525dyr",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "否则就会影响到程序的正常执行次序。因此，可以这么说，程序计数器是每个线程所私有的。由于程序计数器中存储的数据所占空间的大小不会随程序的执行而发生改变，"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-ch3og3v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-ch3og3v",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因此，对于程序计数器是不会发生内存溢出现象(OutOfMemory)的。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-t1bymgp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-t1bymgp",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "b) java栈"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-fwq304t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-fwq304t",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Java栈中存放的是一个个的栈帧，每个栈帧对应一个被调用的方法，在栈帧中包括​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "局部变量表(Local Variables)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "操作数栈(Operand Stack)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-eqbpn9j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-eqbpn9j",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "指向当前方法所属的类的运行时常量池（运行时常量池的概念在方法区部分会谈到）​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "的引用"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​(Reference to runtime constant pool)、"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-57263z3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-57263z3",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "**方法返回地址(Return Address)**和一些额外的附加信息。当线程执行一个方法时，就会随之创建一个对应的栈帧，并将建立的栈帧压栈。当方法执行完毕之后，便会将栈帧出栈。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-skbhrra",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-skbhrra",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/cd9cdc470764001342c5e2b98e212a24-20230331092213-sx69un7.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-g90wb3z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-g90wb3z",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "c）本地方法栈"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-f8yoyk1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-f8yoyk1",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本地方法栈与Java栈的作用和原理非常相似。区别只不过是Java栈是为执行Java方法服务的，而本地方法栈则是为执行本地方法（Native Method）服务的"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-9c1j5u9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-9c1j5u9",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "d）堆"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-ndhtpf1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-ndhtpf1",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Java中的堆是用来存储对象本身的以及数组（数组引用是存放在Java栈中的）。堆是被所有线程共享的，在JVM中只有一个堆。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-ed9tpzk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-ed9tpzk",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "e）方法区"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-ybgkj22",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-ybgkj22",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "与堆一样，是被线程共享的区域。在方法区中，存储了每个类的信息（包括类的名称、方法信息、字段信息）、静态变量、常量以及编译器编译后的代码等。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-tew0o3f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-tew0o3f",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在Class文件中除了类的字段、方法、接口等描述信息外，还有一项信息是常量池，用来存储编译期间生成的字面量和符号引用。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-g18qtvj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-g18qtvj",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在方法区中有一个非常重要的部分就是运行时常量池，它是每一个类或接口的常量池的运行时表示形式，在类和接口被加载到JVM后，"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-kniz4mr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-kniz4mr",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对应的运行时常量池就被创建出来。当然并非Class文件常量池中的内容才能进入运行时常量池，在运行期间也可将新的常量放入运行时常量池中，比如String的intern方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-61f3gon",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-61f3gon",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "7、JVM内存溢出的情况"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-qje4kfs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-qje4kfs",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/43fe416a304036e8f52ce4a89ba553cc-20230331092213-khnek5s.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-7omnpl6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-7omnpl6",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "a) 程序计数器（Program Counter Register）"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-pqqjwor",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-pqqjwor",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "每条线程都有一个独立的的程序计数器，各线程间的计数器互不影响，因此该区域是线程私有的。该内存区域是唯一一个在Java虚拟机规范中没有规定任何OOM（内存溢出：OutOfMemoryError）情况的区域。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-814hbcc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-814hbcc",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "b)Java虚拟机栈（Java Virtual Machine Stacks）"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-z4it1w5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-z4it1w5",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在Java虚拟机规范中，对这个区域规定了两种异常情况："
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-xhs1czr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-xhs1czr",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-zqut2rl",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092214-zqut2rl",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "　　2、如果虚拟机在动态扩展栈时无法申请到足够的内存空间，则抛出OutOfMemoryError异常。\n\n　　     这两种情况存在着一些互相重叠的地方：当栈空间无法继续分配时，到底是内存太小，还是已使用的栈空间太大，其本质上只是对同一件事情的两种描述而已。\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-a1l21ge",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-a1l21ge",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在单线程的操作中，无论是由于栈帧太大，还是虚拟机栈空间太小，当栈空间无法分配时，虚拟机抛出的都是StackOverflowError异常，而不会得到OutOfMemoryError异常。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-cst4djv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-cst4djv",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "而在多线程环境下，则会抛出OutOfMemoryError异常。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-s1kwhmx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-s1kwhmx",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "c)堆Java Heap"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-nf6t4gv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-nf6t4gv",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Java Heap是Java虚拟机所管理的内存中最大的一块，它是所有线程共享的一块内存区域。几乎所有的对象实例和数组都在这类分配内存。Java Heap是垃圾收集器管理的主要区域，因此很多时候也被称为“GC堆”。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-1on386u",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092214-1on386u",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "　　根据Java虚拟机规范的规定，Java堆可以处在物理上不连续的内存空间中，只要逻辑上是连续的即可。如果在堆中没有内存可分配时，并且堆也无法扩展时，将会抛出OutOfMemoryError异常。   \n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092214-1y54z4b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092214-1y54z4b",
+				"updated": "20230331092214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "d)方法区域，又被称为“永久代”，当方法区无法满足内存分配需求时，将抛出OutOfMemoryError异常。"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,2189 @@
+{
+	"ID": "20230402210130-08iw9bq",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230402210130-08iw9bq",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230402210130-drt2f0v\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230402210130-pdthlzf\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230402210130-drt2f0v\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "Spring源码解析之BeanDefinition_Java爱好狂.的博客-CSDN博客",
+		"updated": "20230402210130"
+	},
+	"Children": [
+		{
+			"ID": "20230402210130-drt2f0v",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230402210130-drt2f0v",
+				"updated": "20230402210130"
+			}
+		},
+		{
+			"ID": "20230402210130-mz9c4vk",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230402210130-mz9c4vk",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"ID": "20230402210130-vkmk9qg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-vkmk9qg",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-ucaa4hg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-ucaa4hg",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/wdj_yyds/article/details/125446440?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-125446440-blog-102633067.235^v27^pc_relevant_default\u0026spm=1001.2101.3001.4242.1\u0026utm_relevant_index=3",
+									"TextMarkTextContent": "https://blog.csdn.net/wdj_yyds/article/details/125446440?utm_medium=distribute.pc_relevant.none-task-blog-2"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a sub",
+									"TextMarkAHref": "https://blog.csdn.net/wdj_yyds/article/details/125446440?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-125446440-blog-102633067.235^v27^pc_relevant_default\u0026spm=1001.2101.3001.4242.1\u0026utm_relevant_index=3",
+									"TextMarkTextContent": "default"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/wdj_yyds/article/details/125446440?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-125446440-blog-102633067.235^v27^pc_relevant_default\u0026spm=1001.2101.3001.4242.1\u0026utm_relevant_index=3",
+									"TextMarkTextContent": "baidujs_utm_term~default-0-125446440-blog-102633067.235"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a sup",
+									"TextMarkAHref": "https://blog.csdn.net/wdj_yyds/article/details/125446440?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-125446440-blog-102633067.235^v27^pc_relevant_default\u0026spm=1001.2101.3001.4242.1\u0026utm_relevant_index=3",
+									"TextMarkTextContent": "v27"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/wdj_yyds/article/details/125446440?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-125446440-blog-102633067.235^v27^pc_relevant_default\u0026spm=1001.2101.3001.4242.1\u0026utm_relevant_index=3",
+									"TextMarkTextContent": "pc_relevant_default\u0026amp;spm=1001.2101.3001.4242.1\u0026amp;utm_relevant_index=3"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-1zhjck8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-1zhjck8",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-236n0gb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-236n0gb",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "BeanDefinition有三个实现类，ChildBeanDefinition、GenericBeanDefinition、RootBeanDefinition，三者都继承 AbstractBeanDefinition，对三个子类共同的类信息进行抽象。如果配置文件中定义了父 和 子 ，则父 用 RootBeanDefinition表示，子 用 ChildBeanDefinition 表示，而没有父 的就使用RootBeanDefinition 表示。GenericBeanDefinition 为一站式服务"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-ai7jmbm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-ai7jmbm",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-oip98q3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-oip98q3",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-02 21:01:30"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-1oarr1j",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230402210130-1oarr1j",
+				"updated": "20230402210130"
+			}
+		},
+		{
+			"ID": "20230402210130-jdx7m7z",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230402210130-jdx7m7z",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=BeanDefinition\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "简介"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-hbmpw84",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-hbmpw84",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "BeanDefinition有三个实现类，ChildBeanDefinition、GenericBeanDefinition、RootBeanDefinition，三者都继承 AbstractBeanDefinition，对三个子类共同的类信息进行抽象。如果配置文件中定义了父 和 子 ，则父 用 RootBeanDefinition表示，子 用 ChildBeanDefinition 表示，而没有父 的就使用RootBeanDefinition 表示。GenericBeanDefinition 为一站式服务类。"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-m43u4j8",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230402210130-m43u4j8",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. BeanDefinition的属性"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-hu935y7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-hu935y7",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "之前没有对BeanDefinition属性作详细分析，本文直接开始讲BeanDefintionParserDelegate的方法parseBeanDefinitionAttributes方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-nlpm9bm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-nlpm9bm",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/e07e3a233356cb46f954593c76b2f9a1-20230402210129-znrdm4t.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-8bd3hal",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-8bd3hal",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于BeanDefinition的实现类都继承自父类AbstractBeanDefinition，父类中有三个引用的属性ConstructorArgumentValues、MutablePropertyValues、MethodOverrides，所以GenericBeanDefinition最终包含的属性如下图："
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-q1iowpa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-q1iowpa",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/745e051617c43375a56a271d279e8355-20230402210130-f9coufb.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-mjzwqzn",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230402210130-mjzwqzn",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"ID": "20230402210130-7uflea9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-7uflea9",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-gvlat4l",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-gvlat4l",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "id：Bean 的唯一标识名。它必须是合法的 XMLID，在整个 XML 文档中唯一；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-7widjci",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-7widjci",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-kjso8yi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-kjso8yi",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "name：用来为 id 创建一个或多个别名。它可以是任意的字母符合。多个别名之间用逗号或空格分开；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-u8vvn8q",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-u8vvn8q",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-vb26aur",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-vb26aur",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "class：用来定义类的全限定名（包名＋类名）。只有子类 Bean 不用定义该属性；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-vfxmwop",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-vfxmwop",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-hmh3ak2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-hmh3ak2",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "parent：子类 Bean 定义它所引用它的父类 Bean，这是前面的 class 属性失效，子类 Bean 会继承父类 Bean 的所有属性，子类 Bean 也可以覆盖父类 Bean 的属性，注意：子类 Bean 和父类 Bean 是同一个 Java 类；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-5saylc2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-5saylc2",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-5hasiij",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-5hasiij",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "abstract（默认为\"false\"）：用来定义 Bean 是否为抽象 Bean。它表示这个 Bean 将不会被实例化，一般用于父类 Bean，因为父类 Bean 主要是供子类 Bean 继承使用；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-al1tlqv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-al1tlqv",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-1buqxin",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-1buqxin",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "lazy-init（默认为\"false\"）：用来定义这个 Bean 是否实现懒初始化。如果为\"false\"，它将在 BeanFactory 启动时初始化所有的 SingletonBean。反之，如果为\"true\",它只在 Bean 请求时才开始创建 SingletonBean；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-l042ae2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-l042ae2",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-zyn48j3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-zyn48j3",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "autowire（自动装配，默认为\"default\"）：它定义了 Bean 的自动装载方式；\n--\"no\"：不使用自动装配功能；--\"byName\"：通过 Bean 的属性名实现自动装配;--\"byType\"：通过 Bean 的类型实现自动装配;--\"constructor\"：类似于 byType，但它是用于构造函数的参数的自动组装;--\"autodetect\"：通过 Bean 类的反省机制（introspection）决定是使用\"constructor\"还是使用\"byType\"。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-kl4mgho",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-kl4mgho",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-z5aj525",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-z5aj525",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "depends-on（依赖对象）：这个 Bean 在初始化时依赖的对象，这个对象会在这个 Bean 初始化之前创建；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-mqhgmu3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-mqhgmu3",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-ydb1t1z",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-ydb1t1z",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "init-method：用来定义 Bean 的初始化方法，它会在 Bean 组装之后调用。它必须是一个无参数的方法；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-tbyalng",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-tbyalng",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-mfq8cca",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-mfq8cca",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "destroy-method：用来定义 Bean 的销毁方法，它在 BeanFactory 关闭时调用。同样，它也比\n须是一个无参数的方法。它只能应用于 singletonBean。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-l7z18yl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-l7z18yl",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-b7whv92",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-b7whv92",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "factory-method：定义创建该 Bean 对象的工厂方法。它用于下面的\"factory-bean\"，表示这个 Bean 是通过工厂方法创建，此时，\"class\"属性失效。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-ngojoug",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-ngojoug",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-h374hqz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-h374hqz",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "factory-bean:定义创建该 Bean 对象的工厂类。如果使用了\"factory-bean\"则\"class\"属性失效。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-blbevwu",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-blbevwu",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-d4gra67",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-d4gra67",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "autowire-candidate：采用 xml 格式配置 bean 时，将元素的 autowire-candidate属性设置为 false，这样容器在查找自动装配对象时，将不考虑该 bean，即它不会被考虑作为其它 bean自动装配的候选者，但是该 bean 本身还是可以使用自动装配来注入其它 bean 的；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-zt1qh59",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-zt1qh59",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-ag1l4tn",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-ag1l4tn",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "MutablePropertyValues：用于封装标签的信息，其实类里面就是有一个 list，list里面是 PropertyValue 对象，PropertyValue 就是一个 name 和 value 属性，用于封装标签的名称和值信息"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-qjwboiy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-qjwboiy",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-gb34zkn",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-gb34zkn",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ConstructorArgumentValues：用于封装标签的信息，其实类里面就是有一个 map，map 中用构造函数的参数顺序作为 key，值作为 value 存储到 map 中；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-kukwvz6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-kukwvz6",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-u2xacck",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-u2xacck",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "MethodOverrides：用于封装 lookup-method 和 replaced-method 标签的信息，同样的类里面有一个 Set 对象添加 LookupOverride 对象和ReplaceOverride 对象。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-212ns1u",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230402210130-212ns1u",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3. component-scan标签解析过程"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-7g5bc8d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-7g5bc8d",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "3.1 流程概览"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-82juil3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-82juil3",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/835c5f70a82a135c7e54b675f808ca34-20230402210129-q84py9s.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-ulpwobb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-ulpwobb",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "3.2 详细过程"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-ej5e4mb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-ej5e4mb",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "前面一文提到，自定义标签解析BeanDefinitionParserDelegate类，执行parseCustomElement方法；"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-9ima8ol",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-9ima8ol",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/d114851d1af5442a831d2a899510656b-20230402210130-13kpcgr.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-2c5s1da",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-2c5s1da",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上述过程主要完成以下步骤："
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-m72obqk",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230402210130-m72obqk",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"ID": "20230402210130-hr5mql5",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-hr5mql5",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-gz5a0nn",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-gz5a0nn",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "step1: 获取namespaceURI；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-mf1672f",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-mf1672f",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-3zou1sa",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-3zou1sa",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "step2: 解析namespaceURI对应的handler类；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-96jit7m",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-96jit7m",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-nvthag9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-nvthag9",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "step3：执行handler方法解析。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-1wva41j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-1wva41j",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "step1与step2前文已分析，以component-scan为例，分析step3，代码进入ComponentScanBeanDefinitionParser的parse方法"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-twopr5m",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-twopr5m",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/b628bfae8ef45022e4ac984c1d8cbd57-20230402210129-tm2ue8h.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-esywunn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-esywunn",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上述过程总共分为三步："
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-4yvq0vu",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230402210130-4yvq0vu",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"ID": "20230402210130-eqltx6h",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-eqltx6h",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-nwzp3cj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-nwzp3cj",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "step1：configureScanner方法创建扫描器；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-o8p7763",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-o8p7763",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-49c7w0k",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-49c7w0k",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "step2：doScan方法扫描器扫描；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-9dwmbey",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-9dwmbey",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-khnzt1m",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-khnzt1m",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "step3：registerComponents注册bean包含的组件。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-p57akna",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-p57akna",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "进入上述step2，进入ClassPathBeanDefinitionScanner的doScan方法,"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-ifise3l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-ifise3l",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/0efd12e89aafa382d4e739d7a263441f-20230402210129-09lpdgi.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-kr8o3ih",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-kr8o3ih",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上述doScan方法主要做了以下三步："
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-f2if57f",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230402210130-f2if57f",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"ID": "20230402210130-j6grimr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-j6grimr",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-apjqqbx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-apjqqbx",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "step1: findCandidateComponents扫描有注解的类并封装成beanDefinition对象；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-b7zn7af",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-b7zn7af",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-fj5vyrb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-fj5vyrb",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "step2: processCommonDefinitionAnnotations方法支持@Lazy @Primary @DependOn注解；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-byqk1e7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-byqk1e7",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-d18u2jt",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-d18u2jt",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "step3：注册BeanDefinition。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-8l23g1x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-8l23g1x",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "继续进入上述step1中的findCandidateComponents方法，来到ClassPathScanningCandidateComponentProvider类的scanCandidateComponents方法，完成以下步骤："
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-4cjdp0q",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230402210130-4cjdp0q",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"ID": "20230402210130-9b9gryv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-9b9gryv",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-3qn9ag3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-3qn9ag3",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "step1: getResources递归获取.class后缀的文件；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-uia6bnj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-uia6bnj",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-6nzqxgq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-6nzqxgq",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "step2: getMetadataReader方法，获取元数据AnnotationMetadataReadingVisitor对象，该元数据收集了扫描类的任何信息；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402210130-hdaabe7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402210130-hdaabe7",
+						"updated": "20230402210130"
+					},
+					"Children": [
+						{
+							"ID": "20230402210130-oiw6wji",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402210130-oiw6wji",
+								"updated": "20230402210130"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "step3：判断includeFilters是否跟元数据中的注解匹配，如果匹配就实例化该类，创建BeanDefinition对象。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-0roxmor",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-0roxmor",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "前面还有一个步骤step3：registerComponents注册bean包含的组件还未分析，进入该方法"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-mqxv9cy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-mqxv9cy",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/b27ce484e5cc01bddd876072851e66ff-20230402210130-ylpou7i.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-231blcm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-231blcm",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "随后进入AnnotationConfigUtils.registerAnnotationConfigProcessors，"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-j68yxl9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-j68yxl9",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/9dbf37c27c7d961ac5ba719906e98b92-20230402210129-5gvg29g.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-bv79p1b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-bv79p1b",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面提到了三类处理器ConfigurationClassPostProcessor，AutowiredAnnotationBeanPostProcessor，CommonAnnotationBeanPostProcessor，分别对不同注解作处理，最后封装到BeanDefinition中，注册到容器。"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-nwmyozn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-nwmyozn",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "进入ConfigurationClassPostProcessor的processConfigBeanDefinitions方法，如下:"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-ime6ecp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-ime6ecp",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/fc51c34b59c7f9a2d900e0d90b11fa2d-20230402210129-7wp4al9.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-5sui5w1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-5sui5w1",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上述方法主要解析加了@Configuration的类，以及@Component @ComponentScan @ComponentScans @Bean @Import @ImportResource注解，后者是通过parse方法完成的，进入parse方法一路走下来回到processConfigurationClass方法，如下图"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-0acfnq6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-0acfnq6",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/ded0d65a8f0bf679ffa39ba45146807f-20230402210130-odtwws4.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-grgoy3m",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-grgoy3m",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "随后进入doProcessConfigurationClass方法，完成@Component @ComponentScan @ComponentScans @Bean @Import @ImportResource注解解析。"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-pkrecyc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-pkrecyc",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/6451e37dd57ccc1eacf9e4ab5f79a217-20230402210129-iu3mcwf.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-0zr6ihd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-0zr6ihd",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "同样跟踪AutowiredAnnotationBeanPostProcessor类，可以看到该类完成@Autowired @Value的解析，如下图："
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-w3jktmv",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402210130-w3jktmv",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Y3NoYXJw"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public AutowiredAnnotationBeanPostProcessor() {\nthis.autowiredAnnotationTypes.add(Autowired.class);\nthis.autowiredAnnotationTypes.add(Value.class);\ntry {\nthis.autowiredAnnotationTypes.add((Class\u003c? extends Annotation\u003e)\n\t\t\t\t\tClassUtils.forName(\"javax.inject.Inject\", AutowiredAnnotationBeanPostProcessor.class.getClassLoader()));\n\t\t\tlogger.trace(\"JSR-330 'javax.inject.Inject' annotation found and supported for autowiring\");\n\t\t}\ncatch (ClassNotFoundException ex) {\n// JSR-330 API not available - simply skip.\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-5lqkgut",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-5lqkgut",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "类似跟踪CommonAnnotationBeanPostProcessor类，可以看到该类完成@Resource @"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=PostConstruct\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "PostConstruct"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " @PreDestroy的解析，如下图："
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-ka31317",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402210130-ka31317",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Y29ib2w="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "static {\n\t\twebServiceRefClass = loadAnnotationType(\"javax.xml.ws.WebServiceRef\");\n\t\tejbClass = loadAnnotationType(\"javax.ejb.EJB\");\n\n\t\tresourceAnnotationTypes.add(Resource.class);\nif (webServiceRefClass != null) {\n\t\t\tresourceAnnotationTypes.add(webServiceRefClass);\n\t\t}\nif (ejbClass != null) {\n\t\t\tresourceAnnotationTypes.add(ejbClass);\n\t\t}\n\t}\n......\n\npublic CommonAnnotationBeanPostProcessor() {\n\t\tsetOrder(Ordered.LOWEST_PRECEDENCE - 3);\n\t\tsetInitAnnotationType(PostConstruct.class);\n\t\tsetDestroyAnnotationType(PreDestroy.class);\n\t\tignoreResourceType(\"javax.xml.ws.WebServiceContext\");\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-a8i06c6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230402210130-a8i06c6",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4. 示例"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-vvlmna1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-vvlmna1",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "创建一个BeanDefinitionTest类，实现BeanDefinitionRegistryPostProcessor接口，并在方法中完成设置Bean的类型为BeanClass，然后设置BeanClass对象的username属性与值，最后注册到容器中，代码如下"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-ry9n8h2",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402210130-ry9n8h2",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Y29ib2w="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\n    public class BeanDefinitionTest implements BeanDefinitionRegistryPostProcessor {\n\n    @Override\n    public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {\n        GenericBeanDefinition genericBeanDefinition = new GenericBeanDefinition();\n        genericBeanDefinition.setBeanClass(BeanClass.class);\n\n        MutablePropertyValues propertyValues = genericBeanDefinition.getPropertyValues();\n        propertyValues.addPropertyValue(\"username\",\"wzj\");\n\n        registry.registerBeanDefinition(\"beanClass\",genericBeanDefinition);\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-iw17brt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-iw17brt",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Bean"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=Class%E7%B1%BB\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "Class类"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "如下："
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-aov2zql",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402210130-aov2zql",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "dHlwZXNjcmlwdA=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Data\npublic class BeanClass {\n\nprivate String username;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-ntjn1ix",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-ntjn1ix",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "测试类如下："
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-yp2pxmr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402210130-yp2pxmr",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Y29ib2w="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class TestSpring {\n\n    @Autowired\n    private ApplicationContext applicationContext;\n\n    @Test\n    public void testComponentScan() {\n        applicationContext = new AnnotationConfigApplicationContext(\"com.wzj\");\n        BeanClass beanClass = (BeanClass)applicationContext.getBean(\"beanClass\");\n        BeanDefinitionTest beanDefinitionTest = (BeanDefinitionTest)applicationContext.getBean(\"beanDefinitionTest\");\n        System.out.println(\"BeanClass--\u003e\" + beanClass.getUsername());\n        System.out.println(\"BeanDefinitionTest--\u003e\" + beanDefinitionTest.getClass());\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-u25gsn4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-u25gsn4",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "代码目录结构如下与运行结果如下"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-k4tflg2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-k4tflg2",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/5c01a2ae31884140219a0421d51d38fe-20230402210129-vy6vfxp.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-nsh3dzm",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230402210130-nsh3dzm",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5. 总结"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-l9dctq8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-l9dctq8",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文以conmponent-scan标签为例，分析了主要流程，并结合源码讲述了BeanDefinition属性的解析、封装、以及最后注册到容器中，最后以一个思维导图总结每个流程中的大致步骤"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-nrxpqk3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-nrxpqk3",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/0664389002f6d95297ecde4783f7284a-20230402210130-h20079p.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402210130-pdthlzf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402210130-pdthlzf",
+				"updated": "20230402210130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "另外，静态看源码可关注主流程，并做注释，动态debug示例进入源码可直观感受运行期间的值，源码分析不易，搞清楚主流程与思想比源码本身更重要。"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,3926 @@
+{
+	"ID": "20230404010808-91wqroq",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010808-91wqroq",
+		"title": "吃透Spring源码（二十二）：事物执行流程_吃透Java的博客-CSDN博客",
+		"updated": "20230404010808"
+	},
+	"Children": [
+		{
+			"ID": "20230404010808-kjl624u",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010808-kjl624u",
+				"updated": "20230404010808"
+			}
+		},
+		{
+			"ID": "20230404010808-iqvtfe9",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010808-iqvtfe9",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"ID": "20230404010808-ozerski",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010808-ozerski",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-4f4dg6f",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-4f4dg6f",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114996830",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/114996830"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-4vng0ck",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010808-4vng0ck",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-08hc82z",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-08hc82z",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "文章目录执行流程1，AOP拦截器入口2，TransactionInterceptor事物的核心处理一，获取事物1，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "doGetTransaction()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​获取当前事物2，如果当前已存在事物3，如果当前事物不存在二，挂起事物三，恢复事物四，执行目标方法五，异常回滚六，事物提交七，总结执行流程1，AOP拦截器入口测试类：public class TransactionTest {    public static void main(String[] args) {        Annotatio"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-65p8lgy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010808-65p8lgy",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-r8zaeq1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-r8zaeq1",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:08:08"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-mtpfg6r",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010808-mtpfg6r",
+				"updated": "20230404010808"
+			}
+		},
+		{
+			"ID": "20230404010808-ola6j2s",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010808-ola6j2s",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-29fs76w",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010808-29fs76w",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"ID": "20230404010808-vg7w21b",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010808-vg7w21b",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-rxux8u3",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230404010808-rxux8u3",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"ID": "20230404010808-7pxqdvz",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010808-7pxqdvz",
+										"updated": "20230404010808"
+									},
+									"Children": [
+										{
+											"ID": "20230404010808-xdgfjb1",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404010808-xdgfjb1",
+												"updated": "20230404010808"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114996830#_1",
+													"TextMarkTextContent": "执行流程"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404010808-6i2q3d0",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010808-6i2q3d0",
+										"updated": "20230404010808"
+									},
+									"Children": [
+										{
+											"ID": "20230404010808-7t9zef6",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230404010808-7t9zef6",
+												"updated": "20230404010808"
+											},
+											"Children": [
+												{
+													"ID": "20230404010808-16bo2d6",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404010808-16bo2d6",
+														"updated": "20230404010808"
+													},
+													"Children": [
+														{
+															"ID": "20230404010808-391psan",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230404010808-391psan",
+																"updated": "20230404010808"
+															},
+															"Children": [
+																{
+																	"ID": "20230404010808-3lru2vo",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404010808-3lru2vo",
+																		"updated": "20230404010808"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404010808-6zchuhx",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230404010808-6zchuhx",
+																				"updated": "20230404010808"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114996830#1AOP_3",
+																					"TextMarkTextContent": "1，AOP拦截器入口"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230404010808-583wy6s",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404010808-583wy6s",
+																		"updated": "20230404010808"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404010808-o21by4w",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230404010808-o21by4w",
+																				"updated": "20230404010808"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114996830#2TransactionInterceptor_105",
+																					"TextMarkTextContent": "2，TransactionInterceptor"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404010808-pue9wk3",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010808-pue9wk3",
+										"updated": "20230404010808"
+									},
+									"Children": [
+										{
+											"ID": "20230404010808-kee0pgs",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404010808-kee0pgs",
+												"updated": "20230404010808"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114996830#_142",
+													"TextMarkTextContent": "事物的核心处理"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404010808-3r0c3ea",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010808-3r0c3ea",
+										"updated": "20230404010808"
+									},
+									"Children": [
+										{
+											"ID": "20230404010808-4u523w4",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404010808-4u523w4",
+												"updated": "20230404010808"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114996830#_227",
+													"TextMarkTextContent": "一，获取事物"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404010808-b8kr21g",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010808-b8kr21g",
+										"updated": "20230404010808"
+									},
+									"Children": [
+										{
+											"ID": "20230404010808-ezh9wlb",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230404010808-ezh9wlb",
+												"updated": "20230404010808"
+											},
+											"Children": [
+												{
+													"ID": "20230404010808-hcwq5y4",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404010808-hcwq5y4",
+														"updated": "20230404010808"
+													},
+													"Children": [
+														{
+															"ID": "20230404010808-2dn540l",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404010808-2dn540l",
+																"updated": "20230404010808"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114996830#1doGetTransaction_289",
+																	"TextMarkTextContent": "1，`doGetTransaction()`获取当前事物"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404010808-x1fm8ku",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404010808-x1fm8ku",
+														"updated": "20230404010808"
+													},
+													"Children": [
+														{
+															"ID": "20230404010808-tw6g7z3",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404010808-tw6g7z3",
+																"updated": "20230404010808"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114996830#2_379",
+																	"TextMarkTextContent": "2，如果当前已存在事物"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404010808-wl06cvq",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404010808-wl06cvq",
+														"updated": "20230404010808"
+													},
+													"Children": [
+														{
+															"ID": "20230404010808-nwunxj9",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404010808-nwunxj9",
+																"updated": "20230404010808"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114996830#3_502",
+																	"TextMarkTextContent": "3，如果当前事物不存在"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404010808-ydjrsu4",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010808-ydjrsu4",
+										"updated": "20230404010808"
+									},
+									"Children": [
+										{
+											"ID": "20230404010808-prmybrs",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404010808-prmybrs",
+												"updated": "20230404010808"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114996830#_574",
+													"TextMarkTextContent": "二，挂起事物"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404010808-ysahjne",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010808-ysahjne",
+										"updated": "20230404010808"
+									},
+									"Children": [
+										{
+											"ID": "20230404010808-cgxb3gt",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404010808-cgxb3gt",
+												"updated": "20230404010808"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114996830#_673",
+													"TextMarkTextContent": "三，恢复事物"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404010808-h3md49q",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010808-h3md49q",
+										"updated": "20230404010808"
+									},
+									"Children": [
+										{
+											"ID": "20230404010808-8ln97wi",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404010808-8ln97wi",
+												"updated": "20230404010808"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114996830#_736",
+													"TextMarkTextContent": "四，执行目标方法"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404010808-e8cbavj",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010808-e8cbavj",
+										"updated": "20230404010808"
+									},
+									"Children": [
+										{
+											"ID": "20230404010808-z8ibkoo",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404010808-z8ibkoo",
+												"updated": "20230404010808"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114996830#_816",
+													"TextMarkTextContent": "五，异常回滚"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404010808-bt4ptau",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010808-bt4ptau",
+										"updated": "20230404010808"
+									},
+									"Children": [
+										{
+											"ID": "20230404010808-mzz307g",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404010808-mzz307g",
+												"updated": "20230404010808"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114996830#_1001",
+													"TextMarkTextContent": "六，事物提交"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404010808-b734okb",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010808-b734okb",
+										"updated": "20230404010808"
+									},
+									"Children": [
+										{
+											"ID": "20230404010808-qqwc5x6",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404010808-qqwc5x6",
+												"updated": "20230404010808"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114996830#_1178",
+													"TextMarkTextContent": "七，总结"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-efet2xd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010808-efet2xd",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行流程"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-1248hem",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010808-1248hem",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=AOP\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "AOP"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "拦截器入口"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-bofjw17",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-bofjw17",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "测试类："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-j61ndnj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-j61ndnj",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class TransactionTest { \n    public static void main(String[] args) { \n        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(TransactionConfig.class);\n        BookService bean = applicationContext.getBean(BookService.class);\n        // 调用目标方法\n        bean.checkout(\"小明\",1);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-g0rx5ej",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-g0rx5ej",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "bean是代理类，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "bean.checkout(\u0026quot;小明\u0026quot;,1);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​会调到代理类中，然后回调到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DynamicAdvisedInterceptor#intercept()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-67tudry",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-67tudry",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "private static class DynamicAdvisedInterceptor implements MethodInterceptor, Serializable { \n    public Object intercept(Object proxy, Method method, Object[] args, MethodProxy methodProxy) throws Throwable { \n\t\n        \t// 省略部分代码...\n\t\t\ttry { \n\t\t\t\n\t\t\t\t// 从advised中获取配置好的AOP通知\n\t\t\t\tList\u003cObject\u003e chain = this.advised.getInterceptorsAndDynamicInterceptionAdvice(method, targetClass);\n\t\t\t\tObject retVal;\n\n\t\t\t\t// 如果没有aop通知配置，那么直接调用target对象的调用方法\n\t\t\t\tif (chain.isEmpty() \u0026\u0026 Modifier.isPublic(method.getModifiers())) { \n\t\t\t\t\tObject[] argsToUse = AopProxyUtils.adaptArgumentsIfNecessary(method, args);\n\t\t\t\t\t// 如果拦截器链为空则直接激活原方法\n\t\t\t\t\tretVal = methodProxy.invoke(target, argsToUse);\n\t\t\t\t}\n\t\t\t\telse { \n\n\t\t\t\t\t// 通过cglibMethodInvocation来启动advice通知\n\t\t\t\t\tretVal = new CglibMethodInvocation(proxy, target, method, args, targetClass, chain, methodProxy).proceed();\n\t\t\t\t}\n\t\t\t\tretVal = processReturnType(proxy, target, method, retVal);\n\t\t\t\treturn retVal;\n\t\t\t}\n\t\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-ymsglig",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-ymsglig",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里分为两步："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-973de6u",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010808-973de6u",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"ID": "20230404010808-kru7mfp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010808-kru7mfp",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-jmx5y27",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-jmx5y27",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "从Advisor中获取事物拦截器（TransactionInterceptor）或方法拦截器（MethodInterceptor）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-w2mdj4y",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010808-w2mdj4y",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-6knjlay",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-6knjlay",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "执行具体的拦截器链"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-czd6ton",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-czd6ton",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "会调用到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ReflectiveMethodInvocation"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类，是AOP拦截（执行"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E6%8B%A6%E6%88%AA%E5%99%A8\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "拦截器"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "链）的入口类："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-ukvx3w8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-ukvx3w8",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "// AOP拦截的执行入口类\npublic class ReflectiveMethodInvocation implements ProxyMethodInvocation, Cloneable { \n  \n    public Object proceed() throws Throwable { \n\n\t\t// 从索引为-1的拦截器开始调用，并按序递增，如果拦截器链中的拦截器迭代调用完毕，开始调用target的函数，这个函数是通过反射机制完成的\n\t\t// 具体实现在AopUtils.invokeJoinpointUsingReflection方法中\n\t\tif (this.currentInterceptorIndex == this.interceptorsAndDynamicMethodMatchers.size() - 1) { \n\t\t\treturn invokeJoinpoint();\n\t\t}\n\n\t\t// 获取下一个要执行的拦截器，沿着定义好的interceptorOrInterceptionAdvice链进行处理\n\t\tObject interceptorOrInterceptionAdvice =\n\t\t\t\tthis.interceptorsAndDynamicMethodMatchers.get(++this.currentInterceptorIndex);\n\t\tif (interceptorOrInterceptionAdvice instanceof InterceptorAndDynamicMethodMatcher) { \n\t\t\t// 这里对拦截器进行动态匹配的判断，这里是对pointcut触发进行匹配的地方，如果和定义的pointcut匹配，那么这个advice将会得到执行\n\t\t\tInterceptorAndDynamicMethodMatcher dm =\n\t\t\t\t\t(InterceptorAndDynamicMethodMatcher) interceptorOrInterceptionAdvice;\n\t\t\tClass\u003c?\u003e targetClass = (this.targetClass != null ? this.targetClass : this.method.getDeclaringClass());\n\t\t\tif (dm.methodMatcher.matches(this.method, targetClass, this.arguments)) { \n\t\t\t\treturn dm.interceptor.invoke(this);\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// 如果不匹配，那么proceed会被递归调用，直到所有的拦截器都被运行过位置\n\t\t\t\treturn proceed();\n\t\t\t}\n\t\t}\n\t\telse { \n\t\t\t// 普通拦截器，直接调用拦截器，将this作为参数传递以保证当前实例中调用链的执行\n\t\t\treturn ((MethodInterceptor) interceptorOrInterceptionAdvice).invoke(this);\n\t\t}\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-bv8o0gb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-bv8o0gb",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上述方法是AOP拦截器的入口类，会遍历拦截器链中的所有拦截器，按事先排好序的顺序一个个执行。直到所有的拦截器都执行完成，再通过反射来执行目标方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-8f58812",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-8f58812",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected Object invokeJoinpoint() throws Throwable { \n\t\t// this.target 目标对象\n\t\t// this.method 目标方法\n\t\t// this.arguments 目标方法参数信息\n\t\treturn AopUtils.invokeJoinpointUsingReflection(this.target, this.method, this.arguments);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-b6oxla9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-b6oxla9",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "目前事物拦截器只有一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-8f7na0c",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010808-8f7na0c",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，TransactionInterceptor"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-6rbh94e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-6rbh94e",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​使用通用的spring事务基础架构实现“声明式事务”，继承自"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAspectSupport"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类（该类包含与Spring的底层事务API的集成），实现了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​接口。类图如下："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-h6821e5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-h6821e5",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210319091230710-20230404010808-9vewvjc.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-wbn0baa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-wbn0baa",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "事务拦截器的拦截功能就是依靠实现了MethodInterceptor接口，这个是spring的方法拦截器，主要看invoke方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-otzjnqm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-otzjnqm",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "/**\n * 事务拦截器，实现了方法拦截器MethodInterceptor\n */\n@SuppressWarnings(\"serial\")\npublic class TransactionInterceptor extends TransactionAspectSupport implements MethodInterceptor, Serializable { \n    @Override\n\t@Nullable\n\tpublic Object invoke(MethodInvocation invocation) throws Throwable { \n\t\n\t\t// 获取我们的代理对象的class属性\n\t\tClass\u003c?\u003e targetClass = (invocation.getThis() != null ? AopUtils.getTargetClass(invocation.getThis()) : null);\n\n\t\t/**\n\t\t * 以事务的方式调用目标方法\n\t\t * 在这埋了一个钩子函数 用来回调目标方法的\n\t\t */\n\t\treturn invokeWithinTransaction(invocation.getMethod(), targetClass, invocation::proceed);\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-ec97naa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-ec97naa",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如上图"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​复写"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​接口的invoke方法，并在invoke方法中调用了父类"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAspectSupport"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invokeWithinTransaction()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法完成事物的核心处理。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-9fbyhb3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-9fbyhb3",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中，这里传了一个钩子方法（回调方法），用于回到我们AOP拦截处理入口，用于调用我们目标方法"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invokeJoinpoint()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​上面提到过！"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-s80fktz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-s80fktz",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "接下来我们来看事物处理的核心方法"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAspectSupport#invokeWithinTransaction()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-1oopw0c",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010808-1oopw0c",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "事物的核心处理"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-hbux9k4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-hbux9k4",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class TransactionAspectSupport implements BeanFactoryAware, InitializingBean { \n  \n    protected Object invokeWithinTransaction(Method method, @Nullable Class\u003c?\u003e targetClass,\n\t\t\tfinal InvocationCallback invocation) throws Throwable { \n\n\t\t// 获取我们的事务属性源对象\n\t\tTransactionAttributeSource tas = getTransactionAttributeSource();\n\t\t// 通过事务属性源对象获取到当前方法的事务属性信息\n\t\tfinal TransactionAttribute txAttr = (tas != null ? tas.getTransactionAttribute(method, targetClass) : null);\n\t\t// 获取我们配置的事务管理器对象\n\t\tfinal TransactionManager tm = determineTransactionManager(txAttr);\n\n\t\t// 省略部分异常判断....\n\n\t\tPlatformTransactionManager ptm = asPlatformTransactionManager(tm);\n\t\t// 获取连接点的唯一标识  类名+方法名\n\t\tfinal String joinpointIdentification = methodIdentification(method, targetClass, txAttr);\n\n\t\t// 声明式事务处理\n\t\tif (txAttr == null || !(ptm instanceof CallbackPreferringPlatformTransactionManager)) { \n\n\t\t\t// 创建TransactionInfo\n\t\t\tTransactionInfo txInfo = createTransactionIfNecessary(ptm, txAttr, joinpointIdentification);\n\n\t\t\tObject retVal;\n\t\t\ttry { \n\t\t\t\t// 执行被增强方法\n\t\t\t\tretVal = invocation.proceedWithInvocation();\n\t\t\t}\n\t\t\tcatch (Throwable ex) { \n\t\t\t\t// 异常回滚\n\t\t\t\tcompleteTransactionAfterThrowing(txInfo, ex);\n\t\t\t\tthrow ex;\n\t\t\t}\n\t\t\tfinally { \n\t\t\t\t//清除事务信息，恢复线程私有的老的事务信息\n\t\t\t\tcleanupTransactionInfo(txInfo);\n\t\t\t}\n\n\t\t\t//成功后提交，会进行资源储量，连接释放，恢复挂起事务等操作\n\t\t\tcommitTransactionAfterReturning(txInfo);\n\t\t\treturn retVal;\n\t\t}\n      \n        // 省略编程式事物逻辑...\n        else{ }\n\n        // 省略部分代码...\n\t\t\treturn result;\n\t\t}\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-7d42p46",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-7d42p46",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面主要完成如下流程："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-g5a628t",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010808-g5a628t",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"ID": "20230404010808-eqxrall",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010808-eqxrall",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-8bvs1mr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-8bvs1mr",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "createTransactionIfNecessary()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​:如果有必要，创建事务。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-083a2xq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010808-083a2xq",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-dbdq04u",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-dbdq04u",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "invocation.proceedWithInvocation()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​执行目标方法"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-hkyohpa",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010808-hkyohpa",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-iu5px4k",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-iu5px4k",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "completeTransactionAfterThrowing(txInfo, ex)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​异常回滚事物"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-s2bhofn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010808-s2bhofn",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-jk1rizh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-jk1rizh",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "commitTransactionAfterReturning(txInfo)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​提交事物"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-9cb1puy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-9cb1puy",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected TransactionInfo createTransactionIfNecessary(@Nullable PlatformTransactionManager tm,\n\t\t\t@Nullable TransactionAttribute txAttr, final String joinpointIdentification) { \n\n\t\tTransactionStatus status = null;\n\t\tif (txAttr != null) { \n\t\t\tif (tm != null) { \n\t\t\t\t// 获取TransactionStatus事务\n\t\t\t\tstatus = tm.getTransaction(txAttr);\n\t\t\t}\n\t\t}\n\t\t// 根据指定的属性与status准备一个TransactionInfo，\n\t\treturn prepareTransactionInfo(tm, txAttr, joinpointIdentification, status);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-zut3ouh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-zut3ouh",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面分为两步："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-rnxkyk8",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010808-rnxkyk8",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"ID": "20230404010808-s6q9yeb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010808-s6q9yeb",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-ls8djjh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-ls8djjh",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "获取事物"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionStatus"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-o467991",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010808-o467991",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-ih32ap9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-ih32ap9",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "把获取到的事物"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionStatus"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​包装成"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "prepareTransactionInfo"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-959yqze",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010808-959yqze",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一，获取事物"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-fv80n0y",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-fv80n0y",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class AbstractPlatformTransactionManager implements PlatformTransactionManager, Serializable { \n    public final TransactionStatus getTransaction(@Nullable TransactionDefinition definition)\n\t\t\tthrows TransactionException { \n\n\t\t// 如果没有事务定义信息则使用默认的事务管理器定义信息\n\t\tTransactionDefinition def = (definition != null ? definition : TransactionDefinition.withDefaults());\n\n\t\t// 获取事务\n\t\tObject transaction = doGetTransaction();\n\t\tboolean debugEnabled = logger.isDebugEnabled();\n\n\t\t// 判断当前线程是否存在事务，判断依据为当前线程记录的连接不为空且连接中的transactionActive属性不为空\n\t\tif (isExistingTransaction(transaction)) { \n\t\t\t// 当前线程已经存在事务\n\t\t\treturn handleExistingTransaction(def, transaction, debugEnabled);\n\t\t}\n\n\t\t// 事务超时设置验证\n\t\tif (def.getTimeout() \u003c TransactionDefinition.TIMEOUT_DEFAULT) { \n\t\t\tthrow new InvalidTimeoutException(\"Invalid transaction timeout\", def.getTimeout());\n\t\t}\n\n\t\t// 如果当前线程不存在事务，但是PropagationBehavior却被声明为PROPAGATION_MANDATORY抛出异常\n\t\tif (def.getPropagationBehavior() == TransactionDefinition.PROPAGATION_MANDATORY) { \n\t\t\tthrow new IllegalTransactionStateException(\n\t\t\t\t\t\"No existing transaction found for transaction marked with propagation 'mandatory'\");\n\t\t}\n\t\t// PROPAGATION_REQUIRED，PROPAGATION_REQUIRES_NEW，PROPAGATION_NESTED都需要新建事务\n\t\telse if (def.getPropagationBehavior() == TransactionDefinition.PROPAGATION_REQUIRED ||\n\t\t\t\tdef.getPropagationBehavior() == TransactionDefinition.PROPAGATION_REQUIRES_NEW ||\n\t\t\t\tdef.getPropagationBehavior() == TransactionDefinition.PROPAGATION_NESTED) { \n\t\t\t//没有当前事务的话，REQUIRED，REQUIRES_NEW，NESTED挂起的是空事务，然后创建一个新事务\n\t\t\tSuspendedResourcesHolder suspendedResources = suspend(null);\n\t\t\tif (debugEnabled) { \n\t\t\t\tlogger.debug(\"Creating new transaction with name [\" + def.getName() + \"]: \" + def);\n\t\t\t}\n\t\t\ttry { \n\t\t\t\treturn startTransaction(def, transaction, debugEnabled, suspendedResources);\n\t\t\t}\n\t\t\tcatch (RuntimeException | Error ex) { \n\t\t\t\t// 恢复挂起的事务\n\t\t\t\tresume(null, suspendedResources);\n\t\t\t\tthrow ex;\n\t\t\t}\n\t\t}\n\t\telse { \n\n\t\t\t// 创建一个空的事务\n\t\t\tif (def.getIsolationLevel() != TransactionDefinition.ISOLATION_DEFAULT \u0026\u0026 logger.isWarnEnabled()) { \n\t\t\t\tlogger.warn(\"Custom isolation level specified but no actual transaction initiated; \" +\n\t\t\t\t\t\t\"isolation level will effectively be ignored: \" + def);\n\t\t\t}\n\t\t\tboolean newSynchronization = (getTransactionSynchronization() == SYNCHRONIZATION_ALWAYS);\n\t\t\treturn prepareTransactionStatus(def, null, true, newSynchronization, debugEnabled, null);\n\t\t}\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-nc9aei7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010808-nc9aei7",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "doGetTransaction()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​获取当前事物"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-4bue8kr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-4bue8kr",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected Object doGetTransaction() { \n\t\t// 创建一个数据源事务对象\n\t\tDataSourceTransactionObject txObject = new DataSourceTransactionObject();\n\t\t// 是否允许当前事务设置保持点\n\t\ttxObject.setSavepointAllowed(isNestedTransactionAllowed());\n\t\t/**\n\t\t * TransactionSynchronizationManager 事务同步管理器对象(该类中都是局部线程变量)\n\t\t * 用来保存当前事务的信息,我们第一次从这里去线程变量中获取 事务连接持有器对象 通过数据源为key去获取\n\t\t * 由于第一次进来开始事务 我们的事务同步管理器中没有被存放.所以此时获取出来的conHolder为null\n\t\t */\n\t\tConnectionHolder conHolder =\n\t\t\t\t(ConnectionHolder) TransactionSynchronizationManager.getResource(obtainDataSource());\n\t\t// 非新创建连接则写false\n\t\ttxObject.setConnectionHolder(conHolder, false);\n\t\t// 返回事务对象\n\t\treturn txObject;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-5oyijpu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-5oyijpu",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先获取到当前 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "JDBC DataSource （jdbc数据源）"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​然后调用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionSynchronizationManager"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 事务同步管理器对象获取当前线程且当前 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "JDBC DataSource"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 所对应的事物。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-mwg5afc",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-mwg5afc",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class TransactionSynchronizationManager { \n\n\tprivate static final Log logger = LogFactory.getLog(TransactionSynchronizationManager.class);\n\n\t// 线程私有事务资源\n\tprivate static final ThreadLocal\u003cMap\u003cObject, Object\u003e\u003e resources =\n\t\t\tnew NamedThreadLocal\u003c\u003e(\"Transactional resources\");\n\n\t// 事务同步\n\tprivate static final ThreadLocal\u003cSet\u003cTransactionSynchronization\u003e\u003e synchronizations =\n\t\t\tnew NamedThreadLocal\u003c\u003e(\"Transaction synchronizations\");\n\n\t// 当前事务的名称\n\tprivate static final ThreadLocal\u003cString\u003e currentTransactionName =\n\t\t\tnew NamedThreadLocal\u003c\u003e(\"Current transaction name\");\n\n\t// 当前事务是否只读\n\tprivate static final ThreadLocal\u003cBoolean\u003e currentTransactionReadOnly =\n\t\t\tnew NamedThreadLocal\u003c\u003e(\"Current transaction read-only status\");\n\n\t// 当前事务的隔离级别\n\tprivate static final ThreadLocal\u003cInteger\u003e currentTransactionIsolationLevel =\n\t\t\tnew NamedThreadLocal\u003c\u003e(\"Current transaction isolation level\");\n\n\t// 实际事务是否激活\n\tprivate static final ThreadLocal\u003cBoolean\u003e actualTransactionActive =\n\t\t\tnew NamedThreadLocal\u003c\u003e(\"Actual transaction active\");\n\n\n\t@Nullable\n\tpublic static Object getResource(Object key) { \n\t\tObject actualKey = TransactionSynchronizationUtils.unwrapResourceIfNecessary(key);\n\t\tObject value = doGetResource(actualKey);\n\t\tif (value != null \u0026\u0026 logger.isTraceEnabled()) { \n\t\t\tlogger.trace(\"Retrieved value [\" + value + \"] for key [\" + actualKey + \"] bound to thread [\" +\n\t\t\t\t\tThread.currentThread().getName() + \"]\");\n\t\t}\n\t\treturn value;\n\t}\n\n\n\t@Nullable\n\tprivate static Object doGetResource(Object actualKey) { \n\t\tMap\u003cObject, Object\u003e map = resources.get();\n\t\tif (map == null) { \n\t\t\treturn null;\n\t\t}\n\t\tObject value = map.get(actualKey);\n\t\t// Transparently remove ResourceHolder that was marked as void...\n\t\tif (value instanceof ResourceHolder \u0026\u0026 ((ResourceHolder) value).isVoid()) { \n\t\t\tmap.remove(actualKey);\n\t\t\t// Remove entire ThreadLocal if empty...\n\t\t\tif (map.isEmpty()) { \n\t\t\t\tresources.remove();\n\t\t\t}\n\t\t\tvalue = null;\n\t\t}\n\t\treturn value;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-7rgo3i9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-7rgo3i9",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果当我们第一次从这里去线程变量"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "resources"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中获取 事务连接持有器对象 通过数据源为key去获取，由于第一次进来开始事务 我们的事务同步管理器中没有被存放.所以此时获取出来的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "conHolder"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​为null。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-akstmt3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-akstmt3",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果当前线程不是第一次进来，则可以取到对应的事物持有器对象"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "conHolder"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-w3j0r84",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010808-w3j0r84",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，如果当前已存在事物"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-bvbxdm7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-bvbxdm7",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "如果上面取到的事物持有器对象"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "conHolder!=null"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "，并且当前事物是活跃的，则证明当前已存在事物"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-olwmhzr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-olwmhzr",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "则处理已存在事物："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-5ytl64f",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-5ytl64f",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate TransactionStatus handleExistingTransaction(\n\t\t\tTransactionDefinition definition, Object transaction, boolean debugEnabled)\n\t\t\tthrows TransactionException { \n\n\t\t/**\n\t\t * 判断当前的事务行为是不是PROPAGATION_NEVER的\n\t\t * 表示为不支持事务,但是当前又存在一个事务,所以抛出异常\n\t\t */\n\t\tif (definition.getPropagationBehavior() == TransactionDefinition.PROPAGATION_NEVER) { \n\t\t\tthrow new IllegalTransactionStateException(\n\t\t\t\t\t\"Existing transaction found for transaction marked with propagation 'never'\");\n\t\t}\n\n\t\t/**\n\t\t * 判断当前的事务属性不支持事务,PROPAGATION_NOT_SUPPORTED,所以需要先挂起已经存在的事务\n\t\t */\n\t\tif (definition.getPropagationBehavior() == TransactionDefinition.PROPAGATION_NOT_SUPPORTED) { \n\t\t\tif (debugEnabled) { \n\t\t\t\tlogger.debug(\"Suspending current transaction\");\n\t\t\t}\n\t\t\t// 挂起当前事务\n\t\t\tObject suspendedResources = suspend(transaction);\n\t\t\tboolean newSynchronization = (getTransactionSynchronization() == SYNCHRONIZATION_ALWAYS);\n\t\t\t// 创建一个新的非事务状态(保存了上一个存在事务状态的属性)\n\t\t\treturn prepareTransactionStatus(\n\t\t\t\t\tdefinition, null, false, newSynchronization, debugEnabled, suspendedResources);\n\t\t}\n\n\t\t/**\n\t\t * 当前的事务属性状态是PROPAGATION_REQUIRES_NEW表示需要新开启一个事务状态\n\t\t */\n\t\tif (definition.getPropagationBehavior() == TransactionDefinition.PROPAGATION_REQUIRES_NEW) { \n\t\t\tif (debugEnabled) { \n\t\t\t\tlogger.debug(\"Suspending current transaction, creating new transaction with name [\" +\n\t\t\t\t\t\tdefinition.getName() + \"]\");\n\t\t\t}\n\t\t\t// 挂起当前事务并返回挂起的资源持有器\n\t\t\tSuspendedResourcesHolder suspendedResources = suspend(transaction);\n\t\t\ttry { \n\t\t\t\t// 创建一个新的非事务状态(保存了上一个存在事务状态的属性)\n\t\t\t\treturn startTransaction(definition, transaction, debugEnabled, suspendedResources);\n\t\t\t}\n\t\t\tcatch (RuntimeException | Error beginEx) { \n\t\t\t\tresumeAfterBeginException(transaction, suspendedResources, beginEx);\n\t\t\t\tthrow beginEx;\n\t\t\t}\n\t\t}\n\n\t\t// 嵌套事务\n\t\tif (definition.getPropagationBehavior() == TransactionDefinition.PROPAGATION_NESTED) { \n\t\t\t// 不允许就报异常\n\t\t\tif (!isNestedTransactionAllowed()) { \n\t\t\t\tthrow new NestedTransactionNotSupportedException(\n\t\t\t\t\t\t\"Transaction manager does not allow nested transactions by default - \" +\n\t\t\t\t\t\t\"specify 'nestedTransactionAllowed' property with value 'true'\");\n\t\t\t}\n\t\t\tif (debugEnabled) { \n\t\t\t\tlogger.debug(\"Creating nested transaction with name [\" + definition.getName() + \"]\");\n\t\t\t}\n\t\t\t// 嵌套事务的处理\n\t\t\tif (useSavepointForNestedTransaction()) { \n\t\t\t\t// Create savepoint within existing Spring-managed transaction,\n\t\t\t\t// through the SavepointManager API implemented by TransactionStatus.\n\t\t\t\t// Usually uses JDBC 3.0 savepoints. Never activates Spring synchronization.\n\t\t\t\t// 如果没有可以使用保存点的方式控制事务回滚，那么在嵌入式事务的建立初始简历保存点\n\t\t\t\tDefaultTransactionStatus status =\n\t\t\t\t\t\tprepareTransactionStatus(definition, transaction, false, false, debugEnabled, null);\n\t\t\t\t// 为事务设置一个回退点\n\t\t\t\tstatus.createAndHoldSavepoint();\n\t\t\t\treturn status;\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// Nested transaction through nested begin and commit/rollback calls.\n\t\t\t\t// Usually only for JTA: Spring synchronization might get activated here\n\t\t\t\t// in case of a pre-existing JTA transaction.\n\t\t\t\t// 有些情况是不能使用保存点操作\n\t\t\t\treturn startTransaction(definition, transaction, debugEnabled, null);\n\t\t\t}\n\t\t}\n\n\t\t// Assumably PROPAGATION_SUPPORTS or PROPAGATION_REQUIRED.\n\t\tif (debugEnabled) { \n\t\t\tlogger.debug(\"Participating in existing transaction\");\n\t\t}\n\t\tif (isValidateExistingTransaction()) { \n\t\t\tif (definition.getIsolationLevel() != TransactionDefinition.ISOLATION_DEFAULT) { \n\t\t\t\tInteger currentIsolationLevel = TransactionSynchronizationManager.getCurrentTransactionIsolationLevel();\n\t\t\t\tif (currentIsolationLevel == null || currentIsolationLevel != definition.getIsolationLevel()) { \n\t\t\t\t\tConstants isoConstants = DefaultTransactionDefinition.constants;\n\t\t\t\t\tthrow new IllegalTransactionStateException(\"Participating transaction with definition [\" +\n\t\t\t\t\t\t\tdefinition + \"] specifies isolation level which is incompatible with existing transaction: \" +\n\t\t\t\t\t\t\t(currentIsolationLevel != null ?\n\t\t\t\t\t\t\t\t\tisoConstants.toCode(currentIsolationLevel, DefaultTransactionDefinition.PREFIX_ISOLATION) :\n\t\t\t\t\t\t\t\t\t\"(unknown)\"));\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (!definition.isReadOnly()) { \n\t\t\t\tif (TransactionSynchronizationManager.isCurrentTransactionReadOnly()) { \n\t\t\t\t\tthrow new IllegalTransactionStateException(\"Participating transaction with definition [\" +\n\t\t\t\t\t\t\tdefinition + \"] is not marked as read-only but existing transaction is\");\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tboolean newSynchronization = (getTransactionSynchronization() != SYNCHRONIZATION_NEVER);\n\t\treturn prepareTransactionStatus(definition, transaction, false, newSynchronization, debugEnabled, null);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-g4reyor",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-g4reyor",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果当前已存在事物："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-f9q0lwc",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010808-f9q0lwc",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"ID": "20230404010808-5iwp5fw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010808-5iwp5fw",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-17ahpoi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-17ahpoi",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果当前事物传播特性是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "NEVER"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，表示为不支持事务,但是当前又存在一个事务,所以抛出异常。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-nq3m4b9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010808-nq3m4b9",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-anznkik",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-anznkik",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果当前事物传播特性是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "NOT_SUPPORTED"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，表示不运行在事物中，则需要先挂起已经存在的事务，创建一个"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "非事物状态"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​（将当前事务对象设置为null，newTransaction设置为false）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-xxk5anw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010808-xxk5anw",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-8crhwjt",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-8crhwjt",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果当前事物传播特性是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "REQUIRES_NEW"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，表示需要新开启一个事务状态，则需要挂起已经存在的事物，并开启一个新的事物。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-ml3qkgg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010808-ml3qkgg",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-4o1iejn",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-4o1iejn",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果当前事物传播特性是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "NESTED"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，表示嵌套事物，则需要创建一个SAVEPOINT"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-kz3p27h",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230404010808-kz3p27h",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-gfe2miq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-gfe2miq",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果当前事物传播特性是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "REQUIRED"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "SUPPORT"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MANDATORY"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，则会加入该事物，并把"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "newTransaction"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​标志位设置为false。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-8t1iuk3",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010808-8t1iuk3",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3，如果当前事物不存在"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-g4e2391",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-g4e2391",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic final TransactionStatus getTransaction(@Nullable TransactionDefinition definition)\n\t\t\tthrows TransactionException { \n\n\t\t// Use defaults if no transaction definition given.\n\t\t// 如果没有事务定义信息则使用默认的事务管理器定义信息\n\t\tTransactionDefinition def = (definition != null ? definition : TransactionDefinition.withDefaults());\n\n\t\t// 获取事务\n\t\tObject transaction = doGetTransaction();\n\t\tboolean debugEnabled = logger.isDebugEnabled();\n\n\t\t// 判断当前线程是否存在事务，判断依据为当前线程记录的连接不为空且连接中的transactionActive属性不为空\n\t\tif (isExistingTransaction(transaction)) { \n\t\t\t// 当前线程已经存在事务\n\t\t\treturn handleExistingTransaction(def, transaction, debugEnabled);\n\t\t}\n      \n      \n        // ********如果当前事物不存在，则向下走****************\n      \n\n\t\t// Check definition settings for new transaction.\n\t\t// 事务超时设置验证\n\t\tif (def.getTimeout() \u003c TransactionDefinition.TIMEOUT_DEFAULT) { \n\t\t\tthrow new InvalidTimeoutException(\"Invalid transaction timeout\", def.getTimeout());\n\t\t}\n\n\t\t// 如果当前线程不存在事务，但是PropagationBehavior却被声明为PROPAGATION_MANDATORY抛出异常\n\t\tif (def.getPropagationBehavior() == TransactionDefinition.PROPAGATION_MANDATORY) { \n\t\t\tthrow new IllegalTransactionStateException(\n\t\t\t\t\t\"No existing transaction found for transaction marked with propagation 'mandatory'\");\n\t\t}\n\t\t// PROPAGATION_REQUIRED，PROPAGATION_REQUIRES_NEW，PROPAGATION_NESTED都需要新建事务\n\t\telse if (def.getPropagationBehavior() == TransactionDefinition.PROPAGATION_REQUIRED ||\n\t\t\t\tdef.getPropagationBehavior() == TransactionDefinition.PROPAGATION_REQUIRES_NEW ||\n\t\t\t\tdef.getPropagationBehavior() == TransactionDefinition.PROPAGATION_NESTED) { \n\t\t\t//没有当前事务的话，REQUIRED，REQUIRES_NEW，NESTED挂起的是空事务，然后创建一个新事务\n\t\t\tSuspendedResourcesHolder suspendedResources = suspend(null);\n\t\t\tif (debugEnabled) { \n\t\t\t\tlogger.debug(\"Creating new transaction with name [\" + def.getName() + \"]: \" + def);\n\t\t\t}\n\t\t\ttry { \n\t\t\t\treturn startTransaction(def, transaction, debugEnabled, suspendedResources);\n\t\t\t}\n\t\t\tcatch (RuntimeException | Error ex) { \n\t\t\t\t// 恢复挂起的事务\n\t\t\t\tresume(null, suspendedResources);\n\t\t\t\tthrow ex;\n\t\t\t}\n\t\t}\n\t\telse { \n\t\t\t// Create \"empty\" transaction: no actual transaction, but potentially synchronization.\n\t\t\t// 创建一个空的事务\n\t\t\tif (def.getIsolationLevel() != TransactionDefinition.ISOLATION_DEFAULT \u0026\u0026 logger.isWarnEnabled()) { \n\t\t\t\tlogger.warn(\"Custom isolation level specified but no actual transaction initiated; \" +\n\t\t\t\t\t\t\"isolation level will effectively be ignored: \" + def);\n\t\t\t}\n\t\t\tboolean newSynchronization = (getTransactionSynchronization() == SYNCHRONIZATION_ALWAYS);\n\t\t\treturn prepareTransactionStatus(def, null, true, newSynchronization, debugEnabled, null);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-1xl9wbi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-1xl9wbi",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果当前事物不存在，则向下走："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-c0obplj",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010808-c0obplj",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"ID": "20230404010808-3bqfnri",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010808-3bqfnri",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-0pjsqlj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-0pjsqlj",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果当前事物传播特性是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MANDATORY"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，表示当前事物不存在，则抛出异常"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-uvzpqvf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010808-uvzpqvf",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-6s573mc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-6s573mc",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果当前事物传播特性是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "REQUIRED"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "REQUIRED_NEW"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "NESTED"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​则都需要新建事务。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-gneg4jw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010808-gneg4jw",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-4l8q4hf",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-4l8q4hf",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果当前事物传播特性是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "SUPPORT"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "NOT_SUPPORTED"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "NEVER"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​表示不运行在事物中，则创建一个空的事物，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "transaction设置为null"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "newTransaction设置为true"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-279acbi",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010808-279acbi",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E6%8C%82%E8%B5%B7\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "挂起"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "事物"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-bf1uvqj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-bf1uvqj",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "有些传播机制需要挂起当前的事务，比如"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "NOT_SUPPORTED"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​,"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "REQUIRES_NEW"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​首先会清除所有线程相关的同步状态，如果当前事务存在的话，就进行一些属性的清除，比如清空连接持有器，清空线程私有变量的同步状态，最后把当前事务清除的属性保存到一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SuspendedResourcesHolder"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​里，以便于恢复的时候设置回去。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-vf3vv15",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-vf3vv15",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected final SuspendedResourcesHolder suspend(@Nullable Object transaction) throws TransactionException { \n\t\t// 判断当前的线程变量中有没有激活的事物,有需要清空线程变量\n\t\tif (TransactionSynchronizationManager.isSynchronizationActive()) { \n\t\t\tList\u003cTransactionSynchronization\u003e suspendedSynchronizations = doSuspendSynchronization();\n\t\t\ttry { \n\t\t\t\tObject suspendedResources = null;\n\t\t\t\tif (transaction != null) { \n\t\t\t\t\t//挂起的资源，连接持有器\n\t\t\t\t\tsuspendedResources = doSuspend(transaction);\n\t\t\t\t}\n\t\t\t\t// 获取当前事务名称\n\t\t\t\tString name = TransactionSynchronizationManager.getCurrentTransactionName();\n\t\t\t\t// 清空线程变量\n\t\t\t\tTransactionSynchronizationManager.setCurrentTransactionName(null);\n\t\t\t\t// 获取出只读事务的名称\n\t\t\t\tboolean readOnly = TransactionSynchronizationManager.isCurrentTransactionReadOnly();\n\t\t\t\t// 清空线程变量\n\t\t\t\tTransactionSynchronizationManager.setCurrentTransactionReadOnly(false);\n\t\t\t\t// 获取已存在事务的隔离级别\n\t\t\t\tInteger isolationLevel = TransactionSynchronizationManager.getCurrentTransactionIsolationLevel();\n\t\t\t\t// 清空隔离级别\n\t\t\t\tTransactionSynchronizationManager.setCurrentTransactionIsolationLevel(null);\n\t\t\t\t// 判断当前事务激活状态\n\t\t\t\tboolean wasActive = TransactionSynchronizationManager.isActualTransactionActive();\n\t\t\t\t// 清空标记\n\t\t\t\tTransactionSynchronizationManager.setActualTransactionActive(false);\n\t\t\t\t// 把上诉从线程变量中获取出来的存在事务属性封装为挂起的事务属性返回出去\n\t\t\t\treturn new SuspendedResourcesHolder(\n\t\t\t\t\t\tsuspendedResources, suspendedSynchronizations, name, readOnly, isolationLevel, wasActive);\n\t\t\t}\n\t\t\tcatch (RuntimeException | Error ex) { \n\t\t\t\t// doSuspend failed - original transaction is still active...\n\t\t\t\tdoResumeSynchronization(suspendedSynchronizations);\n\t\t\t\tthrow ex;\n\t\t\t}\n\t\t}\n\t\telse if (transaction != null) { \n\t\t\t// Transaction active but no synchronization active.\n\t\t\tObject suspendedResources = doSuspend(transaction);\n\t\t\treturn new SuspendedResourcesHolder(suspendedResources);\n\t\t}\n\t\telse { \n\t\t\t// Neither transaction nor synchronization active.\n\t\t\treturn null;\n\t\t}\n\t}\n\n\t/**\n\t * 实际挂起资源的方法\n\t */\n\t@Override\n\tprotected Object doSuspend(Object transaction) { \n\t\tDataSourceTransactionObject txObject = (DataSourceTransactionObject) transaction;\n\t\t// 清空连接持有器\n\t\ttxObject.setConnectionHolder(null);\n\t\t// 解绑线程私有的资源\n\t\treturn TransactionSynchronizationManager.unbindResource(obtainDataSource());\n\t}\n\n\n\t/**\n\t * 解绑数据源\n\t */\n\tpublic static Object unbindResource(Object key) throws IllegalStateException { \n\t\t// 获取数据源\n\t\tObject actualKey = TransactionSynchronizationUtils.unwrapResourceIfNecessary(key);\n\t\t// 获取解绑的连接持有器\n\t\tObject value = doUnbindResource(actualKey);\n\t\treturn value;\n\t}\n\n\n\tprivate static Object doUnbindResource(Object actualKey) { \n\t\tMap\u003cObject, Object\u003e map = resources.get();\n\t\tif (map == null) { \n\t\t\treturn null;\n\t\t}\n\t\tObject value = map.remove(actualKey);\n\t\t// Remove entire ThreadLocal if empty...\n\t\tif (map.isEmpty()) { \n\t\t\tresources.remove();\n\t\t}\n\t\t// Transparently suppress a ResourceHolder that was marked as void...\n\t\tif (value instanceof ResourceHolder \u0026\u0026 ((ResourceHolder) value).isVoid()) { \n\t\t\tvalue = null;\n\t\t}\n\t\tif (value != null \u0026\u0026 logger.isTraceEnabled()) { \n\t\t\tlogger.trace(\"Removed value [\" + value + \"] for key [\" + actualKey + \"] from thread [\" +\n\t\t\t\t\tThread.currentThread().getName() + \"]\");\n\t\t}\n\t\treturn value;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-66v3u0d",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010808-66v3u0d",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三，恢复事物"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-nx2ojh3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-nx2ojh3",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果前面有事务被挂起，现在就要恢复，其实就是把一些属性设置回去："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-t7nzjdt",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-t7nzjdt",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected final void resume(@Nullable Object transaction, @Nullable SuspendedResourcesHolder resourcesHolder)\n\t\t\tthrows TransactionException { \n\n\t\t// 设置属性和状态\n\t\tif (resourcesHolder != null) { \n\t\t\tObject suspendedResources = resourcesHolder.suspendedResources;\n\t\t\tif (suspendedResources != null) { \n\t\t\t\tdoResume(transaction, suspendedResources);\n\t\t\t}\n\t\t\tList\u003cTransactionSynchronization\u003e suspendedSynchronizations = resourcesHolder.suspendedSynchronizations;\n\t\t\t//如果有挂起同步器的话要设置线程私有变量的值为挂起事务的相关属性\n\t\t\tif (suspendedSynchronizations != null) { \n\t\t\t\tTransactionSynchronizationManager.setActualTransactionActive(resourcesHolder.wasActive);\n\t\t\t\tTransactionSynchronizationManager.setCurrentTransactionIsolationLevel(resourcesHolder.isolationLevel);\n\t\t\t\tTransactionSynchronizationManager.setCurrentTransactionReadOnly(resourcesHolder.readOnly);\n\t\t\t\tTransactionSynchronizationManager.setCurrentTransactionName(resourcesHolder.name);\n\t\t\t\tdoResumeSynchronization(suspendedSynchronizations);\n\t\t\t}\n\t\t}\n\t}\n\n\n\n\t/**\n\t * 将挂起的事务连接持有器和数据源绑定，放入线程私有变量中\n\t */\n\t@Override\n\tprotected void doResume(@Nullable Object transaction, Object suspendedResources) { \n\t\tTransactionSynchronizationManager.bindResource(obtainDataSource(), suspendedResources);\n\t}\n\n\n\n\tpublic static void bindResource(Object key, Object value) throws IllegalStateException { \n\t\tObject actualKey = TransactionSynchronizationUtils.unwrapResourceIfNecessary(key);\n\t\tAssert.notNull(value, \"Value must not be null\");//每次在进行获取的时候都要根据obtainDataSource()返回的数据源来获取connectionHolder,现在经过设置会后，有了\n\t\tMap\u003cObject, Object\u003e map = resources.get();\n\t\t// set ThreadLocal Map if none found\n\t\tif (map == null) { \n\t\t\tmap = new HashMap\u003c\u003e();\n\t\t\tresources.set(map);\n\t\t}\n\t\tObject oldValue = map.put(actualKey, value);\n\t\t// Transparently suppress a ResourceHolder that was marked as void...\n\t\tif (oldValue instanceof ResourceHolder \u0026\u0026 ((ResourceHolder) oldValue).isVoid()) { \n\t\t\toldValue = null;\n\t\t}\n\t\tif (oldValue != null) { \n\t\t\tthrow new IllegalStateException(\"Already value [\" + oldValue + \"] for key [\" +\n\t\t\t\t\tactualKey + \"] bound to thread [\" + Thread.currentThread().getName() + \"]\");\n\t\t}\n\t\tif (logger.isTraceEnabled()) { \n\t\t\tlogger.trace(\"Bound value [\" + value + \"] for key [\" + actualKey + \"] to thread [\" +\n\t\t\t\t\tThread.currentThread().getName() + \"]\");\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-oc2l028",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010808-oc2l028",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四，执行目标方法"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-kngbsm1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-kngbsm1",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "现在需要再次回到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invokeWithinTransaction()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法中："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-ghk2w7h",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-ghk2w7h",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class TransactionAspectSupport implements BeanFactoryAware, InitializingBean { \n  \n    protected Object invokeWithinTransaction(Method method, @Nullable Class\u003c?\u003e targetClass,\n\t\t\tfinal InvocationCallback invocation) throws Throwable { \n\n\t\t// 获取我们的事务属性源对象\n\t\tTransactionAttributeSource tas = getTransactionAttributeSource();\n\t\t// 通过事务属性源对象获取到当前方法的事务属性信息\n\t\tfinal TransactionAttribute txAttr = (tas != null ? tas.getTransactionAttribute(method, targetClass) : null);\n\t\t// 获取我们配置的事务管理器对象\n\t\tfinal TransactionManager tm = determineTransactionManager(txAttr);\n\n\t\t// 省略部分异常判断....\n\n\t\tPlatformTransactionManager ptm = asPlatformTransactionManager(tm);\n\t\t// 获取连接点的唯一标识  类名+方法名\n\t\tfinal String joinpointIdentification = methodIdentification(method, targetClass, txAttr);\n\n\t\t// 声明式事务处理\n\t\tif (txAttr == null || !(ptm instanceof CallbackPreferringPlatformTransactionManager)) { \n\n\t\t\t// 创建TransactionInfo\n\t\t\tTransactionInfo txInfo = createTransactionIfNecessary(ptm, txAttr, joinpointIdentification);\n\n\t\t\tObject retVal;\n\t\t\ttry { \n\t\t\t\t// 执行被增强方法\n\t\t\t\tretVal = invocation.proceedWithInvocation();\n\t\t\t}\n\t\t\tcatch (Throwable ex) { \n\t\t\t\t// 异常回滚\n\t\t\t\tcompleteTransactionAfterThrowing(txInfo, ex);\n\t\t\t\tthrow ex;\n\t\t\t}\n\t\t\tfinally { \n\t\t\t\t//清除事务信息，恢复线程私有的老的事务信息\n\t\t\t\tcleanupTransactionInfo(txInfo);\n\t\t\t}\n\n\t\t\t//成功后提交，会进行资源储量，连接释放，恢复挂起事务等操作\n\t\t\tcommitTransactionAfterReturning(txInfo);\n\t\t\treturn retVal;\n\t\t}\n      \n        // 省略编程式事物逻辑...\n        else{ }\n\n        // 省略部分代码...\n\t\t\treturn result;\n\t\t}\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-yzy813w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-yzy813w",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "前面我们已近通过"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "createTransactionIfNecessary()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法获取到事物了，接下来需要调用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invocation.proceedWithInvocation()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​来执行目标方法，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invocation"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​是一个回调函数，其是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ReflectiveMethodInvocation#proceed()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的回调，所以现在又回到了AOP拦截器的入口，此时会执行"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invokeJoinpoint()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​来执行目标方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-jigkrwe",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-jigkrwe",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t/**\n     * 结账：传入哪个用户买了哪本书\n     * @param username\n     * @param id\n     */\n    @Transactional(propagation = Propagation.REQUIRED)\n    public void checkout(String username,int id){ \n        // 减库存\n        bookDao.updateStock(id);\n        // 获取图书价格\n//        int price = bookDao.getPrice(id);\n        // 更新余额\n//        bookDao.updateBalance(username,price);\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-3gs07xp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-3gs07xp",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果遇到异常，就会异常"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%9B%9E%E6%BB%9A\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "回滚"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-ajscx0t",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010808-ajscx0t",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "五，异常回滚"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-dvok99f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-dvok99f",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果支持回滚的话就进行回滚，否则就处理提交，提交里面如果"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionStatus.isRollbackOnly()=true"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的话也会进行回滚处理："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-qoi3yl3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-qoi3yl3",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void completeTransactionAfterThrowing(@Nullable TransactionInfo txInfo, Throwable ex) { \n\t\tif (txInfo != null \u0026\u0026 txInfo.getTransactionStatus() != null) { \n\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\tlogger.trace(\"Completing transaction for [\" + txInfo.getJoinpointIdentification() +\n\t\t\t\t\t\t\"] after exception: \" + ex);\n\t\t\t}\n          \n            // 支持回滚则进行回滚\n\t\t\tif (txInfo.transactionAttribute != null \u0026\u0026 txInfo.transactionAttribute.rollbackOn(ex)) { \n\t\t\t\ttry { \n\t\t\t\t\t// 进行回滚\n\t\t\t\t\ttxInfo.getTransactionManager().rollback(txInfo.getTransactionStatus());\n\t\t\t\t}\n\t\t\t\tcatch (TransactionSystemException ex2) { \n\t\t\t\t\tlogger.error(\"Application exception overridden by rollback exception\", ex);\n\t\t\t\t\tex2.initApplicationException(ex);\n\t\t\t\t\tthrow ex2;\n\t\t\t\t}\n\t\t\t\tcatch (RuntimeException | Error ex2) { \n\t\t\t\t\tlogger.error(\"Application exception overridden by rollback exception\", ex);\n\t\t\t\t\tthrow ex2;\n\t\t\t\t}\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// 否则进行提交，但是如果TransactionStatus.isRollbackOnly()，仍然进行回滚\n\t\t\t\ttry { \n\t\t\t\t\ttxInfo.getTransactionManager().commit(txInfo.getTransactionStatus());\n\t\t\t\t}\n\t\t\t\tcatch (TransactionSystemException ex2) { \n\t\t\t\t\tlogger.error(\"Application exception overridden by commit exception\", ex);\n\t\t\t\t\tex2.initApplicationException(ex);\n\t\t\t\t\tthrow ex2;\n\t\t\t\t}\n\t\t\t\tcatch (RuntimeException | Error ex2) { \n\t\t\t\t\tlogger.error(\"Application exception overridden by commit exception\", ex);\n\t\t\t\t\tthrow ex2;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-vcwmwqa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-vcwmwqa",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "根据事物的状态来进行回滚："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-xm55j3t",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-xm55j3t",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t/**\n\t * 事务管理器根据事务状态来处理回滚\n\t */\n\t@Override\n\tpublic final void rollback(TransactionStatus status) throws TransactionException { \n\t\n\t\tDefaultTransactionStatus defStatus = (DefaultTransactionStatus) status;\n\t\tprocessRollback(defStatus, false);\n\t}\n\n\n\n\tprivate void processRollback(DefaultTransactionStatus status, boolean unexpected) { \n\t\ttry { \n\t\t\t// 意外的回滚\n\t\t\tboolean unexpectedRollback = unexpected;\n\n\t\t\ttry { \n\t\t\t\t// 回滚完成前回调\n\t\t\t\ttriggerBeforeCompletion(status);\n\t\t\t\t// 有保存点回滚到保存点\n\t\t\t\tif (status.hasSavepoint()) { \n\t\t\t\t\tif (status.isDebug()) { \n\t\t\t\t\t\tlogger.debug(\"Rolling back transaction to savepoint\");\n\t\t\t\t\t}\n\t\t\t\t\tstatus.rollbackToHeldSavepoint();\n\t\t\t\t}\n\t\t\t\t// 当前状态是一个新事务\n\t\t\t\telse if (status.isNewTransaction()) { \n\t\t\t\t\tif (status.isDebug()) { \n\t\t\t\t\t\tlogger.debug(\"Initiating transaction rollback\");\n\t\t\t\t\t}\n\t\t\t\t\t// 进行回滚\n\t\t\t\t\tdoRollback(status);\n\t\t\t\t}\n\t\t\t\telse { \n\t\t\t\t\t// Participating in larger transaction\n\t\t\t\t\tif (status.hasTransaction()) { \n\t\t\t\t\t\tif (status.isLocalRollbackOnly() || isGlobalRollbackOnParticipationFailure()) { \n\t\t\t\t\t\t\tif (status.isDebug()) { \n\t\t\t\t\t\t\t\tlogger.debug(\"Participating transaction failed - marking existing transaction as rollback-only\");\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t//设置连接要回滚标记，也就是全局回滚\n\t\t\t\t\t\t\tdoSetRollbackOnly(status);\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse { \n\t\t\t\t\t\t\tif (status.isDebug()) { \n\t\t\t\t\t\t\t\tlogger.debug(\"Participating transaction failed - letting transaction originator decide on rollback\");\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\telse { \n\t\t\t\t\t\tlogger.debug(\"Should roll back transaction but cannot - no transaction available\");\n\t\t\t\t\t}\n\t\t\t\t\t// Unexpected rollback only matters here if we're asked to fail early\n\t\t\t\t\tif (!isFailEarlyOnGlobalRollbackOnly()) { \n\t\t\t\t\t\tunexpectedRollback = false;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tcatch (RuntimeException | Error ex) { \n\t\t\t\ttriggerAfterCompletion(status, TransactionSynchronization.STATUS_UNKNOWN);\n\t\t\t\tthrow ex;\n\t\t\t}\n\n\t\t\t// 回滚完成后回调\n\t\t\ttriggerAfterCompletion(status, TransactionSynchronization.STATUS_ROLLED_BACK);\n\n\t\t\t// Raise UnexpectedRollbackException if we had a global rollback-only marker\n\t\t\tif (unexpectedRollback) { \n\t\t\t\tthrow new UnexpectedRollbackException(\n\t\t\t\t\t\t\"Transaction rolled back because it has been marked as rollback-only\");\n\t\t\t}\n\t\t}\n\t\tfinally { \n\t\t\t// 根据事务状态信息，完成后数据清除，和线程的私有资源解绑，重置连接自动提交，隔离级别，是否只读，释放连接，恢复挂起事务等\n\t\t\tcleanupAfterCompletion(status);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-hbcndih",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-hbcndih",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "unexpected"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​这个一般是false，除非是设置"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "rollback-only=true"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，才是true，表示是全局的回滚标记。首先会进行回滚前回调，然后判断是否设置了保存点，比如NESTED会设置，要先回滚到保存点。如果状态是新的事务，那就进行回滚，如果不是新的，就设置一个回滚标记，内部是设置连接持有器回滚标记。然后回滚完成回调，根据事务状态信息，完成后数据清除,和线程的私有资源解绑，重置连接自动提交，隔离级别，是否只读，释放连接，恢复挂起事务等。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-7pkvpaa",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010808-7pkvpaa",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"ID": "20230404010808-4h51vvo",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010808-4h51vvo",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-zfhl2kg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-zfhl2kg",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果有保存点，回滚到保存点。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-nzyf9v0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010808-nzyf9v0",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-x2m06sv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-x2m06sv",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "否则，如果当前是一个"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "新事物（transaction != null \u0026amp;\u0026amp; newTransaction==true）"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​,直接进行回滚。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-pjotuqr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010808-pjotuqr",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-p3g2fe2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-p3g2fe2",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "否则，设置全局回滚标记，如果既没有保存点，又不是新的事务，如果可以设置全局的回滚标记的话，就会设置。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-9tkqz0o",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010808-9tkqz0o",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-jdlcszc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-jdlcszc",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "回滚后，根据事务状态信息，完成后数据清除，和线程的私有资源解绑，重置连接自动提交，隔离级别，是否只读，释放连接，恢复挂起事务等。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-uu2j3vn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-uu2j3vn",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "正回滚的处理方法，也就是获取JDBC连接，然后回滚："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-rhp9ip1",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-rhp9ip1",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void doRollback(DefaultTransactionStatus status) { \n\t\tDataSourceTransactionObject txObject = (DataSourceTransactionObject) status.getTransaction();\n\t\tConnection con = txObject.getConnectionHolder().getConnection();\n\n\t\ttry { \n\t\t\t// jdbc的回滚\n\t\t\tcon.rollback();\n\t\t}\n\t\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-0n022vz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-0n022vz",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "回滚完成后，要进行清楚工作："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-q7x5xx7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-q7x5xx7",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "回滚后的处理工作，如果是新的事务同步状态的话，要把线程的同步状态清除了，如果是新事务的话，进行数据清除,线程的私有资源解绑，重置连接自动提交，隔离级别，是否只读，释放连接等。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-nhw92xu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-nhw92xu",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果有挂起的事务，还要把这个事务给恢复，其实就是把属性设置回去："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-1higaoa",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-1higaoa",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate void cleanupAfterCompletion(DefaultTransactionStatus status) { \n\t\t// 设置完成状态\n\t\tstatus.setCompleted();\n\t\tif (status.isNewSynchronization()) { \n\t\t\t// 线程同步状态清除\n\t\t\tTransactionSynchronizationManager.clear();\n\t\t}\n\t\t// 如果是新事务的话，进行数据清除，线程的私有资源解绑，重置连接自动提交，隔离级别，是否只读，释放连接等\n\t\tif (status.isNewTransaction()) { \n\t\t\tdoCleanupAfterCompletion(status.getTransaction());\n\t\t}\n\t\t// 有挂起的事务要恢复\n\t\tif (status.getSuspendedResources() != null) { \n\t\t\tif (status.isDebug()) { \n\t\t\t\tlogger.debug(\"Resuming suspended transaction after completion of inner transaction\");\n\t\t\t}\n\t\t\tObject transaction = (status.hasTransaction() ? status.getTransaction() : null);\n\t\t\t// 结束之前事务的挂起状态\n\t\t\tresume(transaction, (SuspendedResourcesHolder) status.getSuspendedResources());\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-pgm1mw7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010808-pgm1mw7",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "六，事物提交"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-o8kgj8z",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-o8kgj8z",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\n\tprotected void commitTransactionAfterReturning(@Nullable TransactionInfo txInfo) { \n\t\tif (txInfo != null \u0026\u0026 txInfo.getTransactionStatus() != null) { \n\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\tlogger.trace(\"Completing transaction for [\" + txInfo.getJoinpointIdentification() + \"]\");\n\t\t\t}\n\t\t\ttxInfo.getTransactionManager().commit(txInfo.getTransactionStatus());\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-y1qbth3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-y1qbth3",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "调用事务管理器的提交方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-1w6ef9g",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-1w6ef9g",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic final void commit(TransactionStatus status) throws TransactionException { \n\t\tif (status.isCompleted()) { \n\t\t\tthrow new IllegalTransactionStateException(\n\t\t\t\t\t\"Transaction is already completed - do not call commit or rollback more than once per transaction\");\n\t\t}\n\n\t\tDefaultTransactionStatus defStatus = (DefaultTransactionStatus) status;\n\t\t// 如果在事务链中已经被标记回滚，那么不会尝试提交事务，直接回滚\n\t\tif (defStatus.isLocalRollbackOnly()) { \n\t\t\tif (defStatus.isDebug()) { \n\t\t\t\tlogger.debug(\"Transactional code has requested rollback\");\n\t\t\t}\n\t\t\t// 不可预期的回滚\n\t\t\tprocessRollback(defStatus, false);\n\t\t\treturn;\n\t\t}\n\n\t\t// 设置了全局回滚\n\t\tif (!shouldCommitOnGlobalRollbackOnly() \u0026\u0026 defStatus.isGlobalRollbackOnly()) { \n\t\t\tif (defStatus.isDebug()) { \n\t\t\t\tlogger.debug(\"Global transaction is marked as rollback-only but transactional code requested commit\");\n\t\t\t}\n\t\t\t// 可预期的回滚，可能会报异常\n\t\t\tprocessRollback(defStatus, true);\n\t\t\treturn;\n\t\t}\n\n\t\t// 处理事务提交\n\t\tprocessCommit(defStatus);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-4g2b0lr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-4g2b0lr",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "提交事务，就算没有异常，但是提交的时候也可能会回滚，因为有内层事务可能会标记回滚。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-vnwp1do",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010808-vnwp1do",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"ID": "20230404010808-rz63tb1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010808-rz63tb1",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-fx7535u",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-fx7535u",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果在事务链中已经被标记回滚，那么不会尝试提交事务，直接回滚。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-ekpn2ic",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010808-ekpn2ic",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-1cdv52k",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-1cdv52k",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果设置了全局回滚，则进行全局回滚"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-36gm5ah",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010808-36gm5ah",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-57vtk0i",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-57vtk0i",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果没发生回滚，则提交事物"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-fk7ywis",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-fk7ywis",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "事物的提交："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-hakabq3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-hakabq3",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate void processCommit(DefaultTransactionStatus status) throws TransactionException { \n\t\ttry { \n\t\t\tboolean beforeCompletionInvoked = false;\n\n\t\t\ttry { \n\t\t\t\tboolean unexpectedRollback = false;\n\t\t\t\t// 预留\n\t\t\t\tprepareForCommit(status);\n\t\t\t\t// 添加的TransactionSynchronization中的对应方法的调用\n\t\t\t\ttriggerBeforeCommit(status);\n\t\t\t\t// 提交完成前回调\n\t\t\t\ttriggerBeforeCompletion(status);\n\t\t\t\tbeforeCompletionInvoked = true;\n\n\t\t\t\t// 有保存点\n\t\t\t\tif (status.hasSavepoint()) { \n\t\t\t\t\tif (status.isDebug()) { \n\t\t\t\t\t\tlogger.debug(\"Releasing transaction savepoint\");\n\t\t\t\t\t}\n\t\t\t\t\t//是否有全局回滚标记\n\t\t\t\t\tunexpectedRollback = status.isGlobalRollbackOnly();\n\t\t\t\t\t// 如果存在保存点则清除保存点信息\n\t\t\t\t\tstatus.releaseHeldSavepoint();\n\t\t\t\t}\n\t\t\t\t//当前状态是新事务\n\t\t\t\telse if (status.isNewTransaction()) { \n\t\t\t\t\tif (status.isDebug()) { \n\t\t\t\t\t\tlogger.debug(\"Initiating transaction commit\");\n\t\t\t\t\t}\n\t\t\t\t\tunexpectedRollback = status.isGlobalRollbackOnly();\n\t\t\t\t\t// 如果是独立的事务则直接提交\n\t\t\t\t\tdoCommit(status);\n\t\t\t\t}\n\t\t\t\telse if (isFailEarlyOnGlobalRollbackOnly()) { \n\t\t\t\t\tunexpectedRollback = status.isGlobalRollbackOnly();\n\t\t\t\t}\n\n\t\t\t\t// Throw UnexpectedRollbackException if we have a global rollback-only\n\t\t\t\t// marker but still didn't get a corresponding exception from commit.\n\t\t\t\t// 有全局回滚标记就报异常\n\t\t\t\tif (unexpectedRollback) { \n\t\t\t\t\tthrow new UnexpectedRollbackException(\n\t\t\t\t\t\t\t\"Transaction silently rolled back because it has been marked as rollback-only\");\n\t\t\t\t}\n\t\t\t}\n\t\t\tcatch (UnexpectedRollbackException ex) { \n\t\t\t\t// can only be caused by doCommit\n\t\t\t\ttriggerAfterCompletion(status, TransactionSynchronization.STATUS_ROLLED_BACK);\n\t\t\t\tthrow ex;\n\t\t\t}\n\t\t\tcatch (TransactionException ex) { \n\t\t\t\t// can only be caused by doCommit\n\t\t\t\tif (isRollbackOnCommitFailure()) { \n\t\t\t\t\tdoRollbackOnCommitException(status, ex);\n\t\t\t\t}\n\t\t\t\telse { \n\t\t\t\t\ttriggerAfterCompletion(status, TransactionSynchronization.STATUS_UNKNOWN);\n\t\t\t\t}\n\t\t\t\tthrow ex;\n\t\t\t}\n\t\t\tcatch (RuntimeException | Error ex) { \n\t\t\t\tif (!beforeCompletionInvoked) { \n\t\t\t\t\ttriggerBeforeCompletion(status);\n\t\t\t\t}\n\t\t\t\t// 提交过程中出现异常则回滚\n\t\t\t\tdoRollbackOnCommitException(status, ex);\n\t\t\t\tthrow ex;\n\t\t\t}\n\n\t\t\t// Trigger afterCommit callbacks, with an exception thrown there\n\t\t\t// propagated to callers but the transaction still considered as committed.\n\t\t\ttry { \n\t\t\t\t// 提交后回调\n\t\t\t\ttriggerAfterCommit(status);\n\t\t\t}\n\t\t\tfinally { \n\t\t\t\t// 提交后清除线程私有同步状态\n\t\t\t\ttriggerAfterCompletion(status, TransactionSynchronization.STATUS_COMMITTED);\n\t\t\t}\n\n\t\t}\n\t\tfinally { \n\t\t\t//根据条件，完成后数据清除,和线程的私有资源解绑，重置连接自动提交，隔离级别，是否只读，释放连接，恢复挂起事务等\n\t\t\tcleanupAfterCompletion(status);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-99hkyn0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-99hkyn0",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如下步骤："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-c32qf81",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010808-c32qf81",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"ID": "20230404010808-w2kdeon",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010808-w2kdeon",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-5en86mv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-5en86mv",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "先处理保存点，如果存在保存点则清除保存点信息。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-8nd4n4m",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010808-8nd4n4m",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-1n3pzb2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-1n3pzb2",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "然后处理"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "新事务（transaction != null \u0026amp;\u0026amp; newTransaction==true）"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，如果是独立的事务则直接提交"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-1z1w9uv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010808-1z1w9uv",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-jxhfbhc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-jxhfbhc",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果不是新事务不会真正提交，要等外层是新事务的才提交"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-l4s208u",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010808-l4s208u",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-nqw101t",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-nqw101t",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "提交过程中出现异常则回滚"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-v3t6wji",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230404010808-v3t6wji",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-mc4sllg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-mc4sllg",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "根据条件，完成后数据清除,和线程的私有资源解绑，重置连接自动提交，隔离级别，是否只读，释放连接，恢复挂起事务等"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-6nv1myb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-6nv1myb",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "doCommit()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​获取JDBC的连接提交:"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-de0fkbe",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010808-de0fkbe",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t/**\n\t * 获取JDBC的连接提交\n\t */\n\t@Override\n\tprotected void doCommit(DefaultTransactionStatus status) { \n\t\tDataSourceTransactionObject txObject = (DataSourceTransactionObject) status.getTransaction();\n\t\tConnection con = txObject.getConnectionHolder().getConnection();\n\t\tif (status.isDebug()) { \n\t\t\tlogger.debug(\"Committing JDBC transaction on Connection [\" + con + \"]\");\n\t\t}\n\t\ttry { \n\t\t\t// JDBC连接提交\n\t\t\tcon.commit();\n\t\t}\n\t\tcatch (SQLException ex) { \n\t\t\tthrow new TransactionSystemException(\"Could not commit JDBC transaction\", ex);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-36gumah",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010808-36gumah",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "七，总结"
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-y8nb34l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-y8nb34l",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "关于异常回滚："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-bvlrweb",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010808-bvlrweb",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"ID": "20230404010808-c1nrmv3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010808-c1nrmv3",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-ytwxrcg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-ytwxrcg",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果有保存点，回滚到保存点。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-jn1ah85",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010808-jn1ah85",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-ukpeyan",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-ukpeyan",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "否则，如果当前是一个"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "新事物（transaction != null \u0026amp;\u0026amp; newTransaction==true）"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​,直接进行回滚。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-bnbbkvf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010808-bnbbkvf",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-7r0w601",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-7r0w601",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "否则，设置全局回滚标记，如果既没有保存点，又不是新的事务，如果可以设置全局的回滚标记的话，就会设置。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-53du73w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010808-53du73w",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "关于事物提交："
+				}
+			]
+		},
+		{
+			"ID": "20230404010808-i27oh8h",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010808-i27oh8h",
+				"updated": "20230404010808"
+			},
+			"Children": [
+				{
+					"ID": "20230404010808-pjt8zab",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010808-pjt8zab",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-qyzfcr3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-qyzfcr3",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果在事务链中已经被标记回滚，那么不会尝试提交事务，直接回滚"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-opfg82v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010808-opfg82v",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-n5mchcz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-n5mchcz",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果设置了全局回滚，则进行全局回滚"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-aii1ylv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010808-aii1ylv",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-vlwquhi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-vlwquhi",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "新事务（transaction != null \u0026amp;\u0026amp; newTransaction==true）"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，则直接提交"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010808-prw63ux",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010808-prw63ux",
+						"updated": "20230404010808"
+					},
+					"Children": [
+						{
+							"ID": "20230404010808-jbgivdd",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010808-jbgivdd",
+								"updated": "20230404010808"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果不是新事务不会提交，要等外层是新事务才提交"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,2307 @@
+{
+	"ID": "20230331090032-m2lueah",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331090032-m2lueah",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230331090032-o8cfcv2\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230406003334-lc53vhu\u0026quot;,\u0026quot;scrollTop\u0026quot;:9700,\u0026quot;focusId\u0026quot;:\u0026quot;20230406003334-lc53vhu\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "Spring源码分析二：BeanFactoryPostProcessor 的处理_猫吻鱼的博客-CSDN博客",
+		"updated": "20230406003334"
+	},
+	"Children": [
+		{
+			"ID": "20230331090032-o8cfcv2",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090032-o8cfcv2",
+				"updated": "20230331090032"
+			}
+		},
+		{
+			"ID": "20230331090032-r8on2gk",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090032-r8on2gk",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"ID": "20230331090032-ey2v9yz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090032-ey2v9yz",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-sleotrl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-sleotrl",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106447003",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/106447003"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090032-not2izn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090032-not2izn",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-jqqxh7u",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-jqqxh7u",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "本文是笔者阅读Spring源码的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090032-z90blqi",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090032-z90blqi",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-x4ikf0l",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-x4ikf0l",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:00:32"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-ijk2092",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090032-ijk2092",
+				"updated": "20230331090032"
+			}
+		},
+		{
+			"ID": "20230331090032-simvzjr",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090032-simvzjr",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-j3ym2od",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090032-j3ym2od",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"ID": "20230331090032-t6s32ra",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090032-t6s32ra",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-nyd3yhe",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-nyd3yhe",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106447003#_1",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090032-reonbwf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090032-reonbwf",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-5p0a4wo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-5p0a4wo",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106447003#BeanFactoryPostProcessor__BeanDefinitionRegistryPostProcessor_29",
+									"TextMarkTextContent": "二、BeanFactoryPostProcessor \u0026amp; BeanDefinitionRegistryPostProcessor"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090032-0luiq2s",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090032-0luiq2s",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-ubo6whh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-ubo6whh",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106447003#_59",
+									"TextMarkTextContent": "三、代码分析"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090032-iiyj8xk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090032-iiyj8xk",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-cjak459",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090032-cjak459",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"ID": "20230331090032-nmoadrg",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090032-nmoadrg",
+										"updated": "20230331090032"
+									},
+									"Children": [
+										{
+											"ID": "20230331090032-xgyyboo",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090032-xgyyboo",
+												"updated": "20230331090032"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106447003#1_BeanFactory_61",
+													"TextMarkTextContent": "1. BeanFactory"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090032-w8tk1rb",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090032-w8tk1rb",
+										"updated": "20230331090032"
+									},
+									"Children": [
+										{
+											"ID": "20230331090032-h0s4k62",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090032-h0s4k62",
+												"updated": "20230331090032"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106447003#2__67",
+													"TextMarkTextContent": "2. 代码分析"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090032-5fz3gzp",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090032-5fz3gzp",
+										"updated": "20230331090032"
+									},
+									"Children": [
+										{
+											"ID": "20230331090032-c9iproc",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331090032-c9iproc",
+												"updated": "20230331090032"
+											},
+											"Children": [
+												{
+													"ID": "20230331090032-n3n4kfh",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090032-n3n4kfh",
+														"updated": "20230331090032"
+													},
+													"Children": [
+														{
+															"ID": "20230331090032-awij9lv",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090032-awij9lv",
+																"updated": "20230331090032"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106447003#21_getBeanFactoryPostProcessors_120",
+																	"TextMarkTextContent": "2.1 getBeanFactoryPostProcessors()"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090032-u6rf79o",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090032-u6rf79o",
+														"updated": "20230331090032"
+													},
+													"Children": [
+														{
+															"ID": "20230331090032-lp373wi",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090032-lp373wi",
+																"updated": "20230331090032"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106447003#22_invokeBeanFactoryPostProcessors_142",
+																	"TextMarkTextContent": "2.2 invokeBeanFactoryPostProcessors"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-m4je9xp",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090032-m4je9xp",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-fpd2ysq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-fpd2ysq",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是笔者阅读Spring"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E6%BA%90%E7%A0%81\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "源码"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-l0u326x",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090032-l0u326x",
+				"updated": "20230331090032"
+			}
+		},
+		{
+			"ID": "20230331090032-8kdar29",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-8kdar29",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文分析的方法是 AbstractApplicationContext#invokeBeanFactoryPostProcessors，是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106441853",
+					"TextMarkTextContent": "前篇"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "内容的继续部分。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-z5gyxyo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-z5gyxyo",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文衍生篇："
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-ayd4ykl",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090032-ayd4ykl",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"ID": "20230331090032-o7vl8fe",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090032-o7vl8fe",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-cq0bm1d",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-cq0bm1d",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106558290",
+									"TextMarkTextContent": "Spring 源码分析衍生篇八 ：ConfigurationClassPostProcessor 上篇"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090032-bh1qks7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090032-bh1qks7",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-e16dovx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-e16dovx",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106652607",
+									"TextMarkTextContent": "Spring 源码分析衍生篇九 ：ConfigurationClassPostProcessor 下篇"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-blw0zbw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-blw0zbw",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "强烈建议阅读完本文后阅读衍生篇内容。与后续文章有关联！！！强烈建议阅读完本文后阅读衍生篇内容。与后续文章有关联！！！强烈建议阅读完本文后阅读衍生篇内容。与后续文章有关联！！！"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-08lnpja",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090032-08lnpja",
+				"updated": "20230331090032"
+			}
+		},
+		{
+			"ID": "20230331090032-49z25aq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-49z25aq",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "PS : 个人感觉，实现IOC的两个核心后处理器 ："
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-djn1nec",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090032-djn1nec",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"ID": "20230331090032-23rg4le",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090032-23rg4le",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-x1ij2vv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-x1ij2vv",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ConfigurationClassPostProcessor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 解析配置类(这里的配置类不仅仅局限于@Configuration 注解，还包括 @Import、 @ImportResource 等注解)，将解析到的需要注入到Spring容器中的bean的BeanDefinition保存起来"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090032-333bgmk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090032-333bgmk",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-zlompwb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-zlompwb",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AutowiredAnnotationBeanPostProcessor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 解析bean中的 需要自动注入的bean @Autowired 和 @Inject @Value注解。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-xcr3mwl",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090032-xcr3mwl",
+				"updated": "20230331090032"
+			}
+		},
+		{
+			"ID": "20230331090032-jsp7e2d",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090032-jsp7e2d",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、BeanFactoryPostProcessor \u0026 BeanDefinitionRegistryPostProcessor"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-pmf4hnh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-pmf4hnh",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invokeBeanFactoryPostProcessors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中主要就是对"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的处理，所以这里简单的介绍一下 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 及其子接口 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。其结构如下图：\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-pYpkXpRB-1591273001011)(Spring源码分析八：AbstractApplicationContext#invokeBeanFactoryPostProcessors.assets/1591191196696.png)]"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200604201806402-20230331090032-7b2aa5a.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-9djgx3l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-9djgx3l",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 相比较于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法是很简单的，只有一个方法，其子接口也就一个方法。但是他们俩的功能又是类似的，区别就是作用域并不相同。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的作用域范围是容器级别的。它只和你使用的容器有关。如果你在容器中定义一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ ，它仅仅对此容器中的bean进行后置处理。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 不会对定义在另一个容器中的bean进行后置处理，即使这两个容器都在同一容器中。\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 可以对 bean的定义(配置元数据)进行处理。Spring IOC 容器允许 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 在容器实际实例化任何其他bean之前读取配置元数据，并有可能修改它，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "也即是说 BeanFactoryPostProcessor 是直接修改了bean的定义，BeanPostProcessor 则是对bean创建过程中进行干涉。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-awfxg57",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090032-awfxg57",
+				"updated": "20230331090032"
+			}
+		},
+		{
+			"ID": "20230331090032-ejs6716",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-ejs6716",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor 和 BeanFactoryPostProcessor 的区别在于："
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-yzgl136",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090032-yzgl136",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"ID": "20230331090032-j8rx7sx",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090032-j8rx7sx",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-dargjld",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-dargjld",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor .postProcessBeanDefinitionRegistry"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法针对是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanDefinitionRegistry"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​类型的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ConfigurableListableBeanFactory"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，可以实现对"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanDefinition"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​的增删改查等操作，但是对于非 ConfigurableListableBeanFactory 类型的BeanFactory，并不起作用。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090032-4ed56k0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090032-4ed56k0",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-hkrao9f",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-hkrao9f",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactoryPostProcessor .postProcessBeanFactory"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 针对的是所有的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactory"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090032-5mank7r",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090032-5mank7r",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-9phgw9x",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-9phgw9x",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "postProcessBeanDefinitionRegistry"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的调用时机在"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "postProcessBeanFactory"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 之前。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-9qr1xqy",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090032-9qr1xqy",
+				"updated": "20230331090032"
+			}
+		},
+		{
+			"ID": "20230331090032-kdp8byb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-kdp8byb",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "注： 关于 BeanPostProcessor ，请看前篇 ："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106040809",
+					"TextMarkTextContent": "Spring源码分析衍生篇四：后处理器 BeanPostProcessor"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-xr8zwyh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090032-xr8zwyh",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、代码分析"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-2nhdpjg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090032-2nhdpjg",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. BeanFactory"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-75ydpxd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-75ydpxd",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "需要注意的是，我们这里的 BeanFactory 实际类型是 DefaultListableBeanFactory。这一点在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106441853",
+					"TextMarkTextContent": "Spring源码分析一：容器的刷新 - refresh()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 中已经得到证实。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-dfzzqn6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-dfzzqn6",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们看看 DefaultListableBeanFactory 的结构图如下，可以看到DefaultListableBeanFactory 实现了 BeanDefinitionRegistry 接口。这点在下面的分析中会用到。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210108111835979-20230331090032-1oqutcr.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-wnux1fi",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090032-wnux1fi",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. 代码分析"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-w1yr8z3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-w1yr8z3",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invokeBeanFactoryPostProcessors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法的作用是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "激活"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-w3wzdsy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-w3wzdsy",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "为了更好的了解下面的代码，我们先了解几个代码中的规则："
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-8214e8d",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090032-8214e8d",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"ID": "20230331090032-y2hm11n",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090032-y2hm11n",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-rur5o66",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-rur5o66",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactoryPostProcessor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 在本次分析中分为两种类型： "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactoryPostProcessor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 和其子接口 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 。"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 相较于 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactoryPostProcessor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ，增加了一个方法如下。\n​"
+								},
+								{
+									"Type": "NodeImage",
+									"Data": "span",
+									"Children": [
+										{
+											"Type": "NodeBang"
+										},
+										{
+											"Type": "NodeOpenBracket"
+										},
+										{
+											"Type": "NodeLinkText",
+											"Data": "在这里插入图片描述"
+										},
+										{
+											"Type": "NodeCloseBracket"
+										},
+										{
+											"Type": "NodeOpenParen"
+										},
+										{
+											"Type": "NodeLinkDest",
+											"Data": "assets/20210108112349788-20230331090032-z4i4uyc.png"
+										},
+										{
+											"Type": "NodeCloseParen"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "\n需要注意的是，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 这个方法仅仅针对于 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanDefinitionRegistry"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 类型的 BeanFactory 生效，这一点根据其入参就可以看到。\n总结一下即 ： "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactoryPostProcessor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 针对所有的 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactory"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ，即对于所有类型的BeanFactory 都会调用其方法；"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 仅对 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanDefinitionRegistry"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 子类的BeanFactory 起作用，非"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanDefinitionRegistry"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​类型则直接处理即可。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-ltwjqmo",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090032-ltwjqmo",
+				"updated": "20230331090032"
+			}
+		},
+		{
+			"ID": "20230331090032-3geyv46",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090032-3geyv46",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"ID": "20230331090032-p8ly9nk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090032-p8ly9nk",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-u05z6me",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-u05z6me",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactoryPostProcessor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的注入分为两种方式："
+								}
+							]
+						},
+						{
+							"ID": "20230331090032-dwzq5vq",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230331090032-dwzq5vq",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"ID": "20230331090032-z397v9c",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230331090032-z397v9c",
+										"updated": "20230331090032"
+									},
+									"Children": [
+										{
+											"ID": "20230331090032-8ta0rit",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090032-8ta0rit",
+												"updated": "20230331090032"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "配置注入方式：即通过注解或者xml的方式动态的注入到容器中的"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "BeanFactoryPostProcessor"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090032-a01u4ps",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "Mi4=",
+										"Num": 2
+									},
+									"Properties": {
+										"id": "20230331090032-a01u4ps",
+										"updated": "20230331090032"
+									},
+									"Children": [
+										{
+											"ID": "20230331090032-nrcq3ml",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090032-nrcq3ml",
+												"updated": "20230331090032"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "硬编码注入方式: 这种方式是直接调用 "
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "AbstractApplicationContext#addBeanFactoryPostProcessor"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ 方法将 "
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "BeanFactoryPostProcessor"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ 添加到 "
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "AbstractApplicationContext#beanFactoryPostProcessors"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ 属性中。其中"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-5839wbw",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090032-5839wbw",
+				"updated": "20230331090032"
+			}
+		},
+		{
+			"ID": "20230331090032-e147fgj",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090032-e147fgj",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"ID": "20230331090032-3ea4l69",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090032-3ea4l69",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-szqkli0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-szqkli0",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "硬编码注入的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactoryPostProcessor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 并不需要也不支持接口排序，而配置注入的方式因为Spring无法保证加载的顺序，所以通过支持PriorityOrdered、Ordered排序接口的排序。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-rjq3dxe",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090032-rjq3dxe",
+				"updated": "20230331090032"
+			}
+		},
+		{
+			"ID": "20230331090032-7q4s84s",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090032-7q4s84s",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"ID": "20230331090032-jjishqr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ni4=",
+						"Num": 6
+					},
+					"Properties": {
+						"id": "20230331090032-jjishqr",
+						"updated": "20230331090032"
+					},
+					"Children": [
+						{
+							"ID": "20230331090032-dsdup7j",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090032-dsdup7j",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "在下面代码分析中会由四个集合"
+								}
+							]
+						},
+						{
+							"ID": "20230331090032-0e25evt",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230331090032-0e25evt",
+								"updated": "20230331090032"
+							},
+							"Children": [
+								{
+									"ID": "20230331090032-72isf61",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230331090032-72isf61",
+										"updated": "20230331090032"
+									},
+									"Children": [
+										{
+											"ID": "20230331090032-iie5q0f",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090032-iie5q0f",
+												"updated": "20230331090032"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "​"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "regularPostProcessors"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ ： 记录通过硬编码方式注册的"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "BeanFactoryPostProcessor"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ 类型的处理器"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090032-1sxtohx",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "Mi4=",
+										"Num": 2
+									},
+									"Properties": {
+										"id": "20230331090032-1sxtohx",
+										"updated": "20230331090032"
+									},
+									"Children": [
+										{
+											"ID": "20230331090032-jn0oqgh",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090032-jn0oqgh",
+												"updated": "20230331090032"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "​"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "registryProcessors"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​：记录通过硬编码方式注册的"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ 类型的处理器"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090032-0axcwyk",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "My4=",
+										"Num": 3
+									},
+									"Properties": {
+										"id": "20230331090032-0axcwyk",
+										"updated": "20230331090032"
+									},
+									"Children": [
+										{
+											"ID": "20230331090032-y8jt520",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090032-y8jt520",
+												"updated": "20230331090032"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "​"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "currentRegistryProcessors"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ ： 记录通过配置方式注册的 "
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ 类型的处理器"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090032-uxft3ys",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "NC4=",
+										"Num": 4
+									},
+									"Properties": {
+										"id": "20230331090032-uxft3ys",
+										"updated": "20230331090032"
+									},
+									"Children": [
+										{
+											"ID": "20230331090032-mrhnsqs",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090032-mrhnsqs",
+												"updated": "20230331090032"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "​"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "processedBeans"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ ： 记录当前已经处理过的"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "BeanFactoryPostProcessor"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ 和 "
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-1d2sudi",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090032-1d2sudi",
+				"updated": "20230331090032"
+			}
+		},
+		{
+			"ID": "20230331090032-p92mzpf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-p92mzpf",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "其实调用顺序可以归纳为： 硬编码先于配置，postProcessBeanDefinitionRegistry 先于postProcessBeanFactory"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-1e0jjw7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-1e0jjw7",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们来看具体代码：\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractApplicationContext#invokeBeanFactoryPostProcessors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法内容如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-io2wrdw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090032-io2wrdw",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory) { \n\t\tPostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(beanFactory, getBeanFactoryPostProcessors());\n\n\t\t// Detect a LoadTimeWeaver and prepare for weaving, if found in the meantime\n\t\t// (e.g. through an @Bean method registered by ConfigurationClassPostProcessor)\n\t\tif (beanFactory.getTempClassLoader() == null \u0026\u0026 beanFactory.containsBean(LOAD_TIME_WEAVER_BEAN_NAME)) { \n\t\t\tbeanFactory.addBeanPostProcessor(new LoadTimeWeaverAwareProcessor(beanFactory));\n\t\t\tbeanFactory.setTempClassLoader(new ContextTypeMatchClassLoader(beanFactory.getBeanClassLoader()));\n\t\t}\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-rgxz1d5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-rgxz1d5",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到主要功能还是在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(beanFactory, getBeanFactoryPostProcessors());"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 这一句上。我们先来看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getBeanFactoryPostProcessors()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 得到的是什么"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-uscnngk",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090032-uscnngk",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1 getBeanFactoryPostProcessors()"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-uw335qe",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090032-uw335qe",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate final List\u003cBeanFactoryPostProcessor\u003e beanFactoryPostProcessors = new ArrayList\u003c\u003e();\n\t\n\t@Override\n\tpublic void addBeanFactoryPostProcessor(BeanFactoryPostProcessor postProcessor) { \n\t\tAssert.notNull(postProcessor, \"BeanFactoryPostProcessor must not be null\");\n\t\tthis.beanFactoryPostProcessors.add(postProcessor);\n\t}\n\n\t/**\n\t * Return the list of BeanFactoryPostProcessors that will get applied\n\t * to the internal BeanFactory.\n\t */\n\tpublic List\u003cBeanFactoryPostProcessor\u003e getBeanFactoryPostProcessors() { \n\t\treturn this.beanFactoryPostProcessors;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-mcnses0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-mcnses0",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到 getBeanFactoryPostProcessors() 方法仅仅是将 beanFactoryPostProcessors 集合返回了出去而已。那么 beanFactoryPostProcessors 集合是通过 set方法添加的。这就是我们上面提到过的，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "beanFactoryPostProcessors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 实际上是 硬编码形式注册的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 类型的处理器集合。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-sncgmlk",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090032-sncgmlk",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2 invokeBeanFactoryPostProcessors"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-8klq6oe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-8klq6oe",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通过上一步，我们可以知道 入参中的 beanFactoryPostProcessors 集合是硬编码注册的 集合。对于下面的分析我们就好理解了。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-0ex9mii",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-0ex9mii",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面代码主要是对于 BeanDefinitionRegistry 类型 BeanFactory的处理以及 BeanFactoryPostProcessor 调用顺序问题的处理。实际上并不复杂。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-pkiyxo6",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090032-pkiyxo6",
+				"updated": "20230405234221"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic static void invokeBeanFactoryPostProcessors(\n\t\t\tConfigurableListableBeanFactory beanFactory, List\u003cBeanFactoryPostProcessor\u003e beanFactoryPostProcessors) { \n\n\t\t// Invoke BeanDefinitionRegistryPostProcessors first, if any.\n\t\tSet\u003cString\u003e processedBeans = new HashSet\u003c\u003e();\n\t\t// 对BeanDefinitionRegistry类型的处理，这里是交由BeanDefinitionRegistryPostProcessor来处理\n    \t// 这里判断BeanFactory 如果是 BeanDefinitionRegistry 子类 则需要进行BeanDefinitionRegistryPostProcessor 的处理，否则直接按照 BeanFactoryPostProcessor处理即可。\n    \t// 关于为什么BeanDefinitionRegistry 比较特殊上面也说过，因为BeanDefinitionRegistryPostProcessor 只能处理 BeanDefinitionRegistry 的子类，所以这里需要区分是否是 BeanDefinitionRegistry 类型\n\t\tif (beanFactory instanceof BeanDefinitionRegistry) { \n            // 下面逻辑看似复杂，其实就两步：\n            // 1. 获取所有硬编码的 BeanDefinitionRegistryPostProcessor 类型，激活postProcessBeanDefinitionRegistry 方法\n            // 2. 获取所有配置的BeanDefinitionRegistryPostProcessor，激活postProcessBeanDefinitionRegistry 方法\n      \n\t\t\tBeanDefinitionRegistry registry = (BeanDefinitionRegistry) beanFactory;\n            // 记录通过硬编码方式注册的BeanFactoryPostProcessor 类型的处理器\n\t\t\tList\u003cBeanFactoryPostProcessor\u003e regularPostProcessors = new ArrayList\u003c\u003e();\n          \t//  记录通过硬编码方式注册的BeanDefinitionRegistryPostProcessor  类型的处理器\n\t\t\tList\u003cBeanDefinitionRegistryPostProcessor\u003e registryProcessors = new ArrayList\u003c\u003e();\n\t\t\t// 遍历硬编码注册的后处理器(都保存AbstractApplicationContext#beanFactoryPostProcessors 中，这里通过参数beanFactoryPostProcessors传递过来)\n\t\t\tfor (BeanFactoryPostProcessor postProcessor : beanFactoryPostProcessors) { \n\t\t\t\tif (postProcessor instanceof BeanDefinitionRegistryPostProcessor) { \n\t\t\t\t\tBeanDefinitionRegistryPostProcessor registryProcessor =\n\t\t\t\t\t\t\t(BeanDefinitionRegistryPostProcessor) postProcessor;\n                    // 激活 硬编码的处理器的BeanDefinitionRegistryPostProcessor.postProcessBeanDefinitionRegistry 方法。\n\t\t\t\t\tregistryProcessor.postProcessBeanDefinitionRegistry(registry);\n                    // 保存到 registryProcessors中\n\t\t\t\t\tregistryProcessors.add(registryProcessor);\n\t\t\t\t}\n\t\t\t\telse { \n                    // 非BeanDefinitionRegistryPostProcessor 类型的硬编码注入对象 保存到regularPostProcessors中\n\t\t\t\t\tregularPostProcessors.add(postProcessor);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\t// Do not initialize FactoryBeans here: We need to leave all regular beans\n\t\t\t// uninitialized to let the bean factory post-processors apply to them!\n\t\t\t// Separate between BeanDefinitionRegistryPostProcessors that implement\n\t\t\t// PriorityOrdered, Ordered, and the rest.\n            // 记录通过配置方式注册的 BeanDefinitionRegistryPostProcessor  类型的处理器\n\t\t\tList\u003cBeanDefinitionRegistryPostProcessor\u003e currentRegistryProcessors = new ArrayList\u003c\u003e();\n      \n            // 获取所有的配置的 BeanDefinitionRegistryPostProcessor 的beanName\n\t\t\tString[] postProcessorNames =\n\t\t\t\t\tbeanFactory.getBeanNamesForType(BeanDefinitionRegistryPostProcessor.class, true, false);\n            // 筛选出 PriorityOrdered 接口的实现类，优先执行\n\t\t\tfor (String ppName : postProcessorNames) { \n\t\t\t\tif (beanFactory.isTypeMatch(ppName, PriorityOrdered.class)) { \n                    // 记录到currentRegistryProcessors中\n\t\t\t\t\tcurrentRegistryProcessors.add(beanFactory.getBean(ppName, BeanDefinitionRegistryPostProcessor.class));\n\t\t\t\t\tprocessedBeans.add(ppName);\n\t\t\t\t}\n\t\t\t}\n            // 进行排序\n\t\t\tsortPostProcessors(currentRegistryProcessors, beanFactory);\n\t\t\tregistryProcessors.addAll(currentRegistryProcessors);\n            // 激活 postProcessBeanDefinitionRegistry 方法\n\t\t\tinvokeBeanDefinitionRegistryPostProcessors(currentRegistryProcessors, registry);\n\t\t\tcurrentRegistryProcessors.clear();\n\n\t\t\t// Next, invoke the BeanDefinitionRegistryPostProcessors that implement Ordered.\n\t\t\tpostProcessorNames = beanFactory.getBeanNamesForType(BeanDefinitionRegistryPostProcessor.class, true, false);\n             // 筛选出 Ordered 接口的实现类，第二执行\n\t\t\tfor (String ppName : postProcessorNames) { \n\t\t\t\tif (!processedBeans.contains(ppName) \u0026\u0026 beanFactory.isTypeMatch(ppName, Ordered.class)) { \n\t\t\t\t\tcurrentRegistryProcessors.add(beanFactory.getBean(ppName, BeanDefinitionRegistryPostProcessor.class));\n\t\t\t\t\tprocessedBeans.add(ppName);\n\t\t\t\t}\n\t\t\t}\n            // 排序\n\t\t\tsortPostProcessors(currentRegistryProcessors, beanFactory);\n\t\t\tregistryProcessors.addAll(currentRegistryProcessors);\n            // 激活\n\t\t\tinvokeBeanDefinitionRegistryPostProcessors(currentRegistryProcessors, registry);\n\t\t\tcurrentRegistryProcessors.clear();\n\n\t\t\t// Finally, invoke all other BeanDefinitionRegistryPostProcessors until no further ones appear.\n            // 最后获取没有实现排序接口的 BeanDefinitionRegistryPostProcessor ，进行激活。\n\t\t\tboolean reiterate = true;\n\t\t\twhile (reiterate) { \n\t\t\t\treiterate = false;\n\t\t\t\tpostProcessorNames = beanFactory.getBeanNamesForType(BeanDefinitionRegistryPostProcessor.class, true, false);\n\t\t\t\tfor (String ppName : postProcessorNames) { \n\t\t\t\t\tif (!processedBeans.contains(ppName)) { \n\t\t\t\t\t\tcurrentRegistryProcessors.add(beanFactory.getBean(ppName, BeanDefinitionRegistryPostProcessor.class));\n\t\t\t\t\t\tprocessedBeans.add(ppName);\n\t\t\t\t\t\treiterate = true;\n\t\t\t\t\t}\n\t\t\t\t}\n                // 排序\n\t\t\t\tsortPostProcessors(currentRegistryProcessors, beanFactory);\n\t\t\t\tregistryProcessors.addAll(currentRegistryProcessors);\n                // 激活\n\t\t\t\tinvokeBeanDefinitionRegistryPostProcessors(currentRegistryProcessors, registry);\n\t\t\t\tcurrentRegistryProcessors.clear();\n\t\t\t}\n\t\t\t// 到这里，所有的 BeanDefinitionRegistryPostProcessor 的postProcessBeanDefinitionRegistry 都已经激活结束，开始激活 postProcessBeanFactory 方法\n            // registryProcessors 记录的是硬编码注入的BeanDefinitionRegistryPostProcessor，这里激活的是 postProcessBeanFactory 方法\n\t\t\tinvokeBeanFactoryPostProcessors(registryProcessors, beanFactory);\n            // regularPostProcessors 中记录的是 硬编码注入的 BeanFactoryPostProcessor \n\t\t\tinvokeBeanFactoryPostProcessors(regularPostProcessors, beanFactory);\n\t\t}\n\n\t\telse { \n\t\t\t// Invoke factory processors registered with the context instance.\n            // 如果 beanFactory instanceof BeanDefinitionRegistry = false，那么BeanDefinitionRegistryPostProcessor.的postProcessBeanDefinitionRegistry 并不生效，就直接激活postProcessBeanFactory方法即可。\n            // 激活 硬编码注册的 BeanFactoryPostProcessor.postProcessBeanFactory 方法\n\t\t\tinvokeBeanFactoryPostProcessors(beanFactoryPostProcessors, beanFactory);\n\t\t}\n    \t// 到这一步，所有硬编码方式注入的和配置注入的BeanDefinitionRegistryPostProcessors都处理完了\n\t// 所有的硬编码方式注入的BeanFactoryPostProcessors都处理完毕，\n\t// 下面开始处理配置注入的BeanFactoryPostProcessor。\n    \t// 获取所有后处理器的beanName,用于后面处理\n\t\tString[] postProcessorNames =\n\t\t\t\tbeanFactory.getBeanNamesForType(BeanFactoryPostProcessor.class, true, false);\n\n\t\t// Separate between BeanFactoryPostProcessors that implement PriorityOrdered,\n\t\t// Ordered, and the rest.\n    \t// 创建几个保存不同排序的集合，按照实现的排序接口调用\n\t\tList\u003cBeanFactoryPostProcessor\u003e priorityOrderedPostProcessors = new ArrayList\u003c\u003e();\n\t\tList\u003cString\u003e orderedPostProcessorNames = new ArrayList\u003c\u003e();\n\t\tList\u003cString\u003e nonOrderedPostProcessorNames = new ArrayList\u003c\u003e();\n\t\tfor (String ppName : postProcessorNames) { \n\t\t\tif (processedBeans.contains(ppName)) { \n\t\t\t\t// skip - already processed in first phase above\n\t\t\t}\n\t\t\telse if (beanFactory.isTypeMatch(ppName, PriorityOrdered.class)) { \n\t\t\t\tpriorityOrderedPostProcessors.add(beanFactory.getBean(ppName, BeanFactoryPostProcessor.class));\n\t\t\t}\n\t\t\telse if (beanFactory.isTypeMatch(ppName, Ordered.class)) { \n\t\t\t\torderedPostProcessorNames.add(ppName);\n\t\t\t}\n\t\t\telse { \n\t\t\t\tnonOrderedPostProcessorNames.add(ppName);\n\t\t\t}\n\t\t}\n\n\t\t// First, invoke the BeanFactoryPostProcessors that implement PriorityOrdered.\n    \t// 排序激活 PriorityOrdered 接口的 后处理器\n\t\tsortPostProcessors(priorityOrderedPostProcessors, beanFactory);\n\t\tinvokeBeanFactoryPostProcessors(priorityOrderedPostProcessors, beanFactory);\n\n\t\t// Next, invoke the BeanFactoryPostProcessors that implement Ordered.\n    \t// 排序激活 Ordered 接口的 后处理器\n\t\tList\u003cBeanFactoryPostProcessor\u003e orderedPostProcessors = new ArrayList\u003c\u003e(orderedPostProcessorNames.size());\n\t\tfor (String postProcessorName : orderedPostProcessorNames) { \n\t\t\torderedPostProcessors.add(beanFactory.getBean(postProcessorName, BeanFactoryPostProcessor.class));\n\t\t}\n\t\tsortPostProcessors(orderedPostProcessors, beanFactory);\n\t\tinvokeBeanFactoryPostProcessors(orderedPostProcessors, beanFactory);\n\n\t\t// Finally, invoke all other BeanFactoryPostProcessors.\n    \t// 排序激活 没有实现排序接口的 后处理器\n\t\tList\u003cBeanFactoryPostProcessor\u003e nonOrderedPostProcessors = new ArrayList\u003c\u003e(nonOrderedPostProcessorNames.size());\n\t\tfor (String postProcessorName : nonOrderedPostProcessorNames) { \n\t\t\tnonOrderedPostProcessors.add(beanFactory.getBean(postProcessorName, BeanFactoryPostProcessor.class));\n\t\t}\n\t\tinvokeBeanFactoryPostProcessors(nonOrderedPostProcessors, beanFactory);\n\n\t\t// Clear cached merged bean definitions since the post-processors might have\n\t\t// modified the original metadata, e.g. replacing placeholders in values...\n    \t// 清除缓存。\n\t\tbeanFactory.clearMetadataCache();\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-tcvk2pu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-tcvk2pu",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面有一个简单的流程图："
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-0qn7k4y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-0qn7k4y",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200604201728662-20230331090032-078femr.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090032-q53if3j",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090032-q53if3j",
+				"updated": "20230331090032"
+			}
+		},
+		{
+			"ID": "20230331090032-s5s17nn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090032-s5s17nn",
+				"updated": "20230331090032"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考《Spring源码深度解析》如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		},
+		{
+			"ID": "20230406003334-lc53vhu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406003334-lc53vhu"
+			}
+		}
+	]
+}

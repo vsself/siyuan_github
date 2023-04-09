@@ -1,0 +1,148 @@
+{
+	"ID": "20230404011316-yo5yl2t",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404011316-yo5yl2t",
+		"title": "吃透Java的博客",
+		"updated": "20230404011912"
+	},
+	"Children": [
+		{
+			"ID": "20230404011316-baxkfix",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011316-baxkfix",
+				"updated": "20230404011316"
+			}
+		},
+		{
+			"ID": "20230404011316-pq8i0jx",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011316-pq8i0jx",
+				"updated": "20230404011316"
+			},
+			"Children": [
+				{
+					"ID": "20230404011316-8e9bnpl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011316-8e9bnpl",
+						"updated": "20230404011316"
+					},
+					"Children": [
+						{
+							"ID": "20230404011316-1fwsssh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011316-1fwsssh",
+								"updated": "20230404011316"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/category_11918307.html",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/category_11918307.html"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011316-ntv6uvq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011316-ntv6uvq",
+						"updated": "20230404011316"
+					},
+					"Children": [
+						{
+							"ID": "20230404011316-79smosg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011316-79smosg",
+								"updated": "20230404011316"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "吃透Redis（十一）：Redis原子性的保证,吃透Redis（十）：Redis网络框架,吃透Redis（九）：缓存淘汰篇-LFU算法,Redis全局Hash表原理,dictEntry源码,RedisObject源码"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011316-9hjur3t",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011316-9hjur3t",
+						"updated": "20230404011316"
+					},
+					"Children": [
+						{
+							"ID": "20230404011316-4ksshrr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011316-4ksshrr",
+								"updated": "20230404011316"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:13:16"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011316-8ipr8j7",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011316-8ipr8j7",
+				"updated": "20230404011316"
+			}
+		},
+		{
+			"ID": "20230404011316-3o7296y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011316-3o7296y",
+				"updated": "20230404011316"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869",
+					"TextMarkTextContent": "                                                     吃透Redis（三）：数据结构篇-skiplist、quicklist、listpack                                                                                                跳表是一个多层的有序链表，在跳表中进行查询操作时，查询代码可以从最高层开始查询。层数越高，结点数越少，同时高层结点的跨度会比较大。因此，在高层查询结点时，查询一个结点可能就已经查到了链表的中间位置了。这样一来，跳表就会先查高层，如果高层直接查到了等于待查元素的结点，那么就可以直接返回。如果查到第一个大于待查元素的结点后，就转向下一层查询。下层上的结点数多于上层，所以这样可以在更多的结点中进一步查找待查元素是否存在。Redis的ZSet为什么用skiplist而不用平衡二叉树实现？https。......                              原创                   ** 2022-07-27 11:01:48  · **                   **                     456 阅读  ·                    **                   **                     0 评论                     **                          "
+				}
+			]
+		},
+		{
+			"ID": "20230404011912-i8fqoic",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011912-i8fqoic"
+			}
+		}
+	]
+}

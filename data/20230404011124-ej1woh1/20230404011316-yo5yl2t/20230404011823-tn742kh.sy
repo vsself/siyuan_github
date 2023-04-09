@@ -1,0 +1,2869 @@
+{
+	"ID": "20230404011823-tn742kh",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404011823-tn742kh",
+		"title": "吃透Redis（二）：数据结构篇-内存优化的数据结构设计_内存数据库数据结构优化_吃透Java的博客-CSDN博客",
+		"updated": "20230404011823"
+	},
+	"Children": [
+		{
+			"ID": "20230404011823-n7rv120",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011823-n7rv120",
+				"updated": "20230404011823"
+			}
+		},
+		{
+			"ID": "20230404011823-61knnmq",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011823-61knnmq",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-vfi5w1e",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-vfi5w1e",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-trwn690",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-trwn690",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125965385",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/125965385"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-vlfvl3g",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-vlfvl3g",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-e7t43kj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-e7t43kj",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "降低内存开销，对于Redis这样的内存数据库来说非常重要，Redis用于优化内存使用效率的两种方法内存优化的数据结构设计和节省内存的共享数据访问。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-npa3j8r",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-npa3j8r",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-o0bg0nd",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-o0bg0nd",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:18:23"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-qjiqwla",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011823-qjiqwla",
+				"updated": "20230404011823"
+			}
+		},
+		{
+			"ID": "20230404011823-b5kfvj5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011823-b5kfvj5",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-950zpba",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011823-950zpba",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-uxx7d0t",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-uxx7d0t",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-kswfxp8",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230404011823-kswfxp8",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"ID": "20230404011823-1nx07yr",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011823-1nx07yr",
+										"updated": "20230404011823"
+									},
+									"Children": [
+										{
+											"ID": "20230404011823-2amkqez",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011823-2amkqez",
+												"updated": "20230404011823"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125965385#_1",
+													"TextMarkTextContent": "数据类型"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011823-qegrhft",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011823-qegrhft",
+										"updated": "20230404011823"
+									},
+									"Children": [
+										{
+											"ID": "20230404011823-teupwxr",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011823-teupwxr",
+												"updated": "20230404011823"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125965385#SDS_17",
+													"TextMarkTextContent": "SDS"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011823-phjjv0c",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011823-phjjv0c",
+										"updated": "20230404011823"
+									},
+									"Children": [
+										{
+											"ID": "20230404011823-vvx3jp1",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230404011823-vvx3jp1",
+												"updated": "20230404011823"
+											},
+											"Children": [
+												{
+													"ID": "20230404011823-g4rnyqo",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011823-g4rnyqo",
+														"updated": "20230404011823"
+													},
+													"Children": [
+														{
+															"ID": "20230404011823-vsvinw1",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011823-vsvinw1",
+																"updated": "20230404011823"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125965385#SDS__40",
+																	"TextMarkTextContent": "SDS 结构设计"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011823-aehzugy",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011823-aehzugy",
+										"updated": "20230404011823"
+									},
+									"Children": [
+										{
+											"ID": "20230404011823-ooxknwx",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011823-ooxknwx",
+												"updated": "20230404011823"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125965385#ziplist_52",
+													"TextMarkTextContent": "压缩列表（ziplist）"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011823-rw1ak9d",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011823-rw1ak9d",
+										"updated": "20230404011823"
+									},
+									"Children": [
+										{
+											"ID": "20230404011823-pisy3ek",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230404011823-pisy3ek",
+												"updated": "20230404011823"
+											},
+											"Children": [
+												{
+													"ID": "20230404011823-d1qg9zg",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011823-d1qg9zg",
+														"updated": "20230404011823"
+													},
+													"Children": [
+														{
+															"ID": "20230404011823-d2kb04x",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011823-d2kb04x",
+																"updated": "20230404011823"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125965385#ziplist_63",
+																	"TextMarkTextContent": "ziplist的查找"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011823-45vtda4",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011823-45vtda4",
+														"updated": "20230404011823"
+													},
+													"Children": [
+														{
+															"ID": "20230404011823-p0m7rr6",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011823-p0m7rr6",
+																"updated": "20230404011823"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125965385#ziplist_73",
+																	"TextMarkTextContent": "ziplist的特点"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011823-fmp28mf",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011823-fmp28mf",
+														"updated": "20230404011823"
+													},
+													"Children": [
+														{
+															"ID": "20230404011823-0fz7uew",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011823-0fz7uew",
+																"updated": "20230404011823"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125965385#_80",
+																	"TextMarkTextContent": "连锁更新问题"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011823-559tgzn",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011823-559tgzn",
+										"updated": "20230404011823"
+									},
+									"Children": [
+										{
+											"ID": "20230404011823-017abkw",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011823-017abkw",
+												"updated": "20230404011823"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125965385#intset_88",
+													"TextMarkTextContent": "整形集合（intset）"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011823-50n64mo",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011823-50n64mo",
+										"updated": "20230404011823"
+									},
+									"Children": [
+										{
+											"ID": "20230404011823-42m21fo",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011823-42m21fo",
+												"updated": "20230404011823"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125965385#_118",
+													"TextMarkTextContent": "总结"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011823-54z5cuu",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011823-54z5cuu",
+										"updated": "20230404011823"
+									},
+									"Children": [
+										{
+											"ID": "20230404011823-ubblzox",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230404011823-ubblzox",
+												"updated": "20230404011823"
+											},
+											"Children": [
+												{
+													"ID": "20230404011823-lu0szvp",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011823-lu0szvp",
+														"updated": "20230404011823"
+													},
+													"Children": [
+														{
+															"ID": "20230404011823-qt4coqi",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011823-qt4coqi",
+																"updated": "20230404011823"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125965385#_121",
+																	"TextMarkTextContent": "内存优化的数据结构设计"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011823-kyil1r9",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011823-kyil1r9",
+														"updated": "20230404011823"
+													},
+													"Children": [
+														{
+															"ID": "20230404011823-sc9hut2",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011823-sc9hut2",
+																"updated": "20230404011823"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125965385#_125",
+																	"TextMarkTextContent": "使用共享对象"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-thxc4ld",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011823-thxc4ld",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "数据类型"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-ti4nv2h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-ti4nv2h",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "redis提供了 String、Hash、List、Set、Sorted Set 六种基本类型，以及 HyperLogLog、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=Bitmap\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "Bitmap"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 和 GEO 三种扩展类型。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-0tp57yy",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011823-0tp57yy",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-c52ymao",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-c52ymao",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-f80p6i3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-f80p6i3",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果你只需要存储简单的键值对，或者是对数字进行递增递减操作，就可以使用 String 存储；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-v2ukucj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-v2ukucj",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-veffxez",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-veffxez",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果除了需要存储键值数据，还想单独对某个字段进行操作，使用 Hash 就非常方便；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-fp18d9e",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-fp18d9e",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-9yfgycj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-9yfgycj",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果需要一个简单的分布式队列服务，List 就可以满足你的需求；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-7sh6qpp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-7sh6qpp",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-a2ss8lf",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-a2ss8lf",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果想得到一个不重复的集合，就可以使用 Set，而且它还可以做并集、差集和交集运算；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-iplb1hr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-iplb1hr",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-l0n295q",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-l0n295q",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果想实现一个带权重的评论、排行榜列表，那么，Sorted Set 就能满足你。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-u820xd7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-u820xd7",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/8f0c0053e1bd40ee92c406e9b0598d91-20230404011823-hlbrkcp.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/4cb51ab2cd014b57936dc2234fad64d0-20230404011823-dvz24vo.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n整数数组和压缩列表在查找时间复杂度方面并没有很大的优势，那为什么 Redis 还会把它们作为底层数据结构呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-u53hm01",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011823-u53hm01",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-qxpq40a",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-qxpq40a",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-agkgp77",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-agkgp77",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "内存利用率，数组和压缩列表都是非常紧凑的数据结构，它比链表占用的内存要更少。Redis是内存数据库，大量数据存到内存中，此时需要做尽可能的优化，提高内存的利用率。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-zh6n0td",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-zh6n0td",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-l2ozqip",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-l2ozqip",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "数组对CPU高速缓存支持更友好，所以Redis在设计时，集合数据元素较少情况下，默认采用内存紧凑排列的方式存储，同时利用CPU高速缓存不会降低访问速度。当数据元素超过设定阈值后，避免查询时间复杂度太高，转为哈希和跳表数据结构存储，保证查询效率。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-tu4epxt",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011823-tu4epxt",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "SDS"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-ukji02q",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-ukji02q",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Redis 设计了简单动态字符串（Simple Dynamic String，SDS）的结构，用来表示字符串。相比于 C 语言中的字符串实现，SDS 这种字符串的实现方式，会提升字符串的操作效率，并且可以用来保存二进制数据。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-yceoes1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-yceoes1",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "为什么 Redis 不用 c 语言中的 char"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "？"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​*"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-4otfcbf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-4otfcbf",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "c语言中的char* 是以 \\0 为结尾判断的，那么在获取字符串的长度时，需要遍历字符数组中的每个元素，并且累加，直到判断到结尾标志符 \\0 。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-t39g22n",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011823-t39g22n",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-g1azawn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-g1azawn",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-ae4t651",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-ae4t651",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "操作效率低：获取长度需遍历，O(N)复杂度"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-3s38q2t",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-3s38q2t",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-mvo3kut",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-mvo3kut",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "二进制不安全：无法存储包含 \\0 的数据"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-zht6c5f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-zht6c5f",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "SDS 的优势："
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-veufk0b",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011823-veufk0b",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-2vafhb2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-2vafhb2",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-xwz5su5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-xwz5su5",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "操作效率高：获取长度无需遍历，O(1)复杂度"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-vnmhqdd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-vnmhqdd",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-2nsntgs",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-2nsntgs",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "二进制安全：因单独记录长度字段，所以可存储包含 \\0 的数据"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-juihsm7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-juihsm7",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-5luqp1h",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-5luqp1h",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "兼容 C 字符串函数，可直接使用字符串 API"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-h5nzgcg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-h5nzgcg",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "另外 Redis 在操作 SDS 时，为了避免频繁操作字符串时，每次「申请、释放」内存的开销，还做了这些优化："
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-302m4oy",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011823-302m4oy",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-5ffrzvf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-5ffrzvf",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-2dbhv6t",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-2dbhv6t",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "内存预分配：SDS 扩容，会多申请一些内存（小于 1MB 翻倍扩容，大于 1MB 按 1MB 扩容）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-pq4q7vy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-pq4q7vy",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-chlkcav",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-chlkcav",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "多余内存不释放：SDS 缩容，不释放多余的内存，下次使用可直接复用这些内存"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-7zblrl1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-7zblrl1",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这种策略，是以多占一些内存的方式，换取「追加」操作的速度。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-dbvckri",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011823-dbvckri",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "SDS 结构设计"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-u0xkoa1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-u0xkoa1",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/3b6768032388428687694b0e06f9f1a4-20230404011823-ts7f9bf.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "紧凑型字符串结构的技巧："
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\nSDS 结构中有一个元数据 flags，表示的是 SDS 类型。事实上，SDS 一共设计了 4 种类型，分别是 sdshdr8、sdshdr16、sdshdr32 和 sdshdr64。这 4 种类型的主要区别就在于，它们数据结构中的字符数组现有长度 len 和分配空间长度 alloc，这两个元数据的数据类型不同。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-oziwodp",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011823-oziwodp",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-jmhyd81",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-jmhyd81",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-c5q6j3r",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-c5q6j3r",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "sdshdr8：标识 len 和 alloc 长度是用 8 位（也就是占用 1 个字节）来标识，也就是最大能表示 2^8 (256的长度)。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-6e6ipzd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-6e6ipzd",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-cnfwd5y",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-cnfwd5y",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "sdshdr16：标识 len 和 alloc 长度是用 16 位 占用2个字节"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-1cf0o2z",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-1cf0o2z",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-582igaa",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-582igaa",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "sdshdr32：标识 len 和 alloc 长度是用 32 位 占用4个字节"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-07fthny",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-07fthny",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-qltf5y2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-qltf5y2",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "sdshdr64：标识 len 和 alloc 长度是用 64 位 占用8个字节"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-7gq6li1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-7gq6li1",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "SDS 之所以设计不同的结构头（即不同类型），是为了能灵活保存不同大小的字符串，从而有效节省内存空间。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-s16t302",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011823-s16t302",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "压缩列表（ziplist）"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-hz0j3b7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-hz0j3b7",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "List、Hash 和 Sorted Set 这三种数据类型，都可以使用压缩列表（ziplist）来保存数据，压缩列表本身就是一块连续的内存空间，它通过使用不同的编码来保存数据。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-l88f5p3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-l88f5p3",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "实际上，所谓的编码技术，就是指用不同数量的字节来表示保存的信息。在 ziplist 中，编码技术主要应用在列表项中的 prevlen 和 encoding 这两个元数据上。而当前项的实际数据 data，则正常用整数或是字符串来表示。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-tqd0tms",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-tqd0tms",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/140b896ffbb9474ba77781e515a91636-20230404011823-bmkodhc.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n而为了方便查找，每个列表项中都会记录前一项的长度。因为每个列表项的长度不一样，所以如果使用相同的字节大小来记录 prevlen，就会造成内存空间浪费。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-92akb4k",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011823-92akb4k",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-done8ev",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-done8ev",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-ekryscf",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-ekryscf",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "prevlen：ziplist 在对 prevlen 编码时，先判断前一个列表项是否小于 254 字节。如果是的话，那么 prevlen 就使用 1 字节表示；否则，使用 5 字节表示。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-oew2brp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-oew2brp",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-78ufyj4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-78ufyj4",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "encoding：本元素编码，通过encoding我们可以知道此元素存储的类型（字符串/整型），同时字符串或是整型又能继续细分，可以知道字符串长度，整型占用字节数。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-caaiiqm",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011823-caaiiqm",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ziplist的查找"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-guqeyfa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-guqeyfa",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ziplist 头尾元数据的大小是固定的，并且在 ziplist 头部记录了最后一个元素的位置，所以，当在 ziplist 中查找第一个或最后一个元素的时候，就可以很快找到。但是，当要查找列表中间的元素时，ziplist 就得从列表头或列表尾遍历才行。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-fqs0psi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-fqs0psi",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当 ziplist 保存的元素过多时，查找中间数据的复杂度就增加了。更糟糕的是，如果 ziplist 里面保存的是字符串，ziplist 在查找某个元素时，还需要逐一判断元素的每个字符，这样又进一步增加了复杂度。查询效率O(n)"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-wrhy0oj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-wrhy0oj",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因此，在使用 ziplist 保存 Hash 或 Sorted Set 数据时，都会在 redis.conf 文件中，通过 hash-max-ziplist-entries 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=zset\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "zset"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "-max-ziplist-entries 两个参数，来控制保存在 ziplist 中的元素个数。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-fgs6feo",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011823-fgs6feo",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-4ujgkw2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-4ujgkw2",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-thzuwhh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-thzuwhh",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "hash使用ziplist条件：数据长度小于64 或 列表长度小于512 ，并且可以通过redis.conf中的hash-max-ziplist-entries=512, hash-max-ziplist-value=64调整。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-cfm1ldv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-cfm1ldv",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-byjhknu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-byjhknu",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "zset使用ziplist条件：数据长度小于64 或 列表长度小于128，并且可以通过redis.conf中的zset-max-ziplist-entries=128, zset-max-ziplist-value=64调整。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-vsmi7hr",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011823-vsmi7hr",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ziplist的特点"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-0l0cuhb",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011823-0l0cuhb",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-yku2268",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-yku2268",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-0y8mbx1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-0y8mbx1",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "连续内存存储：每个元素紧凑排列，内存利用率高"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-d532upx",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-d532upx",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-4alfxfn",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-4alfxfn",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "变长编码：存储数据时，采用变长编码（满足数据长度的前提下，尽可能少分配内存）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-0fs513v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-0fs513v",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-1at1teb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-1at1teb",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "寻找元素需遍历：存放太多元素，性能会下降（适合少量数据存储）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-356oo9v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-356oo9v",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-b7r5526",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-b7r5526",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "级联更新：更新、删除元素，会引发级联更新（因为内存连续，前面数据膨胀/删除了，后面要跟着一起动）"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-iyjyooj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011823-iyjyooj",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "连锁更新问题"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-2ypp37i",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-2ypp37i",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因为 ziplist 必须使用一块连续的内存空间来保存数据，所以当新插入一个元素时，ziplist 就需要计算其所需的空间大小，并申请相应的内存空间。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-4es3gv6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-4es3gv6",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "实际上，所谓的连锁更新，就是指当一个元素插入后，会引起当前位置元素新增 prevlensize 的空间。而当前位置元素的空间增加后，又会进一步引起该元素的后续元素，其 prevlensize 所需空间的增加。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-nu6q9m0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-nu6q9m0",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这样，一旦插入位置后续的所有元素，都会因为前序元素的 prevlenszie 增加，而引起自身空间也要增加，这种每个元素的空间都需要增加的现象，就是连锁更新。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-lwyze5c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-lwyze5c",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/b4ef942b8e3a4bf3b2a28b0787018e0e-20230404011823-mocqz5i.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-4blwqyf",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011823-4blwqyf",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "整形集合（intset）"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-6dc4r6d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-6dc4r6d",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "整形集合（intset）是作为底层结构来实现 Set 数据类型的。和 SDS 嵌入式字符串、ziplist 类似，整数集合也是一块连续的内存空间，这一点我们从整数集合的定义中就可以看到。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-k1ufv0p",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011823-k1ufv0p",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "typedef struct intset { \n    uint32_t encoding;\n    uint32_t length;\n    int8_t contents[];\n} intset;\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-d649cpr",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011823-d649cpr",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-efcm4wu",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-efcm4wu",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-yuhjjft",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-yuhjjft",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "encoding：指定了编码方式，总共有 int16、int32、int64 三种，分别占用 2、4、8 字节。当前编码方式不足以存储更大位数的整数时，需要升级编码，而整数集合中所有的数的编码需要保持一致。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-7xf2sfj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-7xf2sfj",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-6akbhg8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-6akbhg8",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "length：存储了整数集合的元素个数"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-353jf79",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-353jf79",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-eh1p3n8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-eh1p3n8",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "contents：整数集合的每个元素都是contents数组的各数组项，每一项在数组中按值的大小从小到大有序地排列，并且数组中不包含任何重复项。将contents属性声明为int8_t类型的数组，但实际contents数组并不保存任何int8_t类型的值，contents数组的真正类型取决于encoding属性的值。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-3xkwprc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-3xkwprc",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于 contents 的内存是动态分配的，所以每次进行元素插入或者删除的时候，都需要重新分配内存"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-f5j5ktl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-f5j5ktl",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在set集合中，使用intset需要满足两个条件："
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-2uloje9",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404011823-2uloje9",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-hmvc9rw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404011823-hmvc9rw",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-z9iscyz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-z9iscyz",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "所有元素均为整数"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-46u5jz2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404011823-46u5jz2",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-yjj369f",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-yjj369f",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "元素个数小于512"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-bhfjnz4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-bhfjnz4",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "否则，会转换成哈希表结构来存储。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-b90lt4z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-b90lt4z",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "intset特点："
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-t9jwbfx",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011823-t9jwbfx",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-nwtuo81",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-nwtuo81",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-kpd56rg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-kpd56rg",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Set 存储如果都是数字，采用 intset 存储"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-jkz6pb3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-jkz6pb3",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-jwh0w9c",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-jwh0w9c",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "变长编码：数字范围不同，intset 会选择 int16/int32/int64 编码"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-yebscyc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-yebscyc",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-4r3uw1j",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-4r3uw1j",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "有序：intset 在存储时是有序的，这意味着查找一个元素，可使用「二分查找」"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-e70ar44",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-e70ar44",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-208h7ap",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-208h7ap",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "编码升级/降级：添加、更新、删除元素，数据范围发生变化，会引发编码长度升级或降级"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-4hr2fi7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011823-4hr2fi7",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-4pb5led",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-4pb5led",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "降低内存开销，对于 Redis 这样的内存数据库来说非常重要，Redis 用于优化内存使用效率的两种方法：内存优化的数据结构设计和节省内存的共享数据访问。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-pii3can",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011823-pii3can",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "内存优化的数据结构设计"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-ymg8lbu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-ymg8lbu",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对于实现数据结构来说，如果想要节省内存，Redis 就给我们提供了两个优秀的设计思想："
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-a87gxq1",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404011823-a87gxq1",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-8evf3r6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404011823-8evf3r6",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-we2hsoq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-we2hsoq",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "使用连续的内存空间，避免内存碎片开销。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-f9tf2au",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404011823-f9tf2au",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-2jnxyec",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-2jnxyec",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "针对不同长度的数据，采用不同大小的元数据，以避免使用统一大小的元数据，造成内存空间的浪费。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-4bkn3n1",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011823-4bkn3n1",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "使用共享对象"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-ruhlot8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-ruhlot8",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 Redis 实例运行时，有些数据是会被经常访问的，比如常见的整数，Redis 协议中常见的回复信息，包括操作成功（“OK”字符串）、操作失败（ERR），以及常见的报错信息。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-17jr12b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-17jr12b",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所以，为了避免在内存中反复创建这些经常被访问的数据，Redis 就采用了共享对象的设计思想。这个设计思想很简单，就是把这些常用数据创建为共享对象，当上层应用需要访问它们时，直接读取就行。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-573hjhg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-573hjhg",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "使用共享对象其实可以避免重复创建冗余的数据，从而也可以有效地节省内存空间。不过，共享对象主要适用于只读场景，如果一个字符串被反复地修改，就无法被多个请求共享访问了。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-5kc4ky9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-5kc4ky9",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "redis为了充分提高内存利用率，从几个方面入手："
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-29k63qu",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011823-29k63qu",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-eih1eu1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-eih1eu1",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-f2tcafq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-f2tcafq",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "淘汰不在使用的内存空间"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-mxb3xlt",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-mxb3xlt",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-jeup2n2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-jeup2n2",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "紧凑型的内存设计"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-7z6c44x",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-7z6c44x",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-r5cofo6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-r5cofo6",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "实例内存共享"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-dkkm0ja",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011823-dkkm0ja",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "为了提高内存利用率，redis做出了以下努力："
+				}
+			]
+		},
+		{
+			"ID": "20230404011823-yj8swv7",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011823-yj8swv7",
+				"updated": "20230404011823"
+			},
+			"Children": [
+				{
+					"ID": "20230404011823-3zda5ck",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-3zda5ck",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-iyle9ma",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-iyle9ma",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "设计实现了SDS"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-wc297i5",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-wc297i5",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-u5orbav",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-u5orbav",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "设计实现了ziplist"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-55k80fr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-55k80fr",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-865fys9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-865fys9",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "设计实现了intset"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-24s3g6v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-24s3g6v",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-6jfmxpm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-6jfmxpm",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "搭配redisObject设计了嵌入式字符串"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011823-zdszlgu",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011823-zdszlgu",
+						"updated": "20230404011823"
+					},
+					"Children": [
+						{
+							"ID": "20230404011823-08n7o0t",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011823-08n7o0t",
+								"updated": "20230404011823"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "设计了共享对象（共享内存大部是常量实例）"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

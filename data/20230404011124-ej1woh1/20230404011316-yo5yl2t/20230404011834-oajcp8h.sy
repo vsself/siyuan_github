@@ -1,0 +1,2122 @@
+{
+	"ID": "20230404011834-oajcp8h",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404011834-oajcp8h",
+		"title": "吃透Redis（八）：缓存淘汰篇-LRU算法_allkeys-lru_吃透Java的博客-CSDN博客",
+		"updated": "20230404011834"
+	},
+	"Children": [
+		{
+			"ID": "20230404011834-u2b8sgd",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011834-u2b8sgd",
+				"updated": "20230404011834"
+			}
+		},
+		{
+			"ID": "20230404011834-ol82i84",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011834-ol82i84",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"ID": "20230404011834-r6wclb3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-r6wclb3",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-ng16anv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-ng16anv",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126370384",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/126370384"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-5ba0w7n",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-5ba0w7n",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-yfsfmhh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-yfsfmhh",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "近似 LRU 算法并没有使用耗时耗空间的链表，而是使用了固定大小的待淘汰数据集合，每次随机选择一些 key 加入待淘汰数据集合中。最后，再按照待淘汰集合中 key 的空闲时间长度，删除空闲时间最长的 key。这样一来，Redis 就近似实现了 LRU 算法的效果了..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-tm3jkq0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-tm3jkq0",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-911awmj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-911awmj",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:18:34"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-hu2k4ax",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011834-hu2k4ax",
+				"updated": "20230404011834"
+			}
+		},
+		{
+			"ID": "20230404011834-y7l22w8",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011834-y7l22w8",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-n9affq3",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011834-n9affq3",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"ID": "20230404011834-icrilg8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-icrilg8",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-60vln4v",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230404011834-60vln4v",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"ID": "20230404011834-bf5t3pe",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011834-bf5t3pe",
+										"updated": "20230404011834"
+									},
+									"Children": [
+										{
+											"ID": "20230404011834-dpdpz9f",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011834-dpdpz9f",
+												"updated": "20230404011834"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126370384#_1",
+													"TextMarkTextContent": "一、概述"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011834-087su5p",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011834-087su5p",
+										"updated": "20230404011834"
+									},
+									"Children": [
+										{
+											"ID": "20230404011834-po5nt2r",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011834-po5nt2r",
+												"updated": "20230404011834"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126370384#LRU_18",
+													"TextMarkTextContent": "二、LRU算法"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011834-vuaqf48",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011834-vuaqf48",
+										"updated": "20230404011834"
+									},
+									"Children": [
+										{
+											"ID": "20230404011834-x2jjagn",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230404011834-x2jjagn",
+												"updated": "20230404011834"
+											},
+											"Children": [
+												{
+													"ID": "20230404011834-99jl32l",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011834-99jl32l",
+														"updated": "20230404011834"
+													},
+													"Children": [
+														{
+															"ID": "20230404011834-ccf92hx",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011834-ccf92hx",
+																"updated": "20230404011834"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126370384#1LRU_19",
+																	"TextMarkTextContent": "1、普通LRU算法"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011834-b7xqv1s",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011834-b7xqv1s",
+														"updated": "20230404011834"
+													},
+													"Children": [
+														{
+															"ID": "20230404011834-swvaiwg",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011834-swvaiwg",
+																"updated": "20230404011834"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126370384#2_LRU__39",
+																	"TextMarkTextContent": "2、近似 LRU 算法"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011834-9u756d9",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011834-9u756d9",
+														"updated": "20230404011834"
+													},
+													"Children": [
+														{
+															"ID": "20230404011834-zwvqpa0",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230404011834-zwvqpa0",
+																"updated": "20230404011834"
+															},
+															"Children": [
+																{
+																	"ID": "20230404011834-1mejob1",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404011834-1mejob1",
+																		"updated": "20230404011834"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404011834-0orb8du",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230404011834-0orb8du",
+																				"updated": "20230404011834"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126370384#21_LRU__46",
+																					"TextMarkTextContent": "2-1、全局 LRU 时钟值的计算"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230404011834-fg10qhy",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404011834-fg10qhy",
+																		"updated": "20230404011834"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404011834-zcdakv1",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230404011834-zcdakv1",
+																				"updated": "20230404011834"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126370384#22_LRU__66",
+																					"TextMarkTextContent": "2-2、键值对 LRU 时钟值的初始化与更新"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230404011834-mn61ksq",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404011834-mn61ksq",
+																		"updated": "20230404011834"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404011834-nb9oghp",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230404011834-nb9oghp",
+																				"updated": "20230404011834"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126370384#23_LRU__69",
+																					"TextMarkTextContent": "2-3、近似 LRU 算法的实际执行"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230404011834-52qr99g",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404011834-52qr99g",
+																		"updated": "20230404011834"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404011834-52uhj4b",
+																			"Type": "NodeList",
+																			"ListData": {},
+																			"Properties": {
+																				"id": "20230404011834-52uhj4b",
+																				"updated": "20230404011834"
+																			},
+																			"Children": [
+																				{
+																					"ID": "20230404011834-6uhbedh",
+																					"Type": "NodeListItem",
+																					"ListData": {
+																						"BulletChar": 42,
+																						"Marker": "Kg=="
+																					},
+																					"Properties": {
+																						"id": "20230404011834-6uhbedh",
+																						"updated": "20230404011834"
+																					},
+																					"Children": [
+																						{
+																							"ID": "20230404011834-2kmgp7x",
+																							"Type": "NodeParagraph",
+																							"Properties": {
+																								"id": "20230404011834-2kmgp7x",
+																								"updated": "20230404011834"
+																							},
+																							"Children": [
+																								{
+																									"Type": "NodeTextMark",
+																									"TextMarkType": "a",
+																									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126370384#_75",
+																									"TextMarkTextContent": "何时触发算法执行？"
+																								}
+																							]
+																						}
+																					]
+																				},
+																				{
+																					"ID": "20230404011834-j4b4glm",
+																					"Type": "NodeListItem",
+																					"ListData": {
+																						"BulletChar": 42,
+																						"Marker": "Kg=="
+																					},
+																					"Properties": {
+																						"id": "20230404011834-j4b4glm",
+																						"updated": "20230404011834"
+																					},
+																					"Children": [
+																						{
+																							"ID": "20230404011834-wknqfem",
+																							"Type": "NodeParagraph",
+																							"Properties": {
+																								"id": "20230404011834-wknqfem",
+																								"updated": "20230404011834"
+																							},
+																							"Children": [
+																								{
+																									"Type": "NodeTextMark",
+																									"TextMarkType": "a",
+																									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126370384#_86",
+																									"TextMarkTextContent": "算法具体如何执行"
+																								}
+																							]
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011834-j7hxycp",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011834-j7hxycp",
+										"updated": "20230404011834"
+									},
+									"Children": [
+										{
+											"ID": "20230404011834-ztc2o1v",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011834-ztc2o1v",
+												"updated": "20230404011834"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126370384#_112",
+													"TextMarkTextContent": "三、总结"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-oeq5zuz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011834-oeq5zuz",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、概述"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-5wu929c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-5wu929c",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "redis是内存数据库，当内存使用达到了一定阈值，就会触发缓存淘汰策略，这和 Redis 配置文件 redis.conf 中的两个配置参数有关："
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-hcsjtmg",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011834-hcsjtmg",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"ID": "20230404011834-0slf97n",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-0slf97n",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-olkns4a",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-olkns4a",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "maxmemory，该配置项设定了 Redis server 可以使用的最大内存容量，一旦 server 使用的实际内存量超出该阈值时，server 就会根据 maxmemory-policy 配置项定义的策略，执行内存淘汰操作；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-yb0euas",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-yb0euas",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-fog5u2r",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-fog5u2r",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "maxmemory-policy，该配置项设定了 Redis server 的内存淘汰策略，主要包括近似 LRU 算法、LFU 算法、按 TTL 值淘汰和随机淘汰等几种算法。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-gm2kvww",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-gm2kvww",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "maxmemory-policy 内存淘汰策略一共八种："
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-rsrmud3",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404011834-rsrmud3",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"ID": "20230404011834-7a93509",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404011834-7a93509",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-ff86ob4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-ff86ob4",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "noeviction：noeviction 策略是不会进行数据淘汰的。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-bvi0uxj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404011834-bvi0uxj",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-u0v473o",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-u0v473o",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "volatile-random：在设置了过期时间的 key 中随机淘汰掉。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-dogys9e",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404011834-dogys9e",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-9552gsg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-9552gsg",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "allkeys-random：在所有的 key 中随机淘汰掉。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-jbqr2jm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404011834-jbqr2jm",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-s1sskmu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-s1sskmu",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "volatile-ttl：把设置了过期时间的 key 中剩余存活时间最短的筛选出来并淘汰掉。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-tb3su7u",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230404011834-tb3su7u",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-vkds919",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-vkds919",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "volatile-lru：从设置过期时间的key中挑选出 最近最少使用（LRU） 的数据淘汰。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-xh89uec",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ni4=",
+						"Num": 6
+					},
+					"Properties": {
+						"id": "20230404011834-xh89uec",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-b5niih7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-b5niih7",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "allkeys-lru：从所有的 key 中挑选出 最近最少使用（LRU） 的数据淘汰。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-ipecpe7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ny4=",
+						"Num": 7
+					},
+					"Properties": {
+						"id": "20230404011834-ipecpe7",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-0ns2uf1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-0ns2uf1",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "volatile-lfu：从设置过期时间的key中挑选出 最近最少使用频率（LFU） 的数据淘汰。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-5da4z7e",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "OC4=",
+						"Num": 8
+					},
+					"Properties": {
+						"id": "20230404011834-5da4z7e",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-s4968oy",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-s4968oy",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "allkeys-lfu：从所有的 key 中挑选出 最近最少使用频率（LFU） 的数据淘汰。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-jok8jxx",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011834-jok8jxx",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=LRU%E7%AE%97%E6%B3%95\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "LRU算法"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-17vu670",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011834-17vu670",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、普通LRU算法"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-3bloidy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-3bloidy",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "LRU 算法就是指最近最少使用（Least Recently Used，LRU）算法，这是一个经典的缓存算法。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-w2smqiz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-w2smqiz",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从基本原理上来说，LRU 算法会使用一个链表来维护缓存中每一个数据的访问情况，并根据数据的实时访问，调整数据在链表中的位置，然后通过数据在链表中的位置，来表示数据是最近刚访问的，还是已经有一段时间没有访问了。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-5roxmfn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-5roxmfn",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "LRU 算法的执行，可以分成三种情况来掌握："
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-346wt3n",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011834-346wt3n",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"ID": "20230404011834-axyijhz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-axyijhz",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-hrhikfd",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-hrhikfd",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当有新数据插入时，LRU 算法会把该数据插入到链表头部，同时把原来链表头部的数据及其之后的数据，都向尾部移动一位。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-vcfci4t",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-vcfci4t",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-t2dj15q",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-t2dj15q",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当有数据刚被访问了一次之后，LRU 算法就会把该数据从它在链表中的当前位置，移动到链表头部。同时，把从链表头部到它当前位置的其他数据，都向尾部移动一位。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-xes7o7l",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-xes7o7l",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-vok28c8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-vok28c8",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当链表长度无法再容纳更多数据时，若再有新数据插入，LRU 算法就会去除链表尾部的数据，这也相当于将数据从缓存中淘汰掉。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-c04877h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-c04877h",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所以我们可以发现，如果要严格按照 LRU 算法的基本原理来实现的话，我们需要在代码中实现如下内容："
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-9hgdmkg",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011834-9hgdmkg",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"ID": "20230404011834-s7xqbzp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-s7xqbzp",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-rkatyrk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-rkatyrk",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "要为 Redis 使用最大内存时，可容纳的所有数据维护一个链表；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-lpvziv9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-lpvziv9",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-1ofiy9q",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-1ofiy9q",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "每当有新数据插入或是现有数据被再次访问时，需要执行多次链表操作。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-v04u52n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-v04u52n",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "而假设 Redis 保存的数据比较多的话，那么，这两部分的代码实现，就既需要额外的内存空间来保存链表，还会在访问数据的过程中，让 Redis 受到数据移动和链表操作的开销影响，从而就会降低 Redis 访问性能。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-stkkhrb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-stkkhrb",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "所以说，无论是为了节省宝贵的内存空间，还是为了保持 Redis 高性能，Redis 源码并没有严格按照 LRU 算法基本原理来实现它，而是提供了一个近似 LRU 算法的实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-f0jtxli",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011834-f0jtxli",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、近似 LRU 算法"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-h56c30i",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-h56c30i",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "为了便于你理解，我把 Redis 对近似 LRU 算法的实现分成了三个部分："
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-b9rpmhc",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011834-b9rpmhc",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"ID": "20230404011834-gciwwvh",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-gciwwvh",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-6gdbis2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-6gdbis2",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "全局 LRU 时钟值的计算：这部分包括，Redis 源码为了实现近似 LRU 算法的效果，是如何计算全局 LRU 时钟值的，以用来判断数据访问的时效性；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-d43kevq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-d43kevq",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-2lkuviq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-2lkuviq",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "键值对 LRU 时钟值的初始化与更新：这部分包括，Redis 源码在哪些函数中对每个键值对对应的 LRU 时钟值，进行初始化与更新；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-vo3ucxo",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-vo3ucxo",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-t8flto5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-t8flto5",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "近似 LRU 算法的实际执行：这部分包括，Redis 源码具体如何执行近似 LRU 算法，也就是何时触发数据淘汰，以及实际淘汰的机制是怎么实现的。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-8p5fugz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404011834-8p5fugz",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2-1、全局 LRU 时钟值的计算"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-tivzrdo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-tivzrdo",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "虽然 Redis 使用了近似 LRU 算法，但是，这个算法仍然需要区分不同数据的访问时效性，也就是说，Redis 需要知道数据的最近一次访问时间。因此，Redis 就设计了 LRU 时钟来记录数据每次访问的时间戳。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-tsw0ppi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-tsw0ppi",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Redis 在源码中对于每个键值对中的值，会使用一个 redisObject 结构体来保存指向值的指针。那么，redisObject 结构体除了记录值的指针以外，它其实还会使用 24 bits 来保存 LRU 时钟信息，对应的是 lru 成员变量。所以这样一来，每个键值对都会把它最近一次被访问的时间戳，记录在 lru 变量当中。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-3tbqiiu",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011834-3tbqiiu",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "typedef struct redisObject { \n    unsigned type:4;\n    unsigned encoding:4;\n    unsigned lru:LRU_BITS;  //记录LRU信息，宏定义LRU_BITS是24 bits\n    int refcount;\n    void *ptr;\n} robj;\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-9eaug4g",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-9eaug4g",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Redis 首先是设置了全局 LRU 时钟，并在键值对创建时获取全局 LRU 时钟值作为访问时间戳，以及在每次访问时获取全局 LRU 时钟值，更新访问时间戳。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-x7iwy2j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-x7iwy2j",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "全局 LRU 时钟其实是一个全局变量，在 Redis server 的运行过程中，定时默认 100 毫秒（可配置），获取一次当前时钟值，去更新全局 LRU 时钟变量，那么每次访问 key 时就会获取全局 LRU 时钟值，更新RedisObject中的 lru 访问时间戳。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-ctuai5s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-ctuai5s",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "需要注意的就是，全局 LRU 时钟值是以 1 秒为精度来计算的 UNIX 时间戳，如果一个数据前后两次访问的时间间隔小于 1 秒，那么这两次访问的时间戳就是一样的。因为 LRU 时钟的精度就是 1 秒，它无法区分间隔小于 1 秒的不同时间戳。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-174zeqv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404011834-174zeqv",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2-2、键值对 LRU 时钟值的初始化与更新"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-zkhymva",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-zkhymva",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在键值对被创建或访问的时候，它的 LRU 时钟值就会被更新，记录的是当前的时间搓。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-vo9sa4y",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404011834-vo9sa4y",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2-3、近似 LRU 算法的实际执行"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-gkx83x6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-gkx83x6",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "现在我们已经知道，Redis 之所以实现近似 LRU 算法的目的，是为了减少内存资源和操作时间上的开销。那么在这里，我们其实可以从两个方面来了解近似 LRU 算法的执行过程，分别是："
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-i2hqfny",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011834-i2hqfny",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"ID": "20230404011834-p4rsa7u",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-p4rsa7u",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-jgq4wta",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-jgq4wta",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "何时触发算法执行？"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-jlikm5p",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-jlikm5p",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-1mbwfi5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-1mbwfi5",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "算法具体如何执行？"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-s2dpur1",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20230404011834-s2dpur1",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "何时触发算法执行？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-zffuy6q",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-zffuy6q",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "近似 LRU 算法的主要逻辑是在 freeMemoryIfNeeded 函数中实现的，而这个函数是 Redis 处理每个命令时都会被调用的。所以，Redis 在每个命令执行的时候都会去判断是否触发淘汰策略。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-opoa5of",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-opoa5of",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "触发条件："
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-3mbqawc",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011834-3mbqawc",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"ID": "20230404011834-ydhwp15",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-ydhwp15",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-lwv2lhc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-lwv2lhc",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "设置了 maxmemory 配置项为非 0 值。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-jo4rvdc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-jo4rvdc",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-uas4e4z",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-uas4e4z",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Lua 脚本没有在超时运行。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-i8v1k3c",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-i8v1k3c",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-3z94omx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-3z94omx",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当前内存使用量超过 maxmemory。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-t5mh05f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-t5mh05f",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "满足以上条件就会触发 LRU 淘汰策略（前提是 maxmemory-policy 淘汰策略设置的LRU策略）。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-qog0jmg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20230404011834-qog0jmg",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "算法具体如何执行"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-78exv4z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-78exv4z",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "而如果当前 server 使用的内存量，的确已经超出 maxmemory 的上限了，那么 freeMemoryIfNeeded 函数就会执行一个 while 循环，来淘汰数据释放内存。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-p8n1w47",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-p8n1w47",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其实，为了淘汰数据，Redis 定义了一个数组 EvictionPoolLRU，用来保存待淘汰的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%80%99%E9%80%89%E9%94%AE\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "候选键"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "值对。这个数组的元素类型是 evictionPoolEntry 结构体，该结构体保存了待淘汰键值对的空闲时间 idle、对应的 key 等信息。以下代码展示了 EvictionPoolLRU 数组和 evictionPoolEntry 结构体："
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-wfsqeew",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011834-wfsqeew",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "static struct evictionPoolEntry *EvictionPoolLRU;\n\nstruct evictionPoolEntry { \n    unsigned long long idle;    //待淘汰的键值对的空闲时间\n    sds key;                    //待淘汰的键值对的key\n    sds cached;                 //缓存的SDS对象\n    int dbid;                   //待淘汰键值对的key所在的数据库ID\n};\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-dtmz0zk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-dtmz0zk",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "该数组的大小默认是 16 个元素，也就是可以保存 16 个待淘汰的候选键值对。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-cxjfsyo",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011834-cxjfsyo",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"ID": "20230404011834-up2d73i",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-up2d73i",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-7kj7048",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-7kj7048",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "第一步：从待采样的哈希表中随机获取一定数量的 key。如果 maxmemory_policy 配置的是 allkeys_lru，那么待采样哈希表就是 Redis server 的全局哈希表，也就是在所有键值对中进行采样；否则，待采样哈希表就是保存着设置了过期时间的 key 的哈希表。函数采样的 key 的数量，是由 redis.conf 中的配置项 maxmemory-samples 决定的，该配置项的默认值是 5。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-7sahhqf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-7sahhqf",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-sisf25b",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-sisf25b",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "第二步：尝试把采样的每一个键值对插入 EvictionPoolLRU 数组。这主要取决于以下两个条件之一：一是，它能在数组中找到一个尚未插入键值对的空位；二是，它能在数组中找到一个空闲时间小于采样键值对空闲时间的键值对。这两个条件有一个成立的话，就会把采样的键值对插入 EvictionPoolLRU 数组。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-297w35j",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-297w35j",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-zhohtnc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-zhohtnc",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "第三步：选择被淘汰的键值对并删除。遍历 EvictionPoolLRU 数组（这个数组里面的 key，是按照空闲时间从小到大排好序了），从数组的最后一个 key 开始选择，如果选到的 key 不是空值，那么就把它作为最终淘汰的 key。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-wquqmcq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-wquqmcq",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-2x487q8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-2x487q8",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "第四步：一旦选到了被淘汰的 key，就会根据 Redis server 的惰性删除配置，来执行同步删除或异步删除"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-bfw8p6i",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-bfw8p6i",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面四步是一个循环遍历的过程，也就是说一旦触发了LRU淘汰，如果没有达到我前面介绍的待释放空间，会重复执行上面的四步，直到满足待释放空间的大小要求。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-705mnt3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011834-705mnt3",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "其实，我们可以看到，近似 LRU 算法并没有使用耗时耗空间的链表，而是使用了固定大小的待淘汰数据集合，每次随机选择一些 key 加入待淘汰数据集合中。最后，再按照待淘汰集合中 key 的空闲时间长度，删除空闲时间最长的 key。这样一来，Redis 就近似实现了 LRU 算法的效果了。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-9v1d75f",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011834-9v1d75f",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、总结"
+				}
+			]
+		},
+		{
+			"ID": "20230404011834-22jclvr",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011834-22jclvr",
+				"updated": "20230404011834"
+			},
+			"Children": [
+				{
+					"ID": "20230404011834-hmye1bv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-hmye1bv",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-62j7c49",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-62j7c49",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "实现一个严格的 LRU 算法，需要额外的内存构建 LRU 链表，同时维护链表也存在性能开销，Redis 对于内存资源和性能要求极高，所以没有采用严格 LRU 算法，而是采用「近似」LRU 算法实现数据淘汰策略"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-v5iafdl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-v5iafdl",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-nxe5h26",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-nxe5h26",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "触发数据淘汰的时机，是每次处理「请求」时判断的。也就是说，执行一个命令之前，首先要判断实例内存是否达到 maxmemory，是的话则先执行数据淘汰，再执行具体的命令"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-jocn9hm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-jocn9hm",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-xn40fkk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-xn40fkk",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "淘汰数据时，会「持续」判断 Redis 内存是否下降到了 maxmemory 以下，不满足的话会继续淘汰数据，直到内存下降到 maxmemory 之下才会停止"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-j0syvr1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-j0syvr1",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-kiooskr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-kiooskr",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "可见，如果发生大量淘汰的情况，那么处理客户端请求就会发生「延迟」，影响性能"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011834-hm9r91v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011834-hm9r91v",
+						"updated": "20230404011834"
+					},
+					"Children": [
+						{
+							"ID": "20230404011834-27c65w7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011834-27c65w7",
+								"updated": "20230404011834"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Redis 计算实例内存时，不会把「主从复制」的缓冲区计算在内，也就是说不管一个实例后面挂了多少个从库，主库不会把主从复制所需的「缓冲区」内存，计算到实例内存中，即这部分内存增加，不会对数据淘汰产生影响"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

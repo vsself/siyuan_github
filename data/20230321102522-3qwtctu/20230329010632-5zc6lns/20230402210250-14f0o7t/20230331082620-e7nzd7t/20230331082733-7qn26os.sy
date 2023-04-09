@@ -1,0 +1,1491 @@
+{
+	"ID": "20230331082733-7qn26os",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331082733-7qn26os",
+		"title": "Spring 源码分析衍生篇三 : lookup-method 和 replaced-method_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331082733"
+	},
+	"Children": [
+		{
+			"ID": "20230331082733-hg43l63",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082733-hg43l63",
+				"updated": "20230331082733"
+			}
+		},
+		{
+			"ID": "20230331082733-1n5u5u1",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331082733-1n5u5u1",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"ID": "20230331082733-whqxhhb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082733-whqxhhb",
+						"updated": "20230331082733"
+					},
+					"Children": [
+						{
+							"ID": "20230331082733-qi5e8tg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082733-qi5e8tg",
+								"updated": "20230331082733"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106176923",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/106176923"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082733-i2meihs",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082733-i2meihs",
+						"updated": "20230331082733"
+					},
+					"Children": [
+						{
+							"ID": "20230331082733-qnb1lp4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082733-qnb1lp4",
+								"updated": "20230331082733"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "文章目录一、前言二、基本使用1. 作用三、原理实现1. 预处理2. 真正处理一、前言本文是 Spring源码分析：单例bean的获取 - createBean  的衍生文章。主要是因为本人菜鸡，在分析源码的过程中还有一些其他的内容不理解，故开设衍生篇来完善内容以学习。二、基本使用1. 作用lookup-method ：用于注入方法返回结果，也就是说能通过配置方式替换方法返回结果。replaced-method ：可以实现方法主体或返回结果的替换通俗来讲 ： lookup-method  可以"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082733-lxjmi18",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082733-lxjmi18",
+						"updated": "20230331082733"
+					},
+					"Children": [
+						{
+							"ID": "20230331082733-tq5xxd8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082733-tq5xxd8",
+								"updated": "20230331082733"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 08:27:33"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-oq1xiev",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082733-oq1xiev",
+				"updated": "20230331082733"
+			}
+		},
+		{
+			"ID": "20230331082733-10lamhr",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331082733-10lamhr",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-9ol6zt0",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331082733-9ol6zt0",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"ID": "20230331082733-d71peb9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082733-d71peb9",
+						"updated": "20230331082733"
+					},
+					"Children": [
+						{
+							"ID": "20230331082733-elkng3e",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082733-elkng3e",
+								"updated": "20230331082733"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106176923#_1",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082733-3h50e6b",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082733-3h50e6b",
+						"updated": "20230331082733"
+					},
+					"Children": [
+						{
+							"ID": "20230331082733-1e5wsk2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082733-1e5wsk2",
+								"updated": "20230331082733"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106176923#_3",
+									"TextMarkTextContent": "二、基本使用"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082733-973gx5d",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082733-973gx5d",
+						"updated": "20230331082733"
+					},
+					"Children": [
+						{
+							"ID": "20230331082733-5biikw5",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331082733-5biikw5",
+								"updated": "20230331082733"
+							},
+							"Children": [
+								{
+									"ID": "20230331082733-w40uxz9",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331082733-w40uxz9",
+										"updated": "20230331082733"
+									},
+									"Children": [
+										{
+											"ID": "20230331082733-0okdhn3",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331082733-0okdhn3",
+												"updated": "20230331082733"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106176923#1__4",
+													"TextMarkTextContent": "1. 作用"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082733-da7vx8i",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082733-da7vx8i",
+						"updated": "20230331082733"
+					},
+					"Children": [
+						{
+							"ID": "20230331082733-uqp4w14",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082733-uqp4w14",
+								"updated": "20230331082733"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106176923#_93",
+									"TextMarkTextContent": "三、原理实现"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082733-qa3sav4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082733-qa3sav4",
+						"updated": "20230331082733"
+					},
+					"Children": [
+						{
+							"ID": "20230331082733-vg7cow3",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331082733-vg7cow3",
+								"updated": "20230331082733"
+							},
+							"Children": [
+								{
+									"ID": "20230331082733-r4cgi6c",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331082733-r4cgi6c",
+										"updated": "20230331082733"
+									},
+									"Children": [
+										{
+											"ID": "20230331082733-a8772f5",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331082733-a8772f5",
+												"updated": "20230331082733"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106176923#1__98",
+													"TextMarkTextContent": "1. 预处理"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331082733-ri723o8",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331082733-ri723o8",
+										"updated": "20230331082733"
+									},
+									"Children": [
+										{
+											"ID": "20230331082733-90vipir",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331082733-90vipir",
+												"updated": "20230331082733"
+											},
+											"Children": [
+												{
+													"ID": "20230331082733-d4odj6v",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331082733-d4odj6v",
+														"updated": "20230331082733"
+													},
+													"Children": [
+														{
+															"ID": "20230331082733-cwarfza",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331082733-cwarfza",
+																"updated": "20230331082733"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106176923#11_AbstractBeanDefinitionprepareMethodOverrides_99",
+																	"TextMarkTextContent": "1.1 AbstractBeanDefinition#prepareMethodOverrides"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331082733-llweo25",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331082733-llweo25",
+														"updated": "20230331082733"
+													},
+													"Children": [
+														{
+															"ID": "20230331082733-dnpnefk",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331082733-dnpnefk",
+																"updated": "20230331082733"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106176923#12_AutowiredAnnotationBeanPostProcessordetermineCandidateConstructors_139",
+																	"TextMarkTextContent": "1.2 AutowiredAnnotationBeanPostProcessor#determineCandidateConstructors"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331082733-cstffol",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331082733-cstffol",
+										"updated": "20230331082733"
+									},
+									"Children": [
+										{
+											"ID": "20230331082733-omp4mrv",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331082733-omp4mrv",
+												"updated": "20230331082733"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106176923#2__188",
+													"TextMarkTextContent": "2. 真正处理"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-ey61ioi",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082733-ey61ioi",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-t4muqda",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-t4muqda",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是 Spring"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E6%BA%90%E7%A0%81\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "源码"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "分析："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105800112",
+					"TextMarkTextContent": "单例bean的获取 - createBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 的衍生文章。主要是因为本人菜鸡，在分析源码的过程中还有一些其他的内容不理解，故开设衍生篇来完善内容以学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-6i4cqxk",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082733-6i4cqxk",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、基本使用"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-kxy1yif",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082733-kxy1yif",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. 作用"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-wiklw7i",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331082733-wiklw7i",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"ID": "20230331082733-wt8uxxd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082733-wt8uxxd",
+						"updated": "20230331082733"
+					},
+					"Children": [
+						{
+							"ID": "20230331082733-mblg1og",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082733-mblg1og",
+								"updated": "20230331082733"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "lookup-method"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ：用于注入方法返回结果，也就是说能通过配置方式替换方法返回结果。(在方法或者抽象方法上使用@Lookup注解，将会根据该方法的返回值，自动在BeanFactory中调用getBean()来注入该Bean)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082733-xl7h0fp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082733-xl7h0fp",
+						"updated": "20230331082733"
+					},
+					"Children": [
+						{
+							"ID": "20230331082733-hlglwq3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082733-hlglwq3",
+								"updated": "20230331082733"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "replaced-method"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ：可以实现方法主体或返回结果的替换\n通俗来讲 ： lookup-method 可以注入属性bean， replaced-method 替换方法实现。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-alxcd9l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-alxcd9l",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面跟着一个Demo来理解"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-fa3m2zb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082733-fa3m2zb",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "// 基类接口\npublic interface DemoBase { \n    String hello();\n}\n\n...\npublic class DemoA implements DemoBase { \n    public DemoBase getDemoBase() { \n        return new DemoB();\n    }\n\n    @Override\n    public String hello() { \n        return \"demoA hello\";\n    }\n}\n...\npublic class DemoB implements DemoBase { \n    @Override\n    public String hello() { \n        return \"DemoB hello\";\n    }\n}\n...\npublic class DemoC implements DemoBase{ \n    @Override\n    public String hello() { \n        return \"DemoC hello\";\n    }\n}\n....\n\npublic class DemoMethodReplacer implements MethodReplacer { \n    @Override\n    public Object reimplement(Object obj, Method method, Object[] args) throws Throwable { \n        System.out.println(\"method = \" + method);\n        return \"reimplement\";\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-hagonfp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-hagonfp",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们来配置一下bean.xml 如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-ik9r6dx",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082733-ik9r6dx",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"\u003e\n    \u003cbean id=\"demoA\"  name=\"demoA\"  class=\"com.kingfish.springbootdemo.property.DemoA\"\u003e\n    \t// 指定 DemoA.getDemoBase 方法，返回值是 容器中的demoC\n        \u003clookup-method name=\"getDemoBase\" bean=\"demoC\"\u003e\u003c/lookup-method\u003e\n        // 指定 DemoA.hello方法，其方法经过 demoMethodReplacer.reimplement 代理\n        \u003creplaced-method name=\"hello\" replacer=\"demoMethodReplacer\"\u003e\u003c/replaced-method\u003e\n    \u003c/bean\u003e\n    \u003cbean id=\"demoB\" name=\"demoB\" class=\"com.kingfish.springbootdemo.property.DemoB\"\u003e\u003c/bean\u003e\n    \u003cbean id=\"demoC\" name=\"demoC\" class=\"com.kingfish.springbootdemo.property.DemoC\"\u003e\u003c/bean\u003e\n    \u003cbean id=\"demoMethodReplacer\" name=\"demoMethodReplacer\" class=\"com.kingfish.springbootdemo.property.DemoMethodReplacer\"\u003e\u003c/bean\u003e\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-36xoisj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082733-36xoisj",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@SpringBootApplication\n@ImportResource(\"bean.xml\")\npublic class SpringbootDemoApplication implements ApplicationRunner { \n\n    public static void main(String[] args) { \n        ConfigurableApplicationContext run = SpringApplication.run(SpringbootDemoApplication.class, args);\n        DemoA demoA = run.getBean(DemoA.class);\n        System.out.println(demoA.hello());\n        System.out.println(demoA.getDemoBase());\n\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-7jt2oi8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-7jt2oi8",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运行后输出结果如下\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200517182739439-20230331082733-kn0k10i.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-bxblom2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-bxblom2",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "根据上面的demo。我们可以看出"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-sfym4lt",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331082733-sfym4lt",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"ID": "20230331082733-u3tsww8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082733-u3tsww8",
+						"updated": "20230331082733"
+					},
+					"Children": [
+						{
+							"ID": "20230331082733-6c29z42",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082733-6c29z42",
+								"updated": "20230331082733"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "lookup-method"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ : name 指定方法名，bean 指定方法返回的bean。这里注意上面的demo中"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "getDemoBase"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​方法没有必要实现，可以直接写一个抽象方法。即当调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "demoA.getDemoBase"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法时返回的是 Spring 容器中name为demoC 的bean。"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "这里可以通过将demoC 设置成原型模式来实现单例模式下原型bean的获取。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082733-heag8ts",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082733-heag8ts",
+						"updated": "20230331082733"
+					},
+					"Children": [
+						{
+							"ID": "20230331082733-3sg5kos",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082733-3sg5kos",
+								"updated": "20230331082733"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "replaced-mthod"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ : name 指定方法名，replacer 指定代理类。即当调用demoA中的hello方法时，会经过"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "demoMethodReplacer"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​的代理。"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "demoMethodReplacer"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​需要实现"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MethodReplacer"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 接口，调用方法时会经过"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MethodReplacer.reimplement"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-fsboikm",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082733-fsboikm",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、原理实现"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-mju09iy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-mju09iy",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先需要知道，lookup-method 和 replaced-method 注解标注的方法都会被保存在BeanDefinition.methodOverrides 集合中。这两个功能的实现原理其实也是在bean实例化的时候如果检测到 methodOverrides 属性存在，则会动态的为当前bean生成代理并使用对应的拦截器为bean做增强处理。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200517183626254-20230331082733-n4k4wox.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-agd7th6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-agd7th6",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 对 这两个属性的处理 在两个部分"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-yy1bl79",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082733-yy1bl79",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E9%A2%84%E5%A4%84%E7%90%86\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "预处理"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-pccu5ig",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331082733-pccu5ig",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1 AbstractBeanDefinition#prepareMethodOverrides"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-4o06yht",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-4o06yht",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个阶段的时候bean还没开始创建，先做了一个预先的工作，减少后面的工作量。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-sr184rv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-sr184rv",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个方法做了一些预处理的工作"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-kd7rcd0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-kd7rcd0",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "详细代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-cabd1m7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082733-cabd1m7",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic void prepareMethodOverrides() throws BeanDefinitionValidationException { \n\t\t// Check that lookup methods exist and determine their overloaded status.\n\t\t// 判断是否有方法需要重写\n\t\tif (hasMethodOverrides()) { \n\t\t\tgetMethodOverrides().getOverrides().forEach(this::prepareMethodOverride);\n\t\t}\n\t}\n\n\tprotected void prepareMethodOverride(MethodOverride mo) throws BeanDefinitionValidationException { \n\t\t// 获取对应的类中的对应方法名的个数\n\t\tint count = ClassUtils.getMethodCountForName(getBeanClass(), mo.getMethodName());\n\t\t// 等于0抛出异常\n\t\tif (count == 0) { \n\t\t\tthrow new BeanDefinitionValidationException(\n\t\t\t\t\t\"Invalid method override: no method with name '\" + mo.getMethodName() +\n\t\t\t\t\t\"' on class [\" + getBeanClassName() + \"]\");\n\t\t}\n\t\telse if (count == 1) { \n\t\t\t// Mark override as not overloaded, to avoid the overhead of arg type checking.\n\t\t\t// 标记 MethodOverride 暂未被覆盖，避免参数类型检查的开销。\n\t\t\tmo.setOverloaded(false);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-q2s225z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-q2s225z",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "解释一下上面的逻辑："
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-oz7e6kh",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331082733-oz7e6kh",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"ID": "20230331082733-anv8v0g",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331082733-anv8v0g",
+						"updated": "20230331082733"
+					},
+					"Children": [
+						{
+							"ID": "20230331082733-6yyj7g8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082733-6yyj7g8",
+								"updated": "20230331082733"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "首先会判断是否有方法需要重写，这里的是根据 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RootBeanDefinition"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中的 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "methodOverrides"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 属性来进行判断，为空则表示没有。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082733-jc44e29",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331082733-jc44e29",
+						"updated": "20230331082733"
+					},
+					"Children": [
+						{
+							"ID": "20230331082733-bgavvav",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082733-bgavvav",
+								"updated": "20230331082733"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "若上述判断有方法需要覆盖，则会调用"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "prepareMethodOverride(MethodOverride mo)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法。而在 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "prepareMethodOverride(MethodOverride mo)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法中会根据 需要覆盖的方法名称 来获取加载类中关于该方法的实现。如果获取不到 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "count == 0"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，则直接抛出异常，如果获取到只有一个 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "count == 1"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，则记录该方法并未被重载（因为Spring在方法匹配时，如果一个类中存在若干个重载方法，则在函数调用及增强的时候需要根据参数类型进行匹配，来最终确定调用的方法是哪一个，这里直接设置了该方法并未被重载，在后续方法匹配的时候就不需要进行参数匹配验证，直接调用即可）。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082733-x1rvu22",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331082733-x1rvu22",
+						"updated": "20230331082733"
+					},
+					"Children": [
+						{
+							"ID": "20230331082733-64drkm1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082733-64drkm1",
+								"updated": "20230331082733"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "打个比方，比如指定覆盖A类中的 a方法，但是A类中可能存在多个a方法或者不存在a方法，若count == 0不 存在a方法，则谈何覆盖，直接抛出异常，若count ==1 则a方法的实现只有一个，标记该方法并未被重载后续可跳过参数验证的步骤。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-3i8dlnv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331082733-3i8dlnv",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2 AutowiredAnnotationBeanPostProcessor#determineCandidateConstructors"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-izdo7l4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-izdo7l4",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 这里对 @Lookup 注解 进行了一个简单处理，将被 @Lookup 注解修饰的方法添加到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RootBeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "methodOverrides"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 属性中"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-9z3fyq6",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082733-9z3fyq6",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic Constructor\u003c?\u003e[] determineCandidateConstructors(Class\u003c?\u003e beanClass, final String beanName)\n\t\t\tthrows BeanCreationException { \n\n\t\t// Let's check for lookup methods here...\n\t\tif (!this.lookupMethodsChecked.contains(beanName)) { \n\t\t\tif (AnnotationUtils.isCandidateClass(beanClass, Lookup.class)) { \n\t\t\t\ttry { \n\t\t\t\t\tClass\u003c?\u003e targetClass = beanClass;\n\t\t\t\t\tdo { \n\t\t\t\t\t\tReflectionUtils.doWithLocalMethods(targetClass, method -\u003e { \n\t\t\t\t\t\t\tLookup lookup = method.getAnnotation(Lookup.class);\n\t\t\t\t\t\t\tif (lookup != null) { \n\t\t\t\t\t\t\t\tAssert.state(this.beanFactory != null, \"No BeanFactory available\");\n\t\t\t\t\t\t\t\tLookupOverride override = new LookupOverride(method, lookup.value());\n\t\t\t\t\t\t\t\ttry { \n\t\t\t\t\t\t\t\t\tRootBeanDefinition mbd = (RootBeanDefinition)\n\t\t\t\t\t\t\t\t\t\t\tthis.beanFactory.getMergedBeanDefinition(beanName);\n\t\t\t\t\t\t\t\t\tmbd.getMethodOverrides().addOverride(override);\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\tcatch (NoSuchBeanDefinitionException ex) { \n\t\t\t\t\t\t\t\t\tthrow new BeanCreationException(beanName,\n\t\t\t\t\t\t\t\t\t\t\t\"Cannot apply @Lookup to beans without corresponding bean definition\");\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t});\n\t\t\t\t\t\ttargetClass = targetClass.getSuperclass();\n\t\t\t\t\t}\n\t\t\t\t\twhile (targetClass != null \u0026\u0026 targetClass != Object.class);\n\n\t\t\t\t}\n\t\t\t\tcatch (IllegalStateException ex) { \n\t\t\t\t\tthrow new BeanCreationException(beanName, \"Lookup method resolution failed\", ex);\n\t\t\t\t}\n\t\t\t}\n\t\t\tthis.lookupMethodsChecked.add(beanName);\n\t\t}\n\t\n\t...\n\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-efjx5vy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082733-efjx5vy",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. 真正处理"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-pppgpxy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-pppgpxy",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个阶段bean处于正在创建的过程中，这里是对其他配置的处理，lookup-method，replaced-method就是其中之一。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-e5eyrsr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-e5eyrsr",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "SimpleInstantiationStrategy#instantiate(RootBeanDefinition, String, BeanFactory)"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-9mxxute",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082733-9mxxute",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic Object instantiate(RootBeanDefinition bd, @Nullable String beanName, BeanFactory owner) { \n\t\t// Don't override the class with CGLIB if no overrides.\n\t\t// 判断是否有使用lookup-method，replaced-method 来标注方法。如果没有直接反射即可。\n\t\tif (!bd.hasMethodOverrides()) { \n\t\t\tConstructor\u003c?\u003e constructorToUse;\n\t\t\tsynchronized (bd.constructorArgumentLock) { \n\t\t\t\tconstructorToUse = (Constructor\u003c?\u003e) bd.resolvedConstructorOrFactoryMethod;\n\t\t\t\tif (constructorToUse == null) { \n\t\t\t\t\tfinal Class\u003c?\u003e clazz = bd.getBeanClass();\n\t\t\t\t\tif (clazz.isInterface()) { \n\t\t\t\t\t\tthrow new BeanInstantiationException(clazz, \"Specified class is an interface\");\n\t\t\t\t\t}\n\t\t\t\t\ttry { \n\t\t\t\t\t\tif (System.getSecurityManager() != null) { \n\t\t\t\t\t\t\tconstructorToUse = AccessController.doPrivileged(\n\t\t\t\t\t\t\t\t\t(PrivilegedExceptionAction\u003cConstructor\u003c?\u003e\u003e) clazz::getDeclaredConstructor);\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse { \n\t\t\t\t\t\t\tconstructorToUse = clazz.getDeclaredConstructor();\n\t\t\t\t\t\t}\n\t\t\t\t\t\tbd.resolvedConstructorOrFactoryMethod = constructorToUse;\n\t\t\t\t\t}\n\t\t\t\t\tcatch (Throwable ex) { \n\t\t\t\t\t\tthrow new BeanInstantiationException(clazz, \"No default constructor found\", ex);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn BeanUtils.instantiateClass(constructorToUse);\n\t\t}\n\t\telse { \n\t\t\t// Must generate CGLIB subclass.\n\t\t\treturn instantiateWithMethodInjection(bd, beanName, owner);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-9kcihue",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-9kcihue",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里简单将一下逻辑，不再详细分析代码。\n首先判断当前bean是否有使用 lookup-method，replaced-method 属性，若没有使用，则直接使用反射即可。若使用，则不能简单的使用反射，需要将这两个配置提供的功能切入进去，所以就必须使用动态代理的方式将两个特性所对应的逻辑的拦截增强器设置进去。这样就可以保证在调用方法的时候会被相应的拦截器增强，返回值为包含拦截器的代理实例。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082733-pnyvv50",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082733-pnyvv50",
+				"updated": "20230331082733"
+			}
+		},
+		{
+			"ID": "20230331082733-t67k9n5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082733-t67k9n5",
+				"updated": "20230331082733"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考《Spring源码深度解析》"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://blog.csdn.net/lyc_liyanchao/article/details/82901216",
+					"TextMarkTextContent": "https://blog.csdn.net/lyc_liyanchao/article/details/82901216"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

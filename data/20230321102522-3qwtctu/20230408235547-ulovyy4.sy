@@ -1,0 +1,1779 @@
+{
+	"ID": "20230408235547-ulovyy4",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230408235547-ulovyy4",
+		"title": "Spring AOP基础组件 Pointcut_我家有猫已长成的博客-CSDN博客",
+		"updated": "20230408235547"
+	},
+	"Children": [
+		{
+			"ID": "20230408235547-4264ogu",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230408235547-4264ogu",
+				"updated": "20230408235547"
+			}
+		},
+		{
+			"ID": "20230408235547-seu505r",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230408235547-seu505r",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"ID": "20230408235547-ifz8pkc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230408235547-ifz8pkc",
+						"updated": "20230408235547"
+					},
+					"Children": [
+						{
+							"ID": "20230408235547-b8rjbk4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230408235547-b8rjbk4",
+								"updated": "20230408235547"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/xing_hung/article/details/122815139",
+									"TextMarkTextContent": "https://blog.csdn.net/xing_hung/article/details/122815139"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230408235547-c0pjzxn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230408235547-c0pjzxn",
+						"updated": "20230408235547"
+					},
+					"Children": [
+						{
+							"ID": "20230408235547-55vsl56",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230408235547-55vsl56",
+								"updated": "20230408235547"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Spring AOP基础组件 Pointcut 简介。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230408235547-lyvy1m8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230408235547-lyvy1m8",
+						"updated": "20230408235547"
+					},
+					"Children": [
+						{
+							"ID": "20230408235547-1nap2ge",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230408235547-1nap2ge",
+								"updated": "20230408235547"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-08 23:55:47"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-4qrslmb",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230408235547-4qrslmb",
+				"updated": "20230408235547"
+			}
+		},
+		{
+			"ID": "20230408235547-vj30ytq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-vj30ytq",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "相关阅读"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-8gep1wf",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230408235547-8gep1wf",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"ID": "20230408235547-vljppeb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230408235547-vljppeb",
+						"updated": "20230408235547"
+					},
+					"Children": [
+						{
+							"ID": "20230408235547-xpef1v0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230408235547-xpef1v0",
+								"updated": "20230408235547"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/xing_hung/article/details/122830200",
+									"TextMarkTextContent": "Spring AOP基础组件 Advice"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230408235547-r8p5h6a",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230408235547-r8p5h6a",
+						"updated": "20230408235547"
+					},
+					"Children": [
+						{
+							"ID": "20230408235547-59w90cm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230408235547-59w90cm",
+								"updated": "20230408235547"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/xing_hung/article/details/122830287",
+									"TextMarkTextContent": "Spring AOP基础组件 Advisor"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-quzvqa1",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-quzvqa1",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简介"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-7vc968a",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230408235547-7vc968a",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "定义了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%88%87%E9%9D%A2\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "切面"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "的匹配点，即哪些类的哪些方法；在Spring AOP中匹配点主要是class（"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ClassFilter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​）和method（"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodFilter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​）两个维度；"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-ztv69wm",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-ztv69wm",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "源码"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-yph1k30",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-yph1k30",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=Pointcut\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "Pointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-42ejrnk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-42ejrnk",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public interface Pointcut { \n\n    // 类过滤器，用于匹配类\n    ClassFilter getClassFilter();\n\n    // 方法匹配器，用于匹配方法\n    MethodMatcher getMethodMatcher();\n\n    // 默认匹配所有类的所有方法\n    Pointcut TRUE = TruePointcut.INSTANCE;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-ve01vc9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-ve01vc9",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TruePointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-1f6ovjj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-1f6ovjj",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "final class TruePointcut implements Pointcut, Serializable { \n\n    public static final TruePointcut INSTANCE = new TruePointcut();\n\n    /**\n     * Enforce Singleton pattern.\n     */\n    private TruePointcut() { \n    }\n\n    // 匹配任何类\n    @Override\n    public ClassFilter getClassFilter() { \n        return ClassFilter.TRUE;\n    }\n\n    // 匹配任何方法\n    @Override\n    public MethodMatcher getMethodMatcher() { \n        return MethodMatcher.TRUE;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-83m8her",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-83m8her",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ClassFilter"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-eu7ird4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-eu7ird4",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@FunctionalInterface\npublic interface ClassFilter { \n\n    // 是否匹配指定的接口/类\n    boolean matches(Class\u003c?\u003e clazz);\n\n    // 匹配任意类型的示例\n    ClassFilter TRUE = TrueClassFilter.INSTANCE;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-naw221z",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-naw221z",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TrueClassFilter"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-ab6nqte",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-ab6nqte",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "final class TrueClassFilter implements ClassFilter, Serializable { \n\n    public static final TrueClassFilter INSTANCE = new TrueClassFilter();\n\n    // 确保单例\n    private TrueClassFilter() { \n    }\n\n    @Override\n    public boolean matches(Class\u003c?\u003e clazz) { \n        // 全匹配\n        return true;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-lqf48i0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-lqf48i0",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "MethodMatcher"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-lo7nrem",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-lo7nrem",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public interface MethodMatcher { \n\n    // 是否静态地匹配指定类的指定方法\n    boolean matches(Method method, Class\u003c?\u003e targetClass);\n\n    // 是否动态匹配\n    boolean isRuntime();\n\n    // 是否动态地匹配指定类的指定方法\n    boolean matches(Method method, Class\u003c?\u003e targetClass, Object... args);\n\n    // 匹配任意方法的示例\n    MethodMatcher TRUE = TrueMethodMatcher.INSTANCE;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-z5a19la",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-z5a19la",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TrueMethodMatcher"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-266yx6w",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-266yx6w",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "final class TrueMethodMatcher implements MethodMatcher, Serializable { \n\n    public static final TrueMethodMatcher INSTANCE = new TrueMethodMatcher();\n\n    // 确保单例\n    private TrueMethodMatcher() { \n    }\n\n    @Override\n    public boolean isRuntime() { \n        // 静态匹配\n        return false;\n    }\n\n    @Override\n    public boolean matches(Method method, Class\u003c?\u003e targetClass) { \n        // 匹配任意类的任意方法\n        return true;\n    }\n\n    @Override\n    public boolean matches(Method method, Class\u003c?\u003e targetClass, Object... args) { \n        // 抛出不支持操作异常\n        throw new UnsupportedOperationException();\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-heesxo9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-heesxo9",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "实现子类"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-jo4aiek",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230408235547-jo4aiek",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "Pointcut"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/0fab9e1933a94f07ace81efda7f370ab-20230408235547-mixvam7.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-qu3ke52",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-qu3ke52",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ControlFlowPointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-mks1c2a",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-mks1c2a",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简介"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-su7zvyu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230408235547-su7zvyu",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "根据在当前现成的堆栈信息中的方法名来决定是否切入某个方法；"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-jwzc7uj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-jwzc7uj",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "核心代码"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-cgy2u52",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-cgy2u52",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class ControlFlowPointcut implements Pointcut, ClassFilter, MethodMatcher, Serializable { \n\n    // 匹配的类名，必须有效\n    private final Class\u003c?\u003e clazz;\n\n    // 匹配的方法名，支持为null，表示匹配任意方法\n    @Nullable\n    private final String methodName;\n\n    // 计数器\n    private final AtomicInteger evaluations = new AtomicInteger();\n\n    public ControlFlowPointcut(Class\u003c?\u003e clazz, @Nullable String methodName) { \n        // 校验类名的有效性\n        Assert.notNull(clazz, \"Class must not be null\");\n        this.clazz = clazz;\n        this.methodName = methodName;\n    }\n\n    @Override\n    public boolean matches(Class\u003c?\u003e clazz) { \n        // 匹配任意类\n        return true;\n    }\n\n    @Override\n    public boolean matches(Method method, Class\u003c?\u003e targetClass) { \n        // 匹配任意类的任意方法\n        return true;\n    }\n\n    @Override\n    public boolean isRuntime() { \n        // 动态匹配\n        return true;\n    }\n\n    @Override\n    public boolean matches(Method method, Class\u003c?\u003e targetClass, Object... args) { \n        // 记录次数\n        this.evaluations.incrementAndGet();\n\n        // 遍历方法调用栈\n        for (StackTraceElement element : new Throwable().getStackTrace()) { \n            // 当前方法是否匹配类名和方法名\n            if (element.getClassName().equals(this.clazz.getName()) \u0026\u0026\n                    (this.methodName == null || element.getMethodName().equals(this.methodName))) { \n                return true;\n            }\n        }\n        return false;\n    }\n  \n    @Override\n    public ClassFilter getClassFilter() { \n        return this;\n    }\n\n    @Override\n    public MethodMatcher getMethodMatcher() { \n        return this;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-n7e0dy0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-n7e0dy0",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ComposablePointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-l98hlno",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-l98hlno",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简介"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-02jpf8d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230408235547-02jpf8d",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "组合模式"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Pointcut"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​；"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-zrd37l1",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-zrd37l1",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "核心代码"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-h7xy334",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-h7xy334",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class ComposablePointcut implements Pointcut, Serializable { \n    private ClassFilter classFilter;\n\n    private MethodMatcher methodMatcher;\n\n\n    public ComposablePointcut() { \n        this.classFilter = ClassFilter.TRUE;\n        this.methodMatcher = MethodMatcher.TRUE;\n    }\n\n    public ComposablePointcut union(ClassFilter other) { \n        // 类过滤器并集\n        this.classFilter = ClassFilters.union(this.classFilter, other);\n        return this;\n    }\n\n    public ComposablePointcut intersection(ClassFilter other) { \n        // 类过滤器交集\n        this.classFilter = ClassFilters.intersection(this.classFilter, other);\n        return this;\n    }\n\n    public ComposablePointcut union(MethodMatcher other) { \n        // 方法匹配器并集\n        this.methodMatcher = MethodMatchers.union(this.methodMatcher, other);\n        return this;\n    }\n\n    public ComposablePointcut intersection(MethodMatcher other) { \n        // 方法匹配器交集\n        this.methodMatcher = MethodMatchers.intersection(this.methodMatcher, other);\n        return this;\n    }\n\n    public ComposablePointcut union(Pointcut other) { \n        // 方法匹配器并集\n        this.methodMatcher = MethodMatchers.union(\n                this.methodMatcher, this.classFilter, other.getMethodMatcher(),     other.getClassFilter());\n        // 类过滤器并集\n        this.classFilter = ClassFilters.union(this.classFilter, other.getClassFilter());\n        return this;\n    }\n\n    public ComposablePointcut intersection(Pointcut other) { \n        // 类过滤器交集\n        this.classFilter = ClassFilters.intersection(this.classFilter, other.getClassFilter());\n        // 方法匹配器交集\n        this.methodMatcher = MethodMatchers.intersection(this.methodMatcher, other.getMethodMatcher());\n        return this;\n    }\n\n    @Override\n    public ClassFilter getClassFilter() { \n        return this.classFilter;\n    }\n\n    @Override\n    public MethodMatcher getMethodMatcher() { \n        return this.methodMatcher;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-8iaen1g",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-8iaen1g",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DynamicMethodMatcherPointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-uf1f6pg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-uf1f6pg",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简介"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-fid1a8v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230408235547-fid1a8v",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "动态匹配的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Pointcut"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​；"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-ekp3mp8",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-ekp3mp8",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "核心代码"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-srfwj22",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-srfwj22",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class DynamicMethodMatcherPointcut extends DynamicMethodMatcher implements Pointcut { \n\n    @Override\n    public ClassFilter getClassFilter() { \n        // 匹配任意类\n        return ClassFilter.TRUE;\n    }\n\n    @Override\n    public final MethodMatcher getMethodMatcher() { \n        return this;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-j3ipk4k",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-j3ipk4k",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DynamicMethodMatcher"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-ssh7m8y",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-ssh7m8y",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class DynamicMethodMatcher implements MethodMatcher { \n\n    @Override\n    public final boolean isRuntime() { \n        // 动态匹配\n        return true;\n    }\n\n    @Override\n    public boolean matches(Method method, Class\u003c?\u003e targetClass) { \n        // 静态匹配默认匹配\n        return true;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-xs8nizy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-xs8nizy",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "StaticMethodMatcherPointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-40ulefw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-40ulefw",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简介"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-cekcesi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230408235547-cekcesi",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "静态匹配的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Pointcut"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​；"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-e7wqqig",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-e7wqqig",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "核心代码"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-hqapyfk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-hqapyfk",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class StaticMethodMatcherPointcut extends StaticMethodMatcher implements Pointcut { \n\n    // 类过滤器，默认匹配任意类\n    private ClassFilter classFilter = ClassFilter.TRUE;\n\n    public void setClassFilter(ClassFilter classFilter) { \n        // 设置类过滤器\n        this.classFilter = classFilter;\n    }\n\n    @Override\n    public ClassFilter getClassFilter() { \n        return this.classFilter;\n    }\n\n    @Override\n    public final MethodMatcher getMethodMatcher() { \n        return this;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-fpy13f9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-fpy13f9",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "StaticMethodMatcher"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-28d11w3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-28d11w3",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class StaticMethodMatcher implements MethodMatcher { \n\n    @Override\n    public final boolean isRuntime() { \n        // 静态匹配\n        return false;\n    }\n\n    @Override\n    public final boolean matches(Method method, Class\u003c?\u003e targetClass, Object... args) { \n        // 抛出不支持操作异常\n        throw new UnsupportedOperationException(\"Illegal MethodMatcher usage\");\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-nzwmx6j",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-nzwmx6j",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "CacheOperationSourcePointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-cswezcl",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-cswezcl",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简介"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-oik8xav",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230408235547-oik8xav",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Spring Cache"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​相关的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Pointcut"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​；"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-f55udhh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-f55udhh",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "核心代码"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-r96zpal",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-r96zpal",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "abstract class CacheOperationSourcePointcut extends StaticMethodMatcherPointcut implements Serializable { \n\n    protected CacheOperationSourcePointcut() { \n        // 设置类过滤器为CacheOperationSource类过滤器\n        setClassFilter(new CacheOperationSourceClassFilter());\n    }\n\n    @Override\n    public boolean matches(Method method, Class\u003c?\u003e targetClass) { \n        CacheOperationSource cas = getCacheOperationSource();\n        // 指定方法上是否存在CacheOperation\n        return (cas != null \u0026\u0026 !CollectionUtils.isEmpty(cas.getCacheOperations(method, targetClass)));\n    }\n\n    // 获取CacheOperationSource，用于解析指定方法上的CacheOperation\n    @Nullable\n    protected abstract CacheOperationSource getCacheOperationSource();\n\n\n    // 根据CacheOperationSource.isCandidateClass实现的类过滤器\n    private class CacheOperationSourceClassFilter implements ClassFilter { \n\n        @Override\n        public boolean matches(Class\u003c?\u003e clazz) { \n            if (CacheManager.class.isAssignableFrom(clazz)) { \n                // 不支持CacheManager\n                return false;\n            }\n            CacheOperationSource cas = getCacheOperationSource();\n            // CacheOperationSource不存在，或者CacheOperationSource支持该类\n            return (cas == null || cas.isCandidateClass(clazz));\n        }\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-1w0anhu",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-1w0anhu",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TransactionAttributeSourcePointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-4ox4y6k",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-4ox4y6k",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简介"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-g5z2mfc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230408235547-g5z2mfc",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring事务相关的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Pointcut"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​；"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-nbqiuk9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-nbqiuk9",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "核心代码"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-db4hae8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-db4hae8",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "abstract class TransactionAttributeSourcePointcut extends StaticMethodMatcherPointcut implements Serializable { \n\n    protected TransactionAttributeSourcePointcut() { \n        // 设置类过滤器为TransactionAttributeSourceClassFilter\n        setClassFilter(new TransactionAttributeSourceClassFilter());\n    }\n\n    @Override\n    public boolean matches(Method method, Class\u003c?\u003e targetClass) { \n        TransactionAttributeSource tas = getTransactionAttributeSource();\n        // 指定方法上是否存在TransactionAttribute\n        return (tas == null || tas.getTransactionAttribute(method, targetClass) != null);\n    }\n\n    // 获取TransactionAttributeSourceClassFilter，用于解析指定方法上的TransactionAttribute\n    @Nullable\n    protected abstract TransactionAttributeSource getTransactionAttributeSource();\n\n\n    // 根据TransactionAttributeSource.isCandidateClass实现的类过滤器\n    private class TransactionAttributeSourceClassFilter implements ClassFilter { \n\n        @Override\n        public boolean matches(Class\u003c?\u003e clazz) { \n            if (TransactionalProxy.class.isAssignableFrom(clazz) ||\n                    TransactionManager.class.isAssignableFrom(clazz) ||\n                    PersistenceExceptionTranslator.class.isAssignableFrom(clazz)) { \n                return false;\n            }\n            TransactionAttributeSource tas = getTransactionAttributeSource();\n            return (tas == null || tas.isCandidateClass(clazz));\n        }\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-6pkda9n",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-6pkda9n",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "NameMatchMethodPointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-laqy4n4",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-laqy4n4",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简介"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-2snayb4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230408235547-2snayb4",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "基于方法名称进行匹配的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Pointcut"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，支持通配符"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "*"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，如："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "xxx*"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "*xxx"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "*xxx*"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​；"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-hh3awkm",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-hh3awkm",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "核心代码"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-otuhghu",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-otuhghu",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class NameMatchMethodPointcut extends StaticMethodMatcherPointcut implements Serializable { \n\n    private List\u003cString\u003e mappedNames = new ArrayList\u003c\u003e();\n\n\n    @Override\n    public boolean matches(Method method, Class\u003c?\u003e targetClass) { \n        // 遍历已配置的映射名称集合\n        for (String mappedName : this.mappedNames) { \n            if (mappedName.equals(method.getName()) || isMatch(method.getName(), mappedName)) { \n                // 指定的方法名称匹配上映射的名称则认为匹配\n                return true;\n            }\n        }\n        return false;\n    }\n\n    protected boolean isMatch(String methodName, String mappedName) { \n        // 判断指定的方法名称是否正则匹配映射名称，支持通配符*\n        return PatternMatchUtils.simpleMatch(mappedName, methodName);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-pacgglh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-pacgglh",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AbstractRegexpMethodPointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-t5d51bv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-t5d51bv",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简介"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-6y4kvlh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230408235547-6y4kvlh",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "使用正则表达式匹配方法全限定名称的抽象基础类，定义了匹配算法骨架，由子类实现匹配算法细节；"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-5qcctsc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-5qcctsc",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "核心代码"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-wrcm9bh",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-wrcm9bh",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class AbstractRegexpMethodPointcut extends StaticMethodMatcherPointcut\n        implements Serializable { \n\n    // 匹配的正则表达式\n    private String[] patterns = new String[0];\n\n    // 排除的正则表达式\n    private String[] excludedPatterns = new String[0];\n\n\n    @Override\n    public boolean matches(Method method, Class\u003c?\u003e targetClass) { \n        // 是否匹配方法的全限定名称\n        return (matchesPattern(ClassUtils.getQualifiedMethodName(method, targetClass)) ||\n                (targetClass != method.getDeclaringClass() \u0026\u0026\n                        matchesPattern(ClassUtils.getQualifiedMethodName(method, method.getDeclaringClass()))));\n    }\n\n    protected boolean matchesPattern(String signatureString) { \n        // 遍历配置的匹配正则表达式\n        for (int i = 0; i \u003c this.patterns.length; i++) { \n            boolean matched = matches(signatureString, i);\n            if (matched) { \n                // 如果匹配上，则继续判断是否匹配排除正则表达式\n                for (int j = 0; j \u003c this.excludedPatterns.length; j++) { \n                    boolean excluded = matchesExclusion(signatureString, j);\n                    if (excluded) { \n                        // 如果匹配上排除正则表达式，则认为不匹配\n                        return false;\n                    }\n                }\n                // 未匹配上任何排除正则表达式，则认为匹配\n                return true;\n            }\n        }\n        // 未匹配上任何匹配正则表达式，则认为未匹配\n        return false;\n    }\n\n    // 初始化匹配正则表达式\n    protected abstract void initPatternRepresentation(String[] patterns) throws IllegalArgumentException;\n\n    // 初始化排除正则表达式\n    protected abstract void initExcludedPatternRepresentation(String[] patterns) throws IllegalArgumentException;\n\n    // 是否匹配指定匹配正则\n    protected abstract boolean matches(String pattern, int patternIndex);\n\n    // 是否匹配指定排除正则\n    protected abstract boolean matchesExclusion(String pattern, int patternIndex);\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-x4sfki9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-x4sfki9",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "JdkRegexpMethodPointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-7tte1uo",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-7tte1uo",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简介"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-b271j0j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230408235547-b271j0j",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "基于"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "java.util.regex"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实现的正则表达式"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Pointcut"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​；"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-picafra",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-picafra",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "核心代码"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-3drh0fr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-3drh0fr",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class JdkRegexpMethodPointcut extends AbstractRegexpMethodPointcut { \n\n    // 匹配正则\n    private Pattern[] compiledPatterns = new Pattern[0];\n\n    // 排除正则\n    private Pattern[] compiledExclusionPatterns = new Pattern[0];\n\n\n    // 初始化匹配正则表达式\n    @Override\n    protected void initPatternRepresentation(String[] patterns) throws PatternSyntaxException { \n        this.compiledPatterns = compilePatterns(patterns);\n    }\n\n    // 初始化排除正则表达式\n    @Override\n    protected void initExcludedPatternRepresentation(String[] excludedPatterns) throws PatternSyntaxException { \n        this.compiledExclusionPatterns = compilePatterns(excludedPatterns);\n    }\n\n    // 是否匹配匹配正则\n    @Override\n    protected boolean matches(String pattern, int patternIndex) { \n        Matcher matcher = this.compiledPatterns[patternIndex].matcher(pattern);\n        return matcher.matches();\n    }\n\n    // 是否匹配排除正则\n    @Override\n    protected boolean matchesExclusion(String candidate, int patternIndex) { \n        Matcher matcher = this.compiledExclusionPatterns[patternIndex].matcher(candidate);\n        return matcher.matches();\n    }\n\n    // 编译正则表达式\n    private Pattern[] compilePatterns(String[] source) throws PatternSyntaxException { \n        Pattern[] destination = new Pattern[source.length];\n        for (int i = 0; i \u003c source.length; i++) { \n            destination[i] = Pattern.compile(source[i]);\n        }\n        return destination;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-ymaxu08",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-ymaxu08",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AnnotationMatchingPointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-9ju4m6h",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-9ju4m6h",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简介"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-t1jxr3p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230408235547-t1jxr3p",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "匹配类上或者方法上是否有指定注解的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Pointcut"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​；"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-tfj9rwp",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-tfj9rwp",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "核心代码"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-2tl4vrn",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-2tl4vrn",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class AnnotationMatchingPointcut implements Pointcut { \n\n    private final ClassFilter classFilter;\n\n    private final MethodMatcher methodMatcher;\n\n\n    public AnnotationMatchingPointcut(Class\u003c? extends Annotation\u003e classAnnotationType, boolean checkInherited) { \n        // AnnotationClassFilter类过滤器，checkInherited决定要不要寻找classAnnotationType的超类\n        this.classFilter = new AnnotationClassFilter(classAnnotationType, checkInherited);\n        // 匹配任意方法\n        this.methodMatcher = MethodMatcher.TRUE;\n    }\n\n    public AnnotationMatchingPointcut(@Nullable Class\u003c? extends Annotation\u003e classAnnotationType,\n            @Nullable Class\u003c? extends Annotation\u003e methodAnnotationType, boolean checkInherited) { \n\n        Assert.isTrue((classAnnotationType != null || methodAnnotationType != null),\n                \"Either Class annotation type or Method annotation type needs to be specified (or both)\");\n\n        // 设置类过滤器\n        if (classAnnotationType != null) { \n            this.classFilter = new AnnotationClassFilter(classAnnotationType, checkInherited);\n        }\n        else { \n            this.classFilter = new AnnotationCandidateClassFilter(methodAnnotationType);\n        }\n\n        // 设置方法过滤器\n        if (methodAnnotationType != null) { \n            this.methodMatcher = new AnnotationMethodMatcher(methodAnnotationType, checkInherited);\n        }\n        else { \n            this.methodMatcher = MethodMatcher.TRUE;\n        }\n    }\n\n    @Override\n    public ClassFilter getClassFilter() { \n        return this.classFilter;\n    }\n\n    @Override\n    public MethodMatcher getMethodMatcher() { \n        return this.methodMatcher;\n    }\n\n    // 生成匹配类上特定注解类型的AnnotationMatchingPointcut的工厂方法\n    public static AnnotationMatchingPointcut forClassAnnotation(Class\u003c? extends Annotation\u003e annotationType) { \n        Assert.notNull(annotationType, \"Annotation type must not be null\");\n        return new AnnotationMatchingPointcut(annotationType);\n    }\n\n    // 生成匹配方法上特定注解类型的AnnotationMatchingPointcut的工厂方法\n    public static AnnotationMatchingPointcut forMethodAnnotation(Class\u003c? extends Annotation\u003e annotationType) { \n        Assert.notNull(annotationType, \"Annotation type must not be null\");\n        return new AnnotationMatchingPointcut(null, annotationType);\n    }\n\n\n    // 注解候选类过滤器，用于过滤那些无需搜索其方法的类型\n    private static class AnnotationCandidateClassFilter implements ClassFilter { \n\n        private final Class\u003c? extends Annotation\u003e annotationType;\n\n        AnnotationCandidateClassFilter(Class\u003c? extends Annotation\u003e annotationType) { \n            this.annotationType = annotationType;\n        }\n\n        @Override\n        public boolean matches(Class\u003c?\u003e clazz) { \n            // 该clazz是否可以携带this.annotationType\n            return AnnotationUtils.isCandidateClass(clazz, this.annotationType);\n        }\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-p2d0n6b",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230408235547-p2d0n6b",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AspectJExpressionPointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-716bfzm",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-716bfzm",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简介"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-zgfgwla",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230408235547-zgfgwla",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring中使用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJ"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​编织器来评估切点表达式的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Pointcut"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实现；\n切入点表达式值是一个 AspectJ 表达式，这可以引用其他切点，可以使用组合和其他操作。\n由于这是由Spring AOP基于代理模型实现的，因此只支持方法执行切点；"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-ug96vxa",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230408235547-ug96vxa",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "核心方法"
+				}
+			]
+		},
+		{
+			"ID": "20230408235547-8aroeo5",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230408235547-8aroeo5",
+				"updated": "20230408235547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class AspectJExpressionPointcut extends AbstractExpressionPointcut\n        implements ClassFilter, IntroductionAwareMethodMatcher, BeanFactoryAware { \n\n    @Override\n    public ClassFilter getClassFilter() { \n        obtainPointcutExpression();\n        return this;\n    }\n\n    @Override\n    public MethodMatcher getMethodMatcher() { \n        obtainPointcutExpression();\n        return this;\n    }\n\n    private PointcutExpression obtainPointcutExpression() { \n        // 校验expression\n        if (getExpression() == null) { \n            throw new IllegalStateException(\"Must set property 'expression' before attempting to match\");\n        }\n        // this.pointcutExpression懒构建\n        if (this.pointcutExpression == null) { \n            this.pointcutClassLoader = determinePointcutClassLoader();\n            // 构建this.pointcutExpression\n            this.pointcutExpression = buildPointcutExpression(this.pointcutClassLoader);\n        }\n        return this.pointcutExpression;\n    }\n\n    // 将and/or/not转换为AspectJ逻辑运算符\n    private String replaceBooleanOperators(String pcExpr) { \n        String result = StringUtils.replace(pcExpr, \" and \", \" \u0026\u0026 \");\n        result = StringUtils.replace(result, \" or \", \" || \");\n        result = StringUtils.replace(result, \" not \", \" ! \");\n        return result;\n    }\n\n    @Override\n    public boolean matches(Method method, Class\u003c?\u003e targetClass) { \n        return matches(method, targetClass, false);\n    }\n\n    @Override\n    public boolean isRuntime() { \n        return obtainPointcutExpression().mayNeedDynamicTest();\n    }\n\n    @Override\n    public boolean matches(Method method, Class\u003c?\u003e targetClass, Object... args) { \n        obtainPointcutExpression();\n        ShadowMatch shadowMatch = getTargetShadowMatch(method, targetClass);\n\n        ProxyMethodInvocation pmi = null;\n        Object targetObject = null;\n        Object thisObject = null;\n        try { \n            MethodInvocation mi = ExposeInvocationInterceptor.currentInvocation();\n            targetObject = mi.getThis();\n            if (!(mi instanceof ProxyMethodInvocation)) { \n                throw new IllegalStateException(\"MethodInvocation is not a Spring ProxyMethodInvocation: \" + mi);\n            }\n            pmi = (ProxyMethodInvocation) mi;\n            thisObject = pmi.getProxy();\n        }\n        catch (IllegalStateException ex) { \n            // log\n        }\n\n        try { \n            JoinPointMatch joinPointMatch = shadowMatch.matchesJoinPoint(thisObject, targetObject, args);\n\n            if (pmi != null \u0026\u0026 thisObject != null) {   // there is a current invocation\n                RuntimeTestWalker originalMethodResidueTest = getRuntimeTestWalker(getShadowMatch(method, method));\n                if (!originalMethodResidueTest.testThisInstanceOfResidue(thisObject.getClass())) { \n                    return false;\n                }\n                if (joinPointMatch.matches()) { \n                    bindParameters(pmi, joinPointMatch);\n                }\n            }\n\n            return joinPointMatch.matches();\n        }\n        catch (Throwable ex) { \n            // log\n            return false;\n        }\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		}
+	]
+}

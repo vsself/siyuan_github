@@ -1,0 +1,5176 @@
+{
+	"ID": "20230402223249-uedovqo",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230402223249-uedovqo",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230402223249-k08azmu\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230402223249-5h3ut4l\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230402223249-k08azmu\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "spring源码系列（一）——spring循环引用_shadow?s的博客-CSDN博客",
+		"updated": "20230402223249"
+	},
+	"Children": [
+		{
+			"ID": "20230402223249-k08azmu",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230402223249-k08azmu",
+				"updated": "20230402223249"
+			}
+		},
+		{
+			"ID": "20230402223249-2oxj8zk",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230402223249-2oxj8zk",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"ID": "20230402223249-kahvx9w",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402223249-kahvx9w",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"ID": "20230402223249-7m863y1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402223249-7m863y1",
+								"updated": "20230402223249"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/java_lyvee/article/details/101793774",
+									"TextMarkTextContent": "https://blog.csdn.net/java_lyvee/article/details/101793774"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402223249-hlltsgc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402223249-hlltsgc",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"ID": "20230402223249-fp8p40y",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402223249-fp8p40y",
+								"updated": "20230402223249"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "spring循环依赖如何解的？"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230402223249-w4afd2k",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230402223249-w4afd2k",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"ID": "20230402223249-anomz7b",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230402223249-anomz7b",
+								"updated": "20230402223249"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-02 22:32:49"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-wg1xb6i",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230402223249-wg1xb6i",
+				"updated": "20230402223249"
+			}
+		},
+		{
+			"ID": "20230402223249-j87vh2m",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-j87vh2m",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-tmhetbo",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-tmhetbo",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "觉得之前那篇阅读性比价差，主要第一次用csdn博客，很多语法不懂，导致文章可读性不好，我彻底更新一下；打算把spring集合写完；\n长文警告\n正文开始"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-pyv17zk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-pyv17zk",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "众所周知spring在默认单例的情况下是支持循环引用的"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-smgzrfc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-smgzrfc",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "为了节省图片大小我把那些可以动得gif图片做成了只循环一次，如果看到图片不动了请右键选择在新标签打开，那么图片就会动，手机用户则更简单，直接手指点击图片便能看到动图，每张gif我都标识了，如果没有标识则为静态图片；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-7g93xug",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-7g93xug",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Appconfig.java"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类的代码"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-p7d0s42",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-p7d0s42",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Configurable\n@ComponentScan(\"com.shadow\")\npublic class Appconfig {\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-fgz2lby",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-fgz2lby",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "X.java"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类的代码"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-70kd42k",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-70kd42k",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.shadow.service;\n\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.stereotype.Component;\n\n@Component\npublic class X { \n\n\t@Autowired\n\tY y;\n\n\tpublic X(){ \n\t\tSystem.out.println(\"X create\");\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-cup6h57",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-cup6h57",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Y.java了的代码"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-mz4swq9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-mz4swq9",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.shadow.service;\n\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.stereotype.Component;\n\n@Component\npublic class Y { \n\t@Autowired\n\tX x;\n\n\tpublic Y(){ \n\t\tSystem.out.println(\"Y create\");\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-tfreqbd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-tfreqbd",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这两个类非常简单，就是相互引用了对方，也就是我们常常的说的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "循环依赖"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "，spring是允许这样的循环依赖(前提是单例的情况下的,非构造方法注入的情况下)"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-yw16f94",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-yw16f94",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "运行这段代码的结果下图"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-vq93c0w",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-vq93c0w",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-ya3rrwi",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-ya3rrwi",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "注意这是张gif，如果你看着不动请参考我上面说的方法"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-w39mw0b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-w39mw0b",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20191118202529824-20230402223247-ykbgjf0.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n上面代码从容器中能正常获取到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Xbean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，说明循环依赖成功。但是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "spring"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的循环依赖其实是可以关闭的，spring提供了api来关闭循环依赖的功能。当然你也可以修改spring源码来关闭这个功能，这里笔者为了提高逼格，就修改一下spring的源码来关闭这个功能，老话说:要想高明就得装逼。\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "下图是我修改spring源码运行的结果"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n我在AnnotationConfigApplicationContext的构造方法中加了一行"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "setAllowCircularReferences(false);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​结果代码异常，循环依赖失败"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-wqcen3n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-wqcen3n",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20191118203015320-20230402223246-flbdnxd.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-0q63ip5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-0q63ip5",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "那么为什么"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "setAllowCircularReferences(false);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​会关闭循环依赖呢？首要明白spring的循环依赖是怎么做到的呢？spring源码当中是如何处理循环依赖的？ 分析一下所谓的循环依赖其实无非就是属性注入，或者就是大家常常说的自动注入， 故而搞明白循环依赖就需要去研究spring自动注入的源码；spring的属性注入属于spring bean的生命周期一部分；怎么理解spring bean的生命周期呢？注意笔者这里并不打算对bean的生命周期大书特书，只是需要读者理解生命周期的概念，细节以后在计较；\n要理解bean的生命周期首先记住两个概念\n请读者一定记住两个概念——spring bean（一下简称bean）和对象；\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "1、spring bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​——受spring容器管理的对象，可能经过了完整的spring bean生命周期（为什么是可能？难道还有bean是没有经过bean生命周期的？答案是有的，具体我们后面文章分析），最终存在spring容器当中；一个bean一定是个对象\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "2、对象"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​——任何符合java语法规则实例化出来的对象，但是一个对象并不一定是spring bean；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-48xpxke",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-48xpxke",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所谓的bean的生命周期就是磁盘上的类通过spring扫描，然后实例化，跟着初始化，继而放到容器当中的过程；\n我画了一张简单图来阐述一下spring bean的生命周期大概有哪些步骤"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-0bziwzv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-0bziwzv",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20191118210559319-20230402223248-rgkoo0b.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n上图就是spring容器初始化bean的大概过程(至于详细的过程，后面文章再来介绍)；\n文字总结一下：\n1：实例化一个ApplicationContext的对象；\n2：调用bean工厂后置处理器完成扫描；\n3：循环解析扫描出来的类信息；\n4：实例化一个BeanDefinition对象来存储解析出来的信息；\n5：把实例化好的beanDefinition对象put到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "beanDefinitionMap"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​当中缓存起来，以便后面实例化bean；\n6：再次调用bean工厂后置处理器；\n7：当然spring还会干很多事情，比如国际化，比如注册BeanPostProcessor等等，如果我们只关心如何实例化一个bean的话那么这一步就是spring调用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "finishBeanFactoryInitialization"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法来实例化单例的bean，实例化之前spring要做验证，需要遍历所有扫描出来的类，依次判断这个bean是否Lazy，是否prototype，是否abstract等等；\n8：如果验证完成spring在实例化一个bean之前需要推断构造方法，因为spring实例化对象是通过构造方法反射，故而需要知道用哪个构造方法；\n9：推断完构造方法之后spring调用构造方法反射实例化一个​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "对象"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​；注意我这里说的是对象、对象、对象；这个时候对象已经实例化出来了，但是并不是一个完整的bean，最简单的体现是这个时候实例化出来的对象属性是没有注入，所以不是一个完整的bean；\n10：spring处理合并后的beanDefinition(合并？是spring当中非常重要的一块内容，后面的文章我会分析)；\n11：判断是否支持循环依赖，如果支持则提前把一个工厂存入singletonFactories——map；\n12：判断是否需要完成属性注入\n13：如果需要完成属性注入，则开始注入属性\n14：判断bean的类型回调Aware接口\n15：调用生命周期回调方法\n16：如果需要代理则完成代理\n17：put到单例池——bean完成——存在spring容器当中"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-46wmbyc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-46wmbyc",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "用一个例子来证明上面的步骤，结合一些运行时期的动态图片"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-g550rok",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-g550rok",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "为了节省图片大小我把那些可以动得gif图片做成了只循环一次，如果看到图片不动了请右键选择在新标签打开，那么图片就会动，手机用户则更简单，直接手指点击图片便能看到动图，每张gif我都标识了，如果没有标识则为静态图片；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-eea1x1z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-eea1x1z",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Z.java的源码"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-92y5a27",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-92y5a27",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.shadow.service;\n\nimport org.springframework.beans.BeansException;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.context.ApplicationContext;\nimport org.springframework.context.ApplicationContextAware;\nimport org.springframework.stereotype.Component;\n\nimport javax.annotation.PostConstruct;\n\n@Component\npublic class Z implements ApplicationContextAware { \n\t@Autowired\n\tX x;//注入X\n\n    //构造方法\n\tpublic Z(){ \n\t\tSystem.out.println(\"Z create\");\n\t}\n\n    //生命周期初始化回调方法\n\t@PostConstruct\n\tpublic void zinit(){ \n\t\tSystem.out.println(\"call z lifecycle init callback\");\n\t}\n\n\t//ApplicationContextAware 回调方法\n\t@Override\n\tpublic void setApplicationContext(ApplicationContext ac) { \n\t\tSystem.out.println(\"call aware callback\");\n\t}\n}\n\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-ju74oga",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-ju74oga",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "来看看Z的生命周期，注意下图当中的字幕，会和上面的17个步骤一一对应\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "下图是第一步到第六步，请自行对应"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n接下来我们通过各种图片分析一下springbean的生命周期，读者只需要看图搞明白流程，至于图中涉及的源码，分析完流程之后再来解释；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-ha4ljs9",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-ha4ljs9",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-ap9p3iu",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-ap9p3iu",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "strong",
+							"TextMarkTextContent": "图① 注意这是张gif，如果你看着不动请参考我上面说的方法"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-aj81fg5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-aj81fg5",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20191118223750129-20230402223248-9wpsz9n.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n在研究其他步骤之前，首先了解spring大概在什么时候实例化bean的"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-pe2kp08",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-pe2kp08",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-9puii9s",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-9puii9s",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "strong",
+							"TextMarkTextContent": "图② 注意这是张gif，如果你看着不动请参考我上面说的方法"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-ckbdgvr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-ckbdgvr",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20191119140401722-20230402223247-z7up5as.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n上图可以知道spring在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractApplicationContext#finishBeanFactoryInitialization"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法中完成了bean的实例化。这点需要记住"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-lk11lm5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-lk11lm5",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "然后通过图片来说明一下第"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "7"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "步"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-87153gm",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-87153gm",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-xu5umz5",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-xu5umz5",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "strong",
+							"TextMarkTextContent": "图③ 注意这是张gif，如果你看着不动请参考我上面说的方法"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-vlfhh02",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-vlfhh02",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20191119171834279-20230402223246-v8q9arv.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n接下来spring需要推断构造方法，然后通过推断出来的构造方法反射实例化对象，也就是上面说的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "第"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "8"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "步和第"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "9"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "步"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-jusxsfa",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-jusxsfa",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-kreqhvh",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-kreqhvh",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "当然有可能推断不出来构造方法；关于这块知识博主后面更新文章"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-sj6ha4c",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-sj6ha4c",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-fsq0qbv",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-fsq0qbv",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "strong",
+							"TextMarkTextContent": "图④ 注意这是张gif，如果你看着不动请参考我上面说的方法"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-1tn16ss",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-1tn16ss",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20191119205040133-20230402223246-8gnc5ln.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n上图说明spring是通过"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "createBeanInstance(beanName, mbd, args)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​;完成了推断构造方法和实例化的事情那么接下来便要"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "执行第"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "10​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "步处理合并后的beanDefinition对象"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，这一块内容特别多，读者可以先不必要理解，后面文章会解释；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-ksgxzqm",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-ksgxzqm",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-12g5def",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-12g5def",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "strong",
+							"TextMarkTextContent": "图⑤ 注意这是张gif，如果你看着不动请参考我上面说的方法"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-iun2zt8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-iun2zt8",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20191119210639833-20230402223246-rrvxslc.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n仔细看上图，其实这个时候虽然Z被实例化出来了，但是并没有完成属性的注入；其中的X属性为null，而且里面的Aware接口的方法也没有调用，再就是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@PostConstruct"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法也没有调用，再一次说明他不是一个完整的bean，这里我们只能说z是个对象；\n继而"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "applyMergedBeanDefinitionPostProcessors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法就是用来处理合并后的beanDefinition对象；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-25dltf9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-25dltf9",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "跟着第"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "11​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "步"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，判断是否支持循环依赖，如果支持则提前暴露一个工厂对象，注意是工厂对象"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-34d1jld",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-34d1jld",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-ovx9wnc",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-ovx9wnc",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "strong",
+							"TextMarkTextContent": "图⑥ 注意这是张gif，如果你看着不动请参考我上面说的方法"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-tazlsnd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-tazlsnd",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20191119213147922-20230402223248-slm9sd0.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n第"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "12"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "步，spring会判断是否需要完成属性注入（spring默认是需要的，但是程序员可以扩展spring，根据情况是否需要完成属性注入）；如果需要则spring完成"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "13"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "步——属性注入，也就是所谓的自动注入；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-2sb4hkp",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-2sb4hkp",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-vlr8upr",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-vlr8upr",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "strong",
+							"TextMarkTextContent": "图⑦ 注意这是张gif，如果你看着不动请参考我上面说的方法"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-124oh2y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-124oh2y",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20191119222408130-20230402223246-s58f47y.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n第"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "14、15、16"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "步"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-vs07twh",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-vs07twh",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-a3cxquw",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-a3cxquw",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "strong",
+							"TextMarkTextContent": "图⑧ 注意这是张gif，如果你看着不动请参考我上面说的方法"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-y0835nk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-y0835nk",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20191121140344401-20230402223246-c88yw67.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n默认情况 至此一个bean完成初始化，被put到单例池，也是对上文说的17个步骤的一个证明；这说明一个bean在spring容器当中被创建出来是有一个过程的，这个过程就是所谓的bean的生命周期，我们的循环依赖也是在这个生命周内完成的。下面我们具体来分析这些步骤"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-jpjo7y1",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-jpjo7y1",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-bz4jpyv",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-bz4jpyv",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "由于bean的生命周期特别复杂本文只对涉及到循环依赖的步骤做分析，其他生命周期的步骤我会在后续博客中分析，可以继续关注博主"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-m82ukya",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-m82ukya",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "回顾上面的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "图②"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "图③"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 我们知道spring的bean是在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractApplicationContext#finishBeanFactoryInitialization()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法完成的初始化，即循环依赖也在这个方法里面完成的。该方法里面调用了一个非常重要的方法 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "doGetBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的方法"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-s8hcnoy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-s8hcnoy",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "照例用图片来说明一下吧"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-up0t64h",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-up0t64h",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-xe0ubxc",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-xe0ubxc",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "strong",
+							"TextMarkTextContent": "图⑨ 注意这是张gif，如果你看着不动请参考我上面说的方法"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-jwdfwy5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-jwdfwy5",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200318205324698-20230402223248-50i2wpn.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "doGetBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法内容有点多，这个方法非常重要，不仅仅针对循环依赖，甚至整个spring bean生命周期中这个方法也有着举足轻重的地位，读者可以认真看看笔者的分析。需要说明的是我为了更好的说清楚这个方法，我把代码放到文章里面进行分析；但是删除了一些无用的代码；比如日志的记录这些无关紧要的代码。下面重点说这"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "个doGetBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-w8vtytd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-w8vtytd",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先笔者把精简后的代码贴出来方便大家阅读"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-j0cl5dm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-j0cl5dm",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected \u003cT\u003e T doGetBean(final String name, \n\t\t\t\t\t@Nullable final Class\u003cT\u003e requiredType,\n      \t\t\t\t@Nullable final Object[] args, \n      \t\t\t\tboolean typeCheckOnly)\n      \t\t\t\tthrows BeansException { \n    //读者可以简单的认为就是对beanName做一个校验特殊字符串的功能\n    //我会在下次更新博客的时候重点讨论这个方法\n    //transformedBeanName(name)这里的name就是bean的名字\n   final String beanName = transformedBeanName(name);\n   \n   //定义了一个对象，用来存将来返回出来的bean\n   Object bean;\n\n\t//deGetBean-1\n   Object sharedInstance = getSingleton(beanName);\n   \n\t//deGetBean-2\n\tif (sharedInstance != null \u0026\u0026 args == null) { \n      bean = getObjectForBeanInstance(sharedInstance, name, beanName, null);\n   }else{ \n   \t\tdeGetBean-3\n   \t\tif (isPrototypeCurrentlyInCreation(beanName)) { \n         \tthrow new BeanCurrentlyInCreationException(beanName);\n      }else{ \n      \t//doGetBean-4\n      \tif (mbd.isSingleton()) { \n            sharedInstance = getSingleton(beanName, () -\u003e { \n               try { \n                  return createBean(beanName, mbd, args);\n               }\n               catch (BeansException ex) { \n                  destroySingleton(beanName);\n                  throw ex;\n               }\n            });\n          \n      }\n   }\n }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-ugfiny8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-ugfiny8",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注意：上面的代码是我对doGetBean方法进行了删减的代码，只保留了和本文讨论的循环依赖有关的代码，完整版可以参考spring的源码"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.beans.factory.support.AbstractBeanFactory#doGetBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-2czqm5r",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-2czqm5r",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "接着笔者对上述代码逐行来解释"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-65oc307",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-65oc307",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-vm1nxdv",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-vm1nxdv",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "1、deGetBean-1"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-3g9k7lt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-3g9k7lt",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Object sharedInstance = getSingleton(beanName);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200318211605581-20230402223247-kqp69bh.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n首先这行代码上有一句spring作者写的注释"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-owngbki",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-owngbki",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Y2xpa2U="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Eagerly check singleton cache for manually registered singletons.\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-u1mqkwr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-u1mqkwr",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "大概的意思就是检查一下单例池当中有没有手动注册的单例对象，说白了spring在创建一个bean之前先检查一下"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "beanName"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​是否被手动注册过到单例池当中；别小看这句spring作者写的javadoc背后的意义，其实这里有两重意思；要搞清楚这两重意思首先知道当代码执行到这里的时候其实是spring在初始化的时候执行过来的；既然spring在初始化的时候他肯定知道这个类X.java肯定没有在容器当中，为什么还需要去验证一下呢？好比说你第一次去天上人间，你几乎都能确定这是你一次去你不可能跑到那里问一下前台你有没有办会员吧？但是spring确这样做了，他问了，他问问自己有没有办会员；为什么呢？回到你自己，如果你去问自己有没有办会员无非就是怕别人拿着你的身份证去办了一个会员，或者各种原因阴差阳错别人吧身份证名字写错了，导致你成了天上人间的会员；其实spring也是这个意思，因为一个bean被put到单例池的渠道有很多；除了spring容器初始化—扫描类----实例化-----put到容器这条线之外还有很多方法可以把一个对象put到单例池；我这里只列举一种，其他的有机会再讨论，看下图 注意注释；\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2020031822353813-20230402223249-5x2ymtv.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n这就相当于在你第一次抱着紧张心态去天上人间的时候，发现你朋友以前拿着你的身份证去那里办了一个会员卡一样；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-oohaqre",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-oohaqre",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所以上面提到的这句注释的两重意思①第一重意思判断spring当前正准备初始化的bean有没有提前被put到容器；\n那么第二重意思是什么呢？既然这里用来做spring初始化的工作，为什么这个方法名叫做doGetBean呢？讲道理应该叫做createBean啊才合理啊；有读者可能会说这个方法命名可能作者乱写的，请注意spring之所以经久不衰命名规范绝对是一个重要原因，作者是不会这么乱给方法命名的。诚然有的读者会说讨论这个的意义不大，其实博主觉得讨论这个非常重要；之所这里叫做doGetBean的原因就是因为这个方法就是用来获取bean的，他主要的工作不仅仅服务于spring bean的初始化；这个方法的作用不仅仅是为了spring 在初始化bean的过程中去判断一下这个bean是否被注册了这么简单；笔者认为这个方法最主要的作用是为了从容器中得到一个bean，也就是说当我们在spring代码中调用getBean(“a”)其背后的意义就是调用这个doGetBean，同样用一段代码来证明"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-43mf8kx",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-43mf8kx",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-a44owme",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-a44owme",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "strong",
+							"TextMarkTextContent": "图⑩ 注意这是张gif，如果你看着不动请参考我上面说的方法"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-100b7ca",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-100b7ca",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2020031822510331-20230402223249-dk5whuz.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n可以看到当我调用ac.getBean(“x”)的时候，底层其实就调用doGetBean获取这X对象的；spring之所以这么设计就是因为判断bean是否初始化好和get一个bean都需要从单例池当中获取，所以创建bean和getBean都需要调用这个doGetBean方法；也就是第②重意思，这个方法其实就是程序员getBean的底层实现；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-2d4m3d9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-2d4m3d9",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "换成天上人间，你第一次跑去前台，人家前台直接说：先生请出示会员卡；你可能会奇怪——我是来全套的，你应该问我要什么服务，不是问会员卡；但是人家前台的职责有两，办会员和问你要什么服务；所以才会说出这句话；doGetBean也是这个意思，于是解释了这个方法名的意义了；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-db3gejq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-db3gejq",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结一下 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Object sharedInstance = getSingleton(beanName);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​目前看来主要是用于在spring初始化bean的时候判断bean是否在容器当中；以及供程序员直接get某个bean。"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-0zu1rxw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-0zu1rxw",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注意笔者这里用了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "目前"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​这个词；因为getSingleton(beanName);这个方法代码比较多；他里面的逻辑是实现循环依赖最主要的代码，文章下面我会回过头再来讲这个方法的全部意义；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-436e54z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-436e54z",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "请注意我们当前代码的场景，当前代码是spring容器在初始化的时候，初始化X这个bean的场景；运行到了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Object sharedInstance = getSingleton(beanName);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​\n根据上面的分析，这个时候我的X Bean肯定没有被创建，所以这里返回sharedInstance = =null；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-wt8tslc",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-wt8tslc",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-perg9zj",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-perg9zj",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "跟着解析 "
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "//deGetBean-2"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-wrzjhsh",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-wrzjhsh",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Y2xpa2U="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "//deGetBean-2\nif (sharedInstance != null \u0026\u0026 args == null) { \n  bean = getObjectForBeanInstance(sharedInstance, name, beanName, null);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-1n0x4bx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-1n0x4bx",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "sharedInstance = =null"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 故而不会进入这个if分支，那么什么时候不等于null呢？两种情况1、在spring初始化完成后程序员调用getBean(“x”)的时候得到的sharedInstance 就不等于null；2、循环依赖的时候第二次获取对象的时候这里也不等于空；比如X 依赖 Y；Y依赖X；spring做初始化第一次执行到这里的时候X 肯定等于null，然后接着往下执行，当执行到属性注入Y的时候，Y也会执行到这里，那么Y也是null，因为Y也没初始化，Y也会接着往下执行，当Y执行到属性注入的时候获取容器中获取X，也就是第二次执行获取X；这个时候X则不为空；至于具体原因，读者接着往下看；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-pc1994e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-pc1994e",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "至于这个if分支里面的代码干了什么事情，本文不讨论，放到后面写factoryBean的时候讨论，现在你可以理解if分支里面就把sharedInstance 原原本本的返回出来就行；即这个if分支没有意义；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-1ljddno",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-1ljddno",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上文说了本次不进入if分支，所以这行代码解析完毕；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-recr9j6",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-recr9j6",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-387xo8r",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-387xo8r",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "接下解析 doGetBean -3"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-s6achor",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-s6achor",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Y2xpa2U="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "else{ \n   \t\tdeGetBean-3\n   \t\tif (isPrototypeCurrentlyInCreation(beanName)) { \n         \tthrow new BeanCurrentlyInCreationException(beanName);\n      }\n如果把throw删了可能更加清晰吧，下面是删除后的代码\nif (isPrototypeCurrentlyInCreation(beanName)) { }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-w5h1zmv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-w5h1zmv",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "不进if分支，则进入这个else分支，把throw删了 就一句代码；判断当前初始化的bean----X 是不是正在创建原型bean集合当中当中？\nspring源码当中关于这行代码有两行javadoc"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-298kjf5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-298kjf5",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2020031823330061-20230402223248-keez1gx.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n比较简单我就不翻译了，一般情况下这里返回false，也就是不会进入if分支抛异常；为什么呢说一般情况下呢？首先这里是判断当前的类是不是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "正在创建的原型集合"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​当中，即里面只会存原型；一般情况下我们的类不是原型，而是单例的，大家都知道spring默认是单例；所以返回false，再就是即使这个bean是原型也很少会在这里就存在**"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "正在创建的原型集合"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​**当中。因为不管单例还是原型，bean在创建的过程中会add到这个集合当中，但是创建完成之后就会从这个集合remove掉（关于这个文章后面有证明），原型情况第一次创建的时候会add到这个集合，但是不是在这里，而是在后面的创建过程中add，所以这里肯定不会存在，即使后面过程中add到这个集合了，但是创建完成之后也会remove掉，故而下一次实例化同一个原型bean（原型可以实例化无数次）的时候当代码执行到这里也不可能存在集合当中了；除非循环依赖会在bean还没有在这个集合remove之前再次判断一次，才有可能会存在，故而我前面说了一般情况下这里都返回false；那么单例情况我们已经说了一定返回false，原型情况只有循环依赖才会成立，但是只要是正常人就不会对原型对象做循环依赖的；即使你用原型做了循环依赖这里也出抛异常（因为if成立，进入分支 throw exception）。再一次说明原型不支持循环依赖（当然你非得用原型做循环依赖，其实有办法，以后文章说明，本文忽略）；画了一幅图说明上面的文字，因为这个集合非常重要，但是读者如果这里不理解也没关系，文章下面我还会结合代码分析一次；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-y3bxa2q",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-y3bxa2q",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200319094127240-20230402223247-jpe05kr.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-ic097s5",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-ic097s5",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-bua2hco",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-bua2hco",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "重点来了：说明叫做正在创建的原型集合呢？ 还有一个与之对应的叫做正在创建的单例集合\n唯一的区别就是集合里面存的是单例和原型\n故而我们统称正在创建的集合，关于正在创建的集合是什么我下面会解释\n但是需要记住的，这个集合是我的一家之言，说白了这是笔者自己翻译的，叫做正在创建的集合，没有官方支持，至少我也没在书上看到过这个名词"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-5p5ookr",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-5p5ookr",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-iim9def",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-iim9def",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "下面解析doGetBean-4"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-eqntxj1",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-eqntxj1",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Y2xpa2U="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "else{ \n      \t//doGetBean-4\n      \tif (mbd.isSingleton()) { \n            sharedInstance = getSingleton(beanName, () -\u003e { \n               try { \n                  return createBean(beanName, mbd, args);\n               }\n               catch (BeansException ex) { \n                  destroySingleton(beanName);\n                  throw ex;\n               }\n            });\n   同样把抛异常的代码删了，如下\n   \t//doGetBean-4\n      \tif (mbd.isSingleton()) { \n            sharedInstance = getSingleton(beanName, () -\u003e { \n                  return createBean(beanName, mbd, args);\n            });\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-b0tc9wg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-b0tc9wg",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "代码有点多；"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "if (mbd.isSingleton())"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 比较简单，判断当前bean是否单例；本文环境下是成立的；继而"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-3rs4e7z",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-3rs4e7z",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Y2xpa2U="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "sharedInstance = getSingleton(beanName, () -\u003e { \n                  return createBean(beanName, mbd, args);\n            });\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-9mn5kwm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-9mn5kwm",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里又调用了一次getSingleton，如果有印象上面也调用了一次getSingleton，这是方法重载，两个getSingleton方法并不是同一个方法，读者自己看参数就行，为了区别我这这里叫做第二次调用getSingleton；上文的叫做第一次调用getSingleton；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-8d2arwx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-8d2arwx",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于这里使用lamda表达式，有些读者看起来不是很理解；笔者改一下吧"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-ghugfn7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-ghugfn7",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "ObjectFactory\u003c?\u003e  singletonFactory = new ObjectFactory(){ \n\tpublic Object getObject(){ \n\t\t//其实这是个抽象类，不能实例化\n\t\t//createBean是子类实现的，这里就不关心了\n\t\t//你就理解这不是一个抽象类吧\n\t\tAbstractBeanFactory abf = new AbstractBeanFactory();\n\t\tObject bean = abf.createBean(beanName, mbd, args);\n\t\treturn bean;\n\t};\n};\n//传入 beanName 和singletonFactory 对象\nsharedInstance = getSingleton(beanName,singletonFactory);\n\n这样看是不是明白多了呢？\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-35g89fa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-35g89fa",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当然第二次getSingleton就会把我们bean创建出来，换言之整个bean如何被初始化的都是在这个方法里面；至此本文当中笔者例举出来的doGetBean方法的核心代码看起来解析完成了；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-z9vcrin",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-z9vcrin",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注意我说的是本文当中例举的doGetBean代码，前面我已经说了我删了很多和循环依赖无关的代码，实际spring源码当中这个方法的代码很多，以后文章介绍吧；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-3ddkvl2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-3ddkvl2",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "接下来就要研究第二次getSingleton方法的内容了，因为我说了整个bean初始化过程都在里面体现了；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-io2h4sn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-io2h4sn",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我先把spring源码贴出来，读者可以忽略这里，因为下面会精简代码；之所以贴出源码就是想告诉读者，为了研究循环依赖，本文中的很代码我是做了删减的；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-8a2mxr4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-8a2mxr4",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "spring源码：-----读者可以忽略\npublic Object getSingleton(String beanName, ObjectFactory\u003c?\u003e singletonFactory) { \n\t\tAssert.notNull(beanName, \"Bean name must not be null\");\n\t\tsynchronized (this.singletonObjects) { \n\t\t\tObject singletonObject = this.singletonObjects.get(beanName);\n\t\t\tif (singletonObject == null) { \n\t\t\t\tif (this.singletonsCurrentlyInDestruction) { \n\t\t\t\t\tthrow new BeanCreationNotAllowedException(beanName,\n\t\t\t\t\t\t\t\"Singleton bean creation not allowed while singletons of this factory are in destruction \" +\n\t\t\t\t\t\t\t\"(Do not request a bean from a BeanFactory in a destroy method implementation!)\");\n\t\t\t\t}\n\t\t\t\tif (logger.isDebugEnabled()) { \n\t\t\t\t\tlogger.debug(\"Creating shared instance of singleton bean '\" + beanName + \"'\");\n\t\t\t\t}\n\t\t\t\tbeforeSingletonCreation(beanName);\n\t\t\t\tboolean newSingleton = false;\n\t\t\t\tboolean recordSuppressedExceptions = (this.suppressedExceptions == null);\n\t\t\t\tif (recordSuppressedExceptions) { \n\t\t\t\t\tthis.suppressedExceptions = new LinkedHashSet\u003c\u003e();\n\t\t\t\t}\n\t\t\t\ttry { \n\t\t\t\t\tsingletonObject = singletonFactory.getObject();\n\t\t\t\t\tnewSingleton = true;\n\t\t\t\t}\n\t\t\t\tcatch (IllegalStateException ex) { \n\t\t\t\t\t// Has the singleton object implicitly appeared in the meantime -\u003e\n\t\t\t\t\t// if yes, proceed with it since the exception indicates that state.\n\t\t\t\t\tsingletonObject = this.singletonObjects.get(beanName);\n\t\t\t\t\tif (singletonObject == null) { \n\t\t\t\t\t\tthrow ex;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tcatch (BeanCreationException ex) { \n\t\t\t\t\tif (recordSuppressedExceptions) { \n\t\t\t\t\t\tfor (Exception suppressedException : this.suppressedExceptions) { \n\t\t\t\t\t\t\tex.addRelatedCause(suppressedException);\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tthrow ex;\n\t\t\t\t}\n\t\t\t\tfinally { \n\t\t\t\t\tif (recordSuppressedExceptions) { \n\t\t\t\t\t\tthis.suppressedExceptions = null;\n\t\t\t\t\t}\n\t\t\t\t\tafterSingletonCreation(beanName);\n\t\t\t\t}\n\t\t\t\tif (newSingleton) { \n\t\t\t\t\taddSingleton(beanName, singletonObject);\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn singletonObject;\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-svp2t8u",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-svp2t8u",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面是我删减后只和循环依赖有关的代码"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-7bcvrba",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-7bcvrba",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public Object getSingleton(String beanName, ObjectFactory\u003c?\u003e \nsingletonFactory) { \n\t//getSingleton2 -1\n\tObject singletonObject = this.singletonObjects.get(beanName);\n\t\t\t//getSingleton2 -2\n\t\t\tif (singletonObject == null) { \n\t\t\t\t//getSingleton2 -3\n\t\t\t\tif (this.singletonsCurrentlyInDestruction) { \n\t\t\t\t\tthrow new Exception(beanName,\n\t\t\t\t\t\t\t\"excepition\");\n\t\t\t\t}\n\t\t\t\t//getSingleton2 -4\n\t\t\t\tbeforeSingletonCreation(beanName);\n\t\t\t\t//getSingleton2 -5\n\t\t\t\tsingletonObject = singletonFactory.getObject();\n\t\t\t}\n\t\t\treturn singletonObject;\n\t\t}\n\t\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-e4pmdvf",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-e4pmdvf",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-xtof23n",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-xtof23n",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "//getSingleton2 -1 开始解析"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-0vfp0cz",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-0vfp0cz",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Object singletonObject = this.singletonObjects.get(beanName);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-4vq7d0p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-4vq7d0p",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "第二次getSingleton上来便调用了this.singletonObjects.get(beanName)，直接从单例池当中获取这个对象，由于这里是创建故而一定返回null；singletonObjects是一个map集合，即所谓的单例池；用大白话说spring所有的单例bean实例化好都存放在这个map当中，这也是很多读者以前认为的spring容器，但是笔者想说这种理解是错误的，因为spring容器的概念比较抽象，而单例池只是spring容器的一个组件而已；但是你如果一定要找一个平衡的说法，只能说这个map——singletonObjects仅仅是狭义上的容器；比如你的原型bean便不在这个map当中，所以是狭义的spring容器；下图为这个map在spring源码当中的定义"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-y04wubz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-y04wubz",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200319100543544-20230402223248-zh5t8nd.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-fuei7ja",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-fuei7ja",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-x5dk2e5",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-x5dk2e5",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "//getSingleton2 -2 开始解析"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-sqwoyk0",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-sqwoyk0",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "if (singletonObject == null) { \n上面解释了，在spring 初始化bean的时候这里肯定为空，故而成立\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-zqgo2tg",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-zqgo2tg",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-cum443u",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-cum443u",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "//getSingleton2 -3 开始解析"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-w1wsro2",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-w1wsro2",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tif (this.singletonsCurrentlyInDestruction) { \n\t\t\tthrow new Exception(beanName,\n\t\t\t\t\t\"excepition\");\n\t\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-qyd2qq9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-qyd2qq9",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这行代码其实比较简单，判断当前实例化的bean是否正在销毁的集合里面；spring不管销毁还是创建一个bean的过程都比较繁琐，都会先把他们放到一个集合当中标识正在创建或者销毁；所以如果你理解了前面那个正在创建集合那么这个正在销毁集合也就理解了；但是不理解也没关系，下面会分析这些集合；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-3jrwc7e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-3jrwc7e",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果一个bean正在创建，但是有正在销毁那么则会出异常；为什么会有这种情况？其实也很简单，多线程可能会吧；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-9i94xeh",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-9i94xeh",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-lxtfk66",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-lxtfk66",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "//getSingleton2 -4 假设解析"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-n9qkmxo",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-n9qkmxo",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "beforeSingletonCreation(beanName);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-ahvwqa4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-ahvwqa4",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这段代码就比较重要了，关于上面说那个正在创建和正在销毁的集合；这段代码就能解释，所以如果上面你没看明白那个集合的意义，笔者这里用spring源码来说明一下；先看看当代码执行到这里的时候语境"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-o5vzbrh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-o5vzbrh",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200319105520107-20230402223246-3czppds.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-5ua6zaq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-5ua6zaq",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当spring觉得可以着手来创建bean的时候首先便是调用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "beforeSingletonCreation(beanName);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​判断当前正在实例化的bean是否存在正在创建的集合当中，说白了就是判断当前是否正在被创建；因为spring不管创建原型bean还是单例bean，当他需要正式创建bean的时候他会记录一下这个bean正在创建(add到一个set集合当中)；故而当他正式创建之前他要去看看这个bean有没有正在被创建（是否存在集合当中）; 为什么spring要去判断是否存在这个集合呢？原因很多除了你们能想到了（你们能想到的基本不会出现，比如并发啊，重复创建什么的，因为他已经做了严格并发处理），其实这个集合主要是为了循环依赖服务的，怎么服务的呢？慢慢看吧，首先我们来看下这行 代码的具体内容"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-dwx2kev",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-dwx2kev",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200319115650634-20230402223247-94kp1yd.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n源码："
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-vg5ihp4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-vg5ihp4",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected void beforeSingletonCreation(String beanName) { \n\t\tif (!this.inCreationCheckExclusions.contains(beanName) \u0026\u0026 !this.singletonsCurrentlyInCreation.add(beanName)) { \n\t\t\tthrow new BeanCurrentlyInCreationException(beanName);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-57hentz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-57hentz",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.inCreationCheckExclusions.contains(beanName)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​这里是判断当前需要创建的bean是否在Exclusions集合，被排除的bean，程序员可以提供一些bean不被spring初始化（哪怕被扫描到了，也不初始化），那么这些提供的bean便会存在这个集合当中；一般情况下我们不会提供，而且与循环依赖无关；故而所以这里不做深入分析，后面文章如果写到做分析；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-583ud15",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-583ud15",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.singletonsCurrentlyInCreation.add(beanName)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，如果当前bean不在排除的集合当中那么则这个bean添加到singletonsCurrentlyInCreation（当然这里只是把bean名字添加到集合，为了方便我们直接认为把bean添加到集合吧，因为他能根据名字能找打对应的bean）；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-onzmvl0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-onzmvl0",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "关于"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "singletonsCurrentlyInCreation"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的定义参考下图"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-ohp9nu1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-ohp9nu1",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200319144654549-20230402223247-1vlgfow.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n其实就是一个set集合，当运行完"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.singletonsCurrentlyInCreation.add(beanName)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 之后结果大概如下图这样"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-m9b1x9h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-m9b1x9h",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200319150310482-20230402223247-8fcb4n2.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n我们可以通过debug来调试证明一下上面这幅图"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-i5970ji",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-i5970ji",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-hrcqd4z",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-hrcqd4z",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "** 注意这是张gif，如果你看着不动请参考我上面说的方法**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-4m0eusb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-4m0eusb",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200319155032589-20230402223247-s7fhfgq.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n结果分析：当代码运行完"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.singletonsCurrentlyInCreation.add(beanName)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​之后可以看到singletonsCurrentlyInCreation集合当中只存在一个x，并且后天并没有执行x的构造方法，说明spring仅仅是把x添加到正在创建的集合当中，但是并没有完成bean的创建(因为连构造方法都没调用)；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-6081hou",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-6081hou",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "请一定注意这个集合的数据情况（目前只有一个x）;因为这和循环依赖有天大的关系；add完x之后代码接着往下执行；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-2893viv",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-2893viv",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-mfdjmng",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-mfdjmng",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "//getSingleton2 -5 开始分析"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-58xtck0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-58xtck0",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "singletonObject = singletonFactory.getObject();"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​\n可能有读者已经忘记了singletonFactory这个对象怎么来的了；笔者再把代码贴一遍吧"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-diq6ir2",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-diq6ir2",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "ObjectFactory\u003c?\u003e  singletonFactory = new ObjectFactory(){ \n\tpublic Object getObject(){ \n\t\t//其实这是个抽象类，不能实例化\n\t\t//createBean是子类实现的，这里就不关心了\n\t\t//你就理解这不是一个抽象类吧\n\t\tAbstractBeanFactory abf = new AbstractBeanFactory();\n\t\tObject bean = abf.createBean(beanName, mbd, args);\n\t\treturn bean;\n\t};\n};\n//传入 beanName 和singletonFactory 对象\nsharedInstance = getSingleton(beanName,singletonFactory);\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-t8a93mr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-t8a93mr",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "singletonFactory.getObject();"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​调用的就是上面代码中getObject方法，换言之调用的是abf.createBean(beanName, mbd, args)；把创建好的bean返回出来；至此第二次getSingleton方法结束，bean通过"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "singletonFactory.getObject();"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​调用createBean建完成；接下来分析createBean的源码，继续探讨循环依赖的原理；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-dexlq4l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-dexlq4l",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAutowireCapableBeanFactory#createBean()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法中调用了doCreateBean方法创建bean；下图是dubug流程"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-gbdryaj",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-gbdryaj",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-gx3xy8p",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-gx3xy8p",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "** 注意这是张gif，如果你看着不动请参考我上面说的方法**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-xbp6yff",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-xbp6yff",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200319162830480-20230402223247-baqhom3.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n结果分析：因为执行完doCreateBean之后X和Y的构造方法都已经完成了调用，说明这个方法里面对X做了实例化，也就是把bean创建好了，而且完成了循环依赖(因为Y的构造方法也打印说明X在完成属性注入的时候注入了Y，所以Y也实例化了，Y bean也创建好了)；接下来重点分析这个doCreateBean方法内容。"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-44rpwki",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-44rpwki",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我先给出这个方法的源码全貌；重点我用红色标记了，并且会在进行代码解析；黄色线下面的读者可以不用管，和本文内容没多大关系；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-0yq4d5m",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-0yq4d5m",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "读者可以好好看看下图：方便你阅读下面的代码解析"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-lvk94m6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-lvk94m6",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200319170519702-20230402223246-ukn8i8y.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-n7lbqkb",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-n7lbqkb",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-kohl941",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-kohl941",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "//doCreateBean -1"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-4b7u5gm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-4b7u5gm",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "instanceWrapper = createBeanInstance(beanName, mbd, args);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-ronbgfh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-ronbgfh",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "createBeanInstance 顾名思义就是创建一个实例，注意这里仅仅是创建一个实例对象，还不能称为bean；因为我文章一开头就解释了什么是bean，什么是对象；好吧再啰嗦一下吧，文章比较长，不方便翻阅；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-0j07zdm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-0j07zdm",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "1、spring bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​——受spring容器管理的对象，可能经过了完整的spring bean生命周期（为什么是可能？难道还有bean是没有经过bean生命周期的？答案是有的，具体我们后面文章分析），最终存在spring容器当中；一个bean一定是个对象\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "2、对象"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​——任何符合java语法规则实例化出来的对象，但是一个对象并不一定是spring bean；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-ehuzm8i",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-ehuzm8i",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "同样用dubug来说明一下："
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-5h3ut4l",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-5h3ut4l",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-pymf8ix",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-pymf8ix",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "** 注意这是张gif，如果你看着不动请参考我上面说的方法**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-eytzb03",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-eytzb03",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200319172652544-20230402223247-0mq6090.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n运行完createBeanInstance之后控制打印了X构造方法的内容，说明X对象已经被创建了，但是这个时候的x不是bean，因为bean的生命周期才刚刚开始；这就好比你跑到天上人间，问了各种你想问的问题之后交了1000块钱，但是这个时候你仅仅是个消费者，还不是渣男，因为一条龙的服务是从交钱开始，接下来的各种服务完成你才是一个名副其实的渣男，不知道这么解释有没有偏差；为了把前面知识串起来，照例画一下当前代码的语境吧"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-vopnz8p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-vopnz8p",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200319174707219-20230402223248-nn9jv2w.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n这个createBeanInstance方法是如何把对象创建出来的呢？对应文章开头说的bean的生命周期一共17步，其中的第8步（推断构造方法）和第9步（利用构造方法反射来实例化对象）；具体如何推断构造方法我会在后面的博客分析；这里截个图看看代码就行，不做分析；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-3dvw1l8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-3dvw1l8",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "推断构造方法的代码运行结果分析——注意这张图比较长，读者可以多看几遍；因为推断构造方法笔者以为是属于spring源码中特别重要和特别难的一块知识；后面会有单独博客来分析，所以读者可以先多看看这张图；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-rzqhkz9",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-rzqhkz9",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-hljo1g6",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-hljo1g6",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "** 注意这是张gif，如果你看着不动请参考我上面说的方法**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-jozm61t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-jozm61t",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2020031918085071-20230402223246-xu4o5gb.gif"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n至此x对象已经实例化出来，代码往下执行到合并beanDefinition，看图吧"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-oxsnx1q",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-oxsnx1q",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2020032011415039-20230402223247-7ho0ohl.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n但是其实合并beanDefinition和本文讨论的循环依赖无关，故而先跳过；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-1ymhow9",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-1ymhow9",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-rfgu29z",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-rfgu29z",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "//doCreateBean-2 开始解析"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-d248rsm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-d248rsm",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\n\tboolean earlySingletonExposure = (mbd.isSingleton() \u0026\u0026 this.allowCircularReferences \u0026\u0026\n\t\t\tisSingletonCurrentlyInCreation(beanName));\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-agowu0c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-agowu0c",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这段代码其实比较简单，就是给"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "earlySingletonExposure"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​这个布尔类型的变量赋值；这个变量的意义是——是否支持（开启了）循环依赖；如果返回true则spring会做一些特殊的操作来完成循环依赖；如果返回false，则不会有特殊操作；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-vcdbhw8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-vcdbhw8",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "回到天上人间那个问题，好比你去一条龙的时候；人家会分析你是否是雏，如果你是雏则随便给你安排一个技师；当然如果你是笔者这样的资深玩家，可能会安排新亘结衣也说不定；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-v2ew0sc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-v2ew0sc",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "那么这个布尔变量的赋值逻辑是怎样的呢？上面代码可知三个条件做\u0026\u0026运算，同时成立才会返回true；\n1、mbd.isSingleton()；判断当前实例化的bean是否为单例；再一次说明原型是不支持循环依赖的；因为如果是原型这里就会返回false，由于是\u0026\u0026运算，整个结果都为false；相当于人家判断你是雏；那么新亘结衣什么的就别想了；在本文环境里X是默认单例的，故而整个条件是true。\n2、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.allowCircularReferences"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​；整个全局变量spring 默认为true；当然spring提供了api供程序员修改，这个在本文开头笔者解释过(笔者是通过修改spring源码来改变这个值为false)，在没有修改的情况下这里也返回true\n3、isSingletonCurrentlyInCreation(beanName)；判断当前正在创建的bean是否在正在创建bean的集合当中；还记得前文笔者已经解释过singletonsCurrentlyInCreation这个集合现在里面存在且只有一个x；故而也会返回true；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-y0tnhrl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-y0tnhrl",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其实这三种情况需要关心的只有第二种；因为第一种是否单例一般都是成立的，因为如果是原型的循环依赖前面代码已经报错了；压根不会执行到这里；第三种情况也一般是成立，因为这个集合是spring操作的，没有提供api给程序员去操作；而正常流程下代码执行到这里，当前正在创建的bean是一定在那个集合里面的；换句话说这三个条件1和3基本恒成立；唯有第二种情况可能会不成立，因为程序员可以通过api来修改第二个条件的结果；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-4rrauiv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-4rrauiv",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结：spring的循环依赖，不支持原型，不支持构造方法注入的bean；默认情况下单例bean是支持循环依赖的，但是也支持关闭，关闭的原理就是设置allowCircularReferences=false；spring提供了api来设置这个值；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-f93mxhv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-f93mxhv",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "至此我们知道"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "boolean earlySingletonExposure=true"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，那么代码接着往下执行；判断这个变量；\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200320141219944-20230402223247-bchpd27.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "if"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​成立，进入分支；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-xtz5b7v",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-xtz5b7v",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-stp6vkq",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-stp6vkq",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "//doCreateBean-3 开始分析"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-5ry6ss4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-5ry6ss4",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "addSingletonFactory(beanName, () -\u003e getEarlyBeanReference(beanName, mbd, bean));\n这段代码又用了lamda表达式；笔者为了初学者看懂，还是改成传统代码\nObjectFactory\u003c?\u003e singletonFactory = new ObjectFactory\u003c?\u003e(){ \n\tpublic T getObject(){ \n\t\t//至于这个getEarlyBeanReference方法的代码，后面再来说\n\t\t// 现在可以理解为就是返回 bean\n\t\tgetEarlyBeanReference(beanName, mbd, bean);\n\t\t//getEarlyBeanReference 的代码稍微复杂一点，可以简单理解为下面这样\n\t\tgetEarlyBeanReference(beanName, mbd, bean){ \n\t\t\treturn bean;\n\t\t}\n\t}\n}\n\n也就是singletonFactory.getObject();其实就是返回当前正在实例化的bean\n改完之后的代码可以理解成这样：\n\naddSingletonFactory(beanName,singletonFactory);\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-kv9bbqe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-kv9bbqe",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "addSingletonFactory(beanName,singletonFactory);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​顾名思义添加一个单例工厂；其实这里要非常注意，因为大部分资料里面在说到spring循环依赖的时候都说是提前暴露一个半成品bean；笔者觉得这个不严格；甚至算错误了，所谓的提前暴露就是这里的add，但是我们看到源码并不是add一个bean的，而是add一个工厂对象——singletonFactory；两种说法有什么区别呢？区别可大了，简直天壤之别；我们慢慢分析；这里bean和工厂有什么区别呢？在当前的语境下面bean就是x对象经历完spring生命周期之后；所谓的半成品bean，可能还没有经历完整的生命周期；而工厂对象呢？如果你去ObjectFactory的源码或者直接顾名思义他是一个能够产生对象的工厂，或者叫能够产生bean的工厂；换句话说bean是一个产品，而工厂是产生这些产品的公司；如果还不能理解换成天上人间可能好理解——冰火和全套的区别，冰火是全套里面的一个项目，除了冰火还有其他项目；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-dvb1x41",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-dvb1x41",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "那么spring在这里add的是singletonFactory这个工厂对象（这个工厂可以产生半成品对象），而不是一个半成品对象；相当于这里add的是全套，而不是冰火；将来拿出来的时候是得到工厂，继而通过工厂得到半成品bean；将来拿出来的是全套，你可以在全套里面肆意选择一个项目；不知道我又没有解释清楚这个问题；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-lh4brvw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-lh4brvw",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当然说了这么多可能你还是没明白为什么需要在这里add这个工厂对象呢？还有add到哪里去呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-9x5wg0a",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-9x5wg0a",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们首先分析bean工厂对象到底add到哪里去了，查看源码\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200320151702208-20230402223248-2vy4fkz.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n读者可以好好看看上图，笔者在spring源码当中把注释写上了（注释的信息很重要，认真看看），整个方法其实就是对三个map操作，至于这三个map的意义，参考下图\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200320145943343-20230402223247-f66hh30.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n通过代码可以得知singletonFactory主要被add到二级缓存中；至于为什么要add到这个map？主要了循环依赖，提前暴露这个工厂；当然如果你不理解为什么要提前暴露，没关系往下看，看完文章一定会知道的；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-5nue87o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-5nue87o",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "保持好习惯照例画个图，让读者知道现在的情况吧\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200320152441259-20230402223248-yeppsij.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n当然这里还是用一幅图来秒杀一下这个三个map的各种情况吧"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-qdluyms",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-qdluyms",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200320170222591-20230402223248-fdgsgri.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n一级缓存：可能存在很多bean，比如spring各种内置bean，比如你项目里面其他的已经创建好的bean，但是在X的创建过程中，一级缓存中绝对是没有xbean的，也没用y；因为spring创建bean默认的顺序是根据字母顺序的；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-gdttk31",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-gdttk31",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二级缓存：里面现在仅仅存在一个工厂对象，对应的key为x的beanName，并且这个bean工厂对象的getObect方法能返回现在的这个时候的x（半成品的xbean）\nput完成之后，代码接着往下执行；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-yr8u37h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-yr8u37h",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三级缓存：姑且认为里面什么都没有吧"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-r7ftrdy",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230402223249-r7ftrdy",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230402223249-wlocjr6",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230402223249-wlocjr6",
+						"updated": "20230402223249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "//doCreateBean-4 开始解析"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-llcxqzx",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-llcxqzx",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "populateBean(beanName, mbd, instanceWrapper);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-rtjv5rl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-rtjv5rl",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "populateBean这个方法可谓大名鼎鼎，主要就是完成属性注入，也就是大家常常说的自动注入；假设本文环境中的代码运行完这行代码那么则会注入y，而y又引用了x，所以注入进来的y对象，也完成了x的注入；什么意思呢？首先看一下没有执行populateBean之前的情况\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200320154656495-20230402223247-z1tqdqp.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n没有执行populateBean之前只实例化了X，Y并没实例化，那么Y也不能注入了；接下来看看执行完这行代码之后的情况"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-8pjj4uv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-8pjj4uv",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200320154854707-20230402223248-nuvk6jd.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\npopulateBean里面的代码以后我更新文章来说明，本文先来猜测一下这个方法里面究竟干了什么事；\nx 填充 y （简称 xpy）首先肯定需要获取y，调用getBean(y)，getBean的本质上文已经分析过货进入到第一次调用getSingleton，读者可以回顾一下上文我对doGetBean方法名字的解释里说了这个方法是创建bean和获取共用的；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-nz2whtw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-nz2whtw",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "第一次getSingleton会从单例池获取一下y，如果y没有存在单例池则开始创建y；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-ci1ciu2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-ci1ciu2",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "创建y的流程和创建x一模一样，都会走bean的生命周期；比如把y添加到正在创建的bean的集合当中，推断构造方法，实例化y，提前暴露工厂对象（二级缓存里面现在有两个工厂了，分别是x和y）等等。。。。重复x的步骤；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-z0asae2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-z0asae2",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "直到y的生命周期走到填充x的时候ypx,第一次调用getSingletion获取x？这里问个问题，能否获取到x呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-gczljqo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-gczljqo",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在回答这个问题之前我们先把该画的图贴出来，首先那个正在被创建bean的集合已经不在是只有一个x了；（读者可以对比一下上文的图）"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-hic1mdt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-hic1mdt",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200320160609963-20230402223246-bfibk7k.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n然后我们再把xpy到ypx的流程图贴出来，请读者仔细看看"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-l96vyrl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-l96vyrl",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200320160912766-20230402223247-xrqn7wm.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n是否能够获取到x呢？首先我们想如果获取失败则又要创建x—\u003e实例化x—填充属性----获取y--------。。。。。。。就无限循环了；所以结果是完成了循环依赖，那么这里肯定能够获取到x；那么获取到x后流程是怎样呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-3jfploj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-3jfploj",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200320163024206-20230402223246-d0zvzfg.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n那么为什么能够获取到x呢？讲道理联系上文第一次调用getSingleton是无法获取到x的？因为我们上面说过第一次调用getSingleton是从单例池当中获取一个bean，但是x显然没有完成生命周期（x只走到了填充y，还有很多生命周期没走完），所以应该是获取不到的？为了搞清楚这个原因得去查看第一次getSingleton的源码；如果读者有留意的话笔者前面只是凭只管告诉你第一次getSingleton是从单例池当中获取一个bean，并没有去证明，也就是没有去分析第一次getSingleton的源码；而且我在总结第一次getSingleton的时候用了目前这个词；证据如下（图是本文前面的内容，为了翻阅方便我直接贴这里了）"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-zek10bp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-zek10bp",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200320163708728-20230402223248-su2vjsp.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n显然这是笔者前面故意挖的坑，所以各位读者在阅读别人的文章或者书籍的时候一定要小心验证；包括笔者的文章如果有错误一定记得告诉我；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-bmttvcg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-bmttvcg",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面来开始对第一次getSIngleton源码做深入分析；首先把源码以及我写的注释贴出来，分为图片和源代码，建议大家看图片，可读性好\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200320174140426-20230402223248-keouwqb.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n源码：如果你仔细看了上面的图片可以跳过这里的源码展示"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-x0wyqq9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230402223249-x0wyqq9",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected Object getSingleton(String beanName, boolean allowEarlyReference) { \n\t\t//从单例池当（一级缓存）中直接拿，也就是文章里面'目前'的解释\n\t\t//这也是为什么getBean(\"xx\")能获取一个初始化好bean的根本代码\n\t\tObject singletonObject = this.singletonObjects.get(beanName);\n\t\t//如果这个时候是x注入y，创建y，y注入x，获取x的时候那么x不在容器\n\t\t//第一个singletonObject == null成立\n\t\t//第二个条件判断是否存在正在创建bean的集合当中，前面我们分析过，成立\n\t\t//进入if分支\n\t\tif (singletonObject == null \u0026\u0026 isSingletonCurrentlyInCreation(beanName)) { \n\t\t\tsynchronized (this.singletonObjects) { \n\t\t\t\t//先从三级缓存那x？为什么先从三级缓存拿？下文解释\n\t\t\t\tsingletonObject = this.earlySingletonObjects.get(beanName);\n\t\t\t\t//讲道理是拿不到的，因为这三个map现在只有二级缓存中存了一个工厂对象\n\t\t\t\t//回顾一下文章上面的流程讲工厂对象那里，把他存到了二级缓存\n\t\t\t\t//所以三级缓存拿到的singletonObject==null  第一个条件成立\n\t\t\t\t//第二个条件allowEarlyReference=true，这个前文有解释\n\t\t\t\t//就是spring循环依赖的开关，默认为true 进入if分支\n\t\t\t\tif (singletonObject == null \u0026\u0026 allowEarlyReference) { \n\t\t\t\t\t//从二级缓存中获取一个 singletonFactory，回顾前文，能获取到\n\t\t\t\t\t//由于这里的beanName=x，故而获取出来的工厂对象，能产生一个x半成品bean\n\t\t\t\t\tObjectFactory\u003c?\u003e singletonFactory = this.singletonFactories.get(beanName);\n\t\t\t\t\t//由于获取到了，进入if分支\n\t\t\t\t\tif (singletonFactory != null) { \n\t\t\t\t\t\t//调用工厂对象的getObject()方法，产生一个x的半成品bean\n\t\t\t\t\t\t//怎么产生的？下文解释，比较复杂\n\t\t\t\t\t\tsingletonObject = singletonFactory.getObject();\n\t\t\t\t\t\t//拿到了半成品的xbean之后，把他放到三级缓存；为什么？下文解释\n\t\t\t\t\t\tthis.earlySingletonObjects.put(beanName, singletonObject);\n\t\t\t\t\t\t//然后从二级缓存清除掉x的工厂对象；？为什么，下文解释\n\t\t\t\t\t\tthis.singletonFactories.remove(beanName);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-wo46125",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-wo46125",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "针对上面的源码我做一个简单的总结：首先spring从单例池当中获取x，前面说过获取不到，然后判断是否在正在创建bean的集合当中，前面分析过这个集合现在存在x，和y；所以if成立进入分支；进入分支spring直接从三级缓存中获取x，根据前面的分析三级缓存当中现在什么都没有，故而返回nll；进入下一个if分支，从二级缓存中获取一个ObjectFactory工厂对象；根据前面分析，二级缓存中存在x，故而可以获取到；跟着调用singletonFactory.getObject();拿到一个半成品的x bean对象；然后把这个x对象放到三级缓存，同时把二级缓存中x清除（此时二级缓存中只存在一个y了，而三级缓存中多了一个x）；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-lws8wf2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-lws8wf2",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "问题1、为什么首先是从三级缓存中取呢？主要是为了性能，因为三级缓存中存的是一个x对象，如果能取到则不去二级找了；哪有人会问二级有什么用呢？为什么一开始要存工厂呢？为什么一开始不直接存三级缓存？这里稍微有点复杂，如果直接存到三级缓存，只能存一个对象，假设以前存这个对象的时候这对象的状态为xa，但是我们这里y要注入的x为xc状态，那么则无法满足；但是如果存一个工厂，工厂根据情况产生任意xa或者xb或者xc等等情况；比如说aop的情况下x注入y，y也注入x；而y中注入的x需要加代理（aop），但是加代理的逻辑在注入属性之后，也就是x的生命周期周到注入属性的时候x还不是一个代理对象，那么这个时候把x存起来，然后注入y，获取、创建y，y注入x，获取x；拿出来的x是一个没有代理的对象；但是如果存的是个工厂就不一样；首先把一个能产生x的工厂存起来，然后注入y，注入y的时候获取、创建y，y注入x，获取x，先从三级缓存获取，为null，然后从二级缓存拿到一个工厂，调用工厂的getObject()；spring在getObject方法中判断这个时候x被aop配置了故而需要返回一个代理的x出来注入给y。当然有的读者会问你不是前面说过getObject会返回一个当前状态的xbean嘛？我说这个的前提是不去计较getObject的具体源码，因为这块东西比较复杂，需要去了解spring的后置处理器功能，这里先不讨论，总之getObject会根据情况返回一个x，但是这个x是什么状态，spring会自己根据情况返回；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-6i3wcqq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-6i3wcqq",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "问题2、为什么要从二级缓存remove？因为如果存在比较复杂的循环依赖可以提高性能；比如x，y，z相互循环依赖，那么第一次y注入x的时候从二级缓存通过工厂返回了一个x，放到了三级缓存，而第二次z注入x的时候便不需要再通过工厂去获得x对象了。因为if分支里面首先是访问三级缓存；至于remove则是为了gc吧；"
+				}
+			]
+		},
+		{
+			"ID": "20230402223249-vrl6j3b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230402223249-vrl6j3b",
+				"updated": "20230402223249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "至此循环依赖的内容讲完，有错误欢迎指正，欢迎留言提问；如果觉得笔者写的对你有帮助可以多多点赞转发吧；"
+				}
+			]
+		}
+	]
+}

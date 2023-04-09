@@ -1,0 +1,328 @@
+{
+	"ID": "20230404010245-hfffi5e",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010245-hfffi5e",
+		"title": "吃透Spring源码（一）：initPropertySources方法扩展点_吃透Java的博客-CSDN博客",
+		"updated": "20230404010245"
+	},
+	"Children": [
+		{
+			"ID": "20230404010245-04ylq9a",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010245-04ylq9a",
+				"updated": "20230404010245"
+			}
+		},
+		{
+			"ID": "20230404010245-cmftbj3",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010245-cmftbj3",
+				"updated": "20230404010245"
+			},
+			"Children": [
+				{
+					"ID": "20230404010245-675g8mh",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010245-675g8mh",
+						"updated": "20230404010245"
+					},
+					"Children": [
+						{
+							"ID": "20230404010245-4a05u7s",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010245-4a05u7s",
+								"updated": "20230404010245"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/109177452",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/109177452"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010245-ijlirk4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010245-ijlirk4",
+						"updated": "20230404010245"
+					},
+					"Children": [
+						{
+							"ID": "20230404010245-avl77x6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010245-avl77x6",
+								"updated": "20230404010245"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Spring的强大之处不仅仅在于它为Java开发者提供了极大便利，更在于它的开放式架构，使得用户可以拥有最大扩展Spring的能力。protected void initPropertySources() {\t\t// For subclasses: do nothing by default.\t}在AbstractApplicationContext类中有一个initPropertySources方法是留给子类扩展，它是在refresh()的第一个方法prepareRefresh();方法中调."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010245-6z3eplz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010245-6z3eplz",
+						"updated": "20230404010245"
+					},
+					"Children": [
+						{
+							"ID": "20230404010245-1jgfeh9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010245-1jgfeh9",
+								"updated": "20230404010245"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:02:45"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010245-7sixsdb",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010245-7sixsdb",
+				"updated": "20230404010245"
+			}
+		},
+		{
+			"ID": "20230404010245-yjv2jmy",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230404010245-yjv2jmy",
+				"updated": "20230404010245"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230404010245-ctfb6zm",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230404010245-ctfb6zm",
+						"updated": "20230404010245"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "Spring的强大之处不仅仅在于它为Java开发者提供了极大便利，更在于它的开放式架构，使得用户可以拥有最大扩展Spring的能力。"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010245-larj4et",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010245-larj4et",
+				"updated": "20230404010245"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected void initPropertySources() {\n\t\t// For subclasses: do nothing by default.\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010245-9jzs0m5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010245-9jzs0m5",
+				"updated": "20230404010245"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在AbstractApplicationContext类中有一个initPropertySources方法是留给子类扩展，它是在refresh()的第一个方法prepareRefresh();方法中调用。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010245-66mto98",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010245-66mto98",
+				"updated": "20230404010245"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected void prepareRefresh() { \n\t\t// Switch to active.\n\t\t// 设置容器启动的时间\n\t\tthis.startupDate = System.currentTimeMillis();\n\t\t// 容器的关闭标志位\n\t\tthis.closed.set(false);\n\t\t// 容器的激活标志位\n\t\tthis.active.set(true);\n\n\t\t// 记录日志\n\t\tif (logger.isDebugEnabled()) { \n\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\tlogger.trace(\"Refreshing \" + this);\n\t\t\t}\n\t\t\telse { \n\t\t\t\tlogger.debug(\"Refreshing \" + getDisplayName());\n\t\t\t}\n\t\t}\n\n\t\t// Initialize any placeholder property sources in the context environment.\n\t\t// 留给子类覆盖，初始化属性资源\n\t\tinitPropertySources();\n\n\t\t// Validate that all properties marked as required are resolvable:\n\t\t// see ConfigurablePropertyResolver#setRequiredProperties\n\t\t// 创建并获取环境对象，验证需要的属性文件是否都已经放入环境中\n\t\tgetEnvironment().validateRequiredProperties();\n\n\t\t// Store pre-refresh ApplicationListeners...\n\t\t// 判断刷新前的应用程序监听器集合是否为空，如果为空，则将监听器添加到此集合中\n\t\tif (this.earlyApplicationListeners == null) { \n\t\t\tthis.earlyApplicationListeners = new LinkedHashSet\u003c\u003e(this.applicationListeners);\n\t\t}\n\t\telse { \n\t\t\t// Reset local application listeners to pre-refresh state.\n\t\t\t// 如果不等于空，则清空集合元素对象\n\t\t\tthis.applicationListeners.clear();\n\t\t\tthis.applicationListeners.addAll(this.earlyApplicationListeners);\n\t\t}\n\n\t\t// Allow for the collection of early ApplicationEvents,\n\t\t// to be published once the multicaster is available...\n\t\t// 创建刷新前的监听事件集合\n\t\tthis.earlyApplicationEvents = new LinkedHashSet\u003c\u003e();\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010245-k4cbiqn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010245-k4cbiqn",
+				"updated": "20230404010245"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所以我们可以继承此类或其子类来重写initPropertySources方法，实现一些扩展。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010245-jflt507",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010245-jflt507",
+				"updated": "20230404010245"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MyClassPathXmlApplicationContext extends ClassPathXmlApplicationContext {\n\n\n    public MyClassPathXmlApplicationContext(String... configLocations){\n        super(configLocations);\n    }\n\n    @Override\n    protected void initPropertySources() {\n        System.out.println(\"扩展initPropertySource\");\n        //这里添加了一个name属性到Environment里面，以方便我们在后面用到\n        getEnvironment().getSystemProperties().put(\"name\",\"bobo\");\n        //这里要求Environment中必须包含username属性，如果不包含，则抛出异常\n        getEnvironment().setRequiredProperties(\"username\");\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010245-5kyagat",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010245-5kyagat",
+				"updated": "20230404010245"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "此处我们做了两个扩展：\n第一，向Environment中添加了一个属性值。\n第二：我们设置了一个必要的系统属性username，当Environment中不包含username属性时系统会抛出异常。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010245-taraaum",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010245-taraaum",
+				"updated": "20230404010245"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "测试类："
+				}
+			]
+		},
+		{
+			"ID": "20230404010245-key8rl5",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010245-key8rl5",
+				"updated": "20230404010245"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Test {\n\n    public static void main(String[] args) {\n        MyClassPathXmlApplicationContext ac = new MyClassPathXmlApplicationContext(\"applicationContext.xml\");\n\n//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(\"spring-${username}.xml\");\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010245-eoefemx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010245-eoefemx",
+				"updated": "20230404010245"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当然你也可以做其它扩展，这里只是列举了一个例子。"
+				}
+			]
+		}
+	]
+}

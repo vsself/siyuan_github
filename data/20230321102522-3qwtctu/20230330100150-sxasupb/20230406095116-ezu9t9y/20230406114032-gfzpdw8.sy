@@ -1,0 +1,1512 @@
+{
+	"ID": "20230406114032-gfzpdw8",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230406114032-gfzpdw8",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230406114032-4899zqu\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230406114032-75rj5ae\u0026quot;,\u0026quot;scrollTop\u0026quot;:300,\u0026quot;focusId\u0026quot;:\u0026quot;20230406114032-4899zqu\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "@ComponentScan注解使用_Splaying的博客-CSDN博客",
+		"updated": "20230406114032"
+	},
+	"Children": [
+		{
+			"ID": "20230406114032-4899zqu",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230406114032-4899zqu",
+				"updated": "20230406114032"
+			}
+		},
+		{
+			"ID": "20230406114032-uqkudks",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230406114032-uqkudks",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"ID": "20230406114032-vxruvp0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-vxruvp0",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-6lntpew",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-6lntpew",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/weixin_43808717/article/details/118179660",
+									"TextMarkTextContent": "https://blog.csdn.net/weixin_43808717/article/details/118179660"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-8dfj6ml",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-8dfj6ml",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-m4muo0t",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-m4muo0t",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "1、基本简介@ComponentScan注解是一个Spring的注解，用于扫描包上的注解将组件加载到IOC容器中。它的出现主要是对标component-scan标签，标签只能使用在xml的配置文件中，而现在越来越流行使用注解的形式注册bean@ComponentScan还有个父亲是@ComponentScans；用于存放多个@ComponentScan注解。@ComponentScan注解只能使用在有@Configuration配置注解的地方，因为component-scan标签必须"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-npjcbj1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-npjcbj1",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-h8dcsxr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-h8dcsxr",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-06 11:40:32"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-ee4u3o8",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230406114032-ee4u3o8",
+				"updated": "20230406114032"
+			}
+		},
+		{
+			"ID": "20230406114032-p2l3z7f",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230406114032-p2l3z7f",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、基本简介"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-ysr15ga",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230406114032-ysr15ga",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"ID": "20230406114032-7ctmkjq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-7ctmkjq",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-o1oi278",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-o1oi278",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@ComponentScan注解是一个Spring的注解，用于扫描包上的注解将组件加载到IOC容器中。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-6oaglwo",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-6oaglwo",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-74ypxae",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-74ypxae",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "它的出现主要是对标"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://so.csdn.net/so/search?q=component\u0026spm=1001.2101.3001.7020",
+									"TextMarkTextContent": "component"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "-scan标签，标签只能使用在xml的配置文件中，而现在越来越流行使用注解的形式注册bean"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-vuz7yn3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-vuz7yn3",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-6oqc54p",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-6oqc54p",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@ComponentScan还有个父亲是@ComponentScans；用于存放多个@ComponentScan注解。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-aieyrqf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-aieyrqf",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-typuks6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-typuks6",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "@ComponentScan注解只能使用在有@Configuration配置注解的地方，因为component-scan标签必须存在于xml配置文件中；而在脱离xml使用时，需要使用带有在@Configuration配置注解上。并不局限与一定是 @Configuration也可以是@SpringBootConfiguration…"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-xepx28j",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-xepx28j",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-3qoh58a",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-3qoh58a",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "作用：扫描被@Controller、@Service、@Repository、@Component等注解标注的类。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-o1fnxlg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-o1fnxlg",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-yl17b38",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-yl17b38",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "SpringBoot的主启动类中的@SpringBootApplication会自动扫描主启动类所在的包，因此以下所有测试都是与主启动所在的包平级。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-ymnepa4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406114032-ymnepa4",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210624210534943-20230406114032-lzxwo8n.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-78sk2nw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406114032-78sk2nw",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Retention(RetentionPolicy.RUNTIME)\n@Target(ElementType.TYPE)\n@Documented\n@Repeatable(ComponentScans.class)\npublic @interface ComponentScan { \n\n\t@AliasFor(\"basePackages\")\n\tString[] value() default { };\n\n\t@AliasFor(\"value\")\n\tString[] basePackages() default { };\n\n\tClass\u003c?\u003e[] basePackageClasses() default { };\n\n\tboolean useDefaultFilters() default true;\n\n\tFilter[] includeFilters() default { };\n\n\tFilter[] excludeFilters() default { };\n\n\tboolean lazyInit() default false;\n\n\t@Retention(RetentionPolicy.RUNTIME)\n\t@Target({ })\n\t@interface Filter { \n\n\t\tFilterType type() default FilterType.ANNOTATION;\n\t\n\t\t@AliasFor(\"classes\")\n\t\tClass\u003c?\u003e[] value() default { };\n\n\t\t@AliasFor(\"value\")\n\t\tClass\u003c?\u003e[] classes() default { };\n\t\n\t\tString[] pattern() default { };\n\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-sh9rn5z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406114032-sh9rn5z",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "主要常用的是这几个属性："
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-33zhv83",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230406114032-33zhv83",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"ID": "20230406114032-59oqlf7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230406114032-59oqlf7",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-w300rmx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-w300rmx",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "basePackages和value属性是同一个，指扫描哪写包下的组件注解。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-zvb400r",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230406114032-zvb400r",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-o2e638l",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-o2e638l",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "basePackageClasses属性：扫描指定的类，该类有组件注解才能被扫描到。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-8yqvpg0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230406114032-8yqvpg0",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-4tdcni3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-4tdcni3",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "useDefaultFilters属性：使用默认的过滤机制，常常搭配下面两个属性一起使用。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-3syly0k",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230406114032-3syly0k",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-mvm0gbu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-mvm0gbu",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "includeFilters属性：扫描哪些注解。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-4vatitf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230406114032-4vatitf",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-49orzjt",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-49orzjt",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "excludeFilters属性：不扫描哪些组件。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-yamd37g",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ni4=",
+						"Num": 6
+					},
+					"Properties": {
+						"id": "20230406114032-yamd37g",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-yedt6y5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-yedt6y5",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "lazyInit属性：由于是包扫描一次性的，那么无法单独配置哪个组件是否懒加载，因此提供该属性用于声明是否开启懒加载。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-fd5vk1q",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230406114032-fd5vk1q",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、基础扫描"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-4ic7vb8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406114032-4ic7vb8",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "@Component、@Controller、@Service、@Repository注解都是同样的作用，只不过后面三个是@Component注解派生出的子注解；用于MVC三层架构的不同层。"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-7t9k9h3",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230406114032-7t9k9h3",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1、扫描包"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-b9fuaw9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406114032-b9fuaw9",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以一次性扫描多个包，也可以是单个包。"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-gpsokpy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406114032-gpsokpy",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Configuration\n@ComponentScan(basePackages = { \n        \"com.controller\", \n        \"com.dao\",\n        \"com.service\"\n})\npublic class MyConfig { \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-basw9gl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406114032-basw9gl",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210624140952117-20230406114032-gcby1zf.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-bq3zz7t",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230406114032-bq3zz7t",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2、扫描类"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-4ruvz1g",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406114032-4ruvz1g",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "扫描类也是需要根据组件注解扫描的，如果该类上没有组件注册的注解那么该类一样扫描不到。"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-xtd0wrl",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406114032-xtd0wrl",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Configuration\n@ComponentScan(basePackageClasses = { \n        TestController.class,\n        TestService.class,\n        TestDao.class           //没有使用组件注解进行标注\n})\npublic class MyConfig { \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-vvtr8mb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406114032-vvtr8mb",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210624141152799-20230406114031-elvwyzf.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-e1ujp8x",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230406114032-e1ujp8x",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、@Filter注解过滤"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-7gymdsl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406114032-7gymdsl",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "@ComponentScan注解中的includeFilters、excludeFilters属性用于指定组件的扫描与排除；不过更多的是使用excludeFilters排除那些不需要的组件。"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-57f07fj",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230406114032-57f07fj",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"ID": "20230406114032-6n849ei",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-6n849ei",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-ro6hcbf",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-ro6hcbf",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "FilterType.ANNOTATION：按照注解类型排除/包含，应该是使用最多的一个。（常用）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-7bgnvxm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-7bgnvxm",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-bqdufqk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-bqdufqk",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "FilterType.ASSIGNABLE_TYPE：按照类型，可以是接口那么所有的实现类都会被排除/包含"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-rd4iam1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-rd4iam1",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-51ycovs",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-51ycovs",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "FilterType.ASPECTJ：按照切面表达式排除/包含"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-sg75rmp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-sg75rmp",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-vs8n03q",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-vs8n03q",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "FilterType.REGEX：按照正则表达式排除/包含"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-ua0zo7d",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-ua0zo7d",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-pxr7jpj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-pxr7jpj",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "FilterType.CUSTOM：实现TypeFilter接口实现排除/包含（常用）"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-he1x0tk",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230406114032-he1x0tk",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.1、根据注解类型进行排除"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-v459r6l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406114032-v459r6l",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里过滤@Controller注解标注的组件"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-jo8f98x",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406114032-jo8f98x",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@ComponentScan(\n\n    value = { \"com.controller\", \"com.service\", \"com.dao\"},\n    excludeFilters = { @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Controller.class)}\n)\n@Configuration\npublic class MyConfig { \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-2k8ig5k",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406114032-2k8ig5k",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210624203943640-20230406114032-7pywr8i.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-j9aoay5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20230406114032-j9aoay5",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.2、根据注解类型进行添加"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-ilyfb6a",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406114032-ilyfb6a",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这时候需要关闭使用默认过滤，将useDefaultFilter属性置为false。"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-elaaq84",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406114032-elaaq84",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@ComponentScan(\n\n    value = { \"com.controller\", \"com.service\", \"com.dao\"},\n    useDefaultFilters = false,\n    includeFilters = { @ComponentScan.Filter(type = FilterType.ANNOTATION, value = { Controller.class})}\n\n)\n@Configuration\npublic class MyConfig { \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-tadpsx8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406114032-tadpsx8",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210624210736998-20230406114032-v4gaqql.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-212d9aj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20230406114032-212d9aj",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.3、自定义表达式规则"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-ehsdkq3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406114032-ehsdkq3",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "完成自定义表达式规则需要实现TypeFilter接口，该接口非常强大。通过该类的方法可以拿到被依次扫描到的类的信息、注解、路径、甚至还可以获取到该类的祖孙三代的信息…"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-ls3xz0u",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406114032-ls3xz0u",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MyTypeFilter implements TypeFilter { \n    /**\n     * @param metadataReader: metadataReader扫描到的当前类\n     * @param metadataReaderFactory: 为父类、接口获取元数据的工厂\n     */\n    @Override\n    public boolean match(MetadataReader metadataReader, MetadataReaderFactory metadataReaderFactory) throws IOException { \n        // 1. 获取当前类的注解信息\n        AnnotationMetadata metadata = metadataReader.getAnnotationMetadata();\n\n        // 2. 获取当前类的信息\n        ClassMetadata classMetadata = metadataReader.getClassMetadata();\n\n        // 3. 获取当前类的路径\n        Resource resource = metadataReader.getResource();\n\n        // 4. metadata 和 classMetadata变量又可以获取该类祖孙三代的很多信息\n        System.out.println(\"------------\u003e\" + classMetadata.getClassName());\n        if (classMetadata.getClassName().contains(\"er\")){ \n            return true;            //放行所有全路径类名中包含er的\n        }\n        return false;               //拒绝放行\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-lbpktyg",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406114032-lbpktyg",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@ComponentScan(\n\n    value = { \"com.controller\", \"com.service\", \"com.dao\"},\n    useDefaultFilters = false,\n    includeFilters = { @ComponentScan.Filter(type = FilterType.CUSTOM, value = { MyTypeFilter.class})}\n)\n@Configuration\npublic class MyConfig { \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-k7tf8n6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406114032-k7tf8n6",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210624223011916-20230406114032-xlm8hhv.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-k0tvjxe",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230406114032-k0tvjxe",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4、总结"
+				}
+			]
+		},
+		{
+			"ID": "20230406114032-75rj5ae",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230406114032-75rj5ae",
+				"updated": "20230406114032"
+			},
+			"Children": [
+				{
+					"ID": "20230406114032-v9bwtcf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-v9bwtcf",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-85zke4d",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-85zke4d",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@ComponentScan注解还可以重复标记，因为底层使用了@Repeatable注解标注，重复标注时会自动转化，将这一个个的@ComponentScan放入@ComponentScans中！"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-jsofuqz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-jsofuqz",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-8eoktly",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-8eoktly",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@ComponentScan注解必须依托含有@"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://so.csdn.net/so/search?q=Configuration\u0026spm=1001.2101.3001.7020",
+									"TextMarkTextContent": "Configuration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "注解标注的地方。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-q417yyk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-q417yyk",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-1r9ou2o",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-1r9ou2o",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当使用includeFilters属性时一定要使用useDefaultFilters = false不过这种感觉也不会使用；一般都是使用excludeFilters属性排除不想扫描的。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406114032-eutzzvu",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406114032-eutzzvu",
+						"updated": "20230406114032"
+					},
+					"Children": [
+						{
+							"ID": "20230406114032-knakbew",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406114032-knakbew",
+								"updated": "20230406114032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "自定义的过滤规则、注解过滤规则比较常见；自定义的过滤规则十分强大可以使用多重过滤，个人认为有这一个自定义规则其他的过滤规则似乎没有存在的必要性（当然不考虑性能问题）"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

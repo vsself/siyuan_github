@@ -1,0 +1,1307 @@
+{
+	"ID": "20230331091331-byvi6l2",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331091331-byvi6l2",
+		"title": "Spring 源码分析补充篇一 ：DeferredImportSelector 的处理_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331091331"
+	},
+	"Children": [
+		{
+			"ID": "20230331091331-fbzi5wu",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091331-fbzi5wu",
+				"updated": "20230331091331"
+			}
+		},
+		{
+			"ID": "20230331091331-vkd45xc",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331091331-vkd45xc",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"ID": "20230331091331-t1l8prq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091331-t1l8prq",
+						"updated": "20230331091331"
+					},
+					"Children": [
+						{
+							"ID": "20230331091331-g09ov97",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091331-g09ov97",
+								"updated": "20230331091331"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/114300705",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/114300705"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091331-z39wory",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091331-z39wory",
+						"updated": "20230331091331"
+					},
+					"Children": [
+						{
+							"ID": "20230331091331-ol4qxhg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091331-ol4qxhg",
+								"updated": "20230331091331"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "文章目录一、前言二、 DeferredImportSelector三、源码分析1. DeferredImportSelector  的预处理2. DeferredImportSelector 的真正处理2.1 handler::register2.2 handler.processGroupImports()一、前言本系列是在重看源码分析过程中，对一些遗漏内容的补充，内容仅用于个人学习记录。在 Spring 源码分析衍生篇七 ：ConfigurationClassPostProcessor 上篇 中"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091331-uu4r6to",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091331-uu4r6to",
+						"updated": "20230331091331"
+					},
+					"Children": [
+						{
+							"ID": "20230331091331-ddxv6wd",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091331-ddxv6wd",
+								"updated": "20230331091331"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:13:31"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-r2lubl8",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091331-r2lubl8",
+				"updated": "20230331091331"
+			}
+		},
+		{
+			"ID": "20230331091331-koib8oc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091331-koib8oc",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-xbyr23f",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331091331-xbyr23f",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"ID": "20230331091331-06xobcp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091331-06xobcp",
+						"updated": "20230331091331"
+					},
+					"Children": [
+						{
+							"ID": "20230331091331-yoqoep8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091331-yoqoep8",
+								"updated": "20230331091331"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/114300705#_2",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091331-3txy3ml",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091331-3txy3ml",
+						"updated": "20230331091331"
+					},
+					"Children": [
+						{
+							"ID": "20230331091331-8wvzmw3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091331-8wvzmw3",
+								"updated": "20230331091331"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/114300705#_DeferredImportSelector_14",
+									"TextMarkTextContent": "二、 DeferredImportSelector"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091331-quk7pe6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091331-quk7pe6",
+						"updated": "20230331091331"
+					},
+					"Children": [
+						{
+							"ID": "20230331091331-zqkumt5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091331-zqkumt5",
+								"updated": "20230331091331"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/114300705#_27",
+									"TextMarkTextContent": "三、源码分析"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091331-wl42n1i",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091331-wl42n1i",
+						"updated": "20230331091331"
+					},
+					"Children": [
+						{
+							"ID": "20230331091331-yj3v6r3",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331091331-yj3v6r3",
+								"updated": "20230331091331"
+							},
+							"Children": [
+								{
+									"ID": "20230331091331-df50s1y",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331091331-df50s1y",
+										"updated": "20230331091331"
+									},
+									"Children": [
+										{
+											"ID": "20230331091331-cnhoffh",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331091331-cnhoffh",
+												"updated": "20230331091331"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/114300705#1_DeferredImportSelector___28",
+													"TextMarkTextContent": "1. DeferredImportSelector 的预处理"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331091331-74sc1sx",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331091331-74sc1sx",
+										"updated": "20230331091331"
+									},
+									"Children": [
+										{
+											"ID": "20230331091331-ll0uss8",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331091331-ll0uss8",
+												"updated": "20230331091331"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/114300705#2_DeferredImportSelector__59",
+													"TextMarkTextContent": "2. DeferredImportSelector 的真正处理"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331091331-fk765cu",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331091331-fk765cu",
+										"updated": "20230331091331"
+									},
+									"Children": [
+										{
+											"ID": "20230331091331-azei5w3",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331091331-azei5w3",
+												"updated": "20230331091331"
+											},
+											"Children": [
+												{
+													"ID": "20230331091331-ix2s912",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331091331-ix2s912",
+														"updated": "20230331091331"
+													},
+													"Children": [
+														{
+															"ID": "20230331091331-o5gqe8m",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331091331-o5gqe8m",
+																"updated": "20230331091331"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/114300705#21_handlerregister_90",
+																	"TextMarkTextContent": "2.1 handler::register"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331091331-frnxcqe",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331091331-frnxcqe",
+														"updated": "20230331091331"
+													},
+													"Children": [
+														{
+															"ID": "20230331091331-vqyax2e",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331091331-vqyax2e",
+																"updated": "20230331091331"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/114300705#22_handlerprocessGroupImports_110",
+																	"TextMarkTextContent": "2.2 handler.processGroupImports()"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-nq98me9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331091331-nq98me9",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-vss3gug",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-vss3gug",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本系列是在重看源码分析过程中，对一些遗漏内容的补充，内容仅用于个人学习记录，写的会比较随性，难免有错漏，欢迎指正。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-lns1dw9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-lns1dw9",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "全集目录："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106440723",
+					"TextMarkTextContent": "Spring源码分析：全集整理"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-gfzhtto",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091331-gfzhtto",
+				"updated": "20230331091331"
+			}
+		},
+		{
+			"ID": "20230331091331-j80iw23",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-j80iw23",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106558290",
+					"TextMarkTextContent": "Spring 源码分析衍生篇七 ：ConfigurationClassPostProcessor 上篇"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 中我们讲到了在ConfigurationClassPostProcessor 中 完成了对 ImportSelector 和 DeferredImportSelector 的解析。\n其中对于 ImportSelector 的调用直接是调用 ImportSelector#selectImports 方法完成解析即可，但是对于 DeferredImportSelector的调用，就没有那么直接了。本文来解析 DeferredImportSelector 的调用过程。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-govelmn",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331091331-govelmn",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、 DeferredImportSelector"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-pgegiyf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-pgegiyf",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DeferredImportSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ImportSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口的子接口。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-v3rzpwj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-v3rzpwj",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DeferredImportSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 有两个特点："
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-hzaheqh",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331091331-hzaheqh",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"ID": "20230331091331-v23xcv1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091331-v23xcv1",
+						"updated": "20230331091331"
+					},
+					"Children": [
+						{
+							"ID": "20230331091331-6ari6xa",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091331-6ari6xa",
+								"updated": "20230331091331"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "继承该接口的 ImportSelector会在所有@Configuration配置类处理完后运行。这一点是因为在"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ConfigurationClassParser#parse(java.util.Set\u0026lt;org.springframework.beans.factory.config.BeanDefinitionHolder\u0026gt;)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法中直到解析出来其他的候选配置类才会调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "this.deferredImportSelectorHandler.process();"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 来解析 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DeferredImportSelector"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091331-1vl395o",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091331-1vl395o",
+						"updated": "20230331091331"
+					},
+					"Children": [
+						{
+							"ID": "20230331091331-l1liwq3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091331-l1liwq3",
+								"updated": "20230331091331"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果定义了一个以上的DeferredImportSelector则使用Order接口来进行排序。这一点也是在 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "this.deferredImportSelectorHandler.process();"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中进行了排序调用。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-kt5t5jk",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091331-kt5t5jk",
+				"updated": "20230331091331"
+			}
+		},
+		{
+			"ID": "20230331091331-oemn0zo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-oemn0zo",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "借 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://mingyang.blog.csdn.net/article/details/108861935",
+					"TextMarkTextContent": "死磕源码系列【ImportSelector接口原理解析】"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "的话："
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-ej3vxb0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-ej3vxb0",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DeferredImportSelector接口是ImportSelector接口的子接口，该接口会在所有的@"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=Configuration\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "Configuration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "配置类（不包括自动化配置类，即spring.factories文件中的配置类）处理完成后运行；当选择器和@Conditional条件注解一起使用时是特别有用的，此接口还可以和接口Ordered或者@Ordered一起使用，定义多个选择器的优先级"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-on1j17v",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331091331-on1j17v",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、源码分析"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-12k5jd0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331091331-12k5jd0",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. DeferredImportSelector 的预处理"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-m58rjtu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-m58rjtu",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于 DeferredImportSelector 具有后处理的特性，所以在刚开始扫描出来DeferredImportSelector 的时候并不能立即处理，需要将其保存起来，在最后再进行统一的处理。\n在 ConfigurationClassParser#processImports 中对DeferredImportSelector 的处理如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-wz4vysw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091331-wz4vysw",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "// deferredImportSelectorHandler  为 org.springframework.context.annotation.ConfigurationClassParser.DeferredImportSelectorHandler\n\t// 这一步实际上是将 configClass 和 selector 保存到了一个集合(deferredImportSelectors)中，集合(deferredImportSelectors)标记着待处理的selector\n\tthis.deferredImportSelectorHandler.handle(configClass, (DeferredImportSelector) selector);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-zpf23v1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-zpf23v1",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其具体实现如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-lfxvyvj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091331-lfxvyvj",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t// ConfigurationClassParser.DeferredImportSelectorHandler#handle\n\t// deferredImportSelectors  保存待处理的 Selector  \n\tprivate List\u003cDeferredImportSelectorHolder\u003e deferredImportSelectors = new ArrayList\u003c\u003e();\n\t// configClass 是持有该@Import 注解的 配置类， importSelector 是引入的 DeferredImportSelector \n\tpublic void handle(ConfigurationClass configClass, DeferredImportSelector importSelector) { \n\t\t\t// 将 DeferredImportSelector  和其引入的配置类保存起来。\n\t\t\tDeferredImportSelectorHolder holder = new DeferredImportSelectorHolder(configClass, importSelector);\n\t\t\t// 如果deferredImportSelectors 为空，则重新注册\n\t\t\tif (this.deferredImportSelectors == null) { \n\t\t\t\tDeferredImportSelectorGroupingHandler handler = new DeferredImportSelectorGroupingHandler();\n\t\t\t\thandler.register(holder);\n\t\t\t\thandler.processGroupImports();\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// 将当前的 config 和 Selector 的持有者保存起来\n\t\t\t\tthis.deferredImportSelectors.add(holder);\n\t\t\t}\n\t\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-dmlnjtf",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331091331-dmlnjtf",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. DeferredImportSelector 的真正处理"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-hzi29ln",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-hzi29ln",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ConfigurationClassParser#parse(java.util.Set\u0026lt;org.springframework.beans.factory.config.BeanDefinitionHolder\u0026gt;)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中最后一句处理了 DeferredImportSelector"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-029aru6",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091331-029aru6",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tthis.deferredImportSelectorHandler.process();\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-dbyjf78",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-dbyjf78",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其详细实现如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-ygji3x8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091331-ygji3x8",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic void process() { \n\t\t// 获取待处理的 DeferredImportSelectorHolder\n\t\tList\u003cDeferredImportSelectorHolder\u003e deferredImports = this.deferredImportSelectors;\n\t\tthis.deferredImportSelectors = null;\n\t\ttry { \n\t\t\tif (deferredImports != null) { \n\t\t\t\tDeferredImportSelectorGroupingHandler handler = new DeferredImportSelectorGroupingHandler();\n\t\t\t\t// 排序\n\t\t\t\tdeferredImports.sort(DEFERRED_IMPORT_COMPARATOR);\n\t\t\t\t// 1. 根据不同的group 进行分组注册\n\t\t\t\tdeferredImports.forEach(handler::register);\n\t\t\t\t// 2. 按照分组调用\n\t\t\t\thandler.processGroupImports();\n\t\t\t}\n\t\t}\n\t\tfinally { \n\t\t\tthis.deferredImportSelectors = new ArrayList\u003c\u003e();\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-g73ti4v",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091331-g73ti4v",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=handler\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "handler"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "::register"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-6y7x1ix",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-6y7x1ix",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里有两步操作 ："
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-fgh7x3z",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331091331-fgh7x3z",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"ID": "20230331091331-rjy8tez",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331091331-rjy8tez",
+						"updated": "20230331091331"
+					},
+					"Children": [
+						{
+							"ID": "20230331091331-m8suuo9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091331-m8suuo9",
+								"updated": "20230331091331"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "将不同的 DeferredImportSelectorHolder 按照分组进行划分"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091331-u9svj8b",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331091331-u9svj8b",
+						"updated": "20230331091331"
+					},
+					"Children": [
+						{
+							"ID": "20230331091331-u01456n",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091331-u01456n",
+								"updated": "20230331091331"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "将DeferredImportSelectorHolder 的信息保存到 configurationClasses 中。(供后面调用的时候获取)"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-oxgqks3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091331-oxgqks3",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic void register(DeferredImportSelectorHolder deferredImport) { \n\t\t// 获取当前 DeferredImportSelector  的Group\n\t\tClass\u003c? extends Group\u003e group = deferredImport.getImportSelector().getImportGroup();\n\t\tDeferredImportSelectorGrouping grouping = this.groupings.computeIfAbsent(\n\t\t\t\t(group != null ? group : deferredImport),\n\t\t\t\tkey -\u003e new DeferredImportSelectorGrouping(createGroup(group)));\n\t\t// 将当前 DeferredImportSelector  添加到同一分组中的\n\t\tgrouping.add(deferredImport);\n\t\t// 保存需要处理的配置类\n\t\tthis.configurationClasses.put(deferredImport.getConfigurationClass().getMetadata(),\n\t\t\t\tdeferredImport.getConfigurationClass());\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-efw11eg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091331-efw11eg",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2 handler.processGroupImports()"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-qvxr5tm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-qvxr5tm",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这一步根据不同分组将分组中的 DeferredImportSelector 引入的类通过 entry.getImportClassName() 来包装后，调用 processImports 方法进行了新一轮解析。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-jqsn85w",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091331-jqsn85w",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic void processGroupImports() { \n\t\t// 遍历每个分组\n\t\tfor (DeferredImportSelectorGrouping grouping : this.groupings.values()) { \n\t\t\t// 获取分组的过滤器\n\t\t\tPredicate\u003cString\u003e exclusionFilter = grouping.getCandidateFilter();\n\t\t\t// 遍历分组中所有的 Entry (封装了需要引入的类的信息)\n\t\t\tgrouping.getImports().forEach(entry -\u003e { \n\t\t\t\t// 从 configurationClasses 集合中获取到对应的 ConfigurationClass 。其中保存\n\t\t\t\tConfigurationClass configurationClass = this.configurationClasses.get(entry.getMetadata());\n\t\t\t\ttry { \n\t\t\t\t\t// 对 configurationClass 进行解析。这里的解析在 ConfigurationClassPostProcessor  文章已经有过解释。\n\t\t\t\t\t// entry.getImportClassName() 获取到了引入的类\n\t\t\t\t\tprocessImports(configurationClass, asSourceClass(configurationClass, exclusionFilter),\n\t\t\t\t\t\t\tCollections.singleton(asSourceClass(entry.getImportClassName(), exclusionFilter)),\n\t\t\t\t\t\t\texclusionFilter, false);\n\t\t\t\t}\n\t\t\t\tcatch (BeanDefinitionStoreException ex) { \n\t\t\t\t\tthrow ex;\n\t\t\t\t}\n\t\t\t\tcatch (Throwable ex) { \n\t\t\t\t\tthrow new BeanDefinitionStoreException(\n\t\t\t\t\t\t\t\"Failed to process import candidates for configuration class [\" +\n\t\t\t\t\t\t\t\t\tconfigurationClass.getMetadata().getClassName() + \"]\", ex);\n\t\t\t\t}\n\t\t\t});\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-zhxls0n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-zhxls0n",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "grouping.getImports()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-ehia6ze",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091331-ehia6ze",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t// org.springframework.context.annotation.ConfigurationClassParser.DeferredImportSelectorGrouping#getImports\n\tpublic Iterable\u003cGroup.Entry\u003e getImports() { \n\t\tfor (DeferredImportSelectorHolder deferredImport : this.deferredImports) { \n\t\t\t// 调用 DeferredImportSelector.Group#process\n\t\t\tthis.group.process(deferredImport.getConfigurationClass().getMetadata(),\n\t\t\t\t\tdeferredImport.getImportSelector());\n\t\t}\n\t\t// 调用 DeferredImportSelector.Group#selectImports\n\t\treturn this.group.selectImports();\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-0xqfqp5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-0xqfqp5",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里调用的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DefaultDeferredImportSelectorGroup"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-cq9b1ik",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091331-cq9b1ik",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate static class DefaultDeferredImportSelectorGroup implements Group { \n\n\t\tprivate final List\u003cEntry\u003e imports = new ArrayList\u003c\u003e();\n\n\t\t@Override\n\t\tpublic void process(AnnotationMetadata metadata, DeferredImportSelector selector) { \n\t\t\t// 调用了ImportSelector#selectImports 方法\n\t\t\tfor (String importClassName : selector.selectImports(metadata)) { \n\t\t\t\tthis.imports.add(new Entry(metadata, importClassName));\n\t\t\t}\n\t\t}\n\n\t\t@Override\n\t\tpublic Iterable\u003cEntry\u003e selectImports() { \n\t\t\t// 直接将 Imports 返回\n\t\t\treturn this.imports;\n\t\t}\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-52xn8fx",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091331-52xn8fx",
+				"updated": "20230331091331"
+			}
+		},
+		{
+			"ID": "20230331091331-4q4vdwi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-4q4vdwi",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "综上可以看到 DeferredImportSelector 的处理过程并非是直接 调用ImportSelector"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong tag",
+					"TextMarkTextContent": "selectImports方法。而是调用 DeferredImportSelector.Group"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "process 和 Group#selectImports 方法来完成引入功能。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091331-a4lx73m",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091331-a4lx73m",
+				"updated": "20230331091331"
+			}
+		},
+		{
+			"ID": "20230331091331-y6deb85",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091331-y6deb85",
+				"updated": "20230331091331"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://mingyang.blog.csdn.net/article/details/108861935",
+					"TextMarkTextContent": "https://mingyang.blog.csdn.net/article/details/108861935"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

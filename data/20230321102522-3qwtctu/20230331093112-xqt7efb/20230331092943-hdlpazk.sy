@@ -1,0 +1,1379 @@
+{
+	"ID": "20230331092943-hdlpazk",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331092943-hdlpazk",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230331092943-g29u5jf\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230331092943-by4rhtk\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230331093254-f2sh3uq\u0026quot;,\u0026quot;focusStart\u0026quot;:2,\u0026quot;focusEnd\u0026quot;:2}",
+		"title": "Spring框架中的设计模式(一)_安迪源文的博客-CSDN博客",
+		"updated": "20230331093257"
+	},
+	"Children": [
+		{
+			"ID": "20230331092943-g29u5jf",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331092943-g29u5jf",
+				"updated": "20230331092943"
+			}
+		},
+		{
+			"ID": "20230331093254-f2sh3uq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230331093254-f2sh3uq",
+				"updated": "20230331093257"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "interpreter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​​,"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "builder"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​​,"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "factory method"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​​,"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "abstract factory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​​"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-fm56kvi",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331092943-fm56kvi",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"ID": "20230331092943-s6kqeom",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331092943-s6kqeom",
+						"updated": "20230331092943"
+					},
+					"Children": [
+						{
+							"ID": "20230331092943-k9k7enx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092943-k9k7enx",
+								"updated": "20230331092943"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/andy_zhang2007/article/details/79755648",
+									"TextMarkTextContent": "https://blog.csdn.net/andy_zhang2007/article/details/79755648"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331092943-aerkxzi",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331092943-aerkxzi",
+						"updated": "20230331092943"
+					},
+					"Children": [
+						{
+							"ID": "20230331092943-h66cecr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092943-h66cecr",
+								"updated": "20230331092943"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "设计模式帮助开发人员遵循编程最佳实践。作为最流行的Web框架，Spring也使用了设计模式。这篇文章会讲解Spring框架使用了哪些设计模式以及怎么使用的。该主题文章分成5部分，这是第一部分。这一部分中我们会覆盖Spring框架使用的四种设计模式 : 解释器interpreted，生成器builder，工厂方法factory method 和 抽象工厂abstract factory。每部分会..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331092943-36knoyg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331092943-36knoyg",
+						"updated": "20230331092943"
+					},
+					"Children": [
+						{
+							"ID": "20230331092943-61sxspq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092943-61sxspq",
+								"updated": "20230331092943"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:29:43"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-c16juo6",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331092943-c16juo6",
+				"updated": "20230331092943"
+			}
+		},
+		{
+			"ID": "20230331092943-j85m5fk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-j85m5fk",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "设计模式帮助开发人员遵循编程最佳实践。作为最流行的Web框架，Spring也使用了设计模式。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-59v6wmt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-59v6wmt",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这篇文章会讲解Spring框架使用了哪些设计模式以及怎么使用的。该主题文章分成5部分，这是第一部分。这一部分中我们会覆盖Spring框架使用的四种设计模式 : 解释器"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "interpreted"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，生成器"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "builder"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，工厂方法"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "factory method"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 和 抽象工厂"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "abstract factory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。每部分会首先解释一下模式的基本原理，然后给出一个Spring中的使用例子。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-klrsc78",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331092943-klrsc78",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring设计模式 – 解释器 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "interpreter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-ynyc7ob",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-ynyc7ob",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "现实世界中我们人类需要解释手势。根据文化不同，手势会有不同意思。我们的解释赋予了它们特定意义。编程中我们也需要解释一件事情然后决定它表示什么。这时候就会用到 ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "解释器模式 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "interpreted design pattern"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-w8wulyk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-w8wulyk",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "该模式建立在表达式("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "expression"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)和评估器("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "evaluator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)之上。前者表达式("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "expression"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)表示一个需要分析的东西。而后者评估器("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "evaluator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)知道组成表达式("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "expression"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)的字符的意义然后做分析。这个理解的过程在一个上下文("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "context"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)中进行。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-6v9i4f1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-6v9i4f1",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring主要在 ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "Spring Expression Language"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​(SpEL) 中使用解释器模式。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-slaj64j",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230331092943-slaj64j",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230331092943-83e1cd1",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230331092943-83e1cd1",
+						"updated": "20230331092943"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "这里很快地提醒一下，SpEL是一种表达式语言，由Spring中"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "org.springframework.expression.ExpressionParser"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​的实现来分析和执行表达式。该实现将字符串格式的SpEL表达式作为输入翻译得到"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "org.springframework.expression.Expression"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​实例。而上下文实例通过"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "org.springframework.expression.EvaluationContext"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​的实现来表示，比如: "
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "StandardEvaluationContext"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​。"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-5bm0bbh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-5bm0bbh",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一个SpEL例子，看起来可能是这样的:"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-17jy8v3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092943-17jy8v3",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Writer writer = new Writer();\nwriter.setName(\"Writer's name\");\nStandardEvaluationContext modifierContext = \n\tnew StandardEvaluationContext(subscriberContext);\nmodifierContext.setVariable(\"name\", \"Overriden writer's name\");\nparser.parseExpression(\"name = #name\").getValue(modifierContext);\nSystem.out.println(\"writer's name is : \" + writer.getName());\n// 这里控制台上的输出会是 Overriden writer's name\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-niuinu7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-niuinu7",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "输出会打印\"Overriden writer’s name\"。像你看到的那样，对象的属性通过一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ExpressionParser"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​可以理解的表达式"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "name = #name"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​基于所提供的上下文(上面例子中的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "modifierContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)给修改了。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-gyacz5x",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331092943-gyacz5x",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring设计模式 – 生成器 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "builder"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-zh4zv3s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-zh4zv3s",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "生成器模式"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Builder design pattern"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​是对象创建模式中的第一种模式。该模式用于简化构造复杂对象。为了理解这一概念，想象一个描述程序员简历的对象。这个对象中我们想保存个人信息(姓名地址等)还有技术能力信息(所掌握的语言，实现的项目等等)。该对象的构造看起来可能是这个样子:"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-rosym5o",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092943-rosym5o",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "// 方式1：使用构造函数\nProgrammer programmer = new Programmer(\n\t\t\t\t\t\t\t\"first name\", \"last name\", \n\t\t\t\t\t\t\t\"address Street 39\", \"ZIP code\", \n\t\t\t\t\t\t\t\"City\", \"Country\", birthDateObject, \n\t\t\t\t\t\t\tnew String[] { \"Java\", \"PHP\", \"Perl\", \"SQL\"}, \n\t\t\t\t\t\t\tnew String[] { \"CRM system\", \"CMS system for government\"});\n// 或者 方式2 ： 使用 setXXX 方法\nProgrammer programmer = new Programmer();\nprogrammer.setName(\"first name\");\nprogrammer.setLastName(\"last name\");\n// ... 很多行setXXX 方法调用之后，添加项目信息\nprogrammer.setProjects(new String[] { \"CRM system\", \"CMS system for government\"});\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-9a3jggo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-9a3jggo",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "而生成器允许我们使用将值传给父类的内部生成器对象清楚地分解对象构建过程。如此这般:"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-syxrvmu",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092943-syxrvmu",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class BuilderTest { \n \n  @Test\n  public void test() { \n    Programmer programmer = new Programmer.ProgrammerBuilder()\n\t\t    .setFirstName(\"F\").setLastName(\"L\")\n            .setCity(\"City\").setZipCode(\"0000A\").setAddress(\"Street 39\")\n            .setLanguages(new String[] { \"bash\", \"Perl\"})\n            .setProjects(new String[] { \"Linux kernel\"})\n            .build();\n    assertTrue(\"Programmer should be 'F L' but was '\"+ programmer+\"'\", \n\t\t\t    programmer.toString().equals(\"F L\"));\n  }\n \n}\n \nclass Programmer { \n  private String firstName;\n  private String lastName;\n  private String address;\n  private String zipCode;\n  private String city;\n  private String[] languages;\n  private String[] projects;\n   \n  private Programmer(String fName, String lName, \n\t\t\t\t\t  String addr, String zip, String city, \n\t\t\t\t\t  String[] langs, String[] projects) { \n    this.firstName = fName;\n    this.lastName = lName;\n    this.address = addr;\n    this.zipCode = zip;\n    this.city = city;\n    this.languages = langs;\n    this.projects = projects;\n  }\n   \n  public static class ProgrammerBuilder { \n    private String firstName;\n    private String lastName;\n    private String address;\n    private String zipCode;\n    private String city;\n    private String[] languages;\n    private String[] projects;\n   \n    public ProgrammerBuilder setFirstName(String firstName) { \n      this.firstName = firstName;\n      return this;\n    }\n   \n    public ProgrammerBuilder setLastName(String lastName) { \n      this.lastName = lastName;\n      return this;\n    }\n   \n    public ProgrammerBuilder setAddress(String address) { \n      this.address = address;\n      return this;\n    }\n   \n    public ProgrammerBuilder setZipCode(String zipCode) { \n      this.zipCode = zipCode;\n      return this;\n    }\n   \n    public ProgrammerBuilder setCity(String city) { \n      this.city = city;\n      return this;\n    }\n   \n    public ProgrammerBuilder setLanguages(String[] languages) { \n      this.languages = languages;\n      return this;\n    }\n    public ProgrammerBuilder setProjects(String[] projects) { \n      this.projects = projects;\n      return this;\n    }\n   \n    public Programmer build() { \n      return new Programmer(firstName, lastName, address, zipCode, city, \n\t\t\t\t\t      languages, projects);\n    } \n  }\n   \n  @Override\n  public String toString() { \n    return this.firstName + \" \"+this.lastName;\n  }\n   \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-brjhpy1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-brjhpy1",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里你可以看到，复杂的对象构建过程隐藏在了一个生成器的后面，这个生成器是一个接收链式方法调用的内部静态类实例。Spring中，我们可以把该逻辑抽离到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.beans.factory.support.BeanDefinitionBuilder"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类。该类可以让我们程序化地定义一个bean。如我们在这篇关于"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/bean-factory-post-processor-beans-in-spring/read",
+					"TextMarkTextContent": "bean factory post processors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "的文章中所看到的，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinitionBuilder"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中包含了好多向所关联的beanDefinition(实现了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractBeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​抽象类)属性对象设置作用域，工厂方法，属性等等的方法。我们看一下这些方法的实现，理解一下它是怎么工作的:"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-4ycs2fy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092943-4ycs2fy",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class BeanDefinitionBuilder { \n       /**\n    * The {@code BeanDefinition} instance we are creating.\n    */\n  private AbstractBeanDefinition beanDefinition;\n \n  // ... some not important methods for this article\n \n  // Some of building methods\n  /**\n    * Set the name of the parent definition of this bean definition.\n    */\n  public BeanDefinitionBuilder setParentName(String parentName) { \n    this.beanDefinition.setParentName(parentName);\n    return this;\n  }\n \n  /**\n    * Set the name of the factory method to use for this definition.\n    */\n  public BeanDefinitionBuilder setFactoryMethod(String factoryMethod) { \n    this.beanDefinition.setFactoryMethodName(factoryMethod);\n    return this;\n  }\n \n  /**\n    * Add an indexed constructor arg value. The current index is tracked internally\n    * and all additions are at the present point.\n    * @deprecated since Spring 2.5, in favor of {@link #addConstructorArgValue}\n    */\n  @Deprecated\n  public BeanDefinitionBuilder addConstructorArg(Object value) { \n    return addConstructorArgValue(value);\n  }\n \n  /**\n    * Add an indexed constructor arg value. The current index is tracked internally\n    * and all additions are at the present point.\n    */\n  public BeanDefinitionBuilder addConstructorArgValue(Object value) { \n    this.beanDefinition.getConstructorArgumentValues().addIndexedArgumentValue(\n                    this.constructorArgIndex++, value);\n    return this;\n  }\n \n  /**\n    * Add a reference to a named bean as a constructor arg.\n    * @see #addConstructorArgValue(Object)\n    */\n  public BeanDefinitionBuilder addConstructorArgReference(String beanName) { \n    this.beanDefinition.getConstructorArgumentValues().addIndexedArgumentValue(\n                    this.constructorArgIndex++, new RuntimeBeanReference(beanName));\n    return this;\n  }\n \n  /**\n    * Add the supplied property value under the given name.\n    */\n  public BeanDefinitionBuilder addPropertyValue(String name, Object value) { \n    this.beanDefinition.getPropertyValues().add(name, value);\n    return this;\n  }\n \n  /**\n    * Add a reference to the specified bean name under the property specified.\n    * @param name the name of the property to add the reference to\n    * @param beanName the name of the bean being referenced\n    */\n  public BeanDefinitionBuilder addPropertyReference(String name, String beanName) { \n    this.beanDefinition.getPropertyValues().add(name, new RuntimeBeanReference(beanName));\n    return this;\n  }\n \n  /**\n    * Set the init method for this definition.\n    */\n  public BeanDefinitionBuilder setInitMethodName(String methodName) { \n    this.beanDefinition.setInitMethodName(methodName);\n    return this;\n  }\n \n  // Methods that can be used to construct BeanDefinition\n  /**\n    * Return the current BeanDefinition object in its raw (unvalidated) form.\n    * @see #getBeanDefinition()\n    */\n  public AbstractBeanDefinition getRawBeanDefinition() { \n    return this.beanDefinition;\n  }\n \n  /**\n    * Validate and return the created BeanDefinition object.\n    */\n  public AbstractBeanDefinition getBeanDefinition() { \n    this.beanDefinition.validate();\n    return this.beanDefinition;\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-0clawra",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331092943-0clawra",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring设计模式 – 工厂方法 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "factory method"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-nyrmwkj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-nyrmwkj",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对象创建模式家族中第二个成员是​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "工厂方法设计模式 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "factory method design pattern"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​。它完全适合跟Spring框架这样的动态环境一起工作。事实上，该模式允许通过一个公开静态方法进行的对象初始化，该方法叫做工厂方法。在这个概念里，我们需要定义一个创建对象的接口。但是对象的创建是由使用目标对象的类来操作的。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-jnlx1nz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-jnlx1nz",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在跳到Spring世界之前，我们看一个Java世界的例子："
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-b4wi3lq",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092943-b4wi3lq",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "// 该例子没有使用Spring框架的功能，而是基于Java SE\npublic class FactoryMethodTest { \n \n  @Test\n  public void test() { \n    Meal fruit = Meal.valueOf(\"banana\");\n    Meal vegetable = Meal.valueOf(\"carrot\");\n    assertTrue(\"Banana should be a fruit but is \"+fruit.getType(), \n\t\t    fruit.getType().equals(\"fruit\"));\n    assertTrue(\"Carrot should be a vegetable but is \"+vegetable.getType(), \n\t\t    vegetable.getType().equals(\"vegetable\"));\n  }\n \n}\n \nclass Meal { \n       \n  private String type;\n \n  public Meal(String type) { \n    this.type = type;\n  }\n \n  public String getType() { \n    return this.type;\n  }\n \n  // 工厂方法例子 -- 根据当前上下文创建不同的对象\n  public static Meal valueOf(String ingredient) { \n    if (ingredient.equals(\"banana\")) { \n      return new Meal(\"fruit\");\n    }\n    return new Meal(\"vegetable\");\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-y7wuc92",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-y7wuc92",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring中我们可以使用指定的工厂方法创建bean。这个方法就跟上面例子中的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "valueOf"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的功能一样。它是静态的，可以不带参数也可以带有多个参数。为了更好地理解这一点，我们看一个真实的例子。首先是配置文件:"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-vvzohyu",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092943-vvzohyu",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003cbean id=\"welcomerBean\" class=\"com.mysite.Welcomer\" factory-method=\"createWelcomer\"\u003e\n    \u003cconstructor-arg ref=\"messagesLocator\"\u003e\n\t\u003c/constructor-arg\u003e\n\u003c/bean\u003e\n \n\u003cbean id=\"messagesLocator\" class=\"com.mysite.MessageLocator\"\u003e\n    \u003cproperty name=\"messages\" value=\"messages_file.properties\"\u003e\n\t\u003c/property\u003e\n\u003c/bean\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-dkwjq49",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-dkwjq49",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "然后是这个初始化过程所关注的bean类:"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-vfslezz",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092943-vfslezz",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Welcomer { \n  private String message;\n   \n  public Welcomer(String message) { \n    this.message = message;\n  }\n \n  public static Welcomer createWelcomer(MessageLocator messagesLocator) { \n    Calendar cal = Calendar.getInstance();\n    String msgKey = \"welcome.pm\";\n    if (cal.get(Calendar.AM_PM) == Calendar.AM) { \n      msgKey = \"welcome.am\";\n    }\n    return new Welcomer(messagesLocator.getMessageByKey(msgKey));\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-3nzbqov",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-3nzbqov",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当Spring将要构建bean实例"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "welcomerBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​,它不会直接通过经典的构造函数模式，而是通过定义一个静态工厂方法"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "createWelcomer"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的模式。这里也需要注意一点是该方法接收了一些参数(MessageLocator bean实例，持有所有可用的消息)。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-lbssbfd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331092943-lbssbfd",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring设计模式 – 抽象工厂 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "abstract factory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-qd763j3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-qd763j3",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "最后一个模式，​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "抽象工厂设计模式 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "abstract factory design pattern"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​,看起来跟工厂方法很像。区别是我们可以把抽象工厂想象成现实世界中的某个工厂，他们会提供一些需要的物品。工厂可能有这些组成部分：抽象工厂，抽象产品，产品和客户。更明确地讲，抽象工厂定义了构建对象的方式。抽象产品是这个构建过程的结果。产品是同一构建过程的具体产出物。客户是向抽象工厂要求创建商品的某个人。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-wv0rmhy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-wv0rmhy",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "还是老样子，在我们进入Spring的细节之前，我们先通过简单Java代码描述一下这个概念 ："
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-xs4zzsa",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092943-xs4zzsa",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class FactoryTest { \n \n  // 测试方法，可以理解成用于表示客户行为\n  @Test\n  public void test() { \n    Kitchen factory = new KitchenFactory();\n    KitchenMeal meal = factory.getMeal(\"P.1\");\n    KitchenMeal dessert = factory.getDessert(\"I.1\");\n    assertTrue(\"Meal's name should be 'protein meal' and was '\"+meal.getName()+\"'\", \n\t\t\t    meal.getName().equals(\"protein meal\"));\n    assertTrue(\"Dessert's name should be 'ice-cream' and was '\"+dessert.getName()+\"'\", \n\t\t\t    dessert.getName().equals(\"ice-cream\"));\n  }\n \n}\n \n// 抽象工厂\nabstract class Kitchen { \n  public abstract KitchenMeal getMeal(String preferency);\n  public abstract KitchenMeal getDessert(String preferency);\n}\n \n// 抽象工厂的具体实现\nclass KitchenFactory extends Kitchen { \n  @Override\n  public KitchenMeal getMeal(String preferency) { \n    if (preferency.equals(\"F.1\")) { \n      return new FastFoodMeal();\n    } else if (preferency.equals(\"P.1\")) { \n      return new ProteinMeal();\n    }\n    return new VegetarianMeal();\n  }\n \n  @Override\n  public KitchenMeal getDessert(String preferency) { \n    if (preferency.equals(\"I.1\")) { \n      return new IceCreamMeal();\n    }\n    return null;\n  }\n}\n \n// 抽象产品\nabstract class KitchenMeal { \n  public abstract String getName();\n}\n \n// 具体产品\nclass ProteinMeal extends KitchenMeal { \n  @Override\n  public String getName() { \n    return \"protein meal\";\n  }\n}\n \nclass VegetarianMeal extends KitchenMeal { \n  @Override\n  public String getName() { \n    return \"vegetarian meal\";\n  }\n}\n \nclass FastFoodMeal extends KitchenMeal { \n  @Override\n  public String getName() { \n    return \"fast-food meal\";\n  }\n}\n \nclass IceCreamMeal extends KitchenMeal { \n  @Override\n  public String getName() { \n    return \"ice-cream\";\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-8thqodf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-8thqodf",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从该例子我们可以看到，抽象工厂封装了对象的创建。这里对象的创建也可以不使用典型的构造方法模式而是采用工厂方法模式。Spring中，抽象工厂的例子是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.beans.factory.BeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。利用该接口的实现，我们可以访问Spring容器内的bean。根据所采用的策略，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法可能会返回已经创建的对象(共享实例，单例作用域)或者新建一个对象(prototype类型)。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​有各种实现: "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ClassPathXmlApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​, "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "XmlWebApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​, "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "StaticWebApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​, "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "StaticPortletApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​, "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "GenericApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​, "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "StaticApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。下面你可以看到一个Spring Web应用中使用抽象工厂的例子 :"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-p9bdbp1",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092943-p9bdbp1",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@RunWith(SpringJUnit4ClassRunner.class)\n@ContextConfiguration(locations={ \"file:test-context.xml\"})\npublic class TestProduct { \n       \n  @Autowired\n  private BeanFactory factory;\n   \n  @Test\n  public void test() { \n    System.out.println(\"Concrete factory is: \"+factory.getClass());\n    assertTrue(\"Factory can't be null\", factory != null);\n    ShoppingCart cart = (ShoppingCart) factory.getBean(\"shoppingCart\");\n    assertTrue(\"Shopping cart object can't be null\", cart != null);\n    System.out.println(\"Found shopping cart bean:\"+cart.getClass());\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-1arkjd3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-1arkjd3",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个例子中，抽象工厂由"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​接口表示。实现类会通过"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "System.out"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​打印输出到控制台，其对应类为 : "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.beans.factory.support.DefaultListableBeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。抽象产品是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Object"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。具体产品，这个例子里面，是将抽象产品"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Object"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​对象强制类型转成的一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ShoppingCart"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实例。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-f9g99av",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-f9g99av",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "该文章介绍了使用设计模式正确地组织程序代码的特别有趣的世界。这里，我们看到了解释器"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "interpreter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，生成器"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "builder"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，工厂方法"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "factory method"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​和工厂"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "factory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​(指的就是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "abstract factory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)模式在Spring框架中的应用。第一个模式解释器"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "interpreter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​帮助解释SpEL方式表达的文本。其他三个模式都属于对象创建模式，Sping中它们三个的主要目的都是帮助简化对象创建。他们通过分解复杂对象的构建过程或者将初始化过程集中到某些通用点来达到该目的。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-tnfftcl",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331092943-tnfftcl",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-framework-part-1/read",
+					"TextMarkTextContent": "英文原文"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-0x4lvwv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331092943-0x4lvwv",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "该系列文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331092943-by4rhtk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092943-by4rhtk",
+				"updated": "20230331092943"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-5/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(五)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-4/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(四)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-3/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(三)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-2/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(二)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-1/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(一)"
+				}
+			]
+		}
+	]
+}

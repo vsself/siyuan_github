@@ -1,0 +1,1663 @@
+{
+	"ID": "20230404011838-tzp37yb",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404011838-tzp37yb",
+		"title": "吃透Redis（九）：缓存淘汰篇-LFU算法_redis lfu_吃透Java的博客-CSDN博客",
+		"updated": "20230404011838"
+	},
+	"Children": [
+		{
+			"ID": "20230404011838-w44zx0o",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011838-w44zx0o",
+				"updated": "20230404011838"
+			}
+		},
+		{
+			"ID": "20230404011838-tjvf72k",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011838-tjvf72k",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"ID": "20230404011838-tboqkrr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-tboqkrr",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-v5b1wez",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-v5b1wez",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126754778",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/126754778"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011838-1rv09dx",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-1rv09dx",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-oylb5ag",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-oylb5ag",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Redis 在 4.0 版本后，还引入了 LFU 算法，也就是最不频繁使用（Least Frequently Used，LFU）算法。LFU 算法在进行数据淘汰时，会把最不频繁访问的数据淘汰掉。而 LRU 算法是把最近最少使用的数据淘汰掉，看起来也是淘汰不频繁访问的数据。那么，LFU 算法和 LRU 算法的区别到底有哪些呢？我们在实际场景中，需要使用 LFU 算法吗？"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011838-dwl7fv2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-dwl7fv2",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-mefblho",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-mefblho",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:18:38"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-vsmi1qa",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011838-vsmi1qa",
+				"updated": "20230404011838"
+			}
+		},
+		{
+			"ID": "20230404011838-gg7bvms",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011838-gg7bvms",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-stvzq4k",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011838-stvzq4k",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"ID": "20230404011838-h1phomd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-h1phomd",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-e9h55rm",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230404011838-e9h55rm",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"ID": "20230404011838-7l2h12l",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011838-7l2h12l",
+										"updated": "20230404011838"
+									},
+									"Children": [
+										{
+											"ID": "20230404011838-3fljor3",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011838-3fljor3",
+												"updated": "20230404011838"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126754778#_1",
+													"TextMarkTextContent": "一、概述"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011838-bcwn1nh",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011838-bcwn1nh",
+										"updated": "20230404011838"
+									},
+									"Children": [
+										{
+											"ID": "20230404011838-57afwdr",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011838-57afwdr",
+												"updated": "20230404011838"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126754778#LFU__5",
+													"TextMarkTextContent": "二、LFU 算法的基本原理"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011838-g8gzv24",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011838-g8gzv24",
+										"updated": "20230404011838"
+									},
+									"Children": [
+										{
+											"ID": "20230404011838-yazkh21",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011838-yazkh21",
+												"updated": "20230404011838"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126754778#LFU__14",
+													"TextMarkTextContent": "三、LFU 算法的实现"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011838-ov9qmqh",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011838-ov9qmqh",
+										"updated": "20230404011838"
+									},
+									"Children": [
+										{
+											"ID": "20230404011838-mictuge",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230404011838-mictuge",
+												"updated": "20230404011838"
+											},
+											"Children": [
+												{
+													"ID": "20230404011838-cspqzim",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011838-cspqzim",
+														"updated": "20230404011838"
+													},
+													"Children": [
+														{
+															"ID": "20230404011838-snxf2qq",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011838-snxf2qq",
+																"updated": "20230404011838"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126754778#1_19",
+																	"TextMarkTextContent": "1、键值对访问频率记录"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011838-ww7iimh",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011838-ww7iimh",
+														"updated": "20230404011838"
+													},
+													"Children": [
+														{
+															"ID": "20230404011838-ru0atbx",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011838-ru0atbx",
+																"updated": "20230404011838"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126754778#2_24",
+																	"TextMarkTextContent": "2、键值对访问频率的初始化与更新"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011838-88dvhbt",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011838-88dvhbt",
+														"updated": "20230404011838"
+													},
+													"Children": [
+														{
+															"ID": "20230404011838-8s2v9fv",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230404011838-8s2v9fv",
+																"updated": "20230404011838"
+															},
+															"Children": [
+																{
+																	"ID": "20230404011838-8d9ii8d",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404011838-8d9ii8d",
+																		"updated": "20230404011838"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404011838-f075bwz",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230404011838-f075bwz",
+																				"updated": "20230404011838"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126754778#21_25",
+																					"TextMarkTextContent": "2-1、键值对被创建时"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230404011838-e31fvpp",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404011838-e31fvpp",
+																		"updated": "20230404011838"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404011838-cy0b3na",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230404011838-cy0b3na",
+																				"updated": "20230404011838"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126754778#22_31",
+																					"TextMarkTextContent": "2-2、键值对被访问时"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011838-tbe2v0k",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011838-tbe2v0k",
+														"updated": "20230404011838"
+													},
+													"Children": [
+														{
+															"ID": "20230404011838-6zy4f9w",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011838-6zy4f9w",
+																"updated": "20230404011838"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126754778#3LFU__80",
+																	"TextMarkTextContent": "3、LFU 算法淘汰数据"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011838-zu7ee18",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011838-zu7ee18",
+										"updated": "20230404011838"
+									},
+									"Children": [
+										{
+											"ID": "20230404011838-rxdg1k0",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011838-rxdg1k0",
+												"updated": "20230404011838"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126754778#_93",
+													"TextMarkTextContent": "四、总结"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-xslepog",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011838-xslepog",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、概述"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-w4017j2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-w4017j2",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Redis 在 4.0 版本后，还引入了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=LFU\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "LFU"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 算法，也就是最不频繁使用（Least Frequently Used，LFU）算法。\nLFU 算法在进行数据淘汰时，会把最不频繁访问的数据淘汰掉。而 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=LRU\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "LRU"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 算法是把最近最少使用的数据淘汰掉，看起来也是淘汰不频繁访问的数据。那么，LFU 算法和 LRU 算法的区别到底有哪些呢？我们在实际场景中，需要使用 LFU 算法吗？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-i0tgvxn",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011838-i0tgvxn",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、LFU 算法的基本原理"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-j42h54f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-j42h54f",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因为 LFU 算法是根据数据访问的频率来选择被淘汰数据的，所以 LFU 算法会记录每个数据的访问次数。当一个数据被再次访问时，就会增加该数据的访问次数。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-yyi2qbd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-yyi2qbd",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "不过，访问次数和访问频率还不能完全等同。访问频率是指在一定时间内的访问次数，也就是说，在计算访问频率时，我们不仅需要记录访问次数，还要记录这些访问是在多长时间内执行的。否则，如果只记录访问次数的话，就缺少了时间维度的信息，进而就无法按照频率来淘汰数据了。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-0vvfstj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-0vvfstj",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我来给你举个例子，假设数据 A 在 15 分钟内访问了 15 次，数据 B 在 5 分钟内访问了 10 次。如果只是按访问次数来统计的话，数据 A 的访问次数大于数据 B，所以淘汰数据时会优先淘汰数据 B。不过，如果按照访问频率来统计的话，数据 A 的访问频率是 1 分钟访问 1 次，而数据 B 的访问频率是 1 分钟访问 2 次，所以按访问频率淘汰数据的话，数据 A 应该被淘汰掉。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-aadk8qy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-aadk8qy",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所以说，当要实现 LFU 算法时，我们需要能统计到数据的访问频率，而不是简单地记录数据访问次数就行。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-99di07n",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011838-99di07n",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、LFU 算法的实现"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-yc5lhw0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-yc5lhw0",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先，和 LRU 算法类似，LFU 算法的启用，是通过设置 Redis 配置文件 redis.conf 中的 maxmemory 和 maxmemory-policy。其中，maxmemory 设置为 Redis 会用的最大内存容量，而 maxmemory-policy 可以设置为 allkeys-lfu 或是 volatile-lfu，表示淘汰的键值对会分别从所有键值对或是设置了过期时间的键值对中筛选。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-6l0mx53",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-6l0mx53",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "LFU 算法的实现可以分成三部分内容，分别是键值对访问频率记录、键值对访问频率初始化和更新，以及 LFU 算法淘汰数据。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-gh7haa3",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011838-gh7haa3",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、键值对访问频率记录"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-dv0t6lc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-dv0t6lc",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通过 LRU 算法的学习，现在我们已经了解到，每个键值对的值都对应了一个 redisObject 结构体，其中有一个 24 bits 的 lru 变量。lru 变量在 LRU 算法实现时，是用来记录数据的访问时间戳。因为 Redis server 每次运行时，只能将 maxmemory-policy 配置项设置为使用一种淘汰策略，所以，LRU 算法和 LFU 算法并不会同时使用。而为了节省内存开销，Redis 源码就复用了 lru 变量来记录 LFU 算法所需的访问频率信息。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-w3m7h4c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-w3m7h4c",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "具体来说，当 lru 变量用来记录 LFU 算法的所需信息时，它会用 24 bits 中的低 8 bits 作为计数器，来记录键值对的访问次数，同时它会用 24 bits 中的高 16 bits，记录访问的时间戳。下图就展示了用来记录访问频率时的 lru 变量内容，你可以看下。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/ccac506d12784ffaa5258c02da3e47bb-20230404011838-di98tq1.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-emsgi7x",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011838-emsgi7x",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、键值对访问频率的初始化与更新"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-vs3ue3h",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404011838-vs3ue3h",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2-1、键值对被创建时"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-2sg9kh3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-2sg9kh3",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当一个键值对被创建时，如果 Redis 将 maxmemory-policy 设置为 LFU 算法，那么，键值对 redisObject 结构体中的 lru 变量初始化值，会由两部分组成："
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-qcqlzfh",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011838-qcqlzfh",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"ID": "20230404011838-jvusx2x",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-jvusx2x",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-zx25606",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-zx25606",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "第一部分是 lru 变量的高 16 位，是以 1 分钟为精度的 UNIX 时间戳。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011838-gzdd634",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-gzdd634",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-nuzflmz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-nuzflmz",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "第二部分是 lru 变量的低 8 位，被设置为宏定义 LFU_INIT_VAL，默认值为 5。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-ccsrdrq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404011838-ccsrdrq",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2-2、键值对被访问时"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-rix1e2s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-rix1e2s",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当键值对被访问时，它的执行逻辑比较明确，一共分成三步："
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-5vrw8qb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-5vrw8qb",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "第一步，根据距离上次访问的时长，衰减访问次数。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-t7gd8sa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-t7gd8sa",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "你可能会有疑问：访问键值对时不是要增加键值对的访问次数吗，为什么要先衰减访问次数呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-7347kho",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-7347kho",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其实，这就是我在前面一开始和你介绍的，LFU 算法是根据访问频率来淘汰数据的，而不只是访问次数。访问频率需要考虑键值对的访问是多长时间段内发生的。键值对的先前访问距离当前时间越长，那么这个键值对的访问频率相应地也就会降低。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-mry2hfe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-mry2hfe",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我给你举个例子，假设数据 A 在时刻 T 到 T+10 分钟这段时间内，被访问了 30 次，那么，这段时间内数据 A 的访问频率可以计算为 3 次 / 分钟（30 次 /10 分钟 = 3 次 / 分钟）。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-2uoy9e4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-2uoy9e4",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "紧接着，在 T+10 分钟到 T+20 分钟这段时间内，数据 A 没有再被访问，那么此时，如果我们计算数据 A 在 T 到 T+20 分钟这段时间内的访问频率，它的访问频率就会降为 1.5 次 / 分钟（30 次 /20 分钟 = 1.5 次 / 分钟）。以此类推，随着时间的推移，如果数据 A 在 T+10 分钟后一直没有新的访问，那么它的访问频率就会逐步降低。这就是所谓的访问频率衰减。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-1f7kgh5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-1f7kgh5",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因为 Redis 是使用 lru 变量中的访问次数来表示访问频率，所以在每次更新键值对的访问频率时，就会通过 LFUDecrAndReturn 函数对访问次数进行衰减。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-g1dx26h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-g1dx26h",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "具体来说，LFUDecrAndReturn 函数会首先获取当前键值对的上一次访问时间，这是保存在 lru 变量高 16 位上的值。然后，LFUDecrAndReturn 函数会根据全局变量 server 的 lru_decay_time 成员变量的取值，来计算衰减的大小 num_period。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-4faugza",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-4faugza",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个计算过程会判断 lfu_decay_time 的值是否为 0。如果 lfu_decay_time 值为 0，那么衰减大小也为 0。此时，访问次数不进行衰减。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-czglsbc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-czglsbc",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "否则的话，LFUDecrAndReturn 函数会调用 LFUTimeElapsed 函数（在 evict.c 文件中），计算距离键值对的上一次访问已经过去的时长。这个时长也是以 1 分钟为精度来计算的。有了距离上次访问的时长后，LFUDecrAndReturn 函数会把这个时长除以 lfu_decay_time 的值，并把结果作为访问次数的衰减大小。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-dc9puld",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-dc9puld",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "这里，你需要注意的是，lfu_decay_time 变量值，是由 redis.conf 文件中的配置项 lfu-decay-time 来决定的。Redis 在初始化时，会通过 initServerConfig 函数来设置 lfu_decay_time 变量的值，默认值为 1。所以，在默认情况下，访问次数的衰减大小就是等于上一次访问距离当前的分钟数。比如，假设上一次访问是 10 分钟前，那么在默认情况下，访问次数的衰减大小就等于 10。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-2hrnguk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-2hrnguk",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当然，如果上一次访问距离当前的分钟数，已经超过访问次数的值了，那么访问次数就会被设置为 0，这就表示键值对已经很长时间没有被访问了。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-mjhazme",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-mjhazme",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "好了，到这里，updateLFU 函数就通过 LFUDecrAndReturn 函数，完成了键值对访问次数的衰减。紧接着，updateLFU 函数还是会基于键值对当前的这次访问，来更新它的访问次数。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-uwuegn8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-uwuegn8",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "第二步，根据当前访问更新访问次数。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-r88xrtv",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011838-r88xrtv",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"ID": "20230404011838-3ctpbsm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-3ctpbsm",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-f98ivg1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-f98ivg1",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当前访问次数等于最大值 255 的情况。此时，LFULogIncr 函数不再增加访问次数。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011838-bu0koz4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-bu0koz4",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-6eb9lu8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-6eb9lu8",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当前访问次数小于 255 的情况。此时，LFULogIncr 函数会计算一个阈值 p，以及一个取值为 0 到 1 之间的随机概率值 r。如果概率 r 小于阈值 p，那么 LFULogIncr 函数才会将访问次数加 1。否则的话，LFULogIncr 函数会返回当前的访问次数，不做更新。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-76d8idz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-76d8idz",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从这里你可以看到，因为概率值 r 是随机定的，所以，阈值 p 的大小就决定了访问次数增加的难度。阈值 p 越小，概率值 r 小于 p 的可能性也越小，此时，访问次数也越难增加；相反，如果阈值 p 越大，概率值 r 小于 p 的可能性就越大，访问次数就越容易增加。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-2bjiai3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-2bjiai3",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "而阈值 p 的值大小，其实是由两个因素决定的。一个是当前访问次数和"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%AE%8F%E5%AE%9A%E4%B9%89\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "宏定义"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " LFU_INIT_VAL 的差值 baseval，另一个是 redis.conf 文件中定义的配置项 lfu-log-factor。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-c0ad9s9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-c0ad9s9",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当计算阈值 p 时，我们是把 baseval 和 lfu-log-factor 乘积后，加上 1，然后再取其倒数。所以，baseval 或者 lfu-log-factor 越大，那么其倒数就越小，也就是阈值 p 就越小；反之，阈值 p 就越大。也就是说，这里其实就对应了两种影响因素。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-np2w2m0",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011838-np2w2m0",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"ID": "20230404011838-l1wwjvc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-l1wwjvc",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-ywyp80p",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-ywyp80p",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "baseval 的大小：这反映了当前访问次数的多少。比如，访问次数越多的键值对，它的访问次数再增加的难度就会越大；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011838-svkd2x7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-svkd2x7",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-wcqatjd",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-wcqatjd",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "lfu-log-factor 的大小：这是可以被设置的。也就是说，Redis 源码提供了让我们人为调节访问次数增加难度的方法。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-1j64avv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-1j64avv",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "第三步，更新 lru 变量值。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-5ng637v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-5ng637v",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "最后，到这一步，updateLFU 函数已经完成了键值对访问次数的更新。接着，它就会调用 LFUGetTimeInMinutes 函数，来获取当前的时间戳，并和更新后的访问次数组合，形成最新的访问频率信息，赋值给键值对的 lru 变量。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-jylcz80",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-jylcz80",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "好了，到这里，你就了解了，Redis 源码在更新键值对访问频率时，对于访问次数，它是先按照上次访问距离当前的时长，来对访问次数进行衰减。然后，再按照一定概率增加访问次数。这样的设计方法，就既包含了访问的时间段对访问频率的影响，也避免了 8 bits 计数器对访问次数的影响。而对于访问时间来说，Redis 还会获取最新访问时间戳并更新到 lru 变量中。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-c3lbnt2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-c3lbnt2",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "那么最后，我们再来看下 Redis 是如何基于 LFU 算法淘汰数据的。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-42quram",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011838-42quram",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、LFU 算法淘汰数据"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-5hd25v4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-5hd25v4",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在实现使用 LFU 算法淘汰数据时，Redis 是采用了和实现近似 LRU 算法相同的方法。也就是说，Redis 会使用一个全局数组 EvictionPoolLRU，来保存待淘汰候选键值对集合。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-dlc98xb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-dlc98xb",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个淘汰流程已经介绍过了，你可以再去整体回顾下。这里，我也再简要总结下，也就是分成三个步骤："
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-sjf5qbx",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011838-sjf5qbx",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"ID": "20230404011838-oorjl3w",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-oorjl3w",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-g2azlri",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-g2azlri",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "第一步，调用 getMaxmemoryState 函数计算待释放的内存空间；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011838-7hlhy6r",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-7hlhy6r",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-y5oachz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-y5oachz",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "第二步，调用 evictionPoolPopulate 函数随机采样键值对，并插入到待淘汰集合 EvictionPoolLRU 中；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011838-193g404",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-193g404",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-v8ktqlh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-v8ktqlh",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "第三步，遍历待淘汰集合 EvictionPoolLRU，选择实际被淘汰数据，并删除。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-sivfv9b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-sivfv9b",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "而当实现 LFU 算法时，因为 LFU 算法会对访问次数进行衰减和按概率增加，所以，它是使用访问次数来近似表示访问频率的。相应的，LFU 算法其实是用 255 减去键值对的访问次数，这样来计算 EvictionPoolLRU 数组中每个元素的 idle 变量值的。而且，在计算 idle 变量值前，LFU 算法还会调用 LFUDecrAndReturn 函数，衰减一次键值对的访问次数，以便能更加准确地反映实际选择待淘汰数据时，数据的访问频率。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-dz0m1x3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011838-dz0m1x3",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所以说，当 LFU 算法按照访问频率，计算了待淘汰键值对集合中每个元素的 idle 值后，键值对访问次数越大，它的 idle 值就越小，反之 idle 值越大。而 EvictionPoolLRU 数组中的元素，是按 idle 值从小到大来排序的。最后当 freeMemoryIfNeeded 函数按照 idle 值从大到小，遍历 EvictionPoolLRU 数组，选择实际被淘汰的键值对时，它就能选出访问次数小的键值对了，也就是把访问频率低的键值对淘汰出去。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-p0at3e1",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011838-p0at3e1",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四、总结"
+				}
+			]
+		},
+		{
+			"ID": "20230404011838-54rpn06",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011838-54rpn06",
+				"updated": "20230404011838"
+			},
+			"Children": [
+				{
+					"ID": "20230404011838-h0jxucl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-h0jxucl",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-nzhnvj6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-nzhnvj6",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "LFU 是在 Redis 4.0 新增的淘汰策略，它涉及的巧妙之处在于，其复用了 redisObject 结构的 lru 字段，把这个字段「一分为二」，保存最后访问时间和访问次数"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011838-ogaztc0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-ogaztc0",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-lp8r8pz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-lp8r8pz",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "key 的访问次数不能只增不减，它需要根据时间间隔来做衰减，才能达到 LFU 的目的"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011838-2za7y43",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-2za7y43",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-vyszk4h",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-vyszk4h",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "每次在访问一个 key 时，会「懒惰」更新这个 key 的访问次数：先衰减访问次数，再更新访问次数"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011838-gatl8fn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-gatl8fn",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-awgfek0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-awgfek0",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "衰减访问次数，会根据时间间隔计算，间隔时间越久，衰减越厉害"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011838-w7j0exh",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-w7j0exh",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-n1tie35",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-n1tie35",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "因为 redisObject lru 字段宽度限制，这个访问次数是有上限的（8 bit 最大值 255），所以递增访问次数时，会根据「当前」访问次数和「概率」的方式做递增，访问次数越大，递增因子越大，递增概率越低"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011838-id2tssl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011838-id2tssl",
+						"updated": "20230404011838"
+					},
+					"Children": [
+						{
+							"ID": "20230404011838-m3d7a1r",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011838-m3d7a1r",
+								"updated": "20230404011838"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Redis 实现的 LFU 算法也是「近似」LFU，是在性能和内存方面平衡的结果"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

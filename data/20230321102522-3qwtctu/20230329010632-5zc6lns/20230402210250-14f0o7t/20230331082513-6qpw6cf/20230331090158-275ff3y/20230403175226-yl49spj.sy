@@ -1,0 +1,179 @@
+{
+	"ID": "20230403175226-yl49spj",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230403175226-yl49spj",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230403175306-stlvo8a\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230403175408-i1khv6x\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230403175408-i1khv6x\u0026quot;,\u0026quot;focusStart\u0026quot;:69,\u0026quot;focusEnd\u0026quot;:69}",
+		"title": "PropertyValue",
+		"updated": "20230403175823"
+	},
+	"Children": [
+		{
+			"ID": "20230403175306-stlvo8a",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230403175306-stlvo8a",
+				"updated": "20230403175335"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic PropertyValue(PropertyValue original) {\n\t\tAssert.notNull(original, \"Original must not be null\");\n\t\tthis.name = original.getName();\n\t\tthis.value = original.getValue();\n\t\tthis.optional = original.isOptional();\n\t\tthis.converted = original.converted;\n\t\tthis.convertedValue = original.convertedValue;\n\t\tthis.conversionNecessary = original.conversionNecessary;\n\t\tthis.resolvedTokens = original.resolvedTokens;\n\t\tsetSource(original.getSource());\n\t\tcopyAttributesFrom(original);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230403175335-4wyd6b4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230403175335-4wyd6b4",
+				"updated": "20230403175406"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个类保存了属性名字和属性值的对应。"
+				}
+			]
+		},
+		{
+			"ID": "20230403175408-i1khv6x",
+			"Type": "NodeTable",
+			"TableAligns": [
+				0,
+				0
+			],
+			"Properties": {
+				"colgroup": "min-width: 60px;|min-width: 60px;",
+				"id": "20230403175408-i1khv6x",
+				"updated": "20230403175823"
+			},
+			"Children": [
+				{
+					"Type": "NodeTableHead",
+					"Data": "thead",
+					"Children": [
+						{
+							"Type": "NodeTableRow",
+							"Data": "tr",
+							"Children": [
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "name"
+										}
+									]
+								},
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "value"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "age"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "integer 1"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "alice name"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "string “halei”"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "引用名 stu"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "引用的对象 new Student"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

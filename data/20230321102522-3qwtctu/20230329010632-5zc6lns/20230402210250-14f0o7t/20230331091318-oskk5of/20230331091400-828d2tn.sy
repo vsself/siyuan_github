@@ -1,0 +1,3952 @@
+{
+	"ID": "20230331091400-828d2tn",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331091400-828d2tn",
+		"title": "Spring 源码分析补充篇三 ：Spring Aop 的关键类_staticmethodmatcherpointcut_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331091400"
+	},
+	"Children": [
+		{
+			"ID": "20230331091400-ebkk2fp",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091400-ebkk2fp",
+				"updated": "20230331091400"
+			}
+		},
+		{
+			"ID": "20230331091400-q4t0jv3",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331091400-q4t0jv3",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"ID": "20230331091400-a8x3m9o",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-a8x3m9o",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-8isjezu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-8isjezu",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/117568863"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-gf1t1yc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-gf1t1yc",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-aybfqw8",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230331091400-aybfqw8",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"ID": "20230331091400-u3z68vw",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230331091400-u3z68vw",
+										"updated": "20230331091400"
+									},
+									"Children": [
+										{
+											"ID": "20230331091400-pd5yf2f",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331091400-pd5yf2f",
+												"updated": "20230331091400"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "扫描注解注入类灵感来源 Mybatis  Mapper 注解扫描，实现也是参考其 ClassPathMapperScannerClassPathBeanDefinitionScanner在Spring 源码分析衍生篇七 ：ConfigurationClassPostProcessor 上篇 文章  的    org.springframework.context.annotation.ComponentScanAnnotationParser#parse 中 创建了 ClassPathBeanD"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-a5oqyt8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-a5oqyt8",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-hhuz089",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-hhuz089",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:14:00"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-gqjz3kf",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091400-gqjz3kf",
+				"updated": "20230331091400"
+			}
+		},
+		{
+			"ID": "20230331091400-fxgfxse",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091400-fxgfxse",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-krezid7",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331091400-krezid7",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"ID": "20230331091400-09wlrrp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-09wlrrp",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-0v1308i",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-0v1308i",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#_1",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-ahgrf9g",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-ahgrf9g",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-ldeof4k",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-ldeof4k",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#_27",
+									"TextMarkTextContent": "二、关键类"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-lfhszk3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-lfhszk3",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-yqsf3z8",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331091400-yqsf3z8",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"ID": "20230331091400-4e9ck3z",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331091400-4e9ck3z",
+										"updated": "20230331091400"
+									},
+									"Children": [
+										{
+											"ID": "20230331091400-c32wuq3",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331091400-c32wuq3",
+												"updated": "20230331091400"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#1_Pointcut__36",
+													"TextMarkTextContent": "1. Pointcut 分类"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331091400-9z2nwt5",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331091400-9z2nwt5",
+										"updated": "20230331091400"
+									},
+									"Children": [
+										{
+											"ID": "20230331091400-le3k0m6",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331091400-le3k0m6",
+												"updated": "20230331091400"
+											},
+											"Children": [
+												{
+													"ID": "20230331091400-zeqpnus",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331091400-zeqpnus",
+														"updated": "20230331091400"
+													},
+													"Children": [
+														{
+															"ID": "20230331091400-nt2h19w",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331091400-nt2h19w",
+																"updated": "20230331091400"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#11_ControlFlowPointcut_141",
+																	"TextMarkTextContent": "1.1 ControlFlowPointcut"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331091400-rz1jhgw",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331091400-rz1jhgw",
+														"updated": "20230331091400"
+													},
+													"Children": [
+														{
+															"ID": "20230331091400-ri6qs86",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331091400-ri6qs86",
+																"updated": "20230331091400"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#12_DynamicMethodMatcherPointcut_223",
+																	"TextMarkTextContent": "1.2 DynamicMethodMatcherPointcut"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331091400-omwwb6p",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331091400-omwwb6p",
+														"updated": "20230331091400"
+													},
+													"Children": [
+														{
+															"ID": "20230331091400-2ekmhwo",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331091400-2ekmhwo",
+																"updated": "20230331091400"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#13_StaticMethodMatcherPointcut_292",
+																	"TextMarkTextContent": "1.3 StaticMethodMatcherPointcut"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331091400-cexzp90",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331091400-cexzp90",
+														"updated": "20230331091400"
+													},
+													"Children": [
+														{
+															"ID": "20230331091400-ni33dfv",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331091400-ni33dfv",
+																"updated": "20230331091400"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#13_ComposablePointcut_342",
+																	"TextMarkTextContent": "1.3 ComposablePointcut"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331091400-ci9j1bq",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331091400-ci9j1bq",
+														"updated": "20230331091400"
+													},
+													"Children": [
+														{
+															"ID": "20230331091400-3ze2dr4",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331091400-3ze2dr4",
+																"updated": "20230331091400"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#14_ExpressionPointcut_370",
+																	"TextMarkTextContent": "1.4 ExpressionPointcut"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331091400-zmuhoo2",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331091400-zmuhoo2",
+														"updated": "20230331091400"
+													},
+													"Children": [
+														{
+															"ID": "20230331091400-pe90ro3",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331091400-pe90ro3",
+																"updated": "20230331091400"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#15_AnnotationMatchingPointcut_378",
+																	"TextMarkTextContent": "1.5 AnnotationMatchingPointcut"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331091400-czr80uo",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331091400-czr80uo",
+														"updated": "20230331091400"
+													},
+													"Children": [
+														{
+															"ID": "20230331091400-5ozu1sp",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331091400-5ozu1sp",
+																"updated": "20230331091400"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#17_TruePointcut_393",
+																	"TextMarkTextContent": "1.7 TruePointcut"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331091400-rpngajw",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331091400-rpngajw",
+										"updated": "20230331091400"
+									},
+									"Children": [
+										{
+											"ID": "20230331091400-ekreh54",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331091400-ekreh54",
+												"updated": "20230331091400"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#2_Advice__398",
+													"TextMarkTextContent": "2. Advice 分类"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331091400-h9on3gf",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331091400-h9on3gf",
+										"updated": "20230331091400"
+									},
+									"Children": [
+										{
+											"ID": "20230331091400-mg5844e",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331091400-mg5844e",
+												"updated": "20230331091400"
+											},
+											"Children": [
+												{
+													"ID": "20230331091400-6waq247",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331091400-6waq247",
+														"updated": "20230331091400"
+													},
+													"Children": [
+														{
+															"ID": "20230331091400-h0u4zeh",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331091400-h0u4zeh",
+																"updated": "20230331091400"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#21_Interceptor_408",
+																	"TextMarkTextContent": "2.1 Interceptor"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331091400-x8nbs2r",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331091400-x8nbs2r",
+														"updated": "20230331091400"
+													},
+													"Children": [
+														{
+															"ID": "20230331091400-5uxoue0",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331091400-5uxoue0",
+																"updated": "20230331091400"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#22_BeforeAdvice_429",
+																	"TextMarkTextContent": "2.2 BeforeAdvice"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331091400-u7k74m9",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331091400-u7k74m9",
+														"updated": "20230331091400"
+													},
+													"Children": [
+														{
+															"ID": "20230331091400-cxh26qr",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331091400-cxh26qr",
+																"updated": "20230331091400"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#23_DynamicIntroductionAdvice_478",
+																	"TextMarkTextContent": "2.3 DynamicIntroductionAdvice"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331091400-xqdsabt",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331091400-xqdsabt",
+														"updated": "20230331091400"
+													},
+													"Children": [
+														{
+															"ID": "20230331091400-8h36vjz",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331091400-8h36vjz",
+																"updated": "20230331091400"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#24_AbstractAspectJAdvice_484",
+																	"TextMarkTextContent": "2.4 AbstractAspectJAdvice"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331091400-1im4v06",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331091400-1im4v06",
+														"updated": "20230331091400"
+													},
+													"Children": [
+														{
+															"ID": "20230331091400-cxqmy9a",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331091400-cxqmy9a",
+																"updated": "20230331091400"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#25_AfterAdvice_486",
+																	"TextMarkTextContent": "2.5 AfterAdvice"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331091400-cl1iyob",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331091400-cl1iyob",
+										"updated": "20230331091400"
+									},
+									"Children": [
+										{
+											"ID": "20230331091400-n3tl1gd",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331091400-n3tl1gd",
+												"updated": "20230331091400"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#3_Advisor__606",
+													"TextMarkTextContent": "3. Advisor 分类"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-dadqrwq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-dadqrwq",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-8xvhpw2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-8xvhpw2",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863#Spring_Aop__Demo_617",
+									"TextMarkTextContent": "三、Spring Aop Demo"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-k0j6oo8",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331091400-k0j6oo8",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-56h5y68",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-56h5y68",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本系列是在重看源码分析过程中，对一些遗漏内容的补充，内容仅用于个人学习记录，写的会比较随性，难免有错漏，欢迎指正。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-r8t0zv0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-r8t0zv0",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "全集目录："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106440723",
+					"TextMarkTextContent": "Spring源码分析：全集整理"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-jl6dmof",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091400-jl6dmof",
+				"updated": "20230331091400"
+			}
+		},
+		{
+			"ID": "20230331091400-pujzs21",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-pujzs21",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文系列："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-tk6rs8n",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331091400-tk6rs8n",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"ID": "20230331091400-e8ybjjb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331091400-e8ybjjb",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-zm3ae7l",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-zm3ae7l",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106745317",
+									"TextMarkTextContent": "Spring源码分析十一：@Aspect方式的AOP上篇 - @EnableAspectJAutoProxy"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-8iru3sm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331091400-8iru3sm",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-qlik8bo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-qlik8bo",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107070159",
+									"TextMarkTextContent": "Spring源码分析十二：@Aspect方式的AOP中篇 - getAdvicesAndAdvisorsForBean"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-o12yctc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331091400-o12yctc",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-0l6xcnk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-0l6xcnk",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934",
+									"TextMarkTextContent": "Spring源码分析十三：@Aspect方式的AOP下篇 - createProxy"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-qu17l97",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331091400-qu17l97",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-ly1olzj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-ly1olzj",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/119823785",
+									"TextMarkTextContent": "Spring源码分析二十四：cglib 的代理过程"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-ggsmlvh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-ggsmlvh",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文衍生篇："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-cs4js5g",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331091400-cs4js5g",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"ID": "20230331091400-rk9jocy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331091400-rk9jocy",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-2xjk8c4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-2xjk8c4",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984",
+									"TextMarkTextContent": "Spring 源码分析衍生篇九 ： AOP源码分析 - 基础篇"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-a9pb3l8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331091400-a9pb3l8",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-499her0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-499her0",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/119874208",
+									"TextMarkTextContent": "Spring 源码分析衍生篇十二 ：AOP 中的引介增强"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-yd8ki5z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-yd8ki5z",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "补充篇："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-nfrmpys",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331091400-nfrmpys",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"ID": "20230331091400-tufeg9l",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331091400-tufeg9l",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-2jibcaz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-2jibcaz",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863",
+									"TextMarkTextContent": "Spring 源码分析补充篇三 ：Spring Aop 的关键类"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-nwtzowv",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091400-nwtzowv",
+				"updated": "20230331091400"
+			}
+		},
+		{
+			"ID": "20230331091400-04s5wxa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-04s5wxa",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文，想不借助 AspectJ 框架来实现 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=Aop\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "Aop"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 的功能，因此简单看了一下 Spring Aop 其中的一些类的实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-6l9jn6p",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331091400-6l9jn6p",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、关键类"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-f4zfhca",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-f4zfhca",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring Aop 有三个关键类 ，如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-cja67ti",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331091400-cja67ti",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"ID": "20230331091400-rczldlp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-rczldlp",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-zw2txn4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-zw2txn4",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Pointcut ：决定什么时候切入"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-qrbumj6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-qrbumj6",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-xrd9hwd",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-xrd9hwd",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Advice ：决定切入后的具体行为"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-bqcbdrx",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-bqcbdrx",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-bgmss0u",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-bgmss0u",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Advisor ：包含 Advice 和 Pointcut"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-fomdeq9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-fomdeq9",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们具体来看："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-nldc3v0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331091400-nldc3v0",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. Pointcut 分类"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-cc02o9z",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-cc02o9z",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public interface Pointcut { \n\n\t// 检验拦截哪个类\n\tClassFilter getClassFilter();\n\n\t// 校验拦截的方法\n\tMethodMatcher getMethodMatcher();\n\n\t// 恒为 true 的拦截实例\n\tPointcut TRUE = TruePointcut.INSTANCE;\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-j19aev2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-j19aev2",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从 Pointcut 的 方法我们就可以看出 Pointcut 的拦截精度在 Method 级别，即通过 ClassFilter 确定拦截哪个类，MethodMatcher 确定拦截哪个方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-z2tg7ug",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091400-z2tg7ug",
+				"updated": "20230331091400"
+			}
+		},
+		{
+			"ID": "20230331091400-m8vsjw3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-m8vsjw3",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面是 Pointcut 的一些实现类，我们来简单介绍一下："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-8r250kl",
+			"Type": "NodeTable",
+			"TableAligns": [
+				0,
+				0
+			],
+			"Properties": {
+				"colgroup": "|",
+				"id": "20230331091400-8r250kl",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeTableHead",
+					"Data": "thead",
+					"Children": [
+						{
+							"Type": "NodeTableRow",
+							"Data": "tr",
+							"Children": [
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "名称"
+										}
+									]
+								},
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "功能"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ControlFlowPointcut"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "可以实现更精细的切入点。如我们对一个方法进行切入通知，但只有这个方法在一个特定方法中被调用的时候执行通知，我们可以使用ControlFlowPointCut流程切入点。但该种方式效率较低，慎重使用。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "DynamicMethodMatcherPointcut"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "该切点为抽象类， 在Pointcut 的基础上增加了接口DynamicMethodMatcher。所谓动态切入点，即每次方法执行前都会进行条件判断，满足条件才会执行。如我们在增强某些方法时指定为方法入参值某个值时才会执行增强，即可使用该类。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "StaticMethodMatcherPointcut"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "该切点为抽象类，在Pointcut 的基础上增加了接口 StaticMethodMatcher 。与 DynamicMethodMatcherPointcut 相反，StaticMethodMatcherPointcut 针对每个方法的增强判断只会执行一次，让将结果缓存起来，之后的判断依赖于缓存结果。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ComposablePointcut"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "可组合切入点。通过 union 或者 intersection 方法来设置多个 Pointcut、ClassFilter、ClassFilter 的交并集。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ExpressionPointcut"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ExpressionPointcut 是一个接口，存在两个实现类 AbstractExpressionPointcut，AspectJExpressionPointcut。多提供了一个 getExpression 方法用来获取表达式。可以使用表达式的方式进行匹配。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "AnnotationMatchingPointcut"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "查找被指定注解修饰的类作为切点。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "TruePointcut"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "恒为true的切点"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-oxgkm6m",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091400-oxgkm6m",
+				"updated": "20230331091400"
+			}
+		},
+		{
+			"ID": "20230331091400-ddmy4hh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-ddmy4hh",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "为了更好的解释各个 PointCut 的功能，这里我们来以下面的代码具体举例："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-gdfonvq",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-gdfonvq",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.kingfish.util;\n\nimport org.aopalliance.aop.Advice;\nimport org.aopalliance.intercept.MethodInterceptor;\nimport org.aopalliance.intercept.MethodInvocation;\nimport org.springframework.aop.Advisor;\nimport org.springframework.aop.DynamicIntroductionAdvice;\nimport org.springframework.aop.Pointcut;\nimport org.springframework.aop.framework.ProxyFactory;\nimport org.springframework.aop.support.DefaultPointcutAdvisor;\n\n// 这里为了举例，所有所有类写在一起。\npublic class PointcutMain { \n\n    public static class PointCutDemo { \n        public void say(String msg) { \n            System.out.println(\"Hello \" + msg);\n        }\n    }\n\n    public static void main(String[] args) { \n        Advice advice = createAdvice();\n        Pointcut pc = createPointCut();\n        // 创建代理顾问\n        Advisor advisor = new DefaultPointcutAdvisor(pc, advice);\n        run(new PointCutDemo(), advisor);\n    }\n\n    // 运行方法\n    private static void run(PointCutDemo demo, Advisor advisor){ \n        ProxyFactory proxyFactory = new ProxyFactory();\n        proxyFactory.addAdvisor(advisor);\n        proxyFactory.setTarget(demo);\n        // 创建了代理对象\n        final PointCutDemo proxyDemo = (PointCutDemo) proxyFactory.getProxy();\n        // 直接调用 say() 方法\n        proxyDemo.say(\"World\");\n    }\n\n    // 创建 PointCut 的方法，下面我们会分别实现该方法来分析\n    private static Pointcut createPointCut() { \n        return null\n    }\n\n\n    private static Advice createAdvice() { \n        // 方法拦截器 Advice\n        return new MethodInterceptor() { \n            @Override\n            public Object invoke(MethodInvocation invocation) throws Throwable { \n                try { \n                    System.out.println(\"before\");\n                    return invocation.proceed();\n                } finally { \n                    System.out.println(\"after\");\n                }\n            }\n        };\n    }\n\n    public static void runSay(PointCutDemo demo) { \n        demo.say(\"Method World\");\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-xzdfxho",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-xzdfxho",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们预留了一个 createPointCut 方法来创建 Pointcut ，下面我们来演示不同的 Pointcut 创建后的效果。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-uyk5q41",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091400-uyk5q41",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1 ControlFlowPointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-grclkde",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-grclkde",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ControlFlowPointcut 会动态判断调用场景，在合适的调用场景下才会执行增强。但该种方式效率较低，慎重使用。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-za6gndt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-za6gndt",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们修改上面代码中的方法，如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-kqd8dpn",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-kqd8dpn",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t// 运行方法\n\tprivate static void run(PointCutDemo demo, Advisor advisor){ \n\t \tProxyFactory proxyFactory = new ProxyFactory();\n        proxyFactory.addAdvisor(advisor);\n        proxyFactory.setTarget(demo);\n        // 创建了代理对象\n        final PointCutDemo proxyDemo = (PointCutDemo) proxyFactory.getProxy();\n        // 直接调用 say() 方法\n        proxyDemo.say(\"World\");\n        System.out.println(\"/************************/\");\n        // 通过 ControlFlowPointcutDemo.runSay 调用runSay 方法\n        PointcutMain.runSay(proxyDemo);\n\t}\n\n\t// 创建 ControlFlowPointcut\n    private static Pointcut createPointCut() { \n        return new ControlFlowPointcut(PointcutMain.class, \"runSay\");\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-lorhcqt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-lorhcqt",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在运行后，输出结果如下。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-xc00adi",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-xc00adi",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Hello World\n/************************/\nbefore\nMethod World\nafter\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-oxa4hkx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-oxa4hkx",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里我们的代码调用了两次 say 方法。不同的是第二次是通过 PointcutMain"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "tag",
+					"TextMarkTextContent": "runSay 的方法调用。两次调用的结果没有区别。但是由于这里使用 ControlFlowPointcut，而 ControlFlowPointcut在构造时指定了是 "
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "tag code",
+					"TextMarkTextContent": "PointcutMain.class"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "tag",
+					"TextMarkTextContent": "和"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "tag code",
+					"TextMarkTextContent": "\u0026quot;runSay\u0026quot;"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "tag",
+					"TextMarkTextContent": "，所以只有通过 PointcutMain"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​runSay 方法调用目标对象时才会执行增强。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-rfc9okh",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091400-rfc9okh",
+				"updated": "20230331091400"
+			}
+		},
+		{
+			"ID": "20230331091400-wm9pfmm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-wm9pfmm",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们简单介绍一下其原理：\nControlFlowPointcut 实现了MethodMatcher 接口，而 ControlFlowPointcut#matches方法实现如下，"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-oxblnly",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-oxblnly",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t// 通过构造 保存了 目标 Class  和  methodName。\n\tpublic ControlFlowPointcut(Class\u003c?\u003e clazz, @Nullable String methodName) { \n\t\tAssert.notNull(clazz, \"Class must not be null\");\n\t\tthis.clazz = clazz;\n\t\tthis.methodName = methodName;\n\t}\n\t// 该方法返回ture，则每次方法调用时都会触发下面的 matches 方法。\n\t@Override\n\tpublic boolean isRuntime() { \n\t\treturn true;\n\t}\n\n\t// 该方法返回false，则不会执行代理增强。\n\t@Override\n\tpublic boolean matches(Method method, Class\u003c?\u003e targetClass, Object... args) { \n\t\t// 统计调用此时，可以通过此属性来判断触发了多少次以方便进行优化。\n\t\tthis.evaluations.incrementAndGet();\n\t\n\t\tfor (StackTraceElement element : new Throwable().getStackTrace()) { \n\t\t\t// 如果 当前 Class 与目标 Class 匹配 \u0026\u0026 当前 methodName 与目标 methodName 匹配返回true。\n\t\t\tif (element.getClassName().equals(this.clazz.getName()) \u0026\u0026\n\t\t\t\t\t(this.methodName == null || element.getMethodName().equals(this.methodName))) { \n\t\t\t\treturn true;\n\t\t\t}\n\t\t}\n\t\treturn false;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-x07199x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-x07199x",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 ControlFlowPointcut#matches 方法中判断了调用类和方法满足匹配条件后才会返回true，进而触发增强。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-ij6z683",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091400-ij6z683",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2 DynamicMethodMatcherPointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-q7r49qo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-q7r49qo",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DynamicMethodMatcherPointcut 为动态切入点。当使用 DynamicMethodMatcherPointcut 时，目标对象每次调用方法都会通过 DynamicMethodMatcherPointcut#matches 方法来确定是否匹配。基于此，我们甚至可以针对每次调用的参数不同来决定是否执行增强。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-v8uwo8k",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-v8uwo8k",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DynamicMethodMatcherPointcut 和 ControlFlowPointcut类似，不同的是 ControlFlowPointcut 自身实现了 matches 方法，而 DynamicMethodMatcherPointcut 交由我们来实现 matches 方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-stjvuzo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-stjvuzo",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如下：方法第一个入参是 World 时才执行增强。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-4m13kri",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-4m13kri",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    private static void run(PointCutDemo demo, Advisor advisor) { \n        ProxyFactory proxyFactory = new ProxyFactory();\n        proxyFactory.addAdvisor(advisor);\n        proxyFactory.setTarget(demo);\n        // 创建了代理对象\n        final PointCutDemo proxyDemo = (PointCutDemo) proxyFactory.getProxy();\n        // 直接调用 say() 方法\n        proxyDemo.say(\"World\");\n        proxyDemo.say(\"Morld\");\n\n    }\n\n    private static Pointcut createPointCut() { \n        // 切点\n        Pointcut pc = new DynamicMethodMatcherPointcut() { \n            // 每次调用目标对象的方法都会执行该方法\n            @Override\n            public boolean matches(Method method, Class\u003c?\u003e targetClass, Object... args) { \n                return \"World\".equals(args[0]);\n            }\n        };\n        return pc;\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-4sfz2pv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-4sfz2pv",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行结果如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-mwn0ie8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-mwn0ie8",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "before\nHello World\nafter\nHello Morld\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-3mz8ozy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-3mz8ozy",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里可以看到第二次调用 Morld 的入参并没有执行增强。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-mzux3e2",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091400-mzux3e2",
+				"updated": "20230331091400"
+			}
+		},
+		{
+			"ID": "20230331091400-noss80d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-noss80d",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其原理简单说明一下："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-bf1acuk",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331091400-bf1acuk",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"ID": "20230331091400-nsj5i53",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331091400-nsj5i53",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-5ry5hle",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-5ry5hle",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当代理类调用代理方法时会通过 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AdvisedSupport#getInterceptorsAndDynamicInterceptionAdvice"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​来获取当前调用方法的方法拦截器，并将结果缓存，之后调用则直接依赖于缓存结果。"
+								}
+							]
+						},
+						{
+							"ID": "20230331091400-de4lidf",
+							"Type": "NodeCodeBlock",
+							"IsFencedCodeBlock": true,
+							"Properties": {
+								"id": "20230331091400-de4lidf",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeBlockFenceOpenMarker",
+									"Data": "```"
+								},
+								{
+									"Type": "NodeCodeBlockFenceInfoMarker",
+									"CodeBlockInfo": "amF2YQ=="
+								},
+								{
+									"Type": "NodeCodeBlockCode",
+									"Data": "\t// AdvisedSupport#getInterceptorsAndDynamicInterceptionAdvice。\n\t// 当前 this 为 ProxyFactory，所以这里的缓存是作用域是在 ProxyFactory中，如果换一个 ProxyFactory则需要重新加载一次。\n\tpublic List\u003cObject\u003e getInterceptorsAndDynamicInterceptionAdvice(Method method, @Nullable Class\u003c?\u003e targetClass) { \n\t\t// 生成当前调用 方法的 Key\n\t\tMethodCacheKey cacheKey = new MethodCacheKey(method);\n\t\t// 尝试从缓存中获取增强\n\t\tList\u003cObject\u003e cached = this.methodCache.get(cacheKey);\n\t\tif (cached == null) { \n\t\t\t// 缓存没命中，调用DefaultAdvisorChainFactory#getInterceptorsAndDynamicInterceptionAdvice 方法来获取\n\t\t\tcached = this.advisorChainFactory.getInterceptorsAndDynamicInterceptionAdvice(\n\t\t\t\t\tthis, method, targetClass);\n\t\t\t// 放入缓存\n\t\t\tthis.methodCache.put(cacheKey, cached);\n\t\t}\n\t\treturn cached;\n\t}\n"
+								},
+								{
+									"Type": "NodeCodeBlockFenceCloseMarker",
+									"Data": "```"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-o609jqv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331091400-o609jqv",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-upqs691",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-upqs691",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "而 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DefaultAdvisorChainFactory#getInterceptorsAndDynamicInterceptionAdvice"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法则会调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MethodMatcher#matches(Method method, Class\u0026lt;?\u0026gt; targetClass)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 来判断当前的方法拦截器是否适用于当前调用方法。而 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DynamicMethodMatcherPointcut#matches(Method method, Class\u0026lt;?\u0026gt; targetClass)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 返回恒为True，随后程序会判断 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DynamicMethodMatcherPointcut#isRuntime"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 是否为 True，如果为True则认为是动态切入点，将其封装成 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "InterceptorAndDynamicMethodMatcher"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​类型保存到集合中，如果为false则直接保存到集合中。\n​"
+								},
+								{
+									"Type": "NodeImage",
+									"Data": "span",
+									"Children": [
+										{
+											"Type": "NodeBang"
+										},
+										{
+											"Type": "NodeOpenBracket"
+										},
+										{
+											"Type": "NodeLinkText",
+											"Data": "在这里插入图片描述"
+										},
+										{
+											"Type": "NodeCloseBracket"
+										},
+										{
+											"Type": "NodeOpenParen"
+										},
+										{
+											"Type": "NodeLinkDest",
+											"Data": "assets/f9fed9f8c71945dbbf2ff64d2b863dfc-20230331091400-gju99lh.png"
+										},
+										{
+											"Type": "NodeCloseParen"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-r2r7av3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331091400-r2r7av3",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-akn13ur",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-akn13ur",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "随后在执行增强方法时会通过 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DynamicAdvisedInterceptor#intercept"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "CglibMethodInvocation#process"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，而在 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "CglibMethodInvocation#process"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​中会判断当前增强是否为 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "InterceptorAndDynamicMethodMatcher"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 类型，如果是，则触发其 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MethodMatcher#matches(Method method, Class\u0026lt;?\u0026gt; targetClass, Object... args)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法来判断是否执行增强。如果不是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "InterceptorAndDynamicMethodMatcher"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 类型，则执行其增强方法。\n​"
+								},
+								{
+									"Type": "NodeImage",
+									"Data": "span",
+									"Children": [
+										{
+											"Type": "NodeBang"
+										},
+										{
+											"Type": "NodeOpenBracket"
+										},
+										{
+											"Type": "NodeLinkText",
+											"Data": "在这里插入图片描述"
+										},
+										{
+											"Type": "NodeCloseBracket"
+										},
+										{
+											"Type": "NodeOpenParen"
+										},
+										{
+											"Type": "NodeLinkDest",
+											"Data": "assets/1b29e94bb9564742b43b1c63983a8432-20230331091400-ygfld33.png"
+										},
+										{
+											"Type": "NodeCloseParen"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-yg3nxi9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091400-yg3nxi9",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3 StaticMethodMatcherPointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-l6giy6h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-l6giy6h",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "StaticMethodMatcherPointcut 作为静态切入点并不会在每次方法调用时都去校验，而是在第一次调用时进行校验后便将结果缓存起来，之后的调用依赖于缓存。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-1t9bzh6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-1t9bzh6",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里需要注意 StaticMethodMatcherPointcut 的抽象方法和 DynamicMethodMatcherPointcut 的抽象方法并非是同一个方法，而是MethodMatcher 的重载方法，两个方法调用时机的不同也造成了功能的不同，如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-rr2fgml",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331091400-rr2fgml",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"ID": "20230331091400-fde20pi",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-fde20pi",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-3670x03",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-3670x03",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "StaticMethodMatcherPointcut#matches(Method method, Class\u003c?\u003e targetClass)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-ky9lc4w",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-ky9lc4w",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-4vv45zi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-4vv45zi",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "DynamicMethodMatcherPointcut#matches(Method method, Class\u003c?\u003e targetClass, Object… args)"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-ynmmmc9",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091400-ynmmmc9",
+				"updated": "20230331091400"
+			}
+		},
+		{
+			"ID": "20230331091400-vvfot7o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-vvfot7o",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-iithwx5",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-iithwx5",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    private static void run(PointCutDemo demo, Advisor advisor) { \n        ProxyFactory proxyFactory = new ProxyFactory();\n        proxyFactory.addAdvisor(advisor);\n        proxyFactory.setTarget(demo);\n        // 创建了代理对象\n        final PointCutDemo proxyDemo = (PointCutDemo) proxyFactory.getProxy();\n        // 直接调用 say() 方法\n        proxyDemo.say(\"World\");\n        proxyDemo.say(\"World\");\n    }\n\n    private static Pointcut createPointCut() { \n        Pointcut pc = new StaticMethodMatcherPointcut() { \n            @Override\n            public boolean matches(Method method, Class\u003c?\u003e targetClass) { \n                return\"say\".equals(method.getName());\n            }\n\n        };\n        return pc;\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-w5oz9ov",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-w5oz9ov",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "输出如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-p9lxga1",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-p9lxga1",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "before\nHello World\nafter\nbefore\nHello World\nafter\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-rqmbhoz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091400-rqmbhoz",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3 ComposablePointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-q8g1ybd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-q8g1ybd",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ComposablePointcut 可以组合多个 PointCut 、ClassFilter 等，我们把上面两个 PointCut 都使用，并取并集，如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-yq3m00m",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-yq3m00m",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    private static Pointcut createPointCut() { \n        // 切点\n        Pointcut controlFlowPointcut = new ControlFlowPointcut(PointcutMain.class, \"runSay\");\n        Pointcut dynamicMethodMatcherPointcut = new DynamicMethodMatcherPointcut() { \n            @Override\n            public boolean matches(Method method, Class\u003c?\u003e targetClass, Object... args) { \n                return \"World\".equals(args[0]);\n            }\n        };\n        // 取并集\n        return new ComposablePointcut(controlFlowPointcut)\n                .union(dynamicMethodMatcherPointcut);\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-fitzd9s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-fitzd9s",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "输出如下，两种情况全部满足："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-4vefiyj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-4vefiyj",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "before\nHello World\nafter\n/************************/\nbefore\nHello Method World\nafter\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-hulk71t",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091400-hulk71t",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.4 ExpressionPointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-w2mrhxz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-w2mrhxz",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "用于表达式匹配的切点，AspectJ 就是创建了此接口 AspectJExpressionPointcut 的实现类 AspectJExpressionPointcut 。在 AspectJExpressionPointcut 中，针对 expression进行了解析完成了expression 匹配的功能。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-yn5lhp3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-yn5lhp3",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如有需要详参： "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107070159",
+					"TextMarkTextContent": "Spring源码分析十三：@Aspect方式的AOP中篇 - getAdvicesAndAdvisorsForBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 中 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "三、筛选合适的Advisors - findAdvisorsThatCanApply"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 章节中提到了 AspectJExpressionPointcut 。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-rrb8om0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091400-rrb8om0",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.5 AnnotationMatchingPointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-eno5mi4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-eno5mi4",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AnnotationMatchingPointcut 即可以使用注解匹配的 PointCut。被指定注解修饰的 类或方法才会满足 要求。如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-pyvy559",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-pyvy559",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    private static Pointcut createPointCut() { \n    \t// 这代表着：满足下面三个条件的类才会被增强 （构造函数有很多重载，这里选择最复杂的一个）\n    \t// 1. 被 ClassComponent注解修饰的类\n    \t// 2. 被 MethodComponent 注解修饰的方法，\n    \t// 3. false 代表不检查超类和接口，即需要当前类满足前两个条件，而不能是父类或接口。\n        return new AnnotationMatchingPointcut(ClassComponent.class, MethodComponent.class, false);\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-5aflnzr",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091400-5aflnzr",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.7 TruePointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-hce8d70",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-hce8d70",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "恒为 True 的切点，作为某些场景的默认切点。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-462mfj9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331091400-462mfj9",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. Advice 分类"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-f36i7l0",
+			"Type": "NodeTable",
+			"TableAligns": [
+				0,
+				0
+			],
+			"Properties": {
+				"colgroup": "|",
+				"id": "20230331091400-f36i7l0",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeTableHead",
+					"Data": "thead",
+					"Children": [
+						{
+							"Type": "NodeTableRow",
+							"Data": "tr",
+							"Children": [
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "名称"
+										}
+									]
+								},
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "功能"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "org.aopalliance.intercept.Interceptor"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "代表一个通用的拦截器，一般不直接使用。 而使用 两个子接口 MethodInterceptor、ConstructorInterceptor 拦截特定事件。其中 MethodInterceptor 非常重要，是实现 Aop 功能的核心拦截器。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "org.springframework.aop.BeforeAdvice"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "前置通知的通用标记接口，实现该接口的类会在方法调用前执行增强方法"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "org.springframework.aop.DynamicIntroductionAdvice"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "DynamicIntroductionAdvice 和 IntroductionAdvisor 一起实现了 Spring Aop 的引介增强功能"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "org.springframework.aop.aspectj.AbstractAspectJAdvice"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "抽象类，用于AspectJ 实现 Aop 功能"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "org.springframework.aop.AfterAdvice"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "后置通知的通用标记接口，实现该接口的类会在方法调用后执行增强方法"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-j3ytm6j",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091400-j3ytm6j",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1 Interceptor"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-bk8h1p0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-bk8h1p0",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们一般不直接使用 Interceptor，而是使用其子接口 MethodInterceptor。其子接口提供了 invoke 方法，我们可以在方法执行前后调用。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-h6ui57j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-h6ui57j",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-thx7t86",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-thx7t86",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    private static Advice createAdvice() { \n        // 方法拦截器 Advice\n        return new MethodInterceptor() { \n            @Override\n            public Object invoke(MethodInvocation invocation) throws Throwable { \n                try { \n                    System.out.println(\"before\");\n                    return invocation.proceed();\n                } finally { \n                    System.out.println(\"after\");\n                }\n            }\n        };\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-iu5zwk0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091400-iu5zwk0",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2 BeforeAdvice"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-c2j5zgp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-c2j5zgp",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "BeforeAdvice 作为一个标识接口，代表实现该接口的类会在方法调用前执行。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-ua8ey5e",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331091400-ua8ey5e",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"ID": "20230331091400-6cpbo6b",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-6cpbo6b",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-zbbmys1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-zbbmys1",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "MethodBeforeAdvice ：BeforeAdvice 的子接口，可以实现该接口完成前置调用。"
+								}
+							]
+						},
+						{
+							"ID": "20230331091400-jtsf2hr",
+							"Type": "NodeCodeBlock",
+							"IsFencedCodeBlock": true,
+							"Properties": {
+								"id": "20230331091400-jtsf2hr",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeBlockFenceOpenMarker",
+									"Data": "```"
+								},
+								{
+									"Type": "NodeCodeBlockFenceInfoMarker",
+									"CodeBlockInfo": "amF2YQ=="
+								},
+								{
+									"Type": "NodeCodeBlockCode",
+									"Data": "public interface MethodBeforeAdvice extends BeforeAdvice { \n\tvoid before(Method method, Object[] args, @Nullable Object target) throws Throwable;\n}\n"
+								},
+								{
+									"Type": "NodeCodeBlockFenceCloseMarker",
+									"Data": "```"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-n2cirdl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-n2cirdl",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-n4a75nw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-n4a75nw",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "MethodBeforeAdviceInterceptor ：BeforeAdvice 的实现类，MethodBeforeAdvice 会被封装成MethodBeforeAdviceInterceptor，MethodBeforeAdvice 的前置调用基于此类完成。"
+								}
+							]
+						},
+						{
+							"ID": "20230331091400-8nmgol2",
+							"Type": "NodeCodeBlock",
+							"IsFencedCodeBlock": true,
+							"Properties": {
+								"id": "20230331091400-8nmgol2",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeBlockFenceOpenMarker",
+									"Data": "```"
+								},
+								{
+									"Type": "NodeCodeBlockFenceInfoMarker",
+									"CodeBlockInfo": "amF2YQ=="
+								},
+								{
+									"Type": "NodeCodeBlockCode",
+									"Data": "public class MethodBeforeAdviceInterceptor implements MethodInterceptor, BeforeAdvice, Serializable { \n\n\tprivate final MethodBeforeAdvice advice;\n\n\tpublic MethodBeforeAdviceInterceptor(MethodBeforeAdvice advice) { \n\t\tAssert.notNull(advice, \"Advice must not be null\");\n\t\tthis.advice = advice;\n\t}\n\n\n\t@Override\n\tpublic Object invoke(MethodInvocation mi) throws Throwable { \n\t\t// 前置执行advice.before 方法。\n\t\tthis.advice.before(mi.getMethod(), mi.getArguments(), mi.getThis());\n\t\treturn mi.proceed();\n\t}\n\n}\n\n"
+								},
+								{
+									"Type": "NodeCodeBlockFenceCloseMarker",
+									"Data": "```"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-kzpvgk0",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091400-kzpvgk0",
+				"updated": "20230331091400"
+			}
+		},
+		{
+			"ID": "20230331091400-9srj9yv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-9srj9yv",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-c6ci2ce",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-c6ci2ce",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    private static Advice createAdvice() { \n        // 方法拦截器 Advice\n        return new MethodBeforeAdvice() { \n            @Override\n            public void before(Method method, Object[] args, Object target) throws Throwable { \n                System.out.println(\"MethodBeforeAdvice\");\n            }\n        };\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-iiv6wer",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091400-iiv6wer",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.3 DynamicIntroductionAdvice"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-pbscous",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-pbscous",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DynamicIntroductionAdvice 的功能很强大，引介切面。\n引入增强（Introduction Advice）的概念：一个Java类，没有实现A接口，在不修改Java类的情况下，使其具备A接口的功能。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-rwhi2sg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-rwhi2sg",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "详参 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/119874208",
+					"TextMarkTextContent": "Spring 源码分析衍生篇十二 ：AOP 中的引介增强"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-2ht4ddu",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091400-2ht4ddu",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.4 AbstractAspectJAdvice"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-349hlld",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-349hlld",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AspectJ 功能实现基于该抽象类。这里不再赘述。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-o9aomfy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331091400-o9aomfy",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.5 AfterAdvice"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-w8d8hwa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-w8d8hwa",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AfterAdvice 与 BeforeAdvice 类似，作为一个后置调用标志，实现该接口的类会在方法调用后调用。不同于 BeforeAdvice 的是，后置调用分为正常执行结束的后置调用和执行异常的后置调用。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-aigaq13",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-aigaq13",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里不再介绍 AspectJ 的相关实现类，"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-gkwlspi",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331091400-gkwlspi",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"ID": "20230331091400-oots0ri",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-oots0ri",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-i7430vg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-i7430vg",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "AfterReturningAdvice ：AfterAdvice 的子接口，可以实现该接口完成正常后置调用。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-r5it9aa",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-r5it9aa",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-j977g2q",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-j977g2q",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "AfterReturningAdviceInterceptor ：AfterAdvice 的实现类，AfterReturningAdvice 会被封装成AfterReturningAdviceInterceptor ，AfterReturningAdvice 的前置调用基于此类完成。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-329giws",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-329giws",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-abp3ptw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-abp3ptw",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ThrowsAdvice ：AfterAdvice 的子接口，可以实现该接口完成异常后置调用。需要注意该接口并没有提供额外方法供实现，而是在 ThrowsAdviceInterceptor 中指定了方法名为 afterThrowing。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331091400-bzep6f1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331091400-bzep6f1",
+						"updated": "20230331091400"
+					},
+					"Children": [
+						{
+							"ID": "20230331091400-5yi1p9d",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331091400-5yi1p9d",
+								"updated": "20230331091400"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ThrowsAdviceInterceptor ：AfterAdvice 的实现类，ThrowsAdvice 会被封装成ThrowsAdviceInterceptor ，ThrowsAdvice 的前置调用基于此类完成。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-viel6f0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-viel6f0",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里我们看一下 ThrowsAdviceInterceptor 的实现来了解一下异常时是如何执行增强流程的："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-4iszobi",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-4iszobi",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class ThrowsAdviceInterceptor implements MethodInterceptor, AfterAdvice { \n\n\tprivate static final String AFTER_THROWING = \"afterThrowing\";\n\n\tprivate static final Log logger = LogFactory.getLog(ThrowsAdviceInterceptor.class);\n\n\n\tprivate final Object throwsAdvice;\n\n\t/** Methods on throws advice, keyed by exception class. */\n\tprivate final Map\u003cClass\u003c?\u003e, Method\u003e exceptionHandlerMap = new HashMap\u003c\u003e();\n\n\tpublic ThrowsAdviceInterceptor(Object throwsAdvice) { \n\t\tAssert.notNull(throwsAdvice, \"Advice must not be null\");\n\t\tthis.throwsAdvice = throwsAdvice;\n\t\n\t\tMethod[] methods = throwsAdvice.getClass().getMethods();\n\t\tfor (Method method : methods) { \n\t\t\t// 获取 throwsAdvice 中方法名为 afterThrowing \u0026\u0026 入参个数为 1或者4的方法\n\t\t\tif (method.getName().equals(AFTER_THROWING) \u0026\u0026\n\t\t\t\t\t(method.getParameterCount() == 1 || method.getParameterCount() == 4)) { \n\t\t\t\tClass\u003c?\u003e throwableParam = method.getParameterTypes()[method.getParameterCount() - 1];\n\t\t\t\t// 判断最后一个入参是否是异常类\n\t\t\t\tif (Throwable.class.isAssignableFrom(throwableParam)) { \n\t\t\t\t\t// An exception handler to register...\n\t\t\t\t\t// 如果是则将将当前方法和对应的异常类保存起来\n\t\t\t\t\tthis.exceptionHandlerMap.put(throwableParam, method);\n\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif (this.exceptionHandlerMap.isEmpty()) { \n\t\t\tthrow new IllegalArgumentException(\n\t\t\t\t\t\"At least one handler method must be found in class [\" + throwsAdvice.getClass() + \"]\");\n\t\t}\n\t}\n\n\n\n\t@Override\n\tpublic Object invoke(MethodInvocation mi) throws Throwable { \n\t\ttry { \n\t\t\treturn mi.proceed();\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\t// 查找当前异常对应的处理方法\n\t\t\tMethod handlerMethod = getExceptionHandler(ex);\n\t\t\tif (handlerMethod != null) { \n\t\t\t\t// 当方法调用出现时调用 invokeHandlerMethod 方法 类执行对应异常的增强。\n\t\t\t\tinvokeHandlerMethod(mi, ex, handlerMethod);\n\t\t\t}\n\t\t\tthrow ex;\n\t\t}\n\t}\n\n\tprivate void invokeHandlerMethod(MethodInvocation mi, Throwable ex, Method method) throws Throwable { \n\t\tObject[] handlerArgs;\n\t\tif (method.getParameterCount() == 1) { \n\t\t\thandlerArgs = new Object[] { ex};\n\t\t}\n\t\telse { \n\t\t\t// 四个方法入参，依次为 方法实例、参数数组、调用类、异常内容\n\t\t\thandlerArgs = new Object[] { mi.getMethod(), mi.getArguments(), mi.getThis(), ex};\n\t\t}\n\t\ttry { \n\t\t\tmethod.invoke(this.throwsAdvice, handlerArgs);\n\t\t}\n\t\tcatch (InvocationTargetException targetEx) { \n\t\t\tthrow targetEx.getTargetException();\n\t\t}\n\t}\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-3ta6hfr",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091400-3ta6hfr",
+				"updated": "20230331091400"
+			}
+		},
+		{
+			"ID": "20230331091400-pxsi9rn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-pxsi9rn",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如下：\n定义一个 CustomThrowsAdvice 类来进行异常增强"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-5xiia8n",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-5xiia8n",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    private static Advice createAdvice() { \n        // 方法拦截器 Advice\n        return new CustomThrowsAdvice();\n    }\n\n    public static class CustomThrowsAdvice implements ThrowsAdvice  { \n//       也可以直接写这样一个异常参数  \n//        public void afterThrowing(Throwable throwable){ \n//            System.out.println(\"CustomThrowsAdvice.afterThrowing\");\n//        }\n\n    \t// 参数依次是 调用方法， 调用方法入参， 代理的原始对象，抛出的异常\n        public void afterThrowing(Method method, Object[] params, Object object, Throwable throwable){ \n            System.out.println(\"CustomThrowsAdvice.afterThrowing\");\n        }\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-4vlgct4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-4vlgct4",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运行结果："
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-j2i735u",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-j2i735u",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Hello World\nCustomThrowsAdvice.afterThrowing\n...抛出的异常日志\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-skzlj5y",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331091400-skzlj5y",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3. Advisor 分类"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-wlwvul9",
+			"Type": "NodeTable",
+			"TableAligns": [
+				0,
+				0
+			],
+			"Properties": {
+				"colgroup": "|",
+				"id": "20230331091400-wlwvul9",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeTableHead",
+					"Data": "thead",
+					"Children": [
+						{
+							"Type": "NodeTableRow",
+							"Data": "tr",
+							"Children": [
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "类名"
+										}
+									]
+								},
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "功能"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "IntroductionAdvisor"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "只能应用于类级别的拦截,只能使用Introduction型的Advice 。用于引入增强"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "PointcutAdvisor"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "可以使用任何类型的Pointcut,以及几乎任何类型的Advice。用于普通的增强"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-joprxc1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-joprxc1",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "关于 IntroductionAdvisor ，我们开设了衍生篇内容专门解释，详参： "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/119874208",
+					"TextMarkTextContent": "Spring 源码分析衍生篇十二 ：AOP 中的引介增强"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-htgqeaq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331091400-htgqeaq",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、Spring Aop Demo"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-jiqylde",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-jiqylde",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本来想模拟一下事务的，懒得连库就写个极简Demo：被 @CustomAnnotation 注解修饰 类会被代理。算抛砖引玉吧。"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-0r1plul",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-0r1plul",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "// 自定义注解\n@Target({ ElementType.TYPE, ElementType.METHOD})\n@Retention(RetentionPolicy.RUNTIME)\n@Inherited\n@Documented\npublic @interface CustomAnnotation { \n}\n\n// 配置类，由于是 Demo ，所以一切从简\n@Configuration\npublic class AopConfig { \n    @Bean\n    public Advisor advisor() { \n        final DefaultPointcutAdvisor defaultPointcutAdvisor = new DefaultPointcutAdvisor();\n        // 被 @CustomAnnotation 注解修饰的类满足切点要求\n        defaultPointcutAdvisor.setPointcut(new AnnotationMatchingPointcut(CustomAnnotation.class));\n        // 设置增强方法\n        defaultPointcutAdvisor.setAdvice((MethodInterceptor) invocation -\u003e { \n            System.out.println(\"before\");\n            final Object proceed = invocation.proceed();\n            System.out.println(\"after\");\n            return proceed;\n        });\n        return defaultPointcutAdvisor;\n    }\n\n}\n\n// 被代理类\n@CustomAnnotation\n@RestController\n@RequestMapping(\"common\")\npublic class CommonContorller { \n\n    @RequestMapping(\"common\")\n    public String common(String msg){ \n        System.out.println(\"CommonContorller.common\");\n        return msg;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-hrpka33",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-hrpka33",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "调用输出"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-y1i884o",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331091400-y1i884o",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "before\nCommonContorller.common\nafter\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331091400-vwshgby",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331091400-vwshgby",
+				"updated": "20230331091400"
+			}
+		},
+		{
+			"ID": "20230331091400-i9br8zo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331091400-i9br8zo",
+				"updated": "20230331091400"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://blog.csdn.net/daryl715/article/details/1743311",
+					"TextMarkTextContent": "https://blog.csdn.net/daryl715/article/details/1743311"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://blog.csdn.net/daryl715/article/details/1732978",
+					"TextMarkTextContent": "https://blog.csdn.net/daryl715/article/details/1732978"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://blog.csdn.net/f641385712/article/details/89303088",
+					"TextMarkTextContent": "https://blog.csdn.net/f641385712/article/details/89303088"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

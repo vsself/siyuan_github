@@ -1,0 +1,3251 @@
+{
+	"ID": "20230331090350-eqhfa3w",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331090350-eqhfa3w",
+		"title": "Spring源码分析十一：Springboot 自动装配_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331090350"
+	},
+	"Children": [
+		{
+			"ID": "20230331090350-ehsm79m",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090350-ehsm79m",
+				"updated": "20230331090350"
+			}
+		},
+		{
+			"ID": "20230331090350-k2x9a14",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090350-k2x9a14",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"ID": "20230331090350-sovb92i",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090350-sovb92i",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-qwj0ysi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-qwj0ysi",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/105327732"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090350-nx4kzys",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090350-nx4kzys",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-wj5o06s",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-wj5o06s",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "文章目录一、前言二、简介1. ImportSelector2. spring.factories三、源码解析1. 原理概述1.1 @EnableAutoConfiguration1.2 AutoConfigurationImportSelector1.3 META-INF/spring.factories2. 总结四、关于ImportSelector的简陋Demo1.   EnableDemo2...."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090350-5kbrivz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090350-5kbrivz",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-fm3vk30",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-fm3vk30",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:03:50"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-dktqzf3",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090350-dktqzf3",
+				"updated": "20230331090350"
+			}
+		},
+		{
+			"ID": "20230331090350-56sqmh9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090350-56sqmh9",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-pktc4yn",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090350-pktc4yn",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"ID": "20230331090350-3kr56ep",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090350-3kr56ep",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-rtml3kj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-rtml3kj",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#_5",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090350-b2sck3q",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090350-b2sck3q",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-3qkh9ou",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090350-3qkh9ou",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"ID": "20230331090350-mp0me6g",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090350-mp0me6g",
+										"updated": "20230331090350"
+									},
+									"Children": [
+										{
+											"ID": "20230331090350-gxym8e7",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090350-gxym8e7",
+												"updated": "20230331090350"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#1_ImportSelector_24",
+													"TextMarkTextContent": "1. ImportSelector"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090350-vl1hr97",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090350-vl1hr97",
+										"updated": "20230331090350"
+									},
+									"Children": [
+										{
+											"ID": "20230331090350-ftj1xyq",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090350-ftj1xyq",
+												"updated": "20230331090350"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#2_DeferredImportSelector_46",
+													"TextMarkTextContent": "2. DeferredImportSelector"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090350-y2elld2",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090350-y2elld2",
+										"updated": "20230331090350"
+									},
+									"Children": [
+										{
+											"ID": "20230331090350-v2f888v",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090350-v2f888v",
+												"updated": "20230331090350"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#3_springfactories_55",
+													"TextMarkTextContent": "3. spring.factories"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090350-yzcc3qt",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090350-yzcc3qt",
+										"updated": "20230331090350"
+									},
+									"Children": [
+										{
+											"ID": "20230331090350-nd2pgdv",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090350-nd2pgdv",
+												"updated": "20230331090350"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#4_springautoconfiguremetadataproperties_65",
+													"TextMarkTextContent": "4. spring-autoconfigure-metadata.properties"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090350-ekqoxdw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090350-ekqoxdw",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-rrlp4io",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-rrlp4io",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#_79",
+									"TextMarkTextContent": "三、源码解析"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090350-3j2ew5x",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090350-3j2ew5x",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-pxk107m",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090350-pxk107m",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"ID": "20230331090350-xtcl0yb",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090350-xtcl0yb",
+										"updated": "20230331090350"
+									},
+									"Children": [
+										{
+											"ID": "20230331090350-hjzqp9c",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090350-hjzqp9c",
+												"updated": "20230331090350"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#1__82",
+													"TextMarkTextContent": "1. 原理概述"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090350-bik9dzq",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090350-bik9dzq",
+										"updated": "20230331090350"
+									},
+									"Children": [
+										{
+											"ID": "20230331090350-7gufebx",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331090350-7gufebx",
+												"updated": "20230331090350"
+											},
+											"Children": [
+												{
+													"ID": "20230331090350-fcds9on",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090350-fcds9on",
+														"updated": "20230331090350"
+													},
+													"Children": [
+														{
+															"ID": "20230331090350-jpj7h9i",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090350-jpj7h9i",
+																"updated": "20230331090350"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#11_EnableAutoConfiguration_93",
+																	"TextMarkTextContent": "1.1 @EnableAutoConfiguration"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090350-ncirfsg",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090350-ncirfsg",
+														"updated": "20230331090350"
+													},
+													"Children": [
+														{
+															"ID": "20230331090350-110pp7x",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090350-110pp7x",
+																"updated": "20230331090350"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#12_AutoConfigurationImportSelector_97",
+																	"TextMarkTextContent": "1.2 AutoConfigurationImportSelector"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090350-jk28s5h",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090350-jk28s5h",
+														"updated": "20230331090350"
+													},
+													"Children": [
+														{
+															"ID": "20230331090350-oilmh3g",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230331090350-oilmh3g",
+																"updated": "20230331090350"
+															},
+															"Children": [
+																{
+																	"ID": "20230331090350-nq2wu3q",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090350-nq2wu3q",
+																		"updated": "20230331090350"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090350-k073bj7",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090350-k073bj7",
+																				"updated": "20230331090350"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#121_AutoConfigurationGroupprocess_106",
+																					"TextMarkTextContent": "1.2.1 AutoConfigurationGroup#process"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230331090350-p35p0fb",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090350-p35p0fb",
+																		"updated": "20230331090350"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090350-bqndrmq",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090350-bqndrmq",
+																				"updated": "20230331090350"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#122_AutoConfigurationGroupselectImports_187",
+																					"TextMarkTextContent": "1.2.2 AutoConfigurationGroup#selectImports"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090350-nmfxyz8",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090350-nmfxyz8",
+														"updated": "20230331090350"
+													},
+													"Children": [
+														{
+															"ID": "20230331090350-etwg8hk",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090350-etwg8hk",
+																"updated": "20230331090350"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#13___232",
+																	"TextMarkTextContent": "1.3 配置文件"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090350-2jwtfmw",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090350-2jwtfmw",
+														"updated": "20230331090350"
+													},
+													"Children": [
+														{
+															"ID": "20230331090350-e19hbpr",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230331090350-e19hbpr",
+																"updated": "20230331090350"
+															},
+															"Children": [
+																{
+																	"ID": "20230331090350-2sp5qsf",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090350-2sp5qsf",
+																		"updated": "20230331090350"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090350-r9ah7xx",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090350-r9ah7xx",
+																				"updated": "20230331090350"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#131_springfactories_234",
+																					"TextMarkTextContent": "1.3.1 spring.factories"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230331090350-j9o59tk",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090350-j9o59tk",
+																		"updated": "20230331090350"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090350-mczzf1f",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090350-mczzf1f",
+																				"updated": "20230331090350"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#132_springautoconfiguremetadataproperties_239",
+																					"TextMarkTextContent": "1.3.2 spring-autoconfigure-metadata.properties"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090350-she24gc",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090350-she24gc",
+										"updated": "20230331090350"
+									},
+									"Children": [
+										{
+											"ID": "20230331090350-odlk52q",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090350-odlk52q",
+												"updated": "20230331090350"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#2__244",
+													"TextMarkTextContent": "2. 总结"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090350-ztwdbt6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090350-ztwdbt6",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-d6i22q8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-d6i22q8",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#ImportSelectorDemo_262",
+									"TextMarkTextContent": "四、关于ImportSelector的简陋Demo"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090350-wahnk2n",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090350-wahnk2n",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-vobtij4",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090350-vobtij4",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"ID": "20230331090350-ninm16x",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090350-ninm16x",
+										"updated": "20230331090350"
+									},
+									"Children": [
+										{
+											"ID": "20230331090350-s01wu81",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090350-s01wu81",
+												"updated": "20230331090350"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#1___EnableDemo_264",
+													"TextMarkTextContent": "1. EnableDemo"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090350-e5btnv0",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090350-e5btnv0",
+										"updated": "20230331090350"
+									},
+									"Children": [
+										{
+											"ID": "20230331090350-gjssjhj",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090350-gjssjhj",
+												"updated": "20230331090350"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#2_DemoImportSelector_274",
+													"TextMarkTextContent": "2. DemoImportSelector"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090350-qci8r89",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090350-qci8r89",
+										"updated": "20230331090350"
+									},
+									"Children": [
+										{
+											"ID": "20230331090350-hhqh0xr",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090350-hhqh0xr",
+												"updated": "20230331090350"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#3_Demo_287",
+													"TextMarkTextContent": "3. Demo"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090350-m3ox7f4",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090350-m3ox7f4",
+										"updated": "20230331090350"
+									},
+									"Children": [
+										{
+											"ID": "20230331090350-5w3c5p5",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090350-5w3c5p5",
+												"updated": "20230331090350"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#4_DemoSpringRunner_297",
+													"TextMarkTextContent": "4. DemoSpringRunner"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090350-4ktls0n",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090350-4ktls0n",
+										"updated": "20230331090350"
+									},
+									"Children": [
+										{
+											"ID": "20230331090350-bs7aiif",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090350-bs7aiif",
+												"updated": "20230331090350"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105327732#4__311",
+													"TextMarkTextContent": "4. 测试"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-opiqvb8",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090350-opiqvb8",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-cpoxlev",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-cpoxlev",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是笔者阅读Spring源码的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-0rw2fsf",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090350-0rw2fsf",
+				"updated": "20230331090350"
+			}
+		},
+		{
+			"ID": "20230331090350-pl6o21y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-pl6o21y",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "借 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://www.cnblogs.com/niechen/p/8306376.html",
+					"TextMarkTextContent": "SpringBoot学习之自动装配"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 中一句话："
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\nSpringBoot并不属于一种新的技术，只不过Spring-Boot-Starter-xxxx的启动器帮我们配置了若干个被Spring管理的bean，当我们的项目依赖这些jar并启动Spring应用时，Spring的Container容器已经把jar包下的对象加以创建及管理了。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-dg227iy",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090350-dg227iy",
+				"updated": "20230331090350"
+			}
+		},
+		{
+			"ID": "20230331090350-wg1v6ho",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-wg1v6ho",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676111",
+					"TextMarkTextContent": "Spring源码分析十：SpringBoot中Mybatis的自动化配置"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 中我们解析了MyBatis 的自动化配置流程，其中我们提到MyBatis 通过自动装配的方式启用功能。本篇我们就分析一下自动装配的过程。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-wpnrc05",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-wpnrc05",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文就是来分析Springboot自动装配的源码实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-7vxu50t",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090350-7vxu50t",
+				"updated": "20230331090350"
+			}
+		},
+		{
+			"ID": "20230331090350-r2fwlgj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090350-r2fwlgj",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. ImportSelector"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-gkwzgxh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-gkwzgxh",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "之所以需要了解这个接口是因为下面的讲解离不开这个接口。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-r7rjbbw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-r7rjbbw",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "ImportSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 见名知意，是一种引入选择器。其中selectImports 方法返回的String[] 数组的元素是类的全路径名，Spring 会调用 selectImports, 并按照其返回的结果数组的元素指向的类加载到Spring容器中。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-0vygnue",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090350-0vygnue",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public interface ImportSelector { \n\n\t// 返回值将会被认为是类的全路径名，Spring通过反射将其返回的类路径加载到容器中\n\tString[] selectImports(AnnotationMetadata importingClassMetadata);\n\n\t// 获取排除过滤器\n\t@Nullable\n\tdefault Predicate\u003cString\u003e getExclusionFilter() { \n\t\treturn null;\n\t}\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-8bvm9xe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-8bvm9xe",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "关于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ImportSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的调用处理实际上是在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ConfigurationClassPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中。关于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ConfigurationClassPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的分析已经开设了文章，具体请看：\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106558290",
+					"TextMarkTextContent": "Spring 源码分析衍生篇七 ：ConfigurationClassPostProcessor 上篇"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-934tg9m",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090350-934tg9m",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. DeferredImportSelector"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-n5vlmj0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-n5vlmj0",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DeferredImportSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ImportSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口的子接口。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-j5vkq3f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-j5vkq3f",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DeferredImportSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 有两个特点："
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-dlp481b",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090350-dlp481b",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"ID": "20230331090350-b2mdecn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090350-b2mdecn",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-gznjx85",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-gznjx85",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "继承该接口的 ImportSelector会在最后执行。这一点是因为在"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ConfigurationClassParser#parse(java.util.Set\u0026lt;org.springframework.beans.factory.config.BeanDefinitionHolder\u0026gt;)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法中直到解析出来其他的候选配置类才会调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "this.deferredImportSelectorHandler.process();"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 来解析 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DeferredImportSelector"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090350-7vl7vyf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090350-7vl7vyf",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-mnsa5bm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-mnsa5bm",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果定义了一个以上的DeferredImportSelector则使用Order接口来进行排序。这一点也是在 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "this.deferredImportSelectorHandler.process();"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中进行了排序调用。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-ltgkmg2",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090350-ltgkmg2",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3. spring.factories"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-cfzqgvv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-cfzqgvv",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Springboot 强调约定大于配置，其中有一个约定就是 springboot启动的时候会加载 META-INF/spring.factories 文件。一般来说 spring.factories 都是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "key=value"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，key 是某一个类的全路径名，value 是一个或多个类的全路径名。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-aft9s4z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-aft9s4z",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-7m5qozt",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090350-7m5qozt",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "org.springframework.context.ApplicationContextInitializer=\\\norg.springframework.boot.autoconfigure.SharedMetadataReaderFactoryContextInitializer,\\\norg.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-tfjlw1a",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090350-tfjlw1a",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4. spring-autoconfigure-metadata.properties"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-96qsfv6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-96qsfv6",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "spring-autoconfigure-metadata.properties 和 spring.factories 类似，都是在 META-INF 目录下的文件。spring-autoconfigure-metadata.properties 的格式为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "key.自动装配条件=value"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。与spring.factories 不同的是 spring-autoconfigure-metadata.properties 管理的是 Bean的装配条件。\n假设有A，B两个类需要自动装配，但是B必须要在A装配后才能装配。我们仅仅spring.factories 是无法控制Bean的加载顺序，此时可以通过"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-njswdmr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090350-njswdmr",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "// com.kingfish.B、com.kingfish.A 为全路径名，AutoConfigureAfter  为装配条件\n// 即 B 需要在 A装配后进行装配\ncom.kingfish.B.AutoConfigureAfter = com.kingfish.A\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-t1ti9ne",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-t1ti9ne",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "即简单来说"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-os0l5zs",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090350-os0l5zs",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"ID": "20230331090350-d12jxz5",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090350-d12jxz5",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-i9k4d2f",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-i9k4d2f",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "spring.factories"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 控制哪些Bean进行装配"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090350-47fdr1u",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090350-47fdr1u",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-4midaht",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-4midaht",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "spring-autoconfigure-metadata.properties"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 控制Bean 装配的条件"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-3ctk6ix",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090350-3ctk6ix",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、源码解析"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-cbji4u0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090350-cbji4u0",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. 原理概述"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-7tgow0i",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-7tgow0i",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "要分析Springboot自动化配置的原理，首先我们需要看他的启动方式如下。下面的启动方式基本就是Springboot的固定启动方式。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-ugukcsv",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090350-ugukcsv",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@SpringBootApplication\npublic class DemoApplication { \n    public static void main(String[] args) { \n        SpringApplication.run(DemoApplication.class, args);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-abx0pp9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090350-abx0pp9",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1 @EnableAutoConfiguration"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-eljl0l9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-eljl0l9",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这时候我们进入 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@SpringBootApplication"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注解，发现 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@SpringBootApplication"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注解上赫然写着 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@EnableAutoConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注解，我们再进去 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@EnableAutoConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 查看。这里我们发现 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@EnableAutoConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注解通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Import(AutoConfigurationImportSelector.class)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 引入了一个类"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoConfigurationImportSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200405164246441-20230331090350-ebxcim3.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-ybel3rg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090350-ybel3rg",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2 AutoConfigurationImportSelector"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-yg5n8u4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-yg5n8u4",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2021030316590659-20230331090350-jlunsq3.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoConfigurationImportSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 实现了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DeferredImportSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-dv8aelv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-dv8aelv",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/114300705",
+					"TextMarkTextContent": "Spring 源码分析补充篇一 ：DeferredImportSelector 的处理"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 中我们介绍了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DeferredImportSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的处理流程 ： DeferredImportSelector 的处理过程并非是直接 调用ImportSelector"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "tag",
+					"TextMarkTextContent": "selectImports方法。而是调用 DeferredImportSelector.Group"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​process 和 Group#selectImports 方法来完成引入功能。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-wjsj8sh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-wjsj8sh",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所以下面我们直接来看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoConfigurationImportSelector.AutoConfigurationGroup"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中的实现"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-ostzzbg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090350-ostzzbg",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2.1 AutoConfigurationGroup#process"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-roi61c6",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090350-roi61c6",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t// org.springframework.boot.autoconfigure.AutoConfigurationImportSelector.AutoConfigurationGroup#process\n\t@Override\n\tpublic void process(AnnotationMetadata annotationMetadata, DeferredImportSelector deferredImportSelector) { \n\t\t// getAutoConfigurationMetadata() 方法读取并解析了spring-autoconfigure-metadata.properties 文件\n\t\t// AutoConfigurationEntry 包含，需要自动装配的类和需要排除的类 \n\t\tAutoConfigurationEntry autoConfigurationEntry = ((AutoConfigurationImportSelector) deferredImportSelector)\n\t\t\t\t.getAutoConfigurationEntry(getAutoConfigurationMetadata(), annotationMetadata);\n\t\t// 添加到 AutoConfigurationEntry集合中等待加载\n\t\tthis.autoConfigurationEntries.add(autoConfigurationEntry);\n\t\t// 将需要加载的 类添加到  entries 集合中，key 是 需要引入的类，value 是引入该类的类的一些信息\n\t\tfor (String importClassName : autoConfigurationEntry.getConfigurations()) { \n\t\t\tthis.entries.putIfAbsent(importClassName, annotationMetadata);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-ibatyvw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-ibatyvw",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "(AutoConfigurationImportSelector) deferredImportSelector) .getAutoConfigurationEntry"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-izz9s65",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090350-izz9s65",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t /**\n\t * org.springframework.boot.autoconfigure.AutoConfigurationImportSelector#getAutoConfigurationEntry\n\t */\n\tprotected AutoConfigurationEntry getAutoConfigurationEntry(AutoConfigurationMetadata autoConfigurationMetadata,\n\t\t\tAnnotationMetadata annotationMetadata) { \n\t\t// 判断是否启动自动装配\n\t\tif (!isEnabled(annotationMetadata)) { \n\t\t\treturn EMPTY_ENTRY;\n\t\t}\n\t\t// 获取 @SpringBootApplication 的注解属性exclude、excludeName。\n\t\tAnnotationAttributes attributes = getAttributes(annotationMetadata);\n\t\t// 获取未筛选前的配置类。这里读取了spring.factories 文件的内容\n\t\tList\u003cString\u003e configurations = getCandidateConfigurations(annotationMetadata, attributes);\n\t\t// 去除重复的配置类\n\t\tconfigurations = removeDuplicates(configurations);\n\t\t// 获取 需要排除的 配置类\n\t\tSet\u003cString\u003e exclusions = getExclusions(annotationMetadata, attributes);\n\t\t// 检查需要排除的配置类\n\t\tcheckExcludedClasses(configurations, exclusions);\n\t\t// 移除需要排除的配置类\n\t\tconfigurations.removeAll(exclusions);\n\t\t// 根据 spring-autoconfigure-metadata.properties  中的装配条件进行过滤\n\t\tconfigurations = filter(configurations, autoConfigurationMetadata);\n\t\t// 给 AutoConfigurationImportListener 发布一个onAutoConfigurationImportEvent事件\n\t\tfireAutoConfigurationImportEvents(configurations, exclusions);\n\t\t// 封装成一个 AutoConfigurationEntry 返回，其中包含，需要自动装配的类(configurations) 和需要排除的类 (exclusions)\n\t\treturn new AutoConfigurationEntry(configurations, exclusions);\n\t}\n\n\t// 这里我们看到可以通过设置 EnableAutoConfiguration.ENABLED_OVERRIDE_PROPERTY 属性来 控制是否开启自动化配置\n\tprotected boolean isEnabled(AnnotationMetadata metadata) { \n\t\tif (getClass() == AutoConfigurationImportSelector.class) { \n\t\t\treturn getEnvironment().getProperty(EnableAutoConfiguration.ENABLED_OVERRIDE_PROPERTY, Boolean.class, true);\n\t\t}\n\t\treturn true;\n\t}\n\n\t// 加载了 Spring.factories 文件的内容\n \tprotected List\u003cString\u003e getCandidateConfigurations(AnnotationMetadata metadata, AnnotationAttributes attributes) { \n \t\t// getSpringFactoriesLoaderFactoryClass() 返回的类型是  EnableAutoConfiguration.class。\n\t\tList\u003cString\u003e configurations = SpringFactoriesLoader.loadFactoryNames(getSpringFactoriesLoaderFactoryClass(),\n\t\t\t\tgetBeanClassLoader());\n\t\tAssert.notEmpty(configurations, \"No auto configuration classes found in META-INF/spring.factories. If you \"\n\t\t\t\t+ \"are using a custom packaging, make sure that file is correct.\");\n\t\treturn configurations;\n\t}\n\n\t/**\n\t * Return the class used by {@link SpringFactoriesLoader} to load configuration\n\t * candidates.\n\t * @return the factory class\n\t */\n\tprotected Class\u003c?\u003e getSpringFactoriesLoaderFactoryClass() { \n\t\treturn EnableAutoConfiguration.class;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-k7xew6z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-k7xew6z",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面强调几点 ："
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-9pji1ew",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090350-9pji1ew",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"ID": "20230331090350-y1h06cj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090350-y1h06cj",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-j5reu13",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-j5reu13",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "getCandidateConfigurations"
+								},
+								{
+									"Type": "NodeText",
+									"Data": " ：这个方法是去加载 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "META-INF/spring.factories"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 文件的。另外我们又发现 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "getSpringFactoriesLoaderFactoryClass"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 返回的就是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "EnableAutoConfiguration.class"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。也即是说，在这一步，Spring以 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "EnableAutoConfiguration.class"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​的全路径名字作为key 去获取 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "META-INF/spring.factories"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中对应的value。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090350-y4mt51i",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090350-y4mt51i",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-9zrxf0o",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-9zrxf0o",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "filter(configurations, autoConfigurationMetadata)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": " ：autoConfigurationMetadata 中保存的是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "spring-autoconfigure-metadata.properties"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 解析出来的内容。filter 根据此内容对配置类进行了一个过滤"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-keid7ca",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090350-keid7ca",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2.2 AutoConfigurationGroup#selectImports"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-z35bowe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-z35bowe",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoConfigurationGroup#process"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中我们知道了Spring将需要装配的类缓存到了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "autoConfigurationEntries"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "entries"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-w8zolyy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090350-w8zolyy",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t// org.springframework.boot.autoconfigure.AutoConfigurationImportSelector.AutoConfigurationGroup#selectImports\n\t@Override\n\tpublic Iterable\u003cEntry\u003e selectImports() { \n\t\t// 如果没有需要装配的类至极返回空集合\n\t\tif (this.autoConfigurationEntries.isEmpty()) { \n\t\t\treturn Collections.emptyList();\n\t\t}\n\t\t// 获取所有需要排除的 类集合\n\t\tSet\u003cString\u003e allExclusions = this.autoConfigurationEntries.stream()\n\t\t\t\t.map(AutoConfigurationEntry::getExclusions).flatMap(Collection::stream).collect(Collectors.toSet());\n\t\t// 获取所有需要装配的类集合\n\t\tSet\u003cString\u003e processedConfigurations = this.autoConfigurationEntries.stream()\n\t\t\t\t.map(AutoConfigurationEntry::getConfigurations).flatMap(Collection::stream)\n\t\t\t\t.collect(Collectors.toCollection(LinkedHashSet::new));\n\t\t// 移除所有排除类\n\t\tprocessedConfigurations.removeAll(allExclusions);\n\t\t// 将需要加载的类排序返回，排序规则按照 spring-autoconfigure-metadata.properties 中指定的顺序\n\t\treturn sortAutoConfigurations(processedConfigurations, getAutoConfigurationMetadata()).stream()\n\t\t\t\t.map((importClassName) -\u003e new Entry(this.entries.get(importClassName), importClassName))\n\t\t\t\t.collect(Collectors.toList());\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-8coj31l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-8coj31l",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "---------------======================"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-svi9s0e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-svi9s0e",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "再看一下 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SpringFactoriesLoader.loadFactoryNames"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法的实现。这里可以看到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "loadFactoryNames"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法其实上是根据类的全路径类名去 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "spring.factories"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中获取值。这里更细致的代码就不具体分析了"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-b4ctgz3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090350-b4ctgz3",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic static List\u003cString\u003e loadFactoryNames(Class\u003c?\u003e factoryType, @Nullable ClassLoader classLoader) { \n\t\tString factoryTypeName = factoryType.getName();\n\t\treturn loadSpringFactories(classLoader).getOrDefault(factoryTypeName, Collections.emptyList());\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-9bj3eqp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-9bj3eqp",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200405172626758-20230331090350-djnk9mf.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-ofg077o",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090350-ofg077o",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3 配置文件"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-p1xt3sf",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090350-p1xt3sf",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3.1 spring.factories"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-m4ifznz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-m4ifznz",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里找到 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "META-INF/spring.factories"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 看一下。可以看到都是 key-value形式，并且可以是一些注解的全路径名，value是需要加载的配置类。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200405171259195-20230331090349-knb361b.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-3q98lcc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090350-3q98lcc",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3.2 spring-autoconfigure-metadata.properties"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-bx9f9cv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-bx9f9cv",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210303181108891-20230331090349-62ox5pi.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-nqnjhyw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090350-nqnjhyw",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. 总结"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-xa4kplg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-xa4kplg",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "结合上述："
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-ysy697a",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090350-ysy697a",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"ID": "20230331090350-o0lj3dz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090350-o0lj3dz",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-jddhcxf",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-jddhcxf",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "首先需要创建 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "META-INF/spring.factories"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 文件，文件中的存储是key-value形式"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090350-akr6mbn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090350-akr6mbn",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-9yrbeza",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-9yrbeza",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@SpringBootApplication"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 注解 继承了 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@EnableAutoConfiguration 注解"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。而 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@EnableAutoConfiguration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 注解中引入了 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AutoConfigurationImportSelector"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 类。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090350-tfe3v70",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090350-tfe3v70",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-mx02blc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-mx02blc",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AutoConfigurationImportSelector"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 类会根据 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@EnableAutoConfiguration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 注解的全路径类名作为 key值加载 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "META-INF/spring.factories"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 文件 的value值，value值是预先配置好的，即当 使用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@EnableAutoConfiguration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 注解开启自动装配功能时就会加载对应value 所指向的配置类。(如果我们想定义扫描别的key，就可以模仿 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AutoConfigurationImportSelector"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 来实现 )"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090350-922pol7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090350-922pol7",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-0oaazvv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-0oaazvv",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "将value值对应的配置类信息返回，并作为 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AutoConfigurationImportSelector#selectImports"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法的返回值返回。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090350-ub67b18",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230331090350-ub67b18",
+						"updated": "20230331090350"
+					},
+					"Children": [
+						{
+							"ID": "20230331090350-80r16q4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090350-80r16q4",
+								"updated": "20230331090350"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Springboot会根据 selectImports 的返回值中的配置类全路径名加载对应的配置类。这些配置类再完成相应的工作实现自动装配功能。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-ajyttef",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090350-ajyttef",
+				"updated": "20230331090350"
+			}
+		},
+		{
+			"ID": "20230331090350-ohx198t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-ohx198t",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简单来说，Spring通过 @EnableXXX 注解来启用某项功能的原理是通过 @EnableXXX 上的@Import 注解来引入 自定义的ImportSelector实现类，并在其 selectImports 方法中将该功能需要使用的类注入到Spring容器中，从而达到启用某项功能。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-lprydlr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-lprydlr",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "额外的，如果想要在Spring引入 jar 时就启用功能（比如MyBatis）。可以在 spring.factories 文件中以"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.boot.autoconfigure.EnableAutoConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 为key，以需要引入的类的全路径名作为value。\n因为Spring 启动时会扫描所有的spring.factories 文件中的key为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.boot.autoconfigure.EnableAutoConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的值并将其value通过反射注入到容器中。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-e8blkfq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-e8blkfq",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下图为MyBatis 的spring.factories文件内容。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200630184338393-20230331090350-jlafo63.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-m9hdzjl",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090350-m9hdzjl",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四、关于ImportSelector的简陋Demo"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-okepnqq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090350-okepnqq",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. EnableDemo"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-75hxw6t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-75hxw6t",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "自定义注解 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@EnableDemo"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，作为启用注解"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-lycsdbn",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090350-lycsdbn",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Target(ElementType.TYPE)\n@Retention(RetentionPolicy.RUNTIME)\n@Documented\n@Import(MyImportSelector.class)\npublic @interface EnableDemo { \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-e4625ck",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090350-e4625ck",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. DemoImportSelector"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-ujmd2de",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-ujmd2de",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "看注释看注释。。。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-28yrt70",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090350-28yrt70",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class DemoImportSelector implements ImportSelector { \n    @Override\n    public String[] selectImports(AnnotationMetadata importingClassMetadata) { \n        // 也可以在 META-INF/spring.factories 配置加载类并获取返回\n        // 返回类的全路径地址，会被Spring按照路径加载到容器中\n        return new String[]{ \"com.kingfish.auto.Demo\"};\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-g2o7vfc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090350-g2o7vfc",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3. Demo"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-gha2zx1",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090350-gha2zx1",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Demo { \n    public void getmsg(){ \n        System.out.println(\"Demo.getmsg\");\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-0uzj8u2",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090350-0uzj8u2",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4. DemoSpringRunner"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-pl070cf",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090350-pl070cf",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class DemoSpringRunner  implements ApplicationRunner { \n    @Autowired\n    private Demo demo;\n    @Override\n    public void run(ApplicationArguments args) throws Exception { \n        demo.getmsg();\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-j57l5u6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090350-j57l5u6",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4. 测试"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-pxq6zqy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-pxq6zqy",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面可以看到，我们并没有使用常规的注入方式将 Demo类注入到容器中。我们启动测试。可以看到Demo正常加载并输出。大功告成！\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200405173559450-20230331090350-it2vwks.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090350-somt5i1",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090350-somt5i1",
+				"updated": "20230331090350"
+			}
+		},
+		{
+			"ID": "20230331090350-nggmkej",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090350-nggmkej",
+				"updated": "20230331090350"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考《Spring源码深度解析》、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://blog.csdn.net/boling_cavalry/article/details/82555352",
+					"TextMarkTextContent": "https://blog.csdn.net/boling_cavalry/article/details/82555352"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://www.jianshu.com/p/480ebb1ecc8b",
+					"TextMarkTextContent": "https://www.jianshu.com/p/480ebb1ecc8b"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

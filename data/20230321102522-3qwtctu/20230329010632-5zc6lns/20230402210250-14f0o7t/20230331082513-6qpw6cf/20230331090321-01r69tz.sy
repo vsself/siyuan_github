@@ -1,0 +1,3802 @@
+{
+	"ID": "20230331090321-01r69tz",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331090321-01r69tz",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230331090321-d26gm52\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230331090321-ysnsq4q\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230331090321-d26gm52\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "Spring源码分析十：SpringBoot中Mybatis的自动化配置_spring boot的默认basepackage会被mybatis-plus的自动配置扫描_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331090404"
+	},
+	"Children": [
+		{
+			"ID": "20230331090321-d26gm52",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090321-d26gm52",
+				"updated": "20230331090321"
+			}
+		},
+		{
+			"ID": "20230331090321-juzvxs0",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090321-juzvxs0",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"ID": "20230331090321-uliu4rx",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090321-uliu4rx",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-cs9tkor",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-cs9tkor",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676111",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/106676111"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090321-eosc5a7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090321-eosc5a7",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-rcs50mr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-rcs50mr",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "文章目录一、前言二、一、前言本文是笔者阅读Spring源码的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。二、..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090321-18aaqym",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090321-18aaqym",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-61n1kem",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-61n1kem",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:03:21"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-m778qbe",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090321-m778qbe",
+				"updated": "20230331090321"
+			}
+		},
+		{
+			"ID": "20230331090321-g6mpb8p",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090321-g6mpb8p",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-znkixe3",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090321-znkixe3",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"ID": "20230331090321-yte8aqf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090321-yte8aqf",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-9zm2089",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-9zm2089",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676111#_2",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090321-qx2m61g",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090321-qx2m61g",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-0g4xdlm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-0g4xdlm",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676111#MybatisAutoConfiguration_28",
+									"TextMarkTextContent": "二、MybatisAutoConfiguration"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090321-11hincr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090321-11hincr",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-2rrmp86",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090321-2rrmp86",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"ID": "20230331090321-n0oyfle",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090321-n0oyfle",
+										"updated": "20230331090321"
+									},
+									"Children": [
+										{
+											"ID": "20230331090321-ok48ujp",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090321-ok48ujp",
+												"updated": "20230331090321"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676111#1_MybatisAutoConfiguration___82",
+													"TextMarkTextContent": "1. MybatisAutoConfiguration 的声明。"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090321-fgg25iy",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090321-fgg25iy",
+										"updated": "20230331090321"
+									},
+									"Children": [
+										{
+											"ID": "20230331090321-embqvmk",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090321-embqvmk",
+												"updated": "20230331090321"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676111#2_SqlSessionFactory__102",
+													"TextMarkTextContent": "2. SqlSessionFactory 的注入"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090321-asywl9p",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090321-asywl9p",
+										"updated": "20230331090321"
+									},
+									"Children": [
+										{
+											"ID": "20230331090321-sqhxuze",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090321-sqhxuze",
+												"updated": "20230331090321"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676111#3_AutoConfiguredMapperScannerRegistrar___333",
+													"TextMarkTextContent": "3. AutoConfiguredMapperScannerRegistrar 的注入"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090321-2dko2eq",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090321-2dko2eq",
+										"updated": "20230331090321"
+									},
+									"Children": [
+										{
+											"ID": "20230331090321-yrcthrf",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090321-yrcthrf",
+												"updated": "20230331090321"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676111#4_MapperScannerConfigurer_397",
+													"TextMarkTextContent": "4. MapperScannerConfigurer"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090321-j8c56ap",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090321-j8c56ap",
+										"updated": "20230331090321"
+									},
+									"Children": [
+										{
+											"ID": "20230331090321-qoqvft5",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331090321-qoqvft5",
+												"updated": "20230331090321"
+											},
+											"Children": [
+												{
+													"ID": "20230331090321-zpq6rvg",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090321-zpq6rvg",
+														"updated": "20230331090321"
+													},
+													"Children": [
+														{
+															"ID": "20230331090321-lgsnfqb",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090321-lgsnfqb",
+																"updated": "20230331090321"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676111#41_processPropertyPlaceHolders_443",
+																	"TextMarkTextContent": "4.1. processPropertyPlaceHolders();"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090321-3vzcgre",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090321-3vzcgre",
+														"updated": "20230331090321"
+													},
+													"Children": [
+														{
+															"ID": "20230331090321-pp3wwqt",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090321-pp3wwqt",
+																"updated": "20230331090321"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676111#42__480",
+																	"TextMarkTextContent": "4.2. 根据配置属性生成过滤器"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090321-l6uho3g",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090321-l6uho3g",
+														"updated": "20230331090321"
+													},
+													"Children": [
+														{
+															"ID": "20230331090321-qffyvog",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090321-qffyvog",
+																"updated": "20230331090321"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676111#43_Java__521",
+																	"TextMarkTextContent": "4.3. 扫描Java 文件"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090321-77mznym",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090321-77mznym",
+														"updated": "20230331090321"
+													},
+													"Children": [
+														{
+															"ID": "20230331090321-1djrd11",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090321-1djrd11",
+																"updated": "20230331090321"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676111#44_Mapper___MapperFactoryBean_621",
+																	"TextMarkTextContent": "4.4. Mapper 的封装 - MapperFactoryBean"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-3nu8r91",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090321-3nu8r91",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-uzsikne",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-uzsikne",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是笔者阅读Spring源码的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-r5ns4in",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090321-r5ns4in",
+				"updated": "20230331090321"
+			}
+		},
+		{
+			"ID": "20230331090321-rciojjl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-rciojjl",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "本文并非是讲解 Mybatis 源码！！！！而是讲解在SpringBoot 中如何实现MyBatis 的自动装配过程。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-o8z2py2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-o8z2py2",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=MyBatis\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "MyBatis"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 直接引入对应依赖即可调用，而不需要通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@EnableXXX"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 等注解来启用该功能，所以我们推测在 Springboot 中，MyBatis 是通过 Springboot 的自动装配实现的功能注入。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-rqi4upv",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090321-rqi4upv",
+				"updated": "20230331090321"
+			}
+		},
+		{
+			"ID": "20230331090321-51qma19",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-51qma19",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从pom 文件中我们引入了"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-3k0jrzr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-3k0jrzr",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "     \u003cdependency\u003e\n            \u003cgroupId\u003eorg.mybatis.spring.boot\u003c/groupId\u003e\n            \u003cartifactId\u003emybatis-spring-boot-starter\u003c/artifactId\u003e\n     \u003c/dependency\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-vkf1d0o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-vkf1d0o",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们可以推测自动化配置的内容肯定在于此。从 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "spring.factories"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 文件我们能知道，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MybatisAutoConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 是MyBatis 被引入的关键类。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-t3f6odp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-t3f6odp",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200613132256676-20230331090321-7soj4v7.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-e9x3qw8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-e9x3qw8",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所以我们下面来看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MybatisAutoConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 完成了什么工作"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-m8u0bqd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090321-m8u0bqd",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、MybatisAutoConfiguration"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-5iphhzq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-5iphhzq",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们首先来看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MybatisAutoConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类的结构，以下代码经过精简。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-8vw428f",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-8vw428f",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@org.springframework.context.annotation.Configuration\n@ConditionalOnClass({  SqlSessionFactory.class, SqlSessionFactoryBean.class })\n@ConditionalOnSingleCandidate(DataSource.class)\n@EnableConfigurationProperties(MybatisProperties.class)\n@AutoConfigureAfter({  DataSourceAutoConfiguration.class, MybatisLanguageDriverAutoConfiguration.class })\npublic class MybatisAutoConfiguration implements InitializingBean{ \n\t  @Override\n  public void afterPropertiesSet() { \n    checkConfigFileExists();\n  }\n\n  @Bean\n  @ConditionalOnMissingBean\n  public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception { \n  \t...\n  }\n\n  @Bean\n  @ConditionalOnMissingBean\n  public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) { \n  \t...\n  }\n\n  public static class AutoConfiguredMapperScannerRegistrar implements BeanFactoryAware, ImportBeanDefinitionRegistrar { \n \t...\n  }\n\n  @org.springframework.context.annotation.Configuration\n  @Import(AutoConfiguredMapperScannerRegistrar.class)\n  @ConditionalOnMissingBean({  MapperFactoryBean.class, MapperScannerConfigurer.class })\n  public static class MapperScannerRegistrarNotFoundConfiguration implements InitializingBean { \n\n    @Override\n    public void afterPropertiesSet() { \n      logger.debug(\n          \"Not found configuration for registering mapper bean using @MapperScan, MapperFactoryBean and MapperScannerConfigurer.\");\n    }\n\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-mb0xxct",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-mb0xxct",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从上面的内容我们可以了解到 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MybatisAutoConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 得知以下几件事："
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-ycz633y",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090321-ycz633y",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"ID": "20230331090321-ztlp1st",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090321-ztlp1st",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-ooqbr4z",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-ooqbr4z",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MybatisAutoConfiguration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 作为配置类，依赖于"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "SqlSessionFactory"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​、"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "SqlSessionFactoryBean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​、"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DataSource"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​、"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DataSourceAutoConfiguration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​、"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MybatisLanguageDriverAutoConfiguration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​等类。同时引入了"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MybatisProperties"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 作为 MyBatis 相关配置类。同时实现了"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "InitializingBean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 接口，在 创建的时候回调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "afterPropertiesSet"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090321-uq5aejw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090321-uq5aejw",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-cddud5u",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-cddud5u",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "若其他地方未注入 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "SqlSessionFactory"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​， 则 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MybatisAutoConfiguration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 进行注入。这里注入的是通过"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "SqlSessionFactoryBean.getObject"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 获取的，后面会解释。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090321-729arjt",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090321-729arjt",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-0hma5mi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-0hma5mi",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "若其他地方未注入 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "SqlSessionTemplate"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​， 则 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MybatisAutoConfiguration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 进行注入"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090321-zmdxr64",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090321-zmdxr64",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-qq5pnqp",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-qq5pnqp",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "若其他地方未注入 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MapperFactoryBean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​、"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MapperScannerConfigurer"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​， 则 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MybatisAutoConfiguration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 进行注入，并引入 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AutoConfiguredMapperScannerRegistrar"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 类。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-tvhrwgw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-tvhrwgw",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们主要关注下面几个点。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-zux5er4",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090321-zux5er4",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. MybatisAutoConfiguration 的声明。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-q1gbu65",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-q1gbu65",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@org.springframework.context.annotation.Configuration\n@ConditionalOnClass({  SqlSessionFactory.class, SqlSessionFactoryBean.class })\n@ConditionalOnSingleCandidate(DataSource.class)\n@EnableConfigurationProperties(MybatisProperties.class)\n@AutoConfigureAfter({  DataSourceAutoConfiguration.class, MybatisLanguageDriverAutoConfiguration.class })\npublic class MybatisAutoConfiguration implements InitializingBean { \n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-7lnt28f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-7lnt28f",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MybatisAutoConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的声明上面有一大堆注解。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-v81r5x0",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090321-v81r5x0",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"ID": "20230331090321-w1jd1g2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090321-w1jd1g2",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-k1dci9f",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-k1dci9f",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@Configuration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 声明该类为配置类，不用多说"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090321-8qeo9kb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090321-8qeo9kb",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-14dv3vb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-14dv3vb",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@ConditionalOnClass({ SqlSessionFactory.class, SqlSessionFactoryBean.class })"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 表示在容器中注入了 SqlSessionFactory、SqlSessionFactoryBean 后才会注入该bean。这里 SqlSessionFactory 类是MyBatis 的的功能的基础， 而SqlSessionFactoryBean 则是实现了 FactoryBean 接口，也是为了适合Spring 获取 SqlSessionFactory。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090321-rb1iada",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090321-rb1iada",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-h5y18i7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-h5y18i7",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@ConditionalOnSingleCandidate(DataSource.class)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 表示 容器中有单例的 DataSource 时才注入容器"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090321-d5do6hi",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090321-d5do6hi",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-y211iyu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-y211iyu",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@EnableConfigurationProperties(MybatisProperties.class)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 启用配置属性。MybatisProperties 中保存了Mybatis 的相关配置信息"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090321-b6nk5dy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090321-b6nk5dy",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-u8d9po8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-u8d9po8",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@AutoConfigureAfter({ DataSourceAutoConfiguration.class, MybatisLanguageDriverAutoConfiguration.class })"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 作用是控制配置类的加载顺序，在"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DataSourceAutoConfiguration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​、"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MybatisLanguageDriverAutoConfiguration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​加载后加载本类。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-dv0fwut",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090321-dv0fwut",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. SqlSessionFactory 的注入"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-mjzgees",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-mjzgees",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "关于 SqlSessionFactory 的配置，Mybatis 可以通过 xml的配置类方式进行，但是在Springboot中，我们也可以通过 yml 配置文件直接进行配置(​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "这里说的yml只是SpringBoot配置文件的一种，并不代表只能用yml。下同，yml代表SpringBoot的配置文件配置)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，如下的两种配置就等价。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200613143238665-20230331090320-0q9pkbf.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-zz133oe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-zz133oe",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "即： Mybatis 的配置有两种，一种通过 xml配置，这种需要制定xml的路径，即 ConfigLocation。另一种像上面的yml配置，这种需要保存其配置的属性，即 ConfigurationProperties"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-fpouwbv",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090321-fpouwbv",
+				"updated": "20230331090321"
+			}
+		},
+		{
+			"ID": "20230331090321-7x17dtx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-7x17dtx",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对于 MyBatis 来说，其提供的SqlSessionFactory 注入方式是通过Xml 方式进行注册。而Springboot扩展了通过yml 配置文件进行配置。所以我们来看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MybatisAutoConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中对于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "sqlSessionFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的注入。这里可以看到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "sqlSessionFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的注入是通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SqlSessionFactoryBean.getObject"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 实现的。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-a1352b6",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-a1352b6",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  @Bean\n  @ConditionalOnMissingBean\n  public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception { \n    SqlSessionFactoryBean factory = new SqlSessionFactoryBean();\n    factory.setDataSource(dataSource);\n    factory.setVfs(SpringBootVFS.class);\n    // 如果配置了 配置文件地址 config-location 保存起来\n    if (StringUtils.hasText(this.properties.getConfigLocation())) { \n      factory.setConfigLocation(this.resourceLoader.getResource(this.properties.getConfigLocation()));\n    }\n \t// 应用自定义配置，如果  config-location 存在则不使用该配置\n    applyConfiguration(factory);\n    // 如果配置了配置属性，保存属性\n    if (this.properties.getConfigurationProperties() != null) { \n      factory.setConfigurationProperties(this.properties.getConfigurationProperties());\n    }\n    // 下面同样逻辑，保存各种配置。\n    if (!ObjectUtils.isEmpty(this.interceptors)) { \n      factory.setPlugins(this.interceptors);\n    }\n    if (this.databaseIdProvider != null) { \n      factory.setDatabaseIdProvider(this.databaseIdProvider);\n    }\n    if (StringUtils.hasLength(this.properties.getTypeAliasesPackage())) { \n      factory.setTypeAliasesPackage(this.properties.getTypeAliasesPackage());\n    }\n    if (this.properties.getTypeAliasesSuperType() != null) { \n      factory.setTypeAliasesSuperType(this.properties.getTypeAliasesSuperType());\n    }\n    if (StringUtils.hasLength(this.properties.getTypeHandlersPackage())) { \n      factory.setTypeHandlersPackage(this.properties.getTypeHandlersPackage());\n    }\n    if (!ObjectUtils.isEmpty(this.typeHandlers)) { \n      factory.setTypeHandlers(this.typeHandlers);\n    }\n    if (!ObjectUtils.isEmpty(this.properties.resolveMapperLocations())) { \n      factory.setMapperLocations(this.properties.resolveMapperLocations());\n    }\n    Set\u003cString\u003e factoryPropertyNames = Stream\n        .of(new BeanWrapperImpl(SqlSessionFactoryBean.class).getPropertyDescriptors()).map(PropertyDescriptor::getName)\n        .collect(Collectors.toSet());\n    Class\u003c? extends LanguageDriver\u003e defaultLanguageDriver = this.properties.getDefaultScriptingLanguageDriver();\n    if (factoryPropertyNames.contains(\"scriptingLanguageDrivers\") \u0026\u0026 !ObjectUtils.isEmpty(this.languageDrivers)) { \n      // Need to mybatis-spring 2.0.2+\n      factory.setScriptingLanguageDrivers(this.languageDrivers);\n      if (defaultLanguageDriver == null \u0026\u0026 this.languageDrivers.length == 1) { \n        defaultLanguageDriver = this.languageDrivers[0].getClass();\n      }\n    }\n    if (factoryPropertyNames.contains(\"defaultScriptingLanguageDriver\")) { \n      // Need to mybatis-spring 2.0.2+\n      factory.setDefaultScriptingLanguageDriver(defaultLanguageDriver);\n    }\n\t// 获取 SqlSessionFactory \n    return factory.getObject();\n  }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-77ydah7",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090321-77ydah7",
+				"updated": "20230331090321"
+			}
+		},
+		{
+			"ID": "20230331090321-qgv27tw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-qgv27tw",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到 这里是通过 ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "SqlSessionFactoryBean 将各种属性保存后通过getObject 返回了封装好的 SqlSessionFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。SqlSessionFactoryBean 很明显是一个 FactoryBean，FactoryBean 最大的好处是给予了我们自定义Bean的创建过程，而这里通过读取了 yml文件中的配置，通过 SqlSessionFactoryBean 来定制了 SqlSessionFactory 。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-ya0dzvn",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090321-ya0dzvn",
+				"updated": "20230331090321"
+			}
+		},
+		{
+			"ID": "20230331090321-9ph6wly",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-9ph6wly",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里直接来看 ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "SqlSessionFactoryBean.getObject 是如何初始化 SqlSessionFactory 的"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​："
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-em7c7kb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-em7c7kb",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到，getObject 时会判断 sqlSessionFactory 是否初始化，没有则会对 sqlSessionFactory 进行初始化"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-3vgwxct",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-3vgwxct",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  @Override\n  public SqlSessionFactory getObject() throws Exception { \n    if (this.sqlSessionFactory == null) { \n      afterPropertiesSet();\n    }\n\n    return this.sqlSessionFactory;\n  }\n\n  @Override\n  public void afterPropertiesSet() throws Exception { \n    notNull(dataSource, \"Property 'dataSource' is required\");\n    notNull(sqlSessionFactoryBuilder, \"Property 'sqlSessionFactoryBuilder' is required\");\n    state((configuration == null \u0026\u0026 configLocation == null) || !(configuration != null \u0026\u0026 configLocation != null),\n        \"Property 'configuration' and 'configLocation' can not specified with together\");\n\n    this.sqlSessionFactory = buildSqlSessionFactory();\n  }\n\n  protected SqlSessionFactory buildSqlSessionFactory() throws Exception { \n\n    final Configuration targetConfiguration;\n\n    XMLConfigBuilder xmlConfigBuilder = null;\n    // 如果使用了yml 配置。则使用 yml配置\n    if (this.configuration != null) { \n      targetConfiguration = this.configuration;\n      if (targetConfiguration.getVariables() == null) { \n        targetConfiguration.setVariables(this.configurationProperties);\n      } else if (this.configurationProperties != null) { \n        targetConfiguration.getVariables().putAll(this.configurationProperties);\n      }\n      // 如果指定了xml配置文件，则使用xml配置文件的配置。\n    } else if (this.configLocation != null) { \n      xmlConfigBuilder = new XMLConfigBuilder(this.configLocation.getInputStream(), null, this.configurationProperties);\n      targetConfiguration = xmlConfigBuilder.getConfiguration();\n    } else { \n      LOGGER.debug(\n          () -\u003e \"Property 'configuration' or 'configLocation' not specified, using default MyBatis Configuration\");\n      targetConfiguration = new Configuration();\n      Optional.ofNullable(this.configurationProperties).ifPresent(targetConfiguration::setVariables);\n    }\n\n    Optional.ofNullable(this.objectFactory).ifPresent(targetConfiguration::setObjectFactory);\n    Optional.ofNullable(this.objectWrapperFactory).ifPresent(targetConfiguration::setObjectWrapperFactory);\n    Optional.ofNullable(this.vfs).ifPresent(targetConfiguration::setVfsImpl);\n\t// 下面进行一大堆属性的赋值，不再赘述\n    if (hasLength(this.typeAliasesPackage)) { \n    \t// 过滤出 非匿名类 \u0026\u0026 非接口 \u0026\u0026 非内部类 进行别名注册\n      scanClasses(this.typeAliasesPackage, this.typeAliasesSuperType).stream()\n          .filter(clazz -\u003e !clazz.isAnonymousClass()).filter(clazz -\u003e !clazz.isInterface())\n          .filter(clazz -\u003e !clazz.isMemberClass()).forEach(targetConfiguration.getTypeAliasRegistry()::registerAlias);\n    }\n\n    if (!isEmpty(this.typeAliases)) { \n      Stream.of(this.typeAliases).forEach(typeAlias -\u003e { \n        targetConfiguration.getTypeAliasRegistry().registerAlias(typeAlias);\n        LOGGER.debug(() -\u003e \"Registered type alias: '\" + typeAlias + \"'\");\n      });\n    }\n\n    if (!isEmpty(this.plugins)) { \n      Stream.of(this.plugins).forEach(plugin -\u003e { \n        targetConfiguration.addInterceptor(plugin);\n        LOGGER.debug(() -\u003e \"Registered plugin: '\" + plugin + \"'\");\n      });\n    }\n\n    if (hasLength(this.typeHandlersPackage)) { \n      scanClasses(this.typeHandlersPackage, TypeHandler.class).stream().filter(clazz -\u003e !clazz.isAnonymousClass())\n          .filter(clazz -\u003e !clazz.isInterface()).filter(clazz -\u003e !Modifier.isAbstract(clazz.getModifiers()))\n          .forEach(targetConfiguration.getTypeHandlerRegistry()::register);\n    }\n\n    if (!isEmpty(this.typeHandlers)) { \n      Stream.of(this.typeHandlers).forEach(typeHandler -\u003e { \n        targetConfiguration.getTypeHandlerRegistry().register(typeHandler);\n        LOGGER.debug(() -\u003e \"Registered type handler: '\" + typeHandler + \"'\");\n      });\n    }\n\n    targetConfiguration.setDefaultEnumTypeHandler(defaultEnumTypeHandler);\n\n    if (!isEmpty(this.scriptingLanguageDrivers)) { \n      Stream.of(this.scriptingLanguageDrivers).forEach(languageDriver -\u003e { \n        targetConfiguration.getLanguageRegistry().register(languageDriver);\n        LOGGER.debug(() -\u003e \"Registered scripting language driver: '\" + languageDriver + \"'\");\n      });\n    }\n    Optional.ofNullable(this.defaultScriptingLanguageDriver)\n        .ifPresent(targetConfiguration::setDefaultScriptingLanguage);\n\n    if (this.databaseIdProvider != null) { // fix #64 set databaseId before parse mapper xmls\n      try { \n        targetConfiguration.setDatabaseId(this.databaseIdProvider.getDatabaseId(this.dataSource));\n      } catch (SQLException e) { \n        throw new NestedIOException(\"Failed getting a databaseId\", e);\n      }\n    }\n\n    Optional.ofNullable(this.cache).ifPresent(targetConfiguration::addCache);\n\n    if (xmlConfigBuilder != null) { \n      try { \n        xmlConfigBuilder.parse();\n        LOGGER.debug(() -\u003e \"Parsed configuration file: '\" + this.configLocation + \"'\");\n      } catch (Exception ex) { \n        throw new NestedIOException(\"Failed to parse config resource: \" + this.configLocation, ex);\n      } finally { \n        ErrorContext.instance().reset();\n      }\n    }\n\n    targetConfiguration.setEnvironment(new Environment(this.environment,\n        this.transactionFactory == null ? new SpringManagedTransactionFactory() : this.transactionFactory,\n        this.dataSource));\n\n    if (this.mapperLocations != null) { \n      if (this.mapperLocations.length == 0) { \n        LOGGER.warn(() -\u003e \"Property 'mapperLocations' was specified but matching resources are not found.\");\n      } else { \n        for (Resource mapperLocation : this.mapperLocations) { \n          if (mapperLocation == null) { \n            continue;\n          }\n          try { \n            XMLMapperBuilder xmlMapperBuilder = new XMLMapperBuilder(mapperLocation.getInputStream(),\n                targetConfiguration, mapperLocation.toString(), targetConfiguration.getSqlFragments());\n            xmlMapperBuilder.parse();\n          } catch (Exception e) { \n            throw new NestedIOException(\"Failed to parse mapping resource: '\" + mapperLocation + \"'\", e);\n          } finally { \n            ErrorContext.instance().reset();\n          }\n          LOGGER.debug(() -\u003e \"Parsed mapper file: '\" + mapperLocation + \"'\");\n        }\n      }\n    } else { \n      LOGGER.debug(() -\u003e \"Property 'mapperLocations' was not specified.\");\n    }\n\n    return this.sqlSessionFactoryBuilder.build(targetConfiguration);\n  }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-lg4goos",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-lg4goos",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "上面可以看出 ："
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-bhabee0",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090321-bhabee0",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"ID": "20230331090321-bsn9fa3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090321-bsn9fa3",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-vdtjpyf",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-vdtjpyf",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "SpringBoot 配置方式优先级高于 XML配置方式"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090321-5m5ne0f",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090321-5m5ne0f",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-fviq6r7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-fviq6r7",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "SpringBoot 通过SqlSessionFactoryBean 的方式，在原先 Mybatis 的基础上又封装了一次，以适应 SpringBoot 配置文件方式的配置。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-lfc0noa",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090321-lfc0noa",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3. AutoConfiguredMapperScannerRegistrar 的注入"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-zyghzwc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-zyghzwc",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面一步适配了 Springboot的配置方式配置，将 SqlSessionFactory 注册到了 Spring容器中。而 MyBatis 本身提供了一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Mapper"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注解，被这个注解标注的 接口会被注入到Spring容器中，并与Mapper文件一一映射，但是Spring本身并不支持 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Mapper"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​注解的扫描。那么"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Mapper"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的工作就需要 MyBatis 自己完成， MyBatis 通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperScannerConfigurer"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 来进行对 Mapper的扫描。而 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoConfiguredMapperScannerRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中则是将 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperScannerConfigurer"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注册到Spring中。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-1gcev4x",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090321-1gcev4x",
+				"updated": "20230331090321"
+			}
+		},
+		{
+			"ID": "20230331090321-lxr5718",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-lxr5718",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoConfiguredMapperScannerRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 是在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperScannerRegistrarNotFoundConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 是声明中通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Import"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注解引入的。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-do1zbru",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-do1zbru",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  @org.springframework.context.annotation.Configuration\n  @Import(AutoConfiguredMapperScannerRegistrar.class)\n  @ConditionalOnMissingBean({  MapperFactoryBean.class, MapperScannerConfigurer.class })\n  public static class MapperScannerRegistrarNotFoundConfiguration implements InitializingBean { \n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-hia64wy",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090321-hia64wy",
+				"updated": "20230331090321"
+			}
+		},
+		{
+			"ID": "20230331090321-owuelyr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-owuelyr",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoConfiguredMapperScannerRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的声明，实现了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryAware"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​(可以获得 BeanFactory)，实现了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ImportBeanDefinitionRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "我们可以通过这个接口提供的registerBeanDefinitions 方法中完成BeanDefinition 的注册修改等操作，具体逻辑在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106558290",
+					"TextMarkTextContent": "Spring 源码分析衍生篇七 ：ConfigurationClassPostProcessor 上篇"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 中有过分析。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-6fiure0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-6fiure0",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面是详细代码"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-nw6tv2f",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-nw6tv2f",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": " public static class AutoConfiguredMapperScannerRegistrar implements BeanFactoryAware, ImportBeanDefinitionRegistrar { \n\n    private BeanFactory beanFactory;\n\n    @Override\n    public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) { \n\t\t// 对自动扫描功能是否启用的校验 ： 容器中是否注册了 AutoConfigurationPackages\n      if (!AutoConfigurationPackages.has(this.beanFactory)) { \n        logger.debug(\"Could not determine auto-configuration package, automatic mapper scanning disabled.\");\n        return;\n      }\n\n      logger.debug(\"Searching for mappers annotated with @Mapper\");\n\t\t// 获取 AutoConfigurationPackages 指定的扫描的路径\n      List\u003cString\u003e packages = AutoConfigurationPackages.get(this.beanFactory);\n      if (logger.isDebugEnabled()) { \n        packages.forEach(pkg -\u003e logger.debug(\"Using auto-configuration base package '{}'\", pkg));\n      }\n\t  // 创建 BeanDefinition 的创建器，并添加指定的属性\n      BeanDefinitionBuilder builder = BeanDefinitionBuilder.genericBeanDefinition(MapperScannerConfigurer.class);\n      builder.addPropertyValue(\"processPropertyPlaceHolders\", true);\n      // 设置需要扫描的注解 @Mapper\n      builder.addPropertyValue(\"annotationClass\", Mapper.class);\n      // 设置扫描路径\n      builder.addPropertyValue(\"basePackage\", StringUtils.collectionToCommaDelimitedString(packages));\n      BeanWrapper beanWrapper = new BeanWrapperImpl(MapperScannerConfigurer.class);\n      // 对懒加载属性的设置\n      Stream.of(beanWrapper.getPropertyDescriptors())\n          // Need to mybatis-spring 2.0.2+\n          .filter(x -\u003e x.getName().equals(\"lazyInitialization\")).findAny()\n          .ifPresent(x -\u003e builder.addPropertyValue(\"lazyInitialization\", \"${mybatis.lazy-initialization:false}\"));\n      // 将 MapperScannerConfigurer 的 BeanDefinition 注册到 Spring容器中\n      registry.registerBeanDefinition(MapperScannerConfigurer.class.getName(), builder.getBeanDefinition());\n    }\n\n    @Override\n    public void setBeanFactory(BeanFactory beanFactory) { \n      this.beanFactory = beanFactory;\n    }\n\n  }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-8iq292g",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-8iq292g",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "逻辑很简单，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "Spring不给我扫描@Mapper，我自己创建一个 MapperScannerConfigurer 扫描一遍@Mapper 注解注入不就行了。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-32dxu85",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090321-32dxu85",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4. MapperScannerConfigurer"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-jczit4f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-jczit4f",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在上面的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoConfiguredMapperScannerRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的声明中，我们看到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperScannerRegistrarNotFoundConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​需要在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperScannerConfigurer"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 不存在时注入，在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoConfiguredMapperScannerRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中对 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperScannerConfigurer"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 进行了注入，完成了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Mapper"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注解的扫描。下面我们就来看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperScannerConfigurer"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现是如何扫描@Mapper 注解的。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-4118r8o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-4118r8o",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "需要注意的是，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@MapperScan"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注解核心功能也是基于此类。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-6am85r8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-6am85r8",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2020061316555275-20230331090320-kiajppj.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-aoiwk1h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-aoiwk1h",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperScannerConfigurer"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 实现了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​, "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InitializingBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​, "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ApplicationContextAware"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​, "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanNameAware"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 四个接口。这里我们主要看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现方法。\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的后处理器，本文不再解释其用法，具体请看："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106447003",
+					"TextMarkTextContent": "Spring源码分析七：BeanFactoryPostProcessor 的处理 - invokeBeanFactoryPostProcessors"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-o1k2jgg",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090321-o1k2jgg",
+				"updated": "20230331090321"
+			}
+		},
+		{
+			"ID": "20230331090321-cia4oye",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-cia4oye",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里我们直接看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "postProcessBeanDefinitionRegistry"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-p4qrytp",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-p4qrytp",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  @Override\n  public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) { \n    if (this.processPropertyPlaceHolders) { \n      processPropertyPlaceHolders();\n    }\n\t// 为扫描设置各种属性\n    ClassPathMapperScanner scanner = new ClassPathMapperScanner(registry);\n    scanner.setAddToConfig(this.addToConfig);\n    scanner.setAnnotationClass(this.annotationClass);\n    scanner.setMarkerInterface(this.markerInterface);\n    scanner.setSqlSessionFactory(this.sqlSessionFactory);\n    scanner.setSqlSessionTemplate(this.sqlSessionTemplate);\n    scanner.setSqlSessionFactoryBeanName(this.sqlSessionFactoryBeanName);\n    scanner.setSqlSessionTemplateBeanName(this.sqlSessionTemplateBeanName);\n    scanner.setResourceLoader(this.applicationContext);\n    scanner.setBeanNameGenerator(this.nameGenerator);\n    scanner.setMapperFactoryBeanClass(this.mapperFactoryBeanClass);\n    if (StringUtils.hasText(lazyInitialization)) { \n      scanner.setLazyInitialization(Boolean.valueOf(lazyInitialization));\n    }\n  \t// 注册过滤器\n    scanner.registerFilters();\n    // 开始扫描\n    scanner.scan(\n        StringUtils.tokenizeToStringArray(this.basePackage, ConfigurableApplicationContext.CONFIG_LOCATION_DELIMITERS));\n  }\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-6hakq96",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090321-6hakq96",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4.1. processPropertyPlaceHolders();"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-x5kcv8r",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-x5kcv8r",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的调用时机要"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "早于"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryPostProcessor#postProcessBeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。这就会导致 在执行"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperScannerConfigurer#postProcessBeanDefinitionRegistry"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法时, "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "PropertyResourceConfigurer#postProcessBeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法还未执行，属性文件则没有被加载，导致所有对于属性文件的引用将会失效。所以这里为了避免这种情况的发生，选择使用了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "processPropertyPlaceHolders"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法来手动找出定义的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PropertyResourceConfigurer"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 并进行提前调用以保证对于属性的引用可以正常工作。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-uoibz2g",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090321-uoibz2g",
+				"updated": "20230331090321"
+			}
+		},
+		{
+			"ID": "20230331090321-u9edr7u",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-u9edr7u",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "比如：\ndemo.xml如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-z9h8v7q",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-z9h8v7q",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"\u003e\n    \u003cbean id=\"demo\" class=\"org.springframework.context.support.PropertySourcesPlaceholderConfigurer\"\u003e\n        \u003cproperty name=\"locations\"\u003e\n            \u003clist\u003e\n                \u003cvalue\u003emybatis/demo.properties\u003c/value\u003e\n            \u003c/list\u003e\n        \u003c/property\u003e\n    \u003c/bean\u003e\n\n    \u003cbean class=\"org.mybatis.spring.mapper.MapperScannerConfigurer\"\u003e\n        \u003cproperty name=\"basePackage\" value=\"${basePackage}}\"/\u003e\n    \u003c/bean\u003e\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-durausc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-durausc",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 mybatis/demo.properties 文件如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-5e5swr0",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-5e5swr0",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "basePackage=com.kingfish.springjdbcdemo\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-s7bog1b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-s7bog1b",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "但是实际上 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "${basePackage}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 并没有起到作用，因为在解析 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "${basePackage}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 时 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PropertySourcesPlaceholderConfigurer"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 还没有被调用，并没有解析属性文件中的内容，所以Spring还不能直接使用。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-d4lb1ys",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-d4lb1ys",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这一步的作用就是为了解决这种问题。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-zs36tya",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090321-zs36tya",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4.2. 根据配置属性生成过滤器"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-1p6pcrv",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-1p6pcrv",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": " public void registerFilters() { \n    boolean acceptAllInterfaces = true;\n\n    // if specified, use the given annotation and / or marker interface\n    // 处理 annotationClass  属性\n    if (this.annotationClass != null) { \n      addIncludeFilter(new AnnotationTypeFilter(this.annotationClass));\n      acceptAllInterfaces = false;\n    }\n\n    // override AssignableTypeFilter to ignore matches on the actual marker interface\n    // 处理 markerInterface  属性\n    if (this.markerInterface != null) { \n      addIncludeFilter(new AssignableTypeFilter(this.markerInterface) { \n        @Override\n        protected boolean matchClassName(String className) { \n          return false;\n        }\n      });\n      acceptAllInterfaces = false;\n    }\n\t// 修改 acceptAllInterfaces属性\n    if (acceptAllInterfaces) { \n      // default include filter that accepts all classes\n      addIncludeFilter((metadataReader, metadataReaderFactory) -\u003e true);\n    }\n\n    // exclude package-info.java\n    // package-info.java 的处理\n    addExcludeFilter((metadataReader, metadataReaderFactory) -\u003e { \n      String className = metadataReader.getClassMetadata().getClassName();\n      return className.endsWith(\"package-info\");\n    });\n  }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-00oc9ou",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-00oc9ou",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "该方法主要是对 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "annotationClass"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "markerInterface"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 属性的处理 ， 表明扫描过程中只接受标记有注解为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "annotationClass"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 的接口 和 实现了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "markerInterface"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 的接口"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。 如果 annotationClass 和 arkerInterface 有任意一个存在属性，则会将 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "acceptAllInterfaces"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 值改变，否则Spring会增加一个默认的过滤器实现 TypeFilter 接口的局部类，接受所有的接口文件。同时对于 package-info.java 命名的java文件，默认不作为逻辑实现接口，将其排除掉。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-ljfu02t",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090321-ljfu02t",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4.3. 扫描Java 文件"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-g2wcb9x",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-g2wcb9x",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic int scan(String... basePackages) { \n\t\tint beanCountAtScanStart = this.registry.getBeanDefinitionCount();\n\n\t\tdoScan(basePackages);\n\n\t\t// Register annotation config processors, if necessary.\n\t\tif (this.includeAnnotationConfig) { \n\t\t\tAnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);\n\t\t}\n\n\t\treturn (this.registry.getBeanDefinitionCount() - beanCountAtScanStart);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-3o2wrpr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-3o2wrpr",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里还是看到 doScan 方法，doScan 的实现类在 ClassPathMapperScanner中，如下。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-g384hi8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-g384hi8",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public Set\u003cBeanDefinitionHolder\u003e doScan(String... basePackages) { \n\t// 调用 ClassPathBeanDefinitionScanner#doScan 方法\n    Set\u003cBeanDefinitionHolder\u003e beanDefinitions = super.doScan(basePackages);\n\n    if (beanDefinitions.isEmpty()) { \n      LOGGER.warn(() -\u003e \"No MyBatis mapper was found in '\" + Arrays.toString(basePackages)\n          + \"' package. Please check your configuration.\");\n    } else { \n    // 对 BeanDefinition 进行进一步处理\n      processBeanDefinitions(beanDefinitions);\n    }\n\n    return beanDefinitions;\n  }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-bi12h1b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-bi12h1b",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里不再关注 super.doScan 。主要来看看将BeanDefinition 扫描出来后又做了什么，我们来看 processBeanDefinitions 方法的实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-ngsetln",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-ngsetln",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\n  private Class\u003c? extends MapperFactoryBean\u003e mapperFactoryBeanClass = MapperFactoryBean.class;\n\n\n  private void processBeanDefinitions(Set\u003cBeanDefinitionHolder\u003e beanDefinitions) { \n    GenericBeanDefinition definition;\n    for (BeanDefinitionHolder holder : beanDefinitions) { \n      definition = (GenericBeanDefinition) holder.getBeanDefinition();\n      String beanClassName = definition.getBeanClassName();\n      // 从这里打印日志可以看到，这里准备创建 MapperFactoryBean 来代理 Mapper \n      LOGGER.debug(() -\u003e \"Creating MapperFactoryBean with name '\" + holder.getBeanName() + \"' and '\" + beanClassName\n          + \"' mapperInterface\");\n\n      // the mapper interface is the original class of the bean\n      // but, the actual class of the bean is MapperFactoryBean\n      // 设置MapperFactoryBean 的构造参数为 原 Mapper类型\n      definition.getConstructorArgumentValues().addGenericArgumentValue(beanClassName); // issue #59\n      // 设置bean为 MapperFactoryBean 类型\n      definition.setBeanClass(this.mapperFactoryBeanClass);\n\n      definition.getPropertyValues().add(\"addToConfig\", this.addToConfig);\n\n      boolean explicitFactoryUsed = false;\n      // 设置MapperFactoryBean 需要 sqlSessionFactory 属性\n      if (StringUtils.hasText(this.sqlSessionFactoryBeanName)) { \n        definition.getPropertyValues().add(\"sqlSessionFactory\",\n            new RuntimeBeanReference(this.sqlSessionFactoryBeanName));\n        explicitFactoryUsed = true;\n      } else if (this.sqlSessionFactory != null) { \n        definition.getPropertyValues().add(\"sqlSessionFactory\", this.sqlSessionFactory);\n        explicitFactoryUsed = true;\n      }\n\n      if (StringUtils.hasText(this.sqlSessionTemplateBeanName)) { \n        if (explicitFactoryUsed) { \n          LOGGER.warn(\n              () -\u003e \"Cannot use both: sqlSessionTemplate and sqlSessionFactory together. sqlSessionFactory is ignored.\");\n        }\n        definition.getPropertyValues().add(\"sqlSessionTemplate\",\n            new RuntimeBeanReference(this.sqlSessionTemplateBeanName));\n        explicitFactoryUsed = true;\n      } else if (this.sqlSessionTemplate != null) { \n        if (explicitFactoryUsed) { \n          LOGGER.warn(\n              () -\u003e \"Cannot use both: sqlSessionTemplate and sqlSessionFactory together. sqlSessionFactory is ignored.\");\n        }\n        definition.getPropertyValues().add(\"sqlSessionTemplate\", this.sqlSessionTemplate);\n        explicitFactoryUsed = true;\n      }\n\n      if (!explicitFactoryUsed) { \n        LOGGER.debug(() -\u003e \"Enabling autowire by type for MapperFactoryBean with name '\" + holder.getBeanName() + \"'.\");\n        definition.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);\n      }\n      definition.setLazyInit(lazyInitialization);\n    }\n  }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-73wa9pn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-73wa9pn",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里可以看到，将原先的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Mapper"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 全部动态替换成了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。比如原先扫描出来的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "UserMapper"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ ，这里会将其替换成 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperFactorybean\u0026lt;UserMapper\u0026gt; 的BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 。由于在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ClassPathBeanDefinitionScanner#doScan"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中扫描时就已经注册到BeanFactory 中，这里获取的是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的引用，即是将容器中的每个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Mapper的 BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 改为了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-tryg7eu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-tryg7eu",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简单一句话来说，就是在Spring容器中为每个Mapper文件动态注册了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。后面获取的Mapper都是进过"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperFactoryBean.getObject"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中获取。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-9i5m58d",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090321-9i5m58d",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4.4. Mapper 的封装 - MapperFactoryBean"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-7kyeagd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-7kyeagd",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面我们讲到，Spring 将所有的Mapper类型封装成了 MapperFactoryBean。那么MapperFactoryBean又做了什么，我们下面来看一下。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-pfz975p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-pfz975p",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在MyBatis单独使用时，调用数据库接口的方式是："
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-1ute3pm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-1ute3pm",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  UserMapper mapper = sqlSession.getMapper(UserMapper.class);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-k6hysi4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-k6hysi4",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "而在Spring中创建的方式却是："
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-6nb85pw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-6nb85pw",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  UserMapper mapper =  (UserMapper)context.getBean(\"userMapper\");\n  UserMapper mapper =  context.getBean(UserMapper.class);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-6dkvgrd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-6dkvgrd",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 在获取 UserMapper的bean时候其方式和MyBatis 原生方式并不相同，为了完成和单独使用MyBatis 完成了一样的功能。那么Spring必然是在MyBatis 原生基础上再封装了一层。而这一层的封装就在于MapperFactoryBean 。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-tp9iuv8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-tp9iuv8",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们来看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的声明。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-epiat97",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-epiat97",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MapperFactoryBean\u003cT\u003e extends SqlSessionDaoSupport implements FactoryBean\u003cT\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-j87kbb5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-j87kbb5",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2020061315061062-20230331090320-rqsk1o3.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-ysnsq4q",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090321-ysnsq4q",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"ID": "20230331090321-4nruy1i",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090321-4nruy1i",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-9ux49rz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-9ux49rz",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "继承了 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "SqlSessionDaoSupport"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 类，这个稍后在看"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090321-45f7g5v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090321-45f7g5v",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-58tl9ou",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-58tl9ou",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "实现了 FactoryBean 接口，这个接口的作用请参考："
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105748071",
+									"TextMarkTextContent": "Spring 源码分析衍生篇一：FactoryBean介绍"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "。这里简单提一下，当调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "run.getBean(\u0026quot;demoFactoryBean\u0026quot;);"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 时，Spring通过反射会发现 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DemoFactoryBean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 实现了"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "FactoryBean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​接口，则会直接调用 其"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "getObject()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法，并将方法的返回值注入到Spring容器中。而如果想要获得"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DemoFactoryBean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 实例，则需要在 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "beanName"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​前加上 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "\u0026amp;"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ，即 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "run.getBean(\u0026quot;\u0026amp;demoFactoryBean\u0026quot;);"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​**"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090321-k945zu3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090321-k945zu3",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-7vxb60n",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-7vxb60n",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "由于最上层的DaoSupport 实现了 InitializingBean。我们这里需要看看 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "afterPropertiesSet"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-6h4o8nx",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-6h4o8nx",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic final void afterPropertiesSet() throws IllegalArgumentException, BeanInitializationException { \n\t\t// Let abstract subclasses check their configuration.\n\t\tcheckDaoConfig();\n\n\t\t// Let concrete implementations initialize themselves.\n\t\ttry { \n\t\t\tinitDao();\n\t\t}\n\t\tcatch (Exception ex) { \n\t\t\tthrow new BeanInitializationException(\"Initialization of DAO failed\", ex);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-6bq1gf3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-6bq1gf3",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们来看一看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MapperFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "checkDaoConfig"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 实现"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-bcc1p9x",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-bcc1p9x",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  @Override\n  protected void checkDaoConfig() { \n  \t// 调用了 SqlSessionDaoSupport 的checkDaoConfig。判断了一下 sqlSessionTemplate 是否为空\n    super.checkDaoConfig();\n\t// 这里的mapperInterface 是 Mapper 接口Class \n    notNull(this.mapperInterface, \"Property 'mapperInterface' is required\");\n\t// 映射文件存在性验证。\n    Configuration configuration = getSqlSession().getConfiguration();\n    // 如果不存在 xml 映射文件，但是存在 Mapper.java ，则需要将当前的Mapper添加到Mapper容器中\n    if (this.addToConfig \u0026\u0026 !configuration.hasMapper(this.mapperInterface)) { \n      try { \n        configuration.addMapper(this.mapperInterface);\n      } catch (Exception e) { \n        logger.error(\"Error while adding the mapper '\" + this.mapperInterface + \"' to configuration.\", e);\n        throw new IllegalArgumentException(e);\n      } finally { \n        ErrorContext.instance().reset();\n      }\n    }\n  }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-3md6nmw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-3md6nmw",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里解释一下关于映射文件存在性的验证，在MyBatis 实现过程中并没有手动调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "configuration.addMapper"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法，而是在映射文件读取过程中一旦解析到 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "\u0026lt;mapper namespace=\u0026quot;...\u0026quot;\u0026gt;"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，便会自动进行类型映射的注册。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-u1z0m7j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-u1z0m7j",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在上面的函数中， c"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "onfiguration.addMapper(this.mapperInterface);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​其实就是将 UserMapper 注册到映射类型中，如果这个接口存在对应的映射文件，那么这一步其实没有什么意义，但是由于这些配置是由我们自行决定配置，无法保证这里的配置的接口一定存在对应的映射文件，所以这里的验证非常有必要。在执行此代码的时候，MyBatis 会检查嵌入的映射接口是否存在对应的映射文件，如果没有则抛出异常。Spring 正是在用这种方式来完成接口对应的映射文件存在性验证。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-nz8vvr9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-nz8vvr9",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "getObject 的实现很简单，就是对 原生MyBatis 封装了一层。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-g5n8wfy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090321-g5n8wfy",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  @Override\n  public T getObject() throws Exception { \n    return getSqlSession().getMapper(this.mapperInterface);\n  }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-m4d37jx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-m4d37jx",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "也就是说，对于每一个Mapper， 注入到Spring容器中的都是对应的MapperFactoryBean。在获取Mapper的时候会获取到对应的 MapperFactorybean随后调用其getObject ，将其返回值作为bean返回。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-647u77v",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090321-647u77v",
+				"updated": "20230331090321"
+			}
+		},
+		{
+			"ID": "20230331090321-6rjehcq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-6rjehcq",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对于FactoryBean的使用，我到现在还没有完全理解其使用意义。所以以下是个人的推测\nMapper 文件使用MapperFactoryBean 有两点考量："
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-gqb7opj",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090321-gqb7opj",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"ID": "20230331090321-pyga612",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090321-pyga612",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-rw657pb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-rw657pb",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "在 Spring 中使用MyBatis 可以仅仅定义Mapper 接口而不定义xml，而MyBatis 是通过读取xml 的方式来注入Mapper(读取到XML后，通过 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "\u0026lt;mapper namespace=\u0026quot;...\u0026quot;\u0026gt;"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 找到对应的Mapper接口，从而注册到SqlSession 中)。而如果我们不定义XML，那么会出现MyBatis 无法感知到 Mapper 接口，无法保存到SqlSession 中。为了使MyBatis 可以感知到Mapper接口，在每个Mapper创建后需要检查当前Mapper是否已经在 SqlSession中已经注册，如果没有注册，则进行一次注册。而通过 MapperFactoryBean，在每个MapperFactoryBean 创建的时候，我们都可以来检测Mapper是否已经注册。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090321-uk5u0a2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090321-uk5u0a2",
+						"updated": "20230331090321"
+					},
+					"Children": [
+						{
+							"ID": "20230331090321-mq32l2a",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090321-mq32l2a",
+								"updated": "20230331090321"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "MyBatis 对Mapper的创建是通过代理实现，这一部分MyBatis 已经实现，即我们获取到的Mapper实际上是一个代理类。试想一下，Spring如果不通过MapperFactoryBean 来从sqlSession 中获取Mapper代理，那么就需要自己重写一遍 Mapper的代理过程，这是不可取的。所以Spring通过 MapperFactoryBean 做了一层代理，通过MapperFactoryBean 从SqlSession 中获取 Mapper文件，将Mapper 代理创建交由MyBatis 来创建。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-41gz88z",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090321-41gz88z",
+				"updated": "20230331090321"
+			}
+		},
+		{
+			"ID": "20230331090321-3arleql",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-3arleql",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "借 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://www.jianshu.com/p/0226ef0a9f5e",
+					"TextMarkTextContent": "一次讲透彻 beanFactory和factoryBean"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 中描述FactoryBean的一句话："
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n总结来说，就是一种方法，要么是解决生成BeanDefinition的困难；要么是解决反射实例化bean时候遇到的困难，将spring不好自动化处理的逻辑写到getObject方法内。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090321-4b0ruzq",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090321-4b0ruzq",
+				"updated": "20230331090321"
+			}
+		},
+		{
+			"ID": "20230331090321-pr3knsn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090321-pr3knsn",
+				"updated": "20230331090321"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考《Spring源码深度解析》如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

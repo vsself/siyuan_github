@@ -1,0 +1,289 @@
+{
+	"ID": "20230329171707-6k1dk8y",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230329171707-6k1dk8y",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230329171733-92bersl\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230329172425-w2uulp1\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230329172000-5n210us\u0026quot;,\u0026quot;focusStart\u0026quot;:23,\u0026quot;focusEnd\u0026quot;:23}",
+		"title": "final",
+		"updated": "20230329172425"
+	},
+	"Children": [
+		{
+			"ID": "20230329171733-92bersl",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230329171733-92bersl",
+				"updated": "20230329172425"
+			},
+			"Children": [
+				{
+					"ID": "20230329171754-9ey82o5",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230329171754-9ey82o5",
+						"updated": "20230329171754"
+					},
+					"Children": [
+						{
+							"ID": "20230329171754-ozl81lw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230329171754-ozl81lw",
+								"updated": "20230329171754"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "final 修饰变量，表示变量的值不可改变，此时该变量可被称为常量。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230329172000-oauak8y",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230329172000-oauak8y"
+					},
+					"Children": [
+						{
+							"ID": "20230329172000-5n210us",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230329172000-5n210us"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "final 修饰方法，表示方法不能被子类重写；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230329172003-yo59wkv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230329172003-yo59wkv"
+					},
+					"Children": [
+						{
+							"ID": "20230329172003-jf4p0w6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230329172003-jf4p0w6"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "final 用在类的前面表示该类不能有子类，即该类不可以被继承。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230329172007-o22icp7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230329172007-o22icp7",
+						"updated": "20230329172425"
+					},
+					"Children": [
+						{
+							"ID": "20230329172007-z6di9nw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230329172007-z6di9nw"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "final 修饰方法参数是为了防止数据在方法体中被修改"
+								}
+							]
+						},
+						{
+							"ID": "20230329172036-nctkmuh",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230329172036-nctkmuh",
+								"updated": "20230329172425"
+							},
+							"Children": [
+								{
+									"ID": "20230329172036-vb0wj1x",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230329172036-vb0wj1x",
+										"updated": "20230329172221"
+									},
+									"Children": [
+										{
+											"ID": "20230329172036-e2e7d7x",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230329172036-e2e7d7x",
+												"updated": "20230329172221"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "修饰基本类型 参数值不能在函数中被修改"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "block-ref",
+													"TextMarkBlockRefID": "20230329172117-39omykv",
+													"TextMarkBlockRefSubtype": "d",
+													"TextMarkTextContent": "public static void test(final int param) {        param = 7;}Cannot assign a value to final vari..."
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230329172204-p0ds14u",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "Mi4=",
+										"Num": 2
+									},
+									"Properties": {
+										"id": "20230329172204-p0ds14u",
+										"updated": "20230329172425"
+									},
+									"Children": [
+										{
+											"ID": "20230329172204-zd9f4un",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230329172204-zd9f4un",
+												"updated": "20230329172425"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "修饰引用类型 参数的引用对象不能在函数中改变"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "block-ref",
+													"TextMarkBlockRefID": "20230329171749-h93ncii",
+													"TextMarkBlockRefSubtype": "d",
+													"TextMarkTextContent": "public static void test(final Person person){        Person person=new Person();}Variable \u0026apos;p..."
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230329172117-39omykv",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329172117-39omykv",
+				"updated": "20230329172415"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public static void test(final int param) {\n        param = 7;\n}\nCannot assign a value to final variable 'param'\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329171749-h93ncii",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329171749-h93ncii",
+				"updated": "20230329172400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public static void test(final Person person){\n        Person person=new Person();\n}\nVariable 'person' is already defined in the scope\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329172425-w2uulp1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329172425-w2uulp1"
+			}
+		}
+	]
+}

@@ -1,0 +1,2610 @@
+{
+	"ID": "20230331090526-o58hryq",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331090526-o58hryq",
+		"title": "Spring源码分析十五：事务实现① - AutoProxyRegistrar_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331090526"
+	},
+	"Children": [
+		{
+			"ID": "20230331090526-4uu2oso",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090526-4uu2oso",
+				"updated": "20230331090526"
+			}
+		},
+		{
+			"ID": "20230331090526-wrnnye0",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090526-wrnnye0",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"ID": "20230331090526-lucu516",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090526-lucu516",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-nczgsxk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-nczgsxk",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676116",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/106676116"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090526-3gucsr0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090526-3gucsr0",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-oegp3r8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-oegp3r8",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "文章目录一、前言二、一、前言本文是笔者阅读Spring源码的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。二、..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090526-ur7bn11",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090526-ur7bn11",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-3tmq3az",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-3tmq3az",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:05:26"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-l2q4dmx",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090526-l2q4dmx",
+				"updated": "20230331090526"
+			}
+		},
+		{
+			"ID": "20230331090526-76cvqls",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090526-76cvqls",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-0v9z6wh",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090526-0v9z6wh",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"ID": "20230331090526-e3n5e4g",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090526-e3n5e4g",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-7qwr232",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-7qwr232",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676116#_3",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090526-y31jkrw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090526-y31jkrw",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-bzk2wvn",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-bzk2wvn",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676116#EnableTransactionManagement_24",
+									"TextMarkTextContent": "二、@EnableTransactionManagement"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090526-rgli0fr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090526-rgli0fr",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-l8gx26c",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-l8gx26c",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676116#TransactionManagementConfigurationSelector_48",
+									"TextMarkTextContent": "三、TransactionManagementConfigurationSelector"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090526-ps3lwez",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090526-ps3lwez",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-05l9sl2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-05l9sl2",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676116#AutoProxyRegistrar_118",
+									"TextMarkTextContent": "四、AutoProxyRegistrar"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090526-uae5lv2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090526-uae5lv2",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-u4hz0wh",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090526-u4hz0wh",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"ID": "20230331090526-htlwuk2",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090526-htlwuk2",
+										"updated": "20230331090526"
+									},
+									"Children": [
+										{
+											"ID": "20230331090526-5lhnzoc",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090526-5lhnzoc",
+												"updated": "20230331090526"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676116#1_AopConfigUtilsregisterAutoProxyCreatorIfNecessaryregistry_158",
+													"TextMarkTextContent": "1. AopConfigUtils.registerAutoProxyCreatorIfNecessary(registry)"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090526-bd2vp4z",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090526-bd2vp4z",
+										"updated": "20230331090526"
+									},
+									"Children": [
+										{
+											"ID": "20230331090526-cba2qyy",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090526-cba2qyy",
+												"updated": "20230331090526"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676116#2_InfrastructureAdvisorAutoProxyCreator_251",
+													"TextMarkTextContent": "2. InfrastructureAdvisorAutoProxyCreator"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090526-ssc4f92",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090526-ssc4f92",
+										"updated": "20230331090526"
+									},
+									"Children": [
+										{
+											"ID": "20230331090526-iydj4r7",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090526-iydj4r7",
+												"updated": "20230331090526"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676116#3__findCandidateAdvisors__286",
+													"TextMarkTextContent": "3. 事务中的 findCandidateAdvisors 方法"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-u4i32sy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090526-u4i32sy",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-jcu8p8d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-jcu8p8d",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是笔者阅读Spring"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E6%BA%90%E7%A0%81\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "源码"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-8a44e8v",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090526-8a44e8v",
+				"updated": "20230331090526"
+			}
+		},
+		{
+			"ID": "20230331090526-vnnblti",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-vnnblti",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于 事务的源码和 前篇的 Aop 源码逻辑很类似，所以本篇中某些内容不会展开去讲解，建议先阅读完 全集目录中的Aop部分，再来阅读本文会更好理解。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-rvcvj56",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-rvcvj56",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "全集目录："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106440723",
+					"TextMarkTextContent": "Spring源码分析：全集整理"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-0vw7s82",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090526-0vw7s82",
+				"updated": "20230331090526"
+			}
+		},
+		{
+			"ID": "20230331090526-g1siibh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-g1siibh",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这是一个巨长的篇章…\n全集目录如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-j8jkbr8",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090526-j8jkbr8",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"ID": "20230331090526-arw7k0i",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090526-arw7k0i",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-52rbjv9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-52rbjv9",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676116",
+									"TextMarkTextContent": "Spring源码分析十五：事务实现① - AutoProxyRegistrar"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090526-5usdt64",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090526-5usdt64",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-0o4otzu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-0o4otzu",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359",
+									"TextMarkTextContent": "Spring源码分析十六：事务实现② - ProxyTransactionManagementConfiguration"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090526-nbcoxk0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090526-nbcoxk0",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-50qw3jv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-50qw3jv",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307",
+									"TextMarkTextContent": "Spring源码分析十七：事务实现③ - 事务的创建"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090526-ua1qeix",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090526-ua1qeix",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-vxysrii",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-vxysrii",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323",
+									"TextMarkTextContent": "Spring源码分析十八：事务实现④ - 事务的回滚"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090526-q8r1xqn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230331090526-q8r1xqn",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-25jz5e2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-25jz5e2",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299336",
+									"TextMarkTextContent": "Spring源码分析十九：事务实现⑤ - 事务的提交"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-aoh3m7z",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090526-aoh3m7z",
+				"updated": "20230331090526"
+			}
+		},
+		{
+			"ID": "20230331090526-wex8dow",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090526-wex8dow",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、@EnableTransactionManagement"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-fc8m6b4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-fc8m6b4",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们在Springboot 中开始事务管理很简单，使用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@EnableTransactionManagement"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注解即可。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-x1d2rus",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-x1d2rus",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "那么也就说明 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@EnableTransactionManagement"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 是我们分析的入口了。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-4oum3uc",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090526-4oum3uc",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Target(ElementType.TYPE)\n@Retention(RetentionPolicy.RUNTIME)\n@Documented\n@Import(TransactionManagementConfigurationSelector.class)\npublic @interface EnableTransactionManagement { \n\n\tboolean proxyTargetClass() default false;\n\n\tAdviceMode mode() default AdviceMode.PROXY;\n\n\tint order() default Ordered.LOWEST_PRECEDENCE;\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-kdaeawj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-kdaeawj",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "很明显了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Import(TransactionManagementConfigurationSelector.class)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 指向我们去看\n去看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionManagementConfigurationSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-tu1fnsp",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090526-tu1fnsp",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、TransactionManagementConfigurationSelector"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-a14q2or",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-a14q2or",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200614132949768-20230331090526-lgz80vf.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-rwq2pi2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-rwq2pi2",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionManagementConfigurationSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 间接实现了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ImportSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口，关于这个接口，在讲述 Springboot的自动装配时候有过具体解释，这里简单提一下就是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ImportSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 会根据 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "selectImports"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 返回的字符串数组(一般是类的全路径名) 通过反射加载该类并注册到Spring容器中。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-8c6j8xq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-8c6j8xq",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所以我们这里必然来看一下 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "selectImports"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法了，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ImportSelector #selectImports"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现在其父类"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AdviceModeImportSelector#selectImports"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-ekv5p3v",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090526-ekv5p3v",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic final String[] selectImports(AnnotationMetadata importingClassMetadata) { \n\t\t// 获取注解类型， 这里是 EnableTransactionManagement\n\t\tClass\u003c?\u003e annType = GenericTypeResolver.resolveTypeArgument(getClass(), AdviceModeImportSelector.class);\n\t\tAssert.state(annType != null, \"Unresolvable type argument for AdviceModeImportSelector\");\n\t\t// 解析出 @EnableTransactionManagement 注解的参数\n\t\tAnnotationAttributes attributes = AnnotationConfigUtils.attributesFor(importingClassMetadata, annType);\n\t\tif (attributes == null) { \n\t\t\tthrow new IllegalArgumentException(String.format(\n\t\t\t\t\t\"@%s is not present on importing class '%s' as expected\",\n\t\t\t\t\tannType.getSimpleName(), importingClassMetadata.getClassName()));\n\t\t}\n\t\t// 获取mode属性。EnableTransactionManagement 默认mode =  AdviceMode.PROXY\n\t\tAdviceMode adviceMode = attributes.getEnum(getAdviceModeAttributeName());\n\t\t// 调用 TransactionManagementConfigurationSelector#selectImports\n\t\tString[] imports = selectImports(adviceMode);\n\t\tif (imports == null) { \n\t\t\tthrow new IllegalArgumentException(\"Unknown AdviceMode: \" + adviceMode);\n\t\t}\n\t\treturn imports;\n\t}\n\t...\n\t\t@Nullable\n\tprotected abstract String[] selectImports(AdviceMode adviceMode);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-osgl09x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-osgl09x",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以知道了 这里是将 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "protected abstract String[] selectImports(AdviceMode adviceMode);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 返回的值返回给 Spring。这里我们看看在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionManagementConfigurationSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "selectImports(AdviceMode adviceMode)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法的实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-7kn4q86",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090526-7kn4q86",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class TransactionManagementConfigurationSelector extends AdviceModeImportSelector\u003cEnableTransactionManagement\u003e { \n\n\t@Override\n\tprotected String[] selectImports(AdviceMode adviceMode) { \n\t\t// 默认值 是 PROXY。个人猜测是通过 代理模式实现事务，如果是 ASPECTJ 则是通过 ASPECTJ的方式实现，AspectJ 需要单独引入编译\n\t\tswitch (adviceMode) { \n\t\t\tcase PROXY:\n\t\t\t\treturn new String[] { AutoProxyRegistrar.class.getName(),\n\t\t\t\t\t\tProxyTransactionManagementConfiguration.class.getName()};\n\t\t\tcase ASPECTJ:\n\t\t\t\treturn new String[] { determineTransactionAspectClass()};\n\t\t\tdefault:\n\t\t\t\treturn null;\n\t\t}\n\t}\n\n\tprivate String determineTransactionAspectClass() { \n\t\treturn (ClassUtils.isPresent(\"javax.transaction.Transactional\", getClass().getClassLoader()) ?\n\t\t\t\tTransactionManagementConfigUtils.JTA_TRANSACTION_ASPECT_CONFIGURATION_CLASS_NAME :\n\t\t\t\tTransactionManagementConfigUtils.TRANSACTION_ASPECT_CONFIGURATION_CLASS_NAME);\n\t}\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-3xkf2lp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-3xkf2lp",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "到这里就可以看到了，默认情况下，我们引入了两个类，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoProxyRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 和"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-w55wxqp",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090526-w55wxqp",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"ID": "20230331090526-7zao29f",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090526-7zao29f",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-i5mhldg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-i5mhldg",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AutoProxyRegistrar"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 主要是注册了 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 自动代理创建器。而 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的逻辑基本上和 Aop 的逻辑相同"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090526-jlo0m4l",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090526-jlo0m4l",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-1hulmgj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-1hulmgj",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ProxyTransactionManagementConfiguration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 注册了事务实现的核心 Bean，包括 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactoryTransactionAttributeSourceAdvisor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​、"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionAttributeSource"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​、"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionInterceptor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 等"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-usw9dhv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-usw9dhv",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文讲述 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoProxyRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类的实现逻辑，关于"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的内容新开了篇章："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359",
+					"TextMarkTextContent": "Spring源码分析十六：事务实现② - ProxyTransactionManagementConfiguration"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-tmm9psn",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090526-tmm9psn",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四、AutoProxyRegistrar"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-ck3tyd6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-ck3tyd6",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoProxyRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实现了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ImportBeanDefinitionRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口，所以我们要去看看他的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "registerBeanDefinitions"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法的实现。"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200614133620507-20230331090526-dm7mzi5.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-nybvolk",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090526-nybvolk",
+				"updated": "20230331090526"
+			}
+		},
+		{
+			"ID": "20230331090526-061pcgz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-061pcgz",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoProxyRegistrar#registerBeanDefinitions"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-5x9n8nw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090526-5x9n8nw",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) { \n\t\tboolean candidateFound = false;\n\t\t// 获取 当前类上的所有注解\n\t\tSet\u003cString\u003e annTypes = importingClassMetadata.getAnnotationTypes();\n\t\tfor (String annType : annTypes) { \n\t\t\t// 获取注解的所有属性\n\t\t\tAnnotationAttributes candidate = AnnotationConfigUtils.attributesFor(importingClassMetadata, annType);\n\t\t\tif (candidate == null) { \n\t\t\t\tcontinue;\n\t\t\t}\n\t\t\t// 获取mode、proxyTargetClass 属性\n\t\t\tObject mode = candidate.get(\"mode\");\n\t\t\tObject proxyTargetClass = candidate.get(\"proxyTargetClass\");\n\t\t\tif (mode != null \u0026\u0026 proxyTargetClass != null \u0026\u0026 AdviceMode.class == mode.getClass() \u0026\u0026\n\t\t\t\t\tBoolean.class == proxyTargetClass.getClass()) { \n\t\t\t\tcandidateFound = true;\n\t\t\t\t// 判断如果是 Proxy 模式，也就是默认模式，注册自动代理创建器\n\t\t\t\tif (mode == AdviceMode.PROXY) { \n\t\t\t\t\tAopConfigUtils.registerAutoProxyCreatorIfNecessary(registry);\n\t\t\t\t\t// 如果需要代理目标列，则强制自动代理创建者使用类代理\n\t\t\t\t\tif ((Boolean) proxyTargetClass) { \n\t\t\t\t\t\tAopConfigUtils.forceAutoProxyCreatorToUseClassProxying(registry);\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t... 省略日志打印\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-5z02ugf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-5z02ugf",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在这里我们可以看到，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "registerBeanDefinitions"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中解析了 事务注解，并注册了​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "自动代理创建器"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。这里自动代理创建器我们在Aop 源码中提到过，是Aop 创建的核心。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-zwx241x",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090526-zwx241x",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. AopConfigUtils.registerAutoProxyCreatorIfNecessary(registry)"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-1u4c7bz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-1u4c7bz",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "这一步最主要的作用将自动代理创建器 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 注册到了 Spring容器中。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-8fwvk0u",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090526-8fwvk0u",
+				"updated": "20230331090526"
+			}
+		},
+		{
+			"ID": "20230331090526-92m07qb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-92m07qb",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "经过数次跳转，我们来到了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AopConfigUtils#registerOrEscalateApcAsRequired"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。其中这"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-jxsttm6",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090526-jxsttm6",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic static final String AUTO_PROXY_CREATOR_BEAN_NAME =\n\t\t\t\"org.springframework.aop.config.internalAutoProxyCreator\";\n\t\t\n\tprivate static final List\u003cClass\u003c?\u003e\u003e APC_PRIORITY_LIST = new ArrayList\u003c\u003e(3);\n\n\tstatic { \n\t\t// Set up the escalation list...\n\t\t// 事务使用\n\t\tAPC_PRIORITY_LIST.add(InfrastructureAdvisorAutoProxyCreator.class);\n\t\tAPC_PRIORITY_LIST.add(AspectJAwareAdvisorAutoProxyCreator.class);\n\t\t// Spring aop 使用\n\t\tAPC_PRIORITY_LIST.add(AnnotationAwareAspectJAutoProxyCreator.class);\n\t}\n\t....\n\n\tpublic static BeanDefinition registerAutoProxyCreatorIfNecessary(\n\t\t\tBeanDefinitionRegistry registry, @Nullable Object source) { \n\n\t\treturn registerOrEscalateApcAsRequired(InfrastructureAdvisorAutoProxyCreator.class, registry, source);\n\t}\n\n\t...\n\t\n\t// 这里的 cls 是 InfrastructureAdvisorAutoProxyCreator .class\n\tprivate static BeanDefinition registerOrEscalateApcAsRequired(\n\t\t\tClass\u003c?\u003e cls, BeanDefinitionRegistry registry, @Nullable Object source) { \n\n\t\tAssert.notNull(registry, \"BeanDefinitionRegistry must not be null\");\n\t\t// 如果有注册，则判断优先级，将优先级的高的保存\n\t\t// 如果已经纯在了自动代理创建器，且存在的自动代理创建器与现在的并不一致，那么需要根据优先级来判断到底要使用哪个\n\t\tif (registry.containsBeanDefinition(AUTO_PROXY_CREATOR_BEAN_NAME)) { \n\t\t\tBeanDefinition apcDefinition = registry.getBeanDefinition(AUTO_PROXY_CREATOR_BEAN_NAME);\n\t\t\tif (!cls.getName().equals(apcDefinition.getBeanClassName())) { \n\t\t\t\tint currentPriority = findPriorityForClass(apcDefinition.getBeanClassName());\n\t\t\t\tint requiredPriority = findPriorityForClass(cls);\n\t\t\t\tif (currentPriority \u003c requiredPriority) { \n\t\t\t\t// 改变bean所对应的className 属性\n\t\t\t\t\tapcDefinition.setBeanClassName(cls.getName());\n\t\t\t\t}\n\t\t\t}\n\t\t\t// 如果已经存在自动代理创建器，并且与将要创建的一致，那么无需再次创建\n\t\t\treturn null;\n\t\t}\n\n\t\tRootBeanDefinition beanDefinition = new RootBeanDefinition(cls);\n\t\tbeanDefinition.setSource(source);\n\t\tbeanDefinition.getPropertyValues().add(\"order\", Ordered.HIGHEST_PRECEDENCE);\n\t\tbeanDefinition.setRole(BeanDefinition.ROLE_INFRASTRUCTURE);\n\t\tregistry.registerBeanDefinition(AUTO_PROXY_CREATOR_BEAN_NAME, beanDefinition);\n\t\treturn beanDefinition;\n\t}\n\n\t...\n\t// 可以看到，所谓的优先级顺序实际上是在 APC_PRIORITY_LIST 集合的顺序\n\tpublic static void forceAutoProxyCreatorToUseClassProxying(BeanDefinitionRegistry registry) { \n\t\tif (registry.containsBeanDefinition(AUTO_PROXY_CREATOR_BEAN_NAME)) { \n\t\t\tBeanDefinition definition = registry.getBeanDefinition(AUTO_PROXY_CREATOR_BEAN_NAME);\n\t\t\t// 设置 proxyTargetClass 属性\n\t\t\tdefinition.getPropertyValues().add(\"proxyTargetClass\", Boolean.TRUE);\n\t\t}\n\t}\n\n\t...\n\n\tpublic static void forceAutoProxyCreatorToExposeProxy(BeanDefinitionRegistry registry) { \n\t\tif (registry.containsBeanDefinition(AUTO_PROXY_CREATOR_BEAN_NAME)) { \n\t\t\tBeanDefinition definition = registry.getBeanDefinition(AUTO_PROXY_CREATOR_BEAN_NAME);\n\t\t\t// 设置 exposeProxy 属性\n\t\t\tdefinition.getPropertyValues().add(\"exposeProxy\", Boolean.TRUE);\n\t\t}\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-x60ypga",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-x60ypga",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "到这里我们基本可以断定和 Aop 的逻辑基本相同了，只不过"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "事务默认自动注入的自动代理创建器是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 类型。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-q9wr7km",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090526-q9wr7km",
+				"updated": "20230331090526"
+			}
+		},
+		{
+			"ID": "20230331090526-az1o94h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-az1o94h",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "注意："
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-q1ic9nh",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090526-q1ic9nh",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"ID": "20230331090526-7f7jt1b",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090526-7f7jt1b",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-29vb8lv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-29vb8lv",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "在上篇Aop 中我们知道 Aop创建的自动代理创建器类型是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AnnotationAwareAspectJAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，而事务创建的类型是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090526-g8osghk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090526-g8osghk",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-65qsaw6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-65qsaw6",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "这里之所以 beanName ("
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AUTO_PROXY_CREATOR_BEAN_NAME"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​) 和 bean的类型并不相同，是因为这个beanName 特指内部的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "自动代理创建器"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，但是自动创建代理器会对应多种不同的实现方式。比如在默认的事务中，注入的bean类型却为"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，而AOP的实现却是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AnnotationAwareAspectJAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090526-lxjjplo",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090526-lxjjplo",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-d6ig16d",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-d6ig16d",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "关于自动代理创建器优先级的问题，我们可以看到"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "APC_PRIORITY_LIST"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 集合的顺序，下标越大，优先级越高。因此可以得知优先级的顺序应该是\n​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong code",
+									"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": " \u0026lt; "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong code",
+									"TextMarkTextContent": "AspectJAwareAdvisorAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": " \u0026lt; "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong code",
+									"TextMarkTextContent": "AnnotationAwareAspectJAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-h2amb0f",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090526-h2amb0f",
+				"updated": "20230331090526"
+			}
+		},
+		{
+			"ID": "20230331090526-niemg0g",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090526-niemg0g",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. InfrastructureAdvisorAutoProxyCreator"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-lfpzyzw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-lfpzyzw",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面我们可以知道，事务将自动代理创建器 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注册到了 Spring容器中。这里就跟Aop 基本相同了，下面我们来看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的内容"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-3klysvs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-3klysvs",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200614165603225-20230331090526-lr4lbnw.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-o38qzl3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-o38qzl3",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 并没有实现什么逻辑，主要逻辑在其父类 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中。我们在Aop 中提到过， "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 是自动代理创建器的基础。绝大部分逻辑都是在其中实现的。("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAdvisorAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的父类，是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的 \"爷爷\"类)。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-71fsn6m",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090526-71fsn6m",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class InfrastructureAdvisorAutoProxyCreator extends AbstractAdvisorAutoProxyCreator { \n\n\t@Nullable\n\tprivate ConfigurableListableBeanFactory beanFactory;\n\n\n\t@Override\n\tprotected void initBeanFactory(ConfigurableListableBeanFactory beanFactory) { \n\t\tsuper.initBeanFactory(beanFactory);\n\t\tthis.beanFactory = beanFactory;\n\t}\n\n\t@Override\n\t// 校验bean是否合格\n\tprotected boolean isEligibleAdvisorBean(String beanName) { \n\t\treturn (this.beanFactory != null \u0026\u0026 this.beanFactory.containsBeanDefinition(beanName) \u0026\u0026\n\t\t\t\tthis.beanFactory.getBeanDefinition(beanName).getRole() == BeanDefinition.ROLE_INFRASTRUCTURE);\n\t}\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-6czmgu9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-6czmgu9",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "关于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "AbstractAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 的分析量十分巨大，这里不再重写分析一遍，详细内容可以去看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106745317",
+					"TextMarkTextContent": "Aop分析文章"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "AbstractAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 部分。"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200704181744291-20230331090525-ca9g8yq.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-90mnwv9",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090526-90mnwv9",
+				"updated": "20230331090526"
+			}
+		},
+		{
+			"ID": "20230331090526-maklirj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090526-maklirj",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3. 事务中的 findCandidateAdvisors 方法"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-rd0rimr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-rd0rimr",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在这里，我们可以发现的是： ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "Aop 的使用的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "AnnotationAwareAspectJAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 自动代理创建器；事务使用的是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "自动代理创建器"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。而Aop代理创建的关键逻辑就自动代理创建器中。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-dvs0to8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-dvs0to8",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们对比后两种自动代理创建器后，惊奇的发现，其现实逻辑基本一致。最大的不同之处在于，Aop 重写了\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotationAwareAspectJAutoProxyCreator#findCandidateAdvisors 方法"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。而事务并没有重写这一部分。\n所以事务调用的实际上是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAdvisorAutoProxyCreator#findCandidateAdvisors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。即下面一部分"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-idabcy1",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090526-idabcy1",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected List\u003cAdvisor\u003e findCandidateAdvisors() { \n\t\tAssert.state(this.advisorRetrievalHelper != null, \"No BeanFactoryAdvisorRetrievalHelper available\");\n\t\treturn this.advisorRetrievalHelper.findAdvisorBeans();\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-pjuglaw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-pjuglaw",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "而Spring aop调用的则是重写后的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotationAwareAspectJAutoProxyCreator#findCandidateAdvisors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-ez34usm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090526-ez34usm",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tprotected List\u003cAdvisor\u003e findCandidateAdvisors() { \n\t\t// Add all the Spring advisors found according to superclass rules.\n\t\tList\u003cAdvisor\u003e advisors = super.findCandidateAdvisors();\n\t\t// Build Advisors for all AspectJ aspects in the bean factory.\n\t\tif (this.aspectJAdvisorsBuilder != null) { \n\t\t\tadvisors.addAll(this.aspectJAdvisorsBuilder.buildAspectJAdvisors());\n\t\t}\n\t\treturn advisors;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-3z9vsm3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-3z9vsm3",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以清楚的看到，Aop 的重写是加了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.aspectJAdvisorsBuilder.buildAspectJAdvisors()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法调用，也就是动态生成 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Advisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的部分。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-la7w8f4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-la7w8f4",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "关于 getAdvicesAndAdvisorsForBean 的源码分析可以看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107070159",
+					"TextMarkTextContent": "Spring源码分析十二：@AspectJ方式的AOP 之 getAdvicesAndAdvisorsForBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 文章。其中的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "super.findCandidateAdvisors();"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 模块的分析\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200704182258112-20230331090526-eokd5pk.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-if62cws",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-if62cws",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "到这里我们知道了 相较于 Aop 的 ，事务的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，不仅没有添加新逻辑(关键逻辑)，还砍掉了动态生成Advisor 的逻辑。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-6v07s88",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090526-6v07s88",
+				"updated": "20230331090526"
+			}
+		},
+		{
+			"ID": "20230331090526-ej51qg4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-ej51qg4",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "Q： 为什么事务实现不需要动态生成Advisor 部分？A：个人理解是因为由于事物的切入点并不像AOP那样如此多变。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-f3dogbf",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090526-f3dogbf",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"ID": "20230331090526-ct67cdy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090526-ct67cdy",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-idp0ccw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-idp0ccw",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "何为Aop的切入点多变，即Pointcut的定义规则由代码掌握，我们通过 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@Pointcut"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​注解 可以定义一个匹配所有方法的切面，也可以定义一个匹配到指定的方法的切面，对于Spring来说，Spring无法通过一个 Advisor 满足诸多Pointcut 条件，而为了满足这个条件所以需要通过代码来动态解析所有的Pointcut 来封装成一个一个的 Advisor，随后便可以通过 Advisor 来判断该方法是否满足某个 Advisor 的切入要求。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090526-dx7gdxo",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090526-dx7gdxo",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-28ybi2n",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-28ybi2n",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "而对于事务来说，启用事务的方法必须要使用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@Transactional"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 来修饰方法(也可以修饰在类上，但这里为了方便描述直接说方法上，并且在类上使用更符合编程习惯)。也就是说对Spring来说，判断一个方法是否启用事务的依据就是该方法上是否使用了 @Transactional 注解。也就是说，我们仅需要一个 Advisor ，其判断条件是方法是否被"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@Transactional"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 注解修饰即可。而既然知道了Pointcut 条件，我们就可以实现编写好满足这个逻辑的 Advisor，在Spring启动时候直接将这个条件的 Advisor 注入到容器中直接使用。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090526-45yvmks",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090526-45yvmks",
+						"updated": "20230331090526"
+					},
+					"Children": [
+						{
+							"ID": "20230331090526-cdxcc04",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090526-cdxcc04",
+								"updated": "20230331090526"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "综上，事务并不需要去动态注入 Advisor，而Spring aop 则需要动态注入。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-0rfgfzn",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090526-0rfgfzn",
+				"updated": "20230331090526"
+			}
+		},
+		{
+			"ID": "20230331090526-ptkdmbk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-ptkdmbk",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通过上面的分析，我们判断，事务的Advisor 已经事先注入了，然后我们回头看到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionManagementConfigurationSelector"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中注入的另一个类 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中果不其然发现了Advisor 的踪迹。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-rc247gw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-rc247gw",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "关于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的内容，请参看全集目录。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090526-hf93zr8",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090526-hf93zr8",
+				"updated": "20230331090526"
+			}
+		},
+		{
+			"ID": "20230331090526-g60vrfu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090526-g60vrfu",
+				"updated": "20230331090526"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考《Spring源码深度解析》如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

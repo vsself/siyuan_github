@@ -1,0 +1,2888 @@
+{
+	"ID": "20230404010301-bgoygis",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010301-bgoygis",
+		"title": "吃透Spring源码（九）：Spring实例化(createBeanInstance)源码解析_吃透Java的博客-CSDN博客",
+		"updated": "20230404010301"
+	},
+	"Children": [
+		{
+			"ID": "20230404010301-rdo0l6s",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010301-rdo0l6s",
+				"updated": "20230404010301"
+			}
+		},
+		{
+			"ID": "20230404010301-rndn1e8",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010301-rndn1e8",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"ID": "20230404010301-12pl4in",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010301-12pl4in",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-5icas7j",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-5icas7j",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/109780513",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/109780513"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-fzptht8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010301-fzptht8",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-j4sluu9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-j4sluu9",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一，createBeanInstance()方法概述createBeanInstance 是Spring实例化的核心代码，它根据不同的情况会调用四种实例化方法：obtainFromSupplier()：通过Supplier实例化。instantiateUsingFactoryMethod()：通过工厂方法实例化。autowireConstructor()：用合适的构造函数实例化。instantiateBean()：用无参构造函数实例化。protected BeanWrapper create"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-8ri8oz7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010301-8ri8oz7",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-s5dkz1t",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-s5dkz1t",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:03:01"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-bj77ora",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010301-bj77ora",
+				"updated": "20230404010301"
+			}
+		},
+		{
+			"ID": "20230404010301-gnxgnlx",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010301-gnxgnlx",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一，createBeanInstance()方法概述"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-1thpliu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-1thpliu",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "createBeanInstance 是Spring实例化的核心代码，它根据不同的情况会调用四种实例化方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-in82uwm",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010301-in82uwm",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"ID": "20230404010301-azxw8kd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010301-azxw8kd",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-sx5qlky",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-sx5qlky",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "obtainFromSupplier()：通过Supplier实例化。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-mgamwom",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010301-mgamwom",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-0o2z3es",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-0o2z3es",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "instantiateUsingFactoryMethod()：通过工厂方法实例化。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-mgixhby",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010301-mgixhby",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-0ade5ad",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-0ade5ad",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "autowireConstructor()：用合适的构造函数实例化。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-298gtre",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010301-298gtre",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-nz28pqi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-nz28pqi",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "instantiateBean()：用无参构造函数实例化。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-2e4z8vk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010301-2e4z8vk",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected BeanWrapper createBeanInstance(String beanName, RootBeanDefinition mbd, @Nullable Object[] args) { \n  \n\t\t// 确认需要创建的bean实例的类可以实例化\n\t\tClass\u003c?\u003e beanClass = resolveBeanClass(mbd, beanName);\n\t\t// 确保class不为空，并且访问权限是public\n\t\tif (beanClass != null \u0026\u0026 !Modifier.isPublic(beanClass.getModifiers()) \u0026\u0026 !mbd.isNonPublicAccessAllowed()) { \n\t\t\tthrow new BeanCreationException(mbd.getResourceDescription(), beanName,\n\t\t\t\t\t\"Bean class isn't public, and non-public access not allowed: \" + beanClass.getName());\n\t\t}\n\n\t\t/**\n\t\t * ----------1，通过Supplier实例化------------\n\t\t */\n\t\tSupplier\u003c?\u003e instanceSupplier = mbd.getInstanceSupplier();\n\t\tif (instanceSupplier != null) { \n\t\t\treturn obtainFromSupplier(instanceSupplier, beanName);\n\t\t}\n  \n\t\t/**\n\t\t * ----------2，通过工厂方法实例化------------\n\t\t */\n\t\tif (mbd.getFactoryMethodName() != null) { \n\t\t\treturn instantiateUsingFactoryMethod(beanName, mbd, args);\n\t\t}\n\n    \t/**\n\t\t * ----------3，用合适的构造函数实例化------------\n\t\t *\n\t\t *  一个类可能有多个构造器，所以Spring得根据参数个数、类型确定需要调用的构造器。\n\t\t *  在使用构造器创建实例后，Spring会将解析过后确定下来的构造器或工厂方法保存在缓存中，\n\t\t *  避免再次创建相同bean时再次解析\n\t\t */\n\n\t\t// 标记下，防止重复创建同一个bean\n\t\tboolean resolved = false;\n\t\t// 是否需要自动装配，构造有参数的需要\n\t\tboolean autowireNecessary = false;\n\t\t// 如果没有参数\n\t\tif (args == null) { \n\t\t\tsynchronized (mbd.constructorArgumentLock) { \n\t\t\t\t// 一个类中有多个构造函数，每个构造函数都有不同的参数，所以调用前需要先根据参数锁定构造函数或对应的工厂方法\n\t\t\t\tif (mbd.resolvedConstructorOrFactoryMethod != null) { \n\t\t\t\t\tresolved = true;\n\t\t\t\t\tautowireNecessary = mbd.constructorArgumentsResolved;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t// 有构造参数的或者工厂方法\n\t\tif (resolved) { \n\t\t\t// 构造器有参数\n\t\t\tif (autowireNecessary) { \n\t\t\t\t// 构造函数自动注入\n\t\t\t\treturn autowireConstructor(beanName, mbd, null, null);\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// 使用默认构造函数构造\n\t\t\t\treturn instantiateBean(beanName, mbd);\n\t\t\t}\n\t\t}\n\n\t\t// 从bean后置处理器中为自动装配寻找构造方法\n\t\tConstructor\u003c?\u003e[] ctors = determineConstructorsFromBeanPostProcessors(beanClass, beanName);\n\t\tif (ctors != null || mbd.getResolvedAutowireMode() == AUTOWIRE_CONSTRUCTOR ||\n\t\t\t\tmbd.hasConstructorArgumentValues() || !ObjectUtils.isEmpty(args)) { \n\t\t\treturn autowireConstructor(beanName, mbd, ctors, args);\n\t\t}\n\n\t\t// 找出最合适的默认构造方法\n\t\tctors = mbd.getPreferredConstructors();\n\t\tif (ctors != null) { \n\t\t\t// 构造函数自动注入\n\t\t\treturn autowireConstructor(beanName, mbd, ctors, null);\n\t\t}\n\n    \t/**\n\t\t * ----------4，使用默认构造函数构造------------\n\t\t */\n\t\treturn instantiateBean(beanName, mbd);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-b79d59l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-b79d59l",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "以上源码主要包括："
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-6hpgdl6",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010301-6hpgdl6",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"ID": "20230404010301-yk5udh4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010301-yk5udh4",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-lnuh31t",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-lnuh31t",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果RootBeanDefinition中存在Supplier接口实例，则使用Supplier接口回调来实例化。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-bicytvb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010301-bicytvb",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-rvdh39v",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-rvdh39v",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RootBeanDefinition"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中存在 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "factoryMethodName"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 属性，或者在配置文件中配置了"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "factory-method"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，Spring会尝试使用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "instantiateUsingFactoryMethod"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法，根据"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RootBeanDefinition"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中的配置生成bean实例。如果一个类中中的方法被 @Bean注解修饰，那么Spring则会将其封装成一个 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ConfigurationClassBeanDefinition"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。此时 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "factoryMethodName"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 也被赋值。所以也会调用"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "instantiateUsingFactoryMethod"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法通过反射完成方法的调用，并将结果注入Spring容器中。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-vuhtzsm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010301-vuhtzsm",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-9rwk5c1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-9rwk5c1",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当以上两种都没有配置时，Spring则打算通过bean的构造函数来创建bean。首先会判断是否有缓存，即构造函数是否已经被解析过了， 因为一个bean可能会存在多个构造函数，这时候Spring会根据参数列表的来判断使用哪个构造函数进行实例化。但是判断过程比较消耗性能，所以Spring将判断好的构造函数缓存到"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RootBeanDefinition"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中的 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "resolvedConstructorOrFactoryMethod"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 属性中。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-b55iafe",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010301-b55iafe",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-kn6m4o2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-kn6m4o2",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果缓存，则不需要解析，直接调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "autowireConstructor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 或者 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "instantiateBean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法创建bean。有参构造调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "autowireConstructor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法，无参构造调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "instantiateBean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-4r58tmj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230404010301-4r58tmj",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-oacznow",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-oacznow",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "否则需要进行先进行解析，这里通过 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "determineConstructorsFromBeanPostProcessors"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法调用了 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "SmartInstantiationAwareBeanPostProcessor.determineCandidateConstructors"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的后处理器方法来进行解析，Spring 默认的实现在"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法中。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-i2q1mf3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ni4=",
+						"Num": 6
+					},
+					"Properties": {
+						"id": "20230404010301-i2q1mf3",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-kap3g0c",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-kap3g0c",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "获取解析后的候选的构造函数列表 ctors 后(最终的构造函数就从这个列表中选取)，开始调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "autowireConstructor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 或者 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "instantiateBean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法创建bean。在"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "autowireConstructor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中，进行了候选构造函数的选举，选择最合适的构造函数来构建bean，如果缓存已解析的构造函数，则不用选举，直接使用解析好的构造来进行bean的创建。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-hzg1rz6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010301-hzg1rz6",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二，obtainFromSupplier()通过Supplier实例化"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-t7aravt",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010301-t7aravt",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t/**\n\t * 从supplier获取bean\n\t */\n\tprotected BeanWrapper obtainFromSupplier(Supplier\u003c?\u003e instanceSupplier, String beanName) { \n\t\tObject instance;\n\n\t\t// 获取原先创建的beanName\n\t\tString outerBean = this.currentlyCreatedBean.get();\n\t\t// 用当前作对做替换\n\t\tthis.currentlyCreatedBean.set(beanName);\n\t\ttry { \n\t\t\t// 调用supplier的方法\n\t\t\tinstance = instanceSupplier.get();\n\t\t}\n\t\tfinally { \n\t\t\tif (outerBean != null) { \n\t\t\t\tthis.currentlyCreatedBean.set(outerBean);\n\t\t\t}\n\t\t\telse { \n\t\t\t\tthis.currentlyCreatedBean.remove();\n\t\t\t}\n\t\t}\n\n\t\t// 如果没有创建对象，默认为NullBean\n\t\tif (instance == null) { \n\t\t\tinstance = new NullBean();\n\t\t}\n\t\t// 初始化BeanWrapper并返回\n\t\tBeanWrapper bw = new BeanWrapperImpl(instance);\n\t\tinitBeanWrapper(bw);\n\t\treturn bw;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-30oliwh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-30oliwh",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Supplier方式比较简单，instanceSupplier.get()回调到自己定义的函数里面返回一个实例对象然后包装成BeanWrapperImpl返回就行了。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-qpff6ca",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010301-qpff6ca",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三，instantiateUsingFactoryMethod()通过工厂方法实例化。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-xyp6d82",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-xyp6d82",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RootBeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中存在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "factoryMethodName"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 属性，或者在配置文件中配置了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "factory-method"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，Spring会尝试使用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "instantiateUsingFactoryMethod"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法，根据RootBeanDefinition 中的配置生成bean实例。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-z5aaa1y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-z5aaa1y",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个源码太长，也并不重要，就不在这里展示了。简单来说，这里可以分为两种情况："
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-igw60g3",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010301-igw60g3",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"ID": "20230404010301-0dypouk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010301-0dypouk",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-v00hlor",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-v00hlor",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "在 xml配置中，可以使用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "factory-bean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 和 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "factory-method"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 两个标签可以指定一个类中的方法，Spring会将这个指定的方法的返回值作为bean返回(如果方法是静态方法，则可以不创建"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "factory-bean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​就直接调用，否则需要先将"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "factory-bean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​注入到Spring中)。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-3cajb37",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010301-3cajb37",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-cpaz2ou",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-cpaz2ou",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "对"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@Bean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 注解的解析。在 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ConfigurationClassPostProcessor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 后处理器中，会对被 @Bean 注解修饰的方法进行解析，生成一个 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ConfigurationClassBeanDefinition"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​的 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanDefinition"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。此时"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanDefinition"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "factoryMethodName"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 正是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@Bean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​修饰的方法本身。所以这里会调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "instantiateUsingFactoryMethod"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法。通过回调的方式调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@Bean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​修饰的方法。并将返回结果注入到Spring容器中。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-6dp0sqh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010301-6dp0sqh",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四，autowireConstructor()：用合适的构造函数实例化"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-gu86w8z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-gu86w8z",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个代码量也非常大，实现的功能实现上比较复杂，功能上却可以一句话讲清："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "简单来说，就是根据传入的参数列表，来匹配到合适的构造函数进行bean 的创建。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-3vsmy41",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010301-3vsmy41",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic BeanWrapper autowireConstructor(String beanName, RootBeanDefinition mbd,\n\t\t\t@Nullable Constructor\u003c?\u003e[] chosenCtors, @Nullable Object[] explicitArgs) { \n\t\t// 实例化BeanWrapper。是包装bean的容器\n\t\tBeanWrapperImpl bw = new BeanWrapperImpl();\n\t\tthis.beanFactory.initBeanWrapper(bw);\n\n\t\tConstructor\u003c?\u003e constructorToUse = null;\n\t\tArgumentsHolder argsHolderToUse = null;\n\t\tObject[] argsToUse = null;\n\n\t\t// explicitArgs通过getBean方法传入\n\t\t// 如果getBean方法调用的时候指定方法参数那么直接使用\n\t\tif (explicitArgs != null) { \n\t\t\targsToUse = explicitArgs;\n\t\t}\n\t\telse { \n\t\t\t// 如果在调用getBean方法的时候没有指定，则尝试从配置文件中解析\n\t\t\tObject[] argsToResolve = null;\n\t\t\tsynchronized (mbd.constructorArgumentLock) { \n\t\t\t\t// 尝试从缓存中获取\n\t\t\t\tconstructorToUse = (Constructor\u003c?\u003e) mbd.resolvedConstructorOrFactoryMethod;\n\t\t\t\tif (constructorToUse != null \u0026\u0026 mbd.constructorArgumentsResolved) { \n\t\t\t\t\t// Found a cached constructor...\n\t\t\t\t\t// 从缓存中找到了构造器，那么继续从缓存中寻找缓存的构造器参数\n\t\t\t\t\targsToUse = mbd.resolvedConstructorArguments;\n\t\t\t\t\tif (argsToUse == null) { \n\t\t\t\t\t\t// 没有缓存的参数，就需要获取配置i文件中配置的参数\n\t\t\t\t\t\targsToResolve = mbd.preparedConstructorArguments;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t// 如果缓存中没有缓存的参数的话，即argsToResolve不为空，就需要解析配置的参数\n\t\t\tif (argsToResolve != null) { \n\t\t\t\t// 解析参数类型，比如将配置的String类型转换为list、boolean等类型\n\t\t\t\targsToUse = resolvePreparedArguments(beanName, mbd, bw, constructorToUse, argsToResolve, true);\n\t\t\t}\n\t\t}\n\n\t\t// 如果没有缓存，就需要从构造函数开始解析\n\t\tif (constructorToUse == null || argsToUse == null) { \n\t\t\t// Take specified constructors, if any.\n\t\t\t// 如果传入的构造器数组不为空，就使用传入的过后早期参数，否则通过反射获取class中定义的构造器\n\t\t\tConstructor\u003c?\u003e[] candidates = chosenCtors;\n\t\t\tif (candidates == null) { \n\t\t\t\tClass\u003c?\u003e beanClass = mbd.getBeanClass();\n\t\t\t\ttry { \n\t\t\t\t\t// 使用public的构造器或者所有构造器\n\t\t\t\t\tcandidates = (mbd.isNonPublicAccessAllowed() ?\n\t\t\t\t\t\t\tbeanClass.getDeclaredConstructors() : beanClass.getConstructors());\n\t\t\t\t}\n\t\t\t\tcatch (Throwable ex) { \n\t\t\t\t\tthrow new BeanCreationException(mbd.getResourceDescription(), beanName,\n\t\t\t\t\t\t\t\"Resolution of declared constructors on bean Class [\" + beanClass.getName() +\n\t\t\t\t\t\t\t\"] from ClassLoader [\" + beanClass.getClassLoader() + \"] failed\", ex);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tif (candidates.length == 1 \u0026\u0026 explicitArgs == null \u0026\u0026 !mbd.hasConstructorArgumentValues()) { \n\t\t\t\tConstructor\u003c?\u003e uniqueCandidate = candidates[0];\n\t\t\t\tif (uniqueCandidate.getParameterCount() == 0) { \n\t\t\t\t\tsynchronized (mbd.constructorArgumentLock) { \n\t\t\t\t\t\tmbd.resolvedConstructorOrFactoryMethod = uniqueCandidate;\n\t\t\t\t\t\tmbd.constructorArgumentsResolved = true;\n\t\t\t\t\t\tmbd.resolvedConstructorArguments = EMPTY_ARGS;\n\t\t\t\t\t}\n\t\t\t\t\tbw.setBeanInstance(instantiate(beanName, mbd, uniqueCandidate, EMPTY_ARGS));\n\t\t\t\t\treturn bw;\n\t\t\t\t}\n\t\t\t}\n\n\t\t\t// Need to resolve the constructor.\n\t\t\tboolean autowiring = (chosenCtors != null ||\n\t\t\t\t\tmbd.getResolvedAutowireMode() == AutowireCapableBeanFactory.AUTOWIRE_CONSTRUCTOR);\n\t\t\tConstructorArgumentValues resolvedValues = null;\n\n\t\t\tint minNrOfArgs;\n\t\t\tif (explicitArgs != null) { \n\t\t\t\tminNrOfArgs = explicitArgs.length;\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// 提取配置文件中的配置的构造函数参数\n\t\t\t\tConstructorArgumentValues cargs = mbd.getConstructorArgumentValues();\n\t\t\t\t// 用于承载解析后的构造函数参数的值\n\t\t\t\tresolvedValues = new ConstructorArgumentValues();\n\t\t\t\t// 能解析到的参数个数\n\t\t\t\tminNrOfArgs = resolveConstructorArguments(beanName, mbd, bw, cargs, resolvedValues);\n\t\t\t}\n\n\t\t\t// 排序给定的构造函数，public的构造函数优先，参数数量降序\n\t\t\tAutowireUtils.sortConstructors(candidates);\n\t\t\tint minTypeDiffWeight = Integer.MAX_VALUE;\n\t\t\tSet\u003cConstructor\u003c?\u003e\u003e ambiguousConstructors = null;\n\t\t\tLinkedList\u003cUnsatisfiedDependencyException\u003e causes = null;\n\n\t\t\tfor (Constructor\u003c?\u003e candidate : candidates) { \n\t\t\t\tint parameterCount = candidate.getParameterCount();\n\n\t\t\t\t// 如果已经找到选用的构造函数或者需要的参数个数小于当前的构造函数参数个数则终止，前面已经经过了排序操作\n\t\t\t\tif (constructorToUse != null \u0026\u0026 argsToUse != null \u0026\u0026 argsToUse.length \u003e parameterCount) { \n\t\t\t\t\t// Already found greedy constructor that can be satisfied -\u003e\n\t\t\t\t\t// do not look any further, there are only less greedy constructors left.\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t\tif (parameterCount \u003c minNrOfArgs) { \n\t\t\t\t\t// 参数个数不相等\n\t\t\t\t\tcontinue;\n\t\t\t\t}\n\n\t\t\t\tArgumentsHolder argsHolder;\n\t\t\t\tClass\u003c?\u003e[] paramTypes = candidate.getParameterTypes();\n\t\t\t\tif (resolvedValues != null) { \n\t\t\t\t\t// 有参数则根据值构造对应参数类型的参数\n\t\t\t\t\ttry { \n\t\t\t\t\t\tString[] paramNames = ConstructorPropertiesChecker.evaluate(candidate, parameterCount);\n\t\t\t\t\t\tif (paramNames == null) { \n\t\t\t\t\t\t\t// 获取参数名称探索器\n\t\t\t\t\t\t\tParameterNameDiscoverer pnd = this.beanFactory.getParameterNameDiscoverer();\n\t\t\t\t\t\t\tif (pnd != null) { \n\t\t\t\t\t\t\t\t// 获取指定构造函数的参数名称\n\t\t\t\t\t\t\t\tparamNames = pnd.getParameterNames(candidate);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t\t// 根据名称和数据类型创建参数持有者\n\t\t\t\t\t\targsHolder = createArgumentArray(beanName, mbd, resolvedValues, bw, paramTypes, paramNames,\n\t\t\t\t\t\t\t\tgetUserDeclaredConstructor(candidate), autowiring, candidates.length == 1);\n\t\t\t\t\t}\n\t\t\t\t\tcatch (UnsatisfiedDependencyException ex) { \n\t\t\t\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\t\t\t\tlogger.trace(\"Ignoring constructor [\" + candidate + \"] of bean '\" + beanName + \"': \" + ex);\n\t\t\t\t\t\t}\n\t\t\t\t\t\t// Swallow and try next constructor.\n\t\t\t\t\t\tif (causes == null) { \n\t\t\t\t\t\t\tcauses = new LinkedList\u003c\u003e();\n\t\t\t\t\t\t}\n\t\t\t\t\t\tcauses.add(ex);\n\t\t\t\t\t\tcontinue;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\telse { \n\t\t\t\t\t// Explicit arguments given -\u003e arguments length must match exactly.\n\t\t\t\t\tif (parameterCount != explicitArgs.length) { \n\t\t\t\t\t\tcontinue;\n\t\t\t\t\t}\n\t\t\t\t\t// 构造函数没有参数的情况\n\t\t\t\t\targsHolder = new ArgumentsHolder(explicitArgs);\n\t\t\t\t}\n\n\t\t\t\t// 探测是否有不确定性的构造函数存在，例如不同构造函数的参数为父子关系\n\t\t\t\tint typeDiffWeight = (mbd.isLenientConstructorResolution() ?\n\t\t\t\t\t\targsHolder.getTypeDifferenceWeight(paramTypes) : argsHolder.getAssignabilityWeight(paramTypes));\n\t\t\t\t// Choose this constructor if it represents the closest match.\n\t\t\t\t// 如果它代表着当前最接近的匹配则选择作为构造函数\n\t\t\t\tif (typeDiffWeight \u003c minTypeDiffWeight) { \n\t\t\t\t\tconstructorToUse = candidate;\n\t\t\t\t\targsHolderToUse = argsHolder;\n\t\t\t\t\targsToUse = argsHolder.arguments;\n\t\t\t\t\tminTypeDiffWeight = typeDiffWeight;\n\t\t\t\t\tambiguousConstructors = null;\n\t\t\t\t}\n\t\t\t\telse if (constructorToUse != null \u0026\u0026 typeDiffWeight == minTypeDiffWeight) { \n\t\t\t\t\tif (ambiguousConstructors == null) { \n\t\t\t\t\t\tambiguousConstructors = new LinkedHashSet\u003c\u003e();\n\t\t\t\t\t\tambiguousConstructors.add(constructorToUse);\n\t\t\t\t\t}\n\t\t\t\t\tambiguousConstructors.add(candidate);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tif (constructorToUse == null) { \n\t\t\t\tif (causes != null) { \n\t\t\t\t\tUnsatisfiedDependencyException ex = causes.removeLast();\n\t\t\t\t\tfor (Exception cause : causes) { \n\t\t\t\t\t\tthis.beanFactory.onSuppressedException(cause);\n\t\t\t\t\t}\n\t\t\t\t\tthrow ex;\n\t\t\t\t}\n\t\t\t\tthrow new BeanCreationException(mbd.getResourceDescription(), beanName,\n\t\t\t\t\t\t\"Could not resolve matching constructor \" +\n\t\t\t\t\t\t\"(hint: specify index/type/name arguments for simple parameters to avoid type ambiguities)\");\n\t\t\t}\n\t\t\telse if (ambiguousConstructors != null \u0026\u0026 !mbd.isLenientConstructorResolution()) { \n\t\t\t\tthrow new BeanCreationException(mbd.getResourceDescription(), beanName,\n\t\t\t\t\t\t\"Ambiguous constructor matches found in bean '\" + beanName + \"' \" +\n\t\t\t\t\t\t\"(hint: specify index/type/name arguments for simple parameters to avoid type ambiguities): \" +\n\t\t\t\t\t\tambiguousConstructors);\n\t\t\t}\n\n\t\t\tif (explicitArgs == null \u0026\u0026 argsHolderToUse != null) { \n\t\t\t\t// 将解析的构造函数加入缓存\n\t\t\t\targsHolderToUse.storeCache(mbd, constructorToUse);\n\t\t\t}\n\t\t}\n\n\t\tAssert.state(argsToUse != null, \"Unresolved constructor arguments\");\n\t\t// 将构造的实例加入BeanWrapper中\n\t\tbw.setBeanInstance(instantiate(beanName, mbd, constructorToUse, argsToUse));\n\t\treturn bw;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-kgdvo8a",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-kgdvo8a",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简单理一下上面的逻辑："
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-3iuqpth",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010301-3iuqpth",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"ID": "20230404010301-7ua2mfl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010301-7ua2mfl",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-w780n2z",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-w780n2z",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "首先判断 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "explicitArgs"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 是否为空，如果不为空，则就直接使用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "explicitArgs"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 作为构造函数的参数。\n​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "explicitArgs"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 所代表的意思是 调用getBean方法是的传参，如下："
+								},
+								{
+									"Type": "NodeImage",
+									"Data": "span",
+									"Children": [
+										{
+											"Type": "NodeBang"
+										},
+										{
+											"Type": "NodeOpenBracket"
+										},
+										{
+											"Type": "NodeLinkText",
+											"Data": "在这里插入图片描述"
+										},
+										{
+											"Type": "NodeCloseBracket"
+										},
+										{
+											"Type": "NodeOpenParen"
+										},
+										{
+											"Type": "NodeLinkDest",
+											"Data": "assets/20201118180126104-20230404010301-zrgqfrx.png"
+										},
+										{
+											"Type": "NodeCloseParen"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-ld4008h",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010301-ld4008h",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-pfx0s2d",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-pfx0s2d",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "explicitArgs"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 为空，则尝试从缓存中获取，也即是从 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RootBeanDefinition"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "resolvedConstructorArguments"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 属性或 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "preparedConstructorArguments"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 属性中获取。"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "resolvedConstructorArguments"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 代表完全解析好的参数， "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "preparedConstructorArguments"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 代表尚未完全解析的参数，如果 获取到 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "preparedConstructorArguments"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ，则需要在进一步的解析。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-ajlk24v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010301-ajlk24v",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-3mnb8vx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-3mnb8vx",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果缓存中也没有获取到，则只能自己开始分析来获取候选构造函数列表，关于候选构造函数的信息，在调用该方法时就已经传递了过来，即"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "Constructor\u0026lt;?\u0026gt;[] chosenCtors"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，如果 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "Constructor\u0026lt;?\u0026gt;[] chosenCtors"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 为null，则通过反射获取候选构造函数列表 candidates"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-0jgxm15",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010301-0jgxm15",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-62td9ci",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-62td9ci",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "获取到候选构造函数列表 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "candidates"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​后，则会优先判断获取到的 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "candidates"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 是否只有一个构造函数，如果只要一个，则不需要解析，直接保存相关信息即解析完毕。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-75px4fd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230404010301-75px4fd",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-6c2hcq6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-6c2hcq6",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "否则则进行候选构造函数列表"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "candidates"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​的选举，寻找最合适的构造函数，对 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "candidates"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 按照 public 构造函数优先参数数量降序，非public构造函数参数数量降序 规则排序，目的是为了后面检索的时候可以更快速判断是否有合适的构造函数。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-ljxq80t",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ni4=",
+						"Num": 6
+					},
+					"Properties": {
+						"id": "20230404010301-ljxq80t",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-zfm0coq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-zfm0coq",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "排序结束后 ，开始遍历构造函数，按照 构造函数的参数类型和数量与构造函数一一匹配，寻找差异性最小的构造函数作为最终的构造函数并通过 cglib 或者 反射来 创建bean。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-x7yl6dj",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010301-x7yl6dj",
+				"updated": "20230404010301"
+			}
+		},
+		{
+			"ID": "20230404010301-io8tfbh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-io8tfbh",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "按照功能划分，整个 autowireConstructor 方法可以划分为四步："
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-orbi6ah",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010301-orbi6ah",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"ID": "20230404010301-mct537a",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010301-mct537a",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-925ylhz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-925ylhz",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "解析构造函数参数。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-d2etv64",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010301-d2etv64",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-yxd7byn",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-yxd7byn",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "获取候选的构造函数列表。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-losrbah",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010301-losrbah",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-hfqit98",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-hfqit98",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "解析构造函数参数个数。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-eun968z",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010301-eun968z",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-14i5aah",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-14i5aah",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "寻找最匹配的构造函数"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-f8wd0so",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010301-f8wd0so",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，解析构造函数参数"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-hkdr8tr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010301-hkdr8tr",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t\t// explicitArgs通过getBean方法传入\n\t\t// 如果getBean方法调用的时候指定方法参数那么直接使用\n\t\tif (explicitArgs != null) { \n\t\t\targsToUse = explicitArgs;\n\t\t}\n\t\telse { \n\t\t\t// 如果在调用getBean方法的时候没有指定，则尝试从配置文件中解析\n\t\t\tObject[] argsToResolve = null;\n\t\t\tsynchronized (mbd.constructorArgumentLock) { \n\t\t\t\t// 尝试从缓存中获取\n\t\t\t\tconstructorToUse = (Constructor\u003c?\u003e) mbd.resolvedConstructorOrFactoryMethod;\n\t\t\t\tif (constructorToUse != null \u0026\u0026 mbd.constructorArgumentsResolved) { \n\t\t\t\t\t// Found a cached constructor...\n\t\t\t\t\t// 从缓存中找到了构造器，那么继续从缓存中寻找缓存的构造器参数\n\t\t\t\t\targsToUse = mbd.resolvedConstructorArguments;\n\t\t\t\t\tif (argsToUse == null) { \n\t\t\t\t\t\t// 没有缓存的参数，就需要获取配置i文件中配置的参数\n\t\t\t\t\t\targsToResolve = mbd.preparedConstructorArguments;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t// 如果缓存中没有缓存的参数的话，即argsToResolve不为空，就需要解析配置的参数\n\t\t\tif (argsToResolve != null) { \n\t\t\t\t// 解析参数类型，比如将配置的String类型转换为list、boolean等类型\n\t\t\t\targsToUse = resolvePreparedArguments(beanName, mbd, bw, constructorToUse, argsToResolve, true);\n\t\t\t}\n\t\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-qf7j97a",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-qf7j97a",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面的逻辑还是很清楚的："
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-ylyfs3c",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010301-ylyfs3c",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"ID": "20230404010301-huid143",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010301-huid143",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-6yklzua",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-6yklzua",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果有传入参数 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "explicitArgs"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，则直接使用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "explicitArgs"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-1i1y5e8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010301-1i1y5e8",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-mhdzsk4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-mhdzsk4",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果没有传入，尝试从缓存中获取"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-btmp173",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010301-btmp173",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-9lp712i",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-9lp712i",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果参数完全解析了，则直接使用，如果没有则调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "resolvePreparedArguments"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 进行解析。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-fic7mmi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-fic7mmi",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "这里解释一下 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "resolvePreparedArguments"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 方法的作用。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-qkzfh5n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-qkzfh5n",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们声明的构造函数的可能是这样的："
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-9bd3sx1",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010301-9bd3sx1",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic ConstructorDemoA(Integer name) { \n        this.name = name;\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-mwww8d6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-mwww8d6",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "但是我们在配置的时候配置文件却是这样的："
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-wvtbrik",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010301-wvtbrik",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t\u003cbean id=\"constructorDemoA\" class=\"com.kingfish.springbootdemo.constructor.ConstructorDemoA\"\u003e\n        \u003cconstructor-arg index=\"0\" value=\"666\" \u003e\u003c/constructor-arg\u003e\n    \u003c/bean\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-kof390q",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-kof390q",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这时候，Spring就需要有一个过程，从Spring 的 “666” 到 Integer 的 666 的转变，这个方法就是做类型转化的工作。但需要注意调用这个方法的前提条件是 argsToResolve != null。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-0rgp2x5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010301-0rgp2x5",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，获取候选的构造函数列表"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-f95636e",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010301-f95636e",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t\t\t// 如果传入的构造器数组不为空，就使用传入的过后早期参数，否则通过反射获取class中定义的构造器\n\t\t\tConstructor\u003c?\u003e[] candidates = chosenCtors;\n\t\t\tif (candidates == null) { \n\t\t\t\tClass\u003c?\u003e beanClass = mbd.getBeanClass();\n\t\t\t\ttry { \n\t\t\t\t\t// 获取bean的构造函数\n\t\t\t\t\tcandidates = (mbd.isNonPublicAccessAllowed() ?\n\t\t\t\t\t\t\tbeanClass.getDeclaredConstructors() : beanClass.getConstructors());\n\t\t\t\t}\n\t\t\t\tcatch (Throwable ex) { \n\t\t\t\t\tthrow new BeanCreationException(mbd.getResourceDescription(), beanName,\n\t\t\t\t\t\t\t\"Resolution of declared constructors on bean Class [\" + beanClass.getName() +\n\t\t\t\t\t\t\t\"] from ClassLoader [\" + beanClass.getClassLoader() + \"] failed\", ex);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\t// 如果构造函数只有一个 \u0026 getBean 没有传参 \u0026 构造参数无参\n\t\t\t// 满足上述三个条件，则无需继续筛选，直接创建 BeanWrapper 并返回即可。\n\t\t\tif (candidates.length == 1 \u0026\u0026 explicitArgs == null \u0026\u0026 !mbd.hasConstructorArgumentValues()) { \n\t\t\t\tConstructor\u003c?\u003e uniqueCandidate = candidates[0];\n\t\t\t\tif (uniqueCandidate.getParameterCount() == 0) { \n\t\t\t\t\tsynchronized (mbd.constructorArgumentLock) { \n\t\t\t\t\t\tmbd.resolvedConstructorOrFactoryMethod = uniqueCandidate;\n\t\t\t\t\t\tmbd.constructorArgumentsResolved = true;\n\t\t\t\t\t\tmbd.resolvedConstructorArguments = EMPTY_ARGS;\n\t\t\t\t\t}\n\t\t\t\t\tbw.setBeanInstance(instantiate(beanName, mbd, uniqueCandidate, EMPTY_ARGS));\n\t\t\t\t\treturn bw;\n\t\t\t\t}\n\t\t\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-m3y8wl3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-m3y8wl3",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个逻辑也是比较清楚的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "chosenCtors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 是传入的构造函数列表："
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-ep1r6el",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010301-ep1r6el",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"ID": "20230404010301-gw7jwku",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010301-gw7jwku",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-n1oakvh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-n1oakvh",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "外部是否传入了候选构造函数列表( chosenCtors == null)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-d1ramg4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010301-d1ramg4",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-ypy0yuo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-ypy0yuo",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果没传入（chosenCtors 为null），通过反射获取构造函数列表"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-wmzdphl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010301-wmzdphl",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-b8t2wfb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-b8t2wfb",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "如果构造函数只有一个 \u0026amp; getBean 没有传参 \u0026amp; 构造参数无参"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，则直接使用这唯一一个构造函数并返回"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-7fgyq54",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-7fgyq54",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里需要注意点是 传入的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "chosenCtors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ ，在不同的调用场景下可能会传入null，或者 调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SmartInstantiationAwareBeanPostProcessor.determineCandidateConstructors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法返回的值。Spring 默认的实现是在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-hoybdxq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010301-hoybdxq",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3，解析构造函数参数个数"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-3i0d7ma",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010301-3i0d7ma",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t\t\t// 解析出来的构造函数的个数\n\t\t\tint minNrOfArgs;\n\t\t\t// 如果explicitArgs不为空，直接使用它作为参数，毕竟是传入的参数，没必要再从进一步解析。\n\t\t\tif (explicitArgs != null) { \n\t\t\t\tminNrOfArgs = explicitArgs.length;\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// 提取配置文件中的配置的构造函数参数\n\t\t\t\tConstructorArgumentValues cargs = mbd.getConstructorArgumentValues();\n\t\t\t\t// 用于保存解析后的构造函数参数的值，在resolveConstructorArguments中可以看到他的作用\n\t\t\t\tresolvedValues = new ConstructorArgumentValues();\n\t\t\t\t// 最终解析到的构造函数参数个数\n\t\t\t\tminNrOfArgs = resolveConstructorArguments(beanName, mbd, bw, cargs, resolvedValues);\n\t\t\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-jyn7iva",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-jyn7iva",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 Spring 中指定的构造函数会保存在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RootBeanDefinition.constructorArgumentValues"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中，类型为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ConstructorArgumentValues"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，如下。可以看到 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ConstructorArgumentValues"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 分为两部分保存参数。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-ocbln1c",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010301-ocbln1c",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class ConstructorArgumentValues { \n\t// 按照顺序声明的参数列表\n\tprivate final Map\u003cInteger, ValueHolder\u003e indexedArgumentValues = new LinkedHashMap\u003c\u003e();\n\t// 按照类型声明的参数列表\n\tprivate final List\u003cValueHolder\u003e genericArgumentValues = new ArrayList\u003c\u003e();\n\t...\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-3u33qw9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-3u33qw9",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如下的定义中："
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-1r9dxdt",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010301-1r9dxdt",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"\u003e\n    \u003cbean id=\"constructorDemoA\" class=\"com.kingfish.springbootdemo.constructor.ConstructorDemoA\"\u003e\n        \u003cconstructor-arg index=\"0\" ref=\"constructorDemoB\"\u003e\u003c/constructor-arg\u003e\n        \u003cconstructor-arg index=\"1\" value=\"666\" \u003e\u003c/constructor-arg\u003e\n        \u003cconstructor-arg value=\"999\" \u003e\u003c/constructor-arg\u003e\n    \u003c/bean\u003e\n    \u003cbean id=\"constructorDemoB\" class=\"com.kingfish.springbootdemo.constructor.ConstructorDemoB\"\u003e\u003c/bean\u003e\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-8de0gne",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-8de0gne",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "constructorDemoB，666就被保存到 indexedArgumentValues 中， 999 就被保存到genericArgumentValues ，如下图"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-wmjay3y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-wmjay3y",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201118180056354-20230404010301-9h32c9q.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-u6k733q",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-u6k733q",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "但是需要注意的是 这里面保存的是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ValueHolder"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类型，里面保存的也并不是 实际类型，而是未经转换的类型，即constructorDemoB 保存的并不是 ConstructorDemoB类 实例，而是保存了一个 beanName 为 constructorDemoB。这里的 666 保存的也是字符串形式(而实际的构造函数需要的是Integer形式)。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "总的来说就是 mbd.getConstructorArgumentValues(); 中的构造函数值并不一定是真正可以使用的类型，还需要进行一个解析进行类型的匹配。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-yge1rs5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-yge1rs5",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "而这个解析过程就发生在 resolveConstructorArguments 方法中。如下："
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-cvty5vd",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010301-cvty5vd",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "private int resolveConstructorArguments(String beanName, RootBeanDefinition mbd, BeanWrapper bw,\n\t\t\tConstructorArgumentValues cargs, ConstructorArgumentValues resolvedValues) { \n\t\t// 获取类型转换器\n\t\tTypeConverter customConverter = this.beanFactory.getCustomTypeConverter();\n\t\tTypeConverter converter = (customConverter != null ? customConverter : bw);\n\t\tBeanDefinitionValueResolver valueResolver =\n\t\t\t\tnew BeanDefinitionValueResolver(this.beanFactory, beanName, mbd, converter);\n\t\t// 获取参数个数，这并一定是最终的参数个数\n\t\tint minNrOfArgs = cargs.getArgumentCount();\n\t\t// 遍历 indexedArgumentValues \n\t\tfor (Map.Entry\u003cInteger, ConstructorArgumentValues.ValueHolder\u003e entry : cargs.getIndexedArgumentValues().entrySet()) { \n\t\t\tint index = entry.getKey();\n\t\t\tif (index \u003c 0) { \n\t\t\t\tthrow new BeanCreationException(mbd.getResourceDescription(), beanName,\n\t\t\t\t\t\t\"Invalid constructor argument index: \" + index);\n\t\t\t}\n\t\t\t// 这里注意，如果 \u003cconstructor-arg\u003e 的index属性大于 参数实际个数，那么Spring会采用index属性的值\n\t\t\tif (index \u003e minNrOfArgs) { \n\t\t\t\t// +1 是因为index 从0开始\n\t\t\t\tminNrOfArgs = index + 1;\n\t\t\t}\n\t\t\tConstructorArgumentValues.ValueHolder valueHolder = entry.getValue();\n\t\t\t// 如果类型已经解析过，则保存在 resolvedValues 中\n\t\t\tif (valueHolder.isConverted()) { \n\t\t\t\tresolvedValues.addIndexedArgumentValue(index, valueHolder);\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// 否则进行类型解析后再保存到 resolvedValues 中\n\t\t\t\tObject resolvedValue =\n\t\t\t\t\t\tvalueResolver.resolveValueIfNecessary(\"constructor argument\", valueHolder.getValue());\n\t\t\t\tConstructorArgumentValues.ValueHolder resolvedValueHolder =\n\t\t\t\t\t\tnew ConstructorArgumentValues.ValueHolder(resolvedValue, valueHolder.getType(), valueHolder.getName());\n\t\t\t\tresolvedValueHolder.setSource(valueHolder);\n\t\t\t\tresolvedValues.addIndexedArgumentValue(index, resolvedValueHolder);\n\t\t\t}\n\t\t}\n\t\t// 遍历 genericArgumentValues \n\t\tfor (ConstructorArgumentValues.ValueHolder valueHolder : cargs.getGenericArgumentValues()) { \n\t\t\t// 如果已经解析，则保存到resolvedValues 中\n\t\t\tif (valueHolder.isConverted()) { \n\t\t\t\tresolvedValues.addGenericArgumentValue(valueHolder);\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// 否则进行类型解析后再保存到 resolvedValues 中\n\t\t\t\tObject resolvedValue =\n\t\t\t\t\t\tvalueResolver.resolveValueIfNecessary(\"constructor argument\", valueHolder.getValue());\n\t\t\t\tConstructorArgumentValues.ValueHolder resolvedValueHolder = new ConstructorArgumentValues.ValueHolder(\n\t\t\t\t\t\tresolvedValue, valueHolder.getType(), valueHolder.getName());\n\t\t\t\tresolvedValueHolder.setSource(valueHolder);\n\t\t\t\tresolvedValues.addGenericArgumentValue(resolvedValueHolder);\n\t\t\t}\n\t\t}\n\t\t// 返回解析后的构造函数参数个数。\n\t\treturn minNrOfArgs;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-vw0v7ha",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010301-vw0v7ha",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4，寻找最匹配的构造函数"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-0400peu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-0400peu",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "代码比较长，上面已经贴出了完整版，这里就简化一下："
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-dv66ixy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010301-dv66ixy",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t...\n\t// 排序构造函数,方便后面检索\n\tAutowireUtils.sortConstructors(candidates);\n\t// 差异度，最后选择minTypeDiffWeight  最小的作为最匹配的构造函数\n\tint minTypeDiffWeight = Integer.MAX_VALUE;\n\tSet\u003cConstructor\u003c?\u003e\u003e ambiguousConstructors = null;\n\tLinkedList\u003cUnsatisfiedDependencyException\u003e causes = null;\n\t// 筛选构造函数，根据参数数量，参数类型匹配\n\tfor (Constructor\u003c?\u003e candidate : candidates) { \n\n\t\t... \n\t\n\t\tif (resolvedValues != null) { \n\t\t\ttry { \n\t\t\t\t// 获取参数名\n\t\t\t\tString[] paramNames = ConstructorPropertiesChecker.evaluate(candidate, parameterCount);\n\t\t\t\tif (paramNames == null) { \n\t\t\t\t\tParameterNameDiscoverer pnd = this.beanFactory.getParameterNameDiscoverer();\n\t\t\t\t\tif (pnd != null) { \n\t\t\t\t\t\tparamNames = pnd.getParameterNames(candidate);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\targsHolder = createArgumentArray(beanName, mbd, resolvedValues, bw, paramTypes, paramNames,\n\t\t\t\t\t\tgetUserDeclaredConstructor(candidate), autowiring, candidates.length == 1);\n\t\t\t}\n\t\t\tcatch (UnsatisfiedDependencyException ex) { \n\t\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\t\tlogger.trace(\"Ignoring constructor [\" + candidate + \"] of bean '\" + beanName + \"': \" + ex);\n\t\t\t\t}\n\t\t\t\t// Swallow and try next constructor.\n\t\t\t\tif (causes == null) { \n\t\t\t\t\tcauses = new LinkedList\u003c\u003e();\n\t\t\t\t}\n\t\t\t\tcauses.add(ex);\n\t\t\t\tcontinue;\n\t\t\t}\n\t\t}\n\t\telse { \n\t\t\t// Explicit arguments given -\u003e arguments length must match exactly.\n\t\t\tif (parameterCount != explicitArgs.length) { \n\t\t\t\tcontinue;\n\t\t\t}\n\t\t\targsHolder = new ArgumentsHolder(explicitArgs);\n\t\t}\n\t\n\t\t...\n\t\n\t\tif (explicitArgs == null \u0026\u0026 argsHolderToUse != null) { \n\t\t\t// 将解析出来的信息缓存到RootBeanDefinition中\n\t\t\targsHolderToUse.storeCache(mbd, constructorToUse);\n\t\t}\n\t}\nAssert.state(argsToUse != null, \"Unresolved constructor arguments\");\n// 创建bean，并保存\nbw.setBeanInstance(instantiate(beanName, mbd, constructorToUse, argsToUse));\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-jyfrl4s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-jyfrl4s",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这一步的目的就是根据参数数量和参数列表来选择最合适的构造函数，并且调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "instantiate(beanName, mbd, constructorToUse, argsToUse)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法来创建bean实例。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-beh8ugn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-beh8ugn",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "下面提两点："
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-ljlb4rb",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010301-ljlb4rb",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"ID": "20230404010301-wbjpj2a",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010301-wbjpj2a",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-wvuitru",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-wvuitru",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "由于在配置文件中声明bean不仅仅可以使用参数位置索引的方式创建，也支持通过参数名称设定参数值的情况，如下："
+								}
+							]
+						},
+						{
+							"ID": "20230404010301-z24xy3c",
+							"Type": "NodeCodeBlock",
+							"IsFencedCodeBlock": true,
+							"Properties": {
+								"id": "20230404010301-z24xy3c",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeBlockFenceOpenMarker",
+									"Data": "```"
+								},
+								{
+									"Type": "NodeCodeBlockFenceInfoMarker",
+									"CodeBlockInfo": "amF2YQ=="
+								},
+								{
+									"Type": "NodeCodeBlockCode",
+									"Data": "\u003cconstructor-arg name=\"constructorDemoB\" ref=\"constructorDemoB\"\u003e\u003c/constructor-arg\u003e\n"
+								},
+								{
+									"Type": "NodeCodeBlockFenceCloseMarker",
+									"Data": "```"
+								}
+							]
+						},
+						{
+							"ID": "20230404010301-00w5hi2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-00w5hi2",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "所以这时候，就需要首先确定构造函数中的参数名称。而获取参数名的方式有两种，一种是通过注解直接获取("
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@ConstructorProperties"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 注解获取)，即上面代码中对应的 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ConstructorPropertiesChecker.evaluate(candidate, parameterCount);"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，另一种是通过Spring同构的工具类 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ParameterNameDiscoverer"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ，这个在代码中也有使用。\n完成这一步的时候，构造函数、参数名称、参数类型、参数值都确定后就可以锁定构造函数以及转换对应的参数类型了。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010301-xn7beus",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010301-xn7beus",
+						"updated": "20230404010301"
+					},
+					"Children": [
+						{
+							"ID": "20230404010301-8674ppl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-8674ppl",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "instantiate"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法也很简单，根据 beanFactory 中的 bean实例化策略来实例化对象："
+								}
+							]
+						},
+						{
+							"ID": "20230404010301-1c46s5l",
+							"Type": "NodeCodeBlock",
+							"IsFencedCodeBlock": true,
+							"Properties": {
+								"id": "20230404010301-1c46s5l",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeBlockFenceOpenMarker",
+									"Data": "```"
+								},
+								{
+									"Type": "NodeCodeBlockFenceInfoMarker",
+									"CodeBlockInfo": "amF2YQ=="
+								},
+								{
+									"Type": "NodeCodeBlockCode",
+									"Data": "private Object instantiate(\n\t\t\tString beanName, RootBeanDefinition mbd, Constructor\u003c?\u003e constructorToUse, Object[] argsToUse) { \n\n\t\ttry { \n\t\t\t// 获取实例化策略\n\t\t\tInstantiationStrategy strategy = this.beanFactory.getInstantiationStrategy();\n\t\t\t// 通过策略实例化bean\n\t\t\tif (System.getSecurityManager() != null) { \n\t\t\t\treturn AccessController.doPrivileged((PrivilegedAction\u003cObject\u003e) () -\u003e\n\t\t\t\t\t\tstrategy.instantiate(mbd, beanName, this.beanFactory, constructorToUse, argsToUse),\n\t\t\t\t\t\tthis.beanFactory.getAccessControlContext());\n\t\t\t}\n\t\t\telse { \n\t\t\t\treturn strategy.instantiate(mbd, beanName, this.beanFactory, constructorToUse, argsToUse);\n\t\t\t}\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\tthrow new BeanCreationException(mbd.getResourceDescription(), beanName,\n\t\t\t\t\t\"Bean instantiation via constructor failed\", ex);\n\t\t}\n\t}\n"
+								},
+								{
+									"Type": "NodeCodeBlockFenceCloseMarker",
+									"Data": "```"
+								}
+							]
+						},
+						{
+							"ID": "20230404010301-jbeiz1o",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010301-jbeiz1o",
+								"updated": "20230404010301"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "注：关于 实例化策略，主要两种 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong code",
+									"TextMarkTextContent": "SimpleInstantiationStrategy"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": " 和 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong code",
+									"TextMarkTextContent": "CglibSubclassingInstantiationStrategy"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "，简单实例化策略(直接反射) 和 Cglib 动态代理策略(通过cglib 代理)，默认第二种。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-poqbfbo",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010301-poqbfbo",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "五，无参构造函数实例化"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-whhv1qw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-whhv1qw",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "相较于上面的有参构造函数，无参构造函数的解析就简单很多："
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-trctzl6",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010301-trctzl6",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected BeanWrapper instantiateBean(String beanName, RootBeanDefinition mbd) { \n\t\ttry { \n\t\t\tObject beanInstance;\n\t\t\tif (System.getSecurityManager() != null) { \n\t\t\t\tbeanInstance = AccessController.doPrivileged(\n\t\t\t\t\t\t(PrivilegedAction\u003cObject\u003e) () -\u003e getInstantiationStrategy().instantiate(mbd, beanName, this),\n\t\t\t\t\t\tgetAccessControlContext());\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// 获取实例化策略并且进行实例化操作\n\t\t\t\tbeanInstance = getInstantiationStrategy().instantiate(mbd, beanName, this);\n\t\t\t}\n\t\t\t// 包装成BeanWrapper\n\t\t\tBeanWrapper bw = new BeanWrapperImpl(beanInstance);\n\t\t\tinitBeanWrapper(bw);\n\t\t\treturn bw;\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\tthrow new BeanCreationException(\n\t\t\t\t\tmbd.getResourceDescription(), beanName, \"Instantiation of bean failed\", ex);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-20aplvi",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010301-20aplvi",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public Object instantiate(RootBeanDefinition bd, @Nullable String beanName, BeanFactory owner) { \n\t\t// Don't override the class with CGLIB if no overrides.\n\t\t// bd对象定义中，是否包含MethodOverride列表，spring中有两个标签参数会产生MethodOverrides,分别是lookup-method,replaced-method\n\t\t// 没有MethodOverrides对象，可以直接实例化\n\t\tif (!bd.hasMethodOverrides()) { \n\t\t\t// 实例化对象的构造方法\n\t\t\tConstructor\u003c?\u003e constructorToUse;\n\t\t\t// 锁定对象，使获得实例化构造方法线程安全\n\t\t\tsynchronized (bd.constructorArgumentLock) { \n\t\t\t\t// 查看bd对象里使用否含有构造方法\n\t\t\t\tconstructorToUse = (Constructor\u003c?\u003e) bd.resolvedConstructorOrFactoryMethod;\n\t\t\t\t// 如果没有\n\t\t\t\tif (constructorToUse == null) { \n\t\t\t\t\t// 从bd中获取beanClass\n\t\t\t\t\tfinal Class\u003c?\u003e clazz = bd.getBeanClass();\n\t\t\t\t\t// 如果要实例化的beanDefinition是一个接口，则直接抛出异常\n\t\t\t\t\tif (clazz.isInterface()) { \n\t\t\t\t\t\tthrow new BeanInstantiationException(clazz, \"Specified class is an interface\");\n\t\t\t\t\t}\n\t\t\t\t\ttry { \n\t\t\t\t\t\t// 获取系统安全管理器\n\t\t\t\t\t\tif (System.getSecurityManager() != null) { \n\t\t\t\t\t\t\tconstructorToUse = AccessController.doPrivileged(\n\t\t\t\t\t\t\t\t\t(PrivilegedExceptionAction\u003cConstructor\u003c?\u003e\u003e) clazz::getDeclaredConstructor);\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse { \n\t\t\t\t\t\t\t// 获取默认的午餐构造器\n\t\t\t\t\t\t\tconstructorToUse = clazz.getDeclaredConstructor();\n\t\t\t\t\t\t}\n\t\t\t\t\t\t// 获取到构造器之后将构造器赋值给bd中的属性\n\t\t\t\t\t\tbd.resolvedConstructorOrFactoryMethod = constructorToUse;\n\t\t\t\t\t}\n\t\t\t\t\tcatch (Throwable ex) { \n\t\t\t\t\t\tthrow new BeanInstantiationException(clazz, \"No default constructor found\", ex);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t// 通过反射生成具体的实例化对象\n\t\t\treturn BeanUtils.instantiateClass(constructorToUse);\n\t\t}\n\t\telse { \n\t\t\t// Must generate CGLIB subclass.\n\t\t\t// 必须生成cglib子类\n\t\t\treturn instantiateWithMethodInjection(bd, beanName, owner);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-2167q3h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-2167q3h",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里可以用一句话概括 ： "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "是否有方法被覆盖(是否使用replace 或 lookup 进行配置)，有则使用cglib动态代理，增加方法，否则直接通过反射创建。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-507cb7c",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010301-507cb7c",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "六，总结"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-49os0ap",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-49os0ap",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAutowireCapableBeanFactory#createBeanInstance"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法处于Spring 创建bean 的入口阶段，完成了bean 的初步创建，调用各种扩展接口来尝试完成bean的创建（Supplier、factory-method），失败了则根据传入参数和和构造函数列表来选择合适的构造函数来创建bean。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010301-fueoji3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010301-fueoji3",
+				"updated": "20230404010301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "但是并未完成属性注入、接口特性实现(如 Aware)、标签设置（如inti-method）的设置。在后续的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAutowireCapableBeanFactory#populateBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中完成了属性的注入。"
+				}
+			]
+		}
+	]
+}

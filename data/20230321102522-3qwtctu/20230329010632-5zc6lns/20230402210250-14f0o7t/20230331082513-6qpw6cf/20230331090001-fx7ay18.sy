@@ -1,0 +1,2169 @@
+{
+	"ID": "20230331090001-fx7ay18",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331090001-fx7ay18",
+		"title": "Spring 源码分析零：Springboot的启动流程_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331090451"
+	},
+	"Children": [
+		{
+			"ID": "20230331090001-9813jhg",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090001-9813jhg",
+				"updated": "20230331090001"
+			}
+		},
+		{
+			"ID": "20230331090001-yok80jq",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090001-yok80jq",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"ID": "20230331090001-2kw7at5",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090001-2kw7at5",
+						"updated": "20230331090001"
+					},
+					"Children": [
+						{
+							"ID": "20230331090001-i1iuupy",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090001-i1iuupy",
+								"updated": "20230331090001"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/112305866",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/112305866"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090001-cqzn9vl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090001-cqzn9vl",
+						"updated": "20230331090001"
+					},
+					"Children": [
+						{
+							"ID": "20230331090001-83nj5mv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090001-83nj5mv",
+								"updated": "20230331090001"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一、前言本系列是在修改Spring源码分析系列文章时发现的部分内容并不完整，故开篇进行补充的内容。因本人水平有限，部分内容是个人理解，故内容不免有错误之处，如有错异，欢迎指正。本文是针对 Springboot  run方法的启动流程的分析。下面是一个简单的项目，我们直接开始看run方法@SpringBootApplicationpublic class SpringbootDemoApplication {\t    public static void main(String[] args)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090001-0aw50ad",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090001-0aw50ad",
+						"updated": "20230331090001"
+					},
+					"Children": [
+						{
+							"ID": "20230331090001-bkl2t2a",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090001-bkl2t2a",
+								"updated": "20230331090001"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:00:01"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-c7vd6mn",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090001-c7vd6mn",
+				"updated": "20230331090001"
+			}
+		},
+		{
+			"ID": "20230331090001-u1yklqc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090001-u1yklqc",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-bn2gh9u",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090001-bn2gh9u",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"ID": "20230331090001-5p9f4sb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090001-5p9f4sb",
+						"updated": "20230331090001"
+					},
+					"Children": [
+						{
+							"ID": "20230331090001-kxhrx0c",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090001-kxhrx0c",
+								"updated": "20230331090001"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/112305866#_3",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090001-40y2p4z",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090001-40y2p4z",
+						"updated": "20230331090001"
+					},
+					"Children": [
+						{
+							"ID": "20230331090001-6nrn08j",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090001-6nrn08j",
+								"updated": "20230331090001"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/112305866#SpringApplication__28",
+									"TextMarkTextContent": "二、SpringApplication 的初始化"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090001-mnguxtv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090001-mnguxtv",
+						"updated": "20230331090001"
+					},
+					"Children": [
+						{
+							"ID": "20230331090001-z1yigiq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090001-z1yigiq",
+								"updated": "20230331090001"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/112305866#_59",
+									"TextMarkTextContent": "三、流程简介"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090001-1tqx515",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090001-1tqx515",
+						"updated": "20230331090001"
+					},
+					"Children": [
+						{
+							"ID": "20230331090001-qd4h2yd",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090001-qd4h2yd",
+								"updated": "20230331090001"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/112305866#_125",
+									"TextMarkTextContent": "四、流程步骤详解"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090001-2kqfelw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090001-2kqfelw",
+						"updated": "20230331090001"
+					},
+					"Children": [
+						{
+							"ID": "20230331090001-5dko4x5",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090001-5dko4x5",
+								"updated": "20230331090001"
+							},
+							"Children": [
+								{
+									"ID": "20230331090001-obl2w81",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090001-obl2w81",
+										"updated": "20230331090001"
+									},
+									"Children": [
+										{
+											"ID": "20230331090001-q1j7z4z",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090001-q1j7z4z",
+												"updated": "20230331090001"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/112305866#1__128",
+													"TextMarkTextContent": "1. 获取监听器"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090001-b5j4g01",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090001-b5j4g01",
+										"updated": "20230331090001"
+									},
+									"Children": [
+										{
+											"ID": "20230331090001-98vlb3r",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090001-98vlb3r",
+												"updated": "20230331090001"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/112305866#2__169",
+													"TextMarkTextContent": "2. 环境变量的构造"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090001-lhyxubx",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090001-lhyxubx",
+										"updated": "20230331090001"
+									},
+									"Children": [
+										{
+											"ID": "20230331090001-wqqz3rp",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331090001-wqqz3rp",
+												"updated": "20230331090001"
+											},
+											"Children": [
+												{
+													"ID": "20230331090001-h3puuw5",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090001-h3puuw5",
+														"updated": "20230331090001"
+													},
+													"Children": [
+														{
+															"ID": "20230331090001-asorwkd",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090001-asorwkd",
+																"updated": "20230331090001"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/112305866#21_applicationyml__211",
+																	"TextMarkTextContent": "2.1. application.yml 的加载"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090001-g8p8urf",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090001-g8p8urf",
+										"updated": "20230331090001"
+									},
+									"Children": [
+										{
+											"ID": "20230331090001-48k67rt",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090001-48k67rt",
+												"updated": "20230331090001"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/112305866#3__264",
+													"TextMarkTextContent": "3. 创建上下文"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090001-z6p01d2",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090001-z6p01d2",
+										"updated": "20230331090001"
+									},
+									"Children": [
+										{
+											"ID": "20230331090001-y1ole8m",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090001-y1ole8m",
+												"updated": "20230331090001"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/112305866#4__326",
+													"TextMarkTextContent": "4. 上下文准备工作"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090001-mc9lyli",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090001-mc9lyli",
+										"updated": "20230331090001"
+									},
+									"Children": [
+										{
+											"ID": "20230331090001-s4kl6ce",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090001-s4kl6ce",
+												"updated": "20230331090001"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/112305866#5_SpringApplicationrefreshContext_475",
+													"TextMarkTextContent": "5. SpringApplication#refreshContext"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090001-z2rjwd5",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090001-z2rjwd5",
+						"updated": "20230331090001"
+					},
+					"Children": [
+						{
+							"ID": "20230331090001-f3kihsr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090001-f3kihsr",
+								"updated": "20230331090001"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/112305866#springfactories_503",
+									"TextMarkTextContent": "附录：spring.factories"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-ac04909",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090001-ac04909",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-9pvmxns",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-9pvmxns",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是笔者阅读Spring源码的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-f11ikv8",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090001-f11ikv8",
+				"updated": "20230331090001"
+			}
+		},
+		{
+			"ID": "20230331090001-toa9qu5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-toa9qu5",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是针对 Springboot run方法的启动流程的分析。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-eq1de1j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-eq1de1j",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面是一个简单的项目，我们直接开始看run方法"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-bn7m335",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-bn7m335",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@SpringBootApplication\npublic class SpringbootDemoApplication { \n\n    public static void main(String[] args) { \n        ConfigurableApplicationContext run = SpringApplication.run(SpringbootDemoApplication.class, args);\n        Object demoService = run.getBean(\"demoService\");\n        System.out.println(\"demoService = \" + demoService);\n   }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-sg0n2a8",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090001-sg0n2a8",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、SpringApplication 的初始化"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-9mx9jbt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-9mx9jbt",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里直接看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SpringApplication#run(java.lang.Class\u0026lt;?\u0026gt;[], java.lang.String[])"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-ubg3c2r",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-ubg3c2r",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic static ConfigurableApplicationContext run(Class\u003c?\u003e[] primarySources, String[] args) { \n\t\treturn new SpringApplication(primarySources).run(args);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-47elp0f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-47elp0f",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里先看一下 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SpringApplication"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的构造函数流程"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-p6w2wff",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-p6w2wff",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic SpringApplication(ResourceLoader resourceLoader, Class\u003c?\u003e... primarySources) { \n\t\tthis.resourceLoader = resourceLoader;\n\t\tAssert.notNull(primarySources, \"PrimarySources must not be null\");\n\t\t// 保存启动类信息\n\t\tthis.primarySources = new LinkedHashSet\u003c\u003e(Arrays.asList(primarySources));\n\t\t// 初始化环境。环境分为三种 非web环境、web环境、reactive环境三种。其判断逻辑就是判断是否存在指定的类，默认是Servlet 环境，我们这也是Servlet\n\t\tthis.webApplicationType = WebApplicationType.deduceFromClasspath();\n\t\t// getSpringFactoriesInstances 方法加载了 spring.factories文件。在这里进行了首次加载spring.factoies文件。设置 ApplicationContextInitializer\n\t\tsetInitializers((Collection) getSpringFactoriesInstances(ApplicationContextInitializer.class));\n\t\t// 获取监听器，也加载了spring.factories文件\n\t\tsetListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));\n\t\t// 设置启动类信息\n\t\tthis.mainApplicationClass = deduceMainApplicationClass();\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-umm3hle",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090001-umm3hle",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、流程简介"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-3ozb5va",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-3ozb5va",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们下面直接来看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SpringApplication#run(java.lang.String...)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法的执行流程"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-k338mrj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-k338mrj",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic ConfigurableApplicationContext run(String... args) { \n\t\t// 开启关于启动时间的信息监控\n\t\tStopWatch stopWatch = new StopWatch();\n\t\tstopWatch.start();\n\t\t// 准备 ApplicationContext\n\t\tConfigurableApplicationContext context = null;\n\t\tCollection\u003cSpringBootExceptionReporter\u003e exceptionReporters = new ArrayList\u003c\u003e();\n\t\t\t\t//java.awt.headless是J2SE的一种模式用于在缺少显示屏、键盘或者鼠标时的系统配置，很多监控工具如jconsole 需要将该值设置为true，系统变量默认为true\n\t\tconfigureHeadlessProperty();\n\t\t// 1. 获取Spring的监听器类，这里是从 spring.factories 中去获取，默认的是以 org.springframework.boot.SpringApplicationRunListener 为key,获取到的监听器类型为 EventPublishingRunListener。\n\t\tSpringApplicationRunListeners listeners = getRunListeners(args);\n\t\t// 1.1 监听器发送启动事件\n\t\tlisteners.starting();\n\t\ttry { \n\t\t\t// 封装参数\n\t\t\tApplicationArguments applicationArguments = new DefaultApplicationArguments(args);\n\t\t\t// 2. 构造容器环境。将容器的一些配置内容加载到 environment  中\n\t\t\tConfigurableEnvironment environment = prepareEnvironment(listeners, applicationArguments);\n\t\t\t// 配置BeanInfo的忽略 ：“spring.beaninfo.ignore”，值为“true”表示跳过对BeanInfo类的搜索\n\t\t\tconfigureIgnoreBeanInfo(environment);\n\t\t\t// 打印信息对象\n\t\t\tBanner printedBanner = printBanner(environment);\n\t\t\t// 3. 创建上下文对象\n\t\t\tcontext = createApplicationContext();\n\t\t\t// 从 spring.factries 中获取错误报告的类。出错的时候会调用其方法通知\n\t\t\texceptionReporters = getSpringFactoriesInstances(SpringBootExceptionReporter.class,\n\t\t\t\t\tnew Class[] {  ConfigurableApplicationContext.class }, context);\n\t\t\t// 4. 准备刷新上下文\n\t\t\tprepareContext(context, environment, listeners, applicationArguments, printedBanner);\n\t\t\t// 5. 刷新上下文\n\t\t\trefreshContext(context);\n\t\t\t// 结束刷新，留待扩展功能，并未实现什么\n\t\t\tafterRefresh(context, applicationArguments);\n\t\t\t// 停止监听\n\t\t\tstopWatch.stop();\n\t\t\tif (this.logStartupInfo) { \n\t\t\t\tnew StartupInfoLogger(this.mainApplicationClass).logStarted(getApplicationLog(), stopWatch);\n\t\t\t}\n\t\t\t// 监听器发送启动结束时间\n\t\t\tlisteners.started(context);\n\t\t\t// 调用 ApplicationRunner 和 CommandLineRunner 对应的方法\n\t\t\tcallRunners(context, applicationArguments);\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\thandleRunFailure(context, ex, exceptionReporters, listeners);\n\t\t\tthrow new IllegalStateException(ex);\n\t\t}\n\n\t\ttry { \n\t\t\t// 发送容器运行事件\n\t\t\tlisteners.running(context);\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\thandleRunFailure(context, ex, exceptionReporters, null);\n\t\t\tthrow new IllegalStateException(ex);\n\t\t}\n\t\treturn context;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-6k9ge9j",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090001-6k9ge9j",
+				"updated": "20230331090001"
+			}
+		},
+		{
+			"ID": "20230331090001-zcvywa6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090001-zcvywa6",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四、流程步骤详解"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-zszrvc0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-zszrvc0",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们重点分析几个步骤"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-6fgo2gc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090001-6fgo2gc",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. 获取监听器"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-1p4jz02",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-1p4jz02",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这一步是从 spring.factories 文件中获取监听器集合，当有事件发生时调用监听器对应事件的方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-0rhgl86",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-0rhgl86",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "默认的是以 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.boot.SpringApplicationRunListener"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 为key,获取到的监听器类型为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "EventPublishingRunListener"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-nhstv95",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-nhstv95",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "SpringApplicationRunListeners listeners = getRunListeners(args);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-z6rcrhc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-z6rcrhc",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其详细代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-2c9b9qm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-2c9b9qm",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate SpringApplicationRunListeners getRunListeners(String[] args) { \n\t\tClass\u003c?\u003e[] types = new Class\u003c?\u003e[] {  SpringApplication.class, String[].class };\n\t\treturn new SpringApplicationRunListeners(logger,\n\t\t\t\tgetSpringFactoriesInstances(SpringApplicationRunListener.class, types, this, args));\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-cq1n9ta",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-cq1n9ta",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里需要注意的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getSpringFactoriesInstances(SpringApplicationRunListener.class, types, this, args)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 返回的是一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Collection"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类型。​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "也就是说明在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "SpringApplicationRunListeners"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "并非代表一个监听器，而是保存了监听器集合，在默认情况下，仅有一个 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "EventPublishingRunListener"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​。在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SpringApplicationRunListeners"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类中也能看到，如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-74iounk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-74iounk",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "class SpringApplicationRunListeners { \n\n\tprivate final Log log;\n\n\tprivate final List\u003cSpringApplicationRunListener\u003e listeners;\n\n\tSpringApplicationRunListeners(Log log, Collection\u003c? extends SpringApplicationRunListener\u003e listeners) { \n\t\tthis.log = log;\n\t\tthis.listeners = new ArrayList\u003c\u003e(listeners);\n\t}\n\t...\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-r9wh4i7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-r9wh4i7",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "总结一下:"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\nSpring启动时，通过 spring.factories 文件中获取监听器集合。默认类型为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "EventPublishingRunListener"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。在事件发生时，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "EventPublishingRunListener"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 会寻找容器中 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ApplicationListener"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的bean，并进行事件通知。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-z0vy6mq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-z0vy6mq",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "具体内容请参考 ："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106532790",
+					"TextMarkTextContent": "Spring源码分析衍生篇六：Spring监听事件"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-e02u1zs",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090001-e02u1zs",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. 环境变量的构造"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-423pajt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-423pajt",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这一步的作用就是加载一些配置文件的内容"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-5x4mtj0",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-5x4mtj0",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "ConfigurableEnvironment environment = prepareEnvironment(listeners, applicationArguments);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-2owxx0x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-2owxx0x",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其具体实现如下:"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-zjywow8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-zjywow8",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate ConfigurableEnvironment prepareEnvironment(SpringApplicationRunListeners listeners,\n\t\t\tApplicationArguments applicationArguments) { \n\t\t// Create and configure the environment\n\t\t// 获取或者创建 environment。这里获取类型是 StandardServletEnvironment \n\t\tConfigurableEnvironment environment = getOrCreateEnvironment();\n\t\t// 将入参配置到环境配置中\n\t\tconfigureEnvironment(environment, applicationArguments.getSourceArgs());\n\t\tConfigurationPropertySources.attach(environment);\n\t\t// 发布环境准备事件。\n\t\tlisteners.environmentPrepared(environment);\n\t\tbindToSpringApplication(environment);\n\t\tif (!this.isCustomEnvironment) { \n\t\t\tenvironment = new EnvironmentConverter(getClassLoader()).convertEnvironmentIfNecessary(environment,\n\t\t\t\t\tdeduceEnvironmentClass());\n\t\t}\n\t\tConfigurationPropertySources.attach(environment);\n\t\treturn environment;\n\t}\n\n\tprivate Class\u003c? extends StandardEnvironment\u003e deduceEnvironmentClass() { \n\t\tswitch (this.webApplicationType) { \n\t\tcase SERVLET:\n\t\t\treturn StandardServletEnvironment.class;\n\t\tcase REACTIVE:\n\t\t\treturn StandardReactiveWebEnvironment.class;\n\t\tdefault:\n\t\t\treturn StandardEnvironment.class;\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-ineesgs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-ineesgs",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "关于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "webApplicationType"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的值，在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.boot.SpringApplication#SpringApplication(org.springframework.core.io.ResourceLoader, java.lang.Class\u0026lt;?\u0026gt;...)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 构造函数中进行了赋值为"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Servlet"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。所以我们这里可以知道 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Environment"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类型为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "StandardServletEnvironment"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-yohin1z",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090001-yohin1z",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1. application.yml 的加载"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-akdd6fv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-akdd6fv",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "listeners.environmentPrepared(environment);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 时会发送环境准备事件，环境准备事件要通知七个监听器如下图。对于 Springboot 的配置文件application.yml或者application.properties文件的加载实际上是通过发布环境准备事件完成的，完成这项功能的就是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ConfigFileApplicationListener"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210107143623857-20230331090001-4zrs46s.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-pwvsdkr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-pwvsdkr",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ConfigFileApplicationListener"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "onApplicationEvent"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-h0qjdt6",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-h0qjdt6",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic void onApplicationEvent(ApplicationEvent event) { \n\t\tif (event instanceof ApplicationEnvironmentPreparedEvent) { \n\t\t\tonApplicationEnvironmentPreparedEvent((ApplicationEnvironmentPreparedEvent) event);\n\t\t}\n\t\tif (event instanceof ApplicationPreparedEvent) { \n\t\t\tonApplicationPreparedEvent(event);\n\t\t}\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-1xrcnkn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-1xrcnkn",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "EventPublishingRunListener#environmentPrepared"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 发布事件的时候，指明了该事件为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ApplicationEnvironmentPreparedEvent"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210107144139807-20230331090001-d01lpzg.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n所以我们这里会调用\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ConfigFileApplicationListener#onApplicationEnvironmentPreparedEvent"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法。如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-br5yq76",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-br5yq76",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate void onApplicationEnvironmentPreparedEvent(ApplicationEnvironmentPreparedEvent event) { \n\t\t// 获取 EnvironmentPostProcessor。这里也是从spring.factories 文件中获取\n\t\tList\u003cEnvironmentPostProcessor\u003e postProcessors = loadPostProcessors();\n\t\t// 把自身添加进入\n\t\tpostProcessors.add(this);\n\t\tAnnotationAwareOrderComparator.sort(postProcessors);\n\t\t// 排序后调用 EnvironmentPostProcessor#postProcessEnvironment 方法\n\t\tfor (EnvironmentPostProcessor postProcessor : postProcessors) { \n\t\t\tpostProcessor.postProcessEnvironment(event.getEnvironment(), event.getSpringApplication());\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-g2fs44w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-g2fs44w",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "实际上，也就是在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ConfigFileApplicationListener#postProcessEnvironment"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中加载了Springboot 配置文件"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-sf8ur6y",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-sf8ur6y",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) { \n\t\taddPropertySources(environment, application.getResourceLoader());\n\t}\n\t...\n\tprotected void addPropertySources(ConfigurableEnvironment environment, ResourceLoader resourceLoader) { \n\t\tRandomValuePropertySource.addToEnvironment(environment);\n\t\t// 在这里面的load方法中加载了配置文件内容。具体就不再解析\n\t\tnew Loader(environment, resourceLoader).load();\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-3lr4w6m",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090001-3lr4w6m",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3. 创建上下文"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-kmonfba",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-kmonfba",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这一步是创建上下文了"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-1gj8uab",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-1gj8uab",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "context = createApplicationContext();\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-tdgqinb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-tdgqinb",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其详细内容如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-akepfdm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-akepfdm",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\n\t/**\n\t * The class name of application context that will be used by default for non-web\n\t * environments.\n\t */\n\tpublic static final String DEFAULT_CONTEXT_CLASS = \"org.springframework.context.\"\n\t\t\t+ \"annotation.AnnotationConfigApplicationContext\";\n\n\t/**\n\t * The class name of application context that will be used by default for web\n\t * environments.\n\t */\n\tpublic static final String DEFAULT_SERVLET_WEB_CONTEXT_CLASS = \"org.springframework.boot.\"\n\t\t\t+ \"web.servlet.context.AnnotationConfigServletWebServerApplicationContext\";\n\n\t/**\n\t * The class name of application context that will be used by default for reactive web\n\t * environments.\n\t */\n\tpublic static final String DEFAULT_REACTIVE_WEB_CONTEXT_CLASS = \"org.springframework.\"\n\t\t\t+ \"boot.web.reactive.context.AnnotationConfigReactiveWebServerApplicationContext\";\n\n\n\tprotected ConfigurableApplicationContext createApplicationContext() { \n\t\tClass\u003c?\u003e contextClass = this.applicationContextClass;\n\t\tif (contextClass == null) { \n\t\t\ttry { \n\t\t\t\tswitch (this.webApplicationType) { \n\t\t\t\tcase SERVLET:\n\t\t\t\t\tcontextClass = Class.forName(DEFAULT_SERVLET_WEB_CONTEXT_CLASS);\n\t\t\t\t\tbreak;\n\t\t\t\tcase REACTIVE:\n\t\t\t\t\tcontextClass = Class.forName(DEFAULT_REACTIVE_WEB_CONTEXT_CLASS);\n\t\t\t\t\tbreak;\n\t\t\t\tdefault:\n\t\t\t\t\tcontextClass = Class.forName(DEFAULT_CONTEXT_CLASS);\n\t\t\t\t}\n\t\t\t}\n\t\t\tcatch (ClassNotFoundException ex) { \n\t\t\t\tthrow new IllegalStateException(\n\t\t\t\t\t\t\"Unable create a default ApplicationContext, please specify an ApplicationContextClass\", ex);\n\t\t\t}\n\t\t}\n\t\treturn (ConfigurableApplicationContext) BeanUtils.instantiateClass(contextClass);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-zeb7m02",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-zeb7m02",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "很明显，因为我们知道 webApplicationType 值是 servlet，所以这里创建的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotationConfigServletWebServerApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类型的上下文"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-abajw99",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-abajw99",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "这里需要注意：AnnotationConfigServletWebServerApplicationContext 构造函数中会创建 AnnotatedBeanDefinitionReader。而在 AnnotatedBeanDefinitionReader 构造函数中会调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "，该方法将一些必要Bean(如ConfigurationClassPostProcessor、AutowiredAnnotationBeanPostProcessor、CommonAnnotationBeanPostProcessor 等)注入到了容器中。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-u2hik9q",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090001-u2hik9q",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4. 上下文准备工作"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-s4cl7hb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-s4cl7hb",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面一步，仅仅是将上下文创建出来了，并没有对上下文进行操作。这一步开始对上下文的准备操作。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-kz14ssv",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-kz14ssv",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "prepareContext(context, environment, listeners, applicationArguments, printedBanner);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-q06coj4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-q06coj4",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其详细内容如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-foobxlk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-foobxlk",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate void prepareContext(ConfigurableApplicationContext context, ConfigurableEnvironment environment,\n\t\t\tSpringApplicationRunListeners listeners, ApplicationArguments applicationArguments, Banner printedBanner) { \n\t\t// 设置上下文的环境变量\n\t\tcontext.setEnvironment(environment);\n\t\t// 执行容器后置处理 ： 可以注册beanName策略生成器、设置资源加载器，设置转换服务等。但这里默认是没有做任何处理。目的是留给后续可以扩展\n\t\tpostProcessApplicationContext(context);\n\t\t// 处理所有的初始化类的初始化方法。即 spring.factories 中key 为 org.springframework.context.ApplicationContextInitializer 指向的类，调用其 initialize 方法\n\t\tapplyInitializers(context);\n\t\t// 向监听器发送容器准备事件\n\t\tlisteners.contextPrepared(context);\n\t\tif (this.logStartupInfo) { \n\t\t\tlogStartupInfo(context.getParent() == null);\n\t\t\tlogStartupProfileInfo(context);\n\t\t}\n\t\t// Add boot specific singleton beans\n\t\t// 获取上下文中的 BeanFactory。这里的BeanFactory 实际类型是  DefaultListableBeanFactory。BeanFactory 在初始化的时候，直接在构造函数里创建为 DefaultListableBeanFactory\n\t\tConfigurableListableBeanFactory beanFactory = context.getBeanFactory();\n\t\t// 注册 springApplicationArguments等一系列bean\n\t\tbeanFactory.registerSingleton(\"springApplicationArguments\", applicationArguments);\n\t\tif (printedBanner != null) { \n\t\t\tbeanFactory.registerSingleton(\"springBootBanner\", printedBanner);\n\t\t}\n\t\tif (beanFactory instanceof DefaultListableBeanFactory) { \n\t\t\t// 设置是否允许bean定义覆盖\n\t\t\t((DefaultListableBeanFactory) beanFactory)\n\t\t\t\t\t.setAllowBeanDefinitionOverriding(this.allowBeanDefinitionOverriding);\n\t\t}\n\t\t// 如果允许懒加载，则添加对应的BeanFactory后置处理器\n\t\tif (this.lazyInitialization) { \n\t\t\tcontext.addBeanFactoryPostProcessor(new LazyInitializationBeanFactoryPostProcessor());\n\t\t}\n\t\t// Load the sources\n\t\t// 这里加载的实际上是启动类\n\t\tSet\u003cObject\u003e sources = getAllSources();\n\t\tAssert.notEmpty(sources, \"Sources must not be empty\");\n\t\t// 这里将启动类加入到 beanDefinitionMap 中，为后续的自动化配置做好了基础\n\t\tload(context, sources.toArray(new Object[0]));\n\t\t// 发送容器加载完成事件\n\t\tlisteners.contextLoaded(context);\n\t}\n\n\t....\n\n\t// 需要注意这里的 sources参数实际上是 启动类的 Class\n\tprotected void load(ApplicationContext context, Object[] sources) { \n\t\tif (logger.isDebugEnabled()) { \n\t\t\tlogger.debug(\"Loading source \" + StringUtils.arrayToCommaDelimitedString(sources));\n\t\t}\n\t\t// 从上下文中获取 BeanDefinitionRegistry并依次创建出 BeanDefinitionLoader 。这里将sources作为参数保存到了 loader  中。也就是 loader  中保存了 启动类的Class信息\n\t\tBeanDefinitionLoader loader = createBeanDefinitionLoader(getBeanDefinitionRegistry(context), sources);\n\t\tif (this.beanNameGenerator != null) { \n\t\t\tloader.setBeanNameGenerator(this.beanNameGenerator);\n\t\t}\n\t\tif (this.resourceLoader != null) { \n\t\t\tloader.setResourceLoader(this.resourceLoader);\n\t\t}\n\t\tif (this.environment != null) { \n\t\t\tloader.setEnvironment(this.environment);\n\t\t}\n\t\tloader.load();\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-ysbu5re",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-ysbu5re",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里比较关键的方法是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "loader.load();"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法\n其中 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "loader.load();"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 不管怎么跳转，最后都会跳转到 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinitionLoader#load(java.lang.Class\u0026lt;?\u0026gt;)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中。如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-8ni531t",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-8ni531t",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate int load(Class\u003c?\u003e source) { \n\t\t// 判断是否存在 groovy 加载方式\n\t\tif (isGroovyPresent() \u0026\u0026 GroovyBeanDefinitionSource.class.isAssignableFrom(source)) { \n\t\t\t// Any GroovyLoaders added in beans{} DSL can contribute beans here\n\t\t\tGroovyBeanDefinitionSource loader = BeanUtils.instantiateClass(source, GroovyBeanDefinitionSource.class);\n\t\t\tload(loader);\n\t\t}\n\t\t// 判断 source 是否 需要被加载到Spring容器中。实际上是根据判断是否存在 @Component \n\t\tif (isComponent(source)) { \n\t\t\t// 将source 就是启动类的 class，注册到 annotatedReader 中。annotatedReader  类型是AnnotatedBeanDefinitionReader。\n\t\t\tthis.annotatedReader.register(source);\n\t\t\treturn 1;\n\t\t}\n\t\treturn 0;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-4wkszyy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-4wkszyy",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.annotatedReader.register(source);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 后续会跳转到 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotatedBeanDefinitionReader#doRegisterBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中，看名字就知道是这个方法的工作是 注册 Bean。实际上，在这个方法中完成了对"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Qualifier"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 以及一些其他注解的处理。具体如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-lthm76p",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-lthm76p",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t// 这里的 beanClass 其实就是启动类的 beanClass \n\tprivate \u003cT\u003e void doRegisterBean(Class\u003cT\u003e beanClass, @Nullable String name,\n\t\t\t@Nullable Class\u003c? extends Annotation\u003e[] qualifiers, @Nullable Supplier\u003cT\u003e supplier,\n\t\t\t@Nullable BeanDefinitionCustomizer[] customizers) { \n\t\t// 将Class 转换成一个 BeanDefinition 类\n\t\tAnnotatedGenericBeanDefinition abd = new AnnotatedGenericBeanDefinition(beanClass);\n\t\t// 判断是否应该跳过\n\t\tif (this.conditionEvaluator.shouldSkip(abd.getMetadata())) { \n\t\t\treturn;\n\t\t}\n\n\t\tabd.setInstanceSupplier(supplier);\n\t\t// 保存其作用域信息。这里默认是 singleton\n\t\tScopeMetadata scopeMetadata = this.scopeMetadataResolver.resolveScopeMetadata(abd);\n\t\tabd.setScope(scopeMetadata.getScopeName());\n\t\t// 获取 beanName\n\t\tString beanName = (name != null ? name : this.beanNameGenerator.generateBeanName(abd, this.registry));\n\t\t// 处理一些通用的注解信息，包括Lazy、Primary、DependsOn、Role、Description 注解。获取其value值并保存到 abd 中\n\t\tAnnotationConfigUtils.processCommonDefinitionAnnotations(abd);\n\t\t// 处理  @Qualifier \n\t\tif (qualifiers != null) { \n\t\t\tfor (Class\u003c? extends Annotation\u003e qualifier : qualifiers) { \n\t\t\t\tif (Primary.class == qualifier) { \n\t\t\t\t\tabd.setPrimary(true);\n\t\t\t\t}\n\t\t\t\telse if (Lazy.class == qualifier) { \n\t\t\t\t\tabd.setLazyInit(true);\n\t\t\t\t}\n\t\t\t\telse { \n\t\t\t\t\tabd.addQualifier(new AutowireCandidateQualifier(qualifier));\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tif (customizers != null) { \n\t\t\tfor (BeanDefinitionCustomizer customizer : customizers) { \n\t\t\t\tcustomizer.customize(abd);\n\t\t\t}\n\t\t}\n\n\t\tBeanDefinitionHolder definitionHolder = new BeanDefinitionHolder(abd, beanName);\n\t\t// 判断是否需要创建代理，需要则创建\n\t\tdefinitionHolder = AnnotationConfigUtils.applyScopedProxyMode(scopeMetadata, definitionHolder, this.registry);\n\t\t// 将 BeanDefinitionHolder  注册到 容器中。此时的 registry 就是 AnnotationConfigServletWebServerApplicationContext。在BeanDefinitionLoader 初始化的时候保存的\n\t\tBeanDefinitionReaderUtils.registerBeanDefinition(definitionHolder, this.registry);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-wwc38c5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090001-wwc38c5",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5. SpringApplication#refreshContext"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-gjm7akm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-gjm7akm",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对容器进行一个刷新工作。在此进行了大量的工作。这里的处理工作就由Springboot交给 Spring来处理了"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-nnmcd3c",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-nnmcd3c",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "refreshContext(context);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-ne66hu6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-ne66hu6",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "详细如下:"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-oxwvby5",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-oxwvby5",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "private void refreshContext(ConfigurableApplicationContext context) { \n\t\trefresh(context);\n\t\tif (this.registerShutdownHook) { \n\t\t\ttry { \n\t\t\t\tcontext.registerShutdownHook();\n\t\t\t}\n\t\t\tcatch (AccessControlException ex) { \n\t\t\t\t// Not allowed in some environments.\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-sexel20",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-sexel20",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "最终会跳转到 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractApplicationContext#refresh"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中。而关于 AbstractApplicationContext#refresh 方法在之前的文章中有过介绍，具体请参考："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106441853",
+					"TextMarkTextContent": "Spring源码分析一：容器的刷新 - refresh()"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-4amfwtc",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090001-4amfwtc",
+				"updated": "20230331090001"
+			}
+		},
+		{
+			"ID": "20230331090001-pii0g7w",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090001-pii0g7w",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "附录：spring.factories"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-fqql1m5",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090001-fqql1m5",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "# PropertySource Loaders\norg.springframework.boot.env.PropertySourceLoader=\\\norg.springframework.boot.env.PropertiesPropertySourceLoader,\\\norg.springframework.boot.env.YamlPropertySourceLoader\n\n# Run Listeners\norg.springframework.boot.SpringApplicationRunListener=\\\norg.springframework.boot.context.event.EventPublishingRunListener\n\n# Error Reporters\norg.springframework.boot.SpringBootExceptionReporter=\\\norg.springframework.boot.diagnostics.FailureAnalyzers\n\n# Application Context Initializers\norg.springframework.context.ApplicationContextInitializer=\\\norg.springframework.boot.context.ConfigurationWarningsApplicationContextInitializer,\\\norg.springframework.boot.context.ContextIdApplicationContextInitializer,\\\norg.springframework.boot.context.config.DelegatingApplicationContextInitializer,\\\norg.springframework.boot.rsocket.context.RSocketPortInfoApplicationContextInitializer,\\\norg.springframework.boot.web.context.ServerPortInfoApplicationContextInitializer\n\n# Application Listeners\norg.springframework.context.ApplicationListener=\\\norg.springframework.boot.ClearCachesApplicationListener,\\\norg.springframework.boot.builder.ParentContextCloserApplicationListener,\\\norg.springframework.boot.cloud.CloudFoundryVcapEnvironmentPostProcessor,\\\norg.springframework.boot.context.FileEncodingApplicationListener,\\\norg.springframework.boot.context.config.AnsiOutputApplicationListener,\\\norg.springframework.boot.context.config.ConfigFileApplicationListener,\\\norg.springframework.boot.context.config.DelegatingApplicationListener,\\\norg.springframework.boot.context.logging.ClasspathLoggingApplicationListener,\\\norg.springframework.boot.context.logging.LoggingApplicationListener,\\\norg.springframework.boot.liquibase.LiquibaseServiceLocatorApplicationListener\n\n# Environment Post Processors\norg.springframework.boot.env.EnvironmentPostProcessor=\\\norg.springframework.boot.cloud.CloudFoundryVcapEnvironmentPostProcessor,\\\norg.springframework.boot.env.SpringApplicationJsonEnvironmentPostProcessor,\\\norg.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor,\\\norg.springframework.boot.reactor.DebugAgentEnvironmentPostProcessor\n\n# Failure Analyzers\norg.springframework.boot.diagnostics.FailureAnalyzer=\\\norg.springframework.boot.diagnostics.analyzer.BeanCurrentlyInCreationFailureAnalyzer,\\\norg.springframework.boot.diagnostics.analyzer.BeanDefinitionOverrideFailureAnalyzer,\\\norg.springframework.boot.diagnostics.analyzer.BeanNotOfRequiredTypeFailureAnalyzer,\\\norg.springframework.boot.diagnostics.analyzer.BindFailureAnalyzer,\\\norg.springframework.boot.diagnostics.analyzer.BindValidationFailureAnalyzer,\\\norg.springframework.boot.diagnostics.analyzer.UnboundConfigurationPropertyFailureAnalyzer,\\\norg.springframework.boot.diagnostics.analyzer.ConnectorStartFailureAnalyzer,\\\norg.springframework.boot.diagnostics.analyzer.NoSuchMethodFailureAnalyzer,\\\norg.springframework.boot.diagnostics.analyzer.NoUniqueBeanDefinitionFailureAnalyzer,\\\norg.springframework.boot.diagnostics.analyzer.PortInUseFailureAnalyzer,\\\norg.springframework.boot.diagnostics.analyzer.ValidationExceptionFailureAnalyzer,\\\norg.springframework.boot.diagnostics.analyzer.InvalidConfigurationPropertyNameFailureAnalyzer,\\\norg.springframework.boot.diagnostics.analyzer.InvalidConfigurationPropertyValueFailureAnalyzer\n\n# FailureAnalysisReporters\norg.springframework.boot.diagnostics.FailureAnalysisReporter=\\\norg.springframework.boot.diagnostics.LoggingFailureAnalysisReporter\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090001-5acin3m",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090001-5acin3m",
+				"updated": "20230331090001"
+			}
+		},
+		{
+			"ID": "20230331090001-u1aeq7k",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090001-u1aeq7k",
+				"updated": "20230331090001"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://blog.csdn.net/woshilijiuyi/article/details/82219585",
+					"TextMarkTextContent": "https://blog.csdn.net/woshilijiuyi/article/details/82219585"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

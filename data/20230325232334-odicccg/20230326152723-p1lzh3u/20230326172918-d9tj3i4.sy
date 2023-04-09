@@ -1,0 +1,585 @@
+{
+	"ID": "20230326172918-d9tj3i4",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230326172918-d9tj3i4",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230326173105-elnu1ik\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230326193221-2em23ub\u0026quot;,\u0026quot;scrollTop\u0026quot;:1872,\u0026quot;focusId\u0026quot;:\u0026quot;20230326173105-elnu1ik\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "事务为什么会失效",
+		"updated": "20230326193331"
+	},
+	"Children": [
+		{
+			"ID": "20230326173105-elnu1ik",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326173105-elnu1ik",
+				"updated": "20230326173113"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230326173105-lspt06x.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230326173126-sa8oxcg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326173126-sa8oxcg",
+				"updated": "20230326173130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230326173126-2g7yjfp.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230326173132-jnn9ix3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326173132-jnn9ix3",
+				"updated": "20230326173248"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "正常情况，sql语句是插入不进去的，抛出了异常，会回滚。但是实际情况是数据库中"
+				}
+			]
+		},
+		{
+			"ID": "20230326173557-ixlfe2c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326173557-ixlfe2c",
+				"updated": "20230326173616"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "事务原理"
+				}
+			]
+		},
+		{
+			"ID": "20230326173618-v92j7d7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326173618-v92j7d7",
+				"updated": "20230326175626"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​​​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230326175622-plivfpr.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​​"
+				}
+			]
+		},
+		{
+			"ID": "20230326175913-7se2zfy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326175913-7se2zfy",
+				"updated": "20230326175936"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "走的是cglib的代理"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "block-ref",
+					"TextMarkBlockRefID": "20230326165430-6np903n",
+					"TextMarkBlockRefSubtype": "d",
+					"TextMarkTextContent": "cglib代理逻辑"
+				}
+			]
+		},
+		{
+			"ID": "20230326180133-qtb3h37",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326180133-qtb3h37",
+				"updated": "20230326180138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230326180133-6ecmud0.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				}
+			]
+		},
+		{
+			"ID": "20230326180139-r4gqiyt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326180139-r4gqiyt",
+				"updated": "20230326180519"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "progagation.NEVER 是如果有事务，就抛出异常。接口代码执行成功，原因是执行a()是普通UserService对象而非代理UserService。"
+				}
+			]
+		},
+		{
+			"ID": "20230326180520-02bjr72",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326180520-02bjr72",
+				"updated": "20230326180540"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "解决方案，就是让a()这个放在在代理对象中。"
+				}
+			]
+		},
+		{
+			"ID": "20230326180541-ko32613",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230326180541-ko32613",
+				"updated": "20230326193118"
+			},
+			"Children": [
+				{
+					"ID": "20230326193118-d3d3i94",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230326193118-d3d3i94",
+						"updated": "20230326193118"
+					},
+					"Children": [
+						{
+							"ID": "20230326193118-qcnlz73",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230326193118-qcnlz73",
+								"updated": "20230326193118"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "拆类，把a()放到其他类中。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230326180726-co29wj1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326180726-co29wj1",
+				"updated": "20230326180729"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230326180726-v5coh3p.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230326180606-urcy06p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326180606-urcy06p",
+				"updated": "20230326180609"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230326180606-evhqfe4.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230326180741-b8qnk8n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326180741-b8qnk8n",
+				"updated": "20230326180827"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这样就会抛异常了，因为在UserService中注入的UserServiceBase是一个代理对象"
+				}
+			]
+		},
+		{
+			"ID": "20230326193110-rs2ym4t",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230326193110-rs2ym4t",
+				"updated": "20230326193249"
+			},
+			"Children": [
+				{
+					"ID": "20230326193121-c1uvzvv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230326193121-c1uvzvv",
+						"updated": "20230326193249"
+					},
+					"Children": [
+						{
+							"ID": "20230326193121-xg6nin8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230326193121-xg6nin8",
+								"updated": "20230326193152"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "自己注入自己"
+								}
+							]
+						},
+						{
+							"ID": "20230326193156-5chsdie",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230326193156-5chsdie",
+								"updated": "20230326193249"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": " ​"
+								},
+								{
+									"Type": "NodeImage",
+									"Data": "span",
+									"Properties": {
+										"parent-style": "width: 50%;",
+										"style": "width: 10000px;"
+									},
+									"Children": [
+										{
+											"Type": "NodeBang"
+										},
+										{
+											"Type": "NodeOpenBracket"
+										},
+										{
+											"Type": "NodeLinkText",
+											"Data": "image"
+										},
+										{
+											"Type": "NodeCloseBracket"
+										},
+										{
+											"Type": "NodeOpenParen"
+										},
+										{
+											"Type": "NodeLinkDest",
+											"Data": "assets/image-20230326193245-wp1zzjh.png"
+										},
+										{
+											"Type": "NodeCloseParen"
+										}
+									]
+								},
+								{
+									"Type": "NodeKramdownSpanIAL",
+									"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230326193221-2em23ub",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326193221-2em23ub",
+				"updated": "20230326193331"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里注入时，用的单例池中的代理对象。"
+				}
+			]
+		}
+	]
+}

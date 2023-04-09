@@ -1,0 +1,728 @@
+{
+	"ID": "20230404011747-l8qzcp9",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404011747-l8qzcp9",
+		"title": "吃透Redis（十一）：Redis原子性的保证_redis如何保证原子性_吃透Java的博客-CSDN博客",
+		"updated": "20230404011747"
+	},
+	"Children": [
+		{
+			"ID": "20230404011747-m5jzsag",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011747-m5jzsag",
+				"updated": "20230404011747"
+			}
+		},
+		{
+			"ID": "20230404011747-g8lvtjm",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011747-g8lvtjm",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"ID": "20230404011747-ypqgho9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011747-ypqgho9",
+						"updated": "20230404011747"
+					},
+					"Children": [
+						{
+							"ID": "20230404011747-kywxuf3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011747-kywxuf3",
+								"updated": "20230404011747"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/128924891",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/128924891"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011747-b3kh9ag",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011747-b3kh9ag",
+						"updated": "20230404011747"
+					},
+					"Children": [
+						{
+							"ID": "20230404011747-6zeigmn",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011747-6zeigmn",
+								"updated": "20230404011747"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Redis server 一旦和一个客户端建立连接后，就会在事件驱动框架中注册可读事件，这就对应了客户端的命令请求。而对于整个命令处理的过程来说，我认为主要可以分成四个阶段"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011747-m6i9k6c",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011747-m6i9k6c",
+						"updated": "20230404011747"
+					},
+					"Children": [
+						{
+							"ID": "20230404011747-pho0mq6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011747-pho0mq6",
+								"updated": "20230404011747"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:17:47"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011747-p5woyg8",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011747-p5woyg8",
+				"updated": "20230404011747"
+			}
+		},
+		{
+			"ID": "20230404011747-6jxrqa8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011747-6jxrqa8",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/original-20230404011747-cxtp1bx.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404011747-nup9vgy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011747-nup9vgy",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/u013277209",
+					"TextMarkATitle": "吃透Java",
+					"TextMarkTextContent": "吃透Java"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/newCurrentTime2-20230404011747-blk6u0o.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "于 2023-02-07 20:05:57 发布"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/articleReadEyes2-20230404011747-unktnge.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "648"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/tobarCollect2-20230404011747-mxr3btg.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkTextContent": "                                                                           收藏                                              "
+				}
+			]
+		},
+		{
+			"ID": "20230404011747-yg0axpu",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011747-yg0axpu",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "                         版权声明：本文为博主原创文章，遵循[ CC 4.0 BY-SA ](http://creativecommons.org/licenses/by-sa/4.0/)版权协议，转载请附上原文出处链接和本声明。                       \n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011747-yzgo6im",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011747-yzgo6im",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "bGluaw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\n                            本文链接：https://blog.csdn.net/u013277209/article/details/128924891\n                      \n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011747-dzws6ur",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011747-dzws6ur",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkTextContent": "版权"
+				}
+			]
+		},
+		{
+			"ID": "20230404011747-8uuz22d",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011747-8uuz22d",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "redis"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%8E%9F%E5%AD%90%E6%80%A7\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "原子性"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "保证"
+				}
+			]
+		},
+		{
+			"ID": "20230404011747-2ahn864",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011747-2ahn864",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Redis server 一旦和一个客户端建立连接后，就会在事件驱动框架中注册可读事件，这就对应了客户端的命令请求。而对于整个命令处理的过程来说，我认为主要可以分成四个阶段："
+				}
+			]
+		},
+		{
+			"ID": "20230404011747-ymgjfb5",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011747-ymgjfb5",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"ID": "20230404011747-0ebyq3n",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011747-0ebyq3n",
+						"updated": "20230404011747"
+					},
+					"Children": [
+						{
+							"ID": "20230404011747-16tqedr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011747-16tqedr",
+								"updated": "20230404011747"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "命令读取"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011747-5368137",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011747-5368137",
+						"updated": "20230404011747"
+					},
+					"Children": [
+						{
+							"ID": "20230404011747-8gzsz86",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011747-8gzsz86",
+								"updated": "20230404011747"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "命令解析"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011747-41s3lqq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011747-41s3lqq",
+						"updated": "20230404011747"
+					},
+					"Children": [
+						{
+							"ID": "20230404011747-j126dl9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011747-j126dl9",
+								"updated": "20230404011747"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "命令执行"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011747-ompofjx",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011747-ompofjx",
+						"updated": "20230404011747"
+					},
+					"Children": [
+						{
+							"ID": "20230404011747-8vpgkn9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011747-8vpgkn9",
+								"updated": "20230404011747"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "结果返回"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011747-hmfdk13",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011747-hmfdk13",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这四个阶段在 Redis 6.0 版本前都是由主 IO 线程来执行完成的。虽然 Redis 使用了 IO "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "多路复用"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "机制，但是该机制只是一次性获取多个就绪的 socket 描述符，对应了多个发送命令请求的客户端。而 Redis 在主 IO 线程中，还是逐一来处理每个客户端上的命令的，所以命令执行的原子性依然可以得到保证。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011747-jepefgk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011747-jepefgk",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "而当使用了 Redis 6.0 版本后，命令处理过程中的读取、解析和结果写回，就由多个 IO 线程来处理了。不过你也不用担心，多个 IO 线程只是完成解析第一个读到的命令，命令的实际执行还是由主 IO 线程处理。当多个 IO 线程在并发写回结果时，命令就已经执行完了，不存在多 IO 线程冲突的问题。所以，使用了多 IO 线程后，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "命令执行"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "的原子性仍然可以得到保证。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011747-enp53nu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011747-enp53nu",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "为什么并发IO线程读写还能保证处理的原子性？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011747-wjopokh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011747-wjopokh",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "答：主线程负责把read pending队列中的数据放入到这些IO线程的io_threads_list队列，并且处理io_threads_list[0]也就是主线程处理IO操作，处理完成之后，主线程自旋等待IO线程处理完之后，才开始一个个执行命令，所以保证了原子性。\n看源码："
+				}
+			]
+		},
+		{
+			"ID": "20230404011747-qjfsx22",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011747-qjfsx22",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "void beforeSleep(struct aeEventLoop *eventLoop) { \n    ...\n    // 处理read pending队列的客户端队列\n    handleClientsWithPendingReadsUsingThreads();\n    ...\n}\n\nint handleClientsWithPendingReadsUsingThreads(void) { \n    // 获取clients_pending_read队列列表迭代器\n    listIter li;\n    listNode *ln;\n    listRewind(server.clients_pending_read,\u0026li);\n    int item_id = 0;\n  \n    // 一，放入不同的IO线程中\n    // 遍历所有待读取的客户端，并将其散列到不同IO线程处理列表中\n    while((ln = listNext(\u0026li))) { \n        client *c = listNodeValue(ln);\n        // 通过取余方式散列获取IO线程下标\n        int target_id = item_id % server.io_threads_num;\n        // 将该客户端放入该下标列表中\n        listAddNodeTail(io_threads_list[target_id],c);\n        item_id++;\n    }\n    // 所有连接放入到IO线程处理列表后将IO线程操作标识为IO_THREADS_OP_READ读操作\n    io_threads_op = IO_THREADS_OP_READ;\n    for (int j = 1; j \u003c server.io_threads_num; j++) { \n        // 设置io_threads_pending为非零数，也即当前需要处理的客户端数量，这时线程将会响应该操作，开始处理客户端连接\n        int count = listLength(io_threads_list[j]);\n        io_threads_pending[j] = count;\n    }\n  \n    // 二、处理主线程的IO读写时间\n    //io_threads_list数组0下标处为main线程处理，也即main线程处理一部分读IO\n    listRewind(io_threads_list[0],\u0026li);\n    while((ln = listNext(\u0026li))) { \n        client *c = listNodeValue(ln);\n        readQueryFromClient(c-\u003econn);\n    }\n    // 清空主线程负责的下标为0的客户端列表，其他的下标由IO线程自己处理\n    listEmpty(io_threads_list[0]);\n  \n    // 三、自旋等待所有IO线程全部处理完\n    // 自旋等嗲其他线程处理IO完毕\n    while(1) { \n        unsigned long pending = 0;\n        for (int j = 1; j \u003c server.io_threads_num; j++)\n            pending += io_threads_pending[j];\n        if (pending == 0) break;\n    }\n  \n    // 四、执行命令\n    // 当所有IO线程将clients_pending_read的客户端读IO处理完毕后，在主线程中处理客户端命令\n    while(listLength(server.clients_pending_read)) { \n        ln = listFirst(server.clients_pending_read);\n        client *c = listNodeValue(ln);\n        // 去掉CLIENT_PENDING_READ标志位，并将其从clients_pending_read队列中移除\n        c-\u003eflags \u0026= ~CLIENT_PENDING_READ;\n        listDelNode(server.clients_pending_read,ln);\n        // 如果设置暂停客户端请求那么继续循环\n        if (clientsArePaused()) continue;\n        // 处理客户端命令\n        if (processPendingCommandsAndResetClient(c) == C_ERR) { \n            continue;\n        }\n        processInputBuffer(c);\n        // 如果处理完毕且有数据需要写回，那么将客户端放入clients_pending_write队列等待IO线程完成写操作\n        if (!(c-\u003eflags \u0026 CLIENT_PENDING_WRITE) \u0026\u0026 clientHasPendingReplies(c))\n            clientInstallWriteHandler(c);\n    }\n    server.stat_io_reads_processed += processed;\n    return processed;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011747-hqv8lxr",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011747-hqv8lxr",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"ID": "20230404011747-x13c4m8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011747-x13c4m8",
+						"updated": "20230404011747"
+					},
+					"Children": [
+						{
+							"ID": "20230404011747-uytb2u6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011747-uytb2u6",
+								"updated": "20230404011747"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "客户端A 先发起请求1，后客户端B发起请求2，服务端【无法保证】先接收到 请求1后接收到请求2，因为网络传输时间不同。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011747-vw5whj2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011747-vw5whj2",
+						"updated": "20230404011747"
+					},
+					"Children": [
+						{
+							"ID": "20230404011747-cg5x7et",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011747-cg5x7et",
+								"updated": "20230404011747"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "客户端A 先发起请求1，后客户端A再次发起请求2，服务端 【可以保证】 先接收到请求1后接收到请求2，这个由TCP来保证。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011747-2gc5mhm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011747-2gc5mhm",
+						"updated": "20230404011747"
+					},
+					"Children": [
+						{
+							"ID": "20230404011747-cpocyx7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011747-cpocyx7",
+								"updated": "20230404011747"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "服务端先接收到请求1，后接收到请求2，在多io环境下，redis【可以保证】先执行请求1后执行请求2。请求会先放到列表里，多IO线程从列表依次获取请求，进行命令读取及解析，待所有IO线程都处理完成之后，主线程才开始按序执行命令。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011747-ru5tpmm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011747-ru5tpmm",
+				"updated": "20230404011747"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们可以简单地用一段话来描述Redis的请求处理流程：Redis主线程一次性获取最大为1000个客户端连接，将其放入到read pending队列中，在下一次aeMain主循环中调用beforeSleep函数，该函数将read pending队列和write pending队列中的客户端散列到IO线程中执行读写操作，并且自身负责下标为0处的客户端，然后等待IO线程执行 read、write 完毕后再执行。"
+				}
+			]
+		}
+	]
+}

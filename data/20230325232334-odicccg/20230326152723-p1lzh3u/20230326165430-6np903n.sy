@@ -1,0 +1,96 @@
+{
+	"ID": "20230326165430-6np903n",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230326165430-6np903n",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230326165430-p6xxh3n\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230326165658-8ffxqph\u0026quot;,\u0026quot;scrollTop\u0026quot;:48,\u0026quot;focusId\u0026quot;:\u0026quot;20230326165548-7olgm0n\u0026quot;,\u0026quot;focusStart\u0026quot;:50,\u0026quot;focusEnd\u0026quot;:100}",
+		"title": "cglib代理逻辑",
+		"updated": "20230326172845"
+	},
+	"Children": [
+		{
+			"ID": "20230326165430-p6xxh3n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326165430-p6xxh3n",
+				"updated": "20230326165507"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "被代理类UserService 里面有test()方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230326165507-nj0igfu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326165507-nj0igfu",
+				"updated": "20230326165532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "代理类UserServiceProxy"
+				}
+			]
+		},
+		{
+			"ID": "20230326165532-dqk5xok",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326165532-dqk5xok",
+				"updated": "20230326165548"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "原理是让UserServiceProxy继承UserService"
+				}
+			]
+		},
+		{
+			"ID": "20230326165548-7olgm0n",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230326165548-7olgm0n",
+				"updated": "20230326170714"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "class UserSerivceProxy extends UserService {\n\t@Autowire\n\tprivate UserService target //自动从容器中取值注入\n\tpublic void test() {\n\t\t//执行切面逻辑 \n\t\t//target.test()\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230326165658-8ffxqph",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326165658-8ffxqph",
+				"updated": "20230326172845"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "先执行切面逻辑，再执行target中test()方法"
+				}
+			]
+		}
+	]
+}

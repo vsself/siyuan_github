@@ -1,0 +1,3168 @@
+{
+	"ID": "20230404011826-g0j7mkh",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404011826-g0j7mkh",
+		"title": "吃透Redis（三）：数据结构篇-skiplist、quicklist、listpack_redis listpack反向遍历_吃透Java的博客-CSDN博客",
+		"updated": "20230404011826"
+	},
+	"Children": [
+		{
+			"ID": "20230404011826-2jiq597",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011826-2jiq597",
+				"updated": "20230404011826"
+			}
+		},
+		{
+			"ID": "20230404011826-svlo2ju",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011826-svlo2ju",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"ID": "20230404011826-03fjjbu",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-03fjjbu",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-a2zqooj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-a2zqooj",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/125998869"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-jeqkkll",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-jeqkkll",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-n2r53qy",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-n2r53qy",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "跳表是一个多层的有序链表，在跳表中进行查询操作时，查询代码可以从最高层开始查询。层数越高，结点数越少，同时高层结点的跨度会比较大。因此，在高层查询结点时，查询一个结点可能就已经查到了链表的中间位置了。这样一来，跳表就会先查高层，如果高层直接查到了等于待查元素的结点，那么就可以直接返回。如果查到第一个大于待查元素的结点后，就转向下一层查询。下层上的结点数多于上层，所以这样可以在更多的结点中进一步查找待查元素是否存在。Redis的ZSet为什么用skiplist而不用平衡二叉树实现？https。......"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-klpbjb4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-klpbjb4",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-c2ugzhx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-c2ugzhx",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:18:26"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-33uw5sy",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011826-33uw5sy",
+				"updated": "20230404011826"
+			}
+		},
+		{
+			"ID": "20230404011826-b1r5tw1",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011826-b1r5tw1",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-fgbnovw",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011826-fgbnovw",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"ID": "20230404011826-i7herui",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-i7herui",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-srdpqtt",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230404011826-srdpqtt",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"ID": "20230404011826-abiqkpx",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011826-abiqkpx",
+										"updated": "20230404011826"
+									},
+									"Children": [
+										{
+											"ID": "20230404011826-hhnuoas",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011826-hhnuoas",
+												"updated": "20230404011826"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869#skiplist_1",
+													"TextMarkTextContent": "一、跳表（skiplist）"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011826-j8eoxs7",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011826-j8eoxs7",
+										"updated": "20230404011826"
+									},
+									"Children": [
+										{
+											"ID": "20230404011826-r2sok99",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230404011826-r2sok99",
+												"updated": "20230404011826"
+											},
+											"Children": [
+												{
+													"ID": "20230404011826-g7neb64",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011826-g7neb64",
+														"updated": "20230404011826"
+													},
+													"Children": [
+														{
+															"ID": "20230404011826-sy8r32p",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011826-sy8r32p",
+																"updated": "20230404011826"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869#_18",
+																	"TextMarkTextContent": "跳表数据结构"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011826-w1isqnc",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011826-w1isqnc",
+														"updated": "20230404011826"
+													},
+													"Children": [
+														{
+															"ID": "20230404011826-0y1jm6v",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011826-0y1jm6v",
+																"updated": "20230404011826"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869#_56",
+																	"TextMarkTextContent": "跳表的查询"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011826-wf0zw1w",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011826-wf0zw1w",
+														"updated": "20230404011826"
+													},
+													"Children": [
+														{
+															"ID": "20230404011826-50ttg8a",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011826-50ttg8a",
+																"updated": "20230404011826"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869#_63",
+																	"TextMarkTextContent": "跳表结点层数设置"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011826-tr9yiib",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011826-tr9yiib",
+														"updated": "20230404011826"
+													},
+													"Children": [
+														{
+															"ID": "20230404011826-muhh2a6",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011826-muhh2a6",
+																"updated": "20230404011826"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869#_68",
+																	"TextMarkTextContent": "哈希表和跳表的组合使用"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011826-i8tcmps",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011826-i8tcmps",
+														"updated": "20230404011826"
+													},
+													"Children": [
+														{
+															"ID": "20230404011826-ilnvthg",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011826-ilnvthg",
+																"updated": "20230404011826"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869#_73",
+																	"TextMarkTextContent": "跳表总结"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011826-bmfgm8o",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011826-bmfgm8o",
+										"updated": "20230404011826"
+									},
+									"Children": [
+										{
+											"ID": "20230404011826-3j0giwu",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011826-3j0giwu",
+												"updated": "20230404011826"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869#quicklist_97",
+													"TextMarkTextContent": "二、quicklist"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011826-k6uygo7",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011826-k6uygo7",
+										"updated": "20230404011826"
+									},
+									"Children": [
+										{
+											"ID": "20230404011826-1u8c0c9",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011826-1u8c0c9",
+												"updated": "20230404011826"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869#listpack_141",
+													"TextMarkTextContent": "三、listpack"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011826-mjre4xf",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011826-mjre4xf",
+										"updated": "20230404011826"
+									},
+									"Children": [
+										{
+											"ID": "20230404011826-9itlfz0",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230404011826-9itlfz0",
+												"updated": "20230404011826"
+											},
+											"Children": [
+												{
+													"ID": "20230404011826-ku5wvi1",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011826-ku5wvi1",
+														"updated": "20230404011826"
+													},
+													"Children": [
+														{
+															"ID": "20230404011826-i0h7g6o",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011826-i0h7g6o",
+																"updated": "20230404011826"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869#listpack__153",
+																	"TextMarkTextContent": "listpack 列表项编码方法"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011826-e2y2iuq",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011826-e2y2iuq",
+														"updated": "20230404011826"
+													},
+													"Children": [
+														{
+															"ID": "20230404011826-upy6m3o",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230404011826-upy6m3o",
+																"updated": "20230404011826"
+															},
+															"Children": [
+																{
+																	"ID": "20230404011826-hk1bd11",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404011826-hk1bd11",
+																		"updated": "20230404011826"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404011826-ntetf7r",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230404011826-ntetf7r",
+																				"updated": "20230404011826"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869#_156",
+																					"TextMarkTextContent": "整形编码："
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230404011826-8xej6kl",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404011826-8xej6kl",
+																		"updated": "20230404011826"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404011826-tntavp6",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230404011826-tntavp6",
+																				"updated": "20230404011826"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869#_165",
+																					"TextMarkTextContent": "字符串编码"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011826-qs37nco",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011826-qs37nco",
+														"updated": "20230404011826"
+													},
+													"Children": [
+														{
+															"ID": "20230404011826-6zc8bwb",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011826-6zc8bwb",
+																"updated": "20230404011826"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869#listpack__172",
+																	"TextMarkTextContent": "listpack 避免连锁更新的实现方式"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011826-4a0budj",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011826-4a0budj",
+														"updated": "20230404011826"
+													},
+													"Children": [
+														{
+															"ID": "20230404011826-mgrtki3",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230404011826-mgrtki3",
+																"updated": "20230404011826"
+															},
+															"Children": [
+																{
+																	"ID": "20230404011826-5azkkne",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404011826-5azkkne",
+																		"updated": "20230404011826"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404011826-ddxrlv5",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230404011826-ddxrlv5",
+																				"updated": "20230404011826"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869#_179",
+																					"TextMarkTextContent": "从左向右遍历："
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230404011826-8chhpwy",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404011826-8chhpwy",
+																		"updated": "20230404011826"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404011826-q75leab",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230404011826-q75leab",
+																				"updated": "20230404011826"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869#_listpack_209",
+																					"TextMarkTextContent": "从右向左反向查询 listpack"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404011826-6xt90u8",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011826-6xt90u8",
+														"updated": "20230404011826"
+													},
+													"Children": [
+														{
+															"ID": "20230404011826-vo340bv",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404011826-vo340bv",
+																"updated": "20230404011826"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125998869#_229",
+																	"TextMarkTextContent": "总结"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-nv1lmu3",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011826-nv1lmu3",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E8%B7%B3%E8%A1%A8\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "跳表"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "（skiplist）"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-kgww0ni",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-kgww0ni",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "为什么 Sorted Set 既能支持高效的范围查询，同时还能以 O(1) 复杂度获取元素权重值？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-1dp99a9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-1dp99a9",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这其实就和 Sorted Set 底层的设计实现有关了。Sorted Set 能支持范围查询，这是因为它的核心数据结构设计采用了跳表，而它又能以常数复杂度获取元素权重，这是因为它同时采用了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%93%88%E5%B8%8C%E8%A1%A8\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "哈希表"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "进行索引。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-mnm00te",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-mnm00te",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Sorted Set 结构体的名称为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=zset\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "zset"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "，其中包含了两个成员，分别是哈希表 dict 和跳表 zsl："
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-9cbf8r4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011826-9cbf8r4",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "typedef struct zset { \n    dict *dict;\n    zskiplist *zsl;\n} zset;\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-z7fqfs0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-z7fqfs0",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Sorted Set 这种同时采用跳表和哈希表两个索引结构的设计思想，是非常值得学习的。因为这种设计思想充分利用了跳表高效支持范围查询（如 ZRANGEBYSCORE 操作），以及哈希表高效支持单点查询（如 ZSCORE 操作）的特征。这样一来，我们就可以在一个数据结构中，同时高效支持范围查询和单点查询，这是单一索引结构比较难达到的效果。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-vfajybt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-vfajybt",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "跳表其实是一种多层的有序链表。为了便于说明，我把跳表中的层次从低到高排个序，最底下一层称为 level0，依次往上是 level1、level2 等。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/8b6dfdada71946c88758bdb4cd71da42-20230404011825-rtryfv9.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-350k7eu",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011826-350k7eu",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "跳表数据结构"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-pkiy6yz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-pkiy6yz",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "跳表的结构中，定义了跳表的头结点和尾结点、跳表的长度，以及跳表的最大层数："
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-2r148je",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011826-2r148je",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "typedef struct zskiplist { \n    struct zskiplistNode *header, *tail;\n    unsigned long length;\n    int level;\n} zskiplist;\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-to2m2uc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-to2m2uc",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "跳表的node节点："
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-1oqemhm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011826-1oqemhm",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\ntypedef struct zskiplistNode { \n    //Sorted Set中的元素\n    sds ele;\n    //元素权重值\n    double score;\n    //后向指针\n    struct zskiplistNode *backward;\n    //节点的level数组，保存每层上的前向指针和跨度\n    struct zskiplistLevel { \n        struct zskiplistNode *forward;\n        unsigned long span;\n    } level[];\n} zskiplistNode;\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-cddklq4",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011826-cddklq4",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"ID": "20230404011826-7ub08h2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-7ub08h2",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-hjjxfm7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-hjjxfm7",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ele：保存的元素值，sds类型"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-o6khsy6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-o6khsy6",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-sr4vfme",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-sr4vfme",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "score：元素权重值"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-1qbg2rm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-1qbg2rm",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-1d4tkgz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-1d4tkgz",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "*backward：后向指针，指向该结点的前一个结点，为了便于从跳表的尾结点进行倒序查找。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-ncsdq72",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-ncsdq72",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-qqqjtiy",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-qqqjtiy",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "zskiplistLevel：节点的level数组，保存每层上的前向指针和跨度"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-n4cul0u",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-n4cul0u",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2069d83532c640d79d8cd1254e817ec0-20230404011826-kazfmg1.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n我们来看上面这张图，其中就展示了 33 结点的 level 数组和跨度情况。可以看到，33 结点的 level 数组有三个元素，分别对应了三层 level 上的指针。此外，在 level 数组中，level 2、level1 和 level 0 的跨度 span 值依次是 3、2、1。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-39k8lse",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011826-39k8lse",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "跳表的查询"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-1p6rknu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-1p6rknu",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当查询一个结点时，跳表会先从头结点的最高层开始，查找下一个结点。而由于跳表结点同时保存了元素和权重，所以跳表在比较结点时，相应地有两个判断条件："
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-8inxymv",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404011826-8inxymv",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"ID": "20230404011826-0gmnx5v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404011826-0gmnx5v",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-q1y8iqr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-q1y8iqr",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当查找到的结点保存的元素权重，比要查找的权重小时，跳表就会继续访问该层上的下一个结点。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-ollhnmu",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404011826-ollhnmu",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-0einrbn",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-0einrbn",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当查找到的结点保存的元素权重，等于要查找的权重时，跳表会再检查该结点保存的 SDS 类型数据，是否比要查找的 SDS 数据小。如果结点数据小于要查找的数据时，跳表仍然会继续访问该层上的下一个结点。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-vv21m0m",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404011826-vv21m0m",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-ld42jno",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-ld42jno",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当上述两个条件都不满足时，跳表就会用到当前查找到的结点的 level 数组了。跳表会使用当前结点 level 数组里的下一层指针，然后沿着下一层指针继续查找，这就相当于跳到了下一层接着查找。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-rn6suz7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011826-rn6suz7",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "跳表结点层数设置"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-mz4wfmg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-mz4wfmg",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "跳表在创建结点时，采用的是随机生成每个结点的层数设计，避免了 二分法 严格保持节点层数的操作，从而降低了插入操作的复杂度。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-gqyyz6u",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-gqyyz6u",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当插入节点时，会生成随机数，如果随机数的值小于 ZSKIPLIST_P（指跳表结点增加层数的概率，值为 0.25），那么层数就增加 1 层。因为随机数取值到[0,0.25) 范围内的概率不超过 25%，所以这也就表明了，每增加一层的概率不超过 25%。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-q4ih79f",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011826-q4ih79f",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "哈希表和跳表的组合使用"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-j16z87l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-j16z87l",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Sorted Set 先是通过在它的数据结构中同时定义了跳表和哈希表，来实现同时使用这两种索引结构。然后，Sorted Set 在执行数据插入或是数据更新的过程中，会依次在跳表和哈希表中插入或更新相应的数据，从而保证了跳表和哈希表中记录的信息一致。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-zqsab7x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-zqsab7x",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这样一来，Sorted Set 既可以使用跳表支持数据的范围查询，还能使用哈希表支持根据元素直接查询它的权重。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-j7p4sjr",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011826-j7p4sjr",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "跳表总结"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-stu4fav",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-stu4fav",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "跳表是一个多层的有序链表，在跳表中进行查询操作时，查询代码可以从最高层开始查询。层数越高，结点数越少，同时高层结点的跨度会比较大。因此，在高层查询结点时，查询一个结点可能就已经查到了链表的中间位置了。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-07h5glj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-07h5glj",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这样一来，跳表就会先查高层，如果高层直接查到了等于待查元素的结点，那么就可以直接返回。如果查到第一个大于待查元素的结点后，就转向下一层查询。下层上的结点数多于上层，所以这样可以在更多的结点中进一步查找待查元素是否存在。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-la7mwb8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-la7mwb8",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "跳表的这种设计方法就可以节省查询开销，同时，跳表设计采用随机的方法来确定每个结点的层数，这样就可以避免新增结点时，引起结点连锁更新问题。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-eq4f459",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-eq4f459",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "此外，Sorted Set 中还将元素保存在了哈希表中，作为哈希表的 key，同时将 value 指向元素在跳表中的权重。使用了哈希表后，Sorted Set 可以通过哈希计算直接查找到某个元素及其权重值，相较于通过跳表查找单个元素，使用哈希表就有效提升了查询效率。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-09lctxs",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011826-09lctxs",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"ID": "20230404011826-2873nc3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-2873nc3",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-l73lhj5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-l73lhj5",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ZSet 当数据比较少时，采用 ziplist 存储，每个 member/score 元素紧凑排列，节省内存"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-pj14zo6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-pj14zo6",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-97rs3ya",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-97rs3ya",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当数据超过阈值（zset-max-ziplist-entries、zset-max-ziplist-value）后，转为 hashtable + skiplist 存储，降低查询的时间复杂度"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-itdtg1j",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-itdtg1j",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-buygt51",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-buygt51",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "hashtable 存储 member-\u003escore 的关系，所以 ZSCORE 的时间复杂度为 O(1)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-itqg462",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-itqg462",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-6qle4ee",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-6qle4ee",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "skiplist 是一个「有序链表 + 多层索引」的结构，把查询元素的复杂度降到了 O(logN)，服务于 ZRANGE/ZREVRANGE 这类命令"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-ofdouns",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-ofdouns",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-20l3prm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-20l3prm",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "skiplist 的多层索引，采用「随机」的方式来构建，也就是说每次添加一个元素进来，要不要对这个元素建立「多层索引」？建立「几层索引」？都要通过「随机数」的方式来决定"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-ekceyhy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-ekceyhy",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-87rvl1h",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-87rvl1h",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "每次随机一个 0-1 之间的数，如果这个数小于 0.25（25% 概率），那就给这个元素加一层指针，持续随机直到大于 0.25 结束，最终确定这个元素的层数（层数越高，概率越低，且限制最多 32 层，详见 t_zset.c 的 zslRandomLevel 函数）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-xdh4cg6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-xdh4cg6",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-9u1icvk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-9u1icvk",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "这个预设「概率」决定了一个跳表的内存占用和查询复杂度：概率设置越低，层数越少，元素指针越少，内存占用也就越少，但查询复杂会变高，反之亦然。这也是 skiplist 的一大特点，可通过控制概率，进而控制内存和查询效率"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-11g1ob5",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-11g1ob5",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-qiy7qmb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-qiy7qmb",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "skiplist 新插入一个节点，只需修改这一层前后节点的指针，不影响其它节点的层数，降低了操作复杂度（相比平衡二叉树的再平衡，skiplist 插入性能更优）"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-qiny9v9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-qiny9v9",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "Redis 的 ZSet 为什么用 skiplist 而不用平衡二叉树实现？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-gaz0pq8",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230404011826-gaz0pq8",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230404011826-ickx53z",
+					"Type": "NodeList",
+					"ListData": {
+						"Typ": 1
+					},
+					"Properties": {
+						"id": "20230404011826-ickx53z",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-bzqzw2b",
+							"Type": "NodeListItem",
+							"ListData": {
+								"Typ": 1,
+								"Delimiter": 46,
+								"Marker": "MS4=",
+								"Num": 1
+							},
+							"Properties": {
+								"id": "20230404011826-bzqzw2b",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"ID": "20230404011826-x0bkxc3",
+									"Type": "NodeParagraph",
+									"Properties": {
+										"id": "20230404011826-x0bkxc3",
+										"updated": "20230404011826"
+									},
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "skiplist 更省内存：25% 概率的随机层数，可通过公式计算出 skiplist 平均每个节点的指针数是 1.33 个，平衡二叉树每个节点指针是 2 个（左右子树）"
+										}
+									]
+								}
+							]
+						},
+						{
+							"ID": "20230404011826-50llh24",
+							"Type": "NodeListItem",
+							"ListData": {
+								"Typ": 1,
+								"Delimiter": 46,
+								"Marker": "Mi4=",
+								"Num": 2
+							},
+							"Properties": {
+								"id": "20230404011826-50llh24",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"ID": "20230404011826-6tma9fi",
+									"Type": "NodeParagraph",
+									"Properties": {
+										"id": "20230404011826-6tma9fi",
+										"updated": "20230404011826"
+									},
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "skiplist 遍历更友好：skiplist 找到大于目标元素后，向后遍历链表即可，平衡树需要通过中序遍历方式来完成，实现也略复杂"
+										}
+									]
+								}
+							]
+						},
+						{
+							"ID": "20230404011826-wjfoybk",
+							"Type": "NodeListItem",
+							"ListData": {
+								"Typ": 1,
+								"Delimiter": 46,
+								"Marker": "My4=",
+								"Num": 3
+							},
+							"Properties": {
+								"id": "20230404011826-wjfoybk",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"ID": "20230404011826-787s7ke",
+									"Type": "NodeParagraph",
+									"Properties": {
+										"id": "20230404011826-787s7ke",
+										"updated": "20230404011826"
+									},
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "skiplist 更易实现和维护：扩展 skiplist 只需要改少量代码即可完成，平衡树维护起来较复杂"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-gi4b5eb",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011826-gi4b5eb",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、quicklist"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-cxu5tkr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-cxu5tkr",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "虽然 ziplist 节省了内存开销，可它也存在两个设计代价："
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-r4aogme",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011826-r4aogme",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"ID": "20230404011826-99p1dn7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-99p1dn7",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-o6o5hru",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-o6o5hru",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "不能保存过多的元素，否则访问性能会降低；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-yf193fl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-yf193fl",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-7bykst9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-7bykst9",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "不能保存过大的元素，否则容易导致内存重新分配，甚至可能引发连锁更新的问题。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-8ythfkl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-8ythfkl",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "针对 ziplist 在设计上的不足，Redis 代码在开发演进的过程中，新增设计了两种数据结构：quicklist 和 listpack。这两种数据结构的设计目标，就是尽可能地保持 ziplist 节省内存的优势，同时避免 ziplist 潜在的性能下降问题。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-twegjk9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-twegjk9",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "简单来说，一个 quicklist 就是一个链表，而链表中的每个元素又是一个 ziplist。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-uqwb404",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-uqwb404",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "quicklist:"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-6acs4fk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011826-6acs4fk",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "typedef struct quicklist { \n    quicklistNode *head;      //quicklist的链表头\n    quicklistNode *tail;      //quicklist的链表尾\n    unsigned long count;     //所有ziplist中的总元素个数\n    unsigned long len;       //quicklistNodes的个数\n    ...\n} quicklist;\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-weycb4w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-weycb4w",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "quicklistNode 的结构体:"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-1wrii6j",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011826-1wrii6j",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\ntypedef struct quicklistNode { \n    struct quicklistNode *prev;     //前一个quicklistNode\n    struct quicklistNode *next;     //后一个quicklistNode\n    unsigned char *zl;              //quicklistNode指向的ziplist\n    unsigned int sz;                //ziplist的字节大小\n    unsigned int count : 16;        //ziplist中的元素个数 \n    unsigned int encoding : 2;   //编码格式，原生字节数组或压缩存储\n    unsigned int container : 2;  //存储方式\n    unsigned int recompress : 1; //数据是否被压缩\n    unsigned int attempted_compress : 1; //数据能否被压缩\n    unsigned int extra : 10; //预留的bit位\n} quicklistNode;\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-6ud1hpw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-6ud1hpw",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/d05e96a35d4d4e2691ea3093da57a6b0-20230404011825-spp6pvz.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n正因为 quicklist 采用了链表结构，所以当插入一个新的元素时，quicklist 首先就会检查插入位置的 ziplist 是否能容纳该元素，计算新插入元素后的大小，判断 单个 ziplist 是否不超过 8KB，或是单个 ziplist 里的元素个数是否满足要求。只要这里面的一个条件能满足，quicklist 就可以在当前的 quicklistNode 中插入新元素，否则 quicklist 就会新建一个 quicklistNode，以此来保存新插入的元素。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-ipyznqg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-ipyznqg",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "quicklist 通过控制每个 quicklistNode 中，ziplist 的大小或是元素个数，就有效减少了在 ziplist 中新增或修改元素后，发生连锁更新的情况，从而提供了更好的访问性能。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-btczy8g",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011826-btczy8g",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、listpack"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-7mzvk3n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-7mzvk3n",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "istpack(紧凑列表)可以理解为一个替代版本的ziplist，由于ziplist中有着致命的缺陷-连锁更新，在极端条件下会有着极差的性能，导致整个redis响应变慢。因此在redis5中引入了新的数据结构listpack，作为ziplist的替代版。listpack在6以后已经作为t_hash的基础底层结构。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-ymik6b1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-ymik6b1",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "listpack 的整体结构：\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/01494ba840bf42bd871a0d73b7c5d721-20230404011826-j3m2ni1.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\nlistpack entry：\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/d9ab8195aa8440ce987298258924bafd-20230404011826-pezx8bb.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n和 ziplist 列表项类似，listpack 列表项也包含了元数据信息和数据本身。不过，为了避免 ziplist 引起的连锁更新问题，listpack 中的每个列表项不再像 ziplist 列表项那样，保存其前一个列表项的长度，它只会包含三个方面内容："
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-rxciurx",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404011826-rxciurx",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"ID": "20230404011826-8xybffv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404011826-8xybffv",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-3g2jsfs",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-3g2jsfs",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当前元素的编码类型（entry-encoding）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-5e8tzff",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404011826-5e8tzff",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-sa7rtop",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-sa7rtop",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "元素数据 (entry-data)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-jwonnrt",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404011826-jwonnrt",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-hlzj8iv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-hlzj8iv",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "编码类型和元素数据这两部分的长度 (entry-len)"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-qqowbhk",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011826-qqowbhk",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "listpack 列表项编码方法"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-7gu1ix9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-7gu1ix9",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "listpack 元素会对不同长度的整数和字符串进行编码："
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-4ttkw39",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404011826-4ttkw39",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "整形编码："
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-mydf0ek",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-mydf0ek",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对于整数编码来说，当 listpack 元素的编码类型为 LP_ENCODING_7BIT_UINT 时，表示元素的实际数据是一个 7 bit 的无符号整数。又因为 LP_ENCODING_7BIT_UINT 本身的宏定义值为 0，所以编码类型的值也相应为 0，占 1 个 bit。此时，编码类型和元素实际数据共用 1 个字节，这个字节的最高位为 0，表示编码类型，后续的 7 位用来存储 7 bit 的无符号整数，如下图所示：\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/cfa72b29e1f24177a235813a32a0fc6c-20230404011825-4ox2rbj.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n而当编码类型为 LP_ENCODING_13BIT_INT 时，这表示元素的实际数据是 13 bit 的整数。同时，因为 LP_ENCODING_13BIT_INT 的宏定义值为 0xC0，转换为二进制值是 1100 0000，所以，这个二进制值中的后 5 位和后续的 1 个字节，共 13 位，会用来保存 13bit 的整数。而该二进制值中的前 3 位 110，则用来表示当前的编码类型。我画了下面这张图，你可以看下。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/16762384da6c4dc683a23e6968155063-20230404011825-saujzga.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n在了解了 LP_ENCODING_7BIT_UINT 和 LP_ENCODING_13BIT_INT 这两种编码类型后，剩下的 LP_ENCODING_16BIT_INT、LP_ENCODING_24BIT_INT、LP_ENCODING_32BIT_INT 和 LP_ENCODING_64BIT_INT，你应该也就能知道它们的编码方式了。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-eb50g6i",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-eb50g6i",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这四种类型是分别用 2 字节（16 bit）、3 字节（24 bit）、4 字节（32 bit）和 8 字节（64 bit）来保存整数数据。同时，它们的编码类型本身占 1 字节，编码类型值分别是它们的宏定义值。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-bur8ibq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404011826-bur8ibq",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "字符串编码"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-7pxa3di",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-7pxa3di",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对于字符串编码来说，一共有三种类型，分别是 LP_ENCODING_6BIT_STR、LP_ENCODING_12BIT_STR 和 LP_ENCODING_32BIT_STR。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-bmjm0er",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-bmjm0er",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "比如，当编码类型为 LP_ENCODING_6BIT_STR 时，编码类型占 1 字节。该类型的宏定义值是 0x80，对应的二进制值是 1000 0000，这其中的前 2 位是用来标识编码类型本身，而后 6 位保存的是字符串长度。然后，列表项中的数据部分保存了实际的字符串。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-t38qzya",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-t38qzya",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面的图展示了三种字符串编码类型和数据的布局：\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2dc8ef0dde1e4c47a1ec1fdd5faedeb3-20230404011826-bgu2b12.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-7dedj5m",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011826-7dedj5m",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "listpack 避免连锁更新的实现方式"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-srct31u",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-srct31u",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 listpack 中，因为每个列表项只记录自己的长度，而不会像 ziplist 中的列表项那样，会记录前一项的长度。所以，当我们在 listpack 中新增或修改元素时，实际上只会涉及每个列表项自己的操作，而不会影响后续列表项的长度变化，这就避免了连锁更新。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-su3yp79",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-su3yp79",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "不过，你可能会有疑问：如果 listpack 列表项只记录当前项的长度，那么 listpack 支持从左向右正向查询列表，或是从右向左反向查询列表吗？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-8xf9rfh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-8xf9rfh",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其实，listpack 是能支持正、反向查询列表的。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-oix62et",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404011826-oix62et",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从左向右遍历："
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-4sr2176",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-4sr2176",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当应用程序从左向右正向查询 listpack 时，我们可以先调用 lpFirst 函数。该函数的参数是指向 listpack 头的指针，它在执行时，会让指针向右偏移 LP_HDR_SIZE 大小，也就是跳过 listpack 头。你可以看下 lpFirst 函数的代码，如下所示："
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-tn4dm4u",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011826-tn4dm4u",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\nunsigned char *lpFirst(unsigned char *lp) { \n    lp += LP_HDR_SIZE; //跳过listpack头部6个字节\n    if (lp[0] == LP_EOF) return NULL;  //如果已经是listpack的末尾结束字节，则返回NULL\n    return lp;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-7uhlj54",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-7uhlj54",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "然后，再调用 lpNext 函数，该函数的参数包括了指向 listpack 某个列表项的指针。lpNext 函数会进一步调用 lpSkip 函数，并传入当前列表项的指针，如下所示："
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-ykfaj65",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011826-ykfaj65",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\nunsigned char *lpNext(unsigned char *lp, unsigned char *p) { \n    ...\n    p = lpSkip(p);  //调用lpSkip函数，偏移指针指向下一个列表项\n    if (p[0] == LP_EOF) return NULL;\n    return p;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-9admwci",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-9admwci",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "最后，lpSkip 函数会先后调用 lpCurrentEncodedSize 和 lpEncodeBacklen 这两个函数。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-cxjclro",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-cxjclro",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "lpCurrentEncodedSize 函数是根据当前列表项第 1 个字节的取值，来计算当前项的编码类型，并根据编码类型，计算当前项编码类型和实际数据的总长度。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-5n1ox0u",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-5n1ox0u",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "然后，lpEncodeBacklen 函数会根据编码类型和实际数据的长度之和，进一步计算列表项最后一部分 entry-len 本身的长度。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-tp95bcc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-tp95bcc",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这样一来，lpSkip 函数就知道当前项的编码类型、实际数据和 entry-len 的总长度了，也就可以将当前项指针向右偏移相应的长度，从而实现查到下一个列表项的目的。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/5e2c99498da74bb7bd1abe8f51e94724-20230404011825-2xxhbi3.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-t2t47t0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404011826-t2t47t0",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从右向左反向查询 listpack"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-o13lsm4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-o13lsm4",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先，我们根据 listpack 头中记录的 listpack 总长度，就可以直接定位到 listapck 的尾部结束标记。然后，我们可以调用 lpPrev 函数，该函数的参数包括指向某个列表项的指针，并返回指向当前列表项前一项的指针。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-yprmfgw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-yprmfgw",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "lpPrev 函数中的关键一步就是调用 lpDecodeBacklen 函数。lpDecodeBacklen 函数会从右向左，逐个字节地读取当前列表项的 entry-len。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-10bkocq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-10bkocq",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "那么，lpDecodeBacklen 函数如何判断 entry-len 是否结束了呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-1lalozj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-1lalozj",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这就依赖于 entry-len 的编码方式了。entry-len 每个字节的最高位，是用来表示当前字节是否为 entry-len 的最后一个字节，这里存在两种情况，分别是："
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-f34dnnf",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011826-f34dnnf",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"ID": "20230404011826-rj9dru2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-rj9dru2",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-djbj360",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-djbj360",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "最高位为 1，表示 entry-len 还没有结束，当前字节的左边字节仍然表示 entry-len 的内容；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-3hjulkv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-3hjulkv",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-56iztet",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-56iztet",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "最高位为 0，表示当前字节已经是 entry-len 最后一个字节了。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-wyyuu8e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-wyyuu8e",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "而 entry-len 每个字节的低 7 位，则记录了实际的长度信息。这里你需要注意的是，entry-len 每个字节的低 7 位采用了大端模式存储，也就是说，entry-len 的低位字节保存在内存高地址上。我画了下面这张图，展示了 entry-len 这种特别的编码方式，你可以看下。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-sbjrsx0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-sbjrsx0",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/11eafd5044a74bfe8aac3dff91f01f66-20230404011825-sd0o20y.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-mc2m3px",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-mc2m3px",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "实际上，正是因为有了 entry-len 的特别编码方式，lpDecodeBacklen 函数就可以从当前列表项起始位置的指针开始，向左逐个字节解析，得到前一项的 entry-len 值。这也是 lpDecodeBacklen 函数的返回值。而从刚才的介绍中，我们知道 entry-len 记录了编码类型和实际数据的长度之和。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-ovj48hy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011826-ovj48hy",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因此，lpPrev 函数会再调用 lpEncodeBacklen 函数，来计算得到 entry-len 本身长度，这样一来，我们就可以得到前一项的总长度，而 lpPrev 函数也就可以将指针指向前一项的起始位置了。所以按照这个方法，listpack 就实现了从右向左的查询功能。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-g6ab6lg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011826-g6ab6lg",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结"
+				}
+			]
+		},
+		{
+			"ID": "20230404011826-ic3gzjs",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011826-ic3gzjs",
+				"updated": "20230404011826"
+			},
+			"Children": [
+				{
+					"ID": "20230404011826-uhpoejw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-uhpoejw",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-0ydcsd1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-0ydcsd1",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ziplist 的不足主要在于一旦 ziplist 中元素个数多了，它的查找效率就会降低。而且如果在 ziplist 里新增或修改数据，ziplist 占用的内存空间还需要重新分配；更糟糕的是，ziplist 新增某个元素或修改某个元素时，可能会导致后续元素的 prevlen 占用空间都发生变化，从而引起连锁更新问题，导致每个元素的空间都要重新分配，这就会导致 ziplist 的访问性能下降。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-zp08nk2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-zp08nk2",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-6db3v4x",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-6db3v4x",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "所以，为了应对 ziplist 的问题，Redis 先是在 3.0 版本中设计实现了 quicklist。quicklist 结构在 ziplist 基础上，使用链表将 ziplist 串联起来，链表的每个元素就是一个 ziplist。这种设计减少了数据插入时内存空间的重新分配，以及内存数据的拷贝。同时，quicklist 限制了每个节点上 ziplist 的大小，一旦一个 ziplist 过大，就会采用新增 quicklist 节点的方法。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-73bidsg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-73bidsg",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-6zo0p90",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-6zo0p90",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "不过，又因为 quicklist 使用 quicklistNode 结构指向每个 ziplist，无疑增加了内存开销。为了减少内存开销，并进一步避免 ziplist 连锁更新问题，Redis 在 5.0 版本中，就设计实现了 listpack 结构。listpack 结构沿用了 ziplist 紧凑型的内存布局，把每个元素都紧挨着放置。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-bg01wvr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-bg01wvr",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-fjme5s3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-fjme5s3",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "listpack 中每个列表项不再包含前一项的长度了，因此当某个列表项中的数据发生变化，导致列表项长度变化时，其他列表项的长度是不会受影响的，因而这就避免了 ziplist 面临的连锁更新问题。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011826-t9kb6xs",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011826-t9kb6xs",
+						"updated": "20230404011826"
+					},
+					"Children": [
+						{
+							"ID": "20230404011826-2pjfwvm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011826-2pjfwvm",
+								"updated": "20230404011826"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "总而言之，Redis 在内存紧凑型列表的设计与实现上，从 ziplist 到 quicklist，再到 listpack，你可以看到 Redis 在内存空间开销和访问性能之间的设计取舍，这一系列的设计变化，是非常值得你学习的。"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

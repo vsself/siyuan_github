@@ -1,0 +1,1028 @@
+{
+	"ID": "20230327171201-1kjjrw9",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230327171201-1kjjrw9",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230328113333-gf6iaw0\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230328144932-lbup2gw\u0026quot;,\u0026quot;scrollTop\u0026quot;:394,\u0026quot;focusId\u0026quot;:\u0026quot;20230328113333-yy2ou9p\u0026quot;,\u0026quot;focusStart\u0026quot;:4,\u0026quot;focusEnd\u0026quot;:4}",
+		"title": "bean的生命周期",
+		"updated": "20230329100953"
+	},
+	"Children": [
+		{
+			"ID": "20230328113333-gf6iaw0",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230328113333-gf6iaw0",
+				"updated": "20230329100953"
+			},
+			"Children": [
+				{
+					"ID": "20230328113333-f8e4006",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230328113333-f8e4006",
+						"updated": "20230328113333"
+					},
+					"Children": [
+						{
+							"ID": "20230328113333-e2imecp",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230328113333-e2imecp",
+								"updated": "20230328113333"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "类加载"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230328113333-lh4ynes",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230328113333-lh4ynes",
+						"updated": "20230329100953"
+					},
+					"Children": [
+						{
+							"ID": "20230328113333-l6bcloc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230328113333-l6bcloc",
+								"updated": "20230328145353"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "实例化 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"Properties": {
+										"style": "color: var(--b3-font-color4);"
+									},
+									"TextMarkType": "text",
+									"TextMarkTextContent": "createBeanInstance(beanName, mbd, args)"
+								},
+								{
+									"Type": "NodeKramdownSpanIAL",
+									"Data": "{: style=\"color: var(--b3-font-color4);\"}"
+								}
+							]
+						},
+						{
+							"ID": "20230328113333-7kmg73l",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230328113333-7kmg73l",
+								"updated": "20230329100953"
+							},
+							"Children": [
+								{
+									"ID": "20230328113333-fkz9pn2",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230328113333-fkz9pn2",
+										"updated": "20230328113333"
+									},
+									"Children": [
+										{
+											"ID": "20230328113333-lshnkf8",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230328113333-lshnkf8",
+												"updated": "20230328163039"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "实例化前 "
+												},
+												{
+													"Type": "NodeTextMark",
+													"Properties": {
+														"style": "color: var(--b3-font-color4);"
+													},
+													"TextMarkType": "text",
+													"TextMarkTextContent": "postProcessBeforeInstantiation"
+												},
+												{
+													"Type": "NodeKramdownSpanIAL",
+													"Data": "{: style=\"color: var(--b3-font-color4);\"}"
+												},
+												{
+													"Type": "NodeText",
+													"Data": " （自己实现，可以返回一个bean，这样后面的步骤都不用了）实际开发中基本用不到"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230328172213-0zl2erm",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "Mi4=",
+										"Num": 2
+									},
+									"Properties": {
+										"id": "20230328172213-0zl2erm",
+										"updated": "20230329100944"
+									},
+									"Children": [
+										{
+											"ID": "20230328172213-lx7w5h5",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230328172213-lx7w5h5",
+												"updated": "20230328172228"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "new实例"
+												}
+											]
+										},
+										{
+											"ID": "20230328172230-6by9g54",
+											"Type": "NodeList",
+											"ListData": {
+												"Typ": 1
+											},
+											"Properties": {
+												"id": "20230328172230-6by9g54",
+												"updated": "20230329100944"
+											},
+											"Children": [
+												{
+													"ID": "20230328113333-o4ktfss",
+													"Type": "NodeListItem",
+													"ListData": {
+														"Typ": 1,
+														"Delimiter": 46,
+														"Marker": "MS4=",
+														"Num": 1
+													},
+													"Properties": {
+														"id": "20230328113333-o4ktfss",
+														"updated": "20230328113333"
+													},
+													"Children": [
+														{
+															"ID": "20230328113333-khjuti4",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230328113333-khjuti4",
+																"updated": "20230328144911"
+															},
+															"Children": [
+																{
+																	"Type": "NodeText",
+																	"Data": "@Component注入的，推断构造函数"
+																},
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "block-ref",
+																	"TextMarkBlockRefID": "20230326141718-a9csgcz",
+																	"TextMarkBlockRefSubtype": "d",
+																	"TextMarkTextContent": "推断构造方法"
+																},
+																{
+																	"Type": "NodeText",
+																	"Data": " 实例化"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230328144841-ts3rofq",
+													"Type": "NodeListItem",
+													"ListData": {
+														"Typ": 1,
+														"Delimiter": 46,
+														"Marker": "Mi4=",
+														"Num": 2
+													},
+													"Properties": {
+														"id": "20230328144841-ts3rofq"
+													},
+													"Children": [
+														{
+															"ID": "20230328144841-gdb822x",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230328144841-gdb822x",
+																"updated": "20230328145533"
+															},
+															"Children": [
+																{
+																	"Type": "NodeText",
+																	"Data": "@Bean注入的，根据@Bean标注的函数来实例化"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230328172559-dcbwwns",
+													"Type": "NodeListItem",
+													"ListData": {
+														"Typ": 1,
+														"Delimiter": 46,
+														"Marker": "My4=",
+														"Num": 3
+													},
+													"Properties": {
+														"id": "20230328172559-dcbwwns",
+														"updated": "20230329100944"
+													},
+													"Children": [
+														{
+															"ID": "20230328172559-n8ac1b0",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230328172559-n8ac1b0",
+																"updated": "20230329100944"
+															},
+															"Children": [
+																{
+																	"Type": "NodeText",
+																	"Data": "提前暴露实例，在singletonFactory中存入一个factory lambda表达式"
+																},
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "block-ref",
+																	"TextMarkBlockRefID": "20230327012423-aj68mt2",
+																	"TextMarkBlockRefSubtype": "d",
+																	"TextMarkTextContent": "循环依赖"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230328171459-s0ktcjb",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "My4=",
+										"Num": 3
+									},
+									"Properties": {
+										"id": "20230328171459-s0ktcjb",
+										"updated": "20230329100953"
+									},
+									"Children": [
+										{
+											"ID": "20230328171459-gn2bj2l",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230328171459-gn2bj2l"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "属性注入(依赖注入) "
+												},
+												{
+													"Type": "NodeTextMark",
+													"Properties": {
+														"style": "color: var(--b3-font-color4);"
+													},
+													"TextMarkType": "text",
+													"TextMarkTextContent": "populateBean(beanName, mbd, instanceWrapper)"
+												},
+												{
+													"Type": "NodeKramdownSpanIAL",
+													"Data": "{: style=\"color: var(--b3-font-color4);\"}"
+												}
+											]
+										},
+										{
+											"ID": "20230328172144-eohj20m",
+											"Type": "NodeList",
+											"ListData": {
+												"Typ": 1
+											},
+											"Properties": {
+												"id": "20230328172144-eohj20m",
+												"updated": "20230329100953"
+											},
+											"Children": [
+												{
+													"ID": "20230328171704-2ijn929",
+													"Type": "NodeListItem",
+													"ListData": {
+														"Typ": 1,
+														"Delimiter": 46,
+														"Marker": "MS4=",
+														"Num": 1
+													},
+													"Properties": {
+														"id": "20230328171704-2ijn929"
+													},
+													"Children": [
+														{
+															"ID": "20230328171704-oqzn9t6",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230328171704-oqzn9t6",
+																"updated": "20230328171900"
+															},
+															"Children": [
+																{
+																	"Type": "NodeText",
+																	"Data": "@Autowired注入的"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230328181352-neih08z",
+													"Type": "NodeListItem",
+													"ListData": {
+														"Typ": 1,
+														"Delimiter": 46,
+														"Marker": "Mi4=",
+														"Num": 2
+													},
+													"Properties": {
+														"id": "20230328181352-neih08z",
+														"updated": "20230329100953"
+													},
+													"Children": [
+														{
+															"ID": "20230328181352-ypmjwqi",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230328181352-ypmjwqi",
+																"updated": "20230329100953"
+															},
+															"Children": [
+																{
+																	"Type": "NodeText",
+																	"Data": "解决"
+																},
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "block-ref",
+																	"TextMarkBlockRefID": "20230327012423-aj68mt2",
+																	"TextMarkBlockRefSubtype": "d",
+																	"TextMarkTextContent": "循环依赖"
+																},
+																{
+																	"Type": "NodeText",
+																	"Data": "，调用(提前暴露实例)中lambda表达式"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230328171902-ojxhkk4",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "NC4=",
+										"Num": 4
+									},
+									"Properties": {
+										"id": "20230328171902-ojxhkk4"
+									},
+									"Children": [
+										{
+											"ID": "20230328171902-ivyvsnr",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230328171902-ivyvsnr",
+												"updated": "20230328171907"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "实例化后 "
+												},
+												{
+													"Type": "NodeTextMark",
+													"Properties": {
+														"style": "color: var(--b3-font-color4);"
+													},
+													"TextMarkType": "text",
+													"TextMarkTextContent": "postProcessAfterInstantiation"
+												},
+												{
+													"Type": "NodeKramdownSpanIAL",
+													"Data": "{: style=\"color: var(--b3-font-color4);\"}"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230328113333-7gzxilm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230328113333-7gzxilm",
+						"updated": "20230328113333"
+					},
+					"Children": [
+						{
+							"ID": "20230328113333-yy2ou9p",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230328113333-yy2ou9p",
+								"updated": "20230328113333"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "执行回调"
+								}
+							]
+						},
+						{
+							"ID": "20230328113333-mhwpzup",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230328113333-mhwpzup",
+								"updated": "20230328113333"
+							},
+							"Children": [
+								{
+									"ID": "20230328113333-y8g9ld7",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230328113333-y8g9ld7",
+										"updated": "20230328113333"
+									},
+									"Children": [
+										{
+											"ID": "20230328113333-174ta2r",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230328113333-174ta2r",
+												"updated": "20230328113333"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "实现的Aware接口，容器会在这一步调用接口方法"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230328113333-sa7ux7e",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230328113333-sa7ux7e",
+						"updated": "20230328113333"
+					},
+					"Children": [
+						{
+							"ID": "20230328113333-m4llwnb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230328113333-m4llwnb",
+								"updated": "20230328145424"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "初始化 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "block-ref",
+									"TextMarkBlockRefID": "20230328111632-k3qogtm",
+									"TextMarkBlockRefSubtype": "d",
+									"TextMarkTextContent": "Bean的初始化"
+								},
+								{
+									"Type": "NodeText",
+									"Data": " "
+								},
+								{
+									"Type": "NodeTextMark",
+									"Properties": {
+										"style": "color: var(--b3-font-color4);"
+									},
+									"TextMarkType": "text",
+									"TextMarkTextContent": "initializeBean(beanName, exposedObject, mbd)"
+								},
+								{
+									"Type": "NodeKramdownSpanIAL",
+									"Data": "{: style=\"color: var(--b3-font-color4);\"}"
+								}
+							]
+						},
+						{
+							"ID": "20230328113333-slt2d5g",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230328113333-slt2d5g",
+								"updated": "20230328113333"
+							},
+							"Children": [
+								{
+									"ID": "20230328113333-l9bjrld",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230328113333-l9bjrld",
+										"updated": "20230328113333"
+									},
+									"Children": [
+										{
+											"ID": "20230328113333-2xi86hx",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230328113333-2xi86hx",
+												"updated": "20230328113333"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "初始化前"
+												}
+											]
+										},
+										{
+											"ID": "20230328113333-d3sdov1",
+											"Type": "NodeList",
+											"ListData": {
+												"Typ": 1
+											},
+											"Properties": {
+												"id": "20230328113333-d3sdov1",
+												"updated": "20230328113333"
+											},
+											"Children": [
+												{
+													"ID": "20230328113333-o53gh68",
+													"Type": "NodeListItem",
+													"ListData": {
+														"Typ": 1,
+														"Delimiter": 46,
+														"Marker": "MS4=",
+														"Num": 1
+													},
+													"Properties": {
+														"id": "20230328113333-o53gh68",
+														"updated": "20230328113333"
+													},
+													"Children": [
+														{
+															"ID": "20230328113333-mkvdqus",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230328113333-mkvdqus",
+																"updated": "20230328145741"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"Properties": {
+																		"style": "color: var(--b3-font-color4);"
+																	},
+																	"TextMarkType": "text",
+																	"TextMarkTextContent": "applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName)"
+																},
+																{
+																	"Type": "NodeKramdownSpanIAL",
+																	"Data": "{: style=\"color: var(--b3-font-color4);\"}"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230328113333-waszbh3",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "Mi4=",
+										"Num": 2
+									},
+									"Properties": {
+										"id": "20230328113333-waszbh3",
+										"updated": "20230328113333"
+									},
+									"Children": [
+										{
+											"ID": "20230328113333-ptlm3w2",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230328113333-ptlm3w2",
+												"updated": "20230328145859"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "初始化 "
+												},
+												{
+													"Type": "NodeTextMark",
+													"Properties": {
+														"style": "color: var(--b3-font-color4);"
+													},
+													"TextMarkType": "text",
+													"TextMarkTextContent": "invokelnitMethods(beanName,wrappedBean,mbd)"
+												},
+												{
+													"Type": "NodeKramdownSpanIAL",
+													"Data": "{: style=\"color: var(--b3-font-color4);\"}"
+												}
+											]
+										},
+										{
+											"ID": "20230328113333-kudbipg",
+											"Type": "NodeList",
+											"ListData": {
+												"Typ": 1
+											},
+											"Properties": {
+												"id": "20230328113333-kudbipg",
+												"updated": "20230328113333"
+											},
+											"Children": [
+												{
+													"ID": "20230328113333-x96o16t",
+													"Type": "NodeListItem",
+													"ListData": {
+														"Typ": 1,
+														"Delimiter": 46,
+														"Marker": "MS4=",
+														"Num": 1
+													},
+													"Properties": {
+														"id": "20230328113333-x96o16t",
+														"updated": "20230328113333"
+													},
+													"Children": [
+														{
+															"ID": "20230328113333-rnf5wjj",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230328113333-rnf5wjj",
+																"updated": "20230328113333"
+															},
+															"Children": [
+																{
+																	"Type": "NodeText",
+																	"Data": "java自带@PostConstruct，修饰一个非静态void方法"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230328113333-jfu79fc",
+													"Type": "NodeListItem",
+													"ListData": {
+														"Typ": 1,
+														"Delimiter": 46,
+														"Marker": "Mi4=",
+														"Num": 2
+													},
+													"Properties": {
+														"id": "20230328113333-jfu79fc",
+														"updated": "20230328113333"
+													},
+													"Children": [
+														{
+															"ID": "20230328113333-gb32t8u",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230328113333-gb32t8u",
+																"updated": "20230328113333"
+															},
+															"Children": [
+																{
+																	"Type": "NodeText",
+																	"Data": "Spring提供的，实现InitializingBean接口，容器会在这一步调用接口方法"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230328113333-auxb6xe",
+													"Type": "NodeListItem",
+													"ListData": {
+														"Typ": 1,
+														"Delimiter": 46,
+														"Marker": "My4=",
+														"Num": 3
+													},
+													"Properties": {
+														"id": "20230328113333-auxb6xe",
+														"updated": "20230328113333"
+													},
+													"Children": [
+														{
+															"ID": "20230328113333-g13qlig",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230328113333-g13qlig",
+																"updated": "20230328113333"
+															},
+															"Children": [
+																{
+																	"Type": "NodeText",
+																	"Data": "Spring提供的，initMethod()"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230328113333-vs6wf93",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "My4=",
+										"Num": 3
+									},
+									"Properties": {
+										"id": "20230328113333-vs6wf93",
+										"updated": "20230328113333"
+									},
+									"Children": [
+										{
+											"ID": "20230328113333-h861emm",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230328113333-h861emm",
+												"updated": "20230328113333"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "初始化后(AOP)"
+												}
+											]
+										},
+										{
+											"ID": "20230328113333-8sr1d62",
+											"Type": "NodeList",
+											"ListData": {
+												"Typ": 1
+											},
+											"Properties": {
+												"id": "20230328113333-8sr1d62",
+												"updated": "20230328113333"
+											},
+											"Children": [
+												{
+													"ID": "20230328113333-csfezo1",
+													"Type": "NodeListItem",
+													"ListData": {
+														"Typ": 1,
+														"Delimiter": 46,
+														"Marker": "MS4=",
+														"Num": 1
+													},
+													"Properties": {
+														"id": "20230328113333-csfezo1",
+														"updated": "20230328113333"
+													},
+													"Children": [
+														{
+															"ID": "20230328113333-1nrpidp",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230328113333-1nrpidp",
+																"updated": "20230328145750"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"Properties": {
+																		"style": "color: var(--b3-font-color4);"
+																	},
+																	"TextMarkType": "text",
+																	"TextMarkTextContent": "applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName)"
+																},
+																{
+																	"Type": "NodeKramdownSpanIAL",
+																	"Data": "{: style=\"color: var(--b3-font-color4);\"}"
+																},
+																{
+																	"Type": "NodeText",
+																	"Data": "​"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230328113455-rqp18mi",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230328113455-rqp18mi"
+					},
+					"Children": [
+						{
+							"ID": "20230328113455-xu53shu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230328113455-xu53shu",
+								"updated": "20230328113514"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "放入singletonobjects中"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230328113333-61wnah7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230328113333-61wnah7",
+				"updated": "20230328113621"
+			}
+		},
+		{
+			"ID": "20230327175854-1xtm5u8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327175854-1xtm5u8",
+				"updated": "20230327175905"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 75%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230327175854-c2g51m6.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 75%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230328113223-4py9fdq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230328113223-4py9fdq"
+			}
+		},
+		{
+			"ID": "20230328144932-lbup2gw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230328144932-lbup2gw"
+			}
+		}
+	]
+}

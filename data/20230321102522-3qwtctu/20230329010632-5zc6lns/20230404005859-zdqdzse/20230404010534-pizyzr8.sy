@@ -1,0 +1,1297 @@
+{
+	"ID": "20230404010534-pizyzr8",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010534-pizyzr8",
+		"title": "吃透Spring源码（十二）：Spring initializeBean源码分析_吃透Java的博客-CSDN博客",
+		"updated": "20230404010534"
+	},
+	"Children": [
+		{
+			"ID": "20230404010534-mhohn35",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010534-mhohn35",
+				"updated": "20230404010534"
+			}
+		},
+		{
+			"ID": "20230404010534-9s8ve8i",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010534-9s8ve8i",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"ID": "20230404010534-cjw7u06",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010534-cjw7u06",
+						"updated": "20230404010534"
+					},
+					"Children": [
+						{
+							"ID": "20230404010534-731t7iq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010534-731t7iq",
+								"updated": "20230404010534"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/110651253",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/110651253"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010534-j191uxs",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010534-j191uxs",
+						"updated": "20230404010534"
+					},
+					"Children": [
+						{
+							"ID": "20230404010534-2bl8wr9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010534-2bl8wr9",
+								"updated": "20230404010534"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一，initializeBean方法概述Spring中的initializeBean()方法是doCreateBean方法三部曲的最后一步，完成initializeBean()则整个bean的创建过程才算完成，我们来看一下bean的创建过程doCreateBean()方法中三部曲：实例化（createBeanInstance），填充属性（populateBean），初始化（initializeBean）。public abstract class AbstractAutowireCapableBeanF"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010534-zx9h9a2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010534-zx9h9a2",
+						"updated": "20230404010534"
+					},
+					"Children": [
+						{
+							"ID": "20230404010534-x4dtsv7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010534-x4dtsv7",
+								"updated": "20230404010534"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:05:34"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-gbx13id",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010534-gbx13id",
+				"updated": "20230404010534"
+			}
+		},
+		{
+			"ID": "20230404010534-r8qztyy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010534-r8qztyy",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一，initializeBean方法概述"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-bngs603",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-bngs603",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring中的initializeBean()方法是doCreateBean方法三部曲的最后一步，完成initializeBean()则整个bean的创建过程才算完成，我们来看一下bean的创建过程doCreateBean()方法中三部曲：实例化（createBeanInstance），填充属性（populateBean），初始化（initializeBean）。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-0qffubi",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010534-0qffubi",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory\n\t\timplements AutowireCapableBeanFactory { \n    protected Object doCreateBean(String beanName, RootBeanDefinition mbd, @Nullable Object[] args)\n\t\t\tthrows BeanCreationException { \n\n        // 省略部分代码....\n\t\n\t\t// 第一步：实例化bean\n\t\tinstanceWrapper = createBeanInstance(beanName, mbd, args);\n\n\t\t// 为避免后期循环依赖，提前曝露ObjectFactory到第三级缓存中。\n\t\taddSingletonFactory(beanName, () -\u003e getEarlyBeanReference(beanName, mbd, bean));\n      \n        // 第二步：填充属性\n\t\tpopulateBean(beanName, mbd, instanceWrapper);\n      \n\t\t// 第三步：执行初始化逻辑\n\t\texposedObject = initializeBean(beanName, exposedObject, mbd);\n\t\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-b5eqwxh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-b5eqwxh",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文主要分析是initializeBean初始化，关于前面两步 “实例化” 和 “填充属性” 两步，请参考："
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-smze968",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-smze968",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/109780513",
+					"TextMarkTextContent": "Spring实例化(createBeanInstance)源码解析"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-iszaict",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-iszaict",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/110235934",
+					"TextMarkTextContent": "Spring属性填充populateBean源码分析"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-xdj6icu",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010534-xdj6icu",
+				"updated": "20230404010534"
+			}
+		},
+		{
+			"ID": "20230404010534-gcyarbv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-gcyarbv",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "initializeBean初始化主要分为如下几个步骤："
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-rmyzftq",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010534-rmyzftq",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"ID": "20230404010534-o7jm6in",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010534-o7jm6in",
+						"updated": "20230404010534"
+					},
+					"Children": [
+						{
+							"ID": "20230404010534-8co4tg4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010534-8co4tg4",
+								"updated": "20230404010534"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "执行aware接口invokeAwareMethods。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010534-ry5b0up",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010534-ry5b0up",
+						"updated": "20230404010534"
+					},
+					"Children": [
+						{
+							"ID": "20230404010534-s1scvah",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010534-s1scvah",
+								"updated": "20230404010534"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "执行BeanPostProcessor的postProcessBeforeInitialization()方法。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010534-iuhxgi6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010534-iuhxgi6",
+						"updated": "20230404010534"
+					},
+					"Children": [
+						{
+							"ID": "20230404010534-ivoz1wi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010534-ivoz1wi",
+								"updated": "20230404010534"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "执行初始化方法invokeInitMethods。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010534-2rft2gg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010534-2rft2gg",
+						"updated": "20230404010534"
+					},
+					"Children": [
+						{
+							"ID": "20230404010534-7c5dzq9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010534-7c5dzq9",
+								"updated": "20230404010534"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "执行BeanPostProcessor的postProcessAfterInitialization()方法。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-zdefuzb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010534-zdefuzb",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected Object initializeBean(String beanName, Object bean, @Nullable RootBeanDefinition mbd) { \n\t\n\t\t// Aware接口处理器，调用BeanNameAware、BeanClassLoaderAware、beanFactoryAware\n\t\tinvokeAwareMethods(beanName, bean);\n\t\n\t\t// 调用BeanPostProcessor的postProcessBeforeInitialization方法。\n\t\twrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);\n\t\n\t\t// 调用初始化方法，先调用bean的InitializingBean接口方法，后调用bean的自定义初始化方法\n\t\tinvokeInitMethods(beanName, wrappedBean, mbd);\n\t\n    \t// 调用BeanPostProcessor的applyBeanPostProcessorsAfterInitialization方法。\n\t\twrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);\n\n\t\t//返回包装后的Bean\n\t\treturn wrappedBean;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-4y2sjsu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-4y2sjsu",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们从上面可以看到，在beanPostProcessor接口的postProcessBeforeInitialization()方法和postProcessAfterInitialization()方法都可以对最终的bean做修改或替换。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-dv5w3zr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-dv5w3zr",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "如果我们配置的有Aop代理的话，会在执行AbstractAutoProxyCreator类的postProcessAfterInitialization()方法时创建此bean代理对象，并且把此代理对象放入bean容器中。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-lc79tc9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010534-lc79tc9",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二，执行aware接口invokeAwareMethods"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-tkm8xsr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-tkm8xsr",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个方法就是判断一下当前bean是否实现了BeanNameAware，BeanClassLoaderAware，BeanFactoryAware接口，如果实现了，就回调相应的方法。比较简单，没啥好说的，直接看源码就行了："
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-di8e402",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010534-di8e402",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "private void invokeAwareMethods(String beanName, Object bean) { \n\t\t//如果 bean 是 Aware 实例\n\t\tif (bean instanceof Aware) { \n\t\t\t//如果bean是BeanNameAware实例\n\t\t\tif (bean instanceof BeanNameAware) { \n\t\t\t\t//调用 bean 的setBeanName方法\n\t\t\t\t((BeanNameAware) bean).setBeanName(beanName);\n\t\t\t}\n\t\t\t//如果bean是 BeanClassLoaderAware 实例\n\t\t\tif (bean instanceof BeanClassLoaderAware) { \n\t\t\t\t//获取此工厂的类加载器以加载Bean类(即使无法使用系统ClassLoader,也只能为null)\n\t\t\t\tClassLoader bcl = getBeanClassLoader();\n\t\t\t\tif (bcl != null) { \n\t\t\t\t\t//调用 bean 的 setBeanClassLoader 方法\n\t\t\t\t\t((BeanClassLoaderAware) bean).setBeanClassLoader(bcl);\n\t\t\t\t}\n\t\t\t}\n\t\t\t//如果bean是 BeanFactoryAware 实例\n\t\t\tif (bean instanceof BeanFactoryAware) { \n\t\t\t\t// //调用 bean 的 setBeanFactory 方法\n\t\t\t\t((BeanFactoryAware) bean).setBeanFactory(AbstractAutowireCapableBeanFactory.this);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-ne89oy7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010534-ne89oy7",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三，执行BeanPostProcessor的postProcessBeforeInitialization()方法"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-otgivfu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-otgivfu",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "postProcessBeforeInitialization()方法会在执行init方法之前调用，遍历beanPostProcessors集合调用postProcessBeforeInitialization()方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-lru0eri",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010534-lru0eri",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName)\n\t\t\tthrows BeansException { \n\n\t\t//初始化返回结果为existingBean\n\t\tObject result = existingBean;\n\t\t//遍历 该工厂创建的bean的BeanPostProcessors列表\n\t\tfor (BeanPostProcessor processor : getBeanPostProcessors()) { \n\t\t\t// postProcessBeforeInitialization：在任何Bean初始化回调之前(如初始化Bean的afterPropertiesSet或自定义的init方法)\n\t\t\t// 将此BeanPostProcessor 应用到给定的新Bean实例。Bean已经填充了属性值。返回的Bean实例可能时原始Bean的包装器。\n\t\t\t// 默认实现按原样返回给定的 Bean\n\t\t\tObject current = processor.postProcessBeforeInitialization(result, beanName);\n\t\t\t// 如果 current为null\n\t\t\tif (current == null) { \n\t\t\t\t//直接返回result，中断其后续的BeanPostProcessor处理\n\t\t\t\treturn result;\n\t\t\t}\n\t\t\t//让result引用processor的返回结果,使其经过所有BeanPostProcess对象的后置处理的层层包装\n\t\t\tresult = current;\n\t\t}\n\t\t//返回经过所有BeanPostProcess对象的后置处理的层层包装后的result\n\t\treturn result;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-pibsk2u",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010534-pibsk2u",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，ApplicationContextAwareProcessor调用Aware接口方法"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-brdvjah",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-brdvjah",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "主要完成，判断当前bean是否实现EnvironmentAware，EmbeddedValueResolverAware，ResourceLoaderAware，ApplicationEventPublisherAware，MessageSourceAware，ApplicationContextAware接口，如果实现则对其方法进行调用。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-5bmynm7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010534-5bmynm7",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "class ApplicationContextAwareProcessor implements BeanPostProcessor { \n     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException { \n\t\tif (!(bean instanceof EnvironmentAware || bean instanceof EmbeddedValueResolverAware ||\n\t\t\t\tbean instanceof ResourceLoaderAware || bean instanceof ApplicationEventPublisherAware ||\n\t\t\t\tbean instanceof MessageSourceAware || bean instanceof ApplicationContextAware)){ \n\t\t\treturn bean;\n\t\t}\n\n\t\tAccessControlContext acc = null;\n\n\t\tif (System.getSecurityManager() != null) { \n\t\t\tacc = this.applicationContext.getBeanFactory().getAccessControlContext();\n\t\t}\n\n\t\tif (acc != null) { \n\t\t\tAccessController.doPrivileged((PrivilegedAction\u003cObject\u003e) () -\u003e { \n\t\t\t\t// 检测bean上是否实现了某个aware接口，有的话进行相关的调用\n\t\t\t\tinvokeAwareInterfaces(bean);\n\t\t\t\treturn null;\n\t\t\t}, acc);\n\t\t}\n\t\telse { \n\t\t\tinvokeAwareInterfaces(bean);\n\t\t}\n\n\t\treturn bean;\n\t}   \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-lhih6pw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010534-lhih6pw",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，ConfigurationClassPostProcessor调用ImportAware接口方法"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-g9qkzl6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-g9qkzl6",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果bean实现了ImportAware接口，就会设置bean的注解信息："
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-0ij29os",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010534-0ij29os",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic Object postProcessBeforeInitialization(Object bean, String beanName) { \n\t\t\tif (bean instanceof ImportAware) { \n\t\t\t\tImportRegistry ir = this.beanFactory.getBean(IMPORT_REGISTRY_BEAN_NAME, ImportRegistry.class);\n\t\t\t\tAnnotationMetadata importingClass = ir.getImportingClassFor(ClassUtils.getUserClass(bean).getName());\n\t\t\t\tif (importingClass != null) { \n\t\t\t\t\t((ImportAware) bean).setImportMetadata(importingClass);\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn bean;\n\t\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-2cez5e7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010534-2cez5e7",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3，InitDestroyAnnotationBeanPostProcessor调用被注解修饰的生命周期方法"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-6hi265j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-6hi265j",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在doCreateBean中，createBeanInstance实例化完成之后，populateBean填充属性执行之前，会执行applyMergedBeanDefinitionPostProcessors(mbd, beanType, beanName)方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-0vmu233",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010534-0vmu233",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void applyMergedBeanDefinitionPostProcessors(RootBeanDefinition mbd, Class\u003c?\u003e beanType, String beanName) { \n\t\tfor (BeanPostProcessor bp : getBeanPostProcessors()) { \n\t\t\tif (bp instanceof MergedBeanDefinitionPostProcessor) { \n\t\t\t\tMergedBeanDefinitionPostProcessor bdp = (MergedBeanDefinitionPostProcessor) bp;\n\t\t\t\tbdp.postProcessMergedBeanDefinition(mbd, beanType, beanName);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-oomdyvj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-oomdyvj",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "目的是允许beanPostProcessor去修改合并的beanDefinition，其中会执行InitDestroyAnnotationBeanPostProcessor类的postProcessMergedBeanDefinition()方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-rw53m2v",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010534-rw53m2v",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic void postProcessMergedBeanDefinition(RootBeanDefinition beanDefinition, Class\u003c?\u003e beanType, String beanName) { \n\t\t// 调用方法获取生命周期元数据并保存\n\t\tLifecycleMetadata metadata = findLifecycleMetadata(beanType);\n\t\t// 验证相关方法\n\t\tmetadata.checkConfigMembers(beanDefinition);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-vdcu7ci",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-vdcu7ci",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "会获取当前bean中包含的被@PostContruct和@PreDestroy注解标注的方法存储在lifecycleMetadataCache的map中。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-vcfmmz6",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010534-vcfmmz6",
+				"updated": "20230404010534"
+			}
+		},
+		{
+			"ID": "20230404010534-hfukt2y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-hfukt2y",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "所以在InitDestroyAnnotationBeanPostProcessor类的postProcessBeforeInitialization()方法中会通过反射去调用上面缓存在lifecycleMetadataCache中的被@PostContruct注解修饰的方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-5l50zc9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010534-5l50zc9",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException { \n\t\tLifecycleMetadata metadata = findLifecycleMetadata(bean.getClass());\n\t\ttry { \n\t\t\tmetadata.invokeInitMethods(bean, beanName);\n\t\t}\n\t\tcatch (InvocationTargetException ex) { \n\t\t\tthrow new BeanCreationException(beanName, \"Invocation of init method failed\", ex.getTargetException());\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\tthrow new BeanCreationException(beanName, \"Failed to invoke init method\", ex);\n\t\t}\n\t\treturn bean;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-m7kc92p",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010534-m7kc92p",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四，执行初始化方法invokeInitMethods"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-wfbjfkc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-wfbjfkc",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果bean实现了InitializingBean接口，则先执行InitializingBean接口的afterPropertiesSet方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-yklga4e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-yklga4e",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "然后执行xml或注解设置的init-method方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-btf8u2z",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010534-btf8u2z",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected void invokeInitMethods(String beanName, Object bean, @Nullable RootBeanDefinition mbd)\n\t\t\tthrows Throwable { \n  \n    // 省略部分代码...\n  \n\t// 调用bean的afterPropertiesSet方法\n\t((InitializingBean) bean).afterPropertiesSet();\n\t\t\n\t// 在bean上调用指定的自定义init方法\n\tinvokeCustomInitMethod(beanName, bean, mbd);\n\t\t\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-jzs69fi",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010534-jzs69fi",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "五，执行BeanPostProcessor的postProcessAfterInitialization()方法"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-zo7oqfw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-zo7oqfw",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "遍历beanPostProcessors集合，执行BeanPostProcessor的后置处理器："
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-er6ar6u",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010534-er6ar6u",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic Object applyBeanPostProcessorsAfterInitialization(Object existingBean, String beanName)\n\t\t\tthrows BeansException { \n\n\t\t//初始化结果对象为result，默认引用existingBean\n\t\tObject result = existingBean;\n\t\t//遍历该工厂创建的bean的BeanPostProcessors列表\n\t\tfor (BeanPostProcessor processor : getBeanPostProcessors()) { \n\t\t\t//回调BeanPostProcessor#postProcessAfterInitialization来对现有的bean实例进行包装\n\t\t\tObject current = processor.postProcessAfterInitialization(result, beanName);\n\t\t\t//一般processor对不感兴趣的bean会回调直接返回result，使其能继续回调后续的BeanPostProcessor；\n\t\t\t// 但有些processor会返回null来中断其后续的BeanPostProcessor\n\t\t\t// 如果current为null\n\t\t\tif (current == null) { \n\t\t\t\t//直接返回result，中断其后续的BeanPostProcessor处理\n\t\t\t\treturn result;\n\t\t\t}\n\t\t\t//让result引用processor的返回结果,使其经过所有BeanPostProcess对象的后置处理的层层包装\n\t\t\tresult = current;\n\t\t}\n\t\t//返回经过所有BeanPostProcess对象的后置处理的层层包装后的result\n\t\treturn result;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-ojb5p0i",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010534-ojb5p0i",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，AbstractAutoProxyCreator生成aop代理对象"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-0z0bbgh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-0z0bbgh",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果使用了aop代理，那么此处会生成代理对象，替换原生bean对象。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-xu9crcr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010534-xu9crcr",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic Object postProcessAfterInitialization(@Nullable Object bean, String beanName) { \n\t\tif (bean != null) { \n\t\t\t// 根据给定bean的name和class构建出一个key\n\t\t\tObject cacheKey = getCacheKey(bean.getClass(), beanName);\n\t\t\tif (this.earlyProxyReferences.remove(cacheKey) != bean) { \n\t\t\t\t// 如果它需要被代理，则需要封装指定的bean\n\t\t\t\treturn wrapIfNecessary(bean, beanName, cacheKey);\n\t\t\t}\n\t\t}\n\t\treturn bean;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-8heww45",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-8heww45",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先查看是否在earlyProxyReferences缓存中存在，如果有就说明处理过了，不存在就考虑是否需要被代理，如需要则创建代理对象（对原生bean封装)。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-jfpwfdy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010534-jfpwfdy",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，ApplicationListenerDetector检测bean是否实现了ApplicationListener接口"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-059t8gm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-059t8gm",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果bean是单例的并且实现了ApplicationListener接口，则加入到多播器中applicationEventMulticaster。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-1qbv3au",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010534-1qbv3au",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public Object postProcessAfterInitialization(Object bean, String beanName) { \n\t\tif (bean instanceof ApplicationListener) { \n\t\t\t// 判断当前bean是否是单例，如果是的话，直接添加到容器的监听器集合中\n\t\t\tBoolean flag = this.singletonNames.get(beanName);\n\t\t\tif (Boolean.TRUE.equals(flag)) { \n\t\t\t\t// 添加到容器的监听器集合中\n\t\t\t\tthis.applicationContext.addApplicationListener((ApplicationListener\u003c?\u003e) bean);\n\t\t\t}\n\t\t\t// 如果不是单例的，并且又是一个嵌套的bean，那么打印日志，提示内嵌的bean只有在单例的情况下才能作为事件监听器\n\t\t\n\t\t}\n\t\treturn bean;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-4l8mdmh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010534-4l8mdmh",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "六，总结"
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-iskum8r",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010534-iskum8r",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "生命周期执行顺序："
+				}
+			]
+		},
+		{
+			"ID": "20230404010534-6wnzisa",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010534-6wnzisa",
+				"updated": "20230404010534"
+			},
+			"Children": [
+				{
+					"ID": "20230404010534-8z829z4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010534-8z829z4",
+						"updated": "20230404010534"
+					},
+					"Children": [
+						{
+							"ID": "20230404010534-btf59bv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010534-btf59bv",
+								"updated": "20230404010534"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@PostConstruct注解修饰的方法"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010534-k1exes6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010534-k1exes6",
+						"updated": "20230404010534"
+					},
+					"Children": [
+						{
+							"ID": "20230404010534-r3svmss",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010534-r3svmss",
+								"updated": "20230404010534"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "InitializingBean接口的afterPropertiesSet()方法"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010534-s661f1v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010534-s661f1v",
+						"updated": "20230404010534"
+					},
+					"Children": [
+						{
+							"ID": "20230404010534-oxovy79",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010534-oxovy79",
+								"updated": "20230404010534"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "init-method指定的方法"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010534-p3ybakk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010534-p3ybakk",
+						"updated": "20230404010534"
+					},
+					"Children": [
+						{
+							"ID": "20230404010534-11erhib",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010534-11erhib",
+								"updated": "20230404010534"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@PreDestroy注解修饰的方法"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010534-xgw2v7e",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230404010534-xgw2v7e",
+						"updated": "20230404010534"
+					},
+					"Children": [
+						{
+							"ID": "20230404010534-l9uuaxo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010534-l9uuaxo",
+								"updated": "20230404010534"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "DisposableBean接口的destroy()方法"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010534-dize75v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ni4=",
+						"Num": 6
+					},
+					"Properties": {
+						"id": "20230404010534-dize75v",
+						"updated": "20230404010534"
+					},
+					"Children": [
+						{
+							"ID": "20230404010534-a3vhisg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010534-a3vhisg",
+								"updated": "20230404010534"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "destory-method指定的方法"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

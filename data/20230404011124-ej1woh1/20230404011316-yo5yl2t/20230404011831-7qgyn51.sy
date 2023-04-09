@@ -1,0 +1,1611 @@
+{
+	"ID": "20230404011831-7qgyn51",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404011831-7qgyn51",
+		"title": "吃透Redis（六）：网络框架篇-redis框架源码_吃透Java的博客-CSDN博客",
+		"updated": "20230404011831"
+	},
+	"Children": [
+		{
+			"ID": "20230404011831-f1lg6zn",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011831-f1lg6zn",
+				"updated": "20230404011831"
+			}
+		},
+		{
+			"ID": "20230404011831-uflwmhg",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011831-uflwmhg",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"ID": "20230404011831-7cajsmn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-7cajsmn",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-1vvcrmt",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-1vvcrmt",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/126217123",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/126217123"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-0mw4tib",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-0mw4tib",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-mnz7mld",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-mnz7mld",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "很多人认为 Redis 是单线程，这个描述是不准确的。准确来说 Redis 只有在处理「客户端请求」时，是单线程的。但整个 Redis Server 并不是单线程的，还有后台线程在辅助处理一些工作。Redis 还启动了 3 个线程来执行文件关闭、AOF 同步写和惰性删除等操作。..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-gjirg9s",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-gjirg9s",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-kn7nv28",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-kn7nv28",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:18:31"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-l35idv1",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011831-l35idv1",
+				"updated": "20230404011831"
+			}
+		},
+		{
+			"ID": "20230404011831-wjtylr7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011831-wjtylr7",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、6.0之前"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-dx1nip1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-dx1nip1",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "很多人认为 Redis 是单线程，这个描述是不准确的。准确来说 Redis 只有在处理「客户端请求」时，是单线程的。但整个 Redis Server 并不是单线程的，还有后台线程在辅助处理一些工作。Redis 还启动了 3 个线程来执行文件关闭、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=AOF\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "AOF"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 同步写和惰性删除等操作。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-c28kqmk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-c28kqmk",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Redis 选择单线程处理请求，是因为 Redis 操作的是「内存」，加上设计了「高效」的数据结构，所以操作速度极快，利用 IO "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "多路复用"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "机制，单线程依旧可以有非常高的性能"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-faa90ma",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-faa90ma",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "但如果一个请求发生耗时，单线程的缺点就暴露出来了，后面的请求都要「排队」等待，所以 Redis 在启动时会启动一些「后台线程」来辅助工作，目的是把耗时的操作，放到后台处理，避免主线程操作耗时影响整体性能"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-yf2aqmz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-yf2aqmz",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "例如关闭 fd、AOF 刷盘、释放 key 的内存，这些耗时操作，都可以放到后台线程中处理，对主逻辑没有任何影响"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-hnmhw1q",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-hnmhw1q",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "后台线程处理这些任务，就相当于一个消费者，生产者（主线程）把耗时任务丢到队列中（链表），消费者不停"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E8%BD%AE%E8%AF%A2\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "轮询"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "这个队列，拿出任务就去执行对应的方法即可："
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-blgszf0",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011831-blgszf0",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"ID": "20230404011831-lfe7m6s",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-lfe7m6s",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-0080vcb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-0080vcb",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "BIO_CLOSE_FILE：close(fd)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-0z8x0iy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-0z8x0iy",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-69h1v78",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-69h1v78",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "BIO_AOF_FSYNC：fsync(fd)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-f6boups",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-f6boups",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-my0u690",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-my0u690",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "BIO_LAZY_FREE：free(obj) / free(dict) / free(skiplist)"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-cxolcnj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011831-cxolcnj",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、6.0之后"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-uw0vwtt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-uw0vwtt",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Redis 6.0 之前，处理客户端请求是单线程，这种模型的缺点是，只能用到「单核」CPU。如果并发量很高，那么在读写客户端数据时，容易引发性能瓶颈，所以 Redis 6.0 引入了多 IO 线程解决这个问题"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-ixc1t93",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-ixc1t93",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "配置文件开启 io-threads N 后，Redis Server 启动时，会启动 N - 1 个 IO 线程（主线程也算一个 IO 线程），这些 IO 线程执行的逻辑是 networking.c 的 IOThreadMain 函数。但默认只开启多线程「写」client socket，如果要开启多线程「读」，还需配置 io-threads-do-reads = yes"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-2kefet8",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011831-2kefet8",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、IO 线程的运行函数 IOThreadMain"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-hqaqyz3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-hqaqyz3",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "initThreadedIO 函数就会给以下四个数组进行初始化操作："
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-lqbrn9l",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011831-lqbrn9l",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"ID": "20230404011831-g3a3kbe",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-g3a3kbe",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-djryutd",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-djryutd",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "io_threads_list 数组：保存了每个 IO 线程要处理的客户端，将数组每个元素初始化为一个 List 类型的列表；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-cl1byg4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-cl1byg4",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-fq6afen",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-fq6afen",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "io_threads_pending 数组：保存等待每个 IO 线程处理的客户端个数；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-a0zw9qn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-a0zw9qn",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-254wuz1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-254wuz1",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "io_threads_mutex 数组：保存线程互斥锁；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-vucysla",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-vucysla",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-98sulsa",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-98sulsa",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "io_threads 数组：保存每个 IO 线程的描述符。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-26zb7jg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-26zb7jg",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对于 initThreadedIO 函数来说，它创建的线程要运行的函数是 IOThreadMain，参数是当前创建线程的编号。不过要注意的是，这个编号是从 1 开始的，编号为 0 的线程其实是运行 Redis server 主流程的主 IO 线程。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-z2unr15",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-z2unr15",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "IOThreadMain 函数主要执行逻辑是一个 while(1) 循环。在这个循环中，IOThreadMain 函数会把 io_threads_list 数组中，每个 IO 线程对应的列表读取出来。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-q12e4it",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-q12e4it",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "io_threads_list 数组中会针对每个 IO 线程，使用一个列表记录该线程要处理的客户端（数组的值是list列表）。所以，IOThreadMain 函数就会从每个 IO 线程对应的列表中，进一步取出要处理的客户端，然后判断线程要执行的操作标记。这个操作标记是用变量 io_threads_op 表示的，它有两种取值："
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-54aze4i",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011831-54aze4i",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"ID": "20230404011831-dma6udv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-dma6udv",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-e76xo5l",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-e76xo5l",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "io_threads_op 的值为宏定义 IO_THREADS_OP_WRITE：这表明该 IO 线程要做的是写操作，线程会调用 writeToClient 函数将数据写回客户端。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-z70526e",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-z70526e",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-k8r6bc9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-k8r6bc9",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "io_threads_op 的值为宏定义 IO_THREADS_OP_READ：这表明该 IO 线程要做的是读操作，线程会调用 readQueryFromClient 函数从客户端读取数据。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-8unz9v6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-8unz9v6",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "代码逻辑："
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-ecr66lo",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011831-ecr66lo",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "void *IOThreadMain(void *myid) { \n…\nwhile(1) { \n   listIter li;\n   listNode *ln;\n   //获取IO线程要处理的客户端列表\n   listRewind(io_threads_list[id],\u0026li);\n   while((ln = listNext(\u0026li))) { \n      client *c = listNodeValue(ln); //从客户端列表中获取一个客户端\n      if (io_threads_op == IO_THREADS_OP_WRITE) { \n         writeToClient(c,0);  //如果线程操作是写操作，则调用writeToClient将数据写回客户端\n       } else if (io_threads_op == IO_THREADS_OP_READ) { \n          readQueryFromClient(c-\u003econn); //如果线程操作是读操作，则调用readQueryFromClient从客户端读取数据\n       } else { \n          serverPanic(\"io_threads_op value is unknown\");\n       }\n   }\n   listEmpty(io_threads_list[id]); //处理完所有客户端后，清空该线程的客户端列表\n   io_threads_pending[id] = 0; //将该线程的待处理任务数量设置为0\n \n   }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-2w7yv3c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-2w7yv3c",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "每一个 IO 线程运行时，都会不断检查是否有等待它处理的客户端。如果有，就根据操作类型，从客户端读取数据或是将数据写回客户端。你可以看到，这些操作都是 Redis 要和客户端完成的 IO 操作，所以，这也是为什么我们把这些线程称为 IO 线程的原因。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-mbme5zg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-mbme5zg",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "IO 线程要处理的客户端是如何添加到 io_threads_list 数组中的呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-tyw73fc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-tyw73fc",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这就要说到 Redis server 对应的全局变量 server 了。server 变量中有两个 List 类型的成员变量：clients_pending_write 和 clients_pending_read，它们分别记录了待写回数据的客户端和待读取数据的客户端，如下所示："
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-qvbefn2",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011831-qvbefn2",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "struct redisServer { \n...\nlist *clients_pending_write;  //待写回数据的客户端\nlist *clients_pending_read;  //待读取数据的客户端\n...\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-p6pi7qz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-p6pi7qz",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "你要知道，Redis server 在接收到客户端请求和给客户端返回数据的过程中，会根据一定条件，推迟客户端的读写操作，并分别把待读写的客户端保存到这两个列表中。然后，Redis server 在每次进入事件循环前，会再把列表中的客户端添加到 io_threads_list 数组中，交给 IO 线程进行处理。\n所以接下来，我们就先来看下，Redis 是如何推迟客户端的读写操作，并把这些客户端添加到 clients_pending_write 和 clients_pending_read 这两个列表中的。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-28d95wr",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011831-28d95wr",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、如何推迟客户端读操作？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-ukzx4sj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-ukzx4sj",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Redis server 在和一个客户端建立连接后，就会开始监听这个客户端上的可读事件，而处理可读事件的回调函数是 readQueryFromClient。这个函数一开始会先从传入参数 conn 中获取客户端 c，紧接着就调用 postponeClientRead 函数，来判断是否推迟从客户端读取数据。这部分的执行逻辑如下所示："
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-8b0lpye",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011831-8b0lpye",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "void readQueryFromClient(connection *conn) { \n    client *c = connGetPrivateData(conn);  //从连接数据结构中获取客户\n    ...\n    if (postponeClientRead(c)) return;  //判断是否推迟从客户端读取数据\n    ...\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-2nrhb7r",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-2nrhb7r",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "postponeClientRead 函数会根据四个条件判断能否推迟从客户端读取数据："
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-w9h19pq",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404011831-w9h19pq",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"ID": "20230404011831-0rcj6pw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404011831-0rcj6pw",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-4jkvnoc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-4jkvnoc",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "全局变量 server 的 io_threads_active 值为 1：这表示多 IO 线程已经激活。我刚才说过，这个变量值在 initThreadedIO 函数中是会被初始化为 0 的，也就是说，多 IO 线程初始化后，默认还没有激活（我一会儿还会给你介绍这个变量值何时被设置为 1）。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-3v72lur",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404011831-3v72lur",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-r0ptavs",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-r0ptavs",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "全局变量 server 的 io_threads_do_read 值为 1：这表示多 IO 线程可以用于处理延后执行的客户端读操作。这个变量值是在 Redis 配置文件 redis.conf 中，通过配置项 io-threads-do-reads 设置的，默认值为 no，也就是说，多 IO 线程机制默认并不会用于客户端读操作。所以，如果你想用多 IO 线程处理客户端读操作，就需要把 io-threads-do-reads 配置项设为 yes。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-lc040fs",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404011831-lc040fs",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-bo4ivou",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-bo4ivou",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ProcessingEventsWhileBlocked 变量值为 0：ProcessingEventsWhileBlocked 是一个全局变量，它会在当 Redis 在读取 RDB 文件或是 AOF 文件时被设置为 1，函数执行完成时被设置为 0。这样就避免了因读取 RDB 或 AOF 文件造成 Redis 阻塞，而无法及时处理事件的情况。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-99ydgd2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404011831-99ydgd2",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-ygklbty",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-ygklbty",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "客户端现有标识不能有 CLIENT_MASTER、CLIENT_SLAVE 和 CLIENT_PENDING_READ：CLIENT_MASTER 和 CLIENT_SLAVE 标识分别表示客户端是用于主从复制的客户端，也就是说，这些客户端不会推迟读操作。CLIENT_PENDING_READ 本身就表示一个客户端已经被设置为推迟读操作了，所以，对于已带有 CLIENT_PENDING_READ 标识的客户端，postponeClientRead 函数就不会再推迟它的读操作了。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-vi050rj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-vi050rj",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "只有前面这四个条件都满足了，postponeClientRead 函数才会推迟当前客户端的读操作，把这个客户端添加到全局变量 server 的 clients_pending_read 列表中。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-ub4sj1h",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011831-ub4sj1h",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、如何推迟客户端写操作？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-fr7x6sj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-fr7x6sj",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Redis 在执行了客户端命令，要给客户端返回结果时，会调用 addReply 函数将待返回结果写入客户端输出缓冲区。而在 addReply 函数的一开始，该函数会调用 prepareClientToWrite 函数，来判断是否推迟执行客户端写操作"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-up408by",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-up408by",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "能否推迟客户端写操作，最终是由 clientInstallWriteHandler 函数来决定的，这个函数会判断两个条件:"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-qbj8ear",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404011831-qbj8ear",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"ID": "20230404011831-g6pmcfg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404011831-g6pmcfg",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-n3l9bo0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-n3l9bo0",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "客户端没有设置过 CLIENT_PENDING_WRITE 标识，即没有被推迟过执行写操作。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-4dnssjw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404011831-4dnssjw",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-uhc3h73",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-uhc3h73",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "客户端所在实例没有进行主从复制，或者客户端所在实例是主从复制中的从节点，但全量复制的 RDB 文件已经传输完成，客户端可以接收请求。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-smnx6ec",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-smnx6ec",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一旦这两个条件都满足了，会把这个客户端添加到全局变量 server 的待写回客户端列表中，也就是 clients_pending_write 列表中。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-w6z3x03",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-w6z3x03",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "不过，当 Redis 使用 clients_pending_read 和 clients_pending_write 两个列表，保存了推迟执行的客户端后，这些客户端又是如何分配给多 IO 线程执行的呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-6figckp",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011831-6figckp",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4、如何把待读客户端分配给 IO 线程执行？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-myrbd0y",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011831-myrbd0y",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"ID": "20230404011831-ndn0tis",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-ndn0tis",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-fthen5f",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-fthen5f",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "第一步：判断IO线程是否被激活，并判断IO线程是否可以处理待读客户端。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-zt55gqp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-zt55gqp",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-25v66fv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-25v66fv",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "第二步：从 clients_pending_read 列表获取客户端，按轮询方式分配给IO线程。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-dnt1z2e",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-dnt1z2e",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-dt2gew4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-dt2gew4",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "第三步：将 io_threads_list 数组 0 号列表（也就是 io_threads_list[0]元素，正是 IO 主线程）中的待读客户端逐一取出来，并调用 readQueryFromClient 函数进行处理。紧接着，执行一个 while(1) 循环，等待所有 IO 线程完成待读客户端的处理。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-yjmvhgs",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-yjmvhgs",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-77bhaeu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-77bhaeu",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "第四步：再次遍历 clients_pending_read 列表，执行解析过的命令。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-7r4cnlm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-7r4cnlm",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "好了，到这里，你就了解了 clients_pending_read 列表中的待读客户端，是如何经过以上四个步骤来分配给 IO 线程进行处理的。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-rwq52w3",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011831-rwq52w3",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5、如何把待写客户端分配给 IO 线程执行？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-2izvt8e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-2izvt8e",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "流程同上面差不多，有一点需要注意一下："
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-qe20vs2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-qe20vs2",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行代写客户端时会判断 IO 线程数量是否为 1，或者待写客户端数量是否小于 IO 线程数量的 2 倍。\n如果这两个条件中有一个条件成立，那么就不会用多线程来处理客户端了，而是会由主 IO 线程直接处理待写客户端。这样做的目的，主要是为了在待写客户端数量不多时，避免采用多线程，从而节省 CPU 开销。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-9qztrbv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011831-9qztrbv",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、小结"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-2x20vwl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011831-2x20vwl",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "最后，我也想再提醒你一下，多 IO 线程本身并不会执行命令，它们只是利用多核并行地读取数据和解析命令，或是将 server 数据写回。所以，Redis 执行命令的线程还是主 IO 线程。这一点对于你理解多 IO 线程机制很重要，可以避免你误解 Redis 有多线程同时执行命令。\n这样一来，我们原来针对 Redis 单个主 IO 线程做的优化仍然有效，比如避免 bigkey、避免阻塞操作等。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011831-k2dinkk",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011831-k2dinkk",
+				"updated": "20230404011831"
+			},
+			"Children": [
+				{
+					"ID": "20230404011831-0um6nm6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-0um6nm6",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-pcxqjy6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-pcxqjy6",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Redis 6.0 之前，处理客户端请求是单线程，这种模型的缺点是，只能用到「单核」CPU。如果并发量很高，那么在读写客户端数据时，容易引发性能瓶颈，所以 Redis 6.0 引入了多 IO 线程解决这个问题"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-6a69b74",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-6a69b74",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-o7qlvpq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-o7qlvpq",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "配置文件开启 io-threads N 后，Redis Server 启动时，会启动 N - 1 个 IO 线程（主线程也算一个 IO 线程），这些 IO 线程执行的逻辑是 networking.c 的 IOThreadMain 函数。但默认只开启多线程「写」client socket，如果要开启多线程「读」，还需配置 io-threads-do-reads = yes"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-91scuyf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-91scuyf",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-suavtf7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-suavtf7",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Redis 在读取客户端请求时，判断如果开启了 IO 多线程，则把这个 client 放到 clients_pending_read 链表中（postponeClientRead 函数），之后主线程在处理每次事件循环之前，把链表数据轮询放到 IO 线程的链表（io_threads_list）中"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-t989968",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-t989968",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-f2r6d8b",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-f2r6d8b",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "同样地，在写回响应时，是把 client 放到 clients_pending_write 中（prepareClientToWrite 函数），执行事件循环之前把数据轮询放到 IO 线程的链表（io_threads_list）中"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-hw7t8vh",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-hw7t8vh",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-imsv0iu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-imsv0iu",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "主线程把 client 分发到 IO 线程时，自己也会读写客户端 socket（主线程也要分担一部分读写操作），之后「等待」所有 IO 线程完成读写，再由主线程「串行」执行后续逻辑"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-bxd77tb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-bxd77tb",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-tplf8k2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-tplf8k2",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "每个 IO 线程，不停地从 io_threads_list 链表中取出 client，并根据指定类型读、写 client socket"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-wisfow2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-wisfow2",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-jhzkyu2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-jhzkyu2",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "IO 线程在处理读、写 client 时有些许差异，如果 write_client_pedding \u003c io_threads * 2，则直接由「主线程」负责写，不再交给 IO 线程处理，从而节省 CPU 消耗"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-38b654g",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-38b654g",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-i3ia4mg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-i3ia4mg",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Redis 官方建议，服务器最少 4 核 CPU 才建议开启 IO 多线程，4 核 CPU 建议开 2-3 个 IO 线程，8 核 CPU 开 6 个 IO 线程，超过 8 个线程性能提升不大"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011831-2bn08su",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011831-2bn08su",
+						"updated": "20230404011831"
+					},
+					"Children": [
+						{
+							"ID": "20230404011831-z8v7zvj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011831-z8v7zvj",
+								"updated": "20230404011831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Redis 官方表示，开启多 IO 线程后，性能可提升 1 倍。当然，如果 Redis 性能足够用，没必要开 IO 线程"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

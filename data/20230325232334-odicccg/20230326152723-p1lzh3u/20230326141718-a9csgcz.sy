@@ -1,0 +1,127 @@
+{
+	"ID": "20230326141718-a9csgcz",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230326141718-a9csgcz",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230326141727-7o2xxpf\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230326162050-va7z36y\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230326141912-25w5nex\u0026quot;,\u0026quot;focusStart\u0026quot;:4,\u0026quot;focusEnd\u0026quot;:38}",
+		"title": "推断构造方法",
+		"updated": "20230326162050"
+	},
+	"Children": [
+		{
+			"ID": "20230326141727-7o2xxpf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326141727-7o2xxpf",
+				"updated": "20230326141759"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230326141756-js9gyyw.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				}
+			]
+		},
+		{
+			"ID": "20230326141801-br5rgu1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326141801-br5rgu1",
+				"updated": "20230326141911"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "有@Autowired就用@Autowired指定的构造方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230326141858-o6q0515",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326141858-o6q0515",
+				"updated": "20230326141907"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "没有就用无参的构造方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230326155202-qvlenhc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326155202-qvlenhc",
+				"updated": "20230326155218"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果没有无参，只有一个构造，就用这个构造。"
+				}
+			]
+		},
+		{
+			"ID": "20230326141912-25w5nex",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326141912-25w5nex",
+				"updated": "20230326155235"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果没有无参的构造方法且有多个构造方法且没有指定@Autowired，那么就直接报错"
+				}
+			]
+		},
+		{
+			"ID": "20230326162050-va7z36y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326162050-va7z36y"
+			}
+		}
+	]
+}

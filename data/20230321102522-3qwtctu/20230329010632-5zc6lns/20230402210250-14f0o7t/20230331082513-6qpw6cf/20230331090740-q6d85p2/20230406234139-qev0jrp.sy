@@ -1,0 +1,687 @@
+{
+	"ID": "20230406234139-qev0jrp",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230406234139-qev0jrp",
+		"title": "实战CGLib系列之proxy篇(二)：回调过滤CallbackFilter _iteye_13303的博客-CSDN博客",
+		"updated": "20230406234139"
+	},
+	"Children": [
+		{
+			"ID": "20230406234139-g2o7js9",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230406234139-g2o7js9",
+				"updated": "20230406234139"
+			}
+		},
+		{
+			"ID": "20230406234139-2zdxglb",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230406234139-2zdxglb",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"ID": "20230406234139-iywlu4p",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406234139-iywlu4p",
+						"updated": "20230406234139"
+					},
+					"Children": [
+						{
+							"ID": "20230406234139-c1b9xzq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406234139-c1b9xzq",
+								"updated": "20230406234139"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/iteye_13303/article/details/82640029?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026request_id=168079566816800222872602\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-1-82640029-null-null.blog_rank_default\u0026utm_term=%E5%AE%9E%E6%88%98CGLib\u0026spm=1018.2226.3001.4450",
+									"TextMarkTextContent": "https://blog.csdn.net/iteye_13303/article/details/82640029?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026amp;request_id=168079566816800222872602\u0026amp;biz_id=0\u0026amp;utm_medium=distribute.pc_search_result.none-task-blog-2"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a sub",
+									"TextMarkAHref": "https://blog.csdn.net/iteye_13303/article/details/82640029?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026request_id=168079566816800222872602\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-1-82640029-null-null.blog_rank_default\u0026utm_term=%E5%AE%9E%E6%88%98CGLib\u0026spm=1018.2226.3001.4450",
+									"TextMarkTextContent": "blog"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/iteye_13303/article/details/82640029?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026request_id=168079566816800222872602\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-1-82640029-null-null.blog_rank_default\u0026utm_term=%E5%AE%9E%E6%88%98CGLib\u0026spm=1018.2226.3001.4450",
+									"TextMarkTextContent": "first_rank_ecpm_v1~rank_v31_ecpm-1-82640029-null-null.blog_rank_default\u0026amp;utm_term=%E5%AE%9E%E6%88%98CGLib\u0026amp;spm=1018.2226.3001.4450"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406234139-cgjub58",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406234139-cgjub58",
+						"updated": "20230406234139"
+					},
+					"Children": [
+						{
+							"ID": "20230406234139-2fujvun",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406234139-2fujvun",
+								"updated": "20230406234139"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "作者shensy及出处http://shensy.iteye.com/blog/1881130 实战CGLib系列文章本篇介绍回调过滤器CallbackFilter。一、作用在CGLib回调时可以设置对不同方法执行不同的回调逻辑，或者根本不执行回调。在JDK动态代理中并没有类似的功能，对InvocationHandler接口方法的调用对代理类内的所以方法都有效。二、..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406234139-lumpq2r",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406234139-lumpq2r",
+						"updated": "20230406234139"
+					},
+					"Children": [
+						{
+							"ID": "20230406234139-q0u3ytc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406234139-q0u3ytc",
+								"updated": "20230406234139"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-06 23:41:39"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-244sk8s",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230406234139-244sk8s",
+				"updated": "20230406234139"
+			}
+		},
+		{
+			"ID": "20230406234139-s7p21oa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-s7p21oa",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "作者shensy及出处"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://shensy.iteye.com/blog/1881130",
+					"TextMarkTextContent": "http://shensy.iteye.com/blog/1881130"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-su36dz7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-su36dz7",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "实战CGLib系列文章"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-xbx7i3b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-xbx7i3b",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本篇介绍回调过滤器CallbackFilter。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-im1fbsg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-im1fbsg",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "一、作用"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-ixgg2sk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-ixgg2sk",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=CGLib\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "CGLib"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "回调时可以设置对不同方法执行不同的回调逻辑，或者根本不执行回调。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-pdnutms",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-pdnutms",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在JDK动态代理中并没有类似的功能，对InvocationHandler接口方法的调用对代理类内的所以方法都有效。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-f4ktuf3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-f4ktuf3",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "二、示例"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​："
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-i9tivrs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-i9tivrs",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先定义一个被代理类，包含3个方法："
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-eby41uo",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234139-eby41uo",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class ConcreteClassNoInterface {\npublic String getConcreteMethodA(String str){\n\t\tSystem.out.println(\"ConcreteMethod A ... \"+str);\nreturn str;\n\t}\npublic int getConcreteMethodB(int n){\n\t\tSystem.out.println(\"ConcreteMethod B ... \"+n);\nreturn n+10;\n\t}\npublic int getConcreteMethodFixedValue(int n){\n\t\tSystem.out.println(\"getConcreteMethodFixedValue...\"+n);\nreturn n+10;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-8tr1o5m",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-8tr1o5m",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其次，定义实现过滤器CallbackFilter接口的类："
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-3ln6q4n",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234139-3ln6q4n",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class ConcreteClassCallbackFilter implements CallbackFilter{\npublic int accept(Method method) {\nif(\"getConcreteMethodB\".equals(method.getName())){\nreturn 0;//Callback callbacks[0]\n\t\t}else if(\"getConcreteMethodA\".equals(method.getName())){\nreturn 1;//Callback callbacks[1]\n\t\t}else if(\"getConcreteMethodFixedValue\".equals(method.getName())){\nreturn 2;//Callback callbacks[2]\n\t\t}\nreturn 1;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-ladmfhf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-ladmfhf",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中return值为被代理类的各个方法在回调数组Callback[]中的位置索引（见下文）。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-2jmdzkj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-2jmdzkj",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "生成代理类"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​："
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-339bsn3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234139-339bsn3",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Enhancer enhancer=new Enhancer();\nenhancer.setSuperclass(ConcreteClassNoInterface.class);\nCallbackFilter filter=new ConcreteClassCallbackFilter();\nenhancer.setCallbackFilter(filter);\n\nCallback interceptor=new ConcreteClassInterceptor();//(1)\nCallback noOp=NoOp.INSTANCE;//(2)\nCallback fixedValue=new ConcreteClassFixedValue();//(3)\nCallback[] callbacks=new Callback[]{interceptor,noOp,fixedValue};\nenhancer.setCallbacks(callbacks);\nConcreteClassNoInterface proxyObject=(ConcreteClassNoInterface)enhancer.create();\n//...见下文\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-4pbwlko",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-4pbwlko",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "生成代理类前，设置了CallbackFilter，上文中ConcreteClassCallbackFilter实现类的返回值对应Callback[]数组中的位置索引。此处包含了CGLib中的3种回调方式："
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-09tocnm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-09tocnm",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "(1)MethodInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​：方法拦截器，上一篇文章中已经详细介绍过，此处不再赘述。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-gitlsnu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-gitlsnu",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "(2)NoOp.INSTANCE"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​：这个NoOp表示no operator，即什么操作也不做，代理类直接调用被代理的方法不进行拦截。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-1x36n80",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-1x36n80",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "(3)FixedValue"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​：表示锁定方法返回值，无论被代理类的方法返回什么值，回调方法都返回固定值。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-3y2gmbr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-3y2gmbr",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中，ConcreteClassFixedValue类实现如下："
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-htb0fc1",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234139-htb0fc1",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class ConcreteClassFixedValue implements FixedValue{\npublic Object loadObject() throws Exception {\n\t\tSystem.out.println(\"ConcreteClassFixedValue loadObject ...\");\n\t\tObject object=999;\nreturn object;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-nj6qrwu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-nj6qrwu",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "该类实现FixedValue接口，同时锁定回调值为999(整型，CallbackFilter中定义的使用FixedValue型回调的方法为getConcreteMethodFixedValue，该方法返回值为整型)。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-7v4qpe9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-7v4qpe9",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "下面进行验证"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​："
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-a0ggu6o",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234139-a0ggu6o",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "//接上文...\nSystem.out.println(\"*** NoOp Callback ***\");\nproxyObject.getConcreteMethodA(\"abcde\");\n\nSystem.out.println(\"*** MethodInterceptor Callback ***\");\nproxyObject.getConcreteMethodB(1);\n\nSystem.out.println(\"*** FixedValue Callback ***\");\nint fixed1=proxyObject.getConcreteMethodFixedValue(128);\nSystem.out.println(\"fixedValue1:\"+fixed1);\nint fixed2=proxyObject.getConcreteMethodFixedValue(256);\nSystem.out.println(\"fixedValue2:\"+fixed2);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-vkedzrq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-vkedzrq",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "控制台输出"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​："
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-zxtb83w",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234139-zxtb83w",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "*** NoOp Callback ***\nConcreteMethod A ... abcde\n\n*** MethodInterceptor Callback ***\nBefore :public int generic.cglib.proxy.ConcreteClassNoInterface.getConcreteMethodB(int)\nConcreteMethod B ... 1\nAfter :public int generic.cglib.proxy.ConcreteClassNoInterface.getConcreteMethodB(int)\nConcreteClassInterceptor end...\n\n*** FixedValue Callback ***\nConcreteClassFixedValue loadObject ...\nfixedValue1:999\nConcreteClassFixedValue loadObject ...\nfixedValue2:999\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-kw4grm1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-kw4grm1",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "getConcreteMethodA对应CallbackFilter中定义的索引1，在Callback[]数组中使用的过滤为NoOp,因此直接执行了被代理方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-c4wa45k",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-c4wa45k",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "getConcreteMethodB对应CallbackFilter中定义的索引0，在Callback[]数组中使用的过滤为MethodInterceptor，因此执行了方法拦截器进行拦截。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234139-5pd24wl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234139-5pd24wl",
+				"updated": "20230406234139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "getConcreteMethodFixedValue对应CallbackFilter中定义的索引2，在Callback[]数组中使用的过滤为FixedValue，因此2次赋值128和256的调用其结果均被锁定为返回999。"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,3785 @@
+{
+	"ID": "20230331084946-e8donuv",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331084946-e8donuv",
+		"title": "Spring 源码分析衍生篇九 ： AOP源码分析 - 基础篇_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331084946"
+	},
+	"Children": [
+		{
+			"ID": "20230331084946-k859mhm",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331084946-k859mhm",
+				"updated": "20230331084946"
+			}
+		},
+		{
+			"ID": "20230331084946-7xukocp",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331084946-7xukocp",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"ID": "20230331084946-yve222i",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-yve222i",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-fewhn69",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-fewhn69",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/105464984"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-ygzwt31",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-ygzwt31",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-s5xoxr8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-s5xoxr8",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "文章目录一、简介1. 简介2. 专业术语二、Spring  AOP1.  基本释义1.1 定义切点1.2  定义切面2. 代码实践3. 权限拦截Demo三、源码分析1. 分析前准备2. 开始3. 生成代理类3.1.   获取代理增强点3.2. 创建代理类一、简介1. 简介Aop 即面向切面编程，而 Aspect 是Aop 思想的一种实现。并不是所有的AOP框架都相同，它们在连接点模型上可能..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-4by1xjn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-4by1xjn",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-9nw7xao",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-9nw7xao",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 08:49:46"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-4y88xvi",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331084946-4y88xvi",
+				"updated": "20230331084946"
+			}
+		},
+		{
+			"ID": "20230331084946-dxf6xkh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331084946-dxf6xkh",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-bvxxlik",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331084946-bvxxlik",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"ID": "20230331084946-9fhk39q",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-9fhk39q",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-ygq5gtz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-ygq5gtz",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984#_1",
+									"TextMarkTextContent": "一、简介"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-vrdlgto",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-vrdlgto",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-imq4emf",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331084946-imq4emf",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"ID": "20230331084946-lf9clbw",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331084946-lf9clbw",
+										"updated": "20230331084946"
+									},
+									"Children": [
+										{
+											"ID": "20230331084946-t4567v9",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331084946-t4567v9",
+												"updated": "20230331084946"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984#1__6",
+													"TextMarkTextContent": "1. 简介"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331084946-vfront1",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331084946-vfront1",
+										"updated": "20230331084946"
+									},
+									"Children": [
+										{
+											"ID": "20230331084946-uvmcamq",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331084946-uvmcamq",
+												"updated": "20230331084946"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984#1_Spring_Aop___AspectJ__28",
+													"TextMarkTextContent": "1. Spring Aop 和 AspectJ 的关系"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-pwnctgb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-pwnctgb",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-knafvcs",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-knafvcs",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984#Spring_Aop_35",
+									"TextMarkTextContent": "二、经典Spring Aop"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-86vge7x",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-86vge7x",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-mywbjm4",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331084946-mywbjm4",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"ID": "20230331084946-bc3m36c",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331084946-bc3m36c",
+										"updated": "20230331084946"
+									},
+									"Children": [
+										{
+											"ID": "20230331084946-1y89803",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331084946-1y89803",
+												"updated": "20230331084946"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984#1__36",
+													"TextMarkTextContent": "1. 基本释义"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331084946-6jl7ucm",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331084946-6jl7ucm",
+										"updated": "20230331084946"
+									},
+									"Children": [
+										{
+											"ID": "20230331084946-9tz2m16",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331084946-9tz2m16",
+												"updated": "20230331084946"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984#2_Demo_54",
+													"TextMarkTextContent": "2. 简单Demo"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-e6ni7gr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-e6ni7gr",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-r8qp2sl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-r8qp2sl",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984#Aspect_148",
+									"TextMarkTextContent": "三、@Aspect注解驱动的切面"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-qxw2x5p",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-qxw2x5p",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-hv3qfhp",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331084946-hv3qfhp",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"ID": "20230331084946-f9hpwy1",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331084946-f9hpwy1",
+										"updated": "20230331084946"
+									},
+									"Children": [
+										{
+											"ID": "20230331084946-x0szgk9",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331084946-x0szgk9",
+												"updated": "20230331084946"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984#1___149",
+													"TextMarkTextContent": "1. 基本释义"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331084946-amqy6oq",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331084946-amqy6oq",
+										"updated": "20230331084946"
+									},
+									"Children": [
+										{
+											"ID": "20230331084946-d3r5jtz",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331084946-d3r5jtz",
+												"updated": "20230331084946"
+											},
+											"Children": [
+												{
+													"ID": "20230331084946-n9nt3z6",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331084946-n9nt3z6",
+														"updated": "20230331084946"
+													},
+													"Children": [
+														{
+															"ID": "20230331084946-vwdv18w",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331084946-vwdv18w",
+																"updated": "20230331084946"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984#11__157",
+																	"TextMarkTextContent": "1.1 定义切点"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331084946-d439hbm",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331084946-d439hbm",
+														"updated": "20230331084946"
+													},
+													"Children": [
+														{
+															"ID": "20230331084946-2rirpto",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331084946-2rirpto",
+																"updated": "20230331084946"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984#12___191",
+																	"TextMarkTextContent": "1.2 定义切面"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331084946-4fq74bd",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331084946-4fq74bd",
+										"updated": "20230331084946"
+									},
+									"Children": [
+										{
+											"ID": "20230331084946-kozrk95",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331084946-kozrk95",
+												"updated": "20230331084946"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984#2__202",
+													"TextMarkTextContent": "2. 代码实践"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331084946-gxbs6gc",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331084946-gxbs6gc",
+										"updated": "20230331084946"
+									},
+									"Children": [
+										{
+											"ID": "20230331084946-i5hfxrm",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331084946-i5hfxrm",
+												"updated": "20230331084946"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984#3_Demo_311",
+													"TextMarkTextContent": "3. 权限拦截Demo"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-obqqi0q",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-obqqi0q",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-12drvff",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-12drvff",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984#_372",
+									"TextMarkTextContent": "四、其他"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-qdnyu4q",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-qdnyu4q",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-w8wjflq",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331084946-w8wjflq",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"ID": "20230331084946-wurjkyr",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331084946-wurjkyr",
+										"updated": "20230331084946"
+									},
+									"Children": [
+										{
+											"ID": "20230331084946-yagy83k",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331084946-yagy83k",
+												"updated": "20230331084946"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984#1_MethodInterceptorHandlerInterceptor_374",
+													"TextMarkTextContent": "1. MethodInterceptor和HandlerInterceptor区别:"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-x3s9dtw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084946-x3s9dtw",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、简介"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-3bhcnpy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-3bhcnpy",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是 Spring"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E6%BA%90%E7%A0%81\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "源码"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "分析："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106745317",
+					"TextMarkTextContent": "Spring源码分析十一：@Aspect方式的AOP上篇 - @EnableAspectJAutoProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 的衍生文章。主要是因为本人菜鸡，在分析源码的过程中还有一些其他的内容不理解，故开设衍生篇来完善内容以学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-gpzzzi2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-gpzzzi2",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "全集目录："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106440723",
+					"TextMarkTextContent": "Spring源码分析：全集整理"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-ka1bz2z",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084946-ka1bz2z",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. 简介"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-5g8vh51",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-5g8vh51",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=Aop\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "Aop"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 即面向切面编程，而 Aspect 是Aop 思想的一种实现。\n并不是所有的AOP"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E6%A1%86%E6%9E%B6\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "框架"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "都相同，它们在连接点模型上可能有强弱之分，有些允许在字段修饰符级别的应用通知，有些只支持方法调用相关的连接点。​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "需要注意的是 Spring 只支持方法级别的连接点"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-j5dqgu0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-j5dqgu0",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 提供了4种类型的AOP支持"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-in5qmnr",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331084946-in5qmnr",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"ID": "20230331084946-3bq2w41",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-3bq2w41",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-myv22i9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-myv22i9",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "基于代理的经典Spring Aop"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-g6nmnop",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-g6nmnop",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-pzhl3wf",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-pzhl3wf",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "纯Pojo切面"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-z1hrmwd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-z1hrmwd",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-row2ohq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-row2ohq",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@Aspect注解驱动的切面"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-d0js5i4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-d0js5i4",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-kiu0iqq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-kiu0iqq",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "注入式的Aspectj的切面"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-tiuogis",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-tiuogis",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "前三种都是Spring Aop 实现的变体，Spring Aop 构建在动态代理之上，因此Spring 对Aop的支持局限于方法拦截。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-27l3iyn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-27l3iyn",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文中会介绍 经典的的Aop使用（"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​）和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Aspect"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​注解驱动的切面。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-ovn3bw2",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331084946-ovn3bw2",
+				"updated": "20230331084946"
+			}
+		},
+		{
+			"ID": "20230331084946-gwf73ub",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-gwf73ub",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "二者的区别个人理解在于："
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\nAspectJ的代理模式：解析@Aspect注解的类,根据方法上的不同注解，来动态封装成Advisor (顾问)，里面包含了方法对应的Advice 和指定的切点(这里的切点方法匹配是根据逻辑表达式来，而传统的SpringAop需要自己写判断逻辑,其实也可以写一个逻辑表达式判断，所以这里是一样的，只是实现方式的不同而已)"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-xxpwmfe",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331084946-xxpwmfe",
+				"updated": "20230331084946"
+			}
+		},
+		{
+			"ID": "20230331084946-epv044p",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084946-epv044p",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. Spring Aop 和 AspectJ 的关系"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-9qcia6n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-9qcia6n",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "AspectJ 是一套AOP框架，是对java语言语法和语义的扩展，所以他自己提供了一套关键字，这也就是说，如果在没有安装 AspectJ的情况下，是无法使用 AspectJ 的"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。这里需要注意的是，在 Spring框架中使用的 @Aspect 注解实现的 Aop 功能并不是上面所说的AspectJ 框架， 在Spring中使用 @Aspect 注解实现的AOP 功能，其底层实现还是 Spring Aop。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-t06ojm2",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084946-t06ojm2",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、经典Spring Aop"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-8aaht0n",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084946-8aaht0n",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. 基本释义"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-ssz2zp9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-ssz2zp9",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "经典的 Spring Aop 中有几个关键类"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-90r7q0e",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331084946-90r7q0e",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"ID": "20230331084946-027kicp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-027kicp",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-n3ew3ej",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-n3ew3ej",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "Advisor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": " ： 顾问，顾问是Spring听提供的另一种切面。可以完成更为复杂的切面织入功能。PointcutAdvisor是顾问的一种,可以指定具体的切入点。顾问将通知进行了包装，会根据不同的通知\n类型,在不同的时间点，将切面织入到不同的切入点。通知和顾问都是切面的实现方式增强点， 包含Advice和Pointcut。个人认为是 Spring AOP完成增强动作的最小单元。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-gkx7if9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-gkx7if9",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-outtms5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-outtms5",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "Advice"
+								},
+								{
+									"Type": "NodeText",
+									"Data": " ： 通知，通知是Spring提供的一种切面(Aspect)。但是其功能过于简单，只能讲切面织入到目标类的所有目标方法中，无法完成讲切面织入到指定目标方法中。通知实际上使用具体的增强操作，即切面织入之后的实际操作。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-49u00or",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-49u00or",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-83d32sl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-83d32sl",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "Pointcut"
+								},
+								{
+									"Type": "NodeText",
+									"Data": " ：切点信息， 这个主要是用来确定切入点在那，即在那切入。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-i3t6zgq",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331084946-i3t6zgq",
+				"updated": "20230331084946"
+			}
+		},
+		{
+			"ID": "20230331084946-ybiacmr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-ybiacmr",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Advisor两个子接口"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PointcutAdvisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "IntroductionAdvisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ :"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-rcb94o6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-rcb94o6",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "IntroductionAdvisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​与"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PointcutAdvisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 最本质上的区别就是，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "IntroductionAdvisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​只能应用于类级别的拦截,只能使用Introduction型的Advice。而不能像"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PointcutAdvisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​那样，可以使用任何类型的Pointcut,以及几乎任何类型的Advice。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-9x1tz7q",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-9x1tz7q",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PointCutAdvisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​接口 比较常用的两个实现类"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-omc6cj7",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331084946-omc6cj7",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"ID": "20230331084946-s7zczvd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331084946-s7zczvd",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-gsezvgb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-gsezvgb",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "根据切入点(主业务方法)名称织入切面 ："
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "NameMatchMethodPointCutAdvisor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-mqw98jf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331084946-mqw98jf",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-rmab08b",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-rmab08b",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "根据自定义的正则表达式织入切面 ："
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RegexpMethodPointoutAdvisor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-g2xtpcs",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084946-g2xtpcs",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. 简单Demo"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-wzgy7ar",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-wzgy7ar",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "声明两个通知类型 。一个是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodBeforeAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ ，一个是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AfterReturningAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、，见名知意，一个在方法执行前调用，一个在方法执行后调用"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-ng3nz3m",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-ng3nz3m",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class DemoAfterReturnAdvice implements AfterReturningAdvice { \n    @Override\n    public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable { \n        System.out.println(\"DemoAfterReturnAdvice.afterReturning\");\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-fl56t76",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-fl56t76",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class DemoBeforeAdvice implements MethodBeforeAdvice { \n\n    @Override\n    public void before(Method method, Object[] args, Object target) throws Throwable { \n        System.out.println(\"DemoBeforeAdvice.before\");\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-u7xmspx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-u7xmspx",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "被代理的目标类 DemoController"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-dgjum7m",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-dgjum7m",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class DemoController { \n\n    public void hello(String msg) { \n        System.out.println(\"hello \" + msg);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-bmacnsb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-bmacnsb",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "配置了中将代理对象注入，这里可以看到注入的是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 。我们知道FactoryBean会将 getObject 方法的返回值作为结果注入到Spring容器中。这里不难猜测，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的getObject 方法中必定做了代理。(FactoryBean 的内容请参考："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105748071",
+					"TextMarkTextContent": "Spring 源码分析衍生篇一：FactoryBean介绍"
+				},
+				{
+					"Type": "NodeText",
+					"Data": ")"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-kllcgxn",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-kllcgxn",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Configuration\npublic class AopConfig { \n\n    @Bean(\"demoController\")\n    public ProxyFactoryBean proxyFactoryBean() { \n        ProxyFactoryBean proxyFactoryBean = new ProxyFactoryBean();\n        // 设置代理的目标类\n        proxyFactoryBean.setTarget(new DemoController());\n        // 设置通知拦截器\n        proxyFactoryBean.setInterceptorNames(\"demoAfterReturnAdvice\", \"demoBeforeAdvice\");\n        return proxyFactoryBean;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-sud1yfq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-sud1yfq",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们来调用试试"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-dgn2v5c",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-dgn2v5c",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@SpringBootApplication\npublic class AopDemoApplication { \n    public static void main(String[] args) { \n        ConfigurableApplicationContext run = SpringApplication.run(AopDemoApplication.class, args);\n        DemoController demoController = (DemoController) run.getBean(\"demoController\");\n        demoController.hello(\"123\");\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-88qwycz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-88qwycz",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "输出结果如下:\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200702230415906-20230331084946-d7swbk7.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-qmf9eoz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-qmf9eoz",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "综上：可以看到 经典Spring AOP 起了作用。\n核心逻辑就是在 ProxyFactoryBean 中的getObject方法中。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-p72sz7w",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-p72sz7w",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\t@Nullable\n\tpublic Object getObject() throws BeansException { \n\t\t// 初始化连接器链路\n\t\tinitializeAdvisorChain();\n\t\tif (isSingleton()) { \n\t\t\t// 获取代理类\n\t\t\treturn getSingletonInstance();\n\t\t}\n\t\telse { \n\t\t\tif (this.targetName == null) { \n\t\t\t\tlogger.info(\"Using non-singleton proxies with singleton targets is often undesirable. \" +\n\t\t\t\t\t\t\"Enable prototype proxies by setting the 'targetName' property.\");\n\t\t\t}\n\t\t\treturn newPrototypeInstance();\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-423070j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-423070j",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getObject"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​时会调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "initializeAdvisorChain()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 根据"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InterceptorNames"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​来初始化拦截器。\n2.将拦截器包装成Advisor。(目前看来, Spring AOP一个增强功能最基本的实现单元就是Advisor)\n3. 将Advisor保存到this.advisors 集合中\n4. "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "newPrototypeInstance();"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​创建代理对象。这里的创建逻辑和@Aspect注解的AOP 实现逻辑基本相同(毕竟@Aspect使用的就是Spring AOP实现的)\n5.根据某些条件选择"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "cglib(CglibAopProxy)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​或者"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "jdk(JdkDynamicAopProxy)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​代理方式。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-wn7go5d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-wn7go5d",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "关于详细的代码解读，后续会有文章进行解读。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-7umoemo",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084946-7umoemo",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、@Aspect注解驱动的切面"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-iwym1pj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084946-iwym1pj",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. 基本释义"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-zemnllw",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331084946-zemnllw",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"ID": "20230331084946-m23yl8g",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-m23yl8g",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-0d8ovjy",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-0d8ovjy",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "切面（Aspect） ：官方的抽象定义为“一个关注点的模块化，这个关注点可能会横切多个对象”。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-xdboedl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-xdboedl",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-0x3g8tq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-0x3g8tq",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "连接点（Joinpoint） ：程序执行过程中的某一行为。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-zj01ct6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-zj01ct6",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-uf8kc5z",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-uf8kc5z",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "通知（Advice） ：“切面”对于某个“连接点”所产生的动作。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-1mpqlhw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-1mpqlhw",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-hzv33a8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-hzv33a8",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "切入点（Pointcut） ：匹配连接点的断言，在AOP中通知和一个切入点表达式关联。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-5f0p8u9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-5f0p8u9",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-v7j7rs5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-v7j7rs5",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "目标对象（Target Object） ：被一个或者多个切面所通知的对象。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-u0rzsnk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-u0rzsnk",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-oi33pef",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-oi33pef",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "AOP代理（AOP Proxy） 在Spring AOP中有两种代理方式，JDK动态代理和CGLIB代理。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-wywf137",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331084946-wywf137",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1 定义切点"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-l0nd4am",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-l0nd4am",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 借助 AspectJ 的切点表达式语言来定义 Spring 切面"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-ljw4kmj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-ljw4kmj",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面是用来定义切点的的描述符"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-9sosk08",
+			"Type": "NodeTable",
+			"TableAligns": [
+				0,
+				0
+			],
+			"Properties": {
+				"colgroup": "|",
+				"id": "20230331084946-9sosk08",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeTableHead",
+					"Data": "thead",
+					"Children": [
+						{
+							"Type": "NodeTableRow",
+							"Data": "tr",
+							"Children": [
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "AspectJ指示器"
+										}
+									]
+								},
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "描述"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "arg()"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "限制连接点匹配参数为指定类型的执行方法"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@args()"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "限制连接点匹配参数由指定注解标注的执行方法"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "execution()"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "用于匹配是连接点的执行方法"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "this()"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "限制连接点匹配 AOP代理的bean引用为指定类型的类"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "target"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "限制连接点匹配的目标对象为指定类型的类"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@target()"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "限制连接点匹配特定的执行对象，这些对象对应的类要具有指定类型的注解"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "within()"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "限制连接点匹配指定的类型"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@within()"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "限制连接匹配指定注解所标注的类型(当使用 Spring Aop 时，方法定义在由指定的注解所标注的类里)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@annotation"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "限定匹配带有指定注解的连接点"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "bean()"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "限定 bean 的id"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-4g3ejd2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-4g3ejd2",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上述指示器中，只有 execution() 指示器是实际匹配执行的，其余都是限制匹配的。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-ousfjjo",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-ousfjjo",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "execution (* com.kingfish.AopTest.test(..) \u0026\u0026 within(com.kingfish.AopTest.*))\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-rh7q2b0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-rh7q2b0",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中，使用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "execution ()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 执行器，选择了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "com.kingfish.AopTest.test()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 作为切点， "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "*"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 代表这个方法可以返回任意类型。 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": ".."
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 代表 这个方法可以使用任意参数。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "\u0026amp;\u0026amp;"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 代表与,也可以使用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "and"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​(与之类似的还有 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "||"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 代表或（"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "or"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​）、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "！"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​代表非( "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "not"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ )。注意在xml配置中因为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "\u0026amp;"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 具有其他含义，所以可以使用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "and"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​代替"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "\u0026amp;\u0026amp;"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​) ，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "within()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 代表 连接的一个操作。 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "within(com.kingfish.AopTest.*)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 代表 com.kingfish.AopTest 类 的任意方法被调用。即这个切点的整个意义是， com.kingfish.AopTest.test方法被调用(这个方法可以传递任意参数，也可返回任意类型的返回值) 并且 com.kingfish.AopTest的任意方法被调用。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-vxg00re",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-vxg00re",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "execution (* com.kingfish.AopTest.test(..) \u0026\u0026 bean('aop'))\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-50w6trv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-50w6trv",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个切点的整个意义是， com.kingfish.AopTest.test方法被调用(这个方法可以传递任意参数，也可返回任意类型的返回值)但限定bean的Id为 aop。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-wa5bkqu",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331084946-wa5bkqu",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2 定义切面"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-c8ezs5s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-c8ezs5s",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 使用 AspectJ 注解来声明通知方法"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-dktiavw",
+			"Type": "NodeTable",
+			"TableAligns": [
+				0,
+				0
+			],
+			"Properties": {
+				"colgroup": "|",
+				"id": "20230331084946-dktiavw",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeTableHead",
+					"Data": "thead",
+					"Children": [
+						{
+							"Type": "NodeTableRow",
+							"Data": "tr",
+							"Children": [
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "注解"
+										}
+									]
+								},
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "通知"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@After"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "通知方法会在目标方法返回或抛出异常后调用"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@AfterReturning"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "通知方法会在目标方法返回后调用"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@AfterThrowing"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "通知方法会在目标方法抛出异常后调用"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@Around"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "通知方法会将目标方法封装起来，环绕通知方式(后续实例中讲解)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@Before"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "通知方法会在目标方法调用之前执行"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-4hzp2r0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084946-4hzp2r0",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. 代码实践"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-xnjb0gm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-xnjb0gm",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面说的很混乱，如果没有代码对没有接触的过的人不好理解，这里通过代码来进行进一步的分析."
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-mj7cgtx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-mj7cgtx",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "1. 引入依赖"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-9ldlm36",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-9ldlm36",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "        \u003cdependency\u003e\n            \u003cgroupId\u003eorg.aspectj\u003c/groupId\u003e\n            \u003cartifactId\u003easpectjweaver\u003c/artifactId\u003e\n            \u003cversion\u003e1.8.5\u003c/version\u003e\n        \u003c/dependency\u003e\n\n        \u003cdependency\u003e\n            \u003cgroupId\u003eorg.aspectj\u003c/groupId\u003e\n            \u003cartifactId\u003easpectjrt\u003c/artifactId\u003e\n            \u003cversion\u003e1.8.9\u003c/version\u003e\n        \u003c/dependency\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-wkh0q2w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-wkh0q2w",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "2. 编写切面类并定义切点"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-aycfavq",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-aycfavq",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Slf4j\n@Component\n@Aspect\npublic class AopDemo { \n\n    @Pointcut(\"execution(* com.kingfish.aopdemo.controller.AopController.hello(String)) \u0026\u0026 args(msg)\")\n    public void pointCut(String msg) { \n        System.out.println(\"AopDemo.pointCut : msg = \" + msg);\n    }\n\n    @Before(\"pointCut(msg)\")\n   // @Before(\"execution(* com.kingfish.aopdemo.controller.AopController.hello(String)) \u0026\u0026 args(msg)\")  若不使用 @Pointcut 注解，则需要每个方法上都这样写。\n    public void before(String msg) { \n        System.out.println(\"before msg = \" + msg);\n    }\n\n    @AfterReturning(\"pointCut(msg)\")\n    public void afterReturning(String msg) { \n        System.out.println(\"afterReturning msg = \" + msg);\n    }\n\n    @AfterThrowing(\"pointCut(msg)\")\n    public void afterThrowing(String msg) { \n        System.out.println(\"afterThrowing msg = \" + msg);\n    }\n\n    @After(\"pointCut(msg)\")\n    public void after(String msg) { \n        System.out.println(\"after msg = \" + msg);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-t14cm7p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-t14cm7p",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个代码有几个注意点如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-00qeo7v",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331084946-00qeo7v",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"ID": "20230331084946-pd0tvba",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-pd0tvba",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-uwrsyf7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-uwrsyf7",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@Pointcut 注解能够在一个 @Aspect切面内定义一个可重用的注解。他的重要性注释中已经写了。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-2qbw96t",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-2qbw96t",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-ljg03v2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-ljg03v2",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "pointCut(String msg) 本身的方法内容并不重要，其实他应该是空的，仅仅是提供一个标识，供 @Pointcut 注解依附。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-a7s4okz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-a7s4okz",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-2rs2w0w",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-2rs2w0w",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "其中 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "execution(* com.kingfish.aopdemo.controller.AopController.hello(String)) \u0026amp;\u0026amp; args(msg)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的意义是，声明一个切点，在执行 com.kingfish.aopdemo.controller.AopController.hello 方法时，返回值不限，但是参数 msg必须是 String 类型"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-ap21n0d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-ap21n0d",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "3. 开启 AspectJ 代理"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-w1fghyt",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-w1fghyt",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@SpringBootApplication\n@EnableAspectJAutoProxy(proxyTargetClass = true)\t\t// 添加此注解开启自动代理，其实只要引入依赖就会自动添加该注解，这里为了更清晰的看到\npublic class AopDemoApplication { \n    public static void main(String[] args) { \n        SpringApplication.run(AopDemoApplication.class, args);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-hp5gs3d",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331084946-hp5gs3d",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"ID": "20230331084946-6k32hcu",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-6k32hcu",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-g35opda",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-g35opda",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@EnableAspectJAutoProxy(proxyTargetClass = true) 不开启的话是无法使用切面的，注解不会得到解析，也不会将其转化为切面的代理。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-wd59ce5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-wd59ce5",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "4. 编写测试代码"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-ok4md2y",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-ok4md2y",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@RestController\n@RequestMapping(\"aop\")\npublic class AopController { \n    @RequestMapping(\"hello\")\n    public String hello(String msg){ \n        return \"hello ,\" + msg;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-idss4at",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-idss4at",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "5. 运行结果如下"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200412111748705-20230331084946-c5rrl6l.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-eikhopy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-eikhopy",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "6. 环绕通知的使用"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n在上面的Demo基础上，我们来看看环绕通知的使用。我们需要继续编写 AopDemo类。仅需在 AopDemo 中添加如下方法"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-1b1lnzk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-1b1lnzk",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    @Around(\"pointCut(msg)\")\n    // msg 不需要可以不接收\n    public void around(ProceedingJoinPoint joinPoint, String msg){ \n        System.out.println(\"around msg = \" + msg);\n        try { \n            System.out.println(\"around before\");\n            joinPoint.proceed();    // 放行切点的方法，不放行则会阻塞调用\n            System.out.println(\"around after\");\n        } catch (Throwable throwable) { \n            throwable.printStackTrace();\n            System.out.println(\"around throwable\");\n        }\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-6g0j9sc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-6g0j9sc",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "测试结果可以看到如下。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200412113253347-20230331084946-ed9vu4p.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-53dd3uz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084946-53dd3uz",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3. 权限拦截Demo"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-se8pyod",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-se8pyod",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面的Demo比较简单，这里写一个权限校验的Demo，能更好的体现出 Aop的功能。\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "1. 自定义校验注解。带有此注解的方法会被拦截。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-9gwfkeu",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-9gwfkeu",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Target(ElementType.METHOD)\n@Retention(RetentionPolicy.RUNTIME)\n@Documented\npublic @interface AuthAnnotation { \n    // 是否需要校验，默认需要\n    boolean verify() default true;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-kvho9z1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-kvho9z1",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "2. 编写切面切点"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n这里只是写了一个很简单的校验token是否为空"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-qow094u",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-qow094u",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Slf4j\n@Component\n@Aspect\npublic class AopDemo { \n    @Autowired\n    private HttpServletRequest httpServletRequest;\n\n\t// 指定切点是 AuthAnnotation 注解\n    @Pointcut(\"@annotation(com.kingfish.aopdemo.annotation.AuthAnnotation)\")\n    public void auth() { \n    }\n\n\t// 这里写的环绕通知\n    @Around(\"auth()\")\n    public Object around(ProceedingJoinPoint joinPoint) { \n        try { \n            MethodSignature signature = (MethodSignature) joinPoint.getSignature(); // 获取切点的署名\n            Method method = signature.getMethod();  // 拦截的方法\n            AuthAnnotation annotation = method.getAnnotation(AuthAnnotation.class);\n            if (annotation != null \u0026\u0026 annotation.verify()) { \n                String token = httpServletRequest.getHeader(\"token\");\n                if (StringUtils.isEmpty(token)) { \n                    throw new RuntimeException(\"token 为空\");\n                }\n            }\n          return joinPoint.proceed();    // 放行切点的方法，不放行则会阻塞调用\n        } catch (Throwable throwable) { \n            throwable.printStackTrace();\n            throw new RuntimeException(throwable);\n        }\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-9qvb4u5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-9qvb4u5",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "3. 实际使用就可以直接在需要校验的方法上加上注解即可"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-4apinlm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084946-4apinlm",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    @RequestMapping(\"verifyHello\")\n    @AuthAnnotation\n    public String verifyHello(String msg){ \n        return \"hello ,\" + msg;\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-7thl10u",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084946-7thl10u",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四、其他"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-6qll1mr",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084946-6qll1mr",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. MethodInterceptor和HandlerInterceptor区别:"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-96agi96",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331084946-96agi96",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"ID": "20230331084946-4kxiurl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-4kxiurl",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-fac2w7o",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-fac2w7o",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "HandlerInterceptor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ：是Springmvc提供的拦截器,这种拦截器的生效时机实在DispatcherServlet分发请求时生效。并非是依赖于SpringAOP功能。正因如此,是只能拦截Controller层的方法请求。使用时需要重写"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "WebMvcConfigurerAdapter addInterceptors"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​方法,来添加指定的拦截器。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-qelurje",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-qelurje",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-13u2sqr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-13u2sqr",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "org.springframework.cglib.proxy.MethodInterceptor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ：这个是 Cglib 进行代理时所使用的拦截器。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084946-yt7jvhk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084946-yt7jvhk",
+						"updated": "20230331084946"
+					},
+					"Children": [
+						{
+							"ID": "20230331084946-cfgq3y4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084946-cfgq3y4",
+								"updated": "20230331084946"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "org.aopalliance.intercept.MethodInterceptor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ：就是利用Spring AOP生成的拦截器。所以实际上MethodInterceptor的实现也就是Spring Aop的实现,和之前写的ProxyFactoryBean的用法相同，可以拦截所有层面的方法。其实现也继承了 Advice 接口，结构如下\n​"
+								},
+								{
+									"Type": "NodeImage",
+									"Data": "span",
+									"Children": [
+										{
+											"Type": "NodeBang"
+										},
+										{
+											"Type": "NodeOpenBracket"
+										},
+										{
+											"Type": "NodeLinkText",
+											"Data": "在这里插入图片描述"
+										},
+										{
+											"Type": "NodeCloseBracket"
+										},
+										{
+											"Type": "NodeOpenParen"
+										},
+										{
+											"Type": "NodeLinkDest",
+											"Data": "assets/20200702231857712-20230331084946-42t54q8.png"
+										},
+										{
+											"Type": "NodeCloseParen"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-qk9mlcu",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331084946-qk9mlcu",
+				"updated": "20230331084946"
+			}
+		},
+		{
+			"ID": "20230331084946-7qrg9qb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-7qrg9qb",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "**以上：内容部分参考\n《Spring实战》\n《Spring源码深度解析》\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://www.cnblogs.com/cheng21553516/p/12190008.html",
+					"TextMarkTextContent": "https://www.cnblogs.com/cheng21553516/p/12190008.html"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/wyl6019/article/details/80136000",
+					"TextMarkTextContent": "https://blog.csdn.net/wyl6019/article/details/80136000"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/f641385712/article/details/89303088",
+					"TextMarkTextContent": "https://blog.csdn.net/f641385712/article/details/89303088"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_31179577/article/details/101054765",
+					"TextMarkTextContent": "https://blog.csdn.net/qq_31179577/article/details/101054765"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://www.cnblogs.com/lovelands/articles/9890368.html",
+					"TextMarkTextContent": "https://www.cnblogs.com/lovelands/articles/9890368.html"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq.21050291/article/details/72523138",
+					"TextMarkTextContent": "https://blog.csdn.net/qq.21050291/article/details/72523138"
+				}
+			]
+		},
+		{
+			"ID": "20230331084946-yymoy9k",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084946-yymoy9k",
+				"updated": "20230331084946"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正**"
+				}
+			]
+		}
+	]
+}

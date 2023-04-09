@@ -1,0 +1,891 @@
+{
+	"ID": "20230331093037-0ymyexn",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331093037-0ymyexn",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230331093037-qsu510l\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230331093037-1brdhgb\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230331093443-3x9biu7\u0026quot;,\u0026quot;focusStart\u0026quot;:5,\u0026quot;focusEnd\u0026quot;:5}",
+		"title": "Spring框架中的设计模式(五)_springframework 设计模式_安迪源文的博客-CSDN博客",
+		"updated": "20230331093444"
+	},
+	"Children": [
+		{
+			"ID": "20230331093037-qsu510l",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331093037-qsu510l",
+				"updated": "20230331093037"
+			}
+		},
+		{
+			"ID": "20230331093443-3x9biu7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230331093443-3x9biu7",
+				"updated": "20230331093444"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "command"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​,"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "visitor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-k2rjn1w",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331093037-k2rjn1w",
+				"updated": "20230331093441"
+			},
+			"Children": [
+				{
+					"ID": "20230331093037-j1vrnll",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331093037-j1vrnll",
+						"updated": "20230331093441"
+					},
+					"Children": [
+						{
+							"ID": "20230331093037-v6fnzsc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331093037-v6fnzsc",
+								"updated": "20230331093441"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/andy_zhang2007/article/details/79807097",
+									"TextMarkTextContent": "https://blog.csdn.net/andy_zhang2007/article/details/79807097"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331093037-92toelz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331093037-92toelz",
+						"updated": "20230331093037"
+					},
+					"Children": [
+						{
+							"ID": "20230331093037-vhduz1s",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331093037-vhduz1s",
+								"updated": "20230331093037"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "通过之前四篇文章，我们看到Spring采用了大量对象创建和结构设计模式。这些大都不是行为设计模式，作为该系列最后一篇关于Spring设计模式的文章，本文再讲两个行为设计模式。这篇文章我们会讲两个行为设计模式:命令模式和访问者模式。Spring 设计模式 - 命令模式command本文第一个我们要讲述的模式是命令模式。它允许将一个请求(request)封装到一个对象然后将其跟一个回调..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331093037-0st2nld",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331093037-0st2nld",
+						"updated": "20230331093037"
+					},
+					"Children": [
+						{
+							"ID": "20230331093037-shxczg0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331093037-shxczg0",
+								"updated": "20230331093037"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:30:37"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-c232cxh",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331093037-c232cxh",
+				"updated": "20230331093037"
+			}
+		},
+		{
+			"ID": "20230331093037-drfehai",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093037-drfehai",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "通过之前四篇文章，我们看到Spring采用了大量对象创建和结构设计模式。这些大都不是行为设计模式，作为该系列最后一篇关于Spring设计模式的文章，本文再讲两个行为设计模式。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-iowhbvy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093037-iowhbvy",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这篇文章我们会讲两个行为设计模式:命令模式和"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "访问者模式"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-3pxpcsz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093037-3pxpcsz",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 设计模式 - 命令模式"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "command"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-btits3y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093037-btits3y",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文第一个我们要讲述的模式是命令模式。它允许将一个请求("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "request"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)封装到一个对象然后将其跟一个回调动作(callback action)关联。请求("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "request"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)封装到命令("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "command"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)对象中，而请求的结果会被转发给接收者("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "receiver"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)。命令并不自己执行而是由一个调用者("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invoker"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)执行。为了更好地理解这一思路的要点，想象一下管理一台服务器的一个场景。管理员("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invoker"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)在以命令行("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "command"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)方式启动了某些操作,而这些命令行的结果被传输到了被管理的服务器上("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "receiver"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)。这里要感谢的是终端，它在这里可以被认为是一个客户端。让我们把这个例子写成一个JUnit测试用例:"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-uly2ol9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093037-uly2ol9",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class CommandTest { \n \n  // This test method is a client\n  @Test\n  public void test() { \n    Administrator admin = new Administrator();\n    Server server = new Server();\n   \n    // start Apache\n    admin.setCommand(new StartApache(server));\n    admin.typeEnter();\n   \n    // start Tomcat\n    admin.setCommand(new StartTomcat(server));\n    admin.typeEnter();\n   \n    // check executed commands\n    int executed = server.getExecutedCommands().size();\n    assertTrue(\"Two commands should be executed but only \"+\n      executed+ \" were\", executed == 2);\n  }\n \n}\n \n// commands\nabstract class ServerCommand { \n       \n  protected Server server;\n   \n  public ServerCommand(Server server) { \n    this.server = server;\n  }\n \n  public abstract void execute();\n}\n \nclass StartTomcat extends ServerCommand { \n       \n  public StartTomcat(Server server) { \n    super(server);\n  }\n   \n  @Override\n  public void execute() { \n    server.launchCommand(\"sudo service tomcat7 start\");\n  }\n}\n \nclass StartApache extends ServerCommand { \n       \n  public StartApache(Server server) { \n    super(server);\n  }\n \n  @Override\n  public void execute() { \n    server.launchCommand(\"sudo service apache2 start\");\n  }\n}\n \n// invoker\nclass Administrator { \n       \n  private ServerCommand command;\n   \n  public void setCommand(ServerCommand command) { \n    this.command = command;\n  }\n   \n  public void typeEnter() { \n    this.command.execute();\n  }\n       \n}\n \n// receiver\nclass Server { \n       \n  // as in common terminals, we store executed commands in history\n  private List\u003cString\u003e executedCommands = new ArrayList\u003cString\u003e();\n   \n  public void launchCommand(String command) { \n    System.out.println(\"Executing: \"+command+\" on server\");\n    this.executedCommands.add(command);\n  }\n   \n  public List\u003cString\u003e getExecutedCommands() { \n    return this.executedCommands;\n  }\n       \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-l8lzfdc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093037-l8lzfdc",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个测试用例应该能够通过并且输出两个命令:"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-vt5qz9n",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230331093037-vt5qz9n",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230331093037-3g0uewn",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230331093037-3g0uewn",
+						"updated": "20230331093037"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "Executing: sudo service apache2 start on server\nExecuting: sudo service tomcat7 start on server"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-t01tfra",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093037-t01tfra",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "命令模式不仅能够封装请求"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "request"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​(ServerCommand)发送给接收者"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "receiver"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​(Server)，而且能够更好地处理请求。在上面的例子中，将命令执行做一个历史记录可以认为是对请求的一个更好的处理。Spring中，我们把命令设计模式抽取到了bean工厂的后置处理器(beans factory post processor)中。这些后置处理器会被应用上下文在bean创建时执行用来对bean做一些修改(如果你想了解关于后置处理器更多的内容，请看一下"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-5/read#",
+					"TextMarkTextContent": "关于bean工厂后置处理器的文章"
+				},
+				{
+					"Type": "NodeText",
+					"Data": ")。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-4wq8cu1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093037-4wq8cu1",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当我们从上面的命令模式逻辑切换到Spring的bean工厂后置处理器时，我们可以观察到如下角色扮演：后置处理器bean，也就是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​接口的实现类，扮演了命令"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "command"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​,"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.context.support.PostProcessorRegistrationDelegate"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​是调用者"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invoker"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​\n(他会执行所有注册的后置处理器bean的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "postProcessBeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法)，接收者"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "receiver"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.beans.factory.config.ConfigurableListableBeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​,其元素,也就是各个bean会在它们被构造被修改(比如: bean的属性可以在bean实例初始化之前被修改)。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-w6ie8yz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093037-w6ie8yz",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "另外，在我们的JUnit例子中，我们也演示了\"更好地处理\"请求这一点，也就是做一个命令执行历史记录。类似地，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PostProcessorRegistrationDelegate"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​里面包含一个内部类"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanPostProcessorChecker"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​,它会在一个bean不符合被处理的条件时日志输出该情况。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-svufiaw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093037-svufiaw",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 设计模式 - 访问者模式"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "visitor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-tbdf4du",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093037-tbdf4du",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "第二种模式我们来讲访问者模式"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "visitor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。该模式背后的思想在于它使一个对象变成其他类型的对象可访问(visitable)。在这个简短的定义之后，你可能可以想到，使用此模式的对象会被堪称访问者("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "visitor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)或者时可访问对象("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "object visitable"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​),前者(访问者)访问后者(可访问对象)。，这个模式真实世界中的一个例子是机修工，他会检查汽车部件，比如轮胎，刹车和引擎，然后下结论说这车还能不能用。我们使用JUnit看一下这个例子："
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-z80j5gz",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093037-z80j5gz",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class VisitorTest { \n \n  @Test\n  public void test() { \n    CarComponent car = new Car();\n    Mechanic mechanic = new QualifiedMechanic();\n    car.accept(mechanic);\n    assertTrue(\"After qualified mechanics visit, the car should be broken\",\n      car.isBroken());\n    Mechanic nonqualifiedMechanic = new NonQualifiedMechanic();\n    car.accept(nonqualifiedMechanic);\n    assertFalse(\"Car shouldn't be broken becase non qualified mechanic \" +\n      \" can't see breakdowns\", car.isBroken());\n  }\n \n}\n \n// visitor\ninterface Mechanic { \n  public void visit(CarComponent element);\n  public String getName();\n}\n \nclass QualifiedMechanic implements Mechanic { \n \n  @Override\n  public void visit(CarComponent element) { \n    element.setBroken(true);\n  }\n \n  @Override\n  public String getName() { \n    return \"qualified\";\n  }\n}\n \nclass NonQualifiedMechanic implements Mechanic { \n       \n  @Override\n  public void visit(CarComponent element) { \n    element.setBroken(true);\n  }\n   \n  @Override\n  public String getName() { \n    return \"unqualified\";\n  }\n}\n \n// visitable\nabstract class CarComponent { \n  protected boolean broken;\n \n  public abstract void accept(Mechanic mechanic);\n   \n  public void setBroken(boolean broken) { \n    this.broken = broken;\n  }\n   \n  public boolean isBroken() { \n    return this.broken;\n  }\n}\n \nclass Car extends CarComponent { \n \n  private boolean broken = false;\n  private CarComponent[] components;\n   \n  public Car() { \n    components = new CarComponent[] { \n      new Wheels(), new Engine(), new Brake()\n    };\n  }\n   \n  @Override\n  public void accept(Mechanic mechanic) { \n    this.broken = false;\n    if (mechanic.getName().equals(\"qualified\")) { \n      int i = 0;\n      while (i \u003c components.length \u0026\u0026 this.broken == false) { \n        CarComponent component = components[i];\n        mechanic.visit(component);\n        this.broken = component.isBroken();\n        i++;\n      }\n    }\n    // if mechanic isn't qualified, we suppose that \n    // he isn't able to see breakdowns and so \n    // he considers the car as no broken \n    // (even if the car is broken)\n  }\n \n  @Override\n  public boolean isBroken() { \n          return this.broken;\n  }\n}\n \nclass Wheels extends CarComponent { \n \n  @Override\n  public void accept(Mechanic mechanic) { \n    mechanic.visit(this);\n  }\n}\n \nclass Engine extends CarComponent { \n \n  @Override\n  public void accept(Mechanic mechanic) { \n    mechanic.visit(this);\n  }\n}\n \nclass Brake extends CarComponent { \n \n  @Override\n  public void accept(Mechanic mechanic) { \n    mechanic.visit(this);\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-aq0x45r",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093037-aq0x45r",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个例子里，我们看到有两个机修工"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Mechanic"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​(visitor):一个合格的机修工和一个不合格的机修工。他们看到的可访问对象是车"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Car"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。通过车的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "accept"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法来决定对访问者visitor应用哪种策略。当访问者合格时，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Car"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​允许他分析所有部件。而如果访问者不合格，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Car"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​会认为访问者的介入无效，拒绝它分析各个部件，而最终通过"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "isBroken()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法返回一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "false"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。Spring在bean配置中使用了访问者设计模式。想看到这一点，我们可以看看用来分析bean元数据并将它们变成字符串(例子:XML属性中的作用域或者工厂方法名字)或者对象(例子:构造函数定义中参数)的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.beans.factory.config.BeanDefinitionVisitor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​对象。而所处理后的值会被设置到所分析的bean对应的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实例中去。想知道它怎么工作的，看下面"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinitionVisitor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的的一个代码片段:"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-y0f4t69",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093037-y0f4t69",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "/**\n * Traverse the given BeanDefinition object and the MutablePropertyValues\n * and ConstructorArgumentValues contained in them.\n * @param beanDefinition the BeanDefinition object to traverse\n * @see #resolveStringValue(String)\n */\npublic void visitBeanDefinition(BeanDefinition beanDefinition) { \n  visitParentName(beanDefinition);\n  visitBeanClassName(beanDefinition);\n  visitFactoryBeanName(beanDefinition);\n  visitFactoryMethodName(beanDefinition);\n  visitScope(beanDefinition);\n  visitPropertyValues(beanDefinition.getPropertyValues());\n  ConstructorArgumentValues cas = beanDefinition.\n    getConstructorArgumentValues();\n  visitIndexedArgumentValues(cas.\n    getIndexedArgumentValues());\n  visitGenericArgumentValues(cas.\n    getGenericArgumentValues());\n}\n \nprotected void visitParentName(BeanDefinition beanDefinition) { \n  String parentName = beanDefinition.getParentName();\n  if (parentName != null) { \n    String resolvedName = resolveStringValue(parentName);\n    if (!parentName.equals(resolvedName)) { \n      beanDefinition.setParentName(resolvedName);\n    }\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-erm53ij",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093037-erm53ij",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个例子中，只有访问方法，没有跟我们上面机修工例子里面类似的合格/不合格机修工的访问者控制机制。这里访问者的访问分析给定bean定义"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​对象的参数并将其替换成解决之后的对象。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-frx7jlg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093037-frx7jlg",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-35payw2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093037-35payw2",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这篇文章，该系列关于Spring设计模式的的最后一篇，我们讲了两种行为设计模式:命令设计模式，用于对bean工厂进行后置处理；和访问者模式，用于将bean定义中的参数转变成对象领域的参数(字符串或者对象)。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-jikl8dp",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093037-jikl8dp",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-5/read",
+					"TextMarkTextContent": "英文原文"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-8m491zc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093037-8m491zc",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "该系列文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331093037-1brdhgb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093037-1brdhgb",
+				"updated": "20230331093037"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-5/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(五)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-4/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(四)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-3/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(三)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-2/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(二)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-1/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(一)"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,434 @@
+{
+	"ID": "20230406234145-tkz205w",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230406234145-tkz205w",
+		"title": "实战CGLib系列之proxy篇(四)：改进版延迟加载Dispatcher _iteye_13303的博客-CSDN博客",
+		"updated": "20230406234145"
+	},
+	"Children": [
+		{
+			"ID": "20230406234145-7ym4bmq",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230406234145-7ym4bmq",
+				"updated": "20230406234145"
+			}
+		},
+		{
+			"ID": "20230406234145-4l08jq8",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230406234145-4l08jq8",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"ID": "20230406234145-obwhmck",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406234145-obwhmck",
+						"updated": "20230406234145"
+					},
+					"Children": [
+						{
+							"ID": "20230406234145-txwxss8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406234145-txwxss8",
+								"updated": "20230406234145"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/iteye_13303/article/details/82640693?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026request_id=168079566816800222872602\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-5-82640693-null-null.blog_rank_default\u0026utm_term=%E5%AE%9E%E6%88%98CGLib\u0026spm=1018.2226.3001.4450",
+									"TextMarkTextContent": "https://blog.csdn.net/iteye_13303/article/details/82640693?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026amp;request_id=168079566816800222872602\u0026amp;biz_id=0\u0026amp;utm_medium=distribute.pc_search_result.none-task-blog-2"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a sub",
+									"TextMarkAHref": "https://blog.csdn.net/iteye_13303/article/details/82640693?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026request_id=168079566816800222872602\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-5-82640693-null-null.blog_rank_default\u0026utm_term=%E5%AE%9E%E6%88%98CGLib\u0026spm=1018.2226.3001.4450",
+									"TextMarkTextContent": "blog"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/iteye_13303/article/details/82640693?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026request_id=168079566816800222872602\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-5-82640693-null-null.blog_rank_default\u0026utm_term=%E5%AE%9E%E6%88%98CGLib\u0026spm=1018.2226.3001.4450",
+									"TextMarkTextContent": "first_rank_ecpm_v1~rank_v31_ecpm-5-82640693-null-null.blog_rank_default\u0026amp;utm_term=%E5%AE%9E%E6%88%98CGLib\u0026amp;spm=1018.2226.3001.4450"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406234145-suvspk9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406234145-suvspk9",
+						"updated": "20230406234145"
+					},
+					"Children": [
+						{
+							"ID": "20230406234145-njeehyo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406234145-njeehyo",
+								"updated": "20230406234145"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "作者shensy及出处http://shensy.iteye.com/blog/1884572 实战CGLib系列文章本篇介绍改进版延迟加载器Dispatcher。一、作用：上一篇文章中，介绍了延迟加载器LazyLoader。本篇介绍另一种延迟加载接口Dispatcher。Dispatcher接口同样继承于Callback，也是一种回调类型。但是Dispatcher和..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406234145-6kfhubq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406234145-6kfhubq",
+						"updated": "20230406234145"
+					},
+					"Children": [
+						{
+							"ID": "20230406234145-at1nzvm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406234145-at1nzvm",
+								"updated": "20230406234145"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-06 23:41:45"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-yobep77",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230406234145-yobep77",
+				"updated": "20230406234145"
+			}
+		},
+		{
+			"ID": "20230406234145-gp7ov55",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234145-gp7ov55",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "作者shensy及出处"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://shensy.iteye.com/blog/1884572",
+					"TextMarkTextContent": "http://shensy.iteye.com/blog/1884572"
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-wm4o7mj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234145-wm4o7mj",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "实战CGLib系列文章"
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-qlx18ye",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234145-qlx18ye",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本篇介绍改进版延迟加载器Dispatcher。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-f3bouvg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234145-f3bouvg",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、作用："
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-s4ozlab",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234145-s4ozlab",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上一篇文章中，介绍了延迟加载器LazyLoader。本篇介绍另一种延迟加载接口Dispatcher。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-jxawkki",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234145-jxawkki",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Dispatcher接口同样继承于Callback，也是一种回调类型。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-jax7r2y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234145-jax7r2y",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "但是Dispatcher和LazyLoader的区别在于：LazyLoader只在第一次访问延迟加载属性时触发代理类回调方法，而Dispatcher在每次访问延迟加载属性时都会触发代理类回调方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-7aiaxm4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234145-7aiaxm4",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、示例："
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-omy01f9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234145-omy01f9",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "与上篇文章相同，先定义一个实体类DispatcherBean，该Bean内有一个需要延迟加载的属性PropertyBean。PropertyBean的代码与上一篇相同，这里只看一下DispatcherBean："
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-lxdvzzd",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234145-lxdvzzd",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class DispatcherBean {\nprivate String name;\nprivate String value;\nprivate PropertyBean propertyBean;\npublic DispatcherBean(){\nthis.name=\"DispatcherBean\";\nthis.value=\"abc\";\nthis.propertyBean=createDispatcherBean();\n\t}\nprotected PropertyBean createDispatcherBean(){\n\t\tEnhancer enhancer=new Enhancer();\n\t\tenhancer.setSuperclass(PropertyBean.class);\nreturn (PropertyBean)enhancer.create(PropertyBean.class,new ConcreteClassDispatcher());\n\t}\n//setter/getter\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-8fwogix",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234145-8fwogix",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "同样对propertybean生成了代理类，回调类ConcreteClassDispatcher实现了Dispatcher接口，如下："
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-mil7n1c",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234145-mil7n1c",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class ConcreteClassDispatcher implements Dispatcher{\npublic Object loadObject() throws Exception {\n\t\tSystem.out.println(\"Dispatcher loadObject ...\");\n\t\tPropertyBean object=new PropertyBean();\n\t\tobject.setPropertyName(\"PropertyBeanName!\");\n\t\tobject.setPropertyValue(1);\nreturn object;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-g2bpiir",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234145-g2bpiir",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "验证延迟加载："
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-jbdq6jw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234145-jbdq6jw",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "DispatcherBean dispatcherBean=new DispatcherBean();\nSystem.out.println(dispatcherBean.getName());\nSystem.out.println(dispatcherBean.getValue());\n\nPropertyBean pb=dispatcherBean.getPropertyBean();\nSystem.out.println(pb.getPropertyName());\n//在每次访问时都要进行回调\nSystem.out.println(pb.getPropertyValue());\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-8fvbo64",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234145-8fvbo64",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "控制台输出："
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-4uanhof",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234145-4uanhof",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "DispatcherBean\nabc\nDispatcher loadObject ...\nPropertyBeanName!\nDispatcher loadObject ...\n1\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234145-z85r7ge",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234145-z85r7ge",
+				"updated": "20230406234145"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由此可见，每次获取property bean的属性都会自动触发回调方法加载对象。"
+				}
+			]
+		}
+	]
+}

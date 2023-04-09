@@ -1,0 +1,1735 @@
+{
+	"ID": "20230404010535-4ik97jg",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010535-4ik97jg",
+		"title": "吃透Spring源码（十三）：Spring循环依赖源码分析_spring synthetic_吃透Java的博客-CSDN博客",
+		"updated": "20230404010535"
+	},
+	"Children": [
+		{
+			"ID": "20230404010535-zo1tpua",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010535-zo1tpua",
+				"updated": "20230404010535"
+			}
+		},
+		{
+			"ID": "20230404010535-88cdlvp",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010535-88cdlvp",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"ID": "20230404010535-u6562lu",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010535-u6562lu",
+						"updated": "20230404010535"
+					},
+					"Children": [
+						{
+							"ID": "20230404010535-37l9ttx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010535-37l9ttx",
+								"updated": "20230404010535"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/110824128",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/110824128"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010535-blntd65",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010535-blntd65",
+						"updated": "20230404010535"
+					},
+					"Children": [
+						{
+							"ID": "20230404010535-9o8rkj6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010535-9o8rkj6",
+								"updated": "20230404010535"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一，循环依赖1，什么是循环依赖循环依赖其实就是循环引用，也就是两个或则两个以上的bean互相持有对方，最终形成闭环。比如A依赖于B，B依赖于C，C又依赖于A。在Spring中一般分为构造器循环依赖和filed属性循环依赖。2，构造器循环依赖实例化A对象需要依赖B对象，实例化B对象需要依赖A对象，所以最终两个都实例化不了。@Componentpublic class A {    private B b;    public A(B b) {        this.b = b;"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010535-d0b36ss",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010535-d0b36ss",
+						"updated": "20230404010535"
+					},
+					"Children": [
+						{
+							"ID": "20230404010535-sa9hq0x",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010535-sa9hq0x",
+								"updated": "20230404010535"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:05:35"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-7edsf44",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010535-7edsf44",
+				"updated": "20230404010535"
+			}
+		},
+		{
+			"ID": "20230404010535-wkwv6ek",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010535-wkwv6ek",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "循环依赖"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-ztbj5h0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010535-ztbj5h0",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，什么是循环依赖"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-ffzx5cm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-ffzx5cm",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "循环依赖其实就是循环引用，也就是两个或则两个以上的bean互相持有对方，最终形成闭环。比如A依赖于B，B依赖于C，C又依赖于A。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-mldzrh1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-mldzrh1",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在Spring中一般分为"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "构造器循环依赖"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "和​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "filed属性循环依赖"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-1tjomqw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010535-1tjomqw",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，构造器循环依赖"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-ljfutqx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-ljfutqx",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "实例化A对象需要依赖B对象，实例化B对象需要依赖A对象，所以最终两个都实例化不了。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-wtmw8qz",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-wtmw8qz",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class A { \n\n    private B b;\n\n    public A(B b) { \n        this.b = b;\n    }\n}\n\n@Component\npublic class B { \n\n    private A a;\n\n    public B(A a) { \n        this.a = a;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-aymn3od",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-aymn3od",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "Spring是无法解决构造期循环依赖的。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-4azsih0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010535-4azsih0",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3，filed属性循环依赖"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-ww8ka76",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-ww8ka76",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "实例化A对象和实例化B对象之间并不相互影响，Spring是可以解决此种循环依赖的。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-a9h48vk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-a9h48vk",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class A { \n    @Autowired\n    private B b;\n}\n\n@Component\npublic class B { \n    @Autowired\n    private A a;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-qsyrdiz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010535-qsyrdiz",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4，Spring是怎么解决循环依赖的？"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-z8j057a",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-z8j057a",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "三级缓存："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-glgmdhd",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-glgmdhd",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "// 一级缓存，保存完整对象\nprivate final Map\u003cString, Object\u003e singletonObjects = new ConcurrentHashMap\u003c\u003e(256);\n// 二级缓存，保存实例化并未初始化的对象\nprivate final Map\u003cString, Object\u003e earlySingletonObjects = new ConcurrentHashMap\u003c\u003e(16);\n// 三级缓存，保存ObjectFactory表达式，用于解决Aop\nprivate final Map\u003cString, ObjectFactory\u003c?\u003e\u003e singletonFactories = new HashMap\u003c\u003e(16);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-7ovy06c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-7ovy06c",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "大致思想是："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-oqp8k24",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010535-oqp8k24",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"ID": "20230404010535-debsjyc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010535-debsjyc",
+						"updated": "20230404010535"
+					},
+					"Children": [
+						{
+							"ID": "20230404010535-bcozwgt",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010535-bcozwgt",
+								"updated": "20230404010535"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "实例化A对象，放入三级缓存，填充属性b，从容器中查找B对象，发现此时容器中没有B对象；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010535-gj0hx4t",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010535-gj0hx4t",
+						"updated": "20230404010535"
+					},
+					"Children": [
+						{
+							"ID": "20230404010535-03qivto",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010535-03qivto",
+								"updated": "20230404010535"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "实例化B对象，放入三级缓存，填充属性a，从容器中查找A对象；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010535-2zfwfhd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010535-2zfwfhd",
+						"updated": "20230404010535"
+					},
+					"Children": [
+						{
+							"ID": "20230404010535-vm3f49u",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010535-vm3f49u",
+								"updated": "20230404010535"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "从三级缓存取到A对象，放入二级缓存，赋值给属性a，完成B对象的创建，把B对象放入一级缓存；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010535-kac30ho",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010535-kac30ho",
+						"updated": "20230404010535"
+					},
+					"Children": [
+						{
+							"ID": "20230404010535-q01glff",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010535-q01glff",
+								"updated": "20230404010535"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "拿到完整B对象对A对象中的b属性赋值，完成A对象的创建，把A对象放入一级缓存。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-fkjvx6a",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010535-fkjvx6a",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二，源码探究Spring解决循环依赖过程"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-mfis2ge",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010535-mfis2ge",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，例子准备"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-3f7m8ub",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-3f7m8ub",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "A，B 类"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-ki7badj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-ki7badj",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class A { \n    @Autowired\n    private B b;\n}\n\npublic class B { \n    @Autowired\n    private A a;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-n6wrgq1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-n6wrgq1",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "配置类"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-gx73guj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-gx73guj",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Configuration\npublic class CycleConfiguration { \n\n    @Bean\n    public A a(){ \n        return new A();\n    }\n\n    @Bean\n    public B b(){ \n        return new B();\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-6bh21vz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-6bh21vz",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "再来看一下Spring源码中创建Bean（doCreateBean方法）三部曲："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-lhbr1b8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-lhbr1b8",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected Object doCreateBean(String beanName, RootBeanDefinition mbd, @Nullable Object[] args)\n\t\t\tthrows BeanCreationException { \n  \n    // 省略部分源码...\n  \n    // 第一步，实例化bean\n    instanceWrapper = createBeanInstance(beanName, mbd, args);\n    // 放入三级缓存\n    addSingletonFactory(beanName, () -\u003e getEarlyBeanReference(beanName, mbd, bean));\n  \n    // 第二步，填充属性\n    populateBean(beanName, mbd, instanceWrapper);\n  \n    // 第三步，初始化\n    exposedObject = initializeBean(beanName, exposedObject, mbd);\n  \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-i9xrrwa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-i9xrrwa",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这三步源码之前也都具体分析过，如果对以上三步骤不熟悉的话，可以先去看："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-w7zz1yk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-w7zz1yk",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/109780513",
+					"TextMarkTextContent": "Spring实例化(createBeanInstance)源码解析"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-7kkl749",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-7kkl749",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/110235934",
+					"TextMarkTextContent": "Spring属性填充populateBean源码分析"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-qg0k201",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-qg0k201",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/110651253",
+					"TextMarkTextContent": "Spring initializeBean源码分析"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-3t6k7xe",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010535-3t6k7xe",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，实例化A对象，并放入第三级缓存"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-6wqa2bf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-6wqa2bf",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里需要注意一点，我们是通过注解@Bean方式注入bean，会把注入bean的方法解析为beanDefinition的factoryMethodName属性，以实例工厂方法的方式来注入："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-zhzx506",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-zhzx506",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected Object doCreateBean(String beanName, RootBeanDefinition mbd, @Nullable Object[] args)\n\t\t\tthrows BeanCreationException { \n  \n    // 省略部分源码...\n  \n    if (instanceWrapper == null) { \n\t\t// 根据执行bean使用对应的策略创建新的实例，如，工厂方法，构造函数主动注入、简单初始化\n\t\tinstanceWrapper = createBeanInstance(beanName, mbd, args);\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-f9ig8o9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-f9ig8o9",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected BeanWrapper createBeanInstance(String beanName, RootBeanDefinition mbd, @Nullable Object[] args) { \n  \n    // 省略部分源码...\n  \n    // 如果工厂方法不为空则使用工厂方法初始化策略\n\tif (mbd.getFactoryMethodName() != null) { \n\t\treturn instantiateUsingFactoryMethod(beanName, mbd, args);\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-qef4t28",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-qef4t28",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "接下来就是获取工厂实例CycleConfiguration实例，以及工厂方法a()，来通过反射调用此方法来完成A对象的创建："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-js6tz6z",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-js6tz6z",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public BeanWrapper instantiateUsingFactoryMethod(\n\t\t\tString beanName, RootBeanDefinition mbd, @Nullable Object[] explicitArgs) { \n  \n    // 省略部分源码...\n  \n    // 拿到CycleConfiguration实例类以及工厂方法a()，通过反射调用工厂方法a(),生成Bean对象,并将该Bean对象保存到bw中\n\tbw.setBeanInstance(instantiate(beanName, mbd, factoryBean, uniqueCandidate, EMPTY_ARGS));\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-d7zpei2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-d7zpei2",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "实例化A对象之后，生成FactoryObject，然后放入第三级缓存："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-i0asxmk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-i0asxmk",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected Object doCreateBean(String beanName, RootBeanDefinition mbd, @Nullable Object[] args)\n\t\t\tthrows BeanCreationException { \n  \n    // 省略部分源码...\n  \n    // 为避免后期循环依赖，可以在bean初始化完成前将创建实例的ObjectFactory加入工厂\n\taddSingletonFactory(beanName, () -\u003e getEarlyBeanReference(beanName, mbd, bean));\n}\n\n\nprotected void addSingletonFactory(String beanName, ObjectFactory\u003c?\u003e singletonFactory) { \n\t// 使用singletonObjects进行加锁，保证线程安全\n\tsynchronized (this.singletonObjects) { \n\t// 如果单例对象的高速缓存【beam名称-bean实例】没有beanName的对象\n\tif (!this.singletonObjects.containsKey(beanName)) { \n\t\t// 将beanName,singletonFactory放到单例工厂的缓存【bean名称 - ObjectFactory】\n\t\tthis.singletonFactories.put(beanName, singletonFactory);\n\t\t// 从早期单例对象的高速缓存【bean名称-bean实例】 移除beanName的相关缓存对象\n\t\tthis.earlySingletonObjects.remove(beanName);\n\t\t// 将beanName添加已注册的单例集中\n\t\tthis.registeredSingletons.add(beanName);\n\t}\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-po9570a",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010535-po9570a",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3，填充A对象的b属性，当前容器中没有B对象，则doCreateBean创建B对象"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-0bx39ib",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-0bx39ib",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "填充A对象的b属性："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-4bb9nfb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-4bb9nfb",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected Object doCreateBean(String beanName, RootBeanDefinition mbd, @Nullable Object[] args)\n\t\t\tthrows BeanCreationException { \n  \n    // 省略部分源码...\n  \n    // 填充属性\n    populateBean(beanName, mbd, instanceWrapper);\n}\n\n\nprotected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable BeanWrapper bw) { \n    for (BeanPostProcessor bp : getBeanPostProcessors()) { \n\t\tif (bp instanceof InstantiationAwareBeanPostProcessor) { \n\t\t\t//将bp 强转成 InstantiationAwareBeanPostProcessor 对象\n\t\t\tInstantiationAwareBeanPostProcessor ibp = (InstantiationAwareBeanPostProcessor) bp;\n\t\t\tPropertyValues pvsToUse = ibp.postProcessProperties(pvs, bw.getWrappedInstance(), beanName);\n\t\t\t\t\n        }\n\t}\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-2u9df6y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-2u9df6y",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通过beanPostProcessor的AutowiredAnnotationBeanPostProcessor类来完成对@Autowired属性赋值操作："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-9zfln32",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-9zfln32",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class AutowiredAnnotationBeanPostProcessor extends InstantiationAwareBeanPostProcessorAdapter\n\t\timplements MergedBeanDefinitionPostProcessor, PriorityOrdered, BeanFactoryAware { \n    @Override\n\tpublic PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) { \n\t\t// 从缓存中取出这个bean对应的依赖注入的元信息~\n\t\tInjectionMetadata metadata = findAutowiringMetadata(beanName, bean.getClass(), pvs);\n\t\ttry { \n\t\t\t// 进行属性注入\n\t\t\tmetadata.inject(bean, beanName, pvs);\n\t\t}\n\t\treturn pvs;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-k0dur85",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-k0dur85",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "遍历前面注册的InjectedElement，然后进行注入："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-fgz5l0g",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-fgz5l0g",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class InjectionMetadata { \n    public void inject(Object target, @Nullable String beanName, @Nullable PropertyValues pvs) throws Throwable { \n\t\tCollection\u003cInjectedElement\u003e checkedElements = this.checkedElements;\n\t\tCollection\u003cInjectedElement\u003e elementsToIterate =\n\t\t\t\t(checkedElements != null ? checkedElements : this.injectedElements);\n\t\tif (!elementsToIterate.isEmpty()) { \n\t\t\tfor (InjectedElement element : elementsToIterate) { \n\t\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\t\tlogger.trace(\"Processing injected element of bean '\" + beanName + \"': \" + element);\n\t\t\t\t}\n\t\t\t\telement.inject(target, beanName, pvs);\n\t\t\t}\n\t\t}\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-1jfywhp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-1jfywhp",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "接下来需要从容器中获取B对象，来完成对A对象的b属性赋值："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-tt0f79j",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-tt0f79j",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class AutowiredAnnotationBeanPostProcessor extends InstantiationAwareBeanPostProcessorAdapter\n\t\timplements MergedBeanDefinitionPostProcessor, PriorityOrdered, BeanFactoryAware { \n    // 从容器中获取B对象\n    alue = beanFactory.resolveDependency(desc, beanName, autowiredBeanNames, typeConverter);\n  \n    if (value != null) { \n\t\t// 通过反射，给属性赋值\n\t\tReflectionUtils.makeAccessible(field);\n\t\tfield.set(bean, value);\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-t5wtsdp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-t5wtsdp",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DefaultListableBeanFactory"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "tag",
+					"TextMarkTextContent": "resolveDependency()—\u0026gt;DefaultListableBeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​doResolveDependency()—\u003eDependencyDescriptor#resolveCandidate()—\u003ebeanFactory.getBean(beanName)—\u003edoGetBean()—\u003ecreateBean()—\u003edoCreateBean()"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-tz4updr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-tz4updr",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "好了，通过一大圈的方法调用，结果又回调到了doCreateBean方法，但是此时doCreateBean是创建B对象的："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-sxljsoq",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-sxljsoq",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected Object doCreateBean(String beanName, RootBeanDefinition mbd, @Nullable Object[] args)\n\t\t\tthrows BeanCreationException { \n  \n    // 省略部分源码...\n  \n    // 第一步，实例化bean\n    instanceWrapper = createBeanInstance(beanName, mbd, args);\n    // 放入三级缓存\n    addSingletonFactory(beanName, () -\u003e getEarlyBeanReference(beanName, mbd, bean));\n  \n    // 第二步，填充属性\n    populateBean(beanName, mbd, instanceWrapper);\n  \n    // 第三步，初始化\n    exposedObject = initializeBean(beanName, exposedObject, mbd);\n  \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-3z1v9dh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010535-3z1v9dh",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4，实例化B对象，加入三级缓存，填充B对象的a属性："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-mgh77cq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-mgh77cq",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面createBeanInstance()和addSingletonFactory()方法流程我们已经看过了，这里直接省略了，上面两个方法主要完成B对象的实例化和把实例化后的B对象加入三级缓存。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-945fhcm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-945fhcm",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "接下来我们重点看一下填充B对象的a属性里面对A对象查找："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-rllg0y3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-rllg0y3",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements SingletonBeanRegistry { \n    protected Object getSingleton(String beanName, boolean allowEarlyReference) { \n\t\t// Quick check for existing instance without full singleton lock\n\t\t// 从单例对象缓存中获取beanName对应的单例对象\n\t\tObject singletonObject = this.singletonObjects.get(beanName);\n\t\t// 如果单例对象缓存中没有，并且该beanName对应的单例bean正在创建中\n\t\tif (singletonObject == null \u0026\u0026 isSingletonCurrentlyInCreation(beanName)) { \n\t\t\t//从早期单例对象缓存中获取单例对象（之所称成为早期单例对象，是因为earlySingletonObjects里\n\t\t\t// 的对象的都是通过提前曝光的ObjectFactory创建出来的，还未进行属性填充等操作）\n\t\t\tsingletonObject = this.earlySingletonObjects.get(beanName);\n\t\t\t// 如果在早期单例对象缓存中也没有，并且允许创建早期单例对象引用\n\t\t\tif (singletonObject == null \u0026\u0026 allowEarlyReference) { \n\t\t\t\t// 如果为空，则锁定全局变量并进行处理\n\t\t\t\tsynchronized (this.singletonObjects) { \n\t\t\t\t\t// Consistent creation of early reference within full singleton lock\n\t\t\t\t\tsingletonObject = this.singletonObjects.get(beanName);\n\t\t\t\t\tif (singletonObject == null) { \n\t\t\t\t\t\tsingletonObject = this.earlySingletonObjects.get(beanName);\n\t\t\t\t\t\tif (singletonObject == null) { \n\t\t\t\t\t\t\t// 当某些方法需要提前初始化的时候则会调用addSingletonFactory方法将对应的ObjectFactory初始化策略存储在singletonFactories\n\t\t\t\t\t\t\tObjectFactory\u003c?\u003e singletonFactory = this.singletonFactories.get(beanName);\n\t\t\t\t\t\t\tif (singletonFactory != null) { \n\t\t\t\t\t\t\t\t// 如果存在单例对象工厂，则通过工厂创建一个单例对象\n\t\t\t\t\t\t\t\tsingletonObject = singletonFactory.getObject();\n\t\t\t\t\t\t\t\t// 记录在缓存中，二级缓存和三级缓存的对象不能同时存在\n\t\t\t\t\t\t\t\tthis.earlySingletonObjects.put(beanName, singletonObject);\n\t\t\t\t\t\t\t\t// 从三级缓存中移除\n\t\t\t\t\t\t\t\tthis.singletonFactories.remove(beanName);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\treturn singletonObject;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-eq909w0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-eq909w0",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从三级缓存中的FactoryObject的表达式中获取真实的A对象"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-10hyubp",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-10hyubp",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected Object getEarlyBeanReference(String beanName, RootBeanDefinition mbd, Object bean) { \n\t\t// 默认最终公开的对象是bean\n\t\tObject exposedObject = bean;\n\t\t// mbd的systhetic属性：设置此bean定义是否是\"synthetic\"，一般是指只有AOP相关的pointCut配置或者Advice配置才会将 synthetic设置为true\n\t\t// 如果mdb不是synthetic且此工厂拥有InstantiationAwareBeanPostProcessor\n\t\tif (!mbd.isSynthetic() \u0026\u0026 hasInstantiationAwareBeanPostProcessors()) { \n\t\t\t// 遍历工厂内的所有后处理器\n\t\t\tfor (BeanPostProcessor bp : getBeanPostProcessors()) { \n\t\t\t\t// 如果bp是SmartInstantiationAwareBeanPostProcessor实例\n\t\t\t\tif (bp instanceof SmartInstantiationAwareBeanPostProcessor) { \n\t\t\t\t\tSmartInstantiationAwareBeanPostProcessor ibp = (SmartInstantiationAwareBeanPostProcessor) bp;\n\t\t\t\t\t// 让exposedObject经过每个SmartInstantiationAwareBeanPostProcessor的包装\n\t\t\t\t\texposedObject = ibp.getEarlyBeanReference(exposedObject, beanName);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t// 返回最终经过层次包装后的对象\n\t\treturn exposedObject;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-58jezf6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-58jezf6",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "以上代码主要完成从三级缓存中获取A对象，然后加入把A对象从三级缓存中清除，加入到二级缓存中，并把此A对象返回，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "注意：此时A对象依然是不完整的对象，只完成了实例化，并未完成初始化。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-onuzgyc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-onuzgyc",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "此时拿到A对象之后用反射给B对象的a属性完成赋值操作。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-s60yut3",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010535-s60yut3",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5，B对象完成创建，并把B对象加入到一级缓存中，然后把完整的B对象返回，赋值给A对象的b属性"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-ze9h01o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-ze9h01o",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "B对象完成创建，从三级缓存中移除不完整的B对象，并把完整的B对象加入到一级缓存中："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-k1nv0mo",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-k1nv0mo",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements SingletonBeanRegistry { \n    public Object getSingleton(String beanName, ObjectFactory\u003c?\u003e singletonFactory) { \n        // 生成了新的单例对象\n\t\tif (newSingleton) { \n\t\t// 将beanName和singletonObject的映射关系添加到该工厂的单例缓存中:\n\t\t\taddSingleton(beanName, singletonObject);\n\t\t}\n    }\n}\n\nprotected void addSingleton(String beanName, Object singletonObject) { \n\tsynchronized (this.singletonObjects) { \n\t\t// 将映射关系添加到单例对象的高速缓存中\n\t\tthis.singletonObjects.put(beanName, singletonObject);\n\t\t// 移除beanName在单例工厂缓存中的数据\n\t\tthis.singletonFactories.remove(beanName);\n\t\t// 移除beanName在早期单例对象的高速缓存的数据\n\t\tthis.earlySingletonObjects.remove(beanName);\n\t\t// 将beanName添加到已注册的单例集中\n\t\tthis.registeredSingletons.add(beanName);\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-sylmh91",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-sylmh91",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "然后把完整的B对象返回，赋值给A对象的b属性。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-sjjityl",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010535-sjjityl",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "6，A对象完成创建，并且把二级缓存中的A对象移除，把完整A对象添加到一级缓存中"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-oiop05b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-oiop05b",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "源码如上addSingleton()方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-qfprapf",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010535-qfprapf",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三，二级缓存能不能解决循环依赖问题？"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-fvmt3vw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-fvmt3vw",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里先给出答案："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "二级缓存可以解决循环依赖问题"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-fd3r52z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-fd3r52z",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们只需要修改源码："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-huzx9ya",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-huzx9ya",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，不再去三级缓存中获取。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-zbwpib1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-zbwpib1",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，不再向三级缓存中添加。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-b1zubst",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010535-b1zubst",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，修改DefaultSingletonBeanRegistry类，不再去三级缓存中获取，改为从二级缓存中获取"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-mw748cr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-mw748cr",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements SingletonBeanRegistry { \n   /**\n    * 源代码1\n    */\n   // private final Map\u003cString, Object\u003e singletonObjects = new ConcurrentHashMap\u003c\u003e(256);\n   // private final Map\u003cString, ObjectFactory\u003c?\u003e\u003e singletonFactories = new HashMap\u003c\u003e(16);\n   // private final Set\u003cString\u003e registeredSingletons = new LinkedHashSet\u003c\u003e(256);\n    /**\n     * 修改后的代码1 把private给成public\n     */\n    public final Map\u003cString, ObjectFactory\u003c?\u003e\u003e singletonFactories = new HashMap\u003c\u003e(16);\n    public final Map\u003cString, Object\u003e earlySingletonObjects = new ConcurrentHashMap\u003c\u003e(16);\n    public final Set\u003cString\u003e registeredSingletons = new LinkedHashSet\u003c\u003e(256);\n  \n    /**\n     * 源代码2\n     */\n    //\tprotected Object getSingleton(String beanName, boolean allowEarlyReference) { \n//\t\t// Quick check for existing instance without full singleton lock\n//\t\t// 从单例对象缓存中获取beanName对应的单例对象\n//\t\tObject singletonObject = this.singletonObjects.get(beanName);\n//\t\t// 如果单例对象缓存中没有，并且该beanName对应的单例bean正在创建中\n//\t\tif (singletonObject == null \u0026\u0026 isSingletonCurrentlyInCreation(beanName)) { \n//\t\t\t//从早期单例对象缓存中获取单例对象（之所称成为早期单例对象，是因为earlySingletonObjects里\n//\t\t\t// 的对象的都是通过提前曝光的ObjectFactory创建出来的，还未进行属性填充等操作）\n//\t\t\tsingletonObject = this.earlySingletonObjects.get(beanName);\n//\t\t\t// 如果在早期单例对象缓存中也没有，并且允许创建早期单例对象引用\n//\t\t\tif (singletonObject == null \u0026\u0026 allowEarlyReference) { \n//\t\t\t\t// 如果为空，则锁定全局变量并进行处理\n//\t\t\t\tsynchronized (this.singletonObjects) { \n//\t\t\t\t\t// Consistent creation of early reference within full singleton lock\n//\t\t\t\t\tsingletonObject = this.singletonObjects.get(beanName);\n//\t\t\t\t\tif (singletonObject == null) { \n//\t\t\t\t\t\tsingletonObject = this.earlySingletonObjects.get(beanName);\n//\t\t\t\t\t\tif (singletonObject == null) { \n//\t\t\t\t\t\t\t// 当某些方法需要提前初始化的时候则会调用addSingletonFactory方法将对应的ObjectFactory初始化策略存储在singletonFactories\n//\t\t\t\t\t\t\tObjectFactory\u003c?\u003e singletonFactory = this.singletonFactories.get(beanName);\n//\t\t\t\t\t\t\tif (singletonFactory != null) { \n//\t\t\t\t\t\t\t\t// 如果存在单例对象工厂，则通过工厂创建一个单例对象\n//\t\t\t\t\t\t\t\tsingletonObject = singletonFactory.getObject();\n//\t\t\t\t\t\t\t\t// 记录在缓存中，二级缓存和三级缓存的对象不能同时存在\n//\t\t\t\t\t\t\t\tthis.earlySingletonObjects.put(beanName, singletonObject);\n//\t\t\t\t\t\t\t\t// 从三级缓存中移除\n//\t\t\t\t\t\t\t\tthis.singletonFactories.remove(beanName);\n//\t\t\t\t\t\t\t}\n//\t\t\t\t\t\t}\n//\t\t\t\t\t}\n//\t\t\t\t}\n//\t\t\t}\n//\t\t}\n//\t\treturn singletonObject;\n//\t}\n  \n    /**\n     * 修改后的代码2\n     */\n    protected Object getSingleton(String beanName, boolean allowEarlyReference) { \n\t\tObject singletonObject = this.singletonObjects.get(beanName);\n\t\tif (singletonObject == null \u0026\u0026 isSingletonCurrentlyInCreation(beanName)) { \n\t\t\t\tsynchronized (this.singletonObjects) { \n\t\t\t\t\tsingletonObject = this.earlySingletonObjects.get(beanName);\n\t\t\t\t\treturn singletonObject;\n\t\t\t\t}\n\t\t\t}\n\t\treturn singletonObject != null ? singletonObject:null;\n\t}\n  \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-vdr96ix",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010535-vdr96ix",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，AbstractAutowireCapableBeanFactory类的doCreateBean()方法，不再去向三级缓存中添加，改为向二级缓存中添加"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-9t1c48g",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-9t1c48g",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory\n\t\timplements AutowireCapableBeanFactory { \n    protected Object doCreateBean(String beanName, RootBeanDefinition mbd, @Nullable Object[] args)\n\t\t\tthrows BeanCreationException { \n        /**\n         * 修改源代码，不再去向三级缓存中添加\n         */\n//\t\taddSingletonFactory(beanName, () -\u003e getEarlyBeanReference(beanName, mbd, bean));\n\n\t\t/**\n\t\t * 改为只向二级缓存中添加\n\t\t */\n\t\tearlySingletonObjects.put(beanName,bean);\n\t\tregisteredSingletons.add(beanName);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-r8snbmd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-r8snbmd",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上改源码完成之后运行我们的例子，发现依然可以运行成功！"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-kawi2so",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010535-kawi2so",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四，既然二级缓存可以解决循环依赖，为什么还要加入三级缓存？"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-3f2zeqr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-3f2zeqr",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们再上面的例子上面加入aop，然后再运行，当调试到B对象给a属性赋值时，会去三级缓存中获取FactoryObject然后调用getEarlyBeanReference()方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-o3gg0wl",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-o3gg0wl",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected Object getEarlyBeanReference(String beanName, RootBeanDefinition mbd, Object bean) { \n\t\t// 默认最终公开的对象是bean\n\t\tObject exposedObject = bean;\n\t\t// mbd的systhetic属性：设置此bean定义是否是\"synthetic\"，一般是指只有AOP相关的pointCut配置或者Advice配置才会将 synthetic设置为true\n\t\t// 如果mdb不是synthetic且此工厂拥有InstantiationAwareBeanPostProcessor\n\t\tif (!mbd.isSynthetic() \u0026\u0026 hasInstantiationAwareBeanPostProcessors()) { \n\t\t\t// 遍历工厂内的所有后处理器\n\t\t\tfor (BeanPostProcessor bp : getBeanPostProcessors()) { \n\t\t\t\t// 如果bp是SmartInstantiationAwareBeanPostProcessor实例\n\t\t\t\tif (bp instanceof SmartInstantiationAwareBeanPostProcessor) { \n\t\t\t\t\tSmartInstantiationAwareBeanPostProcessor ibp = (SmartInstantiationAwareBeanPostProcessor) bp;\n\t\t\t\t\t// 让exposedObject经过每个SmartInstantiationAwareBeanPostProcessor的包装\n\t\t\t\t\texposedObject = ibp.getEarlyBeanReference(exposedObject, beanName);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t// 返回最终经过层次包装后的对象\n\t\treturn exposedObject;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-siztles",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-siztles",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们加入了Aop的话，会有一个AbstractAutoProxyCreator的SmartInstantiationAwareBeanPostProcessor后置处理器来完成B实例的代理对象生成："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-gmkj476",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010535-gmkj476",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport\n\t\timplements SmartInstantiationAwareBeanPostProcessor, BeanFactoryAware { \n  \n    @Override\n\tpublic Object postProcessAfterInitialization(@Nullable Object bean, String beanName) { \n\t\tif (bean != null) { \n\t\t\t// 根据给定bean的name和class构建出一个key\n\t\t\tObject cacheKey = getCacheKey(bean.getClass(), beanName);\n\t\t\tif (this.earlyProxyReferences.remove(cacheKey) != bean) { \n\t\t\t\t// 如果它需要被代理，则需要封装指定的bean\n\t\t\t\treturn wrapIfNecessary(bean, beanName, cacheKey);\n\t\t\t}\n\t\t}\n\t\treturn bean;\n\t}\n  \n    protected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) { \n\t\t// 如果已经处理过，直接返回\n\t\tif (StringUtils.hasLength(beanName) \u0026\u0026 this.targetSourcedBeans.contains(beanName)) { \n\t\t\treturn bean;\n\t\t}\n\t\t// 如果不需要增强，则直接返回\n\t\tif (Boolean.FALSE.equals(this.advisedBeans.get(cacheKey))) { \n\t\t\treturn bean;\n\t\t}\n\t\t// 判断给定的bean类是否代表一个基础设施类，基础设施类不应代理，或者配置了指定bean不需要自动代理\n\t\tif (isInfrastructureClass(bean.getClass()) || shouldSkip(bean.getClass(), beanName)) { \n\t\t\tthis.advisedBeans.put(cacheKey, Boolean.FALSE);\n\t\t\treturn bean;\n\t\t}\n\n\t\t// Create proxy if we have advice.\n\t\t// 如果存在增强方法则创建代理\n\t\tObject[] specificInterceptors = getAdvicesAndAdvisorsForBean(bean.getClass(), beanName, null);\n\t\t// 如果获取到了增强则需要针对增强创建代理\n\t\tif (specificInterceptors != DO_NOT_PROXY) { \n\t\t\tthis.advisedBeans.put(cacheKey, Boolean.TRUE);\n\t\t\t// 创建代理\n\t\t\tObject proxy = createProxy(\n\t\t\t\t\tbean.getClass(), beanName, specificInterceptors, new SingletonTargetSource(bean));\n\t\t\tthis.proxyTypes.put(cacheKey, proxy.getClass());\n\t\t\treturn proxy;\n\t\t}\n\n\t\tthis.advisedBeans.put(cacheKey, Boolean.FALSE);\n\t\treturn bean;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-varuod9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-varuod9",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "返回A的代理对象给B类的a属性赋值。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-5d1yafw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-5d1yafw",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "重点："
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-kyflrjw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-kyflrjw",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "如果这里不加三级缓存，而是只有二级缓存的话，那么你给B对象赋值a属性的A对象是一个普通的A对象，而当你在完成A对象的实例化时，在initializeBean()方法中会给A生成代理对象，所以会导致实际放入容器的是A的代理对象，而给B赋值的是A的普通对象（也就是通过new产生的），所以这里为了解决Aop代理的时候，对象一致而加入了三级缓存。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010535-zyojorm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010535-zyojorm",
+				"updated": "20230404010535"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "一句话总结就是：如果不加三级缓存，那么在使用Aop的时候会导致爆漏出去的对象和实际产生的对象不一致。"
+				}
+			]
+		}
+	]
+}

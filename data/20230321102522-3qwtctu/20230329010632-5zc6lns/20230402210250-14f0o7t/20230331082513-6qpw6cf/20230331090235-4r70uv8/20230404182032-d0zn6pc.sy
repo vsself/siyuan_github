@@ -1,0 +1,996 @@
+{
+	"ID": "20230404182032-d0zn6pc",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404182032-d0zn6pc",
+		"title": "Spring JDBC 源码解析 —— save",
+		"updated": "20230404182032"
+	},
+	"Children": [
+		{
+			"ID": "20230404182032-1kojfj2",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404182032-1kojfj2",
+				"updated": "20230404182032"
+			}
+		},
+		{
+			"ID": "20230404182032-yyzcnxo",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404182032-yyzcnxo",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"ID": "20230404182032-vur92bv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404182032-vur92bv",
+						"updated": "20230404182032"
+					},
+					"Children": [
+						{
+							"ID": "20230404182032-jzx6zok",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404182032-jzx6zok",
+								"updated": "20230404182032"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/zyxabcdef/article/details/113052290?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168060258616800182752271%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168060258616800182752271\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-113052290-null-null.142^v81^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jdbctemplate%20%E6%BA%90%E7%A0%81\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "https://blog.csdn.net/zyxabcdef/article/details/113052290?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168060258616800182752271%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026amp;request_id=168060258616800182752271\u0026amp;biz_id=0\u0026amp;utm_medium=distribute.pc_search_result.none-task-blog-2"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a sub",
+									"TextMarkAHref": "https://blog.csdn.net/zyxabcdef/article/details/113052290?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168060258616800182752271%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168060258616800182752271\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-113052290-null-null.142^v81^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jdbctemplate%20%E6%BA%90%E7%A0%81\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "all"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/zyxabcdef/article/details/113052290?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168060258616800182752271%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168060258616800182752271\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-113052290-null-null.142^v81^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jdbctemplate%20%E6%BA%90%E7%A0%81\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "sobaiduend~default-1-113052290-null-null.142"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a sup",
+									"TextMarkAHref": "https://blog.csdn.net/zyxabcdef/article/details/113052290?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168060258616800182752271%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168060258616800182752271\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-113052290-null-null.142^v81^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jdbctemplate%20%E6%BA%90%E7%A0%81\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "v81"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/zyxabcdef/article/details/113052290?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168060258616800182752271%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168060258616800182752271\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-113052290-null-null.142^v81^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jdbctemplate%20%E6%BA%90%E7%A0%81\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "insert_down38,201"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a sup",
+									"TextMarkAHref": "https://blog.csdn.net/zyxabcdef/article/details/113052290?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168060258616800182752271%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168060258616800182752271\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-113052290-null-null.142^v81^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jdbctemplate%20%E6%BA%90%E7%A0%81\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "v4"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/zyxabcdef/article/details/113052290?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168060258616800182752271%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168060258616800182752271\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-113052290-null-null.142^v81^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jdbctemplate%20%E6%BA%90%E7%A0%81\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "add_ask,239"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a sup",
+									"TextMarkAHref": "https://blog.csdn.net/zyxabcdef/article/details/113052290?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168060258616800182752271%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168060258616800182752271\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-113052290-null-null.142^v81^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jdbctemplate%20%E6%BA%90%E7%A0%81\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "v2"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/zyxabcdef/article/details/113052290?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168060258616800182752271%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D\u0026request_id=168060258616800182752271\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-113052290-null-null.142^v81^insert_down38,201^v4^add_ask,239^v2^insert_chatgpt\u0026utm_term=jdbctemplate%20%E6%BA%90%E7%A0%81\u0026spm=1018.2226.3001.4187",
+									"TextMarkTextContent": "insert_chatgpt\u0026amp;utm_term=jdbctemplate%20%E6%BA%90%E7%A0%81\u0026amp;spm=1018.2226.3001.4187"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404182032-yc0dybe",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404182032-yc0dybe",
+						"updated": "20230404182032"
+					},
+					"Children": [
+						{
+							"ID": "20230404182032-ek0xsmz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404182032-ek0xsmz",
+								"updated": "20230404182032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "基本思路分析Spring JDBC 对数据库的操作大部分都通过 jdbcTemplete 实现，这也是我们分析 Spring JDBC 的切入点。一个简单的 update 函数的调用例程如下：public void save(User user) {\tjdbcTemplate.update(\"insert into user(name, age, sex) values(?, ?, ?)\",\t\t\tnew Object[] {user.getName(), user.getAge(), user.ge"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404182032-gfppka3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404182032-gfppka3",
+						"updated": "20230404182032"
+					},
+					"Children": [
+						{
+							"ID": "20230404182032-f85o3ff",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404182032-f85o3ff",
+								"updated": "20230404182032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 18:20:32"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-syslfrw",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404182032-syslfrw",
+				"updated": "20230404182032"
+			}
+		},
+		{
+			"ID": "20230404182032-czbaoxq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404182032-czbaoxq",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "基本思路分析"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-g1kq344",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-g1kq344",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring JDBC 对数据库的操作大部分都通过 jdbcTemplete 实现，这也是我们分析 Spring JDBC 的切入点。一个简单的 update 函数的调用例程如下："
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-jcobrnx",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404182032-jcobrnx",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public void save(User user) { \n\tjdbcTemplate.update(\"insert into user(name, age, sex) values(?, ?, ?)\",\n\t\t\tnew Object[] { user.getName(), user.getAge(), user.getSex()},\n\t\t\tnew int[] { Types.VARCHAR, Types.INTEGER, Types.VARCHAR});\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-rchqbq5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-rchqbq5",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们只需要提供 sql 语句和对应的参数和参数类型就可以实现对应的 update 功能。进入 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "update"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 函数可以看到如下内容："
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-e5zd5or",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404182032-e5zd5or",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public int update(String sql, Object[] args, int[] argTypes) throws DataAccessException { \n\treturn update(sql, newArgTypePreparedStatementSetter(args, argTypes));\n}\n\npublic int update(String sql, @Nullable PreparedStatementSetter pss) throws DataAccessException { \n\treturn update(new SimplePreparedStatementCreator(sql), pss);\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-6yu7ta9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-6yu7ta9",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ArgTypePreparedStatementSetter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 以及 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SimplePreparedStatementCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 分别对参数与参数类型、SQL 语句进行封装。在此之后就进入的核心代码："
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-fyy81qe",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404182032-fyy81qe",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected int update(final PreparedStatementCreator psc, @Nullable final PreparedStatementSetter pss)\n\t\t\tthrows DataAccessException { \n\n\tlogger.debug(\"Executing prepared SQL update\");\n\n\treturn updateCount(execute(psc, ps -\u003e { \n\t\ttry { \n\t\t\tif (pss != null) { \n\t\t\t\tpss.setValues(ps);\n\t\t\t}\n\t\t\tint rows = ps.executeUpdate();\n\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\tlogger.trace(\"SQL update affected \" + rows + \" rows\");\n\t\t\t}\n\t\t\treturn rows;\n\t\t}\n\t\tfinally { \n\t\t\tif (pss instanceof ParameterDisposer) { \n\t\t\t\t((ParameterDisposer) pss).cleanupParameters();\n\t\t\t}\n\t\t}\n\t}));\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-s45mnal",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-s45mnal",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "其核心就是调用了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "execute"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 函数实现的基础操作，其他的数据库操作如 query 等方法就是传入不同的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "PreparedStatementCallback"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 参数来执行不同的操作。"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-9rrn3jk",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404182032-9rrn3jk",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "基础方法 execute"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-awtd8yw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-awtd8yw",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "execute"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 函数作为数据库操作的核心入口，将大多数数据库操作相同的步骤同意分装，而将个性花得操作使用参数 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PreparedStatementCallback"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 进行回调。（利用了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "模板方法"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "的设计原则）"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-kfn4ae8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404182032-kfn4ae8",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public \u003cT\u003e T execute(PreparedStatementCreator psc, PreparedStatementCallback\u003cT\u003e action)\n\t\t\tthrows DataAccessException { \n\n\t...\n\n\tConnection con = DataSourceUtils.getConnection(obtainDataSource());\n\tPreparedStatement ps = null;\n\ttry { \n\t\tps = psc.createPreparedStatement(con);\n\t\t// 应用用户设定的输入参数\n\t\tapplyStatementSettings(ps);\n\t\t// 调用回调函数\n\t\tT result = action.doInPreparedStatement(ps);\n\t\thandleWarnings(ps);\n\t\treturn result;\n\t}\n\tcatch (SQLException ex) { \n\t\t// 释放数据库连接，避免异常转换器没有被初始化的时候可能出现的连接池死锁\n\t\t// Release Connection early, to avoid potential connection pool deadlock\n\t\t// in the case when the exception translator hasn't been initialized yet.\n\t\tif (psc instanceof ParameterDisposer) { \n\t\t\t((ParameterDisposer) psc).cleanupParameters();\n\t\t}\n\t\tString sql = getSql(psc);\n\t\tpsc = null;\n\t\tJdbcUtils.closeStatement(ps);\n\t\tps = null;\n\t\tDataSourceUtils.releaseConnection(con, getDataSource());\n\t\tcon = null;\n\t\tthrow translateException(\"PreparedStatementCallback\", sql, ex);\n\t}\n\tfinally { \n\t\tif (psc instanceof ParameterDisposer) { \n\t\t\t((ParameterDisposer) psc).cleanupParameters();\n\t\t}\n\t\tJdbcUtils.closeStatement(ps);\n\t\tDataSourceUtils.releaseConnection(con, getDataSource());\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-k6mxflf",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404182032-k6mxflf",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "获取数据库连接"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-sywgzr6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-sywgzr6",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "数据库操作的第一步就是获取连接，这步中不仅仅是简单的 get 动作，还考虑的一些特殊情况。"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-13x8ux9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404182032-13x8ux9",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public static Connection doGetConnection(DataSource dataSource) throws SQLException { \n\tAssert.notNull(dataSource, \"No DataSource specified\");\n\n\tConnectionHolder conHolder = (ConnectionHolder) TransactionSynchronizationManager.getResource(dataSource);\n\tif (conHolder != null \u0026\u0026 (conHolder.hasConnection() || conHolder.isSynchronizedWithTransaction())) { \n\t\tconHolder.requested();\n\t\tif (!conHolder.hasConnection()) { \n\t\t\tlogger.debug(\"Fetching resumed JDBC Connection from DataSource\");\n\t\t\tconHolder.setConnection(fetchConnection(dataSource));\n\t\t}\n\t\treturn conHolder.getConnection();\n\t}\n\t// Else we either got no holder or an empty thread-bound holder here.\n\n\tlogger.debug(\"Fetching JDBC Connection from DataSource\");\n\tConnection con = fetchConnection(dataSource);\n\n\t// 当前线程支持同步\n\tif (TransactionSynchronizationManager.isSynchronizationActive()) { \n\t\ttry { \n\t\t\t// Use same Connection for further JDBC actions within the transaction.\n\t\t\t// Thread-bound object will get removed by synchronization at transaction completion.\n\t\t\tConnectionHolder holderToUse = conHolder;\n\t\t\tif (holderToUse == null) { \n\t\t\t\tholderToUse = new ConnectionHolder(con);\n\t\t\t}\n\t\t\telse { \n\t\t\t\tholderToUse.setConnection(con);\n\t\t\t}\n\t\t\t// 记录数据库连接\n\t\t\tholderToUse.requested();\n\t\t\tTransactionSynchronizationManager.registerSynchronization(\n\t\t\t\t\tnew ConnectionSynchronization(holderToUse, dataSource));\n\t\t\tholderToUse.setSynchronizedWithTransaction(true);\n\t\t\tif (holderToUse != conHolder) { \n\t\t\t\tTransactionSynchronizationManager.bindResource(dataSource, holderToUse);\n\t\t\t}\n\t\t}\n\t\tcatch (RuntimeException ex) { \n\t\t\t// Unexpected exception from external delegation call -\u003e close Connection and rethrow.\n\t\t\treleaseConnection(con, dataSource);\n\t\t\tthrow ex;\n\t\t}\n\t}\n\n\treturn con;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-fclm8ak",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-fclm8ak",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "此处主要考虑的是事务层面的需求，Sping 需要保证线程中的数据库操作都是使用同一个事务连接。"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-f583x14",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404182032-f583x14",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "应用用户设定的输入参数"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-wd052pa",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404182032-wd052pa",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected void applyStatementSettings(Statement stmt) throws SQLException { \n\tint fetchSize = getFetchSize();\n\tif (fetchSize != -1) { \n\t\tstmt.setFetchSize(fetchSize);\n\t}\n\tint maxRows = getMaxRows();\n\tif (maxRows != -1) { \n\t\tstmt.setMaxRows(maxRows);\n\t}\n\tDataSourceUtils.applyTimeout(stmt, getDataSource(), getQueryTimeout());\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-1327okz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-1327okz",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "fetchSize"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 是为了减少网络交互次数设计的，访问 ResultSet 时，如果每一行都需要从服务器读取，会造成大量的开销。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "fetchSize"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 可以一次获取多行，这样在获取下一行数据的时候就可以直接从内存中获取，而不需要网络交互，提高了效率。但这个设置也会导致更大的内存使用量。\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "maxRows"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 规定了当前 Statement 对象生成的所有 ResultSet 对象中的最大行数。"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-4fn7tu4",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404182032-4fn7tu4",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "调用回调函数"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-fpkrsu2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-fpkrsu2",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "使用不同情况下的个性化操作，即调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PreparedStatementCallback"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类型的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "doInPreparedStatement"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 函数。"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-g7i6627",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404182032-g7i6627",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "警告处理"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-jza7r7u",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404182032-jza7r7u",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected void handleWarnings(Statement stmt) throws SQLException { \n\t// 当设置为忽略警告的时候，只打印日志\n\tif (isIgnoreWarnings()) { \n\t\tif (logger.isDebugEnabled()) { \n\t\t\t// 日志开启\n\t\t\tSQLWarning warningToLog = stmt.getWarnings();\n\t\t\twhile (warningToLog != null) { \n\t\t\t\tlogger.debug(\"SQLWarning ignored: SQL state '\" + warningToLog.getSQLState() + \"', error code '\" +\n\t\t\t\t\t\twarningToLog.getErrorCode() + \"', message [\" + warningToLog.getMessage() + \"]\");\n\t\t\t\twarningToLog = warningToLog.getNextWarning();\n\t\t\t}\n\t\t}\n\t}\n\telse { \n\t\thandleWarnings(stmt.getWarnings());\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-atgchsb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-atgchsb",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SQLWarning"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类型用于承载数据库访问警告信息。警告可以来自 Connection、Statement\n和 ResultSet。出现警告很可能会出现数据错误，但程序的执行不一定会受到影响，所以用户可以自定义处理警告的方式，默认是忽略警告，只打印日志，我们也可以设置为抛出异常。"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-ty81ys1",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404182032-ty81ys1",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "资源释放"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-9md7utp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-9md7utp",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "数据库连接释放不是直接调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "close"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法。考虑到事务的情况，如果当前线程存在事务，那么说明在当前线程中存在共用数据库连接，这种情况下直接使用 ConnectionHolder 中的 release方法进行连接数减一，而没有真正释放。"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-oy6464r",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404182032-oy6464r",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public static void releaseConnection(@Nullable Connection con, @Nullable DataSource dataSource) { \n\ttry { \n\t\tdoReleaseConnection(con, dataSource);\n\t}\n\tcatch (SQLException ex) { \n\t\tlogger.debug(\"Could not close JDBC Connection\", ex);\n\t}\n\tcatch (Throwable ex) { \n\t\tlogger.debug(\"Unexpected exception on closing JDBC Connection\", ex);\n\t}\n}\n\npublic static void doReleaseConnection(@Nullable Connection con, @Nullable DataSource dataSource) throws SQLException { \n\tif (con == null) { \n\t\treturn;\n\t}\n\tif (dataSource != null) { \n\t\t// 当前线程存在事务，则使用 ConnectionHolder 中的 release 方法\n\t\tConnectionHolder conHolder = (ConnectionHolder) TransactionSynchronizationManager.getResource(dataSource);\n\t\tif (conHolder != null \u0026\u0026 connectionEquals(conHolder, con)) { \n\t\t\t// It's the transactional Connection: Don't close it.\n\t\t\tconHolder.released();\n\t\t\treturn;\n\t\t}\n\t}\n\tdoCloseConnection(con, dataSource);\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-vir2s07",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404182032-vir2s07",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Update 中的回调函数"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-8l8wxse",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-8l8wxse",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "回顾一下，update 使用的回调函数。"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-joqaday",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404182032-joqaday",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected int update(final PreparedStatementCreator psc, @Nullable final PreparedStatementSetter pss)\n\t\t\tthrows DataAccessException { \n\n\tlogger.debug(\"Executing prepared SQL update\");\n\n\treturn updateCount(execute(psc, ps -\u003e { \n\t\ttry { \n\t\t\tif (pss != null) { \n\t\t\t\t// 设置 PreparedStatement 所需要的全部参数\n\t\t\t\tpss.setValues(ps);\n\t\t\t}\n\t\t\tint rows = ps.executeUpdate();\n\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\tlogger.trace(\"SQL update affected \" + rows + \" rows\");\n\t\t\t}\n\t\t\treturn rows;\n\t\t}\n\t\tfinally { \n\t\t\tif (pss instanceof ParameterDisposer) { \n\t\t\t\t((ParameterDisposer) pss).cleanupParameters();\n\t\t\t}\n\t\t}\n\t}));\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-035ibge",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-035ibge",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上述代码的核心之一在于通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PreparedStatementSetter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 设置了相关的参数，不需要繁琐的配置，实际JDBC的操作是比较繁琐的。对于以下的内容："
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-6oprv5o",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404182032-6oprv5o",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "jdbcTemplate.update(\"insert into user(name, age, sex) values(?, ?, ?)\",\n\t\tnew Object[] { user.getName(), user.getAge(), user.getSex()},\n\t\tnew int[] { Types.VARCHAR, Types.INTEGER, Types.VARCHAR});\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-b1kifln",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-b1kifln",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "需要这么做："
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-ffo4xfx",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404182032-ffo4xfx",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "PreparedStatement updateState = con.prepareStatement(\"insert into user(name, age, sex) values(?, ?, ?)\");\nupdateState.setString(1, user.getName());\nupdateState.setInt(2, user.getAge());\nupdateState.setString(3, user.getSex());\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-ivy3ooa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-ivy3ooa",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "那么 Spring 是如何简化操作的呢？\n首先，从 pss.setValues(ps) 开始。"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-ww70kyv",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404182032-ww70kyv",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public void  setValues(PreparedStatement ps) throws SQLException { \n\tint parameterPosition = 1;\n\tif (this.args != null \u0026\u0026 this.argTypes != null) { \n\t\tfor (int i = 0; i \u003c this.args.length; i++) { \n\t\t\tObject arg = this.args[i];\n\t\t\tif (arg instanceof Collection \u0026\u0026 this.argTypes[i] != Types.ARRAY) { \n\t\t\t\tCollection\u003c?\u003e entries = (Collection\u003c?\u003e) arg;\n\t\t\t\tfor (Object entry : entries) { \n\t\t\t\t\tif (entry instanceof Object[]) { \n\t\t\t\t\t\tObject[] valueArray = ((Object[]) entry);\n\t\t\t\t\t\tfor (Object argValue : valueArray) { \n\t\t\t\t\t\t\tdoSetValue(ps, parameterPosition, this.argTypes[i], argValue);\n\t\t\t\t\t\t\tparameterPosition++;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\telse { \n\t\t\t\t\t\tdoSetValue(ps, parameterPosition, this.argTypes[i], entry);\n\t\t\t\t\t\tparameterPosition++;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\telse { \n\t\t\t\tdoSetValue(ps, parameterPosition, this.argTypes[i], arg);\n\t\t\t\tparameterPosition++;\n\t\t\t}\n\t\t}\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404182032-rtuo8f6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404182032-rtuo8f6",
+				"updated": "20230404182032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中 doSetValue(ps, parameterPosition, this.argTypes[i], entry); 完成了对单个参数的匹配。"
+				}
+			]
+		}
+	]
+}

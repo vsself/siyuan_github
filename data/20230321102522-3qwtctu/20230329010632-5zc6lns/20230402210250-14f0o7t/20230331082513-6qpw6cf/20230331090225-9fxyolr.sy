@@ -1,0 +1,1258 @@
+{
+	"ID": "20230331090225-9fxyolr",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331090225-9fxyolr",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230331090225-aasgudd\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230331090225-2vjdvpw\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230331090225-aasgudd\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "Spring源码分析八：bean的初始化⑥ - initializeBean_spring bean初始化过程_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331090410"
+	},
+	"Children": [
+		{
+			"ID": "20230331090225-aasgudd",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090225-aasgudd",
+				"updated": "20230331090225"
+			}
+		},
+		{
+			"ID": "20230331090225-eikrsov",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090225-eikrsov",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"ID": "20230331090225-ry6pqvg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090225-ry6pqvg",
+						"updated": "20230331090225"
+					},
+					"Children": [
+						{
+							"ID": "20230331090225-t59j04m",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090225-t59j04m",
+								"updated": "20230331090225"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106299241",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/106299241"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090225-c1282fz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090225-c1282fz",
+						"updated": "20230331090225"
+					},
+					"Children": [
+						{
+							"ID": "20230331090225-purpy21",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090225-purpy21",
+								"updated": "20230331090225"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "文章目录",
+									"TextMarkTextContent": "TOC"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "#  一、前言 本文是我打算系统阅读Spring 源码的第一篇章，从中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090225-1w2y0yr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090225-1w2y0yr",
+						"updated": "20230331090225"
+					},
+					"Children": [
+						{
+							"ID": "20230331090225-0vnhkuh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090225-0vnhkuh",
+								"updated": "20230331090225"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:02:25"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-lp60fbb",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090225-lp60fbb",
+				"updated": "20230331090225"
+			}
+		},
+		{
+			"ID": "20230331090225-usnicuk",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090225-usnicuk",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-h34vgmd",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090225-h34vgmd",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"ID": "20230331090225-3bsfwxz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090225-3bsfwxz",
+						"updated": "20230331090225"
+					},
+					"Children": [
+						{
+							"ID": "20230331090225-lh7866r",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090225-lh7866r",
+								"updated": "20230331090225"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106299241#_3",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090225-bbogkni",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090225-bbogkni",
+						"updated": "20230331090225"
+					},
+					"Children": [
+						{
+							"ID": "20230331090225-9tez2v1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090225-9tez2v1",
+								"updated": "20230331090225"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106299241#initializeBean_18",
+									"TextMarkTextContent": "二、initializeBean"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090225-hx1hiw8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090225-hx1hiw8",
+						"updated": "20230331090225"
+					},
+					"Children": [
+						{
+							"ID": "20230331090225-dsn23tb",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090225-dsn23tb",
+								"updated": "20230331090225"
+							},
+							"Children": [
+								{
+									"ID": "20230331090225-6mjpzj2",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090225-6mjpzj2",
+										"updated": "20230331090225"
+									},
+									"Children": [
+										{
+											"ID": "20230331090225-qcqtfnj",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090225-qcqtfnj",
+												"updated": "20230331090225"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106299241#1_invokeAwareMethods___Aware__67",
+													"TextMarkTextContent": "1. invokeAwareMethods - 激活 Aware 方法"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090225-az0vekp",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090225-az0vekp",
+										"updated": "20230331090225"
+									},
+									"Children": [
+										{
+											"ID": "20230331090225-s1b17rq",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090225-s1b17rq",
+												"updated": "20230331090225"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106299241#2_invokeInitMethods__init_103",
+													"TextMarkTextContent": "2. invokeInitMethods - 激活自定义的init方法"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-h3v9sla",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090225-h3v9sla",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-oz28ycr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090225-oz28ycr",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是笔者阅读Spring"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E6%BA%90%E7%A0%81\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "源码"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-eygznz8",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090225-eygznz8",
+				"updated": "20230331090225"
+			}
+		},
+		{
+			"ID": "20230331090225-xtw2fsz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090225-xtw2fsz",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这篇文章是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105800112",
+					"TextMarkTextContent": "Spring源码分析五 ：bean的获取③ - getSingleton"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 的文章的展开内容。Spring 在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAutowireCapableBeanFactory#doCreateBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中，完成了bean的完整创建。而在上篇 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106299180",
+					"TextMarkTextContent": "Spring源码分析七：bean的属性注入⑤ - populateBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 中，完成了Bean的属性注入，表面上看起来 Bean的创建过程已经结束了。实际上还有一些收尾工作没有完成。​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "本文就是完成Bean创建的收尾工作：完成 Aware 接口的功能，调用后处理器的Bean的后置方法，以及指定的init 方法的激活。"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-1tcrq8e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090225-1tcrq8e",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文的分析代码在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAutowireCapableBeanFactory#initializeBean(java.lang.String, java.lang.Object, org.springframework.beans.factory.support.RootBeanDefinition)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中。\n到这一步，创建bean的过程已经经过了"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-ruujvk3",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090225-ruujvk3",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"ID": "20230331090225-20ojhm1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090225-20ojhm1",
+						"updated": "20230331090225"
+					},
+					"Children": [
+						{
+							"ID": "20230331090225-0p2mtfv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090225-0p2mtfv",
+								"updated": "20230331090225"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "createBeanInstance"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 通过反射或者代理创建bean实例"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090225-14yzk7e",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090225-14yzk7e",
+						"updated": "20230331090225"
+					},
+					"Children": [
+						{
+							"ID": "20230331090225-08ilshf",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090225-08ilshf",
+								"updated": "20230331090225"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "populateBean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 给bean注入属性实例。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-bjkywro",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090225-bjkywro",
+				"updated": "20230331090225"
+			}
+		},
+		{
+			"ID": "20230331090225-503xljt",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090225-503xljt",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、initializeBean"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-3it6tmb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090225-3it6tmb",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "相较于前几篇的内容，本文的内容显得简单了很多。具体代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-jq65wuq",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090225-jq65wuq",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected Object initializeBean(final String beanName, final Object bean, @Nullable RootBeanDefinition mbd) { \n\t\t// 对特殊的bean进行处理 ： 实现了 Aware、BeanClassLoaderAware、BeanFactoryAware 的处理。后面详解\n\t\tif (System.getSecurityManager() != null) { \n\t\t\tAccessController.doPrivileged((PrivilegedAction\u003cObject\u003e) () -\u003e { \n\t\t\t\t// 激活 Aware  方法\n\t\t\t\tinvokeAwareMethods(beanName, bean);\n\t\t\t\treturn null;\n\t\t\t}, getAccessControlContext());\n\t\t}\n\t\telse { \n\t\t\tinvokeAwareMethods(beanName, bean);\n\t\t}\n\n\t\tObject wrappedBean = bean;\n\t\tif (mbd == null || !mbd.isSynthetic()) { \n\t\t\t// 调用了bean后处理器的方法\n\t\t\twrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);\n\t\t}\n\n\t\ttry { \n\t\t\t// 激活自定义的init的方法。\n\t\t\tinvokeInitMethods(beanName, wrappedBean, mbd);\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\tthrow new BeanCreationException(\n\t\t\t\t\t(mbd != null ? mbd.getResourceDescription() : null),\n\t\t\t\t\tbeanName, \"Invocation of init method failed\", ex);\n\t\t}\n\t\tif (mbd == null || !mbd.isSynthetic()) { \n\t\t\t// 调用bean后处理器的方法\n\t\t\twrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);\n\t\t}\n\n\t\treturn wrappedBean;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-dx7rc74",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090225-dx7rc74",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面关于两个后处理器的调用，本文就不再赘述了，分别调用了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanPostProcessor. postProcessBeforeInitialization"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanPostProcessor.postProcessAfterInitialization"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-hc5n02x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090225-hc5n02x",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对后处理器比较感兴趣的可以看衍生篇："
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-kjrzozz",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090225-kjrzozz",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"ID": "20230331090225-6p2v915",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090225-6p2v915",
+						"updated": "20230331090225"
+					},
+					"Children": [
+						{
+							"ID": "20230331090225-wsoraqj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090225-wsoraqj",
+								"updated": "20230331090225"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106040809",
+									"TextMarkTextContent": "Spring源码分析衍生篇四：后处理器 BeanPostProcessor"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090225-codd2ws",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090225-codd2ws",
+						"updated": "20230331090225"
+					},
+					"Children": [
+						{
+							"ID": "20230331090225-b53l5s0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090225-b53l5s0",
+								"updated": "20230331090225"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106411232",
+									"TextMarkTextContent": "Spring源码分析衍生篇五：AutowiredAnnotationBeanPostProcessor"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-0cosvfv",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090225-0cosvfv",
+				"updated": "20230331090225"
+			}
+		},
+		{
+			"ID": "20230331090225-q22i48y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090225-q22i48y",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所以我们主要分析下面两个方法 ："
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-ry29d03",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090225-ry29d03",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. invokeAwareMethods - 激活 Aware 方法"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-xcs673f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090225-xcs673f",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个方法很简单，完成了 Aware 接口的激活功能。可以简单的说 ："
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-wbizn05",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090225-wbizn05",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"ID": "20230331090225-aihpruy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090225-aihpruy",
+						"updated": "20230331090225"
+					},
+					"Children": [
+						{
+							"ID": "20230331090225-xg6yic2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090225-xg6yic2",
+								"updated": "20230331090225"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果bean实现了"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanNameAware"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 接口，则将 beanName设值进去"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090225-kajgx2d",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090225-kajgx2d",
+						"updated": "20230331090225"
+					},
+					"Children": [
+						{
+							"ID": "20230331090225-ffqhodl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090225-ffqhodl",
+								"updated": "20230331090225"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果bean实现了"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanClassLoaderAware"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​接口，则将 ClassLoader 设值进去"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090225-7z329nw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090225-7z329nw",
+						"updated": "20230331090225"
+					},
+					"Children": [
+						{
+							"ID": "20230331090225-vw0aznc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090225-vw0aznc",
+								"updated": "20230331090225"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果bean实现了"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactoryAware"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​接口，则将 beanFactory 设值进去"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-vuzqaix",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090225-vuzqaix",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate void invokeAwareMethods(final String beanName, final Object bean) { \n\t\tif (bean instanceof Aware) { \n\t\t\tif (bean instanceof BeanNameAware) { \n\t\t\t\t((BeanNameAware) bean).setBeanName(beanName);\n\t\t\t}\n\t\t\tif (bean instanceof BeanClassLoaderAware) { \n\t\t\t\tClassLoader bcl = getBeanClassLoader();\n\t\t\t\tif (bcl != null) { \n\t\t\t\t\t((BeanClassLoaderAware) bean).setBeanClassLoader(bcl);\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (bean instanceof BeanFactoryAware) { \n\t\t\t\t((BeanFactoryAware) bean).setBeanFactory(AbstractAutowireCapableBeanFactory.this);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-d3a753x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090225-d3a753x",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里简单解释一下 Aware的作用。从上面的代码可以看到，实现不同类型的 Aware 接口会接受到不同得到初始化数据。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-n64w35e",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090225-n64w35e",
+				"updated": "20230331090225"
+			}
+		},
+		{
+			"ID": "20230331090225-lq8ixaa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090225-lq8ixaa",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "举个例子： 如果bean实现了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryAware"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口，那么他就可以在bean内部获取到beanFacotory。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-sk15hvy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090225-sk15hvy",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其实"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Aware"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口的作用 我在分析 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutowiredAnnotationBeanPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 后处理器的时候才突然想明白的。 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutowiredAnnotationBeanPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中完成了Bean的属性和方法注入，属性要从"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的缓存中获取，那么"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutowiredAnnotationBeanPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 如何得到的beanFactory呢？ 答案是实现了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryAware"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口。这样在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutowiredAnnotationBeanPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 初始化的时候就通过\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "void setBeanFactory(BeanFactory beanFactory)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 获取到beanFactory。如下图。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutowiredAnnotationBeanPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 保存了setBeanFactory 带来的beanFactory，并通过此来从容器中获取需要的bean。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200530133426965-20230331090225-lbcf2fv.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-vder0se",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090225-vder0se",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. invokeInitMethods - 激活自定义的init方法"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-s25x8hw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090225-s25x8hw",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "首先需要注意的是，Bean 的初始化方法除了可以使用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "init-method"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 属性(或者 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "@Bean(initMethod=''”)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": ")，还可以通过实现"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "InitializingBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "接口，并且在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "afterPropertiesSet"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 方法中实现自己初始化的业务逻辑。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-w8fgqb1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090225-w8fgqb1",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "调用顺序则是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "afterPropertiesSet"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 先调用，后面调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "init-method"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 指定的方法。这一点从下面的代码逻辑就能看到。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-o8l1bus",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090225-o8l1bus",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void invokeInitMethods(String beanName, final Object bean, @Nullable RootBeanDefinition mbd)\n\t\t\tthrows Throwable { \n\t\t// 首先检查是否是InitializingBean，如果是的话则需要调用 afterPropertiesSet 方法。\n\t\tboolean isInitializingBean = (bean instanceof InitializingBean);\n\t\tif (isInitializingBean \u0026\u0026 (mbd == null || !mbd.isExternallyManagedInitMethod(\"afterPropertiesSet\"))) { \n\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\tlogger.trace(\"Invoking afterPropertiesSet() on bean with name '\" + beanName + \"'\");\n\t\t\t}\n\t\t\t// 调用 afterPropertiesSet  方法\n\t\t\tif (System.getSecurityManager() != null) { \n\t\t\t\ttry { \n\t\t\t\t\tAccessController.doPrivileged((PrivilegedExceptionAction\u003cObject\u003e) () -\u003e { \n\t\t\t\t\t\t((InitializingBean) bean).afterPropertiesSet();\n\t\t\t\t\t\treturn null;\n\t\t\t\t\t}, getAccessControlContext());\n\t\t\t\t}\n\t\t\t\tcatch (PrivilegedActionException pae) { \n\t\t\t\t\tthrow pae.getException();\n\t\t\t\t}\n\t\t\t}\n\t\t\telse { \n\t\t\t\t((InitializingBean) bean).afterPropertiesSet();\n\t\t\t}\n\t\t}\n\t\n\t\tif (mbd != null \u0026\u0026 bean.getClass() != NullBean.class) { \n\t\t\t// 从RootBeanDefinition 中获取initMethod 方法名称\n\t\t\tString initMethodName = mbd.getInitMethodName();\n\t\t\t// 调用initMethod 方法。\n\t\t\tif (StringUtils.hasLength(initMethodName) \u0026\u0026\n\t\t\t\t\t!(isInitializingBean \u0026\u0026 \"afterPropertiesSet\".equals(initMethodName)) \u0026\u0026\n\t\t\t\t\t!mbd.isExternallyManagedInitMethod(initMethodName)) { \n\t\t\t\tinvokeCustomInitMethod(beanName, bean, mbd);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-pns8h6g",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090225-pns8h6g",
+				"updated": "20230331090225"
+			}
+		},
+		{
+			"ID": "20230331090225-nlbfedi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090225-nlbfedi",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "相较于之前的分析流程，initializeBean 方法是真的简单。流程也比较清楚。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090225-y7fagoa",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090225-y7fagoa",
+				"updated": "20230331090225"
+			}
+		},
+		{
+			"ID": "20230331090225-2vjdvpw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090225-2vjdvpw",
+				"updated": "20230331090225"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考《Spring源码深度解析》如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

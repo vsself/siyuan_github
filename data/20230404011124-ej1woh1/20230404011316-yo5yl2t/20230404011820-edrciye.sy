@@ -1,0 +1,1801 @@
+{
+	"ID": "20230404011820-edrciye",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404011820-edrciye",
+		"title": "吃透Redis（一）：数据结构篇-全局Hash表_全局哈希表_吃透Java的博客-CSDN博客",
+		"updated": "20230404011820"
+	},
+	"Children": [
+		{
+			"ID": "20230404011820-1kxexig",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011820-1kxexig",
+				"updated": "20230404011820"
+			}
+		},
+		{
+			"ID": "20230404011820-t37pbea",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011820-t37pbea",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"ID": "20230404011820-fxej3mj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-fxej3mj",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-bkjvwjn",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-bkjvwjn",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125805731",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/125805731"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-vu1vbkq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-vu1vbkq",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-ackis8g",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-ackis8g",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "通过源码分析Redis的全局Hash表，dictEntry源码，RedisObject源码，SDS、Hash表扩容、渐进式reHash等原理"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-y31vx12",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-y31vx12",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-j3157hi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-j3157hi",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:18:20"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-z5haq46",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404011820-z5haq46",
+				"updated": "20230404011820"
+			}
+		},
+		{
+			"ID": "20230404011820-3vf0npn",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404011820-3vf0npn",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-x5gpth7",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011820-x5gpth7",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"ID": "20230404011820-o0ubhua",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-o0ubhua",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-fdk3z2h",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230404011820-fdk3z2h",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"ID": "20230404011820-lxwbyo7",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011820-lxwbyo7",
+										"updated": "20230404011820"
+									},
+									"Children": [
+										{
+											"ID": "20230404011820-clybb4j",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011820-clybb4j",
+												"updated": "20230404011820"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125805731#Hash_1",
+													"TextMarkTextContent": "全局Hash表"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011820-5gawe1h",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011820-5gawe1h",
+										"updated": "20230404011820"
+									},
+									"Children": [
+										{
+											"ID": "20230404011820-k4478h4",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011820-k4478h4",
+												"updated": "20230404011820"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125805731#Hash_9",
+													"TextMarkTextContent": "链式Hash"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011820-bdx2baw",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011820-bdx2baw",
+										"updated": "20230404011820"
+									},
+									"Children": [
+										{
+											"ID": "20230404011820-gbrfjiu",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011820-gbrfjiu",
+												"updated": "20230404011820"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125805731#RedisObject_30",
+													"TextMarkTextContent": "RedisObject"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011820-0fd0pm4",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011820-0fd0pm4",
+										"updated": "20230404011820"
+									},
+									"Children": [
+										{
+											"ID": "20230404011820-z6dclj0",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011820-z6dclj0",
+												"updated": "20230404011820"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125805731#rehash_67",
+													"TextMarkTextContent": "rehash"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011820-7tw0fzn",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011820-7tw0fzn",
+										"updated": "20230404011820"
+									},
+									"Children": [
+										{
+											"ID": "20230404011820-j05qvnv",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230404011820-j05qvnv",
+												"updated": "20230404011820"
+											},
+											"Children": [
+												{
+													"ID": "20230404011820-m5ov979",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404011820-m5ov979",
+														"updated": "20230404011820"
+													},
+													"Children": [
+														{
+															"ID": "20230404011820-w99th3n",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230404011820-w99th3n",
+																"updated": "20230404011820"
+															},
+															"Children": [
+																{
+																	"ID": "20230404011820-atanuon",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404011820-atanuon",
+																		"updated": "20230404011820"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404011820-m6ap8uw",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230404011820-m6ap8uw",
+																				"updated": "20230404011820"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125805731#1_rehash__84",
+																					"TextMarkTextContent": "1、触发 rehash 的条件？"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230404011820-irrkywk",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404011820-irrkywk",
+																		"updated": "20230404011820"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404011820-ga1n1pk",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230404011820-ga1n1pk",
+																				"updated": "20230404011820"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125805731#2_rehash__89",
+																					"TextMarkTextContent": "2、触发 rehash 的时候？"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230404011820-god7uid",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404011820-god7uid",
+																		"updated": "20230404011820"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404011820-nwdgzyh",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230404011820-nwdgzyh",
+																				"updated": "20230404011820"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125805731#3rehash__92",
+																					"TextMarkTextContent": "3、rehash 扩容扩多大？"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230404011820-uqf8jbh",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230404011820-uqf8jbh",
+																		"updated": "20230404011820"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230404011820-7431deo",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230404011820-7431deo",
+																				"updated": "20230404011820"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125805731#4_rehash__96",
+																					"TextMarkTextContent": "4、渐进式 rehash 的实现？"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404011820-yp2vd5r",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404011820-yp2vd5r",
+										"updated": "20230404011820"
+									},
+									"Children": [
+										{
+											"ID": "20230404011820-0g2jpky",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404011820-0g2jpky",
+												"updated": "20230404011820"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/125805731#_104",
+													"TextMarkTextContent": "总结"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-epsddxw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011820-epsddxw",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "全局"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=Hash%E8%A1%A8\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "Hash表"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-ydp7c0n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-ydp7c0n",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "为了实现从键到值的快速访问，Redis 使用了一个哈希表来保存所有键值对。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/5e0d0bd4c1214851bbfb9b3dfd99766c-20230404011820-eensg9o.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\nHash 表应用如此广泛的一个重要原因，就是从理论上来说，它能以 O(1) 的复杂度快速查询数据。Hash 表通过 Hash 函数的计算，就能定位数据在表中的位置，紧接着可以对数据进行操作，这就使得数据操作非常快速。\n那么我们该如何解决哈希冲突呢？可以考虑使用以下两种解决方案："
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-mpmj6r1",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011820-mpmj6r1",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"ID": "20230404011820-qwbf1jm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-qwbf1jm",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-zrjzpo6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-zrjzpo6",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "第一种方案，就是我接下来要给你介绍的链式哈希。这里你需要先知道，链式哈希的链不能太长，否则会降低 Hash 表性能。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-6kcvt7c",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-6kcvt7c",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-20vwi29",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-20vwi29",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "第二种方案，就是当链式哈希的链长达到一定长度时，我们可以使用 rehash。不过，执行 rehash 本身开销比较大，所以就需要采用我稍后会给你介绍的渐进式 rehash 设计。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-kz51pmy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011820-kz51pmy",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "链式Hash"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-9fd4pb5",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011820-9fd4pb5",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "typedef struct dictEntry { \n    void *key;\n    union { \n        void *val;\n        uint64_t u64;\n        int64_t s64;\n        double d;\n    } v;\n    struct dictEntry *next;\n} dictEntry;\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-a1595m6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-a1595m6",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "那么为了实现链式哈希， Redis 在每个 dictEntry 的结构设计中，除了包含指向键和值的指针，还包含了指向下一个哈希项的指针。如下面的代码所示，**dictEntry 结构体中包含了指向另一个 dictEntry 结构的指针 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "next，这就是用来实现链式哈希的。"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "*"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-lo3rhn9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-lo3rhn9",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 dictEntry 结构体中，键值对的值是由一个联合体 v 定义的。这个联合体 v 中包含了指向实际值的指针 *val，还包含了无符号的 64 位整数、有符号的 64 位整数，以及 double 类的值。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-pi1p0b1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-pi1p0b1",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因为当值为"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "整数或双精度浮点数时，由于其本身就是 64 位，就可以不用指针指向了，而是可以直接存在键值对的结构体中，这样就避免了再用一个指针，从而节省了内存空间。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-4z1wapn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-4z1wapn",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果不是整数或"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%8F%8C%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "双精度浮点数"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "时，*val 指针会指向 RedisObject。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-mzv1pl3",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011820-mzv1pl3",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "RedisObject"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-b50ys25",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-b50ys25",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因为，Redis 的 key 是 String 类型，但 value 可以是很多类型（String/List/Hash/Set/ZSet等），所以 Redis 要想存储多种数据类型，就要设计一个通用的对象进行封装，这个对象就是 redisObject。结构体定义如下："
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-u45rzn5",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011820-u45rzn5",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "typedef struct redisObject { \n    unsigned type:4; //redisObject的数据类型，4个bits\n    unsigned encoding:4; //redisObject的编码类型，4个bits\n    unsigned lru:LRU_BITS;  //redisObject的LRU时间，LRU_BITS为24个bits\n    int refcount; //redisObject的引用计数，4个字节\n    void *ptr; //指向值的指针，8个字节\n} robj;\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-4greh04",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-4greh04",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "结构一共定义了 4 个元数据和一个指针："
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-2g9hyz9",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011820-2g9hyz9",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"ID": "20230404011820-fheqqer",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-fheqqer",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-1mdse9s",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-1mdse9s",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "type：redisObject 的数据类型，面向用户的数据类型（String/List/Hash/Set/ZSet等）。占用 4 bit"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-30s277v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-30s277v",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-nunotqo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-nunotqo",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "encoding：redisObject 的编码类型，是 Redis 内部实现各种数据类型所用的数据结构，每一种数据类型，可以对应不同的底层数据结构来实现（SDS/ziplist/intset/hashtable/skiplist等）。占用4bit"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-8l4r97f",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-8l4r97f",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-5ob88cq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-5ob88cq",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "lru：redisObject 的 LRU 时间。占用24bit"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-yp20ios",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-yp20ios",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-gsljq1i",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-gsljq1i",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "refcount：redisObject 的引用计数。占用4个字节"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-97kd8z4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-97kd8z4",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-ngtawhn",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-ngtawhn",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ptr：指向值的指针。占用8个字节"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-dwjtkof",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-dwjtkof",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一方面，当保存的是 Long 类型整数时，RedisObject 中的指针就直接赋值为整数数据了，这样就不用额外的指针再指向整数了，节省了指针的空间开销。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-ufc2xbj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-ufc2xbj",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "另一方面，当保存的是字符串数据，并且字符串小于等于 44 字节时，RedisObject 中的元数据、指针和 SDS 是一块连续的内存区域，这样就可以避免内存碎片。这种布局方式也被称为 embstr 编码方式。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-dod1qqo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-dod1qqo",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当然，当字符串大于 44 字节时，SDS 的数据量就开始变多了，Redis 就不再把 SDS 和 RedisObject 布局在一起了，而是会给 SDS 分配独立的空间，并用指针指向 SDS 结构。这种布局方式被称为 raw 编码模式。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/b05519647e264030af495f4086dd69b3-20230404011820-nwyojuq.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-zqujpu3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-zqujpu3",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "关于 String 类型的实现，底层对应 3 种数据结构："
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-oxp4ppv",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011820-oxp4ppv",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"ID": "20230404011820-cqpvqtc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-cqpvqtc",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-xtzids2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-xtzids2",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "long：整数存储（小于 10000，使用共享对象池存储，但有个前提：Redis 没有设置淘汰策略，详见 object.c 的 tryObjectEncoding 函数）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-8sst42g",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-8sst42g",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-j9qj6nk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-j9qj6nk",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "rawstr：大于 44 字节，redisObject 和 SDS 分开存储，需分配 2 次内存"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-ig912qm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-ig912qm",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-xvs3kpk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-xvs3kpk",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "embstr：小于 44 字节，嵌入式存储，redisObject 和 SDS 一起分配内存，只分配 1 次内存"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-r66i46e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-r66i46e",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "SDS 判断是否使用嵌入式字符串的条件是 44 字节?"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-7wf7rzu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-7wf7rzu",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "44是因为 N = 64 - 16(redisObject) - 3(sdshr8) - 1(\\0)， N = 44 字节。那么为什么是64减呢，为什么不是别的，因为在目前的x86体系下，一般的缓存行大小是64字节，redis为了一次能加载完成，因此采用64自己作为embstr类型(保存redisObject)的最大长度。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-z0yqe7y",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011820-z0yqe7y",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "rehash"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-gqad69p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-gqad69p",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Redis 又在 dict.h 文件中，定义了一个 dict 结构体。这个结构体中有一个数组（ht[2]），包含了两个 Hash 表 ht[0]和 ht[1]。dict 结构体的代码定义如下所示："
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-gma2k43",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404011820-gma2k43",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Yw=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "typedef struct dict { \n    …\n    dictht ht[2]; //两个Hash表，交替使用，用于rehash操作\n    long rehashidx; //Hash表是否在进行rehash的标识，-1表示没有进行rehash\n    …\n} dict;\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-s407vm8",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011820-s407vm8",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"ID": "20230404011820-3yw7c38",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-3yw7c38",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-av10108",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-av10108",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "首先，Redis 准备了两个哈希表，用于 rehash 时交替保存数据。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-5oga02x",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-5oga02x",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-qx1awtn",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-qx1awtn",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "其次，在正常服务请求阶段，所有的键值对写入哈希表 ht[0]。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-9luicx7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-9luicx7",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-86781gs",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-86781gs",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "接着，当进行 rehash 时，键值对被迁移到哈希表 ht[1]中。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-inehje0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-inehje0",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-opjkrr4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-opjkrr4",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "最后，当迁移完成后，ht[0]的空间会被释放，并把 ht[1]的地址赋值给 ht[0]，ht[1]的表大小设置为 0。这样一来，又回到了正常服务请求的阶段，ht[0]接收和服务请求，ht[1]作为下一次 rehash 时的迁移表。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-xw7q7ug",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404011820-xw7q7ug",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、触发 rehash 的条件？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-kkvc652",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-kkvc652",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "负载因子：Hash 表当前承载的元素个数 / Hash 表当前设定的大小。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-vbpuo68",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-vbpuo68",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "dict 在负载因子超过 1 时（used: bucket size \u003e= 1），会触发 rehash。但如果 Redis 正在 RDB 或 AOF rewrite，为避免父进程大量写时复制，会暂时关闭触发 rehash。但这里有个例外，如果负载因子超过了 5（哈希冲突已非常严重），依旧会强制做 rehash（重点）"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-096k6l8",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404011820-096k6l8",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、触发 rehash 的时候？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-3l2mafz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-3l2mafz",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当我们往 Redis 中写入新的键值对或是修改键值对时，Redis 都会判断下是否需要进行 rehash"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-mkpy7sl",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404011820-mkpy7sl",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、rehash 扩容扩多大？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-twt8mkb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-twt8mkb",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果当前表的已用空间大小为 size，那么就将表扩容到 size*2 的大小。"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-tt2761x",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404011820-tt2761x",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4、渐进式 rehash 的实现？"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-vliomco",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-vliomco",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所谓「渐进式 rehash」是指，把很大块迁移数据的开销，平摊到多次小的操作中，目的是降低主线程的性能影响「全局哈希表」在触发渐进式 rehash 的情况有 2 个："
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-x9a4zqz",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011820-x9a4zqz",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"ID": "20230404011820-jgi3rjl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-jgi3rjl",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-u3fmksk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-u3fmksk",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "增删改查哈希表时：每次迁移 1 个哈希桶"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-wk6kfzc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-wk6kfzc",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-hkb07km",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-hkb07km",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "定时 rehash：如果 dict 一直没有操作，无法渐进式迁移数据，那主线程会默认每间隔 100ms 执行一次迁移操作。这里一次会以 100 个桶为基本单位迁移数据，并限制如果一次操作耗时超时 1ms 就结束本次任务，待下次再次触发迁移"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-a5bryar",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404011820-a5bryar",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "注意：定时 rehash 只会迁移全局哈希表中的数据，不会定时迁移 Hash/Set/Sorted Set 下的哈希表的数据，这些哈希表只会在操作数据时做实时的渐进式 rehash"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-twx7swt",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404011820-twx7swt",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结"
+				}
+			]
+		},
+		{
+			"ID": "20230404011820-rtaogvz",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404011820-rtaogvz",
+				"updated": "20230404011820"
+			},
+			"Children": [
+				{
+					"ID": "20230404011820-67gryd6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-67gryd6",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-oh0a1e0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-oh0a1e0",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Redis 中的 dict 数据结构，采用「链式哈希」的方式存储，当哈希冲突严重时，会开辟一个新的哈希表，翻倍扩容，并采用「渐进式 rehash」的方式迁移数据"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-xchtlpp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-xchtlpp",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-2ufwbi6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-2ufwbi6",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "所谓「渐进式 rehash」是指，把很大块迁移数据的开销，平摊到多次小的操作中，目的是降低主线程的性能影响。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-6dx8pdb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-6dx8pdb",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-71d9jzv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-71d9jzv",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Redis 中凡是需要 O(1) 时间获取 k-v 数据的场景，都使用了 dict 这个数据结构，也就是说 dict 是 Redis 中重中之重的「底层数据结构」"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-95vin42",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-95vin42",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-uith0e0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-uith0e0",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "dict 封装好了友好的「增删改查」API，并在适当时机「自动扩容、缩容」，这给上层数据类型（Hash/Set/Sorted Set）、全局哈希表的实现提供了非常大的便利"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-hz5zrjy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-hz5zrjy",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-s2r99dv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-s2r99dv",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "全局哈希表」在触发渐进式 rehash 的情况有 2 个： - 增删改查哈希表时：每次迁移 1 个哈希桶（文章提到的 dict.c 中的 _dictRehashStep 函数） - 定时 rehash：如果 dict 一直没有操作，无法渐进式迁移数据，那主线程会默认每间隔 100ms 执行一次迁移操作。这里一次会以 100 个桶为基本单位迁移数据，并限制如果一次操作耗时超时 1ms 就结束本次任务，待下次再次触发迁移（文章没提到这个，详见 dict.c 的 dictRehashMilliseconds 函数） （注意：定时 rehash 只会迁移全局哈希表中的数据，不会定时迁移 Hash/Set/Sorted Set 下的哈希表的数据，这些哈希表只会在操作数据时做实时的渐进式 rehash）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-v1j17h0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-v1j17h0",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-aeyeskp",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-aeyeskp",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "dict 在负载因子超过 1 时（used: bucket size \u003e= 1），会触发 rehash。但如果 Redis 正在 RDB 或 AOF rewrite，为避免父进程大量写时复制，会暂时关闭触发 rehash。但这里有个例外，如果负载因子超过了 5（哈希冲突已非常严重），依旧会强制做 rehash（重点）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404011820-6malvyr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404011820-6malvyr",
+						"updated": "20230404011820"
+					},
+					"Children": [
+						{
+							"ID": "20230404011820-1vapf1j",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404011820-1vapf1j",
+								"updated": "20230404011820"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "dict 在 rehash 期间，查询旧哈希表找不到结果，还需要在新哈希表查询一次"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

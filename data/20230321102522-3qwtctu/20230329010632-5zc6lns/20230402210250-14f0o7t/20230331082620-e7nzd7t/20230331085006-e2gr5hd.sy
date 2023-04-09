@@ -1,0 +1,2323 @@
+{
+	"ID": "20230331085006-e2gr5hd",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331085006-e2gr5hd",
+		"title": "Spring 源码分析衍生篇十 ：Last-Modified 缓存机制_spring last modi_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331085006"
+	},
+	"Children": [
+		{
+			"ID": "20230331085006-4a7a0xn",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085006-4a7a0xn",
+				"updated": "20230331085006"
+			}
+		},
+		{
+			"ID": "20230331085006-fzuyfep",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331085006-fzuyfep",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"ID": "20230331085006-1qwjz00",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085006-1qwjz00",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-97u1oy6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-97u1oy6",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/109515781"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085006-okytyio",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085006-okytyio",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-gtnenyt",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-gtnenyt",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "文章目录一、前言二、Last-Modify三、实现方案1. 实现 LastModified 接口1.1. 简单演示1.2. 原理分析2. 使用WebRequest#checkNotModified(long) 方法2.1. 简单演示2.2. 原理分析3.  方案修改版四、Http其他缓存方法一、前言本文是 Spring源码分析：Spring MVC② DispatcherServlet的初始化 的衍生文章。主要是因为本人菜鸡，在分析源码的过程中还有一些其他的内容不理解，故开设衍生篇来完善内容以学习。二"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085006-9tjvbdx",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085006-9tjvbdx",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-nobwlai",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-nobwlai",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 08:50:06"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-42cqtsr",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085006-42cqtsr",
+				"updated": "20230331085006"
+			}
+		},
+		{
+			"ID": "20230331085006-swic1h4",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085006-swic1h4",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-pzjqal9",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331085006-pzjqal9",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"ID": "20230331085006-tcztlyp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085006-tcztlyp",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-yss69hi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-yss69hi",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781#_1",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085006-pjuuxhk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085006-pjuuxhk",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-ymjjin7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-ymjjin7",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781#LastModify_27",
+									"TextMarkTextContent": "二、Last-Modify"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085006-gyl70qy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085006-gyl70qy",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-wpxdyfj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-wpxdyfj",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781#_34",
+									"TextMarkTextContent": "三、实现方案"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085006-bs379lq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085006-bs379lq",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-dvvd68y",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331085006-dvvd68y",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"ID": "20230331085006-5z5yeps",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085006-5z5yeps",
+										"updated": "20230331085006"
+									},
+									"Children": [
+										{
+											"ID": "20230331085006-kigrnz8",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331085006-kigrnz8",
+												"updated": "20230331085006"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781#1__orgspringframeworkwebservletmvcLastModified_36",
+													"TextMarkTextContent": "1. 实现 org.springframework.web.servlet.mvc.LastModified接口"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331085006-d9fyvb9",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085006-d9fyvb9",
+										"updated": "20230331085006"
+									},
+									"Children": [
+										{
+											"ID": "20230331085006-iv2yzif",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331085006-iv2yzif",
+												"updated": "20230331085006"
+											},
+											"Children": [
+												{
+													"ID": "20230331085006-fsqrtel",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085006-fsqrtel",
+														"updated": "20230331085006"
+													},
+													"Children": [
+														{
+															"ID": "20230331085006-7xrzkux",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085006-7xrzkux",
+																"updated": "20230331085006"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781#11__38",
+																	"TextMarkTextContent": "1.1. 简单演示"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085006-g31d0em",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085006-g31d0em",
+														"updated": "20230331085006"
+													},
+													"Children": [
+														{
+															"ID": "20230331085006-loz0sy7",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085006-loz0sy7",
+																"updated": "20230331085006"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781#12__64",
+																	"TextMarkTextContent": "1.2. 原理分析"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085006-6gmpjj0",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085006-6gmpjj0",
+														"updated": "20230331085006"
+													},
+													"Children": [
+														{
+															"ID": "20230331085006-dbxkth0",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230331085006-dbxkth0",
+																"updated": "20230331085006"
+															},
+															"Children": [
+																{
+																	"ID": "20230331085006-0u9rsnh",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331085006-0u9rsnh",
+																		"updated": "20230331085006"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331085006-jlvrzza",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331085006-jlvrzza",
+																				"updated": "20230331085006"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781#121__HandlerAdaptergetLastModified_88",
+																					"TextMarkTextContent": "1.2.1 HandlerAdapter#getLastModified"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230331085006-enytk1b",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331085006-enytk1b",
+																		"updated": "20230331085006"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331085006-oae7uto",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331085006-oae7uto",
+																				"updated": "20230331085006"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781#122__ServletWebRequestcheckNotModifiedlong_112",
+																					"TextMarkTextContent": "1.2.2 ServletWebRequest#checkNotModified(long)"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331085006-ljwmh1q",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085006-ljwmh1q",
+										"updated": "20230331085006"
+									},
+									"Children": [
+										{
+											"ID": "20230331085006-d50ylq5",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331085006-d50ylq5",
+												"updated": "20230331085006"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781#2_WebRequestcheckNotModifiedlong_196",
+													"TextMarkTextContent": "2. 使用WebRequest#checkNotModified(long)"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331085006-z6mnjuc",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085006-z6mnjuc",
+										"updated": "20230331085006"
+									},
+									"Children": [
+										{
+											"ID": "20230331085006-yxe2m5o",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331085006-yxe2m5o",
+												"updated": "20230331085006"
+											},
+											"Children": [
+												{
+													"ID": "20230331085006-ujoa5lu",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085006-ujoa5lu",
+														"updated": "20230331085006"
+													},
+													"Children": [
+														{
+															"ID": "20230331085006-772fr4u",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085006-772fr4u",
+																"updated": "20230331085006"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781#21__201",
+																	"TextMarkTextContent": "2.1. 简单演示"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085006-mgim7f6",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085006-mgim7f6",
+														"updated": "20230331085006"
+													},
+													"Children": [
+														{
+															"ID": "20230331085006-f79f67l",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085006-f79f67l",
+																"updated": "20230331085006"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781#22__222",
+																	"TextMarkTextContent": "2.2. 原理分析"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085006-yz3dnhs",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085006-yz3dnhs",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-7jnhhmq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-7jnhhmq",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781#Http_238",
+									"TextMarkTextContent": "四、Http其他缓存方法"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-6d79omr",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085006-6d79omr",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-5ftz0zm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-5ftz0zm",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是 Spring源码分析："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175204",
+					"TextMarkTextContent": "Spring源码分析二十一：Spring MVC③ DispatcherServlet的逻辑"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 的衍生文章。主要是因为本人菜鸡，在分析源码的过程中还有一些其他的内容不理解，故开设衍生篇来完善内容以学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-f9zsmfj",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085006-f9zsmfj",
+				"updated": "20230331085006"
+			}
+		},
+		{
+			"ID": "20230331085006-ew8few0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-ew8few0",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring全集目录："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106440723",
+					"TextMarkTextContent": "Spring源码分析：全集整理"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-su6mkcu",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085006-su6mkcu",
+				"updated": "20230331085006"
+			}
+		},
+		{
+			"ID": "20230331085006-85x9aau",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-85x9aau",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本系列目录如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-v6vxnjv",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331085006-v6vxnjv",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"ID": "20230331085006-oof5l0v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331085006-oof5l0v",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-2l7od58",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-2l7od58",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125",
+									"TextMarkTextContent": "Spring源码分析十九：Spring MVC① 搭建"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085006-1j8pmex",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331085006-1j8pmex",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-euyfhii",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-euyfhii",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107434181",
+									"TextMarkTextContent": "Spring源码分析二十：Spring MVC② DispatcherServlet的初始化"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085006-k4qtub2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331085006-k4qtub2",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-2ete0j9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-2ete0j9",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175204",
+									"TextMarkTextContent": "Spring源码分析二十一：Spring MVC③ DispatcherServlet的逻辑"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-55emro8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-55emro8",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "衍生篇目录如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-extyiql",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331085006-extyiql",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"ID": "20230331085006-01d6mlr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331085006-01d6mlr",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-7yvdmru",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-7yvdmru",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781",
+									"TextMarkTextContent": "Spring 源码分析衍生篇十 ：Last-Modified 缓存机制"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085006-83z7zkf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331085006-83z7zkf",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-pkl9f0a",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-pkl9f0a",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480",
+									"TextMarkTextContent": "Spring 源码分析衍生篇十一 ：HandlerMapping"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-whn47ju",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085006-whn47ju",
+				"updated": "20230331085006"
+			}
+		},
+		{
+			"ID": "20230331085006-awtd2y3",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085006-awtd2y3",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、Last-Modify"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-7gv30rh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-7gv30rh",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以下内容来源于百度百科"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-3vjgwlj",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331085006-3vjgwlj",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"ID": "20230331085006-9fwzp4u",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331085006-9fwzp4u",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-8qwykh3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-8qwykh3",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "在浏览器第一次请求某一个URL时，服务器端的返回状态会是200，内容是客户端请求的资源，同时有一个Last-Modified的属性标记此文件在服务器端最后被修改的时间。Last-Modified格式类似这样：Last-Modified : Fri , 12 May 2006 18:53:33 GMT"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085006-43z1vi6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331085006-43z1vi6",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-mvgrpts",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-mvgrpts",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "客户端第二次请求此URL时，根据HTTP协议的规定，浏览器会向服务器传送If-Modified-Since报头，询问该时间之后文件是否有被修改过：If-Modified-Since : Fri , 12 May 2006 18:53:33 GMT\n如果服务器端的资源没有变化，则自动返回 HTTP 304（Not Changed.）状态码，内容为空，这样就节省了传输数据量。当服务器端代码发生改变或者重启服务器时，则重新发出资源，返回和第一次请求时类似。从而保证不向客户端重复发出资源，也保证当服务器有变化时，客户端能够得到最新的资源。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-kqbn7ja",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085006-kqbn7ja",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、实现方案"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-4hjtbl0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085006-4hjtbl0",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. 实现 org.springframework.web.servlet.mvc.LastModified接口"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-dx1ztj4",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085006-dx1ztj4",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1. 简单演示"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-802yo8i",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-802yo8i",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这种方案一般是用在 Controller 实现 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.web.servlet.mvc.Controller"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口的场景，如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-rk2zrwx",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085006-rk2zrwx",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component(\"/beanNameSay\")\npublic class BeanNameSayController implements Controller, LastModified { \n    private long lastModified;\n\t// 逻辑处理\n    @Override\n    public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception { \n        return new ModelAndView(\"/hello.html\");\n    }\n\n    @Override\n    public long getLastModified(HttpServletRequest request) { \n    \t// 如果 lastModified  刚初始化，则赋值为当前时间戳并返回。\n        if (lastModified == 0L){ \n            lastModified = System.currentTimeMillis();\n        }\n        return lastModified;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-e1hqnks",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-e1hqnks",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在一次请求成功后，第二次请求返回的状态码 304。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201105171543144-20230331085005-o8hfbnn.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-cttjzvl",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085006-cttjzvl",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2. 原理分析"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-1i2263z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-1i2263z",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175204",
+					"TextMarkTextContent": "Spring源码分析二十一：Spring MVC③ DispatcherServlet的逻辑"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 一文中，我们其中提到了Last-Modified 缓存机制。本文我们集中关注这一点"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-y42vukz",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085006-y42vukz",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception { \n\t\t...\n\t\t// 获取请求方式\n\t\tString method = request.getMethod();\n\t\tboolean isGet = \"GET\".equals(method);\n\t\t// 如果是 get请求或者 head 请求则进入该分支\n\t\tif (isGet || \"HEAD\".equals(method)) { \n\t\t\t// 调用 HandlerAdapter#getLastModified 方法 来获取最后修改时间\n\t\t\tlong lastModified = ha.getLastModified(request, mappedHandler.getHandler());\n\t\t\t// 判断到目前为止是否有过修改，没有则直接return。实现缓存的功能\n\t\t\tif (new ServletWebRequest(request, response).checkNotModified(lastModified) \u0026\u0026 isGet) { \n\t\t\t\treturn;\n\t\t\t}\n\t\t}\n\t\t...\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-1tb9dle",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-1tb9dle",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里需要关注的方法无非就是两个 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "HandlerAdapter#getLastModified"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ServletWebRequest#checkNotModified(long)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 。我们一个一个来看"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-7xorjty",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331085006-7xorjty",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2.1 HandlerAdapter#getLastModified"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-2v1s8gj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-2v1s8gj",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "关于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "HandlerAdapter#getLastModified"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 不同的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "HandlerAdapter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 有不同的实现方式，由于我们这里使用的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanNameUrlHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 处理器映射方式。所以这里匹配的HandlerAdapter 方法是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SimpleControllerHandlerAdapter#getLastModified"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-8mca26b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-8mca26b",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201105194111964-20230331085005-0gy3mb8.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-47c11y2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-47c11y2",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SimpleControllerHandlerAdapter#getLastModified"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的具体实现如下。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-i4r5mvo",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085006-i4r5mvo",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic long getLastModified(HttpServletRequest request, Object handler) { \n\t\t// 如果handler 是 LastModified 的 实现类。则直接调用 handler 的 getLastModified 方法\n\t\tif (handler instanceof LastModified) { \n\t\t\treturn ((LastModified) handler).getLastModified(request);\n\t\t}\n\t\t// 否则返回-1\n\t\treturn -1L;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-vfymxrx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-vfymxrx",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里就很明确了。在这里会调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanNameSayController#getLastModified"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 来获取最后修改时间。我们这里实现获取的是第一次请求时候保留的时间戳。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-fa9z4g0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-fa9z4g0",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201105194251683-20230331085005-xlb45jq.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-73ipx8a",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331085006-73ipx8a",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2.2 ServletWebRequest#checkNotModified(long)"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-20ished",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-20ished",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "经过上面的分析，我们可以得知 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ha.getLastModified(request, mappedHandler.getHandler());"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 调用返回的值是我们返回的第一次请求时候保留的时间戳。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-e64u0xg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-e64u0xg",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们来看看"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ServletWebRequest#checkNotModified(long)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 怎么进行的校验"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-14xvzj2",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085006-14xvzj2",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic boolean checkNotModified(long lastModifiedTimestamp) { \n\t\treturn checkNotModified(null, lastModifiedTimestamp);\n\t}\n\n\t@Override\n\tpublic boolean checkNotModified(@Nullable String etag, long lastModifiedTimestamp) { \n\t\tHttpServletResponse response = getResponse();\n\t\t// notModified  为true 标志没有被修改，默认false\n\t\t// 如果 notModified  已经true || 返回状态码已经不是200直接返回 notModified \n\t\tif (this.notModified || (response != null \u0026\u0026 HttpStatus.OK.value() != response.getStatus())) { \n\t\t\treturn this.notModified;\n\t\t}\n\n\t\t// Evaluate conditions in order of precedence.\n\t\t// See https://tools.ietf.org/html/rfc7232#section-6\n\t\t// 解析校验 If-Unmodified-Since 请求头。这个请求头和  If-Modified-Since 请求头相反\n\t\tif (validateIfUnmodifiedSince(lastModifiedTimestamp)) { \n\t\t\t// 设置状态码 304，并返回 notModified\n\t\t\tif (this.notModified \u0026\u0026 response != null) { \n\t\t\t\tresponse.setStatus(HttpStatus.PRECONDITION_FAILED.value());\n\t\t\t}\n\t\t\treturn this.notModified;\n\t\t}\n\n\t\t// 校验 If-None-Match 请求头。这是针对 Etag 缓存。\n\t\tboolean validated = validateIfNoneMatch(etag);\n\t\tif (!validated) { \n\t\t\t// 校验 If-Modified-Since 请求头\n\t\t\tvalidateIfModifiedSince(lastModifiedTimestamp);\n\t\t}\n\n\t\t// Update response\n\t\t// 更新 Response。包括状态码等信息\n\t\tif (response != null) { \n\t\t\tboolean isHttpGetOrHead = SAFE_METHODS.contains(getRequest().getMethod());\n\t\t\tif (this.notModified) { \n\t\t\t\tresponse.setStatus(isHttpGetOrHead ?\n\t\t\t\t\t\tHttpStatus.NOT_MODIFIED.value() : HttpStatus.PRECONDITION_FAILED.value());\n\t\t\t}\n\t\t\tif (isHttpGetOrHead) { \n\t\t\t\tif (lastModifiedTimestamp \u003e 0 \u0026\u0026 parseDateValue(response.getHeader(HttpHeaders.LAST_MODIFIED)) == -1) { \n\t\t\t\t\tresponse.setDateHeader(HttpHeaders.LAST_MODIFIED, lastModifiedTimestamp);\n\t\t\t\t}\n\t\t\t\tif (StringUtils.hasLength(etag) \u0026\u0026 response.getHeader(HttpHeaders.ETAG) == null) { \n\t\t\t\t\tresponse.setHeader(HttpHeaders.ETAG, padEtagIfNecessary(etag));\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\treturn this.notModified;\n\t}\n\n\t// 解析校验 If-Modified-Since 请求头\n\tprivate boolean validateIfModifiedSince(long lastModifiedTimestamp) { \n\t\tif (lastModifiedTimestamp \u003c 0) { \n\t\t\treturn false;\n\t\t}\n\t\tlong ifModifiedSince = parseDateHeader(HttpHeaders.IF_MODIFIED_SINCE);\n\t\tif (ifModifiedSince == -1) { \n\t\t\treturn false;\n\t\t}\n\t\t// We will perform this validation...\n\t\tthis.notModified = ifModifiedSince \u003e= (lastModifiedTimestamp / 1000 * 1000);\n\t\treturn true;\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-1ylal79",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-1ylal79",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里我们就可以知道是什么情况了"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-0pv6alc",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331085006-0pv6alc",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"ID": "20230331085006-ln242bn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331085006-ln242bn",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-47fnmbx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-47fnmbx",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "浏览器第一次请求，一切正常。"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "SimpleControllerHandlerAdapter#getLastModified"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 保存到当前请求的时间戳，并将该时间戳 通过 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "Last-Modified"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 响应头返回给浏览器。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085006-awtp9k4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331085006-awtp9k4",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-d4oe5pk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-d4oe5pk",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "浏览器第二次请求，会使用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "If-Modified-Since"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 请求头带上上次请求获取到的 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "Last-Modified"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。在"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DispatcherServlet"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的处理过程中会调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "HandlerAdapter#getLastModified"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 来获取第一步保存的时间戳 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "lastModified"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，这个时间戳是上次调用时候的时间戳。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085006-7f087zb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331085006-7f087zb",
+						"updated": "20230331085006"
+					},
+					"Children": [
+						{
+							"ID": "20230331085006-v6jkeq0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085006-v6jkeq0",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "WebRequest#checkNotModified(long)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法校验了下面三个请求头来确定请求是否被修改："
+								}
+							]
+						},
+						{
+							"ID": "20230331085006-tjx5i7r",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331085006-tjx5i7r",
+								"updated": "20230331085006"
+							},
+							"Children": [
+								{
+									"ID": "20230331085006-n0y94bu",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085006-n0y94bu",
+										"updated": "20230331085006"
+									},
+									"Children": [
+										{
+											"ID": "20230331085006-8rdqdn7",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331085006-8rdqdn7",
+												"updated": "20230331085006"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "​"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "If-Unmodified-Since"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ ：与 "
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "If-Modified-Since"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ 相反，只要它没有被最后给定的日期之后修改。如果请求在给定日期之后被修改，则该响应将是412（先决条件失败）错误。"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331085006-2i0ahkh",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085006-2i0ahkh",
+										"updated": "20230331085006"
+									},
+									"Children": [
+										{
+											"ID": "20230331085006-wx62jd3",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331085006-wx62jd3",
+												"updated": "20230331085006"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "​"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "If-None-Match"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ ： 针对 ETag 缓存。有服务器没有ETag与给定资源匹配的情况下，服务器才会返回具有状态的请求资源。对于其他方法，仅当最终现有资源ETag不符合任何列出的值时才会处理该请求。"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331085006-jv957rh",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085006-jv957rh",
+										"updated": "20230331085006"
+									},
+									"Children": [
+										{
+											"ID": "20230331085006-b0pccvx",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331085006-b0pccvx",
+												"updated": "20230331085006"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "​"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "If-Modified-Since"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ ：只有当它已经给定的日期之后被最后修改。如果请求没有被修改，那么响应将是304没有任何主体的；Last-Modified头将包含最后一次修改的日期。不同于If-Unmodified-Since，If-Modified-Since只能与GET或HEAD一起使用。"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-sd6i5gw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085006-sd6i5gw",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. 使用WebRequest#checkNotModified(long)"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-oxwveh2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-oxwveh2",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对于我们通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@RequestMapping(\u0026quot;say\u0026quot;)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注解方式来修饰的请求，是无法通过实现 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.web.servlet.mvc.LastModified"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口来实现该功能的。具体原因我们稍后再讲。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-theldfj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-theldfj",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里我们只能通过直接调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "WebRequest#checkNotModified(long)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的方式实现"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-2udvcyz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085006-2udvcyz",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1. 简单演示"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-c1p828c",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085006-c1p828c",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@RestController\n@RequestMapping(\"say\")\npublic class SayController{ \n    private long lastModified;\n\n    @RequestMapping(\"hello\")\n    public String hello(WebRequest webRequest) { \n        if(webRequest.checkNotModified(lastModified)){ \n            return null;\n        }\n        lastModified = System.currentTimeMillis();\n        return \"hello\";\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-wngrx5o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-wngrx5o",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201105171720556-20230331085005-873m32o.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-8vuxwes",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085006-8vuxwes",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2. 原理分析"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-y6k8srp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-y6k8srp",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们来看一看为什么 直接实现 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.web.servlet.mvc.LastModified"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 不可以。还是之前 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DispatcherServlet#doDispatch"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的地方。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-1qu8c45",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-1qu8c45",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201105202310149-20230331085005-1rsbemk.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n可以看到唯一不同的地方时 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "HandlerAdapter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 不同，这里的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "HandlerAdapter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类型是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RequestMappingHandlerAdapter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类型， 而 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RequestMappingHandlerAdapter#getLastModified"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法会调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RequestMappingHandlerAdapter#getLastModifiedInternal"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法，如下。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-tl4pljc",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085006-tl4pljc",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tprotected long getLastModifiedInternal(HttpServletRequest request, HandlerMethod handlerMethod) { \n\t\treturn -1;\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-nxj45yl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-nxj45yl",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到直接返回的-1，也就是我们这种方式根本没办法修改 lastModified。\n所以我们通过上面 hello 的写法，在调用的时候通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "WebRequest#checkNotModified(long)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法直接进行判断。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "WebRequest#checkNotModified(long)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法的逻辑这里不再赘述。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-kcfovsw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085006-kcfovsw",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四、Http其他缓存方法"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-izrc62z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-izrc62z",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "推荐阅读：\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://www.cnblogs.com/coolmanlee/archive/2012/12/06/2805030.html",
+					"TextMarkTextContent": "Last-Modify、ETag、Expires和Cache-Control"
+				}
+			]
+		},
+		{
+			"ID": "20230331085006-508m4im",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085006-508m4im",
+				"updated": "20230331085006"
+			}
+		},
+		{
+			"ID": "20230331085006-y5mbij5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085006-y5mbij5",
+				"updated": "20230331085006"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://www.cnblogs.com/coolmanlee/archive/2012/12/06/2805030.html",
+					"TextMarkTextContent": "Last-Modify、ETag、Expires和Cache-Control"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://cloud.tencent.com/developer/doc/1117",
+					"TextMarkTextContent": "腾讯Http教程"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

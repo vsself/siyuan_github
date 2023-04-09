@@ -1,0 +1,1308 @@
+{
+	"ID": "20230404010551-zdgq4hz",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010551-zdgq4hz",
+		"title": "吃透Spring源码（十八）：AOP创建过程之注解配置方式_annotationmetadata 对象生成过程_吃透Java的博客-CSDN博客",
+		"updated": "20230404010551"
+	},
+	"Children": [
+		{
+			"ID": "20230404010551-l58hl29",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010551-l58hl29",
+				"updated": "20230404010551"
+			}
+		},
+		{
+			"ID": "20230404010551-vpg2ymt",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010551-vpg2ymt",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"ID": "20230404010551-zc69lyp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010551-zc69lyp",
+						"updated": "20230404010551"
+					},
+					"Children": [
+						{
+							"ID": "20230404010551-bea6tcz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010551-bea6tcz",
+								"updated": "20230404010551"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114698993",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/114698993"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010551-v9hr0om",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010551-v9hr0om",
+						"updated": "20230404010551"
+					},
+					"Children": [
+						{
+							"ID": "20230404010551-g9hvl16",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010551-g9hvl16",
+								"updated": "20230404010551"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一，例子准备切面类：LogUtil.java@Aspect@Componentpublic class LogUtil {    @Pointcut(\"execution(public Integer com.mashibing.aop.annotation.service.MyCalculator.*(Integer,Integer))\")    public void myPointCut(){}    @Around(\"myPointCut()\")    public Object"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010551-61bo3os",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010551-61bo3os",
+						"updated": "20230404010551"
+					},
+					"Children": [
+						{
+							"ID": "20230404010551-4tsue7n",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010551-4tsue7n",
+								"updated": "20230404010551"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:05:51"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-4bds4o5",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010551-4bds4o5",
+				"updated": "20230404010551"
+			}
+		},
+		{
+			"ID": "20230404010551-i47v97e",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010551-i47v97e",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一，例子准备"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-w0g5vt4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-w0g5vt4",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "切面类：LogUtil.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-hwzj0xf",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010551-hwzj0xf",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Aspect\n@Component\npublic class LogUtil { \n\n    @Pointcut(\"execution(public Integer com.mashibing.aop.annotation.service.MyCalculator.*(Integer,Integer))\")\n    public void myPointCut(){ }\n\n    @Around(\"myPointCut()\")\n    public Object around(ProceedingJoinPoint pjp) throws Throwable { \n        Signature signature = pjp.getSignature();\n        Object[] args = pjp.getArgs();\n        Object result = null;\n        try { \n            System.out.println(\"log---环绕通知start：\"+signature.getName()+\"方法开始执行，参数为：\"+Arrays.asList(args));\n            result = pjp.proceed(args);\n            System.out.println(\"log---环绕通知stop\"+signature.getName()+\"方法执行结束\");\n        } catch (Throwable throwable) { \n            System.out.println(\"log---环绕异常通知：\"+signature.getName()+\"出现异常\");\n            throw throwable;\n        }finally { \n            System.out.println(\"log---环绕返回通知：\"+signature.getName()+\"方法返回结果是：\"+result);\n        }\n        return result;\n    }\n\n    @Before(value = \"myPointCut()\")\n    private int start(JoinPoint joinPoint){ \n        //获取方法签名\n        Signature signature = joinPoint.getSignature();\n        //获取参数信息\n        Object[] args = joinPoint.getArgs();\n        System.out.println(\"log---\"+signature.getName()+\"方法开始执行：参数是\"+Arrays.asList(args));\n        return 100;\n    }\n\n    @After(\"myPointCut()\")\n    public static void logFinally(JoinPoint joinPoint){ \n        Signature signature = joinPoint.getSignature();\n        System.out.println(\"log---\"+signature.getName()+\"方法执行结束。。。。。over\");\n    }\n\n\n    @AfterReturning(value = \"myPointCut()\",returning = \"result\")\n    public static void stop(JoinPoint joinPoint,Object result){ \n        Signature signature = joinPoint.getSignature();\n        System.out.println(\"log---\"+signature.getName()+\"方法执行结束，结果是：\"+result);\n    }\n\n    @AfterThrowing(value = \"myPointCut()\",throwing = \"e\")\n    public static void logException(JoinPoint joinPoint,Exception e){ \n        Signature signature = joinPoint.getSignature();\n        System.out.println(\"log---\"+signature.getName()+\"方法抛出异常：\"+e.getMessage());\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-n621ni6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-n621ni6",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "需要被代理的类：MyCalculator.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-7pyd97a",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010551-7pyd97a",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Service\npublic class MyCalculator { \n    public Integer add(Integer i, Integer j) throws NoSuchMethodException { \n        Integer result = i+j;\n        return result;\n    }\n\n    public Integer sub(Integer i, Integer j) throws NoSuchMethodException { \n        Integer result = i-j;\n        return result;\n    }\n\n    public Integer mul(Integer i, Integer j) throws NoSuchMethodException { \n        Integer result = i*j;\n        return result;\n    }\n\n    public Integer div(Integer i, Integer j) throws NoSuchMethodException { \n        Integer result = i/j;\n        return result;\n    }\n\n    public Integer show(Integer i){ \n        System.out.println(\"show .....\");\n        return i;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-lwi6qwk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-lwi6qwk",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "配置类：SpringConfiguration.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-osmmxfk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010551-osmmxfk",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Configuration\n@ComponentScan(basePackages = \"com.bobo.aop.annotation\")\n@EnableAspectJAutoProxy\npublic class SpringConfiguration { \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-g0xm71v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-g0xm71v",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "测试类：MyTest.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-e1lxfjd",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010551-e1lxfjd",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MyTest { \n    public static void main(String[] args) { \n        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-r8omgsa",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010551-r8omgsa",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二，源码分析"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-ndujceg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010551-ndujceg",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，AnnotationAwareAspectJAutoProxyCreator的注入"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-gawy521",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-gawy521",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invokeBeanFactoryPostProcessors()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法中，会去执行ConfigurationClassPostProcessor（BFPP）的postProcessBeanDefinitionRegistry()方法，用于解析"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SpringConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​配置类："
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-40ry85y",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010551-40ry85y",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Configuration\n@ComponentScan(basePackages = \"com.bobo.aop.annotation\")\n@EnableAspectJAutoProxy\npublic class SpringConfiguration { \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-5qkndot",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-5qkndot",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@EnableAspectJAutoProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​注解类："
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-qad4qg0",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010551-qad4qg0",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Target(ElementType.TYPE)\n@Retention(RetentionPolicy.RUNTIME)\n@Documented\n@Import(AspectJAutoProxyRegistrar.class)\npublic @interface EnableAspectJAutoProxy { \n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-anl01jm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-anl01jm",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先，解析"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@ComponentScan"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​注解，把"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "com.bobo.aop.annotation"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​包名下面的被"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Component"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​注解修饰的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "LogUtil.java"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​和"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MyCalculator.java"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​注入到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​容器的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinitionMap"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-eqilnfp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-eqilnfp",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其次，解析"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Import(AspectJAutoProxyRegistrar.class)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​注解，并实例化"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJAutoProxyRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类，发现其实现了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ImportBeanDefinitionRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​接口，并且调用其"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "registerBeanDefinitions()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-ggr0byu",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010551-ggr0byu",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "class AspectJAutoProxyRegistrar implements ImportBeanDefinitionRegistrar { \n\n\t/**\n\t * 注册、升级和配置自动代理创建器依赖对应的proxyTargetClass属性在解析@Configuration类\n\t */\n\t@Override\n\tpublic void registerBeanDefinitions(\n\t\t\tAnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) { \n\t\t// 注入\n\t\tAopConfigUtils.registerAspectJAnnotationAutoProxyCreatorIfNecessary(registry);\n\n\t\tAnnotationAttributes enableAspectJAutoProxy =\n\t\t\t\tAnnotationConfigUtils.attributesFor(importingClassMetadata, EnableAspectJAutoProxy.class);\n\t\tif (enableAspectJAutoProxy != null) { \n\t\t\tif (enableAspectJAutoProxy.getBoolean(\"proxyTargetClass\")) { \n\t\t\t\tAopConfigUtils.forceAutoProxyCreatorToUseClassProxying(registry);\n\t\t\t}\n\t\t\tif (enableAspectJAutoProxy.getBoolean(\"exposeProxy\")) { \n\t\t\t\tAopConfigUtils.forceAutoProxyCreatorToExposeProxy(registry);\n\t\t\t}\n\t\t}\n\t}\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-2mxhki1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-2mxhki1",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "方法中调用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AopConfigUtils.registerAspectJAnnotationAutoProxyCreatorIfNecessary(registry)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法把AnnotationAwareAspectJAutoProxyCreator.class包装成BeanDefinition注入到BeanDefinitionMap中："
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-06ox1kj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010551-06ox1kj",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class AopConfigUtils { \n    public static BeanDefinition registerAspectJAnnotationAutoProxyCreatorIfNecessary(\n\t\t\tBeanDefinitionRegistry registry, @Nullable Object source) { \n\t\t// 注入AnnotationAwareAspectJAutoProxyCreator.class\n\t\treturn registerOrEscalateApcAsRequired(AnnotationAwareAspectJAutoProxyCreator.class, registry, source);\n\t}\n  \n    private static BeanDefinition registerOrEscalateApcAsRequired(\n\t\t\tClass\u003c?\u003e cls, BeanDefinitionRegistry registry, @Nullable Object source) { \n\n\t\tRootBeanDefinition beanDefinition = new RootBeanDefinition(cls);\n\t\tbeanDefinition.setSource(source);\n\t\tbeanDefinition.getPropertyValues().add(\"order\", Ordered.HIGHEST_PRECEDENCE);\n\t\tbeanDefinition.setRole(BeanDefinition.ROLE_INFRASTRUCTURE);\n        // 注入带BeanDefinitionMap中\n        // AUTO_PROXY_CREATOR_BEAN_NAME=org.springframework.aop.config.internalAutoProxyCreator\n\t\tregistry.registerBeanDefinition(AUTO_PROXY_CREATOR_BEAN_NAME, beanDefinition);\n\t\treturn beanDefinition;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-tmxvr4x",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010551-tmxvr4x",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，AnnotationAwareAspectJAutoProxyCreator类介绍"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-d77wbv8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-d77wbv8",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210312161057440-20230404010551-9fs07i7.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-tss9nal",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-tss9nal",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AnnotationAwareAspectJAutoProxyCreator继承于AspectJAwareAdvisorAutoProxyCreator，主要负责对使用注解定义的@Aspect进行查找和解析。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-s0h7i2m",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010551-s0h7i2m",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"ID": "20230404010551-jhgeaj4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010551-jhgeaj4",
+						"updated": "20230404010551"
+					},
+					"Children": [
+						{
+							"ID": "20230404010551-8xzx2fi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010551-8xzx2fi",
+								"updated": "20230404010551"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "AspectJAwareAdvisorAutoProxyCreator：当我们使用xml进行定义切面时会注入此类"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010551-swmuu6y",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010551-swmuu6y",
+						"updated": "20230404010551"
+					},
+					"Children": [
+						{
+							"ID": "20230404010551-32sbnmu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010551-32sbnmu",
+								"updated": "20230404010551"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "AnnotationAwareAspectJAutoProxyCreator：当我们使用"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@EnableAspectJAutoProxy"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​注解方式来定义切面时会注入此类"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-lwbx0xu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-lwbx0xu",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAdvisorAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "findCandidateAdvisors()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法定义的是从BeanDefinitionMap中查找"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Advisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类，所以"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJAwareAdvisorAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​继承了此方法，符合xml方式的定义查找"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Advisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-7l0jkoz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-7l0jkoz",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "但是注解方式是对XMl的扩展，AnnotationAwareAspectJAutoProxyCreator继承于"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJAwareAdvisorAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​并且重写了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "findCandidateAdvisors()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，加入了注解的方式去扫描Advisor。例如去扫描我们本例子所定义的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "LogUtil"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​切面类。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-cfkaljs",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010551-cfkaljs",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class AnnotationAwareAspectJAutoProxyCreator extends AspectJAwareAdvisorAutoProxyCreator { \n    /**\n\t * 查找Advisor\n\t */\n\t@Override\n\tprotected List\u003cAdvisor\u003e findCandidateAdvisors() { \n      \n\t\t// 调用父类方法从BeanDefinitionMap中查找Advisor接口的BeanDefinition，并实例化\n\t\tList\u003cAdvisor\u003e advisors = super.findCandidateAdvisors();\n\n\t\tif (this.aspectJAdvisorsBuilder != null) { \n            // 注解方式的扩展，查找使用注解定义的@Aspect\n\t\t\t// 找到系统中使用@Aspect标注的bean，并且找到该bean中使用@Before，@After等标注的方法，\n\t\t\t// 将这些方法封装为一个个Advisor\n\t\t\tadvisors.addAll(this.aspectJAdvisorsBuilder.buildAspectJAdvisors());\n\t\t}\n\t\treturn advisors;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-fy8ypal",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010551-fy8ypal",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3，代理类的创建"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-r40mww5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-r40mww5",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本例子中依然是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MyCalculator.java"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​需要创建代理类，当然，配置类"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SpringConfiguration.java"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​也是需要被创建代理的，我们前面文章已经对配置类做了分析，不了解的请移步"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114642436",
+					"TextMarkTextContent": "吃透Spring源码（十六）：ConfigurationClassPostProcessor详细介绍"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-unv467c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-unv467c",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里以实例化MyCalculator来分析："
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-kx0g1bo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-kx0g1bo",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "源码还是在getBean()—\u003edoGetBean()—\u003ecreateBean()—\u003edoCreateBean()—\u003einitializeBean()—\u003eapplyBeanPostProcessorsAfterInitialization()执行Bean的后置处理器"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotationAwareAspectJAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-4ggjri4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010551-4ggjri4",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport\n\t\timplements SmartInstantiationAwareBeanPostProcessor, BeanFactoryAware { \n    public Object postProcessAfterInitialization(@Nullable Object bean, String beanName) { \n\t\tif (bean != null) { \n\t\t\t// 获取当前bean的key：如果beanName不为空，则以beanName为key，如果为FactoryBean类型，\n\t\t\t// 前面还会添加\u0026符号，如果beanName为空，则以当前bean对应的class为key\n\t\t\tObject cacheKey = getCacheKey(bean.getClass(), beanName);\n\t\t\t// 判断当前bean是否正在被代理，如果正在被代理则不进行封装\n\t\t\tif (this.earlyProxyReferences.remove(cacheKey) != bean) { \n\t\t\t\t// 如果它需要被代理，则需要封装指定的bean\n\t\t\t\treturn wrapIfNecessary(bean, beanName, cacheKey);\n\t\t\t}\n\t\t}\n\t\treturn bean;\n\t}\n  \n    protected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) { \n\t\n\t\t// 获取当前bean的Advices和Advisors\n\t\tObject[] specificInterceptors = getAdvicesAndAdvisorsForBean(bean.getClass(), beanName, null);\n\t\t// 对当前bean的代理状态进行缓存\n\t\tif (specificInterceptors != DO_NOT_PROXY) { \n\t\t\t// 对当前bean的代理状态进行缓存\n\t\t\tthis.advisedBeans.put(cacheKey, Boolean.TRUE);\n\t\t\t// 根据获取到的Advices和Advisors为当前bean生成代理对象\n\t\t\tObject proxy = createProxy(\n\t\t\t\t\tbean.getClass(), beanName, specificInterceptors, new SingletonTargetSource(bean));\n\t\t\t// 缓存生成的代理bean的类型，并且返回生成的代理bean\n\t\t\tthis.proxyTypes.put(cacheKey, proxy.getClass());\n\t\t\treturn proxy;\n\t\t}\n\n\t\tthis.advisedBeans.put(cacheKey, Boolean.FALSE);\n\t\treturn bean;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-333hlt9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-333hlt9",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "调到父类的postProcessAfterInitialization()方法中，然后在wrapIfNecessary()方法中查找Advisor并创建代理类！"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-37mx3pf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-37mx3pf",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在wrapIfNecessary中查找Advisor会调用到子类"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotationAwareAspectJAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​来查找注解定义的Advisor并实例化。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-levj93n",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010551-levj93n",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class AnnotationAwareAspectJAutoProxyCreator extends AspectJAwareAdvisorAutoProxyCreator { \n    /**\n\t * 查找Advisor\n\t */\n\t@Override\n\tprotected List\u003cAdvisor\u003e findCandidateAdvisors() { \n      \n\t\t// 调用父类方法从BeanDefinitionMap中查找Advisor接口的BeanDefinition，并实例化\n\t\tList\u003cAdvisor\u003e advisors = super.findCandidateAdvisors();\n\n\t\tif (this.aspectJAdvisorsBuilder != null) { \n            // 注解方式的扩展，查找使用注解定义的@Aspect\n\t\t\t// 找到系统中使用@Aspect标注的bean，并且找到该bean中使用@Before，@After等标注的方法，\n\t\t\t// 将这些方法封装为一个个Advisor\n\t\t\tadvisors.addAll(this.aspectJAdvisorsBuilder.buildAspectJAdvisors());\n\t\t}\n\t\treturn advisors;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-aievehp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-aievehp",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryAspectJAdvisorsBuilder#buildAspectJAdvisors()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​是对注解定义的Advisor进行查找和初始化："
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-wxuln57",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010551-wxuln57",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class BeanFactoryAspectJAdvisorsBuilder { \n    /**\n\t * 寻找Aspect注解的切面，然后解析他的方法，通过注解来生成对应的通知器Advisor\n\t */\n\tpublic List\u003cAdvisor\u003e buildAspectJAdvisors() { \n\t\t// 获取切面名字列表\n\t\tList\u003cString\u003e aspectNames = this.aspectBeanNames;\n\n\t\t// 缓存字段aspectNames没有值,注意实例化第一个单实例bean的时候就会触发解析切面\n\t\tif (aspectNames == null) { \n\t\t\t// 双重检查\n\t\t\tsynchronized (this) { \n\t\t\t\taspectNames = this.aspectBeanNames;\n\t\t\t\tif (aspectNames == null) { \n\t\t\t\t\t// 用于保存所有解析出来的Advisors集合对象\n\t\t\t\t\tList\u003cAdvisor\u003e advisors = new ArrayList\u003c\u003e();\n\t\t\t\t\t// 用于保存切面的名称的集合\n\t\t\t\t\taspectNames = new ArrayList\u003c\u003e();\n\t\t\t\t\t/**\n\t\t\t\t\t * AOP功能中在这里传入的是Object对象，代表去容器中获取到所有的组件的名称，然后再\n\t\t\t\t\t * 进行遍历，这个过程是十分的消耗性能的，所以说Spring会再这里加入了保存切面信息的缓存。\n\t\t\t\t\t * 但是事务功能不一样，事务模块的功能是直接去容器中获取Advisor类型的，选择范围小，且不消耗性能。\n\t\t\t\t\t * 所以Spring在事务模块中没有加入缓存来保存我们的事务相关的advisor\n\t\t\t\t\t */\n\t\t\t\t\tString[] beanNames = BeanFactoryUtils.beanNamesForTypeIncludingAncestors(\n\t\t\t\t\t\t\tthis.beanFactory, Object.class, true, false);\n\t\t\t\t\t// 遍历我们从IOC容器中获取处的所有Bean的名称\n\t\t\t\t\tfor (String beanName : beanNames) { \n\t\t\t\t\t\t// 判断当前bean是否为子类定制的需要过滤的bean\n\t\t\t\t\t\tif (!isEligibleBean(beanName)) { \n\t\t\t\t\t\t\tcontinue;\n\t\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t\t// 通过beanName去容器中获取到对应class对象\n\t\t\t\t\t\tClass\u003c?\u003e beanType = this.beanFactory.getType(beanName, false);\n\t\t\t\t\t\tif (beanType == null) { \n\t\t\t\t\t\t\tcontinue;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t// 判断当前bean是否使用了@Aspect注解进行标注\n\t\t\t\t\t\tif (this.advisorFactory.isAspect(beanType)) { \n\t\t\t\t\t\t\taspectNames.add(beanName);\n\t\t\t\t\t\t\t// 对于使用了@Aspect注解标注的bean，将其封装为一个AspectMetadata类型。\n\t\t\t\t\t\t\t// 这里在封装的过程中会解析@Aspect注解上的参数指定的切面类型，如perthis\n\t\t\t\t\t\t\t// 和pertarget等。这些被解析的注解都会被封装到其perClausePointcut属性中\n\t\t\t\t\t\t\tAspectMetadata amd = new AspectMetadata(beanType, beanName);\n\t\t\t\t\t\t\t// 判断@Aspect注解中标注的是否为singleton类型，默认的切面类都是singleton类型\n\t\t\t\t\t\t\tif (amd.getAjType().getPerClause().getKind() == PerClauseKind.SINGLETON) { \n\t\t\t\t\t\t\t\t// 将BeanFactory和当前bean封装为MetadataAwareAspect-\n\t\t\t\t\t\t\t\t// InstanceFactory对象，这里会再次将@Aspect注解中的参数都封装\n\t\t\t\t\t\t\t\t// 为一个AspectMetadata，并且保存在该factory中\n\t\t\t\t\t\t\t\tMetadataAwareAspectInstanceFactory factory =\n\t\t\t\t\t\t\t\t\t\tnew BeanFactoryAspectInstanceFactory(this.beanFactory, beanName);\n\t\t\t\t\t\t\t\t// 通过封装的bean获取其Advice，如@Before，@After等等，并且将这些\n\t\t\t\t\t\t\t\t// Advice都解析并且封装为一个个的Advisor\n\t\t\t\t\t\t\t\tList\u003cAdvisor\u003e classAdvisors = this.advisorFactory.getAdvisors(factory);\n\t\t\t\t\t\t\t\t// 如果切面类是singleton类型，则将解析得到的Advisor进行缓存，\n\t\t\t\t\t\t\t\t// 否则将当前的factory进行缓存，以便再次获取时可以通过factory直接获取\n\t\t\t\t\t\t\t\tif (this.beanFactory.isSingleton(beanName)) { \n\t\t\t\t\t\t\t\t\tthis.advisorsCache.put(beanName, classAdvisors);\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\telse { \n\t\t\t\t\t\t\t\t\tthis.aspectFactoryCache.put(beanName, factory);\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\tadvisors.addAll(classAdvisors);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\telse { \n\t\t\t\t\t\t\t\t// Per target or per this.\n\t\t\t\t\t\t\t\t// 如果@Aspect注解标注的是perthis和pertarget类型，说明当前切面\n\t\t\t\t\t\t\t\t// 不可能是单例的，因而这里判断其如果是单例的则抛出异常\n\t\t\t\t\t\t\t\tif (this.beanFactory.isSingleton(beanName)) { \n\t\t\t\t\t\t\t\t\tthrow new IllegalArgumentException(\"Bean with name '\" + beanName +\n\t\t\t\t\t\t\t\t\t\t\t\"' is a singleton, but aspect instantiation model is not singleton\");\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t// 将当前BeanFactory和切面bean封装为一个多例类型的Factory\n\t\t\t\t\t\t\t\tMetadataAwareAspectInstanceFactory factory =\n\t\t\t\t\t\t\t\t\t\tnew PrototypeAspectInstanceFactory(this.beanFactory, beanName);\n\t\t\t\t\t\t\t\t// 对当前bean和factory进行缓存\n\t\t\t\t\t\t\t\tthis.aspectFactoryCache.put(beanName, factory);\n\t\t\t\t\t\t\t\tadvisors.addAll(this.advisorFactory.getAdvisors(factory));\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tthis.aspectBeanNames = aspectNames;\n\t\t\t\t\treturn advisors;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif (aspectNames.isEmpty()) { \n\t\t\treturn Collections.emptyList();\n\t\t}\n\t\t// 通过所有的aspectNames在缓存中获取切面对应的Advisor，这里如果是单例的，则直接从advisorsCache\n\t\t// 获取，如果是多例类型的，则通过MetadataAwareAspectInstanceFactory立即生成一个\n\t\tList\u003cAdvisor\u003e advisors = new ArrayList\u003c\u003e();\n\t\tfor (String aspectName : aspectNames) { \n\t\t\tList\u003cAdvisor\u003e cachedAdvisors = this.advisorsCache.get(aspectName);\n\t\t\t// 如果是单例的Advisor bean，则直接添加到返回值列表中\n\t\t\tif (cachedAdvisors != null) { \n\t\t\t\tadvisors.addAll(cachedAdvisors);\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// 如果是多例的Advisor bean，则通过MetadataAwareAspectInstanceFactory生成\n\t\t\t\tMetadataAwareAspectInstanceFactory factory = this.aspectFactoryCache.get(aspectName);\n\t\t\t\tadvisors.addAll(this.advisorFactory.getAdvisors(factory));\n\t\t\t}\n\t\t}\n\t\treturn advisors;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-2tyzb3v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010551-2tyzb3v",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "具体Advisor类的创建，和代理类的创建和上一篇xml定义方式的创建过程是一样的，这里就不再介绍了，请直接移步到上一篇文章即可："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114678851",
+					"TextMarkTextContent": "吃透Spring源码（十七）：AOP创建过程之XML配置方式"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-tzph6rw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010551-tzph6rw",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三，总结"
+				}
+			]
+		},
+		{
+			"ID": "20230404010551-79eijqt",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010551-79eijqt",
+				"updated": "20230404010551"
+			},
+			"Children": [
+				{
+					"ID": "20230404010551-ctvavtr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010551-ctvavtr",
+						"updated": "20230404010551"
+					},
+					"Children": [
+						{
+							"ID": "20230404010551-5o4jbao",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010551-5o4jbao",
+								"updated": "20230404010551"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "注解方式的Advisor扫描是通过"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AnnotationAwareAspectJAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​类来完成的，扫描Advisor的时机与xml方式不同，注解的扫描时机是在创建代理类的时候（在BPP的后置处理器里面），而XML方式的Advisor扫描是在实例化第一个对象之前的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AbstractAutoProxyCreator#applyBeanPostProcessorsBeforeInstantiation()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​方法中"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010551-chqq6r6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010551-chqq6r6",
+						"updated": "20230404010551"
+					},
+					"Children": [
+						{
+							"ID": "20230404010551-0fcwz2q",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010551-0fcwz2q",
+								"updated": "20230404010551"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AnnotationAwareAspectJAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​继承于"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AspectJAwareAdvisorAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​在"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AspectJAwareAdvisorAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​的基础上做了注解的扩展。"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

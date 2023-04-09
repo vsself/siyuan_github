@@ -1,0 +1,1808 @@
+{
+	"ID": "20230331082710-7dr1p2f",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331082710-7dr1p2f",
+		"title": "Spring 源码分析衍生篇一：FactoryBean介绍_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331082710"
+	},
+	"Children": [
+		{
+			"ID": "20230331082710-disxgzd",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082710-disxgzd",
+				"updated": "20230331082710"
+			}
+		},
+		{
+			"ID": "20230331082710-hhrucfu",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331082710-hhrucfu",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"ID": "20230331082710-ikfgk4a",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082710-ikfgk4a",
+						"updated": "20230331082710"
+					},
+					"Children": [
+						{
+							"ID": "20230331082710-42ujp8e",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082710-42ujp8e",
+								"updated": "20230331082710"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105748071",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/105748071"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082710-e4eqdlv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082710-e4eqdlv",
+						"updated": "20230331082710"
+					},
+					"Children": [
+						{
+							"ID": "20230331082710-xn8v0ja",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082710-xn8v0ja",
+								"updated": "20230331082710"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一、简介一般情况下，Spring通过反射机制利用bean的class属性指定实现类来实例化bean。但是在某些情况下，实例化bean 的过程比较复杂，在XML配置下如果按照传统的编码方式，则需要进行大量配置，灵活性受限，这时候Spring 提供了一个 org.springframework.beans.factory.FactoryBean 的工厂类接口。可以通过该接口定制实例化bean 的逻辑..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082710-uvcvnkl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082710-uvcvnkl",
+						"updated": "20230331082710"
+					},
+					"Children": [
+						{
+							"ID": "20230331082710-8h02h0x",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082710-8h02h0x",
+								"updated": "20230331082710"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 08:27:10"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-4kfxj8u",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082710-4kfxj8u",
+				"updated": "20230331082710"
+			}
+		},
+		{
+			"ID": "20230331082710-fcpvehf",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331082710-fcpvehf",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-p94oqq8",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331082710-p94oqq8",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"ID": "20230331082710-59gma53",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082710-59gma53",
+						"updated": "20230331082710"
+					},
+					"Children": [
+						{
+							"ID": "20230331082710-iu9vfde",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082710-iu9vfde",
+								"updated": "20230331082710"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105748071#_2",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082710-rhsezaq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082710-rhsezaq",
+						"updated": "20230331082710"
+					},
+					"Children": [
+						{
+							"ID": "20230331082710-3om208k",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082710-3om208k",
+								"updated": "20230331082710"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105748071#_8",
+									"TextMarkTextContent": "二、简介"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082710-528n11k",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082710-528n11k",
+						"updated": "20230331082710"
+					},
+					"Children": [
+						{
+							"ID": "20230331082710-t5gya1c",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082710-t5gya1c",
+								"updated": "20230331082710"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105748071#FactoryBean___53",
+									"TextMarkTextContent": "三、FactoryBean 简单使用"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082710-gd850dv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082710-gd850dv",
+						"updated": "20230331082710"
+					},
+					"Children": [
+						{
+							"ID": "20230331082710-qgpxx84",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082710-qgpxx84",
+								"updated": "20230331082710"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105748071#_93",
+									"TextMarkTextContent": "四、源码解读"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082710-iaibk6z",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082710-iaibk6z",
+						"updated": "20230331082710"
+					},
+					"Children": [
+						{
+							"ID": "20230331082710-0j0k04e",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331082710-0j0k04e",
+								"updated": "20230331082710"
+							},
+							"Children": [
+								{
+									"ID": "20230331082710-3rxe1ax",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331082710-3rxe1ax",
+										"updated": "20230331082710"
+									},
+									"Children": [
+										{
+											"ID": "20230331082710-xb1f1kd",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331082710-xb1f1kd",
+												"updated": "20230331082710"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105748071#1_AbstractAutowireCapableBeanFactorygetObjectForBeanInstance_115",
+													"TextMarkTextContent": "1. AbstractAutowireCapableBeanFactory#getObjectForBeanInstance"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331082710-g579y8o",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331082710-g579y8o",
+										"updated": "20230331082710"
+									},
+									"Children": [
+										{
+											"ID": "20230331082710-njhbqe3",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331082710-njhbqe3",
+												"updated": "20230331082710"
+											},
+											"Children": [
+												{
+													"ID": "20230331082710-03r95rq",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331082710-03r95rq",
+														"updated": "20230331082710"
+													},
+													"Children": [
+														{
+															"ID": "20230331082710-mw85aq1",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331082710-mw85aq1",
+																"updated": "20230331082710"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105748071#11_AbstractBeanFactorygetObjectForBeanInstance_157",
+																	"TextMarkTextContent": "1.1 AbstractBeanFactory#getObjectForBeanInstance"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331082710-vxle2wc",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331082710-vxle2wc",
+														"updated": "20230331082710"
+													},
+													"Children": [
+														{
+															"ID": "20230331082710-0ldh84x",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331082710-0ldh84x",
+																"updated": "20230331082710"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105748071#12_getObjectFromFactoryBean_210",
+																	"TextMarkTextContent": "1.2 getObjectFromFactoryBean"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331082710-ecxc04y",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331082710-ecxc04y",
+														"updated": "20230331082710"
+													},
+													"Children": [
+														{
+															"ID": "20230331082710-cirj4y8",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331082710-cirj4y8",
+																"updated": "20230331082710"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105748071#13_doGetObjectFromFactoryBean_280",
+																	"TextMarkTextContent": "1.3 doGetObjectFromFactoryBean"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-19k6o9m",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082710-19k6o9m",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-v6vhojf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-v6vhojf",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "Spring源码分析："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105667530",
+					"TextMarkTextContent": "Spring源码分析三 ：bean的加载① - doGetBean概述"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 的衍生文章。主要是因为本人菜鸡，在分析源码的过程中还有一些其他的内容不理解，故开设衍生篇来完善内容以学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-tka5kzw",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082710-tka5kzw",
+				"updated": "20230331082710"
+			}
+		},
+		{
+			"ID": "20230331082710-4d9wd8h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-4d9wd8h",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "关于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "FactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 在源码中的设计，可以参考上面提及的正文"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105667530",
+					"TextMarkTextContent": "Spring源码分析三 ：bean的加载① - doGetBean概述"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "内容。在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getObjectForBeanInstance"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中有详细的分析。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-ejlc99r",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082710-ejlc99r",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、简介"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-tgubz3d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-tgubz3d",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一般情况下，Spring通过"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "反射机制"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "利用bean的class属性指定实现类来实例化bean。但是在某些情况下，实例化bean 的过程比较复杂，在XML配置下如果按照传统的编码方式，则需要进行大量配置，灵活性受限，这时候Spring 提供了一个 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.beans.factory.FactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的工厂类接口。可以通过该接口定制实例化bean 的逻辑。\n除此之外，FactoryBean在Spring框架中都占有很重要的地位，Spring自身就提供了非常多的FactoryBean的实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-td5i1dj",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082710-td5i1dj",
+				"updated": "20230331082710"
+			}
+		},
+		{
+			"ID": "20230331082710-emngxom",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-emngxom",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先我们来看看 FactoryBean 接口的定义。方法比较简单，见名知意。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-858eo92",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082710-858eo92",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public interface FactoryBean\u003cT\u003e { \n\t// 属性名\n\tString OBJECT_TYPE_ATTRIBUTE = \"factoryBeanObjectType\";\n\n\t// 获取bean实例，实例化bean 的逻辑就在这里实现\n\t@Nullable\n\tT getObject() throws Exception;\n\t// 获取bean类型\n\t@Nullable\n\tClass\u003c?\u003e getObjectType();\n\t// 是否是单例\n\tdefault boolean isSingleton() { \n\t\treturn true;\n\t}\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-j0rz0xl",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331082710-j0rz0xl",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"ID": "20230331082710-k23lrh6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082710-k23lrh6",
+						"updated": "20230331082710"
+					},
+					"Children": [
+						{
+							"ID": "20230331082710-ui5r2bl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082710-ui5r2bl",
+								"updated": "20230331082710"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "T getObject()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 返回由FactoryBean创建的bean实例，如果isSingleton() 返回true，则会将该实例方法Spring容器的单例缓冲池中"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082710-s4v0aho",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082710-s4v0aho",
+						"updated": "20230331082710"
+					},
+					"Children": [
+						{
+							"ID": "20230331082710-kohbkg2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082710-kohbkg2",
+								"updated": "20230331082710"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "Class\u0026lt;?\u0026gt; getObjectType()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 返回由FactoryBean 创建的bean 的类型"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082710-5avjd51",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331082710-5avjd51",
+						"updated": "20230331082710"
+					},
+					"Children": [
+						{
+							"ID": "20230331082710-e3h0yvb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082710-e3h0yvb",
+								"updated": "20230331082710"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "boolean isSingleton()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 返回由FactoryBean 创建的bean实例的作用域是singleton还是Prototype。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-mw6iyuh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-mw6iyuh",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "引用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://www.jianshu.com/p/0226ef0a9f5e",
+					"TextMarkTextContent": "https://www.jianshu.com/p/0226ef0a9f5e"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "中的话："
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-8pgpbkl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-8pgpbkl",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "FactoryBean就是一种方法，要么是解决生成BeanDefinition的困难；要么是解决反射实例化bean时候遇到的困难，将spring不好自动化处理的逻辑写到getObject方法内。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-jsj12v3",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082710-jsj12v3",
+				"updated": "20230331082710"
+			}
+		},
+		{
+			"ID": "20230331082710-ravkf2x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-ravkf2x",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "比如 ：在Mybatis 中，默认情况下 Mybatis会将所有的Mapper生成的代理对象保存到 SqlSession 中，如果需要获取 Mapper对象可以通过SqlSession.geMapper 获取。而当使用Spring 集成 Mybatis 框架时，Spring会将所有的Bean 都保存到单独的缓存中，当进行属性注入时从缓存中获取对象并赋值。而Mapper 对象保存到 SqlSession中，那么Spring 如何获取Mapper对象则成了一个问题。这时 Mybatis 为每个Mapper对象创建了一个 MapperFactoryBean。当Spring需要获取 Mapper 对象时，会通过MapperFactoryBean 来获取，而 MapperFactoryBean#getObject 实现如下，MapperFactoryBean会从 SqlSession 中获取 Mapper。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-brivxk7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082710-brivxk7",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  @Override\n  public T getObject() throws Exception { \n    return getSqlSession().getMapper(this.mapperInterface);\n  }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-kkh01m5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082710-kkh01m5",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、FactoryBean 简单使用"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-vlzsh0f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-vlzsh0f",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面举个简单的例子进一步说明FactoryBean 的用法。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-j0qxu9g",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082710-j0qxu9g",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class DemoFactoryBean implements FactoryBean\u003cDemoBean\u003e { \n    @Override\n    public DemoBean getObject() throws Exception { \n        System.out.println(\"DemoFactoryBean.getObject\");\n        return new DemoBean();\n    }\n\n    @Override\n    public Class\u003c?\u003e getObjectType() { \n        return DemoBean.class;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-6rcvpdo",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082710-6rcvpdo",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@SpringBootApplication\npublic class BeanInitDemoApplication { \n    public static void main(String[] args) { \n        ConfigurableApplicationContext run = SpringApplication.run(BeanInitDemoApplication.class, args);\n        Object demoFactoryBean = run.getBean(\"demoFactoryBean\");\n        Object bean = run.getBean(\"\u0026demoFactoryBean\");\n        System.out.println(\"BeanInitDemoApplication.main\");\n    }\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-3rx7qli",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-3rx7qli",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如上一个简单的例子，调用结果如下，可以看到："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "我们这里直接调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "run.getBean(\u0026quot;demoFactoryBean\u0026quot;);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 返回的并不是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "DemoFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " ，而是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "DemoBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 。而我们使用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "run.getBean(\u0026quot;\u0026amp;demoFactoryBean\u0026quot;);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 返回的结果却是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "DemoFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 。"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200425130630548-20230331082710-eo9k3zw.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-3f31qrh",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082710-3f31qrh",
+				"updated": "20230331082710"
+			}
+		},
+		{
+			"ID": "20230331082710-aqel1dr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-aqel1dr",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "实际上，当调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "run.getBean(\u0026quot;demoFactoryBean\u0026quot;);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 时，Spring通过反射会发现 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "DemoFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 实现了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "FactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "接口，则会直接调用 其"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "getObject()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 方法，并将方法的返回值注入到Spring容器中。而如果想要获得"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "DemoFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 实例，则需要在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "beanName"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "前加上 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "\u0026amp;"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " ，即 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "run.getBean(\u0026quot;\u0026amp;demoFactoryBean\u0026quot;);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-ptvtu4n",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082710-ptvtu4n",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四、源码解读"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-c6tz54v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-c6tz54v",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "比较完成的源码分析可以看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105667530",
+					"TextMarkTextContent": "Spring源码分析三 ：bean的加载① - doGetBean概述"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n这里仅仅介绍一下 FactoryBean 的处理过程，所以内容覆盖可能不够全面。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-3sos519",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082710-3sos519",
+				"updated": "20230331082710"
+			}
+		},
+		{
+			"ID": "20230331082710-feexjl7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-feexjl7",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "对于 FactoryBean的处理在 AbstractBeanFactory#getObjectForBeanInstance 方法中完成，我们需要判断其是否是 FactoryBean 的 实现类，如果是，则需要将其getObject() 的结果注入。所以该方法的功能简单来说就是用来检测当前bean是否是FactoryBean类型的bean，如果是，则调用其getObject() 方法，并将其返回值作为bean"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-wf7fftw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082710-wf7fftw",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tbean = getObjectForBeanInstance(sharedInstance, name, beanName, null);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-krz5nge",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-krz5nge",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "代码逻辑大体如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-lpmrl4q",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331082710-lpmrl4q",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"ID": "20230331082710-rg2g5e7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331082710-rg2g5e7",
+						"updated": "20230331082710"
+					},
+					"Children": [
+						{
+							"ID": "20230331082710-gvl9xxc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082710-gvl9xxc",
+								"updated": "20230331082710"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "首先是在 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AbstractAutowireCapableBeanFactory#getObjectForBeanInstance"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中，添加依赖bean信息。随后跳转到 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AbstractBeanFactory#getObjectForBeanInstance"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082710-5bvwlho",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331082710-5bvwlho",
+						"updated": "20230331082710"
+					},
+					"Children": [
+						{
+							"ID": "20230331082710-zhw4r0d",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082710-zhw4r0d",
+								"updated": "20230331082710"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "判断程序是否想获取 FactoryBean实例(beanName 是否以 \u0026 开头)。如果是判断当前beanInstance是否是 FactoryBean。如果是则返回，否则抛出异常"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082710-gd4531v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331082710-gd4531v",
+						"updated": "20230331082710"
+					},
+					"Children": [
+						{
+							"ID": "20230331082710-xidrwp1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082710-xidrwp1",
+								"updated": "20230331082710"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果不是想获取FactoryBean，那么就是想获取bean实例了。那么判断此时的beanInstance是普通的bean还是FactoryBean类型，如果是普通的bean则直接返回。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331082710-extpdnx",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331082710-extpdnx",
+						"updated": "20230331082710"
+					},
+					"Children": [
+						{
+							"ID": "20230331082710-7fxxpni",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331082710-7fxxpni",
+								"updated": "20230331082710"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "此时beanInstance 必定是 FactoryBean类型并且程序想获取bean实例。那么首先尝试从缓存 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "factoryBeanObjectCache"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中获取。获取失败，则调用FactoryBean#getObject 方法来获取bean实例。并且在允许调用后置方法的情况下(shouldPostProcess 为true)，调用"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanPostProcessor#postProcessAfterInitialization"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的方法。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-ggxre3m",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082710-ggxre3m",
+				"updated": "20230331082710"
+			}
+		},
+		{
+			"ID": "20230331082710-xhtxzv4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-xhtxzv4",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们来看详细代码"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-d87z6hn",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331082710-d87z6hn",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. AbstractAutowireCapableBeanFactory#getObjectForBeanInstance"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-ny83l7d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-ny83l7d",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先调用的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAutowireCapableBeanFactory#getObjectForBeanInstance"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-h92rjom",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082710-h92rjom",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate final NamedThreadLocal\u003cString\u003e currentlyCreatedBean = new NamedThreadLocal\u003c\u003e(\"Currently created bean\");\n\n\tprotected Object getObjectForBeanInstance(\n\t\t\tObject beanInstance, String name, String beanName, @Nullable RootBeanDefinition mbd) { \n\t\t// 获取当前线程正在创建的bean。currentlyCreatedBean 是一个 ThreadLocal\n\t\tString currentlyCreatedBean = this.currentlyCreatedBean.get();\n\t\t// 如果当前线程正在创建其他bean，则说明currentlyCreatedBean  的创建依赖于 beanName。则去保存这个依赖关系\n\t\tif (currentlyCreatedBean != null) { \n\t\t\tregisterDependentBean(beanName, currentlyCreatedBean);\n\t\t}\n\n\t\treturn super.getObjectForBeanInstance(beanInstance, name, beanName, mbd);\n\t}\n\n\t....\n\t// 注册依赖关系的bean\n\tpublic void registerDependentBean(String beanName, String dependentBeanName) { \n\t\t// 获取真实的beanName\n\t\tString canonicalName = canonicalName(beanName);\n\t\t// 保存依赖关系。dependentBeanMap： key 被 value 依赖\n\t\tsynchronized (this.dependentBeanMap) { \n\t\t\tSet\u003cString\u003e dependentBeans =\n\t\t\t\t\tthis.dependentBeanMap.computeIfAbsent(canonicalName, k -\u003e new LinkedHashSet\u003c\u003e(8));\n\t\t\tif (!dependentBeans.add(dependentBeanName)) { \n\t\t\t\treturn;\n\t\t\t}\n\t\t}\n\t\t// dependenciesForBeanMap : key 依赖于bean\n\t\tsynchronized (this.dependenciesForBeanMap) { \n\t\t\tSet\u003cString\u003e dependenciesForBean =\n\t\t\t\t\tthis.dependenciesForBeanMap.computeIfAbsent(dependentBeanName, k -\u003e new LinkedHashSet\u003c\u003e(8));\n\t\t\tdependenciesForBean.add(canonicalName);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-t5ugv6s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-t5ugv6s",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里我们可以知道其中有一个逻辑是判断当前线程是否存在创建中的 currentlyCreatedBean ，存在则说明 currentlyCreatedBean 依赖于正在创建的bean。因为对于bean的创建来说，如果发现当前bean依赖于其他bean，则会转向优先创建依赖的bean。"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-ekjlcdq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331082710-ekjlcdq",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1 AbstractBeanFactory#getObjectForBeanInstance"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-t3bhnni",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-t3bhnni",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "随后通过"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "super.getObjectForBeanInstance(beanInstance, name, beanName, mbd);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 调用了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractBeanFactory#getObjectForBeanInstance"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-bq0a933",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082710-bq0a933",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected Object getObjectForBeanInstance(\n\t\t\tObject beanInstance, String name, String beanName, @Nullable RootBeanDefinition mbd) { \n\n\t\t// Don't let calling code try to dereference the factory if the bean isn't a factory.\n\t\t// 1. 检测name 是否是想获取 工厂类 (name 以 \u0026 开头) \n\t\tif (BeanFactoryUtils.isFactoryDereference(name)) { \n\t\t\tif (beanInstance instanceof NullBean) { \n\t\t\t\treturn beanInstance;\n\t\t\t}\n\t\t\t// 以\u0026开头又不是FactoryBean实现类，则抛出异常\n\t\t\tif (!(beanInstance instanceof FactoryBean)) { \n\t\t\t\tthrow new BeanIsNotAFactoryException(beanName, beanInstance.getClass());\n\t\t\t}\n\t\t\tif (mbd != null) { \n\t\t\t\tmbd.isFactoryBean = true;\n\t\t\t}\n\t\t\treturn beanInstance;\n\t\t}\n\n\t\t// 2. 此时bean可能是 FactoryBean 或者 普通的bean。判断如果 beanInstance 不是 FactoryBean而是普通的bean, 就直接返回\n\t\tif (!(beanInstance instanceof FactoryBean)) { \n\t\t\treturn beanInstance;\n\t\t}\n\t\t// 3. 到这一步就可以确定，当前beanInstance 是FactoryBean，并且需要获取getObject() 的结果\n\t\tObject object = null;\n\t\tif (mbd != null) { \n\t\t\tmbd.isFactoryBean = true;\n\t\t}\n\t\telse { \n\t\t\t// 尝试从缓存中加载bean。这一步是从 factoryBeanObjectCache 集合中获取\n\t\t\t// 在后面获取 bean 成功后，可能会将 其缓存到 factoryBeanObjectCache  中\n\t\t\tobject = getCachedObjectForFactoryBean(beanName);\n\t\t}\n\t\n\t\tif (object == null) { \n\t\t\t// Return bean instance from factory.\n\t\t\tFactoryBean\u003c?\u003e factory = (FactoryBean\u003c?\u003e) beanInstance;\n\t\t\t// containsBeanDefinition 检测  beanDefinitionMap中也就是所有已经加载的类中检测是否定义beanName\n\t\t\tif (mbd == null \u0026\u0026 containsBeanDefinition(beanName)) { \n\t\t\t\t// 合并父类bean 定义的属性\n\t\t\t\tmbd = getMergedLocalBeanDefinition(beanName);\n\t\t\t}\n\t\t\tboolean synthetic = (mbd != null \u0026\u0026 mbd.isSynthetic());\n\t\t\t// 4. 这一步中对FactoryBean进行了解析。\n\t\t\tobject = getObjectFromFactoryBean(factory, beanName, !synthetic);\n\t\t}\n\t\treturn object;\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-pjmu2ab",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331082710-pjmu2ab",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2 getObjectFromFactoryBean"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-hws45x0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-hws45x0",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getObjectFromFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中 调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "doGetObjectFromFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法来获取 FactoryBean 中的 bean实例。下面我们来看一下"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getObjectFromFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 代码："
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-l8xp2ht",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082710-l8xp2ht",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected Object getObjectFromFactoryBean(FactoryBean\u003c?\u003e factory, String beanName, boolean shouldPostProcess) { \n\t\t// 判断是否是单例模式 \u0026\u0026 singletonObjects 尚未缓存该bean （containsSingleton调用的是 singletonObjects ）\n\t\tif (factory.isSingleton() \u0026\u0026 containsSingleton(beanName)) { \n\t\t\tsynchronized (getSingletonMutex()) { \n\t\t\t\t// 尝试从 factoryBeanObjectCache 缓存中获取\n\t\t\t\tObject object = this.factoryBeanObjectCache.get(beanName);\n\t\t\t\tif (object == null) { \n\t\t\t\t\t// 在这个方法中进行解析。调用 FactoryBean 的 getObject 方法\n\t\t\t\t\tobject = doGetObjectFromFactoryBean(factory, beanName);\n\n\t\t\t\t\t// 因为是单例模式，所以要保证变量的全局唯一。所以这里如果缓存中已经创建好了bean则替换为已经创建好的bean\n\t\t\t\t\tObject alreadyThere = this.factoryBeanObjectCache.get(beanName);\n\t\t\t\t\tif (alreadyThere != null) { \n\t\t\t\t\t\tobject = alreadyThere;\n\t\t\t\t\t}\n\t\t\t\t\telse { \n\t\t\t\t\t\t// 如果允许调用bean的后置处理器。因为这里是直接将bean创建返回了，如果要调用后置方法则只能在这里调用。\n\t\t\t\t\t\tif (shouldPostProcess) { \n\t\t\t\t\t\t\tif (isSingletonCurrentlyInCreation(beanName)) { \n\t\t\t\t\t\t\t\t// Temporarily return non-post-processed object, not storing it yet..\n\t\t\t\t\t\t\t\treturn object;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t// 将beanName 添加到 singletonsCurrentlyInCreation 中缓存，表示当前bean正在创建中\n\t\t\t\t\t\t\tbeforeSingletonCreation(beanName);\n\t\t\t\t\t\t\ttry { \n\t\t\t\t\t\t\t\t// 调用了ObjectFactory的后置处理器。\n\t\t\t\t\t\t\t\tobject = postProcessObjectFromFactoryBean(object, beanName);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\tcatch (Throwable ex) { \n\t\t\t\t\t\t\t\tthrow new BeanCreationException(beanName,\n\t\t\t\t\t\t\t\t\t\t\"Post-processing of FactoryBean's singleton object failed\", ex);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\tfinally { \n\t\t\t\t\t\t\t// 将beanName 从 singletonsCurrentlyInCreation 中移除，表示当前bean已经创建结束\n\t\t\t\t\t\t\t\tafterSingletonCreation(beanName);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t\t// return this.singletonObjects.containsKey(beanName); 如果 singletonObjects缓存中存在当前beanName，则将其缓存到 factoryBeanObjectCache 中。\n\t\t\t\t\t\tif (containsSingleton(beanName)) { \n\t\t\t\t\t\t\t// 这里保存的是 beanName : FactoryBean\n\t\t\t\t\t\t\tthis.factoryBeanObjectCache.put(beanName, object);\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\treturn object;\n\t\t\t}\n\t\t}\n\t\telse { \n\t\t\t// FactoryBean 非单例直接调用 getObject 方法\n\t\t\tObject object = doGetObjectFromFactoryBean(factory, beanName);\n\t\t\t// 如果允许调用后置方法，则调用postProcessObjectFromFactoryBean 方法\n\t\t\tif (shouldPostProcess) { \n\t\t\t\ttry { \n\t\t\t\t\tobject = postProcessObjectFromFactoryBean(object, beanName);\n\t\t\t\t}\n\t\t\t\tcatch (Throwable ex) { \n\t\t\t\t\tthrow new BeanCreationException(beanName, \"Post-processing of FactoryBean's object failed\", ex);\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn object;\n\t\t}\n\t}\n\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-pmht1iw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331082710-pmht1iw",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3 doGetObjectFromFactoryBean"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-ffp24cm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-ffp24cm",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "doGetObjectFromFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法的实现在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "FactoryBeanRegistrySupport#getObjectFromFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中，作用是 从 FactoryBean 中获取 Object 对象。代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-mavmv7w",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331082710-mavmv7w",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate Object doGetObjectFromFactoryBean(FactoryBean\u003c?\u003e factory, String beanName) throws BeanCreationException { \n\t\tObject object;\n\t\ttry { \n\t\t\t// 如果设置了安全管理器，尝试通过特权方式从 FactoryBean 中获取 Object\n\t\t\tif (System.getSecurityManager() != null) { \n\t\t\t\tAccessControlContext acc = getAccessControlContext();\n\t\t\t\ttry { \n\t\t\t\t\tobject = AccessController.doPrivileged((PrivilegedExceptionAction\u003cObject\u003e) factory::getObject, acc);\n\t\t\t\t}\n\t\t\t\tcatch (PrivilegedActionException pae) { \n\t\t\t\t\tthrow pae.getException();\n\t\t\t\t}\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// 直接从 FactoryBean 中获取 Object\n\t\t\t\tobject = factory.getObject();\n\t\t\t}\n\t\t}\n\t\tcatch (FactoryBeanNotInitializedException ex) { \n\t\t\tthrow new BeanCurrentlyInCreationException(beanName, ex.toString());\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\tthrow new BeanCreationException(beanName, \"FactoryBean threw exception on object creation\", ex);\n\t\t}\n\n\t\t// Do not accept a null value for a FactoryBean that's not fully\n\t\t// initialized yet: Many FactoryBeans just return null then.\n\t\tif (object == null) { \n\t\t\t// 如果当期bean是单例 \u0026\u0026 正在创建中，则抛出异常\n\t\t\tif (isSingletonCurrentlyInCreation(beanName)) { \n\t\t\t\tthrow new BeanCurrentlyInCreationException(\n\t\t\t\t\t\tbeanName, \"FactoryBean which is currently in creation returned null from getObject\");\n\t\t\t}\n\t\t\tobject = new NullBean();\n\t\t}\n\t\treturn object;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331082710-c2dyfwe",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331082710-c2dyfwe",
+				"updated": "20230331082710"
+			}
+		},
+		{
+			"ID": "20230331082710-e0y5gfj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331082710-e0y5gfj",
+				"updated": "20230331082710"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考《Spring源码深度解析》如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

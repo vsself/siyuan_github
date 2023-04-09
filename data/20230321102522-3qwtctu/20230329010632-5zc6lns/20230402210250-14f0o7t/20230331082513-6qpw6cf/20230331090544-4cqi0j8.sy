@@ -1,0 +1,3727 @@
+{
+	"ID": "20230331090544-4cqi0j8",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331090544-4cqi0j8",
+		"title": "Spring源码分析十六：事务实现② - ProxyTransactionManagementConfiguration_iscandidateclass错误_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331090544"
+	},
+	"Children": [
+		{
+			"ID": "20230331090544-nic5un2",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090544-nic5un2",
+				"updated": "20230331090544"
+			}
+		},
+		{
+			"ID": "20230331090544-60vv46o",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090544-60vv46o",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"ID": "20230331090544-tuvkt51",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-tuvkt51",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-wd0vfo8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-wd0vfo8",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/107140359"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-u36wy19",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-u36wy19",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-t9yijtw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-t9yijtw",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一、前言本文是笔者阅读Spring源码的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。由于 事务的源码和 前篇的 Aop 源码逻辑很类似，所以本篇中某些内容不会展开去讲解，建议先阅读完 Spring源码分析十一：@AspectJ方式的AOP再来阅读本文会更好理解。–"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-xkzo81z",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-xkzo81z",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-95j838d",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-95j838d",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:05:44"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-0bg8pgm",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090544-0bg8pgm",
+				"updated": "20230331090544"
+			}
+		},
+		{
+			"ID": "20230331090544-lshayzi",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090544-lshayzi",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-h1x3p61",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090544-h1x3p61",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"ID": "20230331090544-m6sq2s1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-m6sq2s1",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-hqznrvx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-hqznrvx",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359#_3",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-zg53pbp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-zg53pbp",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-s6gqelx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-s6gqelx",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359#_ProxyTransactionManagementConfiguration_32",
+									"TextMarkTextContent": "二、 ProxyTransactionManagementConfiguration"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-thowlgq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-thowlgq",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-tz0w3mp",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090544-tz0w3mp",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"ID": "20230331090544-d64wvuq",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090544-d64wvuq",
+										"updated": "20230331090544"
+									},
+									"Children": [
+										{
+											"ID": "20230331090544-uvmbjap",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090544-uvmbjap",
+												"updated": "20230331090544"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359#1_BeanFactoryTransactionAttributeSourceAdvisor_79",
+													"TextMarkTextContent": "1. BeanFactoryTransactionAttributeSourceAdvisor"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090544-82fkan2",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090544-82fkan2",
+										"updated": "20230331090544"
+									},
+									"Children": [
+										{
+											"ID": "20230331090544-4z7msi5",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331090544-4z7msi5",
+												"updated": "20230331090544"
+											},
+											"Children": [
+												{
+													"ID": "20230331090544-00qyx92",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090544-00qyx92",
+														"updated": "20230331090544"
+													},
+													"Children": [
+														{
+															"ID": "20230331090544-6bn5m4z",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090544-6bn5m4z",
+																"updated": "20230331090544"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359#11_TransactionAttributeSourcePointcut_126",
+																	"TextMarkTextContent": "1.1. TransactionAttributeSourcePointcut"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090544-6348lc5",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090544-6348lc5",
+										"updated": "20230331090544"
+									},
+									"Children": [
+										{
+											"ID": "20230331090544-4uxkrxk",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090544-4uxkrxk",
+												"updated": "20230331090544"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359#2_AnnotationTransactionAttributeSource_190",
+													"TextMarkTextContent": "2. AnnotationTransactionAttributeSource"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090544-jdw8k8c",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090544-jdw8k8c",
+										"updated": "20230331090544"
+									},
+									"Children": [
+										{
+											"ID": "20230331090544-pmuwqv8",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331090544-pmuwqv8",
+												"updated": "20230331090544"
+											},
+											"Children": [
+												{
+													"ID": "20230331090544-6a92zwu",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090544-6a92zwu",
+														"updated": "20230331090544"
+													},
+													"Children": [
+														{
+															"ID": "20230331090544-685b0yy",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090544-685b0yy",
+																"updated": "20230331090544"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359#21_AnnotationTransactionAttributeSourceisCandidateClass_194",
+																	"TextMarkTextContent": "2.1 AnnotationTransactionAttributeSource#isCandidateClass"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090544-9oapvvu",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090544-9oapvvu",
+														"updated": "20230331090544"
+													},
+													"Children": [
+														{
+															"ID": "20230331090544-nbjar4h",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090544-nbjar4h",
+																"updated": "20230331090544"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359#22_AbstractFallbackTransactionAttributeSourcegetTransactionAttribute_241",
+																	"TextMarkTextContent": "2.2 AbstractFallbackTransactionAttributeSource#getTransactionAttribute"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090544-chekzsh",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090544-chekzsh",
+														"updated": "20230331090544"
+													},
+													"Children": [
+														{
+															"ID": "20230331090544-xx3al0o",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230331090544-xx3al0o",
+																"updated": "20230331090544"
+															},
+															"Children": [
+																{
+																	"ID": "20230331090544-6l22hxj",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090544-6l22hxj",
+																		"updated": "20230331090544"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090544-pr6d3bw",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090544-pr6d3bw",
+																				"updated": "20230331090544"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359#221_AnnotationTransactionAttributeSourcefindTransactionAttributejavalangreflectMethod_344",
+																					"TextMarkTextContent": "2.2.1 AnnotationTransactionAttributeSource#findTransactionAttribute(java.lang.reflect.Method)"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230331090544-0jzcilk",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090544-0jzcilk",
+																		"updated": "20230331090544"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090544-a3ta96y",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090544-a3ta96y",
+																				"updated": "20230331090544"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359#222_SpringTransactionAnnotationParserparseTransactionAnnotationjavalangreflectAnnotatedElement_365",
+																					"TextMarkTextContent": "2.2.2 SpringTransactionAnnotationParser#parseTransactionAnnotation(java.lang.reflect.AnnotatedElement)"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090544-lzeu8un",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090544-lzeu8un",
+										"updated": "20230331090544"
+									},
+									"Children": [
+										{
+											"ID": "20230331090544-clzempu",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090544-clzempu",
+												"updated": "20230331090544"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359#3_TransactionInterceptor_420",
+													"TextMarkTextContent": "3. TransactionInterceptor"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090544-4dfsmhn",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090544-4dfsmhn",
+										"updated": "20230331090544"
+									},
+									"Children": [
+										{
+											"ID": "20230331090544-jg4q3uj",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331090544-jg4q3uj",
+												"updated": "20230331090544"
+											},
+											"Children": [
+												{
+													"ID": "20230331090544-tt8vqtl",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090544-tt8vqtl",
+														"updated": "20230331090544"
+													},
+													"Children": [
+														{
+															"ID": "20230331090544-lo08c7h",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090544-lo08c7h",
+																"updated": "20230331090544"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359#1_TransactionAspectSupportinvokeWithinTransaction_440",
+																	"TextMarkTextContent": "1. TransactionAspectSupport#invokeWithinTransaction"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-qzd18he",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090544-qzd18he",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-h6gq9of",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-h6gq9of",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是笔者阅读Spring源码的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-9rlhvuy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-9rlhvuy",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "全集目录："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106440723",
+					"TextMarkTextContent": "Spring源码分析：全集整理"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-2jjqc0u",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090544-2jjqc0u",
+				"updated": "20230331090544"
+			}
+		},
+		{
+			"ID": "20230331090544-5h3a4ea",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-5h3a4ea",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于 事务的源码和 前篇的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=Aop\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "Aop"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 源码逻辑很类似，所以本篇中某些内容不会展开去讲解，建议先阅读完 全集目录中的Aop部分，再来阅读本文会更好理解。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-g3iokuo",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090544-g3iokuo",
+				"updated": "20230331090544"
+			}
+		},
+		{
+			"ID": "20230331090544-dl96kkx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-dl96kkx",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这是一个巨长的篇章…\n全集目录如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-uf8zp74",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090544-uf8zp74",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"ID": "20230331090544-52y2ieu",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090544-52y2ieu",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-elkrodv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-elkrodv",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676116",
+									"TextMarkTextContent": "Spring源码分析十五：事务实现① - AutoProxyRegistrar"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-xt8b9b1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090544-xt8b9b1",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-pt40osz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-pt40osz",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359",
+									"TextMarkTextContent": "Spring源码分析十六：事务实现② - ProxyTransactionManagementConfiguration"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-mno3x0a",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090544-mno3x0a",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-7sa2vjc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-7sa2vjc",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307",
+									"TextMarkTextContent": "Spring源码分析十七：事务实现③ - 事务的创建"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-wgjvs2a",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090544-wgjvs2a",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-ac6x7j6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-ac6x7j6",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323",
+									"TextMarkTextContent": "Spring源码分析十八：事务实现④ - 事务的回滚"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-jc290xs",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230331090544-jc290xs",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-jeu4vvf",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-jeu4vvf",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299336",
+									"TextMarkTextContent": "Spring源码分析十九：事务实现⑤ - 事务的提交"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-3yfb6y9",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090544-3yfb6y9",
+				"updated": "20230331090544"
+			}
+		},
+		{
+			"ID": "20230331090544-rxnrivf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-rxnrivf",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上篇中我们讲到 @EnableTransactionManagement 引入了两个类："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoProxyRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 和"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-8sdi2kv",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090544-8sdi2kv",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"ID": "20230331090544-qoxhy4r",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-qoxhy4r",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-1e7dzw8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-1e7dzw8",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AutoProxyRegistrar"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 主要是注册了 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 自动代理创建器。而 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的逻辑基本上和 Aop 的逻辑相同"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-6bcwbjn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-6bcwbjn",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-jbrthzd",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-jbrthzd",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ProxyTransactionManagementConfiguration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 注册了事务实现的核心 Bean，包括 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactoryTransactionAttributeSourceAdvisor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​、"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionAttributeSource"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​、"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionInterceptor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 等。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-8r1l0hb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-8r1l0hb",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-24bu1hk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-24bu1hk",
+								"updated": "20230331090544"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-xucjw3g",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-xucjw3g",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在上一篇中我们分析了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutoProxyRegistrar"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的作用，本篇则来分析一下 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的逻辑过程。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-fnbfxl9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090544-fnbfxl9",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、 ProxyTransactionManagementConfiguration"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-i79qgls",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-i79qgls",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 代码如下，并没有逻辑，就是将几个Bean注入的到容器中。不过这几个bean可都是关键bean，所以我们需要对其中的bean进行分析。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-w2dbuj6",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090544-w2dbuj6",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Configuration(proxyBeanMethods = false)\n@Role(BeanDefinition.ROLE_INFRASTRUCTURE)\npublic class ProxyTransactionManagementConfiguration extends AbstractTransactionManagementConfiguration { \n\n\t@Bean(name = TransactionManagementConfigUtils.TRANSACTION_ADVISOR_BEAN_NAME)\n\t@Role(BeanDefinition.ROLE_INFRASTRUCTURE)\n\tpublic BeanFactoryTransactionAttributeSourceAdvisor transactionAdvisor(\n\t\t\tTransactionAttributeSource transactionAttributeSource, TransactionInterceptor transactionInterceptor) { \n\n\t\tBeanFactoryTransactionAttributeSourceAdvisor advisor = new BeanFactoryTransactionAttributeSourceAdvisor();\n\t\tadvisor.setTransactionAttributeSource(transactionAttributeSource);\n\t\tadvisor.setAdvice(transactionInterceptor);\n\t\tif (this.enableTx != null) { \n\t\t\tadvisor.setOrder(this.enableTx.\u003cInteger\u003egetNumber(\"order\"));\n\t\t}\n\t\treturn advisor;\n\t}\n\n\t@Bean\n\t@Role(BeanDefinition.ROLE_INFRASTRUCTURE)\n\tpublic TransactionAttributeSource transactionAttributeSource() { \n\t\treturn new AnnotationTransactionAttributeSource();\n\t}\n\n\t@Bean\n\t@Role(BeanDefinition.ROLE_INFRASTRUCTURE)\n\tpublic TransactionInterceptor transactionInterceptor(TransactionAttributeSource transactionAttributeSource) { \n\t\tTransactionInterceptor interceptor = new TransactionInterceptor();\n\t\tinterceptor.setTransactionAttributeSource(transactionAttributeSource);\n\t\tif (this.txManager != null) { \n\t\t\tinterceptor.setTransactionManager(this.txManager);\n\t\t}\n\t\treturn interceptor;\n\t}\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-b39p62t",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090544-b39p62t",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"ID": "20230331090544-obly3cy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-obly3cy",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-5jn7rjw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-5jn7rjw",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactoryTransactionAttributeSourceAdvisor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 事务的增强器，该方法是否开始事务，是否需要代理该类都在该类中判断"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-dgtz3pg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-dgtz3pg",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-r7g7leb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-r7g7leb",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionAttributeSource"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 保存了事务相关的一些信息资源。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-yhxxshf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-yhxxshf",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-894mk8v",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-894mk8v",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionInterceptor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ : 事务拦截器，事务生成代理类时使用的代理拦截器，编写了事务的规则"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-4h5400s",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090544-4h5400s",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. BeanFactoryTransactionAttributeSourceAdvisor"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-xeypqyj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090544-xeypqyj",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class BeanFactoryTransactionAttributeSourceAdvisor extends AbstractBeanFactoryPointcutAdvisor { \n\n\t@Nullable\n\tprivate TransactionAttributeSource transactionAttributeSource;\n\n\tprivate final TransactionAttributeSourcePointcut pointcut = new TransactionAttributeSourcePointcut() { \n\t\t@Override\n\t\t@Nullable\n\t\tprotected TransactionAttributeSource getTransactionAttributeSource() { \n\t\t\treturn transactionAttributeSource;\n\t\t}\n\t};\n\n\n\t/**\n\t * Set the transaction attribute source which is used to find transaction\n\t * attributes. This should usually be identical to the source reference\n\t * set on the transaction interceptor itself.\n\t * @see TransactionInterceptor#setTransactionAttributeSource\n\t */\n\tpublic void setTransactionAttributeSource(TransactionAttributeSource transactionAttributeSource) { \n\t\tthis.transactionAttributeSource = transactionAttributeSource;\n\t}\n\n\t/**\n\t * Set the {@link ClassFilter} to use for this pointcut.\n\t * Default is {@link ClassFilter#TRUE}.\n\t */\n\tpublic void setClassFilter(ClassFilter classFilter) { \n\t\tthis.pointcut.setClassFilter(classFilter);\n\t}\n\n\t@Override\n\tpublic Pointcut getPointcut() { \n\t\treturn this.pointcut;\n\t}\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-aybz30g",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-aybz30g",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个根据上面的分析，我们可以知道这个是事务判断的核心，BeanFactoryTransactionAttributeSourceAdvisor 是Advisor 子类，那么我们可以知道其中有两个关键属性： Pointcut(判断是否可以作用于当前方法) 和 Advice(作用于当前方法的具体逻辑)。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-nxzt5vi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-nxzt5vi",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通过 Aop文章的分析我们可以知道，Advisor 判断一个方法是否匹配，是通过其 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Pointcut.matchs"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 属性来判断的。然后我们通过上面的代码，发现其 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Pointcut"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现类是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAttributeSourcePointcut"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ ，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "也就是说，一个方法是否需要使用事务，是通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "TransactionAttributeSourcePointcut#matches"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 方法判断的。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-xyk4s33",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090544-xyk4s33",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1. TransactionAttributeSourcePointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-nswzbtz",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090544-nswzbtz",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "abstract class TransactionAttributeSourcePointcut extends StaticMethodMatcherPointcut implements Serializable { \n\n\tprotected TransactionAttributeSourcePointcut() { \n\t\tsetClassFilter(new TransactionAttributeSourceClassFilter());\n\t}\n\n\n\t@Override\n\tpublic boolean matches(Method method, Class\u003c?\u003e targetClass) { \n\t\t// 调用 TransactionAttributeSource.getTransactionAttribute方法来匹配\n\t\tTransactionAttributeSource tas = getTransactionAttributeSource();\n\t\treturn (tas == null || tas.getTransactionAttribute(method, targetClass) != null);\n\t}\n\n\t... 省略一些无关代码\n\n\t/**\n\t * Obtain the underlying TransactionAttributeSource (may be {@code null}).\n\t * To be implemented by subclasses.\n\t */\n\t@Nullable\n\tprotected abstract TransactionAttributeSource getTransactionAttributeSource();\n\n\t/**\n\t * {@link ClassFilter} that delegates to {@link TransactionAttributeSource#isCandidateClass}\n\t * for filtering classes whose methods are not worth searching to begin with.\n\t */\n\tprivate class TransactionAttributeSourceClassFilter implements ClassFilter { \n\n\t\t@Override\n\t\tpublic boolean matches(Class\u003c?\u003e clazz) { \n\t\t\t// 如果是一些基础类，则返回false\n\t\t\tif (TransactionalProxy.class.isAssignableFrom(clazz) ||\n\t\t\t\t\tPlatformTransactionManager.class.isAssignableFrom(clazz) ||\n\t\t\t\t\tPersistenceExceptionTranslator.class.isAssignableFrom(clazz)) { \n\t\t\t\treturn false;\n\t\t\t}\n\t\t\t// 调用 TransactionAttributeSource.isCandidateClass 方法来匹配\n\t\t\tTransactionAttributeSource tas = getTransactionAttributeSource();\n\t\t\treturn (tas == null || tas.isCandidateClass(clazz));\n\t\t}\n\t}\n\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-zztsfn4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-zztsfn4",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Aop中我们总结了 Pointcut 匹配的需要满足下面两个条件:"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-gmwpspw",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090544-gmwpspw",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"ID": "20230331090544-gxy7487",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090544-gxy7487",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-tuo18hz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-tuo18hz",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "pc.getClassFilter().matches(targetClass)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 返回true"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-6vre4zz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090544-6vre4zz",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-f0np630",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-f0np630",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "pc.getMethodMatcher().matches(method, targetClass)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 返回true\n如下图，具体实现在 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AopUtils#canApply(org.springframework.aop.Pointcut, java.lang.Class\u0026lt;?\u0026gt;, boolean)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中，这里第二点不考虑，因为在这里不会为True\n​"
+								},
+								{
+									"Type": "NodeImage",
+									"Data": "span",
+									"Children": [
+										{
+											"Type": "NodeBang"
+										},
+										{
+											"Type": "NodeOpenBracket"
+										},
+										{
+											"Type": "NodeLinkText",
+											"Data": "在这里插入图片描述"
+										},
+										{
+											"Type": "NodeCloseBracket"
+										},
+										{
+											"Type": "NodeOpenParen"
+										},
+										{
+											"Type": "NodeLinkDest",
+											"Data": "assets/20210309150518765-20230331090544-cxzpvvn.png"
+										},
+										{
+											"Type": "NodeCloseParen"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-9pu3rmh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-9pu3rmh",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAttributeSourcePointcut"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的代码我们可以发现，上面两个条件的关键\n可以转换成"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-8q3r2se",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090544-8q3r2se",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"ID": "20230331090544-qwyk9at",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090544-qwyk9at",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-lbsprj3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-lbsprj3",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionAttributeSource.isCandidateClass"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法来匹配 ："
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionAttributeSourceClassFilter#matches"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中调用了该方法"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-r5twla9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090544-r5twla9",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-rbn07lw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-rbn07lw",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionAttributeSource.getTransactionAttribute"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​方法来匹配"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-9ude1ju",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-9ude1ju",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "而 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAttributeSource"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 正是我们在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中注入的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotationTransactionAttributeSource"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-kt2dmix",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090544-kt2dmix",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. AnnotationTransactionAttributeSource"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-ypbjeuv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-ypbjeuv",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "经过上面的分析，我们知道了主要逻辑在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "isCandidateClass"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getTransactionAttribute"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中，也就是一个Bean 是否需要事务代理需要通过下面两个方法的校验。因此我们下面来看看这两个方法的实现"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-l3wbt2m",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090544-l3wbt2m",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1 AnnotationTransactionAttributeSource#isCandidateClass"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-sxeefsz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-sxeefsz",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "isCandidateClass"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 主要是 判断是否是候选类，即当前的的注解解析器"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "annotationParsers"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 是否可以解析当前类。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "annotationParsers"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的初始化在其构造函数中，在初始化的过程中中添加了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SpringTransactionAnnotationParser"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，我们后面的事务注解解析就是通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SpringTransactionAnnotationParser"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 进行的解析。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-gylie5e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-gylie5e",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里annotationParsers 有三种解析类型："
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-fmfwn4u",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090544-fmfwn4u",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"ID": "20230331090544-6wv638s",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-6wv638s",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-960zzyh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-960zzyh",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "SpringTransactionAnnotationParser ：即我们默认的事务解析器，解析的注解是 org.springframework.transaction.annotation.Transactional"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-xr2i7x1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-xr2i7x1",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-dpmdrgx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-dpmdrgx",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "JtaTransactionAnnotationParser ：解析的注解是 javax.transaction.Transactional"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-o95wrq1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-o95wrq1",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-p18j70r",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-p18j70r",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Ejb3TransactionAnnotationParser ：解析的注解是 javax.ejb.TransactionAttribute"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-3yvm2el",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090544-3yvm2el",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate final Set\u003cTransactionAnnotationParser\u003e annotationParsers;\n\t...\n\n\tpublic AnnotationTransactionAttributeSource() { \n\t\tthis(true);\n\t}\n\t...\n\tpublic AnnotationTransactionAttributeSource(boolean publicMethodsOnly) { \n\t\tthis.publicMethodsOnly = publicMethodsOnly;\n\t\t// 可以看到，无论什么场景 SpringTransactionAnnotationParser 都是必定存在的解析器\n\t\tif (jta12Present || ejb3Present) { \n\t\t\tthis.annotationParsers = new LinkedHashSet\u003c\u003e(4);\n\t\t\tthis.annotationParsers.add(new SpringTransactionAnnotationParser());\n\t\t\tif (jta12Present) { \n\t\t\t\tthis.annotationParsers.add(new JtaTransactionAnnotationParser());\n\t\t\t}\n\t\t\tif (ejb3Present) { \n\t\t\t\tthis.annotationParsers.add(new Ejb3TransactionAnnotationParser());\n\t\t\t}\n\t\t}\n\t\telse { \n\t\t\tthis.annotationParsers = Collections.singleton(new SpringTransactionAnnotationParser());\n\t\t}\n\t}\n\n\t@Override\n\tpublic boolean isCandidateClass(Class\u003c?\u003e targetClass) { \n\t\tfor (TransactionAnnotationParser parser : this.annotationParsers) { \n\t\t\t// 这里是SpringTransactionAnnotationParser  类型， SpringTransactionAnnotationParser#isCandidateClass 中判断了目标类是否存在  org.springframework.transaction.annotation.Transactional 注解\n\t\t\tif (parser.isCandidateClass(targetClass)) { \n\t\t\t\treturn true;\n\t\t\t}\n\t\t}\n\t\treturn false;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-0t2bw5s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-0t2bw5s",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "SpringTransactionAnnotationParser#isCandidateClass"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 中判断了目标类是否存在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "org.springframework.transaction.annotation.Transactional"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 注解，如果存在，这里会返回true，通过校验"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-c3ivtsz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090544-c3ivtsz",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2 AbstractFallbackTransactionAttributeSource#getTransactionAttribute"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-vkzomss",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-vkzomss",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getTransactionAttribute"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法的实现在其父类"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractFallbackTransactionAttributeSource"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中 实现的"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-8xe2z4s",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090544-8xe2z4s",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "// 获取事务属性，如果\npublic TransactionAttribute getTransactionAttribute(Method method, @Nullable Class\u003c?\u003e targetClass) { \n\t\t// 判断声明类是否是 Object \n\t\tif (method.getDeclaringClass() == Object.class) { \n\t\t\treturn null;\n\t\t}\n\n\t\t// First, see if we have a cached value.\n\t\t// 尝试从缓冲中获取\n\t\tObject cacheKey = getCacheKey(method, targetClass);\n\t\tTransactionAttribute cached = this.attributeCache.get(cacheKey);\n\t\tif (cached != null) { \n\t\t\t// Value will either be canonical value indicating there is no transaction attribute,\n\t\t\t// or an actual transaction attribute.\n\t\t\tif (cached == NULL_TRANSACTION_ATTRIBUTE) { \n\t\t\t\treturn null;\n\t\t\t}\n\t\t\telse { \n\t\t\t\treturn cached;\n\t\t\t}\n\t\t}\n\t\telse { \n\t\t\t// We need to work it out.\n\t\t\t// 没有缓存，则开始解析\n\t\t\tTransactionAttribute txAttr = computeTransactionAttribute(method, targetClass);\n\t\t\t// Put it in the cache.\n\t\t\t// 获取\n\t\t\tif (txAttr == null) { \n\t\t\t\t// 放入缓存中\n\t\t\t\tthis.attributeCache.put(cacheKey, NULL_TRANSACTION_ATTRIBUTE);\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// 获取合适的方法名称\n\t\t\t\tString methodIdentification = ClassUtils.getQualifiedMethodName(method, targetClass);\n\t\t\t\tif (txAttr instanceof DefaultTransactionAttribute) { \n\t\t\t\t\t((DefaultTransactionAttribute) txAttr).setDescriptor(methodIdentification);\n\t\t\t\t}\n\t\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\t\tlogger.trace(\"Adding transactional method '\" + methodIdentification + \"' with attribute: \" + txAttr);\n\t\t\t\t}\n\t\t\t\tthis.attributeCache.put(cacheKey, txAttr);\n\t\t\t}\n\t\t\treturn txAttr;\n\t\t}\n\t}\n\n\t...\n\t// 解析事务注解属性\n\tprotected TransactionAttribute computeTransactionAttribute(Method method, @Nullable Class\u003c?\u003e targetClass) { \n\t\t// Don't allow no-public methods as required.\n\t\t// 如果只允许解析public 方法 \u0026\u0026 当前方法不是 publissh\n\t\tif (allowPublicMethodsOnly() \u0026\u0026 !Modifier.isPublic(method.getModifiers())) { \n\t\t\treturn null;\n\t\t}\n\n\t\t// The method may be on an interface, but we need attributes from the target class.\n\t\t// If the target class is null, the method will be unchanged.\n\t\t// method 代表接口中的方法，specificMethod  方法代表实现类中的方法\n\t\tMethod specificMethod = AopUtils.getMostSpecificMethod(method, targetClass);\n\n\t\t// First try is the method in the target class.\n\t\t// 寻找实现类方法的事务属性，即类方法是否有声明事务属性\n\t\tTransactionAttribute txAttr = findTransactionAttribute(specificMethod);\n\t\tif (txAttr != null) { \n\t\t\treturn txAttr;\n\t\t}\n\n\t\t// Second try is the transaction attribute on the target class.\n\t\t// 在实现类上是否有事务属性的声明\n\t\ttxAttr = findTransactionAttribute(specificMethod.getDeclaringClass());\n\t\tif (txAttr != null \u0026\u0026 ClassUtils.isUserLevelMethod(method)) { \n\t\t\treturn txAttr;\n\t\t}\n\t\t// 如果存在接口方法，则从接口方法中尝试去获取事务属性\n\t\tif (specificMethod != method) { \n\t\t\t// Fallback is to look at the original method.\n\t\t\ttxAttr = findTransactionAttribute(method);\n\t\t\tif (txAttr != null) { \n\t\t\t\treturn txAttr;\n\t\t\t}\n\t\t\t// Last fallback is the class of the original method.\n\t\t\ttxAttr = findTransactionAttribute(method.getDeclaringClass());\n\t\t\tif (txAttr != null \u0026\u0026 ClassUtils.isUserLevelMethod(method)) { \n\t\t\t\treturn txAttr;\n\t\t\t}\n\t\t}\n\t\t// 都没得到则返回没有得到\n\t\treturn null;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-r5eei8r",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-r5eei8r",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里的逻辑还是很清楚的"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-lqvnapu",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090544-lqvnapu",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"ID": "20230331090544-i8pfm3c",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090544-i8pfm3c",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-j90511p",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-j90511p",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "从实现类方法上获取事务注解，若获取到则返回"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-oa9fmai",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090544-oa9fmai",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-6td94lw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-6td94lw",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "从实现类上获取事务注解，若获取到则返回"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-i6645k4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090544-i6645k4",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-99mdlrm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-99mdlrm",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果存在接口方法，则从接口方法中获取事务注解，若获取到则返回"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-r4xnl6n",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090544-r4xnl6n",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-rybthtt",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-rybthtt",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "若仍未获取到，则返回null，认为当前方法没有被注解修饰"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-1l9v9pu",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090544-1l9v9pu",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2.1 AnnotationTransactionAttributeSource#findTransactionAttribute(java.lang.reflect.Method)"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-xwft4ck",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-xwft4ck",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在上面的代码中，我们注意到一个方法 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "findTransactionAttribute"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。上面代码就是通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "findTransactionAttribute"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法来寻找事务注解属性的。而"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "findTransactionAttribute"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotationTransactionAttributeSource"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中。其实现代码如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-u3gkeah",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090544-u3gkeah",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected TransactionAttribute findTransactionAttribute(Method method) { \n\t\treturn determineTransactionAttribute(method);\n\t}\n\n\t...\n\tprotected TransactionAttribute determineTransactionAttribute(AnnotatedElement element) { \n\t\tfor (TransactionAnnotationParser parser : this.annotationParsers) { \n\t\t\tTransactionAttribute attr = parser.parseTransactionAnnotation(element);\n\t\t\tif (attr != null) { \n\t\t\t\treturn attr;\n\t\t\t}\n\t\t}\n\t\treturn null;\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-tuyzzbf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-tuyzzbf",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotationTransactionAttributeSource"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中获取 事务注解是通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAnnotationParser#parseTransactionAnnotation"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法去解析的，而一开始我们就说过"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "annotationParsers"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 在构造函数中添加了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SpringTransactionAnnotationParser"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。我们来看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SpringTransactionAnnotationParser"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 进行了怎么样的解析。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-uiayejs",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090544-uiayejs",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2.2 SpringTransactionAnnotationParser#parseTransactionAnnotation(java.lang.reflect.AnnotatedElement)"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-13o8tyf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-13o8tyf",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "到这里，我们终于看到了事务注解的描述，这里就是解析事务注解的各种属性信息了"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-jwkyn7h",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090544-jwkyn7h",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic TransactionAttribute parseTransactionAnnotation(AnnotatedElement element) { \n\t\t// 获取事务注解的属性信息\n\t\tAnnotationAttributes attributes = AnnotatedElementUtils.findMergedAnnotationAttributes(\n\t\t\t\telement, Transactional.class, false, false);\n\t\tif (attributes != null) { \n\t\t\treturn parseTransactionAnnotation(attributes);\n\t\t}\n\t\telse { \n\t\t\treturn null;\n\t\t}\n\t}\n\n....\n\t// 解析事务注解，并返回\n\tprotected TransactionAttribute parseTransactionAnnotation(AnnotationAttributes attributes) { \n\t\tRuleBasedTransactionAttribute rbta = new RuleBasedTransactionAttribute();\n\t\t// 解析各种属性信息\n\t\tPropagation propagation = attributes.getEnum(\"propagation\");\n\t\trbta.setPropagationBehavior(propagation.value());\n\t\tIsolation isolation = attributes.getEnum(\"isolation\");\n\t\trbta.setIsolationLevel(isolation.value());\n\t\trbta.setTimeout(attributes.getNumber(\"timeout\").intValue());\n\t\trbta.setReadOnly(attributes.getBoolean(\"readOnly\"));\n\t\trbta.setQualifier(attributes.getString(\"value\"));\n\n\t\tList\u003cRollbackRuleAttribute\u003e rollbackRules = new ArrayList\u003c\u003e();\n\t\tfor (Class\u003c?\u003e rbRule : attributes.getClassArray(\"rollbackFor\")) { \n\t\t\trollbackRules.add(new RollbackRuleAttribute(rbRule));\n\t\t}\n\t\tfor (String rbRule : attributes.getStringArray(\"rollbackForClassName\")) { \n\t\t\trollbackRules.add(new RollbackRuleAttribute(rbRule));\n\t\t}\n\t\tfor (Class\u003c?\u003e rbRule : attributes.getClassArray(\"noRollbackFor\")) { \n\t\t\trollbackRules.add(new NoRollbackRuleAttribute(rbRule));\n\t\t}\n\t\tfor (String rbRule : attributes.getStringArray(\"noRollbackForClassName\")) { \n\t\t\trollbackRules.add(new NoRollbackRuleAttribute(rbRule));\n\t\t}\n\t\trbta.setRollbackRules(rollbackRules);\n\n\t\treturn rbta;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-tvefxm0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-tvefxm0",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们的分析到这里，就已经可以知道了Spring 中对事务注解的解析过程，逻辑基本和 Spring Aop 类似。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-4e9ahra",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090544-4e9ahra",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"ID": "20230331090544-equ10r7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090544-equ10r7",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-b2cc20w",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-b2cc20w",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@EnableTransactionManagement"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 通过引入 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionManagementConfigurationSelector"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 注册了 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AutoProxyRegistrar"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 和 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ProxyTransactionManagementConfiguration"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 两个类。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-6k4fqhl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090544-6k4fqhl",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-4taeimh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-4taeimh",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AutoProxyRegistrar"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中注册了 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 自动代理创建器"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-evx6r6x",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090544-evx6r6x",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-321hw81",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-321hw81",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "InfrastructureAdvisorAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中拦截bean的创建过程，通过 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactoryTransactionAttributeSourceAdvisor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 来判断bean中是否有事务注解，有则进行代理。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-kgid421",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-kgid421",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在上面的逻辑中，我们似乎没有发现Spring事务代理的具体过程，实际上代理的过程是在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-shdqme5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090544-shdqme5",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3. TransactionInterceptor"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-7hscniy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-7hscniy",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 Aop 的分析文章中，我们知道了无论是 Jdk代理还是 Cglib代理，其增强实现都是调用 Advisor 中的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Advice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 实现。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryTransactionAttributeSourceAdvisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 作为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Advisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现类，自然要遵从 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Advisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的处理方式，当代理被调用时会调用这个类的增强方法，也就是此bean 的Advice ，而在解析事务标签是，我们把 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注入到了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactoryTransactionAttributeSourceAdvisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中，所以调用事务增强器增强代理类的时会首先执行"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 进行增强，同时也就是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionInterceptor#invoke"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 完成了整个事务的逻辑。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-llvl7mf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-llvl7mf",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所以我们这里自然要看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionInterceptor#invoke"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-8lac2fg",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090544-8lac2fg",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic Object invoke(MethodInvocation invocation) throws Throwable { \n\t\tClass\u003c?\u003e targetClass = (invocation.getThis() != null ? AopUtils.getTargetClass(invocation.getThis()) : null);\n\n\t\t// 在事务修饰下执行方法\n\t\treturn invokeWithinTransaction(invocation.getMethod(), targetClass, invocation::proceed);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-be315ha",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-be315ha",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到核心逻辑都在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invokeWithinTransaction"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中，这里调用的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invokeWithinTransaction"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法 实际是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAspectSupport#invokeWithinTransaction"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法。所以下面我们来看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAspectSupport#invokeWithinTransaction"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法的具体实现"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-4bk3qwv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090544-4bk3qwv",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. TransactionAspectSupport#invokeWithinTransaction"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-uu0o95k",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090544-uu0o95k",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Nullable\n\tprotected Object invokeWithinTransaction(Method method, @Nullable Class\u003c?\u003e targetClass,\n\t\t\tfinal InvocationCallback invocation) throws Throwable { \n\n\t\t// If the transaction attribute is null, the method is non-transactional.\n\t\t// 获取事务数据源，这里获取的数据源就是在  TransactionInterceptor 注入的时候的设置的属性transactionAttributeSource = AnnotationTransactionAttributeSource。\n\t\t// 在 ProxyTransactionManagementConfiguration 中完成\n\t\tTransactionAttributeSource tas = getTransactionAttributeSource();\n\t\t// 1. 获取对应的事务属性\n\t\tfinal TransactionAttribute txAttr = (tas != null ? tas.getTransactionAttribute(method, targetClass) : null);\n\t\t// 2. 获取一个合适的 TransactionManager \n\t\tfinal TransactionManager tm = determineTransactionManager(txAttr);\n\t\t// 3. 对于反应式事务的处理\n\t\t// 从Spring Framework 5.2 M2开始，Spring通过ReactiveTransactionManagerSPI 支持响应式/反应式事务管理\n\t\tif (this.reactiveAdapterRegistry != null \u0026\u0026 tm instanceof ReactiveTransactionManager) { \n\t\t\tReactiveTransactionSupport txSupport = this.transactionSupportCache.computeIfAbsent(method, key -\u003e { \n\t\t\t\tif (KotlinDetector.isKotlinType(method.getDeclaringClass()) \u0026\u0026 KotlinDelegate.isSuspend(method)) { \n\t\t\t\t\tthrow new TransactionUsageException(\n\t\t\t\t\t\t\t\"Unsupported annotated transaction on suspending function detected: \" + method +\n\t\t\t\t\t\t\t\". Use TransactionalOperator.transactional extensions instead.\");\n\t\t\t\t}\n\t\t\t\tReactiveAdapter adapter = this.reactiveAdapterRegistry.getAdapter(method.getReturnType());\n\t\t\t\tif (adapter == null) { \n\t\t\t\t\tthrow new IllegalStateException(\"Cannot apply reactive transaction to non-reactive return type: \" +\n\t\t\t\t\t\t\tmethod.getReturnType());\n\t\t\t\t}\n\t\t\t\treturn new ReactiveTransactionSupport(adapter);\n\t\t\t});\n\t\t\treturn txSupport.invokeWithinTransaction(\n\t\t\t\t\tmethod, targetClass, invocation, txAttr, (ReactiveTransactionManager) tm);\n\t\t}\n\t\t// 判断 tm是否是 PlatformTransactionManager 类型，是则强转，不是则抛出异常\n\t\tPlatformTransactionManager ptm = asPlatformTransactionManager(tm);\n\t\t// 构造方法的唯一标识( 全路径了类名.方法)\n\t\tfinal String joinpointIdentification = methodIdentification(method, targetClass, txAttr);\n\t\t// 4. 对不同事务情景的处理\n\t\t// 声明式事务的处理\n\t\t// 如果txAttr为空或者tm 属于非CallbackPreferringPlatformTransactionManager，执行目标增强\n\t\t// 在TransactionManager上，CallbackPreferringPlatformTransactionManager实现PlatformTransactionManager接口，暴露出一个方法用于执行事务处理中的回调\n\t\tif (txAttr == null || !(ptm instanceof CallbackPreferringPlatformTransactionManager)) { \n\t\t\t// Standard transaction demarcation with getTransaction and commit/rollback calls.\n\t\t\t// 5.如果有必要，创建事务信息。主要由于事务的传播属性，所以这里并不一定会创建事务\n\t\t\tTransactionInfo txInfo = createTransactionIfNecessary(ptm, txAttr, joinpointIdentification);\n\n\t\t\tObject retVal;\n\t\t\ttry { \n\t\t\t\t// This is an around advice: Invoke the next interceptor in the chain.\n\t\t\t\t// This will normally result in a target object being invoked.\n\t\t\t\t// 6. 执行被增强的方法\n\t\t\t\tretVal = invocation.proceedWithInvocation();\n\t\t\t}\n\t\t\tcatch (Throwable ex) { \n\t\t\t\t// target invocation exception\n\t\t\t\t// 7. 异常回滚\n\t\t\t\tcompleteTransactionAfterThrowing(txInfo, ex);\n\t\t\t\tthrow ex;\n\t\t\t}\n\t\t\tfinally { \n\t\t\t\t// 8. 提交之前清除事务信息\n\t\t\t\tcleanupTransactionInfo(txInfo);\n\t\t\t}\n\n\t\t\tif (vavrPresent \u0026\u0026 VavrDelegate.isVavrTry(retVal)) { \n\t\t\t\t// Set rollback-only in case of Vavr failure matching our rollback rules...\n\t\t\t\tTransactionStatus status = txInfo.getTransactionStatus();\n\t\t\t\tif (status != null \u0026\u0026 txAttr != null) { \n\t\t\t\t\tretVal = VavrDelegate.evaluateTryFailure(retVal, txAttr, status);\n\t\t\t\t}\n\t\t\t}\n\t\t\t// 9.提交事务\n\t\t\tcommitTransactionAfterReturning(txInfo);\n\t\t\treturn retVal;\n\t\t}\n\t\t// 编程式事务(CallbackPreferringPlatformTransactionManager)的处理。这里的逻辑基本都被封装了\n\t\telse { \n\t\t\tfinal ThrowableHolder throwableHolder = new ThrowableHolder();\n\t\t\ttry { \n\t\t\t\t// 直接调用execute 方法。由于事务的提交回滚等操作都已经封装好了，所以这里并没有对事务进行详细的操作。\n\t\t\t\tObject result = ((CallbackPreferringPlatformTransactionManager) ptm).execute(txAttr, status -\u003e { \n\t\t\t\t\t// 准备事务信息\n\t\t\t\t\tTransactionInfo txInfo = prepareTransactionInfo(ptm, txAttr, joinpointIdentification, status);\n\t\t\t\t\ttry { \n\t\t\t\t\t\t// 执行方法\n\t\t\t\t\t\tObject retVal = invocation.proceedWithInvocation();\n\t\t\t\t\t\tif (vavrPresent \u0026\u0026 VavrDelegate.isVavrTry(retVal)) { \n\t\t\t\t\t\t\t// Set rollback-only in case of Vavr failure matching our rollback rules...\n\t\t\t\t\t\t\tretVal = VavrDelegate.evaluateTryFailure(retVal, txAttr, status);\n\t\t\t\t\t\t}\n\t\t\t\t\t\treturn retVal;\n\t\t\t\t\t}\n\t\t\t\t\tcatch (Throwable ex) { \n\t\t\t\t\t\tif (txAttr.rollbackOn(ex)) { \n\t\t\t\t\t\t\t// A RuntimeException: will lead to a rollback.\n\t\t\t\t\t\t\tif (ex instanceof RuntimeException) { \n\t\t\t\t\t\t\t\tthrow (RuntimeException) ex;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\telse { \n\t\t\t\t\t\t\t\tthrow new ThrowableHolderException(ex);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse { \n\t\t\t\t\t\t\t// A normal return value: will lead to a commit.\n\t\t\t\t\t\t\tthrowableHolder.throwable = ex;\n\t\t\t\t\t\t\treturn null;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tfinally { \t\n\t\t\t\t\t\t// 清除事务信息\n\t\t\t\t\t\tcleanupTransactionInfo(txInfo);\n\t\t\t\t\t}\n\t\t\t\t});\n\n\t\t\t\t// Check result state: It might indicate a Throwable to rethrow.\n\t\t\t\tif (throwableHolder.throwable != null) { \n\t\t\t\t\tthrow throwableHolder.throwable;\n\t\t\t\t}\n\t\t\t\treturn result;\n\t\t\t}\n\t\t\tcatch (ThrowableHolderException ex) { \n\t\t\t\tthrow ex.getCause();\n\t\t\t}\n\t\t\tcatch (TransactionSystemException ex2) { \n\t\t\t\tif (throwableHolder.throwable != null) { \n\t\t\t\t\tlogger.error(\"Application exception overridden by commit exception\", throwableHolder.throwable);\n\t\t\t\t\tex2.initApplicationException(throwableHolder.throwable);\n\t\t\t\t}\n\t\t\t\tthrow ex2;\n\t\t\t}\n\t\t\tcatch (Throwable ex2) { \n\t\t\t\tif (throwableHolder.throwable != null) { \n\t\t\t\t\tlogger.error(\"Application exception overridden by commit exception\", throwableHolder.throwable);\n\t\t\t\t}\n\t\t\t\tthrow ex2;\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-r63qtqt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-r63qtqt",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从上面的代码中，我们可以知道​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "Spring支持声明式事务和编程式事务两种处理"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。两者的实现本质基本相同。在invoke方法中我们也可以看到这两种方式的实现，通常我们使用的都是通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Transactional"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注解修饰的声明式事务，所以我们下面主要分析 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "声明式事务"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 的处理过程。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-hm6sw3g",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090544-hm6sw3g",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"ID": "20230331090544-h8rjrrl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090544-h8rjrrl",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-beerkua",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-beerkua",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "获取事务属性 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionAttribute"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionAttribute"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中包含 ​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "em",
+									"TextMarkTextContent": "传播属性"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "em",
+									"TextMarkTextContent": "timeout"
+								},
+								{
+									"Type": "NodeText",
+									"Data": " 等事务属性信息。如果是使用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@Transactional"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 注解，这个解析过程是在"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AnnotationTransactionAttributeSource#findTransactionAttribute(java.lang.reflect.Method)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中完成，具体看 篇2中有解释。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-rp2gjy5",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090544-rp2gjy5",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-6jdeyvk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-6jdeyvk",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "加载配置中的 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TrancationManager"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​, 事务管理器，是事务实现的基础，我们这里获取到的是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DataSourceTransactionManager"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-p9a82gu",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090544-p9a82gu",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-p3oxwv9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-p3oxwv9",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "对反应式事务的处理。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-463edth",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090544-463edth",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-fkic6um",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-fkic6um",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "不同事务处理方式使用不同的逻辑。在上面的代码中主要是两种情况，一是声明式事务，这种情况是通过 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@Transactional"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 注解修饰方法来表示开启事务。另一种情况是编程式事务，即可以通过xml方式或者配置类方式来进行完成事务功能，其实"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionTemplate"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的实现就是编程式事务，但通过 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionTemplate"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 并不会走到这个逻辑，这里的编程式事务应该单独是通过xml或者配置类方式来配置的。\n对于声明式事务的处理和编程式事务的处理，区别主要在两点。一是事务属性上，因为编程式事务是不需要事务属性的，二是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionManager"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的不同，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "CallbackPreferringPlatformTransactionManager"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 实现了 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "PlatformTransactionManager"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 接口，暴露了一个方法用于执行事务处理中的回调。所以这两种方式都可以作为事务处理方式的判断。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-30ex5ry",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230331090544-30ex5ry",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-hh00cn9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-hh00cn9",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "在目标方法执行前获取事务并收集事务信息。\n事务信息与事务属性并不相同，也就是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionInfo"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 和 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionAttribute"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 并不相同，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionInfo"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中包含"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionAttribute"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 信息，并且处理 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionAttribute"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 之外还有其他事物信息，比如"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "PlatformTransactionManager"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 以及 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionStatus"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​相关信息。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-77uyutr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ni4=",
+						"Num": 6
+					},
+					"Properties": {
+						"id": "20230331090544-77uyutr",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-bi7esgo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-bi7esgo",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "执行目标方法"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-eqk0hut",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ny4=",
+						"Num": 7
+					},
+					"Properties": {
+						"id": "20230331090544-eqk0hut",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-u5wn67b",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-u5wn67b",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果出现异常，则进行回滚。这里需要注意，默认的情况下只有 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RuntimeException"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 异常才会执行回滚。可以通过 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@Transactional(rollbackFor = Exception.class)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的方式来指定触发回滚的异常"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-5twoynm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "OC4=",
+						"Num": 8
+					},
+					"Properties": {
+						"id": "20230331090544-5twoynm",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-pp4hghg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-pp4hghg",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "提交事务前的事务信息清除"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-jqg9ywy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "OS4=",
+						"Num": 9
+					},
+					"Properties": {
+						"id": "20230331090544-jqg9ywy",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-64tfae8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-64tfae8",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "提交事务"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-7jlzb3h",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MTAu",
+						"Num": 10
+					},
+					"Properties": {
+						"id": "20230331090544-7jlzb3h",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-4f991w4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-4f991w4",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "若是 编程式事务，则直接执行execute方法即可，这里就不再讲解。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-89otnpd",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090544-89otnpd",
+				"updated": "20230331090544"
+			}
+		},
+		{
+			"ID": "20230331090544-5auctcj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-5auctcj",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注： "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PlatformTransactionManager"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ReactiveTransactionManager"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 二者都是为了实现事务，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PlatformTransactionManager"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 在内部进行事务执行流程的封装，并且暴露出来一个 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "execute"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法用于执行事务的具体信息，TransactionTemplate 的声明式事务就是基于此实现的。而 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ReactiveTransactionManager"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 则是比较原始的，需要我们自己来实现事务的整个逻辑。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-v8a7v5d",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090544-v8a7v5d",
+				"updated": "20230331090544"
+			}
+		},
+		{
+			"ID": "20230331090544-egv4qe7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-egv4qe7",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面比较笼统的讲了事务的实现，下面们主要分析以下三个方法，也是事务的的关键流程："
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-7lyym1y",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090544-7lyym1y",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"ID": "20230331090544-9gkcmhy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-9gkcmhy",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-ldz3xg7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-ldz3xg7",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "事务的创建 - createTransactionIfNecessary"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-f3468cw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-f3468cw",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-rtxf22h",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-rtxf22h",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "事务的回滚 - completeTransactionAfterThrowing"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090544-4wzcufd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090544-4wzcufd",
+						"updated": "20230331090544"
+					},
+					"Children": [
+						{
+							"ID": "20230331090544-mnl0p6x",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090544-mnl0p6x",
+								"updated": "20230331090544"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "事务的提交 - commitTransactionAfterReturning"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-rt3fqbj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-rt3fqbj",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "新内容在文章开头已经有了链接。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090544-dspafhm",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090544-dspafhm",
+				"updated": "20230331090544"
+			}
+		},
+		{
+			"ID": "20230331090544-qenld0h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090544-qenld0h",
+				"updated": "20230331090544"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考《Spring源码深度解析》如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

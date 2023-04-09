@@ -1,0 +1,470 @@
+{
+	"ID": "20230406234144-jz4evkf",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230406234144-jz4evkf",
+		"title": "实战CGLib系列之proxy篇(三)：延迟加载LazyLoader _iteye_13303的博客-CSDN博客",
+		"updated": "20230406234144"
+	},
+	"Children": [
+		{
+			"ID": "20230406234144-5slceeo",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230406234144-5slceeo",
+				"updated": "20230406234144"
+			}
+		},
+		{
+			"ID": "20230406234144-c2or5h7",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230406234144-c2or5h7",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"ID": "20230406234144-cu32bvg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406234144-cu32bvg",
+						"updated": "20230406234144"
+					},
+					"Children": [
+						{
+							"ID": "20230406234144-uoucwkr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406234144-uoucwkr",
+								"updated": "20230406234144"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/iteye_13303/article/details/82640028?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026request_id=168079566816800222872602\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-3-82640028-null-null.blog_rank_default\u0026utm_term=%E5%AE%9E%E6%88%98CGLib\u0026spm=1018.2226.3001.4450",
+									"TextMarkTextContent": "https://blog.csdn.net/iteye_13303/article/details/82640028?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026amp;request_id=168079566816800222872602\u0026amp;biz_id=0\u0026amp;utm_medium=distribute.pc_search_result.none-task-blog-2"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a sub",
+									"TextMarkAHref": "https://blog.csdn.net/iteye_13303/article/details/82640028?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026request_id=168079566816800222872602\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-3-82640028-null-null.blog_rank_default\u0026utm_term=%E5%AE%9E%E6%88%98CGLib\u0026spm=1018.2226.3001.4450",
+									"TextMarkTextContent": "blog"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/iteye_13303/article/details/82640028?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026request_id=168079566816800222872602\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-3-82640028-null-null.blog_rank_default\u0026utm_term=%E5%AE%9E%E6%88%98CGLib\u0026spm=1018.2226.3001.4450",
+									"TextMarkTextContent": "first_rank_ecpm_v1~rank_v31_ecpm-3-82640028-null-null.blog_rank_default\u0026amp;utm_term=%E5%AE%9E%E6%88%98CGLib\u0026amp;spm=1018.2226.3001.4450"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406234144-6owvv7j",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406234144-6owvv7j",
+						"updated": "20230406234144"
+					},
+					"Children": [
+						{
+							"ID": "20230406234144-jri7am9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406234144-jri7am9",
+								"updated": "20230406234144"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "作者shensy及出处http://shensy.iteye.com/blog/1881277实战CGLib系列文章本篇介绍延迟加载器LazyLoader。一、作用：说到延迟加载，应该经常接触到，尤其是使用Hibernate的时候，本篇将通过一个实例分析延迟加载的实现方式。LazyLoader接口继承了Callback，因此也算是CGLib中的一种Callback类型。二、示例：首先定..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406234144-s8ah80u",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406234144-s8ah80u",
+						"updated": "20230406234144"
+					},
+					"Children": [
+						{
+							"ID": "20230406234144-o3schet",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406234144-o3schet",
+								"updated": "20230406234144"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-06 23:41:44"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-2eaivlj",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230406234144-2eaivlj",
+				"updated": "20230406234144"
+			}
+		},
+		{
+			"ID": "20230406234144-sctp0hk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234144-sctp0hk",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "作者shensy及出处"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://shensy.iteye.com/blog/1881277",
+					"TextMarkTextContent": "http://shensy.iteye.com/blog/1881277"
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-rwhtn8g",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234144-rwhtn8g",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "实战CGLib系列文章"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n本篇介绍延迟加载器LazyLoader。\n一、作用：\n说到延迟加载，应该经常接触到，尤其是使用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=Hibernate\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "Hibernate"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "的时候，本篇将通过一个实例分析延迟加载的实现方式。\nLazyLoader接口继承了Callback，因此也算是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=CGLib\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "CGLib"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "中的一种Callback类型。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-1lz199s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234144-1lz199s",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、示例：\n首先定义一个实体类LoaderBean，该Bean内有一个需要延迟加载的属性PropertyBean。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-my1behr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234144-my1behr",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "LoaderBean.java:"
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-tihifne",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234144-tihifne",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class LoaderBean {\nprivate String loaderName;\nprivate int loaderValue;\nprivate PropertyBean propertyBean;\npublic LoaderBean(){\nthis.loaderName=\"loaderNameA\";\nthis.loaderValue=123;\nthis.propertyBean=createPropertyBean();\n\t}\nprotected PropertyBean createPropertyBean(){\n\t\tEnhancer enhancer=new Enhancer();\n\t\tenhancer.setSuperclass(PropertyBean.class);\nreturn (PropertyBean)enhancer.create(PropertyBean.class,new ConcreteClassLazyLoader());\n\t}\n\n//setter/getter...\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-9ua7sth",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234144-9ua7sth",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "PropertyBean.java:"
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-4i7tw2b",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234144-4i7tw2b",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class PropertyBean {\nprivate String propertyName;\nprivate int propertyValue;\n\n//setter/getter\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-l4t0dom",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234144-l4t0dom",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在LoaderBean的构造方法中，对属性Bean进行了代理类生成，使用了CGLib中的LazyLoader回调接口。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-rt5dp32",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234144-rt5dp32",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class ConcreteClassLazyLoader implements LazyLoader{\npublic Object loadObject() throws Exception {\n\t\tSystem.out.println(\"LazyLoader loadObject() ...\");\n\t\tPropertyBean bean=new PropertyBean();\n\t\tbean.setPropertyName(\"lazy-load object propertyName!\");\n\t\tbean.setPropertyValue(11);\nreturn bean;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-hvlctge",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234144-hvlctge",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "验证延迟加载："
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-m949uwr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234144-m949uwr",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "LoaderBean loader=new LoaderBean();\nSystem.out.println(loader.getLoaderName());\nSystem.out.println(loader.getLoaderValue());\nPropertyBean propertyBean=loader.getPropertyBean();//访问延迟加载对象\nSystem.out.println(propertyBean.getPropertyName());\nSystem.out.println(propertyBean.getPropertyValue());\nSystem.out.println(\"after...\");\n//当再次访问延迟加载对象时,就不会再执行回调了\nSystem.out.println(propertyBean.getPropertyName());\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-k8jc1k5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234144-k8jc1k5",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "控制台输出："
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-mzeyjq8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234144-mzeyjq8",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "loaderNameA\n123\nLazyLoader loadObject() ...\nlazy-load object propertyName!\n11\nafter...\nlazy-load object propertyName!\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-43px6um",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234144-43px6um",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注意，第一次获取property bean的属性时，会触发代理类回调方法。第二次再获取property bean的属性时，就直接返回属性值而不会再次触发代理类回调方法了。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-sv2u48z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234144-sv2u48z",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可见，延迟加载原理："
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-1w6i9m5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234144-1w6i9m5",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对需要延迟加载的对象添加代理，在获取该对象属性时先通过代理类回调方法进行对象初始化。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234144-fcm2098",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234144-fcm2098",
+				"updated": "20230406234144"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在不需要加载该对象时，只要不去获取该对象内属性，该对象就不会被初始化了（在CGLib的实现中只要去访问该对象内属性的getter方法，就会自动触发代理类回调）。"
+				}
+			]
+		}
+	]
+}

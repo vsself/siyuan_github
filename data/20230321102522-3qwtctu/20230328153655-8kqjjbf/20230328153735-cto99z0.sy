@@ -1,0 +1,808 @@
+{
+	"ID": "20230328153735-cto99z0",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230328153735-cto99z0",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230329010101-qrpcp4s\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230329010526-2bmt419\u0026quot;,\u0026quot;scrollTop\u0026quot;:8059,\u0026quot;focusId\u0026quot;:\u0026quot;20230329010526-2bmt419\u0026quot;,\u0026quot;focusStart\u0026quot;:39,\u0026quot;focusEnd\u0026quot;:39}",
+		"title": "1. Spring BeanDefinition生成阶段",
+		"updated": "20230329010530"
+	},
+	"Children": [
+		{
+			"ID": "20230329010101-qrpcp4s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010101-qrpcp4s",
+				"updated": "20230329010101"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring Bean的生命周期是Spring面试热点问题。这个问题即考察对Spring的微观了解，又考察对Spring的宏观认识，想要答好并不容易！本文希望能够从源码角度入手，帮助面试者彻底搞定Spring Bean的生命周期。"
+				}
+			]
+		},
+		{
+			"ID": "20230329010101-5k32zkl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010101-5k32zkl",
+				"updated": "20230329010113"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在spring bean创建过程 依赖 BeanDefinition 中的信息处理bean的生产。BeanDefinition 是 Spring Framework 中定义 Bean 的配置元信息接口。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "20210217121439234"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210217121439234-20230329010113-6he2ldx.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230329010114-li9hl3v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010114-li9hl3v",
+				"updated": "20230329010119"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在处理配置文件生成BeanDefinition主要经过：Spring Bean 读取解析配置信息、spring bean 注册阶段、Spring BeanDefinition 合并阶段。"
+				}
+			]
+		},
+		{
+			"ID": "20230329010126-v7efxe5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230329010126-v7efxe5",
+				"updated": "20230329010126"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、Spring Bean 读取解析配置信息"
+				}
+			]
+		},
+		{
+			"ID": "20230329010135-d2tlxyh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010135-d2tlxyh",
+				"updated": "20230329010135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "spring bean的配置信息分为："
+				}
+			]
+		},
+		{
+			"ID": "20230329010135-5rk58c2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010135-5rk58c2",
+				"updated": "20230329010135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、面向资源\n             XML 配置的处理主要使用 ：XmlBeanDefinitionReader"
+				}
+			]
+		},
+		{
+			"ID": "20230329010135-9ds8ouv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010135-9ds8ouv",
+				"updated": "20230329010135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "            Properties 资源配置：PropertiesBeanDefinitionReader"
+				}
+			]
+		},
+		{
+			"ID": "20230329010135-tyk90gi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010135-tyk90gi",
+				"updated": "20230329010138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、面向注解\n          面向注解 BeanDefinition 解析：  AnnotatedBeanDefinitionReader\n"
+				}
+			]
+		},
+		{
+			"ID": "20230329010143-gw6giv5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230329010143-gw6giv5",
+				"updated": "20230329010143"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1、 XML 配置的处理主要使用的事例"
+				}
+			]
+		},
+		{
+			"ID": "20230329010145-3wr3cno",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010145-3wr3cno",
+				"updated": "20230329010149"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里主要基于xml中的构造方法处理："
+				}
+			]
+		},
+		{
+			"ID": "20230329010149-k483w2n",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329010149-k483w2n",
+				"updated": "20230329010155"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class UserHolder {\n \n    private User user;\n \n    public UserHolder() {\n    }\n \n    public UserHolder(User user) {\n        this.user = user;\n    }\n \n    public User getUser() {\n        return user;\n    }\n \n    public void setUser(User user) {\n        this.user = user;\n    }\n \n    @Override\n    public String toString() {\n        return \"UserHolder{\" +\n                \"user=\" + user +\n                '}';\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329010111-yd3in9k",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329010111-yd3in9k",
+				"updated": "20230329010202"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "/**\n * 基于 XML 资源的依赖 Constructor 注入示例\n *\n * @author \n * @since\n */\npublic class XmlDependencyConstructorInjectionDemo {\n \n    public static void main(String[] args) {\n \n        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();\n \n        XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);\n \n        String xmlResourcePath = \"classpath:/META-INF/dependency-constructor-injection.xml\";\n        // 加载 XML 资源，解析并且生成 BeanDefinition\n        beanDefinitionReader.loadBeanDefinitions(xmlResourcePath);\n        // 依赖查找并且创建 Bean\n        UserHolder userHolder = beanFactory.getBean(UserHolder.class);\n        System.out.println(userHolder);\n \n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329010206-v58r243",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010206-v58r243",
+				"updated": "20230329010207"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "xml的配置文件"
+				}
+			]
+		},
+		{
+			"ID": "20230329010208-fohci85",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329010208-fohci85",
+				"updated": "20230329010225"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans\n        https://www.springframework.org/schema/beans/spring-beans.xsd\"\u003e\n \n    \u003cbean id=\"user\" class=\"org.geekbang.thinking.in.spring.ioc.overview.domain.User\"\u003e\n        \u003cproperty name=\"id\" value=\"1\"/\u003e\n        \u003cproperty name=\"name\" value=\"小马哥\"/\u003e\n        \u003cproperty name=\"city\" value=\"HANGZHOU\"/\u003e\n        \u003cproperty name=\"workCities\" value=\"BEIJING,HANGZHOU\"/\u003e\n        \u003cproperty name=\"lifeCities\"\u003e\n            \u003clist\u003e\n                \u003cvalue\u003eBEIJING\u003c/value\u003e\n                \u003cvalue\u003eSHANGHAI\u003c/value\u003e\n            \u003c/list\u003e\n        \u003c/property\u003e\n        \u003cproperty name=\"configFileLocation\" value=\"classpath:/META-INF/user-config.properties\"/\u003e\n    \u003c/bean\u003e\n \n    \u003cbean id=\"superUser\" class=\"org.geekbang.thinking.in.spring.ioc.overview.domain.SuperUser\" parent=\"user\"\n          primary=\"true\"\u003e\n        \u003cproperty name=\"address\" value=\"杭州\"/\u003e\n    \u003c/bean\u003e\n \n \n    \u003cbean class=\"org.geekbang.thinking.in.spring.ioc.dependency.injection.UserHolder\"\u003e\n        \u003cconstructor-arg name=\"user\" ref=\"superUser\" /\u003e\n    \u003c/bean\u003e\n \n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329010234-w0u1x7t",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230329010234-w0u1x7t",
+				"updated": "20230329010234"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2、注解 BeanDefinition 解析示例"
+				}
+			]
+		},
+		{
+			"ID": "20230329010235-mlwmasb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010235-mlwmasb",
+				"updated": "20230329010239"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "使用AnnotatedBeanDefinitionReader  来处理注解 的类生成BeanDefinition 并注入到容器中"
+				}
+			]
+		},
+		{
+			"ID": "20230329010241-6oojfay",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329010241-6oojfay",
+				"updated": "20230329010253"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class AnnotatedBeanDefinitionParsingDemo {\n \n    public static void main(String[] args) {\n        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();\n        // 基于 Java 注解的 AnnotatedBeanDefinitionReader 的实现\n        AnnotatedBeanDefinitionReader beanDefinitionReader = new AnnotatedBeanDefinitionReader(beanFactory);\n        int beanDefinitionCountBefore = beanFactory.getBeanDefinitionCount();\n        // 注册当前类（非 @Component class）\n        beanDefinitionReader.register(AnnotatedBeanDefinitionParsingDemo.class);\n        int beanDefinitionCountAfter = beanFactory.getBeanDefinitionCount();\n        int beanDefinitionCount = beanDefinitionCountAfter - beanDefinitionCountBefore;\n        System.out.println(\"已增加加载 BeanDefinition 数量：\" + beanDefinitionCount);\n        // 普通的 Class 作为 Component 注册到 Spring IoC 容器后，通常 Bean 名称为 annotatedBeanDefinitionParsingDemo\n        // Bean 名称生成来自于 BeanNameGenerator，注解实现 AnnotationBeanNameGenerator\n        AnnotatedBeanDefinitionParsingDemo demo = beanFactory.getBean(\"annotatedBeanDefinitionParsingDemo\",\n                AnnotatedBeanDefinitionParsingDemo.class);\n        System.out.println(demo);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329010258-ygxc6uh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230329010258-ygxc6uh",
+				"updated": "20230329010258"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、spring bean 注册阶段"
+				}
+			]
+		},
+		{
+			"ID": "20230329010303-6ulg756",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010303-6ulg756",
+				"updated": "20230329010303"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在步骤一中生成的 BeanDefinition 需要注入到容器中"
+				}
+			]
+		},
+		{
+			"ID": "20230329010303-lhnrc7f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010303-lhnrc7f",
+				"updated": "20230329010303"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "• BeanDefinition 注册接口"
+				}
+			]
+		},
+		{
+			"ID": "20230329010303-nfzyyv4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010303-nfzyyv4",
+				"updated": "20230329010303"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "   • BeanDefinitionRegistry"
+				}
+			]
+		},
+		{
+			"ID": "20230329010303-8m2eq92",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010303-8m2eq92",
+				"updated": "20230329010303"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注册BeanDefinition其实就是把 BeanDefinition信息放入map中"
+				}
+			]
+		},
+		{
+			"ID": "20230329010309-7635w9u",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329010309-7635w9u",
+				"updated": "20230329010311"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "注册到一个map中 private final Map\u003cString, RootBeanDefinition\u003e mergedBeanDefinitions = new ConcurrentHashMap\u003c\u003e(256);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329010318-6jt1db6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230329010318-6jt1db6",
+				"updated": "20230329010321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、Spring BeanDefinition 合并阶段"
+				}
+			]
+		},
+		{
+			"ID": "20230329010328-c3fr1o7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010328-c3fr1o7",
+				"updated": "20230329010328"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在合并阶段主要解决Bean继承时子类合并父类公共属性问题："
+				}
+			]
+		},
+		{
+			"ID": "20230329010328-hatmk17",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010328-hatmk17",
+				"updated": "20230329010328"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以把 父BeanDefinition的信息合并到子BeanDefinition中；合并中的BeanDefinition主要依靠下面三个子类实现的"
+				}
+			]
+		},
+		{
+			"ID": "20230329010328-49bkv7h",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230329010328-49bkv7h",
+				"updated": "20230329010342"
+			},
+			"Children": [
+				{
+					"ID": "20230329010336-ghq0gwx",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230329010336-ghq0gwx",
+						"updated": "20230329010336"
+					},
+					"Children": [
+						{
+							"ID": "20230329010336-imwiw62",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230329010336-imwiw62",
+								"updated": "20230329010336"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ChildBeanDefinition：要指定父类。实例化的时候一定要是 父BeanDefinition，永远只能作为一个子BeanDefinition。\n"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230329010339-02hdehd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230329010339-02hdehd",
+						"updated": "20230329010342"
+					},
+					"Children": [
+						{
+							"ID": "20230329010339-8nwdjhh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230329010339-8nwdjhh",
+								"updated": "20230329010342"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "RootBeanDefinition： spring 2.5的首选 一般表示。 作为父beanDefinition出现也可以作为普遍的bd 但是不能设置父beanDefinition即 不能作为子bd。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230329010343-0w98882",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329010343-0w98882",
+				"updated": "20230329010350"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Override\n    public void setParentName(@Nullable String parentName) {\n        if (parentName != null) {\n            throw new IllegalArgumentException(\"Root bean cannot be changed into a child bean with parent reference\");\n        }\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329010352-ms9vu0w",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230329010352-ms9vu0w",
+				"updated": "20230329010406"
+			},
+			"Children": [
+				{
+					"ID": "20230329010402-6oc36on",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230329010402-6oc36on",
+						"updated": "20230329010406"
+					},
+					"Children": [
+						{
+							"ID": "20230329010402-nhacvsd",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230329010402-nhacvsd",
+								"updated": "20230329010406"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "GenericBeanDefinition：spring 2.5 以后出现的 常用的 可以 替换 ChildBeanDefinition 但是不能替换 RootBeanDefinition。可以完成RootBeanDefinition和ChildBeanDefinition 两种的功能。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230329010407-q932t7m",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010407-q932t7m",
+				"updated": "20230329010412"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "合并过程一般是把 GenericBeanDefinition的处理合并成 RootBeanDefinition。"
+				}
+			]
+		},
+		{
+			"ID": "20230329010420-isn28x3",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230329010420-isn28x3",
+				"updated": "20230329010420"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.1、BeanDefinition 合并示例"
+				}
+			]
+		},
+		{
+			"ID": "20230329010427-781wo9p",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329010427-781wo9p",
+				"updated": "20230329010434"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MergedBeanDefinitionDemo {\n \n    public static void main(String[] args) {\n        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();\n        // 基于 XML 资源 BeanDefinitionReader 实现\n        XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);\n        String location = \"META-INF/dependency-lookup-context.xml\";\n        // 基于 ClassPath 加载 XML 资源\n        Resource resource = new ClassPathResource(location);\n        // 指定字符编码 UTF-8\n        EncodedResource encodedResource = new EncodedResource(resource, \"UTF-8\");\n        int beanNumbers = beanDefinitionReader.loadBeanDefinitions(encodedResource);\n        System.out.println(\"已加载 BeanDefinition 数量：\" + beanNumbers);\n        // 通过 Bean Id 和类型进行依赖查找\n        User user = beanFactory.getBean(\"user\", User.class);\n        System.out.println(user);\n \n        User superUser = beanFactory.getBean(\"superUser\", User.class);\n        System.out.println(superUser);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329010435-o726oti",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329010435-o726oti",
+				"updated": "20230329010449"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans\n        xmlns=\"http://www.springframework.org/schema/beans\"\n        xmlns:context=\"http://www.springframework.org/schema/context\"\n        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n        xsi:schemaLocation=\"http://www.springframework.org/schema/beans\n        https://www.springframework.org/schema/beans/spring-beans.xsd\n        http://www.springframework.org/schema/context\n        https://www.springframework.org/schema/context/spring-context.xsd\"\u003e\n \n\u003c!--    \u003ccontext:annotation-config/\u003e--\u003e\n \n\u003c!--    \u003ccontext:component-scan base-package=\"org.acme\" /\u003e--\u003e\n \n    \u003c!-- Root BeanDefinition 不需要合并，不存在 parent --\u003e\n    \u003c!-- 普通 beanDefinition GenericBeanDefinition --\u003e\n    \u003c!-- 经过合并后 GenericBeanDefinition 变成 RootBeanDefinition --\u003e\n    \u003cbean id=\"user\" class=\"org.geekbang.thinking.in.spring.ioc.overview.domain.User\"\u003e\n        \u003cproperty name=\"id\" value=\"1\"/\u003e\n        \u003cproperty name=\"name\" value=\"小马哥\"/\u003e\n        \u003cproperty name=\"city\" value=\"HANGZHOU\"/\u003e\n        \u003cproperty name=\"workCities\" value=\"BEIJING,HANGZHOU\"/\u003e\n        \u003cproperty name=\"lifeCities\"\u003e\n            \u003clist\u003e\n                \u003cvalue\u003eBEIJING\u003c/value\u003e\n                \u003cvalue\u003eSHANGHAI\u003c/value\u003e\n            \u003c/list\u003e\n        \u003c/property\u003e\n        \u003cproperty name=\"configFileLocation\" value=\"classpath:/META-INF/user-config.properties\"/\u003e\n    \u003c/bean\u003e\n \n    \u003c!-- 普通 beanDefinition GenericBeanDefinition --\u003e\n    \u003c!-- 合并后 GenericBeanDefinition 变成 RootBeanDefinition，并且覆盖 parent 相关配置--\u003e\n    \u003c!-- primary = true , 增加了一个 address 属性 --\u003e\n    \u003cbean id=\"superUser\" class=\"org.geekbang.thinking.in.spring.ioc.overview.domain.SuperUser\" parent=\"user\"\n          primary=\"true\"\u003e\n        \u003cproperty name=\"address\" value=\"杭州\"/\u003e\n    \u003c/bean\u003e\n \n    \u003cbean id=\"objectFactory\" class=\"org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean\"\u003e\n        \u003cproperty name=\"targetBeanName\" value=\"user\"/\u003e\n    \u003c/bean\u003e\n \n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329010451-1ij2s4i",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010451-1ij2s4i",
+				"updated": "20230329010455"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行结果。我们可以看到 SuperUser中包括的 其父类 User的相关属性"
+				}
+			]
+		},
+		{
+			"ID": "20230329010456-nsdujtp",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329010456-nsdujtp",
+				"updated": "20230329010506"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "已加载 BeanDefinition 数量：3\nUser{id=1, name='小马哥', city=HANGZHOU, workCities=[BEIJING, HANGZHOU], lifeCities=[BEIJING, SHANGHAI], configFileLocation=class path resource [META-INF/user-config.properties], company=null, context=null, contextAsText='null', beanName='user'}\nSuperUser{address='杭州'} User{id=1, name='小马哥', city=HANGZHOU, workCities=[BEIJING, HANGZHOU], lifeCities=[BEIJING, SHANGHAI], configFileLocation=class path resource [META-INF/user-config.properties], company=null, context=null, contextAsText='null', beanName='superUser'}\n \n————————————————\n版权声明：本文为CSDN博主「大龄码农生活」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n原文链接：https://blog.csdn.net/qq_36697880/article/details/113832846\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329010512-hadegq7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230329010512-hadegq7",
+				"updated": "20230329010512"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.2、源码分析："
+				}
+			]
+		},
+		{
+			"ID": "20230329010514-uel8y2x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010514-uel8y2x",
+				"updated": "20230329010518"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "合并BeanDefinition操作在 AbstractBeanFactory中发doGetBean()方法中的final RootBeanDefinition mbd = getMergedLocalBeanDefinition(beanName);"
+				}
+			]
+		},
+		{
+			"ID": "20230329010519-rhpqo57",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329010519-rhpqo57",
+				"updated": "20230329010524"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected RootBeanDefinition getMergedBeanDefinition(\n\t\t\tString beanName, BeanDefinition bd, @Nullable BeanDefinition containingBd)\n\t\t\tthrows BeanDefinitionStoreException {\n \n\t\tsynchronized (this.mergedBeanDefinitions) {\n\t\t\tRootBeanDefinition mbd = null;\n \n\t\t\t// Check with full lock now in order to enforce the same merged instance.\n\t\t\tif (containingBd == null) {\n\t\t\t\tmbd = this.mergedBeanDefinitions.get(beanName);\n\t\t\t}\n \n\t\t\tif (mbd == null) {\n\t\t\t\tif (bd.getParentName() == null) {\n\t\t\t\t\t// Use copy of given root bean definition.\n\t\t\t\t\tif (bd instanceof RootBeanDefinition) {\n\t\t\t\t\t\tmbd = ((RootBeanDefinition) bd).cloneBeanDefinition();\n\t\t\t\t\t}\n\t\t\t\t\telse {\n\t\t\t\t\t\tmbd = new RootBeanDefinition(bd);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\telse {\n\t\t\t\t\t// Child bean definition: needs to be merged with parent.\n\t\t\t\t\tBeanDefinition pbd;\n\t\t\t\t\ttry {\n\t\t\t\t\t\tString parentBeanName = transformedBeanName(bd.getParentName());\n\t\t\t\t\t\tif (!beanName.equals(parentBeanName)) {\n\t\t\t\t\t\t\t//TODO 这里这次在去合并父类的 父类 这里使用递归的处理\n\t\t\t\t\t\t\tpbd = getMergedBeanDefinition(parentBeanName);\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse {\n\t\t\t\t\t\t\tBeanFactory parent = getParentBeanFactory();\n\t\t\t\t\t\t\tif (parent instanceof ConfigurableBeanFactory) {\n\t\t\t\t\t\t\t\tpbd = ((ConfigurableBeanFactory) parent).getMergedBeanDefinition(parentBeanName);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\telse {\n\t\t\t\t\t\t\t\tthrow new NoSuchBeanDefinitionException(parentBeanName,\n\t\t\t\t\t\t\t\t\t\t\"Parent name '\" + parentBeanName + \"' is equal to bean name '\" + beanName +\n\t\t\t\t\t\t\t\t\t\t\"': cannot be resolved without an AbstractBeanFactory parent\");\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tcatch (NoSuchBeanDefinitionException ex) {\n\t\t\t\t\t\tthrow new BeanDefinitionStoreException(bd.getResourceDescription(), beanName,\n\t\t\t\t\t\t\t\t\"Could not resolve parent bean definition '\" + bd.getParentName() + \"'\", ex);\n\t\t\t\t\t}\n\t\t\t\t\t// Deep copy with overridden values.\n\t\t\t\t\t//最终的返回对象 合并后的对象\n\t\t\t\t\tmbd = new RootBeanDefinition(pbd);\n\t\t\t\t\tmbd.overrideFrom(bd);\n\t\t\t\t}\n \n\t\t\t\t// Set default singleton scope, if not configured before.\n\t\t\t\tif (!StringUtils.hasLength(mbd.getScope())) {\n\t\t\t\t\tmbd.setScope(RootBeanDefinition.SCOPE_SINGLETON);\n\t\t\t\t}\n \n\t\t\t\t// A bean contained in a non-singleton bean cannot be a singleton itself.\n\t\t\t\t// Let's correct this on the fly here, since this might be the result of\n\t\t\t\t// parent-child merging for the outer bean, in which case the original inner bean\n\t\t\t\t// definition will not have inherited the merged outer bean's singleton status.\n\t\t\t\tif (containingBd != null \u0026\u0026 !containingBd.isSingleton() \u0026\u0026 mbd.isSingleton()) {\n\t\t\t\t\tmbd.setScope(containingBd.getScope());\n\t\t\t\t}\n \n\t\t\t\t// Cache the merged bean definition for the time being\n\t\t\t\t// (it might still get re-merged later on in order to pick up metadata changes)\n\t\t\t\tif (containingBd == null \u0026\u0026 isCacheBeanMetadata()) {\n\t\t\t\t\tthis.mergedBeanDefinitions.put(beanName, mbd);\n\t\t\t\t}\n\t\t\t}\n \n\t\t\treturn mbd;\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329010526-2bmt419",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010526-2bmt419",
+				"updated": "20230329010530"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这一节我们简单的介绍了 spring BeanDefinition的处理过程。"
+				}
+			]
+		}
+	]
+}

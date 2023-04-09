@@ -1,0 +1,2405 @@
+{
+	"ID": "20230331090611-msgejxx",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331090611-msgejxx",
+		"title": "Spring源码分析十八：事务实现④ - 事务的回滚_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331090611"
+	},
+	"Children": [
+		{
+			"ID": "20230331090611-o3p59h8",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090611-o3p59h8",
+				"updated": "20230331090611"
+			}
+		},
+		{
+			"ID": "20230331090611-08ekqm8",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090611-08ekqm8",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"ID": "20230331090611-s2swh1i",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090611-s2swh1i",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-c697d5t",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-c697d5t",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/107299323"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090611-8g7sfi4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090611-8g7sfi4",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-hvb185r",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-hvb185r",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一、前言二、事务的回滚 - completeTransactionAfterThrowingcompleteTransactionAfterThrowing 的实现是 TransactionAspectSupport#completeTransactionAfterThrowing。在出现异常的时候，通过该方法进行事务的回滚。下面我们来看具体代码实现 ：\tprotected void completeTransactionAfterThrowing(@Nullable TransactionInfo"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090611-bfjawk1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090611-bfjawk1",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-053025y",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-053025y",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:06:11"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-isernat",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090611-isernat",
+				"updated": "20230331090611"
+			}
+		},
+		{
+			"ID": "20230331090611-wcmz1e7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090611-wcmz1e7",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-hzeswdw",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090611-hzeswdw",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"ID": "20230331090611-ssubx97",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090611-ssubx97",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-t7biupg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-t7biupg",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323#_1",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090611-xpz32b0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090611-xpz32b0",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-go6pnu8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-go6pnu8",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323#__completeTransactionAfterThrowing_23",
+									"TextMarkTextContent": "二、事务的回滚 - completeTransactionAfterThrowing"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090611-cawcser",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090611-cawcser",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-sfi2xwh",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090611-sfi2xwh",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"ID": "20230331090611-hw6vhr0",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090611-hw6vhr0",
+										"updated": "20230331090611"
+									},
+									"Children": [
+										{
+											"ID": "20230331090611-bbsd9fr",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090611-bbsd9fr",
+												"updated": "20230331090611"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323#1_AbstractPlatformTransactionManagerrollback_92",
+													"TextMarkTextContent": "1. AbstractPlatformTransactionManager#rollback"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090611-xz4kt02",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090611-xz4kt02",
+										"updated": "20230331090611"
+									},
+									"Children": [
+										{
+											"ID": "20230331090611-x6g1xuf",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331090611-x6g1xuf",
+												"updated": "20230331090611"
+											},
+											"Children": [
+												{
+													"ID": "20230331090611-k1bvl11",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090611-k1bvl11",
+														"updated": "20230331090611"
+													},
+													"Children": [
+														{
+															"ID": "20230331090611-kssz644",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090611-kssz644",
+																"updated": "20230331090611"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323#11__176",
+																	"TextMarkTextContent": "1.1. 自定义触发器的调用"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090611-992ll0i",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090611-992ll0i",
+														"updated": "20230331090611"
+													},
+													"Children": [
+														{
+															"ID": "20230331090611-x2pvcz9",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090611-x2pvcz9",
+																"updated": "20230331090611"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323#12__207",
+																	"TextMarkTextContent": "1.2. 回滚逻辑处理"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090611-cdlwtgs",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090611-cdlwtgs",
+														"updated": "20230331090611"
+													},
+													"Children": [
+														{
+															"ID": "20230331090611-17z19ha",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230331090611-17z19ha",
+																"updated": "20230331090611"
+															},
+															"Children": [
+																{
+																	"ID": "20230331090611-8m44hk3",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090611-8m44hk3",
+																		"updated": "20230331090611"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090611-q78dofp",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090611-q78dofp",
+																				"updated": "20230331090611"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323#121_statusrollbackToHeldSavepoint_212",
+																					"TextMarkTextContent": "1.2.1. status.rollbackToHeldSavepoint();"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230331090611-a68p8yz",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090611-a68p8yz",
+																		"updated": "20230331090611"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090611-0razfbz",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090611-0razfbz",
+																				"updated": "20230331090611"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323#122_doRollbackstatus_259",
+																					"TextMarkTextContent": "1.2.2. doRollback(status);"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230331090611-sdwuh73",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090611-sdwuh73",
+																		"updated": "20230331090611"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090611-idp63vf",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090611-idp63vf",
+																				"updated": "20230331090611"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323#123_doSetRollbackOnlystatus_282",
+																					"TextMarkTextContent": "1.2.3. doSetRollbackOnly(status);"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090611-tgp44ev",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090611-tgp44ev",
+														"updated": "20230331090611"
+													},
+													"Children": [
+														{
+															"ID": "20230331090611-1nki706",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090611-1nki706",
+																"updated": "20230331090611"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323#13__300",
+																	"TextMarkTextContent": "1.3. 回滚信息清除"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090611-5miel23",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090611-5miel23",
+														"updated": "20230331090611"
+													},
+													"Children": [
+														{
+															"ID": "20230331090611-x3f39ro",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230331090611-x3f39ro",
+																"updated": "20230331090611"
+															},
+															"Children": [
+																{
+																	"ID": "20230331090611-qvwj5q1",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090611-qvwj5q1",
+																		"updated": "20230331090611"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090611-lbd0yuo",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090611-lbd0yuo",
+																				"updated": "20230331090611"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323#131_doCleanupAfterCompletionstatusgetTransaction_332",
+																					"TextMarkTextContent": "1.3.1. doCleanupAfterCompletion(status.getTransaction());"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230331090611-h39gro4",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090611-h39gro4",
+																		"updated": "20230331090611"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090611-6n0zorp",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090611-6n0zorp",
+																				"updated": "20230331090611"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323#132_resumetransaction_SuspendedResourcesHolder_statusgetSuspendedResources_372",
+																					"TextMarkTextContent": "1.3.2. resume(transaction, (SuspendedResourcesHolder) status.getSuspendedResources());"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090611-tbermo8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090611-tbermo8",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-rzx3nbi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-rzx3nbi",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323#_403",
+									"TextMarkTextContent": "三、总结"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-coydkkd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090611-coydkkd",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-x36bkp3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-x36bkp3",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是笔者阅读Spring源码的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-mk9aqw2",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090611-mk9aqw2",
+				"updated": "20230331090611"
+			}
+		},
+		{
+			"ID": "20230331090611-3li3gwj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-3li3gwj",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于 事务的源码和 前篇的 Aop 源码逻辑很类似，所以本篇中某些内容不会展开去讲解，建议先阅读完 全集目录中的Aop部分，再来阅读本文会更好理解。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-wa66r94",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-wa66r94",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "全集目录："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106440723",
+					"TextMarkTextContent": "Spring源码分析：全集整理"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-ghx2rjg",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090611-ghx2rjg",
+				"updated": "20230331090611"
+			}
+		},
+		{
+			"ID": "20230331090611-0l7gjb2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-0l7gjb2",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这是一个巨长的篇章…\n全集目录如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-kl0g2j4",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090611-kl0g2j4",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"ID": "20230331090611-xc5uosi",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090611-xc5uosi",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-l4v14ww",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-l4v14ww",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676116",
+									"TextMarkTextContent": "Spring源码分析十五：事务实现① - AutoProxyRegistrar"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090611-9jp4dll",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090611-9jp4dll",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-1k2yxsp",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-1k2yxsp",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359",
+									"TextMarkTextContent": "Spring源码分析十六：事务实现② - ProxyTransactionManagementConfiguration"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090611-84hc589",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090611-84hc589",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-am3lzc3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-am3lzc3",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307",
+									"TextMarkTextContent": "Spring源码分析十七：事务实现③ - 事务的创建"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090611-5ctwfes",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090611-5ctwfes",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-67lk6xl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-67lk6xl",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323",
+									"TextMarkTextContent": "Spring源码分析十八：事务实现④ - 事务的回滚"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090611-pdqs8ns",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230331090611-pdqs8ns",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-2m7kbn2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-2m7kbn2",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299336",
+									"TextMarkTextContent": "Spring源码分析十九：事务实现⑤ - 事务的提交"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-0qs35ig",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090611-0qs35ig",
+				"updated": "20230331090611"
+			}
+		},
+		{
+			"ID": "20230331090611-vlah3ke",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-vlah3ke",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359",
+					"TextMarkTextContent": "Spring源码分析十六：事务实现② - ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 中，解析了关事务的代理创建过程，同时在上篇中讲述了 事务的创建过程，本文就开始讲解一下 事务的回滚过程。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-j9uqb3y",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090611-j9uqb3y",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、事务的回滚 - completeTransactionAfterThrowing"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-8gijs1h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-8gijs1h",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359",
+					"TextMarkTextContent": "Spring源码分析十六：事务实现② - ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 中我们分析了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAspectSupport#invokeWithinTransaction"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法完成了事务的增强调用 ，而"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "completeTransactionAfterThrowing"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAspectSupport#completeTransactionAfterThrowing"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。在出现异常的时候，通过该方法进行事务的回滚。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-ictr0u8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-ictr0u8",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们来看具体代码实现 ："
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-13vws4m",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090611-13vws4m",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void completeTransactionAfterThrowing(@Nullable TransactionInfo txInfo, Throwable ex) { \n\t\t// 判断当前线程中是否存在事务\n\t\tif (txInfo != null \u0026\u0026 txInfo.getTransactionStatus() != null) { \n\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\tlogger.trace(\"Completing transaction for [\" + txInfo.getJoinpointIdentification() +\n\t\t\t\t\t\t\"] after exception: \" + ex);\n\t\t\t}\n\t\t\t// 判断是否触发回滚操作，这里的条件是异常是否是 RuntimeException 或 error类型\n\t\t\t// 即 return (ex instanceof RuntimeException || ex instanceof Error);\n\t\t\tif (txInfo.transactionAttribute != null \u0026\u0026 txInfo.transactionAttribute.rollbackOn(ex)) { \n\t\t\t\ttry { \n\t\t\t\t\t// 执行回滚操作\n\t\t\t\t\ttxInfo.getTransactionManager().rollback(txInfo.getTransactionStatus());\n\t\t\t\t}\n\t\t\t\tcatch (TransactionSystemException ex2) { \n\t\t\t\t\tlogger.error(\"Application exception overridden by rollback exception\", ex);\n\t\t\t\t\tex2.initApplicationException(ex);\n\t\t\t\t\tthrow ex2;\n\t\t\t\t}\n\t\t\t\tcatch (RuntimeException | Error ex2) { \n\t\t\t\t\tlogger.error(\"Application exception overridden by rollback exception\", ex);\n\t\t\t\t\tthrow ex2;\n\t\t\t\t}\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// We don't roll back on this exception.\n\t\t\t\t// Will still roll back if TransactionStatus.isRollbackOnly() is true.\n\t\t\t\ttry { \n\t\t\t\t\t// 如果不满足回滚条件，则还是会提交，也就是说如果抛出异常不是 RuntimeException 或 error类型，则不会触发事务的回滚。\n\t\t\t\t\ttxInfo.getTransactionManager().commit(txInfo.getTransactionStatus());\n\t\t\t\t}\n\t\t\t\tcatch (TransactionSystemException ex2) { \n\t\t\t\t\tlogger.error(\"Application exception overridden by commit exception\", ex);\n\t\t\t\t\tex2.initApplicationException(ex);\n\t\t\t\t\tthrow ex2;\n\t\t\t\t}\n\t\t\t\tcatch (RuntimeException | Error ex2) { \n\t\t\t\t\tlogger.error(\"Application exception overridden by commit exception\", ex);\n\t\t\t\t\tthrow ex2;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-g18rs3j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-g18rs3j",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面可以看到，触发回滚操作的判断条件是"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-o1re1nw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090611-o1re1nw",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "txInfo.transactionAttribute != null \u0026\u0026 txInfo.transactionAttribute.rollbackOn(ex)\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-1kk111x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-1kk111x",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "txInfo.transactionAttribute != null"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 自不必说，表示必须存在事务属性信息，即是事务方法。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "txInfo.transactionAttribute.rollbackOn(ex)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​默认的实现如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-44zrfdj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090611-44zrfdj",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic boolean rollbackOn(Throwable ex) { \n\t\treturn (ex instanceof RuntimeException || ex instanceof Error);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-m4c0h1h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-m4c0h1h",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "也就是说只有当异常类型是 Error或者 RuntimeException 才会进行回滚。这里需要注意，如果抛出了其他类型异常，那么并不代表事务没有启用，而是回滚没有触发。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-zu649r4",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090611-zu649r4",
+				"updated": "20230331090611"
+			}
+		},
+		{
+			"ID": "20230331090611-a3bvirj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-a3bvirj",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们下面看看回滚和提交的具体操作："
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-vehzp60",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090611-vehzp60",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. AbstractPlatformTransactionManager#rollback"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-7c7t6j2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-7c7t6j2",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们下面来看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "txInfo.getTransactionManager().rollback(txInfo.getTransactionStatus());"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 回滚的具体操作即即 中的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractPlatformTransactionManager#rollback"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-k5h2qmc",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090611-k5h2qmc",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic final void rollback(TransactionStatus status) throws TransactionException { \n\t\tif (status.isCompleted()) { \n\t\t\tthrow new IllegalTransactionStateException(\n\t\t\t\t\t\"Transaction is already completed - do not call commit or rollback more than once per transaction\");\n\t\t}\n\n\t\tDefaultTransactionStatus defStatus = (DefaultTransactionStatus) status;\n\t\t// 执行回滚\n\t\tprocessRollback(defStatus, false);\n\t}\n\n\t....\n\n\t// 省略了日志打印\n\tprivate void processRollback(DefaultTransactionStatus status, boolean unexpected) { \n\t\ttry { \n\t\t\tboolean unexpectedRollback = unexpected;\n\n\t\t\ttry { \n\t\t\t\t// 激活所有 TransactionSynchronization 中对应的方法 beforeCompletion() 方法\n\t\t\t\ttriggerBeforeCompletion(status);\n\t\t\t\t// 如果当前事务有保存点，也就是当前事务为单独的线程则会退到保存点\n\t\t\t\tif (status.hasSavepoint()) { \n\t\t\t\t\tstatus.rollbackToHeldSavepoint();\n\t\t\t\t}\n\t\t\t\telse if (status.isNewTransaction()) { \n\t\t\t\t\t// 如果当前事务为独立的新事物，则直接回退\n\t\t\t\t\tdoRollback(status);\n\t\t\t\t}\n\t\t\t\telse { \n\t\t\t\t\t// Participating in larger transaction\n\t\t\t\t\tif (status.hasTransaction()) { \n\t\t\t\t\t\tif (status.isLocalRollbackOnly() || isGlobalRollbackOnParticipationFailure()) { \n\t\t\t\t\t\t\t// 如果当前事务不是独立的事务，那么只能标记状态，等到事务链执行完毕后统一回滚\n\t\t\t\t\t\t\tdoSetRollbackOnly(status);\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse { \n\t\t\t\t\t\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\telse { \n\t\t\t\t\t}\n\t\t\t\t\t// Unexpected rollback only matters here if we're asked to fail early\n\t\t\t\t\tif (!isFailEarlyOnGlobalRollbackOnly()) { \n\t\t\t\t\t\tunexpectedRollback = false;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tcatch (RuntimeException | Error ex) { \n\t\t\t\ttriggerAfterCompletion(status, TransactionSynchronization.STATUS_UNKNOWN);\n\t\t\t\tthrow ex;\n\t\t\t}\n\t\t\t// 激活所有 TransactionSynchronization 中对应的方法 afterCompletion() 方法\n\t\t\ttriggerAfterCompletion(status, TransactionSynchronization.STATUS_ROLLED_BACK);\n\n\t\t\t// Raise UnexpectedRollbackException if we had a global rollback-only marker\n\t\t\tif (unexpectedRollback) { \n\t\t\t\tthrow new UnexpectedRollbackException(\n\t\t\t\t\t\t\"Transaction rolled back because it has been marked as rollback-only\");\n\t\t\t}\n\t\t}\n\t\tfinally { \n\t\t\t// 清空记录的资源并将挂起的资源恢复\n\t\t\tcleanupAfterCompletion(status);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-g4x2kdg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-g4x2kdg",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们可以简单总结一下整个脉络："
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-fq59jyg",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090611-fq59jyg",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"ID": "20230331090611-ofxkyq4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090611-ofxkyq4",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-fnu4wd2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-fnu4wd2",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "首先是自定义触发器的调用，这里是Spring提供的回滚扩展点，包括在回滚前、回滚成功、回滚失败的触发器调用，自定义触发器会根据这些信息作出进一步的处理。而对于触发器的注册，常见的是在回调过程中通过 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionSynchronizationManager#registerSynchronization"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法完成，"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090611-pciyy7q",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090611-pciyy7q",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-u1yppbv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-u1yppbv",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "除了触发监听函数外，就是真正的回滚逻辑处理了，而这里的具体回滚操作都委托给了底层数据库连接提供的API 来操作的。回滚的基本策略是："
+								}
+							]
+						},
+						{
+							"ID": "20230331090611-xtousey",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230331090611-xtousey",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"ID": "20230331090611-r245s85",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230331090611-r245s85",
+										"updated": "20230331090611"
+									},
+									"Children": [
+										{
+											"ID": "20230331090611-oo8v1wr",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090611-oo8v1wr",
+												"updated": "20230331090611"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "当之前已经保存的事务信息中有保存点信息的时候，使用保存点信息回滚。常用于嵌入式事务，对于嵌入式事务的处理，内嵌的事务异常并不会引起外部事物的回滚。"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090611-uy670hq",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "Mi4=",
+										"Num": 2
+									},
+									"Properties": {
+										"id": "20230331090611-uy670hq",
+										"updated": "20230331090611"
+									},
+									"Children": [
+										{
+											"ID": "20230331090611-0dq0gzx",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090611-0dq0gzx",
+												"updated": "20230331090611"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "对于之前没有保存的事务信息中的事务为新事物，那么直接回滚。常用语单独事务的处理，对于没有保存点的回滚，Spring同样是使用底层数据库连接提供的API 来操作的。我们这里则是 "
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "DataSourceTransactionManager#doRollback"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090611-x95ybq0",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "My4=",
+										"Num": 3
+									},
+									"Properties": {
+										"id": "20230331090611-x95ybq0",
+										"updated": "20230331090611"
+									},
+									"Children": [
+										{
+											"ID": "20230331090611-kyuus5g",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090611-kyuus5g",
+												"updated": "20230331090611"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "当前事务信息标明是存在事务的，又不属于以上两种情况，多数用于 JTA，只做回滚标识，等到提交的时候统一不提交。"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090611-06u3b4y",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090611-06u3b4y",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-n8b6f74",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-n8b6f74",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "回滚后的信息清除。对于回滚逻辑执行结束后，无论回滚是否陈宫，都必须要将信息清除。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-0r9uvd2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-0r9uvd2",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们来详细看看上面三点："
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-obyji3z",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090611-obyji3z",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1. 自定义触发器的调用"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-sygf50f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-sygf50f",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "自定义触发器的调用，包括在回滚前、回滚成功、回滚失败的触发器调用。实现逻辑都类似，我们这里挑一个回滚前的触发器看一看逻辑："
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-b512kj4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090611-b512kj4",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected final void triggerBeforeCompletion(DefaultTransactionStatus status) { \n\t\tif (status.isNewSynchronization()) { \n\t\t\tif (status.isDebug()) { \n\t\t\t\tlogger.trace(\"Triggering beforeCompletion synchronization\");\n\t\t\t}\n\t\t\t// 触发前置操作\n\t\t\tTransactionSynchronizationUtils.triggerBeforeCompletion();\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-gm60mj8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-gm60mj8",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionSynchronizationUtils.triggerBeforeCompletion();"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-7l5c07n",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090611-7l5c07n",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic static void triggerBeforeCompletion() { \n\t\t// 获取所有TransactionSynchronization 触发 beforeCompletion 方法\n\t\tfor (TransactionSynchronization synchronization : TransactionSynchronizationManager.getSynchronizations()) { \n\t\t\ttry { \n\t\t\t\tsynchronization.beforeCompletion();\n\t\t\t}\n\t\t\tcatch (Throwable tsex) { \n\t\t\t\tlogger.error(\"TransactionSynchronization.beforeCompletion threw exception\", tsex);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-0i1h46w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-0i1h46w",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "triggerAfterCompletion(status, TransactionSynchronization.STATUS_UNKNOWN);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "triggerAfterCompletion(status, TransactionSynchronization.STATUS_ROLLED_BACK);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 与之逻辑类似，这里就不再看了。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-5egyqui",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090611-5egyqui",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2. 回滚逻辑处理"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-m3y0z2m",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-m3y0z2m",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "回滚操作最底层的操作都是委托给了数据库API 来实现，所以这里并没有负责的逻辑。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-6l8vjky",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-6l8vjky",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "回滚逻辑上面也说了有三种情况，下面我们来一个一个看一看："
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-c5ghl8z",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090611-c5ghl8z",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2.1. status.rollbackToHeldSavepoint();"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-6g6xaqx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-6g6xaqx",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "status.rollbackToHeldSavepoint();"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractTransactionStatus#rollbackToHeldSavepoint"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-upgzmt4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-upgzmt4",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "处理情况是 ：当之前已经保存的事务信息中有保存点信息的时候，使用保存点信息回滚。常用于嵌入式事务，​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "对于嵌入式事务(并非是嵌套service事务)的处理，内嵌的事务异常并不会引起外部事物的回滚"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-28t5ujl",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090611-28t5ujl",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic void rollbackToHeldSavepoint() throws TransactionException { \n\t\tObject savepoint = getSavepoint();\n\t\tif (savepoint == null) { \n\t\t\tthrow new TransactionUsageException(\n\t\t\t\t\t\"Cannot roll back to savepoint - no savepoint associated with current transaction\");\n\t\t}\n\t\t// 回滚到 savepoint \n\t\tgetSavepointManager().rollbackToSavepoint(savepoint);\n\t\t// 释放保存点\n\t\tgetSavepointManager().releaseSavepoint(savepoint);\n\t\tsetSavepoint(null);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-xo7hnfp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-xo7hnfp",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里使用的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "JDBC"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的方式进行数据库了连接，所以这里调用的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getSavepoint();"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 返回的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "JdbcTransactionObjectSupport"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类型。所以这里我们来看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "JdbcTransactionObjectSupport 中的"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-phtvek3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090611-phtvek3",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic void rollbackToSavepoint(Object savepoint) throws TransactionException { \n\t\tConnectionHolder conHolder = getConnectionHolderForSavepoint();\n\t\ttry { \n\t\t\t// 直接调用 Connection的rollback 方法\n\t\t\tconHolder.getConnection().rollback((Savepoint) savepoint);\n\t\t\tconHolder.resetRollbackOnly();\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\tthrow new TransactionSystemException(\"Could not roll back to JDBC savepoint\", ex);\n\t\t}\n\t}\n\t@Override\n\tpublic void releaseSavepoint(Object savepoint) throws TransactionException { \n\t\tConnectionHolder conHolder = getConnectionHolderForSavepoint();\n\t\ttry { \n\t\t\t// 直接调用 Connection的releaseSavepoint方法\n\t\t\tconHolder.getConnection().releaseSavepoint((Savepoint) savepoint);\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\tlogger.debug(\"Could not explicitly release JDBC savepoint\", ex);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-w71x8qd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090611-w71x8qd",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2.2. doRollback(status);"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-jl0fiv2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-jl0fiv2",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "doRollback(status);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DataSourceTransactionManager#doRollback"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-5mioaqb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-5mioaqb",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "处理情况是 ：对于之前没有保存的事务信息中的事务为新事物，那么直接回滚。常用语单独事务的处理，对于没有保存点的回滚，Spring同样是使用底层数据库连接提供的API 来操作的。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-a80t9vz",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090611-a80t9vz",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tprotected void doRollback(DefaultTransactionStatus status) { \n\t\tDataSourceTransactionObject txObject = (DataSourceTransactionObject) status.getTransaction();\n\t\tConnection con = txObject.getConnectionHolder().getConnection();\n\t\tif (status.isDebug()) { \n\t\t\tlogger.debug(\"Rolling back JDBC transaction on Connection [\" + con + \"]\");\n\t\t}\n\t\ttry { \n\t\t\t// 直接调用rollback方法 回滚\n\t\t\tcon.rollback();\n\t\t}\n\t\tcatch (SQLException ex) { \n\t\t\tthrow new TransactionSystemException(\"Could not roll back JDBC transaction\", ex);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-0aa1hpw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090611-0aa1hpw",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2.3. doSetRollbackOnly(status);"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-4e3naq6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-4e3naq6",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "doSetRollbackOnly(status);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DataSourceTransactionManager#doSetRollbackOnly"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-uzwavzn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-uzwavzn",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "处理情况： 当前事务信息标明是存在事务的，又不属于以上两种情况，多数用于 JTA(Java Transaction API)，只做回滚标识，等到提交的时候统一不提交。即当外围事务进行提交时，发现内嵌的事务中 rollbackOnly 被设置成true。则直接进行回滚，而不再尝试提交"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-1o7p024",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090611-1o7p024",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tprotected void doSetRollbackOnly(DefaultTransactionStatus status) { \n\t\tDataSourceTransactionObject txObject = (DataSourceTransactionObject) status.getTransaction();\n\t\tif (status.isDebug()) { \n\t\t\tlogger.debug(\"Setting JDBC transaction [\" + txObject.getConnectionHolder().getConnection() +\n\t\t\t\t\t\"] rollback-only\");\n\t\t}\n\t\ttxObject.setRollbackOnly();\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-3khkzfb",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090611-3khkzfb",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3. 回滚信息清除"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-vplb8i2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-vplb8i2",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "cleanupAfterCompletion(status);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractPlatformTransactionManager#cleanupAfterCompletion"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中。\n其作用是完成事务回滚的收尾工作，主要包括以下内容 :"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-uusnx9v",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090611-uusnx9v",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"ID": "20230331090611-vn9nl3j",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090611-vn9nl3j",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-br1bpdm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-br1bpdm",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "设置状态是对事务信息做完成标识以避免重复调用"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090611-cjm8m2o",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090611-cjm8m2o",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-o46439e",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-o46439e",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果当前事务是新的同步状态，需要将绑定到当前线程的事务信息清除"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090611-sz6uh8u",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090611-sz6uh8u",
+						"updated": "20230331090611"
+					},
+					"Children": [
+						{
+							"ID": "20230331090611-tvqevaa",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090611-tvqevaa",
+								"updated": "20230331090611"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果是新事物需要做出清除资源的工作"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-lla3j0y",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090611-lla3j0y",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate void cleanupAfterCompletion(DefaultTransactionStatus status) { \n\t\tstatus.setCompleted();\n\t\tif (status.isNewSynchronization()) { \n\t\t\t// 清除当前线程的中关于该事务的信息\n\t\t\tTransactionSynchronizationManager.clear();\n\t\t}\n\t\tif (status.isNewTransaction()) { \n\t\t\t// 清理事务信息\n\t\t\tdoCleanupAfterCompletion(status.getTransaction());\n\t\t}\n\t\tif (status.getSuspendedResources() != null) { \n\t\t\tif (status.isDebug()) { \n\t\t\t\tlogger.debug(\"Resuming suspended transaction after completion of inner transaction\");\n\t\t\t}\n\t\t\tObject transaction = (status.hasTransaction() ? status.getTransaction() : null);\n\t\t\t// 结束之前事务的挂起状态。\n\t\t\tresume(transaction, (SuspendedResourcesHolder) status.getSuspendedResources());\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-rvcug6l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-rvcug6l",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们来看看下面的两个方法："
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-k6w7jdf",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090611-k6w7jdf",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3.1. doCleanupAfterCompletion(status.getTransaction());"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-cai5vyq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-cai5vyq",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "doCleanupAfterCompletion(status.getTransaction());"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DataSourceTransactionManager#doCleanupAfterCompletion"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中。在这里完成事务回滚的收尾工作。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-ao2v7c3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090611-ao2v7c3",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tprotected void doCleanupAfterCompletion(Object transaction) { \n\t\tDataSourceTransactionObject txObject = (DataSourceTransactionObject) transaction;\n\n\t\t// Remove the connection holder from the thread, if exposed.\n\t\tif (txObject.isNewConnectionHolder()) { \n\t\t\t// 将数据库连接从当前线程中解除绑定\n\t\t\tTransactionSynchronizationManager.unbindResource(obtainDataSource());\n\t\t}\n\t\t// Reset connection.\n\t\t// 释放连接\n\t\tConnection con = txObject.getConnectionHolder().getConnection();\n\t\ttry { \n\t\t\tif (txObject.isMustRestoreAutoCommit()) { \n\t\t\t\t// 恢复数据库连接自动提交属性\n\t\t\t\tcon.setAutoCommit(true);\n\t\t\t}\n\t\t\t// 重置数据连接\n\t\t\tDataSourceUtils.resetConnectionAfterTransaction(\n\t\t\t\t\tcon, txObject.getPreviousIsolationLevel(), txObject.isReadOnly());\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\tlogger.debug(\"Could not reset JDBC Connection after transaction\", ex);\n\t\t}\n\n\t\tif (txObject.isNewConnectionHolder()) { \n\t\t\tif (logger.isDebugEnabled()) { \n\t\t\t\tlogger.debug(\"Releasing JDBC Connection [\" + con + \"] after transaction\");\n\t\t\t}\n\t\t\t// 如果当前事务是独立的新创建的事务则在事务完成时释放数据库连接。\n\t\t\tDataSourceUtils.releaseConnection(con, this.dataSource);\n\t\t}\n\n\t\ttxObject.getConnectionHolder().clear();\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-whvx8e9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090611-whvx8e9",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3.2. resume(transaction, (SuspendedResourcesHolder) status.getSuspendedResources());"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-zhq5x3t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-zhq5x3t",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果在事务执行前有事务挂起，那么当前事务执行结束后需要将挂起的事务恢复。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-7pyeewf",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090611-7pyeewf",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected final void resume(@Nullable Object transaction, @Nullable SuspendedResourcesHolder resourcesHolder)\n\t\t\tthrows TransactionException { \n\n\t\tif (resourcesHolder != null) { \n\t\t\t// 获取挂起的事务\n\t\t\tObject suspendedResources = resourcesHolder.suspendedResources;\n\t\t\tif (suspendedResources != null) { \n\t\t\t\t// 恢复事务\n\t\t\t\tdoResume(transaction, suspendedResources);\n\t\t\t}\n\t\t\tList\u003cTransactionSynchronization\u003e suspendedSynchronizations = resourcesHolder.suspendedSynchronizations;\n\t\t\t// 设置事务属性\n\t\t\tif (suspendedSynchronizations != null) { \n\t\t\t\tTransactionSynchronizationManager.setActualTransactionActive(resourcesHolder.wasActive);\n\t\t\t\tTransactionSynchronizationManager.setCurrentTransactionIsolationLevel(resourcesHolder.isolationLevel);\n\t\t\t\tTransactionSynchronizationManager.setCurrentTransactionReadOnly(resourcesHolder.readOnly);\n\t\t\t\tTransactionSynchronizationManager.setCurrentTransactionName(resourcesHolder.name);\n\t\t\t\tdoResumeSynchronization(suspendedSynchronizations);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-lx80qvc",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090611-lx80qvc",
+				"updated": "20230331090611"
+			}
+		},
+		{
+			"ID": "20230331090611-gdrzvl0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-gdrzvl0",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从上面整个回滚流程可以看到，很多的操作，Spring都交给数据库底层实现了，Spring仅仅起到了一个管理的作用。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-t2d6j0x",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090611-t2d6j0x",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、总结"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-r2bll6c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-r2bll6c",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "事务的回滚操作，根据不同的情况执行不同的回滚策略。并且在回滚结束之后恢复了挂起的事务(如果有挂起事务)。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090611-ru63988",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090611-ru63988",
+				"updated": "20230331090611"
+			}
+		},
+		{
+			"ID": "20230331090611-wjzl8r2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090611-wjzl8r2",
+				"updated": "20230331090611"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考《Spring源码深度解析》如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

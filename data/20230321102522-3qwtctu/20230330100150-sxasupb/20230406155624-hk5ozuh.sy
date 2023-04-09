@@ -1,0 +1,88 @@
+{
+	"ID": "20230406155624-hk5ozuh",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230406155624-hk5ozuh",
+		"title": "resolve解析",
+		"updated": "20230406160925"
+	},
+	"Children": [
+		{
+			"ID": "20230406155624-1go5i7i",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406155624-1go5i7i",
+				"updated": "20230406155720"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "就是将一堆信息，解析成摸一个类，用这个类来保存这一堆信息。"
+				}
+			]
+		},
+		{
+			"ID": "20230406155757-r763tkw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406155757-r763tkw",
+				"updated": "20230406160128"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ConfigrationClassPostProcessor这个类就只用来解析@import、@componentscan、@configration等引入的信息，封装成ConfigrationClass类"
+				}
+			]
+		},
+		{
+			"ID": "20230406160216-hi5dhml",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406160216-hi5dhml",
+				"updated": "20230406160236"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在封装成BeanDefinition类"
+				}
+			]
+		},
+		{
+			"ID": "20230406160143-dcnqvvw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406160143-dcnqvvw",
+				"updated": "20230406160925"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "AnnotationMetadata metadata = configClass.getMetadata();\nAnnotatedGenericBeanDefinition configBeanDef = new AnnotatedGenericBeanDefinition(metadata);\n\nBeanDefinitionHolder definitionHolder = new BeanDefinitionHolder(configBeanDef, configBeanName);\n//注入到DefaultListableBeanFactory#beanDefinitionMap\nthis.registry.registerBeanDefinition(definitionHolder.getBeanName(), definitionHolder.getBeanDefinition());\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406160123-qm13ru9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406160123-qm13ru9"
+			}
+		}
+	]
+}

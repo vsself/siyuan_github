@@ -1,0 +1,794 @@
+{
+	"ID": "20230406234138-6hellnt",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230406234138-6hellnt",
+		"title": "实战CGLib系列之proxy篇(一)：方法拦截MethodInterceptor _iteye_13303的博客-CSDN博客",
+		"updated": "20230406234138"
+	},
+	"Children": [
+		{
+			"ID": "20230406234138-f6lf2aq",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230406234138-f6lf2aq",
+				"updated": "20230406234138"
+			}
+		},
+		{
+			"ID": "20230406234138-tz6hxtx",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230406234138-tz6hxtx",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"ID": "20230406234138-t0k9j9s",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406234138-t0k9j9s",
+						"updated": "20230406234138"
+					},
+					"Children": [
+						{
+							"ID": "20230406234138-7gwh8i5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406234138-7gwh8i5",
+								"updated": "20230406234138"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/iteye_13303/article/details/82639962?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026request_id=168079566816800222872602\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-2-82639962-null-null.blog_rank_default\u0026utm_term=%E5%AE%9E%E6%88%98CGLib\u0026spm=1018.2226.3001.4450",
+									"TextMarkTextContent": "https://blog.csdn.net/iteye_13303/article/details/82639962?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026amp;request_id=168079566816800222872602\u0026amp;biz_id=0\u0026amp;utm_medium=distribute.pc_search_result.none-task-blog-2"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a sub",
+									"TextMarkAHref": "https://blog.csdn.net/iteye_13303/article/details/82639962?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026request_id=168079566816800222872602\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-2-82639962-null-null.blog_rank_default\u0026utm_term=%E5%AE%9E%E6%88%98CGLib\u0026spm=1018.2226.3001.4450",
+									"TextMarkTextContent": "blog"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/iteye_13303/article/details/82639962?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168079566816800222872602%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D\u0026request_id=168079566816800222872602\u0026biz_id=0\u0026utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-2-82639962-null-null.blog_rank_default\u0026utm_term=%E5%AE%9E%E6%88%98CGLib\u0026spm=1018.2226.3001.4450",
+									"TextMarkTextContent": "first_rank_ecpm_v1~rank_v31_ecpm-2-82639962-null-null.blog_rank_default\u0026amp;utm_term=%E5%AE%9E%E6%88%98CGLib\u0026amp;spm=1018.2226.3001.4450"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406234138-7ulr0w0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406234138-7ulr0w0",
+						"updated": "20230406234138"
+					},
+					"Children": [
+						{
+							"ID": "20230406234138-9a1izmo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406234138-9a1izmo",
+								"updated": "20230406234138"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "作者shensy及出处http://shensy.iteye.com/blog/1873155 实战CGLib系列文章本篇介绍通过MethodInterceptor和Enhancer实现一个动态代理。一、首先说一下JDK中的动态代理：JDK中的动态代理是通过反射类Proxy以及InvocationHandler回调接口实现的，不了解的同学请参考我的这篇Blog：Java动态..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406234138-tr4jnbb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230406234138-tr4jnbb",
+						"updated": "20230406234138"
+					},
+					"Children": [
+						{
+							"ID": "20230406234138-5lajoid",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406234138-5lajoid",
+								"updated": "20230406234138"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-06 23:41:38"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-leswm4c",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230406234138-leswm4c",
+				"updated": "20230406234138"
+			}
+		},
+		{
+			"ID": "20230406234138-rwwd89c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-rwwd89c",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "作者shensy及出处"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://shensy.iteye.com/blog/1873155",
+					"TextMarkTextContent": "http://shensy.iteye.com/blog/1873155"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-q2qni3c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-q2qni3c",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "实战CGLib系列文章"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-axyq1eq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-axyq1eq",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本篇介绍通过MethodInterceptor和Enhancer实现一个动态代理。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-sflp57k",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-sflp57k",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、首先说一下​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "JDK中的动态代理"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​："
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-842fcnz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-842fcnz",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "JDK中的动态代理是通过"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%8F%8D%E5%B0%84\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "反射"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "类Proxy以及InvocationHandler回调接口实现的，不了解的同学请参考我的这篇Blog：Java动态代理详解 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://shensy.iteye.com/blog/1698197",
+					"TextMarkTextContent": "http://shensy.iteye.com/blog/1698197"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-q4zi0dg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-q4zi0dg",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "但是，JDK中所要进行动态代理的类必须要实现一个接口，也就是说只能对该类所实现接口中定义的方法进行代理，这在实际编程中具有一定的局限性，而且使用反射的效率也并不是很高。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-oxekvxv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-oxekvxv",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、使用​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "CGLib实现"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​："
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-5y209yt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-5y209yt",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "使用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=CGLib\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "CGLib"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "实现动态代理，完全不受代理类必须实现接口的限制，而且CGLib底层采用ASM字节码生成框架，使用字节码技术生成代理类，比使用Java反射效率要高。唯一需要注意的是，CGLib不能对声明为final的方法进行代理，因为CGLib原理是动态生成被代理类的子类。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-9fe3hi4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-9fe3hi4",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面，将通过一个实例介绍使用CGLib实现动态代理。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-v6674tp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-v6674tp",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "1、被代理类"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​："
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-orykceb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-orykceb",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先，定义一个类，该类没有实现任何接口，包含两个方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-dgk6uzt",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234138-dgk6uzt",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class ConcreteClassNoInterface {\npublic String getConcreteMethodA(String str){\n\t\tSystem.out.println(\"ConcreteMethod A ... \"+str);\nreturn str;\n\t}\npublic int getConcreteMethodB(int n){\n\t\tSystem.out.println(\"ConcreteMethod B ... \"+n);\nreturn n+10;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-7xu0xpx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-7xu0xpx",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "2、拦截器"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​："
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-zwecvzl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-zwecvzl",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "定义一个拦截器。在调用目标方法时，CGLib会"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%9B%9E%E8%B0%83\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "回调"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "MethodInterceptor接口方法拦截，来实现你自己的代理逻辑，类似于JDK中的InvocationHandler接口。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-rzytxv0",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234138-rzytxv0",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class ConcreteClassInterceptor implements MethodInterceptor{\npublic Object intercept(Object obj, Method method, Object[] arg, MethodProxy proxy) throws Throwable {\n\t\tSystem.out.println(\"Before:\"+method);  \n\t\tObject object=proxy.invokeSuper(obj, arg);\n\t\tSystem.out.println(\"After:\"+method); \nreturn object;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-wo5rmd6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-wo5rmd6",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "参数：Object为由CGLib动态生成的代理类实例，Method为上文中实体类所调用的被代理的方法引用，Object[]为参数值列表，MethodProxy为生成的代理类对方法的代理引用。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-q4zvcwf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-q4zvcwf",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "返回：从代理实例的方法调用返回的值。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-8uipal3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-8uipal3",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中，proxy.invokeSuper(obj,arg)："
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-qx7mpvb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-qx7mpvb",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "调用代理类实例上的proxy方法的父类方法（即实体类ConcreteClassNoInterface中对应的方法）"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-j11qswn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-j11qswn",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在这个示例中，只在调用被代理类方法前后各打印了一句话，当然实际编程中可以是其它复杂逻辑。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-ihd4r98",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-ihd4r98",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "3、生成动态代理类"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​："
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-ac3drb9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234138-ac3drb9",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Enhancer enhancer=new Enhancer();\nenhancer.setSuperclass(ConcreteClassNoInterface.class);\nenhancer.setCallback(new ConcreteClassInterceptor());\nConcreteClassNoInterface ccni=(ConcreteClassNoInterface)enhancer.create();\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-mg2sg7o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-mg2sg7o",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里Enhancer类是CGLib中的一个字节码增强器，它可以方便的对你想要处理的类进行扩展，以后会经常看到它。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-2bgf7gs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-2bgf7gs",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先将被代理类ConcreteClassNoInterface设置成父类，然后设置拦截器ConcreteClassInterceptor，最后执行enhancer.create()动态生成一个代理类，并从Object强制转型成父类型ConcreteClassNoInterface。"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-yzg8qeb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-yzg8qeb",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "最后，在代理类上调用方法："
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-g9zt1l7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234138-g9zt1l7",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": " Java代码      [![复制代码](https://shensy.iteye.com/images/icon_copy.gif)](http://shensy.iteye.com/blog/1873155 \"复制代码\")[![收藏代码](https://shensy.iteye.com/images/icon_star.png)![](https://shensy.iteye.com/images/spinner.gif)]( \"收藏这段代码\")\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-2v6zqcz",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230406234138-2v6zqcz",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"ID": "20230406234138-itduxwg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230406234138-itduxwg",
+						"updated": "20230406234138"
+					},
+					"Children": [
+						{
+							"ID": "20230406234138-ziovdvg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406234138-ziovdvg",
+								"updated": "20230406234138"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ccni.getConcreteMethodA(\"shensy\");"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230406234138-pz0dca0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230406234138-pz0dca0",
+						"updated": "20230406234138"
+					},
+					"Children": [
+						{
+							"ID": "20230406234138-sk6wlom",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230406234138-sk6wlom",
+								"updated": "20230406234138"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ccni.getConcreteMethodB(0);"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-qvxw8if",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234138-qvxw8if",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "ccni.getConcreteMethodA(\"shensy\");\nccni.getConcreteMethodB(0);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-dueuy5b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-dueuy5b",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "查看控制台输出："
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-smcuqm5",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406234138-smcuqm5",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Before :public java.lang.String generic.cglib.proxy.ConcreteClassNoInterface.getConcreteMethodA(java.lang.String)\nConcreteMethod A ... shensy\nAfter :public java.lang.String generic.cglib.proxy.ConcreteClassNoInterface.getConcreteMethodA(java.lang.String)\nBefore :public int generic.cglib.proxy.ConcreteClassNoInterface.getConcreteMethodB(int)\nConcreteMethod B ... 0\nAfter :public int generic.cglib.proxy.ConcreteClassNoInterface.getConcreteMethodB(int)\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406234138-fu73tad",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406234138-fu73tad",
+				"updated": "20230406234138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到，拦截器在调用被代理类方法前后都执行了print操作。"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,624 @@
+{
+	"ID": "20230403223343-m9mu97t",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230403223343-m9mu97t",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230403223343-tdm1v0y\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230403223343-j3lqtj3\u0026quot;,\u0026quot;scrollTop\u0026quot;:2300,\u0026quot;focusId\u0026quot;:\u0026quot;20230403223343-tdm1v0y\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "PropertyDescriptor使用以及问题总结_liuhmmjj的博客-CSDN博客",
+		"updated": "20230403223426"
+	},
+	"Children": [
+		{
+			"ID": "20230403223343-tdm1v0y",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230403223343-tdm1v0y",
+				"updated": "20230403223343"
+			}
+		},
+		{
+			"ID": "20230403223343-k9mrkpk",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230403223343-k9mrkpk",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"ID": "20230403223343-3f4omos",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230403223343-3f4omos",
+						"updated": "20230403223343"
+					},
+					"Children": [
+						{
+							"ID": "20230403223343-vzqhg53",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230403223343-vzqhg53",
+								"updated": "20230403223343"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u014082714/article/details/82220510?spm=1001.2101.3001.6650.1\u0026utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-82220510-blog-125530159.235%5Ev27%5Epc_relevant_default\u0026depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-82220510-blog-125530159.235%5Ev27%5Epc_relevant_default\u0026utm_relevant_index=2",
+									"TextMarkTextContent": "https://blog.csdn.net/u014082714/article/details/82220510?spm=1001.2101.3001.6650.1\u0026amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-82220510-blog-125530159.235%5Ev27%5Epc_relevant_default\u0026amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-82220510-blog-125530159.235%5Ev27%5Epc_relevant_default\u0026amp;utm_relevant_index=2"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230403223343-fz8a756",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230403223343-fz8a756",
+						"updated": "20230403223343"
+					},
+					"Children": [
+						{
+							"ID": "20230403223343-8w6f3u5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230403223343-8w6f3u5",
+								"updated": "20230403223343"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一、软件包 java.beans     包含与开发 beans 有关的类二、PropertyDescriptor    PropertyDescriptor 描述 Java Bean 通过存储器方法导出的一个属性构造方法：PropertyDescriptor(String propertyName, Class\u003c?\u003e beanClass)PropertyDe..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230403223343-diga2yl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230403223343-diga2yl",
+						"updated": "20230403223343"
+					},
+					"Children": [
+						{
+							"ID": "20230403223343-x2igloe",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230403223343-x2igloe",
+								"updated": "20230403223343"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-03 22:33:43"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-axeixxu",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230403223343-axeixxu",
+				"updated": "20230403223343"
+			}
+		},
+		{
+			"ID": "20230403223343-9xnwwym",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230403223343-9xnwwym",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、软件包 java.beans"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-qydz8xb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230403223343-qydz8xb",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "包含与开发 beans 有关的类\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-ti6mfe7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230403223343-ti6mfe7",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、PropertyDescriptor"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-mdwh25w",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230403223343-mdwh25w",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "PropertyDescriptor 描述 Java Bean 通过存储器方法导出的一个属性\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-rf1vdny",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230403223343-rf1vdny",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "构造方法："
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-eah2vpy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230403223343-eah2vpy",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "PropertyDescriptor(String propertyName, Class\u003c?\u003e beanClass)\n\nPropertyDescriptor(String propertyName, Class\u003c?\u003e beanClass, String readMethodName, String writeMethodName)\n\nPropertyDescriptor(String propertyName, Method readMethod, Method writeMethod)\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-tx1j058",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230403223343-tx1j058",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "常用方法："
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-eergkay",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230403223343-eergkay",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class PropertyDescriptor extends FeatureDescriptor  \n{  \n//构造方法  \n\n//通过调用 getFoo 和 setFoo 存取方法，为符合标准 Java 约定的属性构造一个 PropertyDescriptor  \npublic PropertyDescriptor(String propertyName,  \n                          Class\u003c?\u003e beanClass)  \nthrows IntrospectionException{}  \n\n//获得属性的 Class 对象  \npublic Class\u003c?\u003e getPropertyType(){}  \n\n//获得应该用于读取属性值的方法  \npublic Method getReadMethod(){}  \n\n//获得应该用于写入属性值的方法  \npublic Method getWriteMethod(){}  \n    ...\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-ccuza5h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230403223343-ccuza5h",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "使用例子："
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-r7hnpw7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230403223343-r7hnpw7",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Price {\nprivate String mBuyPrice;\n\npublic String getMBuyPrice() {\nreturn mBuyPrice;\n    }\n\npublic void setMBuyPrice(String mBuyPrice) {\nthis.mBuyPrice = mBuyPrice;\n    }\n\n@Override\npublic String toString() {\nreturn \"Price{\" +\n\"mBuyPrice='\" + mBuyPrice + '\\'' +\n'}';\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-sabagfa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230403223343-sabagfa",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "测试类："
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-e7ax94q",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230403223343-e7ax94q",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class TestPropertyDescriptor {\n\npublic static void main(String[] args) {\ntry {\nClass clazz = Class.forName(\"com.ssm.model.Price\");\nObject obj =  clazz.newInstance();\n            Field[] fields = clazz.getDeclaredFields();\n//写数据，即获得写方法（setter方法）给属性赋值\nfor(Field f : fields){\nPropertyDescriptor pd = new PropertyDescriptor(f.getName(),clazz);\nMethod method = pd.getWriteMethod();\n                method.invoke(obj,\"100元\");\n            }\n            System.out.println(obj.toString());\n        } catch (Exception e) {\n            e.printStackTrace();\n        }\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-iujwx13",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230403223343-iujwx13",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运行结果："
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-07gcl9x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230403223343-07gcl9x",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Price{mBuyPrice='100元'}"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-tdqlhlh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230403223343-tdqlhlh",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注意："
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-ka7q5b7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230403223343-ka7q5b7",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "aHRtbA=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Price类中的属性为\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-pbpw16u",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230403223343-pbpw16u",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "dHlwZXNjcmlwdA=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "private String mBuyPrice;\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-2a85zc1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230403223343-2a85zc1",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "使用Idea或者Eclipse自动生成getter和setter方法时，会生成如下："
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-l2nlawi",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230403223343-l2nlawi",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Y29ib2w="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Price {\n    private String mBuyPrice;\n\n    public String getmBuyPrice() {\n        return mBuyPrice;\n    }\n\n    public void setmBuyPrice(String mBuyPrice) {\n        this.mBuyPrice = mBuyPrice;\n    }\n\n    @Override\n    public String toString() {\n        return \"Price{\" +\n                \"mBuyPrice='\" + mBuyPrice + '\\'' +\n                '}';\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-84dxhlp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230403223343-84dxhlp",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "用测试类运行后会报错："
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-yle511c",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230403223343-yle511c",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Y29ib2w="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "java.beans.IntrospectionException: Method not found: isMBuyPrice\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-7fnnu4h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230403223343-7fnnu4h",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "同时Price类必须含有getter和setter方法，否则也会报同样的错误。"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-gkjrvne",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230403223343-gkjrvne",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "JavaBean属性名要求：前两个字母要么都大写，要么都小写"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-insxl9i",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230403223343-insxl9i",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "Y29ib2w="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "mport java.beans.PropertyDescriptor;\nimport java.lang.reflect.Field;\nimport java.lang.reflect.Method;\n\n/**\n * @author hui\n * @description\n * @create 2018/8/30 上午11:29\n */\npublic class PropertyDescriptorUtil {\n\n    public static PropertyDescriptor getPropertyDescriptor(Class clazz, String propertyName) {\n        StringBuffer sb = new StringBuffer();//构建一个可变字符串用来构建方法名称\n        Method setMethod = null;\n        Method getMethod = null;\n        PropertyDescriptor pd = null;\n        try {\n            Field f = clazz.getDeclaredField(propertyName);//根据字段名来获取字段\n            if (f != null) {\n                //构建方法的后缀\n                String methodEnd = propertyName.substring(0, 1).toUpperCase() + propertyName.substring(1);\n                sb.append(\"set\" + methodEnd);\n                //构建set方法\n                setMethod = clazz.getDeclaredMethod(sb.toString(), new Class[]{f.getType()});\n                sb.delete(0, sb.length());\n                sb.append(\"get\" + methodEnd);\n                //构建get 方法\n                getMethod = clazz.getDeclaredMethod(sb.toString(), new Class[]{});\n                //构建一个属性描述器 把对应属性 propertyName 的 get 和 set 方法保存到属性描述器中\n                pd = new PropertyDescriptor(propertyName, getMethod, setMethod);\n            }\n        } catch (Exception ex) {\n            ex.printStackTrace();\n        }\n\n        return pd;\n    }\n\n    public static void setProperty(Object obj, String propertyName, Object value) {\n        Class clazz = obj.getClass();//获取对象的类型\n        PropertyDescriptor pd = getPropertyDescriptor(clazz, propertyName);//获取 clazz 类型中的 propertyName 的属性描述器\n        Method setMethod = pd.getWriteMethod();//从属性描述器中获取 set 方法\n        try {\n            setMethod.invoke(obj, new Object[]{value});//调用 set 方法将传入的value值保存属性中去\n        } catch (Exception e) {\n            e.printStackTrace();\n        }\n    }\n\n    public static Object getProperty(Object obj, String propertyName) {\n        Class clazz = obj.getClass();//获取对象的类型\n        PropertyDescriptor pd = getPropertyDescriptor(clazz, propertyName);//获取 clazz 类型中的 propertyName 的属性描述器\n        Method getMethod = pd.getReadMethod();//从属性描述器中获取 get 方法\n        Object value = null;\n        try {\n            value = getMethod.invoke(clazz, new Object[]{});//调用方法获取方法的返回值\n        } catch (Exception e) {\n            e.printStackTrace();\n        }\n        return value;\n    }\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230403223343-j3lqtj3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230403223343-j3lqtj3",
+				"updated": "20230403223343"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "参考："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/zhuqiuhui/article/details/78542049",
+					"TextMarkTextContent": "https://blog.csdn.net/zhuqiuhui/article/details/78542049"
+				}
+			]
+		}
+	]
+}

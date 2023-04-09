@@ -1,0 +1,1102 @@
+{
+	"ID": "20230328111632-k3qogtm",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230328111632-k3qogtm",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230328111949-tpelqzy\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230328112810-3gm6eag\u0026quot;,\u0026quot;scrollTop\u0026quot;:7913,\u0026quot;focusId\u0026quot;:\u0026quot;20230328111949-tpelqzy\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "Bean的初始化",
+		"updated": "20230328112902"
+	},
+	"Children": [
+		{
+			"ID": "20230328111949-tpelqzy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230328111949-tpelqzy",
+				"updated": "20230328111949"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. InitializingBean、initMethod和@PostConstruct的作用"
+				}
+			]
+		},
+		{
+			"ID": "20230328112002-iy1xp6e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230328112002-iy1xp6e",
+				"updated": "20230328112002"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上篇文章中用到了InitializingBean接口，如上文所诉，实现了InitializingBean接口的类，可以在该类被注入到spring容器时达到 某些属性先装配完成后，再去装配另一些属性 的能力。而initMethod和@PostConstruct也可以达到相同的目的。"
+				}
+			]
+		},
+		{
+			"ID": "20230328112002-4hav5ba",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230328112002-4hav5ba",
+				"updated": "20230328112007"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注意： 上文是一种用法，但思维不要局限。比如说我们的一个类里有一个属性，但是该属性不支持Spring注入，只能通过Build或者new的方式创建，而我们又想在spring装配Bean的时候一起将该属性注入进来，那使用InitializingBean、initMethod或@PostConstruct再合适不过了。\n"
+				}
+			]
+		},
+		{
+			"ID": "20230328112012-gejdpjb",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230328112012-gejdpjb",
+				"updated": "20230328112012"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. initMethod和InitializingBean"
+				}
+			]
+		},
+		{
+			"ID": "20230328112019-3t9l8e9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230328112019-3t9l8e9",
+				"updated": "20230328112019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1 从initMethod说起"
+				}
+			]
+		},
+		{
+			"ID": "20230328112019-zgmhfca",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230328112019-zgmhfca",
+				"updated": "20230328112019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "进行过spring配置开发的肯定对下面的配置非常熟悉"
+				}
+			]
+		},
+		{
+			"ID": "20230328112034-mebqqme",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230328112034-mebqqme",
+				"updated": "20230328112055"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"\u003e\n\n    \u003cbean id=\"person\" class=\"com.nrsc.springstudy.c071_InitializingBean_initMethod_PostConstruct.beans.Cat\"\n          init-method=\"init\"\u003e\n        \u003cproperty name=\"name\" value=\"花花\"\u003e\u003c/property\u003e\n    \u003c/bean\u003e\n\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230328112101-o1k4o7s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230328112101-o1k4o7s",
+				"updated": "20230328112101"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "没错initMethod就是原来spring配置文件里bean标签上的init-method，而InitializingBean也是spring提供的接口，那它俩有什么关系呢？先看如下代码："
+				}
+			]
+		},
+		{
+			"ID": "20230328112101-l9x9ttk",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230328112101-l9x9ttk",
+				"updated": "20230328112103"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2 从一个栗子来看initMethod和InitializingBean"
+				}
+			]
+		},
+		{
+			"ID": "20230328112141-ckzg7k4",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230328112141-ckzg7k4",
+				"updated": "20230328112229"
+			},
+			"Children": [
+				{
+					"ID": "20230328112155-d1bpl2b",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230328112155-d1bpl2b",
+						"updated": "20230328112229"
+					},
+					"Children": [
+						{
+							"ID": "20230328112155-aoiusf7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230328112155-aoiusf7",
+								"updated": "20230328112202"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "下面的类中包含了initMethod和InitializingBean它俩的用法"
+								}
+							]
+						},
+						{
+							"ID": "20230328112208-ooirmcm",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230328112208-ooirmcm",
+								"updated": "20230328112229"
+							},
+							"Children": [
+								{
+									"ID": "20230328112203-kmwyvnm",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230328112203-kmwyvnm",
+										"updated": "20230328112229"
+									},
+									"Children": [
+										{
+											"ID": "20230328112203-z3k98i6",
+											"Type": "NodeCodeBlock",
+											"IsFencedCodeBlock": true,
+											"Properties": {
+												"id": "20230328112203-z3k98i6",
+												"updated": "20230328112229"
+											},
+											"Children": [
+												{
+													"Type": "NodeCodeBlockFenceOpenMarker",
+													"Data": "```"
+												},
+												{
+													"Type": "NodeCodeBlockFenceInfoMarker",
+													"CodeBlockInfo": "amF2YQ=="
+												},
+												{
+													"Type": "NodeCodeBlockCode",
+													"Data": "package com.nrsc.springstudy.c071_InitializingBean_initMethod_PostConstruct.beans;\n\nimport org.springframework.beans.factory.InitializingBean;\n\n/**\n * Created By: Sun Chuan\n * Created Date: 2019/7/7 22:19\n */\npublic class Cat implements InitializingBean {\n    private String name;\n\n    //构造方法-----创建对象时调用\n    public Cat() {\n        System.out.println(\"Cat......constructor............\");\n    }\n\n    //设置name属性时会调用\n    public void setName(String name) {\n        System.out.println(\"===cat=========setName========\");\n        this.name = name;\n    }\n\n    public String getName() {\n        return name;\n    }\n\n    //在配置类中利用注解将initMethod指向下面的init方法----对应于initMethod的用法\n    public void init() {\n        System.out.println(\"Cat......init............\");\n    }\n\n    //继承了InitializingBean接口，需要实现afterPropertiesSet方法---对应于InitializingBean的用法\n    public void afterPropertiesSet() throws Exception {\n        System.out.println(\"Cat......afterPropertiesSet............\");\n    }\n}\n————————————————\n版权声明：本文为CSDN博主「nrsc」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n原文链接：https://blog.csdn.net/nrsc272420199/article/details/95033223\n"
+												},
+												{
+													"Type": "NodeCodeBlockFenceCloseMarker",
+													"Data": "```"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230328112122-fq0fzlz",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230328112122-fq0fzlz",
+				"updated": "20230328112325"
+			},
+			"Children": [
+				{
+					"ID": "20230328112259-iwe1k90",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230328112259-iwe1k90",
+						"updated": "20230328112325"
+					},
+					"Children": [
+						{
+							"ID": "20230328112259-nk1h1t1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230328112259-nk1h1t1",
+								"updated": "20230328112300"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "配置类如下"
+								}
+							]
+						},
+						{
+							"ID": "20230328112307-ukac0im",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230328112307-ukac0im",
+								"updated": "20230328112325"
+							},
+							"Children": [
+								{
+									"ID": "20230328112301-wbleqd8",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230328112301-wbleqd8",
+										"updated": "20230328112325"
+									},
+									"Children": [
+										{
+											"ID": "20230328112301-smgd9gh",
+											"Type": "NodeCodeBlock",
+											"IsFencedCodeBlock": true,
+											"Properties": {
+												"id": "20230328112301-smgd9gh",
+												"updated": "20230328112325"
+											},
+											"Children": [
+												{
+													"Type": "NodeCodeBlockFenceOpenMarker",
+													"Data": "```"
+												},
+												{
+													"Type": "NodeCodeBlockFenceInfoMarker",
+													"CodeBlockInfo": "amF2YQ=="
+												},
+												{
+													"Type": "NodeCodeBlockCode",
+													"Data": "package com.nrsc.springstudy.c071_InitializingBean_initMethod_PostConstruct.config;\n\nimport com.nrsc.springstudy.c071_InitializingBean_initMethod_PostConstruct.beans.Cat;\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\n\n@Configuration\npublic class C071Config {\n\n    @Bean(initMethod = \"init\")\n    public Cat buildCat() {\n        Cat cat = new Cat();\n        cat.setName(\"花花\");\n        return cat;\n    }\n}\n————————————————\n版权声明：本文为CSDN博主「nrsc」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n原文链接：https://blog.csdn.net/nrsc272420199/article/details/95033223\n"
+												},
+												{
+													"Type": "NodeCodeBlockFenceCloseMarker",
+													"Data": "```"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230328112127-ojmd1of",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230328112127-ojmd1of",
+				"updated": "20230328112428"
+			},
+			"Children": [
+				{
+					"ID": "20230328112330-czq3afc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230328112330-czq3afc",
+						"updated": "20230328112330"
+					},
+					"Children": [
+						{
+							"ID": "20230328112330-l1hojtb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230328112330-l1hojtb",
+								"updated": "20230328112334"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "启动类如下"
+								}
+							]
+						},
+						{
+							"ID": "20230328112335-c0vpcei",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230328112335-c0vpcei"
+							},
+							"Children": [
+								{
+									"ID": "20230328112335-3oa8euv",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230328112335-3oa8euv"
+									},
+									"Children": [
+										{
+											"ID": "20230328112335-sj7nssi",
+											"Type": "NodeCodeBlock",
+											"IsFencedCodeBlock": true,
+											"Properties": {
+												"id": "20230328112335-sj7nssi",
+												"updated": "20230328112344"
+											},
+											"Children": [
+												{
+													"Type": "NodeCodeBlockFenceOpenMarker",
+													"Data": "```"
+												},
+												{
+													"Type": "NodeCodeBlockFenceInfoMarker",
+													"CodeBlockInfo": "amF2YQ=="
+												},
+												{
+													"Type": "NodeCodeBlockCode",
+													"Data": "import com.nrsc.springstudy.c071_InitializingBean_initMethod_PostConstruct.config.C071Config;\nimport org.junit.Test;\nimport org.springframework.context.annotation.AnnotationConfigApplicationContext;\n\n/**\n * Created By: Sun Chuan\n * Created Date: 2019/7/7 22:14\n */\npublic class Test071_InitializingBean_initMethod_PostConstruct {\n    @Test\n    public void test01() {\n        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(C071Config.class);\n        System.out.println(\"IOC容器创建完成........\");\n    }\n}\n————————————————\n版权声明：本文为CSDN博主「nrsc」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n原文链接：https://blog.csdn.net/nrsc272420199/article/details/95033223\n"
+												},
+												{
+													"Type": "NodeCodeBlockFenceCloseMarker",
+													"Data": "```"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230328112408-1tf51f2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230328112408-1tf51f2",
+						"updated": "20230328112428"
+					},
+					"Children": [
+						{
+							"ID": "20230328112408-n9n1nm7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230328112408-n9n1nm7",
+								"updated": "20230328112414"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "运行结果"
+								}
+							]
+						},
+						{
+							"ID": "20230328112415-ykre6y5",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230328112415-ykre6y5",
+								"updated": "20230328112428"
+							},
+							"Children": [
+								{
+									"ID": "20230328112414-tm5dc2f",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230328112414-tm5dc2f",
+										"updated": "20230328112428"
+									},
+									"Children": [
+										{
+											"ID": "20230328112428-5w79wmk",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230328112428-5w79wmk",
+												"updated": "20230328112428"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "​"
+												},
+												{
+													"Type": "NodeImage",
+													"Data": "span",
+													"Children": [
+														{
+															"Type": "NodeBang"
+														},
+														{
+															"Type": "NodeOpenBracket"
+														},
+														{
+															"Type": "NodeLinkText",
+															"Data": "20190707231700840"
+														},
+														{
+															"Type": "NodeCloseBracket"
+														},
+														{
+															"Type": "NodeOpenParen"
+														},
+														{
+															"Type": "NodeLinkDest",
+															"Data": "assets/20190707231700840-20230328112428-1d9sp9c.png"
+														},
+														{
+															"Type": "NodeCloseParen"
+														}
+													]
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230328112444-v3ae613",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230328112444-v3ae613",
+				"updated": "20230328112511"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.3 探秘initMethod和InitializingBean在spring创建bean过程中的执行流程"
+				}
+			]
+		},
+		{
+			"ID": "20230328112513-lxsl1ok",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230328112513-lxsl1ok",
+				"updated": "20230328112717"
+			},
+			"Children": [
+				{
+					"ID": "20230328112522-6s3cqd9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230328112522-6s3cqd9",
+						"updated": "20230328112522"
+					},
+					"Children": [
+						{
+							"ID": "20230328112522-qlekmu0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230328112522-qlekmu0",
+								"updated": "20230328112522"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "追踪spring装配bean的源码到AbstractAutowireCapableBeanFactory类，里面有一个方法doCreateBean为真正创建bean的方法，我把其关键代码摘出来并加上注释后，如下："
+								}
+							]
+						},
+						{
+							"ID": "20230328112534-vpwniwa",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230328112534-vpwniwa"
+							},
+							"Children": [
+								{
+									"ID": "20230328112532-s04rm1l",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230328112532-s04rm1l"
+									},
+									"Children": [
+										{
+											"ID": "20230328112532-6gqcbr6",
+											"Type": "NodeCodeBlock",
+											"IsFencedCodeBlock": true,
+											"Properties": {
+												"id": "20230328112532-6gqcbr6",
+												"updated": "20230328112608"
+											},
+											"Children": [
+												{
+													"Type": "NodeCodeBlockFenceOpenMarker",
+													"Data": "```"
+												},
+												{
+													"Type": "NodeCodeBlockFenceInfoMarker",
+													"CodeBlockInfo": "amF2YQ=="
+												},
+												{
+													"Type": "NodeCodeBlockCode",
+													"Data": "\tprotected Object doCreateBean(final String beanName, final RootBeanDefinition mbd, final @Nullable Object[] args)\n\t\t\tthrows BeanCreationException {\n\n\t\t// Instantiate the bean.----即初始化bean的意思，BeanWrapper为所有bean的包装类\n\t\tBeanWrapper instanceWrapper = null;\n\t\tif (mbd.isSingleton()) {\n\t\t\tinstanceWrapper = this.factoryBeanInstanceCache.remove(beanName);\n\t\t}\n\t\tif (instanceWrapper == null) {\n\t\t\t//创建对象----利用反射机制（结合动态代理或CGLIB代理）创建对象---》相当于new一个对象\n\t\t\tinstanceWrapper = createBeanInstance(beanName, mbd, args);\n\t\t}\n\n\t\ttry {\n\t\t\t//给属性赋值---》可以简单的理解为调用各个属性的set方法为各个属性进行赋值\n\t\t\tpopulateBean(beanName, mbd, instanceWrapper);\n\t\t\t//配置bean，即在当前对象创建完成，并对某些属性赋完值之后在对该bean进行其他一些处理\n\t\t\t//就比如会调用我们利用initMethod和InitializingBean指定的方法\n\t\t\t//还比如前置增强---后置增强（之后的博客肯定会介绍到）\n\t\t\texposedObject = initializeBean(beanName, exposedObject, mbd);\n\t\t}\n\t\t//将装配好的bean返回，最终将会被装配到spring容器\n\t\treturn exposedObject;\n\t}\n————————————————\n版权声明：本文为CSDN博主「nrsc」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n原文链接：https://blog.csdn.net/nrsc272420199/article/details/95033223\n"
+												},
+												{
+													"Type": "NodeCodeBlockFenceCloseMarker",
+													"Data": "```"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230328112624-xbk7qdr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230328112624-xbk7qdr"
+					},
+					"Children": [
+						{
+							"ID": "20230328112624-ep9pvqa",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230328112624-ep9pvqa",
+								"updated": "20230328112629"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "再跟一下"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "initializeBean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "方法 — 所在类"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "AbstractAutowireCapableBeanFactory"
+								}
+							]
+						},
+						{
+							"ID": "20230328112632-qx6am4b",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230328112632-qx6am4b"
+							},
+							"Children": [
+								{
+									"ID": "20230328112630-f6kjxun",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230328112630-f6kjxun"
+									},
+									"Children": [
+										{
+											"ID": "20230328112630-ran6vkp",
+											"Type": "NodeCodeBlock",
+											"IsFencedCodeBlock": true,
+											"Properties": {
+												"id": "20230328112630-ran6vkp",
+												"updated": "20230328112641"
+											},
+											"Children": [
+												{
+													"Type": "NodeCodeBlockFenceOpenMarker",
+													"Data": "```"
+												},
+												{
+													"Type": "NodeCodeBlockFenceInfoMarker",
+													"CodeBlockInfo": "amF2YQ=="
+												},
+												{
+													"Type": "NodeCodeBlockCode",
+													"Data": "\tprotected Object initializeBean(final String beanName, final Object bean, @Nullable RootBeanDefinition mbd) {\n\t\tif (System.getSecurityManager() != null) {\n\t\t\tAccessController.doPrivileged((PrivilegedAction\u003cObject\u003e) () -\u003e {\n\t\t\t\tinvokeAwareMethods(beanName, bean);\n\t\t\t\treturn null;\n\t\t\t}, getAccessControlContext());\n\t\t}\n\t\telse {\n\t\t\tinvokeAwareMethods(beanName, bean);\n\t\t}\n\n\t\tObject wrappedBean = bean;\n\t\tif (mbd == null || !mbd.isSynthetic()) {\n\t\t\t//前置增强处理----先有个概念，之后的博客肯定会介绍到\n\t\t\twrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);\n\t\t}\n\n\t\ttry {\n\t\t\t//真正调用initMethod和InitializingBean指定的方法\n\t\t\tinvokeInitMethods(beanName, wrappedBean, mbd);\n\t\t}\n\t\tcatch (Throwable ex) {\n\t\t\tthrow new BeanCreationException(\n\t\t\t\t\t(mbd != null ? mbd.getResourceDescription() : null),\n\t\t\t\t\tbeanName, \"Invocation of init method failed\", ex);\n\t\t}\n\t\tif (mbd == null || !mbd.isSynthetic()) {\n\t\t\t//后置增强处理----先有个概念，之后的博客肯定会介绍到\n\t\t\twrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);\n\t\t}\n\n\t\treturn wrappedBean;\n\t}\n————————————————\n版权声明：本文为CSDN博主「nrsc」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n原文链接：https://blog.csdn.net/nrsc272420199/article/details/95033223\n"
+												},
+												{
+													"Type": "NodeCodeBlockFenceCloseMarker",
+													"Data": "```"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230328112653-l64j6wb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230328112653-l64j6wb",
+						"updated": "20230328112717"
+					},
+					"Children": [
+						{
+							"ID": "20230328112653-wwelvr9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230328112653-wwelvr9",
+								"updated": "20230328112657"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "继续跟踪"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "invokeInitMethods"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "方法 — 所在类"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "AbstractAutowireCapableBeanFactory"
+								}
+							]
+						},
+						{
+							"ID": "20230328112706-cs746ra",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230328112706-cs746ra",
+								"updated": "20230328112717"
+							},
+							"Children": [
+								{
+									"ID": "20230328112705-umcw7g2",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230328112705-umcw7g2",
+										"updated": "20230328112717"
+									},
+									"Children": [
+										{
+											"ID": "20230328112705-68v0t5e",
+											"Type": "NodeCodeBlock",
+											"IsFencedCodeBlock": true,
+											"Properties": {
+												"id": "20230328112705-68v0t5e",
+												"updated": "20230328112717"
+											},
+											"Children": [
+												{
+													"Type": "NodeCodeBlockFenceOpenMarker",
+													"Data": "```"
+												},
+												{
+													"Type": "NodeCodeBlockFenceInfoMarker",
+													"CodeBlockInfo": "amF2YQ=="
+												},
+												{
+													"Type": "NodeCodeBlockCode",
+													"Data": "\tprotected void invokeInitMethods(String beanName, final Object bean, @Nullable RootBeanDefinition mbd)\n\t\t\tthrows Throwable {\n\t\t//判断该bean是否实现了实现了InitializingBean接口\n\t\tboolean isInitializingBean = (bean instanceof InitializingBean);\n\t\tif (isInitializingBean \u0026\u0026 (mbd == null || !mbd.isExternallyManagedInitMethod(\"afterPropertiesSet\"))) {\n\t\t\tif (logger.isTraceEnabled()) {\n\t\t\t\tlogger.trace(\"Invoking afterPropertiesSet() on bean with name '\" + beanName + \"'\");\n\t\t\t}\n\t\t\tif (System.getSecurityManager() != null) {\n\t\t\t\ttry {\n\t\t\t\t\tAccessController.doPrivileged((PrivilegedExceptionAction\u003cObject\u003e) () -\u003e {\n\t\t\t\t\t\t//不用管if-else是啥逻辑，反正就是如果实现了InitializingBean接口，则调用该bean的afterPropertiesSet方法\n\t\t\t\t\t\t((InitializingBean) bean).afterPropertiesSet();\n\t\t\t\t\t\treturn null;\n\t\t\t\t\t}, getAccessControlContext());\n\t\t\t\t}\n\t\t\t\tcatch (PrivilegedActionException pae) {\n\t\t\t\t\tthrow pae.getException();\n\t\t\t\t}\n\t\t\t}\n\t\t\telse {\n\t\t\t\t//不用管if-else是啥逻辑，反正就是如果实现了InitializingBean接口，则调用该bean的afterPropertiesSet方法\n\t\t\t\t((InitializingBean) bean).afterPropertiesSet();\n\t\t\t}\n\t\t}\n\t\t//判断是否指定了initMethod方法，如果指定了，则再调用指定的initMethod方法\n\t\tif (mbd != null \u0026\u0026 bean.getClass() != NullBean.class) {\n\t\t\tString initMethodName = mbd.getInitMethodName();\n\t\t\tif (StringUtils.hasLength(initMethodName) \u0026\u0026\n\t\t\t\t\t!(isInitializingBean \u0026\u0026 \"afterPropertiesSet\".equals(initMethodName)) \u0026\u0026\n\t\t\t\t\t!mbd.isExternallyManagedInitMethod(initMethodName)) {\n\t\t\t\t//具体调用initMethod方法---用到了反射\n\t\t\t\tinvokeCustomInitMethod(beanName, bean, mbd);\n\t\t\t}\n\t\t}\n\t}\n————————————————\n版权声明：本文为CSDN博主「nrsc」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n原文链接：https://blog.csdn.net/nrsc272420199/article/details/95033223\n"
+												},
+												{
+													"Type": "NodeCodeBlockFenceCloseMarker",
+													"Data": "```"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230328112725-vmfr816",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230328112725-vmfr816",
+				"updated": "20230328112725"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.4 总结"
+				}
+			]
+		},
+		{
+			"ID": "20230328112728-iug03qh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230328112728-iug03qh",
+				"updated": "20230328112745"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "将上面的三个方法的逻辑抽离出来，大概就是下图的样子，initMethod和InitializingBean是spring提供的两种对类的属性进行装配的方式，initMethod和InitializingBean指定的方法运行顺序在普通属性装配之后，而initMethod指定的方法又在InitializingBean指定的方法之后\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "20190708001900694"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20190708001900694-20230328112745-22iyiyq.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230328112754-7xseutv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230328112754-7xseutv",
+				"updated": "20230328112754"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3. 简单介绍@PostConstruct，并比较其与InitializingBean、initMethod的执行顺序"
+				}
+			]
+		},
+		{
+			"ID": "20230328112743-r4v446g",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230328112743-r4v446g",
+				"updated": "20230328112832"
+			},
+			"Children": [
+				{
+					"ID": "20230328112809-0vuiiln",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230328112809-0vuiiln",
+						"updated": "20230328112832"
+					},
+					"Children": [
+						{
+							"ID": "20230328112809-m4hifm2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230328112809-m4hifm2",
+								"updated": "20230328112809"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@PostConstruct不属于spring，它是JSR250定义的java规范，也就是说它是jdk的注解，但它也能完成和InitializingBean、initMethod一样的功能，更具体的就不再进行研究了，这里仅将其和InitializingBean、initMethod放在一起，进行一下简单测试，修改后的Cat类如下："
+								}
+							]
+						},
+						{
+							"ID": "20230328112812-twrnzez",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230328112812-twrnzez",
+								"updated": "20230328112832"
+							},
+							"Children": [
+								{
+									"ID": "20230328112811-z0y69lt",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230328112811-z0y69lt",
+										"updated": "20230328112832"
+									},
+									"Children": [
+										{
+											"ID": "20230328112811-wn4dhch",
+											"Type": "NodeCodeBlock",
+											"IsFencedCodeBlock": true,
+											"Properties": {
+												"id": "20230328112811-wn4dhch",
+												"updated": "20230328112832"
+											},
+											"Children": [
+												{
+													"Type": "NodeCodeBlockFenceOpenMarker",
+													"Data": "```"
+												},
+												{
+													"Type": "NodeCodeBlockFenceInfoMarker",
+													"CodeBlockInfo": "amF2YQ=="
+												},
+												{
+													"Type": "NodeCodeBlockCode",
+													"Data": "package com.nrsc.springstudy.c071_InitializingBean_initMethod_PostConstruct.beans;\n\nimport org.springframework.beans.factory.InitializingBean;\n\nimport javax.annotation.PostConstruct;\n\n/**\n * Created By: Sun Chuan\n * Created Date: 2019/7/7 22:19\n */\npublic class Cat implements InitializingBean {\n    private String name;\n\n    //构造方法-----创建对象时调用\n    public Cat() {\n        System.out.println(\"Cat......constructor............\");\n    }\n\n    //设置name属性时会调用\n    public void setName(String name) {\n        System.out.println(\"===cat=========setName========\");\n        this.name = name;\n    }\n\n    public String getName() {\n        return name;\n    }\n\n    //在配置类中利用注解将initMethod指向下面的init方法----对应于initMethod的用法\n    public void init() {\n        System.out.println(\"Cat......init............\");\n    }\n\n    //继承了InitializingBean接口，需要实现afterPropertiesSet方法---对应于InitializingBean的用法\n    public void afterPropertiesSet() throws Exception {\n        System.out.println(\"Cat......afterPropertiesSet............\");\n    }\n    @PostConstruct\n    public void  init2(){\n        System.out.println(\"Cat......@PostConstruct............\");\n    }\n}\n————————————————\n版权声明：本文为CSDN博主「nrsc」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n原文链接：https://blog.csdn.net/nrsc272420199/article/details/95033223\n"
+												},
+												{
+													"Type": "NodeCodeBlockFenceCloseMarker",
+													"Data": "```"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230328112845-t3lbajk",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230328112845-t3lbajk",
+				"updated": "20230328112902"
+			},
+			"Children": [
+				{
+					"ID": "20230328112852-0bzhtyi",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230328112852-0bzhtyi",
+						"updated": "20230328112902"
+					},
+					"Children": [
+						{
+							"ID": "20230328112852-zpehaqy",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230328112852-zpehaqy",
+								"updated": "20230328112852"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "测试结果如下"
+								}
+							]
+						},
+						{
+							"ID": "20230328112855-6qhnmc7",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230328112855-6qhnmc7",
+								"updated": "20230328112902"
+							},
+							"Children": [
+								{
+									"ID": "20230328112854-u7f8d1a",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230328112854-u7f8d1a",
+										"updated": "20230328112902"
+									},
+									"Children": [
+										{
+											"ID": "20230328112902-qle3b46",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230328112902-qle3b46",
+												"updated": "20230328112902"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "​"
+												},
+												{
+													"Type": "NodeImage",
+													"Data": "span",
+													"Children": [
+														{
+															"Type": "NodeBang"
+														},
+														{
+															"Type": "NodeOpenBracket"
+														},
+														{
+															"Type": "NodeLinkText",
+															"Data": "20190708003654657"
+														},
+														{
+															"Type": "NodeCloseBracket"
+														},
+														{
+															"Type": "NodeOpenParen"
+														},
+														{
+															"Type": "NodeLinkDest",
+															"Data": "assets/20190708003654657-20230328112902-xnsq2eg.png"
+														},
+														{
+															"Type": "NodeCloseParen"
+														}
+													]
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230328112810-3gm6eag",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230328112810-3gm6eag"
+			}
+		}
+	]
+}

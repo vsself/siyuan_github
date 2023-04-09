@@ -1,0 +1,125 @@
+{
+	"ID": "20230406115054-4xhea4n",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230406115054-4xhea4n",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230406115104-cseiz47\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230406115221-8rkvh8s\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230406115221-8rkvh8s\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "启动类",
+		"updated": "20230406115221"
+	},
+	"Children": [
+		{
+			"ID": "20230406115104-cseiz47",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230406115104-cseiz47",
+				"updated": "20230406115108"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring什么时候扫描的包路径?"
+				}
+			]
+		},
+		{
+			"ID": "20230406115104-4gvbqf3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406115104-4gvbqf3",
+				"updated": "20230406115131"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring在启动时候会将启动类注册到Spring容器中。在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ConfigurationClassPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​中,会将启动类作为配置类进行解析。由于启动类上面有"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@ComponentScan"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​注解,所以在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ConfigurationClassParser# doProcessConfigurationClass中"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​会解析这个注解, 根据解析后的路径通过\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.componentScanParser.parse (componentScan,sourceClass.getMetadata () .getClassName())"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​进行扫描，注册扫描到的需要注入的类(被"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Component"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​ 修饰的类)并进行注入，如果有配置类再进行递归的配置类解析。(扫描是在 方法 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.context. annotation.ClassPathBeanDefinitionScanner#doScan"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​中进行的扫描，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "sub",
+					"TextMarkTextContent": "但是我偷懒了没看具体实现)"
+				}
+			]
+		},
+		{
+			"ID": "20230406115114-iw18ou1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406115114-iw18ou1",
+				"updated": "20230406115219"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "block-ref",
+					"TextMarkBlockRefID": "20230331084853-8xgfba6",
+					"TextMarkBlockRefSubtype": "d",
+					"TextMarkTextContent": "Spring 源码分析衍生篇七 ：ConfigurationClassPostProcessor 上篇_configuration 衍生_猫吻鱼的博客-CSDN博客"
+				}
+			]
+		},
+		{
+			"ID": "20230406115221-8rkvh8s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406115221-8rkvh8s"
+			}
+		}
+	]
+}

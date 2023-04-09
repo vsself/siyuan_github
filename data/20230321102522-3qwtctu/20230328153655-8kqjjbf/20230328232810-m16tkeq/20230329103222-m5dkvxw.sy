@@ -1,0 +1,260 @@
+{
+	"ID": "20230329103222-m5dkvxw",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230329103222-m5dkvxw",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230329103222-rah9hdk\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230329103401-yyjeqt4\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230329103334-oltwti2\u0026quot;,\u0026quot;focusStart\u0026quot;:3,\u0026quot;focusEnd\u0026quot;:3}",
+		"title": "bytype自动装配",
+		"updated": "20230329103401"
+	},
+	"Children": [
+		{
+			"ID": "20230329103222-rah9hdk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329103222-rah9hdk",
+				"updated": "20230329103254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.tutorialspoint;\npublic class TextEditor {\n   private SpellChecker spellChecker;\n   private String name;\n   public void setSpellChecker( SpellChecker spellChecker ) {\n      this.spellChecker = spellChecker;\n   }\n   public SpellChecker getSpellChecker() {\n      return spellChecker;\n   }\n   public void setName(String name) {\n      this.name = name;\n   }\n   public String getName() {\n      return name;\n   }\n   public void spellCheck() {\n      spellChecker.checkSpelling();\n   }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329103256-tgdqesu",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329103256-tgdqesu",
+				"updated": "20230329103304"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.tutorialspoint;\npublic class SpellChecker {\n   public SpellChecker(){\n      System.out.println(\"Inside SpellChecker constructor.\" );\n   }\n   public void checkSpelling() {\n      System.out.println(\"Inside checkSpelling.\" );\n   }   \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329103305-ol2mett",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329103305-ol2mett",
+				"updated": "20230329103312"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.tutorialspoint;\nimport org.springframework.context.ApplicationContext;\nimport org.springframework.context.support.ClassPathXmlApplicationContext;\npublic class MainApp {\n   public static void main(String[] args) {\n      ApplicationContext context = \n             new ClassPathXmlApplicationContext(\"Beans.xml\");\n      TextEditor te = (TextEditor) context.getBean(\"textEditor\");\n      te.spellCheck();\n   }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329103312-hf03u8l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329103312-hf03u8l",
+				"updated": "20230329103317"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面是在正常情况下的配置文件 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "Beans.xml"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 文件："
+				}
+			]
+		},
+		{
+			"ID": "20230329103318-kq5p2f1",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329103318-kq5p2f1",
+				"updated": "20230329103327"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xsi:schemaLocation=\"http://www.springframework.org/schema/beans\n    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd\"\u003e\n\n   \u003c!-- Definition for textEditor bean --\u003e\n   \u003cbean id=\"textEditor\" class=\"com.tutorialspoint.TextEditor\"\u003e\n      \u003cproperty name=\"spellChecker\" ref=\"spellChecker\" /\u003e\n      \u003cproperty name=\"name\" value=\"Generic Text Editor\" /\u003e\n   \u003c/bean\u003e\n\n   \u003c!-- Definition for spellChecker bean --\u003e\n   \u003cbean id=\"spellChecker\" class=\"com.tutorialspoint.SpellChecker\"\u003e\n   \u003c/bean\u003e\n\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329103329-1bx3zi0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329103329-1bx3zi0",
+				"updated": "20230329103333"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "但是，如果你要使用自动装配"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "\u0026lt;span\u0026gt; \u0026lt;/span\u0026gt;“byType”"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，那么你的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "XML\u0026lt;span\u0026gt; \u0026lt;/span\u0026gt;"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​配置文件将成为如下："
+				}
+			]
+		},
+		{
+			"ID": "20230329103334-oltwti2",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329103334-oltwti2",
+				"updated": "20230329103342"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xsi:schemaLocation=\"http://www.springframework.org/schema/beans\n    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd\"\u003e\n\n   \u003c!-- Definition for textEditor bean --\u003e\n   \u003cbean id=\"textEditor\" class=\"com.tutorialspoint.TextEditor\" \n      autowire=\"byType\"\u003e\n      \u003cproperty name=\"name\" value=\"Generic Text Editor\" /\u003e\n   \u003c/bean\u003e\n\n   \u003c!-- Definition for spellChecker bean --\u003e\n   \u003cbean id=\"SpellChecker\" class=\"com.tutorialspoint.SpellChecker\"\u003e\n   \u003c/bean\u003e\n\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329103344-p1l003w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329103344-p1l003w",
+				"updated": "20230329103350"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一旦你完成了创建源代码和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的配置文件，我们就可以运行该应用程序。如果你的应用程序一切都正常，它将打印下面的消息："
+				}
+			]
+		},
+		{
+			"ID": "20230329103351-rmhg7aj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329103351-rmhg7aj",
+				"updated": "20230329103400"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Inside SpellChecker constructor.\nInside checkSpelling.\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329103401-yyjeqt4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329103401-yyjeqt4"
+			}
+		}
+	]
+}

@@ -1,0 +1,833 @@
+{
+	"ID": "20230404010251-41pwj9v",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010251-41pwj9v",
+		"title": "吃透Spring源码（四）：自定义属性编辑器PropertyEditor_吃透Java的博客-CSDN博客",
+		"updated": "20230404010251"
+	},
+	"Children": [
+		{
+			"ID": "20230404010251-0z9523k",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010251-0z9523k",
+				"updated": "20230404010251"
+			}
+		},
+		{
+			"ID": "20230404010251-ad1oqeh",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010251-ad1oqeh",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"ID": "20230404010251-tyezwwa",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010251-tyezwwa",
+						"updated": "20230404010251"
+					},
+					"Children": [
+						{
+							"ID": "20230404010251-0k4jlbb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010251-0k4jlbb",
+								"updated": "20230404010251"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/109201533",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/109201533"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010251-mrro435",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010251-mrro435",
+						"updated": "20230404010251"
+					},
+					"Children": [
+						{
+							"ID": "20230404010251-93j2bnc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010251-93j2bnc",
+								"updated": "20230404010251"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Spring的强大之处不仅仅在于它为Java开发者提供了极大便利，更在于它的开放式架构，使得用户可以拥有最大扩展Spring的能力。我们在xml定义bean时，输入的内容都是字符串。spring会根据已经注册好的属性编辑器解析这些字符串，实例化成对应的类型。一，源码相关1，创建默认的propertyEditorRegister在AbstractApplicationContext的refresh()方法的prepareBeanFactory()方法中创建一个默认的PropertyEditorR."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010251-59ol9h8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010251-59ol9h8",
+						"updated": "20230404010251"
+					},
+					"Children": [
+						{
+							"ID": "20230404010251-fgpe84o",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010251-fgpe84o",
+								"updated": "20230404010251"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:02:51"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-jx1uukc",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010251-jx1uukc",
+				"updated": "20230404010251"
+			}
+		},
+		{
+			"ID": "20230404010251-x4nge67",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230404010251-x4nge67",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230404010251-g3euzxo",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230404010251-g3euzxo",
+						"updated": "20230404010251"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "Spring的强大之处不仅仅在于它为Java开发者提供了极大便利，更在于它的开放式架构，使得用户可以拥有最大扩展Spring的能力。"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-wtsylsh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010251-wtsylsh",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们在xml定义bean时，输入的内容都是字符串。spring会根据已经注册好的属性编辑器解析这些字符串，实例化成对应的类型。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-4l5qg6v",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010251-4l5qg6v",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一，源码相关"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-4a22g81",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010251-4a22g81",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，创建默认的propertyEditorRegister"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-bply5f3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010251-bply5f3",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201021150941473-20230404010250-jruotyw.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-lwv8vic",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010251-lwv8vic",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在AbstractApplicationContext的refresh()方法的prepareBeanFactory()方法中创建一个默认的PropertyEditorRegister放入beanFactory中，此类主要负责注入如下默认的属性编辑器："
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-0j9gib4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010251-0j9gib4",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public void registerCustomEditors(PropertyEditorRegistry registry) { \n\t\tResourceEditor baseEditor = new ResourceEditor(this.resourceLoader, this.propertyResolver);\n\t\tdoRegisterEditor(registry, Resource.class, baseEditor);\n\t\tdoRegisterEditor(registry, ContextResource.class, baseEditor);\n\t\tdoRegisterEditor(registry, InputStream.class, new InputStreamEditor(baseEditor));\n\t\tdoRegisterEditor(registry, InputSource.class, new InputSourceEditor(baseEditor));\n\t\tdoRegisterEditor(registry, File.class, new FileEditor(baseEditor));\n\t\tdoRegisterEditor(registry, Path.class, new PathEditor(baseEditor));\n\t\tdoRegisterEditor(registry, Reader.class, new ReaderEditor(baseEditor));\n\t\tdoRegisterEditor(registry, URL.class, new URLEditor(baseEditor));\n\n\t\tClassLoader classLoader = this.resourceLoader.getClassLoader();\n\t\tdoRegisterEditor(registry, URI.class, new URIEditor(classLoader));\n\t\tdoRegisterEditor(registry, Class.class, new ClassEditor(classLoader));\n\t\tdoRegisterEditor(registry, Class[].class, new ClassArrayEditor(classLoader));\n\n\t\tif (this.resourceLoader instanceof ResourcePatternResolver) { \n\t\t\tdoRegisterEditor(registry, Resource[].class,\n\t\t\t\t\tnew ResourceArrayPropertyEditor((ResourcePatternResolver) this.resourceLoader, this.propertyResolver));\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-to883wl",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010251-to883wl",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "private void doRegisterEditor(PropertyEditorRegistry registry, Class\u003c?\u003e requiredType, PropertyEditor editor) { \n\t\tif (registry instanceof PropertyEditorRegistrySupport) { \n\t\t\t((PropertyEditorRegistrySupport) registry).overrideDefaultEditor(requiredType, editor);\n\t\t}\n\t\telse { \n\t\t\tregistry.registerCustomEditor(requiredType, editor);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-fsiv2yp",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010251-fsiv2yp",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，调用registerCustomEditors来完成PropertyEditor的注册"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-nrhqc02",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010251-nrhqc02",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "spring源码在实例化bean的时候，创建完BeanWrapperImpl之后会调用registerCustomEditors()方法来遍历所有的propertyEditorRegister（包括我们自定义的propertyEditorRegister）类来完成属性编辑器的注入。如下：\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201021151605820-20230404010250-2ckir46.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-dr8eums",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010251-dr8eums",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected void initBeanWrapper(BeanWrapper bw) { \n\t\tbw.setConversionService(getConversionService());\n\t\tregisterCustomEditors(bw);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-t6c52ij",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010251-t6c52ij",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201021151724775-20230404010251-nplc53h.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-o9yfilj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010251-o9yfilj",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3，调用PropertyEditor来完成属性的解析"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-qad2l3a",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010251-qad2l3a",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201021152834976-20230404010251-bagrhu3.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-95neqc6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010251-95neqc6",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在populateBean对属性填充时会遍历每一个属性值来获取对应的属性编辑器，然后调用对应的属性编辑器（PropertyEditor）的setAsText()方法来解析对应的值。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-x23fp3o",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010251-x23fp3o",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二，案例"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-scpuk9r",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010251-scpuk9r",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "Address.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-q9ox8q5",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010251-q9ox8q5",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.bobo.customeditor;\n\n/**\n * @author bobo\n * @date 2020-10-21\n */\n\npublic class Address { \n    private String province;\n    private String city;\n    private String area;\n\n    public String getProvince() { \n        return province;\n    }\n\n    public void setProvince(String province) { \n        this.province = province;\n    }\n\n    public String getCity() { \n        return city;\n    }\n\n    public void setCity(String city) { \n        this.city = city;\n    }\n\n    public String getArea() { \n        return area;\n    }\n\n    public void setArea(String area) { \n        this.area = area;\n    }\n\n    @Override\n    public String toString() { \n        return \"Address{\" +\n                \"province='\" + province + '\\'' +\n                \", city='\" + city + '\\'' +\n                \", area='\" + area + '\\'' +\n                '}';\n    }\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-hkdqz7p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010251-hkdqz7p",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "Person.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-tsrsy0c",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010251-tsrsy0c",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.bobo.customeditor;\n\n/**\n * @author bobo\n * @date 2020-10-21\n */\n\npublic class Person { \n    private String name;\n    private Address address;\n\n    public String getName() { \n        return name;\n    }\n\n    public void setName(String name) { \n        this.name = name;\n    }\n\n    public Address getAddress() { \n        return address;\n    }\n\n    public void setAddress(Address address) { \n        this.address = address;\n    }\n\n    @Override\n    public String toString() { \n        return \"Person{\" +\n                \"name='\" + name + '\\'' +\n                \", address=\" + address +\n                '}';\n    }\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-fzl8f57",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010251-fzl8f57",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "AddressPropertyEditor"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-xm6ogak",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010251-xm6ogak",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.bobo.customeditor;\n\nimport java.beans.PropertyEditorSupport;\n\n/**\n * @author bobo\n * @date 2020-10-21\n */\n\npublic class AddressPropertyEdit extends PropertyEditorSupport { \n    @Override\n    public void setAsText(String text) throws IllegalArgumentException { \n        String[] split = text.split(\"-\");\n        Address address = new Address();\n        address.setProvince(split[0]);\n        address.setCity(split[1]);\n        address.setArea(split[2]);\n        setValue(address);\n    }\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-7evw2cy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010251-7evw2cy",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "AddressPropertyEditorRegister.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-00d05yy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010251-00d05yy",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.bobo.customeditor;\n\n\nimport org.springframework.beans.PropertyEditorRegistrar;\nimport org.springframework.beans.PropertyEditorRegistry;\n\n/**\n * @author bobo\n * @date 2020-10-21\n */\n\npublic class AddressPropertyEditorRegister implements PropertyEditorRegistrar { \n    @Override\n    public void registerCustomEditors(PropertyEditorRegistry registry) { \n        registry.registerCustomEditor(Address.class,new AddressPropertyEdit());\n    }\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-w35lc44",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010251-w35lc44",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "application-context.xml"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-7s7ym0m",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010251-7s7ym0m",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"\u003e\n\n    \u003cbean id=\"person\" class=\"com.bobo.customeditor.Person\"\u003e\n        \u003cproperty name=\"name\" value=\"bobo\"/\u003e\n        \u003cproperty name=\"address\" value=\"广东省-深圳市-南山区\"/\u003e\n    \u003c/bean\u003e\n    \u003c!--第一种方式--\u003e\n    \u003cbean class=\"org.springframework.beans.factory.config.CustomEditorConfigurer\"\u003e\n        \u003cproperty name=\"propertyEditorRegistrars\"\u003e\n            \u003clist\u003e\n                \u003cbean class=\"com.bobo.customeditor.AddressPropertyEditorRegister\"\u003e\u003c/bean\u003e\n            \u003c/list\u003e\n        \u003c/property\u003e\n    \u003c/bean\u003e\n    \u003c!--第二种方式--\u003e\n\u003c!--    \u003cbean class=\"org.springframework.beans.factory.config.CustomEditorConfigurer\"\u003e--\u003e\n\u003c!--        \u003cproperty name=\"customEditors\"\u003e--\u003e\n\u003c!--            \u003cmap\u003e--\u003e\n\u003c!--                \u003centry key=\"com.bobo.customeditor.Address\"\u003e--\u003e\n\u003c!--                    \u003cvalue\u003ecom.bobo.customeditor.AddressPropertyEdit\u003c/value\u003e--\u003e\n\u003c!--                \u003c/entry\u003e--\u003e\n\u003c!--            \u003c/map\u003e--\u003e\n\u003c!--        \u003c/property\u003e--\u003e\n\u003c!--    \u003c/bean\u003e--\u003e\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-5ogb9my",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010251-5ogb9my",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "test.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-ncpgle7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010251-ncpgle7",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.bobo;\n\nimport org.springframework.context.support.ClassPathXmlApplicationContext;\n\npublic class Test { \n\n    public static void main(String[] args) { \n        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(\"application-context.xml\");\n        System.out.println(context.getBean(\"person\"));\n    }\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-kw1khf6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010251-kw1khf6",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "运行输出："
+				}
+			]
+		},
+		{
+			"ID": "20230404010251-81dpje9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010251-81dpje9",
+				"updated": "20230404010251"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Person{ name='bobo', address=Address{ province='广东省', city='深圳市', area='南山区'}}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		}
+	]
+}

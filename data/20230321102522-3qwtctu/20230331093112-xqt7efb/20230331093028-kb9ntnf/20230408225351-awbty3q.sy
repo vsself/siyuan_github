@@ -1,0 +1,74 @@
+{
+	"ID": "20230408225351-awbty3q",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230408225351-awbty3q",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230408225407-rxsfn4o\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230408225407-tocnfqa\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230408225407-tocnfqa\u0026quot;,\u0026quot;focusStart\u0026quot;:118,\u0026quot;focusEnd\u0026quot;:118}",
+		"title": "适配器模式",
+		"updated": "20230408225407"
+	},
+	"Children": [
+		{
+			"ID": "20230408225407-rxsfn4o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230408225407-rxsfn4o",
+				"updated": "20230408225407"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "https://cdn.nlark.com/yuque/0/2023/png/2984281/1680860740724-2a1cbfab-9359-4580-8fed-7d3d37cd9288.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230408225407-tocnfqa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230408225407-tocnfqa",
+				"updated": "20230408225407"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "文件按照字符读取一行一行的读进来，最好的是用BufferdReader，但是只能传入Reader，不能传stream，stream是字节流。所以用适配器InputStreamReader将FileInputStream转换成Reader"
+				}
+			]
+		}
+	]
+}

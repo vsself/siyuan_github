@@ -1,0 +1,3433 @@
+{
+	"ID": "20230331085135-8s020w5",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331085135-8s020w5",
+		"title": "Spring 源码分析衍生篇十三 ：事务扩展机制 TransactionSynchronization_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331085135"
+	},
+	"Children": [
+		{
+			"ID": "20230331085135-gdsys64",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085135-gdsys64",
+				"updated": "20230331085135"
+			}
+		},
+		{
+			"ID": "20230331085135-6xmbysm",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331085135-6xmbysm",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"ID": "20230331085135-obeiist",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085135-obeiist",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-f1svg19",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-f1svg19",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/122101340"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085135-lxyiq1k",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085135-lxyiq1k",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-4kisxf5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-4kisxf5",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一、前言二、TransactionSynchronizationManagerTransactionSynchronizationManager 事务同步管理器。Spring 在事务过程中通过此类来管理事务。TransactionSynchronizationManager 中保存的是各个线程中的事务信息。public abstract class TransactionSynchronizationManager {     //线程上下文中保存着【线程池对象：ConnectionHolde"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085135-cliwkiw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085135-cliwkiw",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-ccm6ph1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-ccm6ph1",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 08:51:35"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-hkj7en8",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085135-hkj7en8",
+				"updated": "20230331085135"
+			}
+		},
+		{
+			"ID": "20230331085135-f3h089u",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085135-f3h089u",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-j6i2tio",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331085135-j6i2tio",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"ID": "20230331085135-crdrecc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085135-crdrecc",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-hx96tdo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-hx96tdo",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#_1",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085135-h5mrx8y",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085135-h5mrx8y",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-ehjaq99",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-ehjaq99",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#TransactionSynchronization_14",
+									"TextMarkTextContent": "二、TransactionSynchronization"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085135-gh81sne",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085135-gh81sne",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-qlvjkwd",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331085135-qlvjkwd",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"ID": "20230331085135-t17eo5j",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085135-t17eo5j",
+										"updated": "20230331085135"
+									},
+									"Children": [
+										{
+											"ID": "20230331085135-n4pnji7",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331085135-n4pnji7",
+												"updated": "20230331085135"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#1_TransactionSynchronization_17",
+													"TextMarkTextContent": "1. TransactionSynchronization"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331085135-eclk78l",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085135-eclk78l",
+										"updated": "20230331085135"
+									},
+									"Children": [
+										{
+											"ID": "20230331085135-gvfbzpt",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331085135-gvfbzpt",
+												"updated": "20230331085135"
+											},
+											"Children": [
+												{
+													"ID": "20230331085135-x24rnrh",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085135-x24rnrh",
+														"updated": "20230331085135"
+													},
+													"Children": [
+														{
+															"ID": "20230331085135-oe85b6k",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085135-oe85b6k",
+																"updated": "20230331085135"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#11__TransactionSynchronization___86",
+																	"TextMarkTextContent": "1.1 TransactionSynchronization 的定义"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085135-hlepqnz",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085135-hlepqnz",
+														"updated": "20230331085135"
+													},
+													"Children": [
+														{
+															"ID": "20230331085135-zhsdhci",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085135-zhsdhci",
+																"updated": "20230331085135"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#12_TransactionSynchronizationManager_135",
+																	"TextMarkTextContent": "1.2 TransactionSynchronizationManager"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331085135-sud5j0m",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085135-sud5j0m",
+										"updated": "20230331085135"
+									},
+									"Children": [
+										{
+											"ID": "20230331085135-f5hv2kj",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331085135-f5hv2kj",
+												"updated": "20230331085135"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#2_TransactionSynchronization__178",
+													"TextMarkTextContent": "2. TransactionSynchronization 原理简述"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331085135-9nase40",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085135-9nase40",
+										"updated": "20230331085135"
+									},
+									"Children": [
+										{
+											"ID": "20230331085135-un7etvl",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331085135-un7etvl",
+												"updated": "20230331085135"
+											},
+											"Children": [
+												{
+													"ID": "20230331085135-21tfgj1",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085135-21tfgj1",
+														"updated": "20230331085135"
+													},
+													"Children": [
+														{
+															"ID": "20230331085135-owfrm3c",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085135-owfrm3c",
+																"updated": "20230331085135"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#21_TransactionSynchronizationbeforeCommit_276",
+																	"TextMarkTextContent": "2.1 TransactionSynchronization#beforeCommit"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085135-pbf2se0",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085135-pbf2se0",
+														"updated": "20230331085135"
+													},
+													"Children": [
+														{
+															"ID": "20230331085135-xhjmz9q",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085135-xhjmz9q",
+																"updated": "20230331085135"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#22_TransactionSynchronizationbeforeCompletion_299",
+																	"TextMarkTextContent": "2.2 TransactionSynchronization#beforeCompletion"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085135-ygchjlp",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085135-ygchjlp",
+														"updated": "20230331085135"
+													},
+													"Children": [
+														{
+															"ID": "20230331085135-n3a6q6o",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085135-n3a6q6o",
+																"updated": "20230331085135"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#23_TransactionSynchronizationafterCommit_335",
+																	"TextMarkTextContent": "2.3 TransactionSynchronization#afterCommit"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085135-o48osbl",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085135-o48osbl",
+														"updated": "20230331085135"
+													},
+													"Children": [
+														{
+															"ID": "20230331085135-dcbjrte",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085135-dcbjrte",
+																"updated": "20230331085135"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#24_TransactionSynchronizationafterCompletion_366",
+																	"TextMarkTextContent": "2.4 TransactionSynchronization#afterCompletion"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331085135-2es80rd",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085135-2es80rd",
+										"updated": "20230331085135"
+									},
+									"Children": [
+										{
+											"ID": "20230331085135-r87qgoq",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331085135-r87qgoq",
+												"updated": "20230331085135"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#3__413",
+													"TextMarkTextContent": "3. 总结"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085135-vfd2dy5",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085135-vfd2dy5",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-l1pkijf",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-l1pkijf",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#TransactionalEventListener_420",
+									"TextMarkTextContent": "三、TransactionalEventListener"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085135-2ka54nw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085135-2ka54nw",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-o1r63j0",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331085135-o1r63j0",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"ID": "20230331085135-hfkhckg",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085135-hfkhckg",
+										"updated": "20230331085135"
+									},
+									"Children": [
+										{
+											"ID": "20230331085135-nrdp7br",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331085135-nrdp7br",
+												"updated": "20230331085135"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#1_TransactionalEventListener_494",
+													"TextMarkTextContent": "1. TransactionalEventListener"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331085135-a0szuq8",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085135-a0szuq8",
+										"updated": "20230331085135"
+									},
+									"Children": [
+										{
+											"ID": "20230331085135-zu6z45o",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331085135-zu6z45o",
+												"updated": "20230331085135"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#2___538",
+													"TextMarkTextContent": "2. 执行流程"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331085135-q88dhia",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085135-q88dhia",
+										"updated": "20230331085135"
+									},
+									"Children": [
+										{
+											"ID": "20230331085135-ag4wffy",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331085135-ag4wffy",
+												"updated": "20230331085135"
+											},
+											"Children": [
+												{
+													"ID": "20230331085135-7ijx166",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085135-7ijx166",
+														"updated": "20230331085135"
+													},
+													"Children": [
+														{
+															"ID": "20230331085135-wzcgtrb",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085135-wzcgtrb",
+																"updated": "20230331085135"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#21_EventListenerMethodProcessor_543",
+																	"TextMarkTextContent": "2.1 EventListenerMethodProcessor"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085135-k14rbwm",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085135-k14rbwm",
+														"updated": "20230331085135"
+													},
+													"Children": [
+														{
+															"ID": "20230331085135-jvgwsys",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230331085135-jvgwsys",
+																"updated": "20230331085135"
+															},
+															"Children": [
+																{
+																	"ID": "20230331085135-i4ssggp",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331085135-i4ssggp",
+																		"updated": "20230331085135"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331085135-wmnrtdz",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331085135-wmnrtdz",
+																				"updated": "20230331085135"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#211_EventListenerMethodProcessor___559",
+																					"TextMarkTextContent": "2.1.1 EventListenerMethodProcessor 的注入"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230331085135-5o26gpo",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331085135-5o26gpo",
+																		"updated": "20230331085135"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331085135-6fyuqe2",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331085135-6fyuqe2",
+																				"updated": "20230331085135"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#212_EventListenerMethodProcessor___570",
+																					"TextMarkTextContent": "2.1.2 EventListenerMethodProcessor 的调用"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085135-d3lrygv",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085135-d3lrygv",
+														"updated": "20230331085135"
+													},
+													"Children": [
+														{
+															"ID": "20230331085135-40z9qhn",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085135-40z9qhn",
+																"updated": "20230331085135"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#22_EventListenerFactory_683",
+																	"TextMarkTextContent": "2.2 EventListenerFactory"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085135-hbd7c20",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085135-hbd7c20",
+														"updated": "20230331085135"
+													},
+													"Children": [
+														{
+															"ID": "20230331085135-akztknk",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085135-akztknk",
+																"updated": "20230331085135"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#23_TransactionalApplicationListenerMethodAdapter_718",
+																	"TextMarkTextContent": "2.3 TransactionalApplicationListenerMethodAdapter"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085135-tx5u1xf",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085135-tx5u1xf",
+														"updated": "20230331085135"
+													},
+													"Children": [
+														{
+															"ID": "20230331085135-gcxoflz",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230331085135-gcxoflz",
+																"updated": "20230331085135"
+															},
+															"Children": [
+																{
+																	"ID": "20230331085135-9nu7fll",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331085135-9nu7fll",
+																		"updated": "20230331085135"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331085135-i692aby",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331085135-i692aby",
+																				"updated": "20230331085135"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#231_TransactionalApplicationListenerSynchronization_752",
+																					"TextMarkTextContent": "2.3.1 TransactionalApplicationListenerSynchronization"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230331085135-q68khkw",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331085135-q68khkw",
+																		"updated": "20230331085135"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331085135-irz4p8t",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331085135-irz4p8t",
+																				"updated": "20230331085135"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/122101340#232__ApplicationListenerMethodAdapterprocessEvent_808",
+																					"TextMarkTextContent": "2.3.2 ApplicationListenerMethodAdapter#processEvent"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-s5qryl1",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085135-s5qryl1",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-75c84p7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-75c84p7",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=Spring%E6%BA%90%E7%A0%81\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "Spring源码"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "分析的衍生文章。主要是因为本人菜鸡，在分析源码的过程中还有一些其他的内容不理解，故开设衍生篇来完善内容以学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-meml264",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-meml264",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "全集目录："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106440723",
+					"TextMarkTextContent": "Spring源码分析：全集整理"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-vvi3s0w",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085135-vvi3s0w",
+				"updated": "20230331085135"
+			}
+		},
+		{
+			"ID": "20230331085135-i8c37dg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-i8c37dg",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "sub",
+					"TextMarkTextContent": "背景不知道写啥"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-cn5j2gq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085135-cn5j2gq",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、TransactionSynchronization"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-o9rbg6t",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085135-o9rbg6t",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. TransactionSynchronization"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-1kjygzd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-1kjygzd",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里以一个 Demo 为例，如下：当调用 DemoService#testTransactionSynchronization 方法时会往sys_role 插入role_id = 1 和 role_id = 2 的两条记录。同时该方法通过 @Transactional(rollbackFor = Exception.class) 开启了事务。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-qnawha1",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-qnawha1",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Service\npublic class DemoServiceImpl implements DemoService { \n\t /**\n     * 节省空间 addRole 和 addPermission 的实现就不给出. 就是简单的往表里插入一条记录\n     * @return\n     */\n    @Transactional(rollbackFor = Exception.class)\n    @Override\n    public String testTransactionSynchronization() { \n    \t// step1 : 在 sys_role 表中插入一条 role_id = 1 的记录\n        addRole(1);\n        // step2 : 在 sys_role 表中插入一条 role_id = 2 的记录\n        addRole(2);\n        System.out.println(\"end\");\n        return \"\";\n    }\n  \n    //  在 sys_role 表中插入一条 role_id = id 的记录\n    @Override\n    public void addRole(int id) { \n        ...\n    }\n  \n  \n\t// step3 : 在 sys_rermission 表中插入一条 permission_id = id 的记录。节省空间不给出实现\n\t@Override\n\tpublic void addPermission(int id) { \n\t\t...\n\t}\n \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-90vyfw6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-90vyfw6",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "那么可以预想到，step1 和 step 2 要么同时成功，要么同时失败、现在更改一下需求 ：增加 step3 在 DemoService#testTransactionSynchronization 方法的事务提交后才执行。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-31zvybw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-31zvybw",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "实现方法有若干种，这里介绍本文的 TransactionSynchronization 的使用。借助 TransactionSynchronization，可以实现在事务挂起、恢复、提交前后、提交后等时机进行完成指定的操作。具体实现如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-h3fg0sq",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-h3fg0sq",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    @Transactional(rollbackFor = Exception.class)\n    @Override\n    public String testTransactionSynchronization() { \n    \t// step1 : 在 sys_role 表中插入一条 role_id = 1 的记录\n        addRole(1);\n        // step2 : 在 sys_role 表中插入一条 role_id = 2 的记录\n        addRole(2);\n        // 向事务同步管理器注册一个 TransactionSynchronization 匿名实现类，作用是当前事务提交后，执行 addPermission 方法。\n        TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() { \n        \t// 当前事务提交后触发该方法\n        \t// step3 : 在 sys_rermission 表中插入一条 permission_id = id 的记录。\n            @Override\n            public void afterCommit() { \n                addPermission(1);\n            }\n        });\n        System.out.println(\"end\");\n        return \"\";\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-za1ugyw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-za1ugyw",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面的实际即是：当 testTransactionSynchronization 的事务提交后，才会执行 TransactionSynchronizationManager"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "tag",
+					"TextMarkTextContent": "registerSynchronization 注册的TransactionSynchronization。这里我们实现了 TransactionSynchronization"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​afterCommit，即会在事务提交后执行。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-s84vfao",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085135-s84vfao",
+				"updated": "20230331085135"
+			}
+		},
+		{
+			"ID": "20230331085135-1inou1f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-1inou1f",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "看到了上面的 Demo，下面我们来了解一下涉及到的 TransactionSynchronization 和 TransactionSynchronizationManager"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-df968ac",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085135-df968ac",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1 TransactionSynchronization 的定义"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-0olkmo5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-0olkmo5",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TransactionSynchronization 作为事务同步回调的接口，可以实现 Ordered 接口来影响它们的执行顺序。 未实现 Ordered 接口的同步将附加到同步链的末尾。TransactionSynchronization 提供了很多方法，定义如下 ："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-ic14tbw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-ic14tbw",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public interface TransactionSynchronization extends Flushable { \n\n\t/** Completion status in case of proper commit. */\n\t// 正确提交时的完成状态\n\tint STATUS_COMMITTED = 0;\n\n\t/** Completion status in case of proper rollback. */\n\t// 在正确回滚的情况下完成状态\n\tint STATUS_ROLLED_BACK = 1;\n\n\t/** Completion status in case of heuristic mixed completion or system errors. */\n\t// 在启发式混合完成或系统错误的情况下的完成状态\n\tint STATUS_UNKNOWN = 2;\n\n\t// 事务挂起时调用。 如果管理任何资源，应该从 TransactionSynchronizationManager 取消绑定资源。\n\tdefault void suspend() { \n\t}\n\t// 事务恢复时调用。如果管理任何资源，应该将资源重新绑定到 TransactionSynchronizationManager\n\tdefault void resume() { \n\t}\n\t// 将底层会话刷新到数据存储区（如果适用）：例如，Hibernate/JPA 会话。\n\t@Override\n\tdefault void flush() { \n\t}\n\t// 事务提交前调用。此处若发生异常，会导致回滚。\n\tdefault void beforeCommit(boolean readOnly) { \n\t}\n\n\t// 事务提交前, 在 beforeCommit 后调用。此处若发生异常，不会导致回滚。\n\tdefault void beforeCompletion() { \n\t}\n\t// 事务提交后调用\n\tdefault void afterCommit() { \n\t}\n\n\t// 事务提交 或回滚后执行。\n\tdefault void afterCompletion(int status) { \n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-vom5tc3",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085135-vom5tc3",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2 TransactionSynchronizationManager"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-c1xbw4v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-c1xbw4v",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TransactionSynchronizationManager 事务同步管理器，保存的是各个线程中的事务信息。Spring 在事务过程中通过此类来管理事务。部分定义如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-6vlyifr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-6vlyifr",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class TransactionSynchronizationManager { \n\n     //线程上下文中保存着【线程池对象：ConnectionHolder】的Map对象。线程可以通过该属性获取到同一个Connection对象。\n    private static final ThreadLocal\u003cMap\u003cObject, Object\u003e\u003e resources = new NamedThreadLocal\u003c\u003e(\"Transactional resources\");\n\n    //事务同步器，是Spring交由程序员进行扩展的代码，每个线程可以注册N个事务同步器。\n    private static final ThreadLocal\u003cSet\u003cTransactionSynchronization\u003e\u003e synchronizations = new NamedThreadLocal\u003c\u003e(\"Transaction synchronizations\");\n    // 事务的名称  \n    private static final ThreadLocal\u003cString\u003e currentTransactionName = new NamedThreadLocal\u003c\u003e(\"Current transaction name\");\n    // 事务是否是只读  \n    private static final ThreadLocal\u003cBoolean\u003e currentTransactionReadOnly = new NamedThreadLocal\u003c\u003e(\"Current transaction read-only status\");\n    // 事务的隔离级别\n    private static final ThreadLocal\u003cInteger\u003e currentTransactionIsolationLevel = new NamedThreadLocal\u003c\u003e(\"Current transaction isolation level\");\n    // 事务是否开启   actual：真实的\n    private static final ThreadLocal\u003cBoolean\u003e actualTransactionActive = new NamedThreadLocal\u003c\u003e(\"Actual transaction active\");\n  \n\t....\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-pt52d93",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-pt52d93",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中 TransactionSynchronizationManager#registerSynchronization 实现如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-8ggi23k",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-8ggi23k",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic static void registerSynchronization(TransactionSynchronization synchronization)\n\t\t\tthrows IllegalStateException { \n\n\t\tAssert.notNull(synchronization, \"TransactionSynchronization must not be null\");\n\t\t// 获取当前线程绑定的 TransactionSynchronization 集合。\n\t\tSet\u003cTransactionSynchronization\u003e synchs = synchronizations.get();\n\t\tif (synchs == null) { \n\t\t\tthrow new IllegalStateException(\"Transaction synchronization is not active\");\n\t\t}\n\t\t// 将当前 新增的  TransactionSynchronization 添加到集合中\n\t\tsynchs.add(synchronization);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-s2iadrn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-s2iadrn",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到，在 TransactionSynchronizationManager"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "tag",
+					"TextMarkTextContent": "registerSynchronization中会将注册的TransactionSynchronization 添加到 TransactionSynchronizationManager"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​synchronizations集合中，当事务执行到指定阶段后进行触发，我们下面来详细看一看。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-1wy2sfh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085135-1wy2sfh",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. TransactionSynchronization 原理简述"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-giq7b29",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-giq7b29",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里不关注 事务的挂起恢复等场景（"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "sub",
+					"TextMarkTextContent": "太复杂，写一半放弃了"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " ），只关注 beforeCommit、beforeCompletion、afterCommit、afterCompletion 四个常用的方法 的调用时机 。常规的调用顺序为 ："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-fjgdo6i",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-fjgdo6i",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "业务代码  -\u003e beforeCommit -\u003e beforeCompletion -\u003e afterCommit -\u003e afterCompletion \n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-qpgxybf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-qpgxybf",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 Spring 中事务提交会调用 AbstractPlatformTransactionManager#processCommit 方法，上述四个方法都在该方法中有调用，其实现如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-ufdnqd9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-ufdnqd9",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate void processCommit(DefaultTransactionStatus status) throws TransactionException { \n\t\ttry { \n\t\t\tboolean beforeCompletionInvoked = false;\n\n\t\t\ttry { \n\t\t\t\tboolean unexpectedRollback = false;\n\t\t\t\t// 预留操作\n\t\t\t\tprepareForCommit(status);\n\t\t\t\t// 调用自定义触发器的方法\n\t\t\t\t// 1. 触发 TransactionSynchronization#beforeCommit\n\t\t\t\ttriggerBeforeCommit(status);\n\t\t\t\t// 2.1 触发 TransactionSynchronization#beforeCompletion\n\t\t\t\ttriggerBeforeCompletion(status);\n\t\t\t\tbeforeCompletionInvoked = true;\n\t\t\t\t// 如果设置了保存点信息\n\t\t\t\tif (status.hasSavepoint()) { \n\t\t\t\t\t// 清除保存点信息\n\t\t\t\t\tunexpectedRollback = status.isGlobalRollbackOnly();\n\t\t\t\t\tstatus.releaseHeldSavepoint();\n\t\t\t\t}\n\t\t\t\t// 如果是新事物\n\t\t\t\telse if (status.isNewTransaction()) { \n\t\t\t\t\tunexpectedRollback = status.isGlobalRollbackOnly();\n\t\t\t\t\t// 如果是独立事务则直接提交\n\t\t\t\t\tdoCommit(status);\n\t\t\t\t}\n\t\t\t\t// 不是新事物并不会直接提交，而是等最外围事务进行提交。\n\t\t\t\telse if (isFailEarlyOnGlobalRollbackOnly()) { \n\t\t\t\t\tunexpectedRollback = status.isGlobalRollbackOnly();\n\t\t\t\t}\n\n\t\t\t\t// Throw UnexpectedRollbackException if we have a global rollback-only\n\t\t\t\t// marker but still didn't get a corresponding exception from commit.\n\t\t\t\tif (unexpectedRollback) { \n\t\t\t\t\tthrow new UnexpectedRollbackException(\n\t\t\t\t\t\t\t\"Transaction silently rolled back because it has been marked as rollback-only\");\n\t\t\t\t}\n\t\t\t}\n\t\t\tcatch (UnexpectedRollbackException ex) { \n\t\t\t\t// can only be caused by doCommit\n\t\t\t\t// 4.1 触发 TransactionSynchronization#afterCompletion\n\t\t\t\ttriggerAfterCompletion(status, TransactionSynchronization.STATUS_ROLLED_BACK);\n\t\t\t\tthrow ex;\n\t\t\t}\n\t\t\tcatch (TransactionException ex) { \n\t\t\t\t// can only be caused by doCommit\n\t\t\t\tif (isRollbackOnCommitFailure()) { \n\t\t\t\t\t// 2.2 触发 TransactionSynchronization#beforeCompletion\n\t\t\t\t\tdoRollbackOnCommitException(status, ex);\n\t\t\t\t}\n\t\t\t\telse { \n\t\t\t\t\t// 4.2 触发 TransactionSynchronization#afterCompletion\n\t\t\t\t\ttriggerAfterCompletion(status, TransactionSynchronization.STATUS_UNKNOWN);\n\t\t\t\t}\n\t\t\t\tthrow ex;\n\t\t\t}\n\t\t\tcatch (RuntimeException | Error ex) { \n\t\t\t\tif (!beforeCompletionInvoked) { \n\t\t\t\t\ttriggerBeforeCompletion(status);\n\t\t\t\t}\n\t\t\t\t// 提交过程中会出现异常则回滚\n\t\t\t\tdoRollbackOnCommitException(status, ex);\n\t\t\t\tthrow ex;\n\t\t\t}\n\n\t\t\t// Trigger afterCommit callbacks, with an exception thrown there\n\t\t\t// propagated to callers but the transaction still considered as committed.\n\t\t\ttry { \n\t\t\t\t// 3. 触发 TransactionSynchronization#afterCommit\n\t\t\t\ttriggerAfterCommit(status);\n\t\t\t}\n\t\t\tfinally { \n\t\t\t\t// 4.3 触发 TransactionSynchronization#afterCompletion\n\t\t\t\ttriggerAfterCompletion(status, TransactionSynchronization.STATUS_COMMITTED);\n\t\t\t}\n\n\t\t}\n\t\tfinally { \n\t\t\t// 清理事务信息\n\t\t\tcleanupAfterCompletion(status);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-ko7nmf5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-ko7nmf5",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面的代码中我们标注了每个方法的调用，下面我们具体来看"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-voxw78q",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085135-voxw78q",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1 TransactionSynchronization#beforeCommit"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-yeoksga",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-yeoksga",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "TransactionSynchronization#beforeCommit 在事务提交前触发，在当前方法抛出异常会导致整个事务回滚。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-f389vlb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-f389vlb",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面代码注释标明在 AbstractPlatformTransactionManager#triggerBeforeCommit 方法中调用了该方法，其实现如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-jdm8flp",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-jdm8flp",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected final void triggerBeforeCommit(DefaultTransactionStatus status) { \n\t\tif (status.isNewSynchronization()) { \n\t\t\t// 触发 TransactionSynchronization#beforeCommit 方法。入参是当前事务是否只读\n\t\t\tTransactionSynchronizationUtils.triggerBeforeCommit(status.isReadOnly());\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-iri2a39",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-iri2a39",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TransactionSynchronizationUtils#triggerBeforeCommit 实现如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-ud3ygfa",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-ud3ygfa",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic static void triggerBeforeCommit(boolean readOnly) { \n\t\t// 从 TransactionSynchronizationManager 中获取所有注册的 TransactionSynchronization 触发 beforeCommit 方法\n\t\tfor (TransactionSynchronization synchronization : TransactionSynchronizationManager.getSynchronizations()) { \n\t\t\tsynchronization.beforeCommit(readOnly);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-wnr1irx",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085135-wnr1irx",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2 TransactionSynchronization#beforeCompletion"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-e979g7j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-e979g7j",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TransactionSynchronization"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "tag",
+					"TextMarkTextContent": "beforeCompletion 在事务提交前，在 TransactionSynchronization"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​beforeCommit 后调用。在AbstractPlatformTransactionManager#triggerBeforeCompletion 方法调用时自身捕获了异常打印了 debug 级别日志，所以如果该方法抛出异常并不会导致"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E4%BA%8B%E5%8A%A1%E5%9B%9E%E6%BB%9A\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "事务回滚"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-u3bfapq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-u3bfapq",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AbstractPlatformTransactionManager#triggerBeforeCompletion 实现如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-pl59trb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-pl59trb",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected final void triggerBeforeCompletion(DefaultTransactionStatus status) { \n\t\tif (status.isNewSynchronization()) { \n\t\t\tif (status.isDebug()) { \n\t\t\t\tlogger.trace(\"Triggering beforeCompletion synchronization\");\n\t\t\t}\n\t\t\tTransactionSynchronizationUtils.triggerBeforeCompletion();\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-en18455",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-en18455",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TransactionSynchronizationUtils#triggerBeforeCompletion 实现如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-joskxas",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-joskxas",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic static void triggerBeforeCompletion() { \n\t\tfor (TransactionSynchronization synchronization : TransactionSynchronizationManager.getSynchronizations()) { \n\t\t\ttry { \n\t\t\t\tsynchronization.beforeCompletion();\n\t\t\t}\n\t\t\tcatch (Throwable ex) { \n\t\t\t\t// 捕获beforeCompletion抛出的异常，打印 debug 日志、\n\t\t\t\tlogger.debug(\"TransactionSynchronization.beforeCompletion threw exception\", ex);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-b8ack5b",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085135-b8ack5b",
+				"updated": "20230331085135"
+			}
+		},
+		{
+			"ID": "20230331085135-0xyky5u",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-0xyky5u",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里注意 beforeCompletion 的调用场景有两处。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-z2zpesk",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331085135-z2zpesk",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"ID": "20230331085135-085wshz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085135-085wshz",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-nf6kj39",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-nf6kj39",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "代码注释 2.1 处是常规流程的执行"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085135-6emml4u",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085135-6emml4u",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-aivyt5h",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-aivyt5h",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "代码注释 2.2 处则是执行出现异常时，即当代码执行了 代码注释1处后抛出异常时执行。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-2vmwoum",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085135-2vmwoum",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.3 TransactionSynchronization#afterCommit"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-dvym6ei",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-dvym6ei",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TransactionSynchronization"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "tag",
+					"TextMarkTextContent": "afterCommit 在事务提交后调用。该方法抛出异常也不会导致事务回滚但是会触发 TransactionSynchronization"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​afterCompletion 方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-ygvbsum",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-ygvbsum",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AbstractPlatformTransactionManager#triggerAfterCommit 实现如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-8o5pfz9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-8o5pfz9",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate void triggerAfterCommit(DefaultTransactionStatus status) { \n\t\tif (status.isNewSynchronization()) { \n\n\t\t\tTransactionSynchronizationUtils.triggerAfterCommit();\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-hfjrbaz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-hfjrbaz",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TransactionSynchronizationUtils#triggerAfterCommit 实现如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-4astsww",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-4astsww",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic static void triggerAfterCommit() { \n\t\tinvokeAfterCommit(TransactionSynchronizationManager.getSynchronizations());\n\t}\n\n\tpublic static void invokeAfterCommit(@Nullable List\u003cTransactionSynchronization\u003e synchronizations) { \n\t\tif (synchronizations != null) { \n\t\t\tfor (TransactionSynchronization synchronization : synchronizations) { \n\t\t\t\tsynchronization.afterCommit();\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-0jagab6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085135-0jagab6",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.4 TransactionSynchronization#afterCompletion"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-1xxskcv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-1xxskcv",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TransactionSynchronization"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "tag",
+					"TextMarkTextContent": "afterCompletion 在 TransactionSynchronization"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​afterCommit 执行之后调用。无论事务正常提交还是异常回滚，都会触发该方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-t0h7ecv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-t0h7ecv",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "需要注意的是 该方法在 AbstractPlatformTransactionManager"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "tag",
+					"TextMarkTextContent": "processRollback 中也有调用。AbstractPlatformTransactionManager"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​processRollback 方法是事务回滚时执行的方法，其内部也是通过 AbstractPlatformTransactionManager#triggerAfterCompletion 来触发 afterCompletion 方法，因此在这里就不再展开。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-sqmx8g5",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085135-sqmx8g5",
+				"updated": "20230331085135"
+			}
+		},
+		{
+			"ID": "20230331085135-ju15d2z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-ju15d2z",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AbstractPlatformTransactionManager#triggerAfterCompletion"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-l9hkbsj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-l9hkbsj",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate void triggerAfterCompletion(DefaultTransactionStatus status, int completionStatus) { \n\t\tif (status.isNewSynchronization()) { \n\t\t\tList\u003cTransactionSynchronization\u003e synchronizations = TransactionSynchronizationManager.getSynchronizations();\n\t\t\tTransactionSynchronizationManager.clearSynchronization();\n\t\t\tif (!status.hasTransaction() || status.isNewTransaction()) { \n\t\t\t\t// No transaction or new transaction for the current scope -\u003e\n\t\t\t\t// invoke the afterCompletion callbacks immediately\n\t\t\t\t// 当前作用域没有事务或有新事务， 触发 TransactionSynchronization#afterCompletion  方法\n\t\t\t\tinvokeAfterCompletion(synchronizations, completionStatus);\n\t\t\t}\n\t\t\telse if (!synchronizations.isEmpty()) { \n\t\t\t\t// Existing transaction that we participate in, controlled outside\n\t\t\t\t// of the scope of this Spring transaction manager -\u003e try to register\n\t\t\t\t// an afterCompletion callback with the existing (JTA) transaction.\n\t\t\t\t// 我们参与的现有事务，在此 Spring 事务管理器范围之外控制 -\u003e 尝试使用现有（JTA）事务注册 afterCompletion 回调。\n\t\t\t\tregisterAfterCompletionWithExistingTransaction(status.getTransaction(), synchronizations);\n\t\t\t}\n\t\t}\n\t}\n\n\tprotected void registerAfterCompletionWithExistingTransaction(\n\t\t\tObject transaction, List\u003cTransactionSynchronization\u003e synchronizations) throws TransactionException { \n\t\t// 状态置为未知\n\t\tinvokeAfterCompletion(synchronizations, TransactionSynchronization.STATUS_UNKNOWN);\n\t}\n\n\tprotected final void invokeAfterCompletion(List\u003cTransactionSynchronization\u003e synchronizations, int completionStatus) { \n\t\tTransactionSynchronizationUtils.invokeAfterCompletion(synchronizations, completionStatus);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-l7lhcjy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085135-l7lhcjy",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3. 总结"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-eul1tpe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-eul1tpe",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总体来说 TransactionSynchronization 的逻辑还是比较简单的，如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-tq6kmwv",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331085135-tq6kmwv",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"ID": "20230331085135-q7rapcp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331085135-q7rapcp",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-nfsibd8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-nfsibd8",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "TransactionSynchronizationManager"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "tag",
+									"TextMarkTextContent": "registerSynchronization 将 TransactionSynchronization 注册到 TransactionSynchronizationManager"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​synchronizations 中。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085135-f31riua",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331085135-f31riua",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-md4ys91",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-md4ys91",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当当前线程准备提交或回滚时会通过TransactionSynchronizationManager"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "tag",
+									"TextMarkTextContent": "getSynchronizations 获取到 TransactionSynchronizationManager"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​synchronizations 中的事务同步类。随后执行相应的方法。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-uurkl8w",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085135-uurkl8w",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、TransactionalEventListener"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-xnnvdbe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-xnnvdbe",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 Spring framework 4.2 之后还可以使用@TransactionalEventListener处理数据库事务提交成功后再执行操作，这种方式比 TransactionSynchronization 更加优雅。我们仍以上面的Demo为例加以改造。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-ea97nv8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-ea97nv8",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如下： 同样的功能，事务内在 sys_role 表中插入一条 role_id = 10 和 20 两条记录。事务提交后执行DemoServiceImpl#onApplicationEvent 方法调用 addPermission，在 sys_rermission 表中插入一条记录。需要注意，这里不需要再实现 ApplicationListener 接口，否则会调用两次。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-rzwo1rc",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-rzwo1rc",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Service\npublic class DemoServiceImpl implements DemoService, ApplicationContextAware { \n    @Autowired\n    private SysPermissionDao sysPermissionDao;\n    @Autowired\n    private SysRoleDao sysRoleDao;\n\n    private ApplicationContext applicationContext;\n  \n\t@Transactional(rollbackFor = Exception.class)\n    @Override\n    public String testTransactionalEventListener() { \n    \t// step1 : 在 sys_role 表中插入一条 role_id = 10 的记录\n        addRole(10);\n        // step2 : 在 sys_role 表中插入一条 role_id = 20 的记录\n        addRole(20);\n        this.applicationContext.publishEvent(new DemoApplicationEvent(10));\n        System.out.println(\"end\");\n        return \"\";\n    }\n\n    /**\n     * 在 sys_role 表中插入一条记录\n     */\n    @Override\n    public void addRole(int id) { \n    \t...\n    }\n\n    /**\n     * 在 sys_rermission 表中插入一条记录\n     */\n    @Override\n    public void addPermission(int id) { \n\t\t...\n    }\n\n    @Override\n    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException { \n        this.applicationContext = applicationContext;\n    }\n\n    public static class DemoApplicationEvent extends ApplicationEvent { \n        @Getter\n        private Integer id;\n\n        public DemoApplicationEvent(Integer source) { \n            super(source);\n            this.id = source;\n        }\n\n    }\n\t// phase 指定了执行阶段为 事务提交后。\n    @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)\n    public void onApplicationEvent(DemoApplicationEvent demoApplicationEvent) { \n    \t// step3 : 在 sys_rermission 表中插入一条记录\n        addPermission(demoApplicationEvent.getId());\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-q5zgpjc",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085135-q5zgpjc",
+				"updated": "20230331085135"
+			}
+		},
+		{
+			"ID": "20230331085135-402wolz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-402wolz",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TransactionalEventListener 通过Spring监听器的方式实现了 TransactionSynchronization 的功能，下面我们来看一看具体原理。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-yblx70s",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085135-yblx70s",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. TransactionalEventListener"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-gtp8029",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-gtp8029",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先来看一下 TransactionalEventListener 的定义，如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-ha83cdx",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-ha83cdx",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Target({ ElementType.METHOD, ElementType.ANNOTATION_TYPE})\n@Retention(RetentionPolicy.RUNTIME)\n@Documented\n@EventListener\npublic @interface TransactionalEventListener { \n\n\t// 执行执行阶段，默认事务提交后、除此之外还有 BEFORE_COMMIT、AFTER_ROLLBACK、AFTER_COMPLETION\n\tTransactionPhase phase() default TransactionPhase.AFTER_COMMIT;\n\n\t// 监听器的唯一id，可为空\n\tString id() default \"\";\n\n\t// 如果没有事务正在运行，是否应处理事件\n\tboolean fallbackExecution() default false;\n\n\t/**\n\t * EventListener classes 属性的别名, 指定监听事件类型\n\t * 此侦听器处理的事件类。如果使用单个值指定此属性，则带注释的方法可以选择接受单个参数。 但是，如果此属性指定了多个值，则注释方法不得声明任何参数。\n\t */\n\t@AliasFor(annotation = EventListener.class, attribute = \"classes\")\n\tClass\u003c?\u003e[] value() default { };\n\n\t/**\n\t * EventListener classes 属性的别名, 指定监听事件类型\n\t * 此侦听器处理的事件类。如果使用单个值指定此属性，则带注释的方法可以选择接受单个参数。 但是，如果此属性指定了多个值，则注释方法不得声明任何参数。\n\t */\n\t@AliasFor(annotation = EventListener.class, attribute = \"classes\")\n\tClass\u003c?\u003e[] classes() default { };\n\n\t/**\n\t * 用于使事件处理有条件的 Spring 表达式语言 (SpEL) 属性。\n\t * 默认值为\"\" ，表示始终处理事件。\n\t */\n\tString condition() default \"\";\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-xirsgx0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085135-xirsgx0",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. 执行流程"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-b9w86tr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-b9w86tr",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们来看看 TransactionalEventListener 注解是如何实现的。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-0j5i0gy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085135-0j5i0gy",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1 EventListenerMethodProcessor"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-qfila8p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-qfila8p",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先我们需要知道，一个被 @TransactionalEventListener 注解修饰的普通方法，如何具有监听器的效果？原因就在于 EventListenerMethodProcessor 类。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-56gkesf",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085135-56gkesf",
+				"updated": "20230331085135"
+			}
+		},
+		{
+			"ID": "20230331085135-sr5qvgc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-sr5qvgc",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "EventListenerMethodProcessor 的结构如下:\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/bd56c884ce2a4a4d98d6b92df2912f34-20230331085134-sr2ifj1.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-lpkcmsx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-lpkcmsx",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到 EventListenerMethodProcessor 实现了三个关键接口 ："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-dlbo37e",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331085135-dlbo37e",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"ID": "20230331085135-a86jft5",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085135-a86jft5",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-g96gsg1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-g96gsg1",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "SmartInitializingSingleton"
+								},
+								{
+									"Type": "NodeText",
+									"Data": " ：afterSingletonsInstantiated 方法会在容器初始化所有非惰性Bean之后调用。EventListenerMethodProcessor 在 afterSingletonsInstantiated 方法中为被 @TransactionalEventListener 注解修饰的方法动态生成了 ApplicationListener 并添加到容器中。当执行的事件发送时，动态生成的 ApplicationListener 监听器则会触发，通过反射调用 注解方法。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085135-yhpm121",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085135-yhpm121",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-qce7sm4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-qce7sm4",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "ApplicationContextAware"
+								},
+								{
+									"Type": "NodeText",
+									"Data": " ：EventListenerMethodProcessor 通过 setApplicationContext 方法 获取到 ApplicationContext 实例。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085135-f8cyfak",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085135-f8cyfak",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-pmpjoe2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-pmpjoe2",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "BeanFactoryPostProcessor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": " ： EventListenerMethodProcessor 通过 postProcessBeanFactory 方法获取到了Spring容器中的所有 EventListenerFactory 实例对象，保存到 EventListenerFactory#eventListenerFactories 中。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-ausb9rl",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085135-ausb9rl",
+				"updated": "20230331085135"
+			}
+		},
+		{
+			"ID": "20230331085135-qqcfyez",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-qqcfyez",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们来看看 EventListenerMethodProcessor 的执行过程，如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-7q2a7ty",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331085135-7q2a7ty",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1.1 EventListenerMethodProcessor 的注入"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-9c2xdru",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-9c2xdru",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 容器启动时会在通过 SpringApplication#createApplicationContext 创建应用上下文，其中调用链如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-hep6p6r",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-hep6p6r",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "SpringApplication#createApplicationContext -\u003e \nAnnotationConfigServletWebServerApplicationContext构造函数 -\u003e \nAnnotatedBeanDefinitionReader构造函数 -\u003e \nAnnotationConfigUtils#registerAnnotationConfigProcessors\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-kfxmqkv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-kfxmqkv",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 AnnotationConfigUtils#registerAnnotationConfigProcessors 中会向容器中注册 EventListenerMethodProcessor 的 BeanDefinition，如下图：\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/a1ad92e8f8344b4fadee09a8767a845e-20230331085134-z4i9veu.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-q8hxdix",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331085135-q8hxdix",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1.2 EventListenerMethodProcessor 的调用"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-nj6xyy9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-nj6xyy9",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 容器启动时会在 AbstractApplicationContext"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "tag",
+					"TextMarkTextContent": "finishBeanFactoryInitialization 方法中完成非惰性加载 Bean的 的初始化。初始化结束后会调用SmartInitializingSingleton"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​afterSingletonsInstantiated 方法。EventListenerMethodProcessor#afterSingletonsInstantiated 的实现如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-cs32rql",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-cs32rql",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic void afterSingletonsInstantiated() { \n\t\tConfigurableListableBeanFactory beanFactory = this.beanFactory;\n\t\tAssert.state(this.beanFactory != null, \"No ConfigurableListableBeanFactory set\");\n\t\t// 获取容器中的所有 beanName \n\t\tString[] beanNames = beanFactory.getBeanNamesForType(Object.class);\n\t\tfor (String beanName : beanNames) { \n\t\t\tif (!ScopedProxyUtils.isScopedTarget(beanName)) { \n\t\t\t\tClass\u003c?\u003e type = null;\n\t\t\t\ttry { \n\t\t\t\t\t// 获取 bean的 类型\n\t\t\t\t\ttype = AutoProxyUtils.determineTargetClass(beanFactory, beanName);\n\t\t\t\t}\n\t\t\t\tcatch (Throwable ex) { \n\t\t\t\t\t... 日志打印\n\t\t\t\t}\n\t\t\t\tif (type != null) { \n\t\t\t\t\t// 如果 bean 是 ScopedObject类型，进一步获取真实类型\n\t\t\t\t\tif (ScopedObject.class.isAssignableFrom(type)) { \n\t\t\t\t\t\ttry { \n\t\t\t\t\t\t\tClass\u003c?\u003e targetClass = AutoProxyUtils.determineTargetClass(\n\t\t\t\t\t\t\t\t\tbeanFactory, ScopedProxyUtils.getTargetBeanName(beanName));\n\t\t\t\t\t\t\tif (targetClass != null) { \n\t\t\t\t\t\t\t\ttype = targetClass;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t\tcatch (Throwable ex) { \n\t\t\t\t\t\t\t... 日志打印\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\ttry { \n\t\t\t\t\t\t// 处理bean\n\t\t\t\t\t\tprocessBean(beanName, type);\n\t\t\t\t\t}\n\t\t\t\t\tcatch (Throwable ex) { \n\t\t\t\t\t\t... 抛出异常\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-iykp3j5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-iykp3j5",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到关键逻辑在 EventListenerMethodProcessor#processBean 中，其实现如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-253xxs9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-253xxs9",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate void processBean(final String beanName, final Class\u003c?\u003e targetType) { \n\t\t// nonAnnotatedClasses 缓存未命中当前类 \u0026\u0026 给定的类是可携带指定注释的候选者 \u0026\u0026 不是 org.springframework. 包下的类或被@Component 注解修饰\n\t\tif (!this.nonAnnotatedClasses.contains(targetType) \u0026\u0026\n\t\t\t\tAnnotationUtils.isCandidateClass(targetType, EventListener.class) \u0026\u0026\n\t\t\t\t!isSpringContainerClass(targetType)) { \n\n\t\t\tMap\u003cMethod, EventListener\u003e annotatedMethods = null;\n\t\t\ttry { \n\t\t\t\t// 寻找被 @EventListener 注解修饰的方法\n\t\t\t\tannotatedMethods = MethodIntrospector.selectMethods(targetType,\n\t\t\t\t\t\t(MethodIntrospector.MetadataLookup\u003cEventListener\u003e) method -\u003e\n\t\t\t\t\t\t\t\tAnnotatedElementUtils.findMergedAnnotation(method, EventListener.class));\n\t\t\t}\n\t\t\tcatch (Throwable ex) { \n\t\t\t\t... 日志打印\n\t\t\t}\n\n\t\t\tif (CollectionUtils.isEmpty(annotatedMethods)) { \n\t\t\t\t// 缓存没有被 @EventListener 注解修饰的类\n\t\t\t\tthis.nonAnnotatedClasses.add(targetType);\n\t\t\t\t... 日志打印\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// Non-empty set of methods\n\t\t\t\t// 到这里则说明当前类一定有方法被  @EventListener 注解修饰\n\t\t\t\tConfigurableApplicationContext context = this.applicationContext;\n\t\t\t\tAssert.state(context != null, \"No ApplicationContext set\");\n\t\t\t\t// 在 postProcessBeanFactory 方法中获取到的容器中的 EventListenerFactory 实现类\n\t\t\t\tList\u003cEventListenerFactory\u003e factories = this.eventListenerFactories;\n\t\t\t\tAssert.state(factories != null, \"EventListenerFactory List not initialized\");\n\t\t\t\t// 遍历 @EventListener 注解修饰的方法\n\t\t\t\tfor (Method method : annotatedMethods.keySet()) { \n\t\t\t\t\t// 遍历所有的 EventListenerFactory \n\t\t\t\t\tfor (EventListenerFactory factory : factories) { \n\t\t\t\t\t\t// 如果 EventListenerFactory 支持当前方法\n\t\t\t\t\t\tif (factory.supportsMethod(method)) { \n\t\t\t\t\t\t\t// 获取可调用的方法：context.getType(beanName) 获取到的可能是代理类，这里会找到真正要调用的诶类的方法\n\t\t\t\t\t\t\tMethod methodToUse = AopUtils.selectInvocableMethod(method, context.getType(beanName));\n\t\t\t\t\t\t\t// 通过 EventListenerFactory#createApplicationListener 方法为找到的方法创建一个 ApplicationListener实现类\n\t\t\t\t\t\t\tApplicationListener\u003c?\u003e applicationListener =\n\t\t\t\t\t\t\t\t\tfactory.createApplicationListener(beanName, targetType, methodToUse);\n\t\t\t\t\t\t\t// ApplicationListenerMethodAdapter类型则调用 init 完成初始化\n\t\t\t\t\t\t\tif (applicationListener instanceof ApplicationListenerMethodAdapter) { \n\t\t\t\t\t\t\t\t((ApplicationListenerMethodAdapter) applicationListener).init(context, this.evaluator);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t// applicationListener 添加到 Spring 容器中\n\t\t\t\t\t\t\tcontext.addApplicationListener(applicationListener);\n\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t... 日志打印\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-tstygwb",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085135-tstygwb",
+				"updated": "20230331085135"
+			}
+		},
+		{
+			"ID": "20230331085135-5in89v7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-5in89v7",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-aum1xzt",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331085135-aum1xzt",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"ID": "20230331085135-1nh83g6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331085135-1nh83g6",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-rub099f",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-rub099f",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "EventListenerMethodProcessor 在 EventListenerMethodProcessor#postProcessBeanFactory 中获取到了所有 EventListenerFactory 类型的 bean。（在ConfigurationClassPostProcessor 中将所有bean 的BeanDefinition 扫描生成。而 ConfigurationClassPostProcessor 的优先级在EventListenerMethodProcessor 之前 ）。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085135-5380pic",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331085135-5380pic",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-mvs5f7d",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-mvs5f7d",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "随后在EventListenerMethodProcessor#afterSingletonsInstantiated 方法中获取所有bean，筛选出被 @EventListener 注解修饰的类或方法的类。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085135-6pjr5un",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331085135-6pjr5un",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-osclhoj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-osclhoj",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "随后找到 EventListenerFactory，通过 EventListenerFactory"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "tag",
+									"TextMarkTextContent": "supportsMethod 判断是可以处理当前类，如果可以则通过 EventListenerFactory"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​createApplicationListener 为当前类生成一个 ApplicationListener （ApplicationListenerMethodAdapter 或 TransactionalApplicationListenerMethodAdapter）类并添加到 容器中。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085135-gy61mth",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331085135-gy61mth",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-1acpwxe",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-1acpwxe",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当有指定事件触发后触发容器中的 ApplicationListenerMethodAdapter 或 TransactionalApplicationListenerMethodAdapter 的 onApplicationEvent 方法。在这些方法中会通过反射调用被 @EventListener 修饰的方法。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-1qjyagg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085135-1qjyagg",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2 EventListenerFactory"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-m4kexgz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-m4kexgz",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "EventListenerFactory 接口定义如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-4xnwfd8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-4xnwfd8",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public interface EventListenerFactory { \n\t// 是否支持处理当前指定方法\n\tboolean supportsMethod(Method method);\n\t// 为当前指定类的指定方法创建一个 ApplicationListener\n\tApplicationListener\u003c?\u003e createApplicationListener(String beanName, Class\u003c?\u003e type, Method method);\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-qm8qgxz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-qm8qgxz",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "默认情况下 EventListenerFactory 有 DefaultEventListenerFactory 和 TransactionalEventListenerFactory 两个实现类。我们这里看的是 @TransactionalEventListener 注解，所以来看一下 TransactionalEventListenerFactory 的实现，如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-fhzzn4e",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-fhzzn4e",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class TransactionalEventListenerFactory implements EventListenerFactory, Ordered { \n\t...\n\n\t@Override\n\tpublic boolean supportsMethod(Method method) { \n\t\t// 判断当前方式是否被 TransactionalEventListener 注解修饰\n\t\treturn AnnotatedElementUtils.hasAnnotation(method, TransactionalEventListener.class);\n\t}\n\n\t@Override\n\tpublic ApplicationListener\u003c?\u003e createApplicationListener(String beanName, Class\u003c?\u003e type, Method method) { \n\t\t// 创建一个 TransactionalApplicationListenerMethodAdapter 实现类\n\t\treturn new TransactionalApplicationListenerMethodAdapter(beanName, type, method);\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-h9n2mfw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-h9n2mfw",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里我们可以了解到 TransactionalEventListenerFactory 会判断：如果方法被TransactionalEventListener 注解修饰，则会为其创建一个 TransactionalApplicationListenerMethodAdapter类作为 ApplicationListener。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-f96bhj6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085135-f96bhj6",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.3 TransactionalApplicationListenerMethodAdapter"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-k0tqyil",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-k0tqyil",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TransactionalApplicationListenerMethodAdapter 结构如下：\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/eef88e877e7d4c219b39cc1324bc48c5-20230331085134-d0oyhmx.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-p9tpe9b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-p9tpe9b",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里我们简单看一下 TransactionalApplicationListenerMethodAdapter#onApplicationEvent 的实现"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-mj790zl",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-mj790zl",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic void onApplicationEvent(ApplicationEvent event) { \n\t\t// 如果当前存在事务. 则通过 TransactionSynchronizationManager 注册TransactionalApplicationListenerSynchronization\n\t\tif (TransactionSynchronizationManager.isSynchronizationActive() \u0026\u0026\n\t\t\t\tTransactionSynchronizationManager.isActualTransactionActive()) { \n\t\t\tTransactionSynchronizationManager.registerSynchronization(\n\t\t\t\t\tnew TransactionalApplicationListenerSynchronization\u003c\u003e(event, this, this.callbacks));\n\t\t}\n\t\t// 没有事务，判断是否执行事件逻辑\n\t\telse if (this.annotation.fallbackExecution()) {  \n\t\t\t// ...\n\t\t\tprocessEvent(event);\n\t\t}\n\t\telse { \n\t\t\t... 日志打印\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-uv80v3p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-uv80v3p",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里我们看到"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-isr4up6",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331085135-isr4up6",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"ID": "20230331085135-texoxik",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331085135-texoxik",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-n6tj50j",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-n6tj50j",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果当前线程存在活跃事务, 则通过 TransactionSynchronizationManager 注册一个 TransactionalApplicationListenerSynchronization 实例。当事务到达指定阶段后会触发TransactionalApplicationListenerSynchronization 中的阶段方法，而这些方法中则还会调用 TransactionalApplicationListenerMethodAdapter#processEvent 方法。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085135-rm486pn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331085135-rm486pn",
+						"updated": "20230331085135"
+					},
+					"Children": [
+						{
+							"ID": "20230331085135-t8yoazj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085135-t8yoazj",
+								"updated": "20230331085135"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果当前线程不存在活跃事务，则根据 TransactionalEventListener"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "tag",
+									"TextMarkTextContent": "fallbackExecution 判断，如果为 true，则执行 TransactionalApplicationListenerMethodAdapter"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​processEvent。其中 processEvent 的实现在其父类 ApplicationListenerMethodAdapter中。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-ij96ad9",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085135-ij96ad9",
+				"updated": "20230331085135"
+			}
+		},
+		{
+			"ID": "20230331085135-vui5r5x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-vui5r5x",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们来详细看一看"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-fzij2d6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331085135-fzij2d6",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.3.1 TransactionalApplicationListenerSynchronization"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-bkc04gh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-bkc04gh",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TransactionalApplicationListenerSynchronization 的实现如下，其中主要实现了 beforeCommit 和 afterCompletion 两个方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-88s8opi",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-88s8opi",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "class TransactionalApplicationListenerSynchronization\u003cE extends ApplicationEvent\u003e\n\t\timplements TransactionSynchronization { \n\t...\n\n\t// 事务提交前判断\n\t@Override\n\tpublic void beforeCommit(boolean readOnly) { \n\t\t// 如果指定阶段为事务提交前，则执行 processEventWithCallbacks\n\t\tif (this.listener.getTransactionPhase() == TransactionPhase.BEFORE_COMMIT) { \n\t\t\tprocessEventWithCallbacks();\n\t\t}\n\t}\n\n\t// 事务提交后判断\n\t@Override\n\tpublic void afterCompletion(int status) { \n\t\tTransactionPhase phase = this.listener.getTransactionPhase();\n\t\t// 如果执行阶段为事务提交后 \u0026\u0026 事务正常提交\n\t\tif (phase == TransactionPhase.AFTER_COMMIT \u0026\u0026 status == STATUS_COMMITTED) { \n\t\t\tprocessEventWithCallbacks();\n\t\t}\n\t\t// 如果执行阶段为事务回滚后 \u0026\u0026 事务发生回滚\n\t\telse if (phase == TransactionPhase.AFTER_ROLLBACK \u0026\u0026 status == STATUS_ROLLED_BACK) { \n\t\t\tprocessEventWithCallbacks();\n\t\t}\n\t\t// 如果执行阶段为事务结束 \u0026\u0026 事务发生回滚\n\t\telse if (phase == TransactionPhase.AFTER_COMPLETION) { \n\t\t\tprocessEventWithCallbacks();\n\t\t}\n\t}\n\n\tprivate void processEventWithCallbacks() { \n\t\t// 执行回调类的回调预处理方法\n\t\tthis.callbacks.forEach(callback -\u003e callback.preProcessEvent(this.event));\n\t\ttry { \n\t\t\t// 执行监听事件，这里的 listener 即为上层的 TransactionalApplicationListenerMethodAdapter 实例对象\n\t\t\tthis.listener.processEvent(this.event);\n\t\t}\n\t\tcatch (RuntimeException | Error ex) { \n\t\t\t// 执行回调类的回调后置处理方法\n\t\t\tthis.callbacks.forEach(callback -\u003e callback.postProcessEvent(this.event, ex));\n\t\t\tthrow ex;\n\t\t}\n\t\t// 执行回调类的回调后置处理方法\n\t\tthis.callbacks.forEach(callback -\u003e callback.postProcessEvent(this.event, null));\n\t}\n\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-yle1rmn",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331085135-yle1rmn",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.3.2 ApplicationListenerMethodAdapter#processEvent"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-iavpp1g",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-iavpp1g",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ApplicationListenerMethodAdapter#processEvent 实现如下，逻辑比较简单，这里不再赘述。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-8lhscwl",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085135-8lhscwl",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic void processEvent(ApplicationEvent event) { \n\t\t// 解析 method 的参数。method 指的是被 TransactionalEventListener  注解修饰的方法\n\t\tObject[] args = resolveArguments(event);\n\t\t// 判断是否可以处理。根据注解 TransactionalEventListener#condition 属性判断\n\t\tif (shouldHandle(event, args)) { \n\t\t\t// 反射调用 指定的方法，以 args 为入参\n\t\t\tObject result = doInvoke(args);\n\t\t\tif (result != null) { \n\t\t\t\t// 如果监听方法有返回值，则对返回值处理。会将返回值作为 event 再次发送\n\t\t\t\thandleResult(result);\n\t\t\t}\n\t\t\telse { \n\t\t\t\tlogger.trace(\"No result object given - no result to handle\");\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085135-opid7f8",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085135-opid7f8",
+				"updated": "20230331085135"
+			}
+		},
+		{
+			"ID": "20230331085135-8ci54o9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085135-8ci54o9",
+				"updated": "20230331085135"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

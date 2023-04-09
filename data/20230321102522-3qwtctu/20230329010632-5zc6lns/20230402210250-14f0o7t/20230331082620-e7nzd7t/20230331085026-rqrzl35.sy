@@ -1,0 +1,4707 @@
+{
+	"ID": "20230331085026-rqrzl35",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331085026-rqrzl35",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230331085026-5s0erqd\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230331085026-z85thmr\u0026quot;,\u0026quot;scrollTop\u0026quot;:15416.6669921875}",
+		"title": "Spring 源码分析衍生篇十一 ：HandlerMapping_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331085026"
+	},
+	"Children": [
+		{
+			"ID": "20230331085026-dfvs048",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085026-dfvs048",
+				"updated": "20230331085026"
+			}
+		},
+		{
+			"ID": "20230331085026-zmlihhb",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331085026-zmlihhb",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"ID": "20230331085026-3pzfl64",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085026-3pzfl64",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-6oi7ihl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-6oi7ihl",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/109175480"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-hef66g2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085026-hef66g2",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-txg3oeu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-txg3oeu",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一、前言在 Spring MVC 的分析过程中，我们知道了 Spring mvc 默认会引入DispatcherServlet.properties 文件中的类(该文件和 DispatcherServlet 在同级目录) 的一些类。DispatcherServlet.properties 配置文件如下。# Default implementation classes for DispatcherServlet's strategy interfaces.# Used as fallback when"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-86ap8ew",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085026-86ap8ew",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-y6rw54h",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-y6rw54h",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 08:50:26"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-7joaksi",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085026-7joaksi",
+				"updated": "20230331085026"
+			}
+		},
+		{
+			"ID": "20230331085026-rva2x0x",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085026-rva2x0x",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-liakc7y",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331085026-liakc7y",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"ID": "20230331085026-n8mr4db",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085026-n8mr4db",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-05c9prj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-05c9prj",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#_1",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-mvv6sec",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085026-mvv6sec",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-1o0yk9w",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-1o0yk9w",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#HandlerMapping_62",
+									"TextMarkTextContent": "二、HandlerMapping"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-ydccjw9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085026-ydccjw9",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-9yujw6i",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331085026-9yujw6i",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"ID": "20230331085026-82siczi",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085026-82siczi",
+										"updated": "20230331085026"
+									},
+									"Children": [
+										{
+											"ID": "20230331085026-ezgmhf0",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331085026-ezgmhf0",
+												"updated": "20230331085026"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#1__HandlerMapping_97",
+													"TextMarkTextContent": "1. 常见的 HandlerMapping"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331085026-qsmm0xt",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085026-qsmm0xt",
+										"updated": "20230331085026"
+									},
+									"Children": [
+										{
+											"ID": "20230331085026-rsaak1t",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331085026-rsaak1t",
+												"updated": "20230331085026"
+											},
+											"Children": [
+												{
+													"ID": "20230331085026-zfzok4l",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085026-zfzok4l",
+														"updated": "20230331085026"
+													},
+													"Children": [
+														{
+															"ID": "20230331085026-c83eu37",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085026-c83eu37",
+																"updated": "20230331085026"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#11_BeanNameUrlHandlerMapping_99",
+																	"TextMarkTextContent": "1.1. BeanNameUrlHandlerMapping"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085026-9mjv54v",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085026-9mjv54v",
+														"updated": "20230331085026"
+													},
+													"Children": [
+														{
+															"ID": "20230331085026-8bqmodx",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085026-8bqmodx",
+																"updated": "20230331085026"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#12_SimpleUrlHandlerMapping_237",
+																	"TextMarkTextContent": "1.2. SimpleUrlHandlerMapping"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085026-jm2624n",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085026-jm2624n",
+														"updated": "20230331085026"
+													},
+													"Children": [
+														{
+															"ID": "20230331085026-46mz55m",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085026-46mz55m",
+																"updated": "20230331085026"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#13_RequestMappingHandlerMapping_282",
+																	"TextMarkTextContent": "1.3. RequestMappingHandlerMapping"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085026-lk33m3r",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085026-lk33m3r",
+														"updated": "20230331085026"
+													},
+													"Children": [
+														{
+															"ID": "20230331085026-3y4oq9x",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085026-3y4oq9x",
+																"updated": "20230331085026"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#14_RouterFunctionMapping_287",
+																	"TextMarkTextContent": "1.4. RouterFunctionMapping"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-we8u4lt",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085026-we8u4lt",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-lwlzi34",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-lwlzi34",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#RequestMappingHandlerMapping_289",
+									"TextMarkTextContent": "三、RequestMappingHandlerMapping"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-npbywmp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085026-npbywmp",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-ewojsqf",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331085026-ewojsqf",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"ID": "20230331085026-wuf2x6b",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085026-wuf2x6b",
+										"updated": "20230331085026"
+									},
+									"Children": [
+										{
+											"ID": "20230331085026-8f7ydh4",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331085026-8f7ydh4",
+												"updated": "20230331085026"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#1__Handler_293",
+													"TextMarkTextContent": "1. Handler的注册"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331085026-exl0fjb",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085026-exl0fjb",
+										"updated": "20230331085026"
+									},
+									"Children": [
+										{
+											"ID": "20230331085026-e6ki7xd",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331085026-e6ki7xd",
+												"updated": "20230331085026"
+											},
+											"Children": [
+												{
+													"ID": "20230331085026-mj6km0l",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085026-mj6km0l",
+														"updated": "20230331085026"
+													},
+													"Children": [
+														{
+															"ID": "20230331085026-d4v5r1c",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085026-d4v5r1c",
+																"updated": "20230331085026"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#11_isHandlerbeanType_387",
+																	"TextMarkTextContent": "1.1 isHandler(beanType)"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085026-32utblf",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085026-32utblf",
+														"updated": "20230331085026"
+													},
+													"Children": [
+														{
+															"ID": "20230331085026-7izkt9b",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085026-7izkt9b",
+																"updated": "20230331085026"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#12_detectHandlerMethodsbeanName_404",
+																	"TextMarkTextContent": "1.2. detectHandlerMethods(beanName)"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085026-8hpqit8",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085026-8hpqit8",
+														"updated": "20230331085026"
+													},
+													"Children": [
+														{
+															"ID": "20230331085026-xl1fj08",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085026-xl1fj08",
+																"updated": "20230331085026"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#13_registerHandlerMethodhandler_invocableMethod_mapping_492",
+																	"TextMarkTextContent": "1.3. registerHandlerMethod(handler, invocableMethod, mapping)"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085026-aju19u8",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085026-aju19u8",
+														"updated": "20230331085026"
+													},
+													"Children": [
+														{
+															"ID": "20230331085026-v5cldml",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085026-v5cldml",
+																"updated": "20230331085026"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#14__601",
+																	"TextMarkTextContent": "1.4. 总结"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331085026-v59zffr",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085026-v59zffr",
+										"updated": "20230331085026"
+									},
+									"Children": [
+										{
+											"ID": "20230331085026-9jwwzft",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331085026-9jwwzft",
+												"updated": "20230331085026"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#2_Handler__608",
+													"TextMarkTextContent": "2. Handler 的筛选"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331085026-lj74rq1",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331085026-lj74rq1",
+										"updated": "20230331085026"
+									},
+									"Children": [
+										{
+											"ID": "20230331085026-8tchtul",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331085026-8tchtul",
+												"updated": "20230331085026"
+											},
+											"Children": [
+												{
+													"ID": "20230331085026-oc98v6x",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085026-oc98v6x",
+														"updated": "20230331085026"
+													},
+													"Children": [
+														{
+															"ID": "20230331085026-t6mbxkr",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085026-t6mbxkr",
+																"updated": "20230331085026"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#21_getHandlerInternalrequest_672",
+																	"TextMarkTextContent": "2.1. getHandlerInternal(request)"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085026-5n09nx9",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085026-5n09nx9",
+														"updated": "20230331085026"
+													},
+													"Children": [
+														{
+															"ID": "20230331085026-ja8eos2",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085026-ja8eos2",
+																"updated": "20230331085026"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#22__getHandlerExecutionChainhandler_request_785",
+																	"TextMarkTextContent": "2.2 getHandlerExecutionChain(handler, request)"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331085026-lwgugpp",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331085026-lwgugpp",
+														"updated": "20230331085026"
+													},
+													"Children": [
+														{
+															"ID": "20230331085026-viy3jrq",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331085026-viy3jrq",
+																"updated": "20230331085026"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480#23__831",
+																	"TextMarkTextContent": "2.3 总结"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-3jbb6ke",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085026-3jbb6ke",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-tb83go2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-tb83go2",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是 Spring源码分析："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107434181",
+					"TextMarkTextContent": "Spring MVC② DispatcherServlet的初始化"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 的衍生文章。主要是因为本人菜鸡，在分析源码的过程中还有一些其他的内容不理解，故开设衍生篇来完善内容以学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-o0u8v6u",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085026-o0u8v6u",
+				"updated": "20230331085026"
+			}
+		},
+		{
+			"ID": "20230331085026-dawn6cj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-dawn6cj",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring全集目录："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106440723",
+					"TextMarkTextContent": "Spring源码分析：全集整理"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-h0du068",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085026-h0du068",
+				"updated": "20230331085026"
+			}
+		},
+		{
+			"ID": "20230331085026-crbepze",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-crbepze",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本系列目录如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-y45foae",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331085026-y45foae",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"ID": "20230331085026-1ysh6wn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331085026-1ysh6wn",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-3fik7po",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-3fik7po",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125",
+									"TextMarkTextContent": "Spring源码分析十九：Spring MVC① 搭建"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-6cqybrf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331085026-6cqybrf",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-nargvpl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-nargvpl",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107434181",
+									"TextMarkTextContent": "Spring源码分析二十：Spring MVC② DispatcherServlet的初始化"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-gt8ku5j",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331085026-gt8ku5j",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-vg01dbm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-vg01dbm",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175204",
+									"TextMarkTextContent": "Spring源码分析二十一：Spring MVC③ DispatcherServlet的逻辑"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-0su6prq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-0su6prq",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "衍生篇目录如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-wtt4t5q",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331085026-wtt4t5q",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"ID": "20230331085026-85o0ml7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331085026-85o0ml7",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-zaspxsr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-zaspxsr",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781",
+									"TextMarkTextContent": "Spring 源码分析衍生篇十 ：Last-Modified 缓存机制"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-dmw12yo",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331085026-dmw12yo",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-ym6gsu3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-ym6gsu3",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480",
+									"TextMarkTextContent": "Spring 源码分析衍生篇十一 ：HandlerMapping"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-wdylcsb",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085026-wdylcsb",
+				"updated": "20230331085026"
+			}
+		},
+		{
+			"ID": "20230331085026-hgmdz9p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-hgmdz9p",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 Spring MVC 的分析过程中，我们知道了 Spring mvc 默认会引入DispatcherServlet."
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=properties\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "properties"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 文件中的类(该文件和 DispatcherServlet 在同级目录) 的一些类。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-uv3u5z9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-uv3u5z9",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DispatcherServlet.properties 配置文件如下。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-tf4j7pc",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-tf4j7pc",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "# Default implementation classes for DispatcherServlet's strategy interfaces.\n# Used as fallback when no matching beans are found in the DispatcherServlet context.\n# Not meant to be customized by application developers.\n\norg.springframework.web.servlet.LocaleResolver=org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver\n\norg.springframework.web.servlet.ThemeResolver=org.springframework.web.servlet.theme.FixedThemeResolver\n\norg.springframework.web.servlet.HandlerMapping=org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,\\\n\torg.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping,\\\n\torg.springframework.web.servlet.function.support.RouterFunctionMapping\n\norg.springframework.web.servlet.HandlerAdapter=org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,\\\n\torg.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,\\\n\torg.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter,\\\n\torg.springframework.web.servlet.function.support.HandlerFunctionAdapter\n\n\norg.springframework.web.servlet.HandlerExceptionResolver=org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver,\\\n\torg.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver,\\\n\torg.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver\n\norg.springframework.web.servlet.RequestToViewNameTranslator=org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator\n\norg.springframework.web.servlet.ViewResolver=org.springframework.web.servlet.view.InternalResourceViewResolver\n\norg.springframework.web.servlet.FlashMapManager=org.springframework.web.servlet.support.SessionFlashMapManager\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-kxjnspe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-kxjnspe",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们来看看 HandlerMapping 不同实现类的区别。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-2ql7gi8",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085026-2ql7gi8",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、HandlerMapping"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-bpstso8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-bpstso8",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从 DispatcherServlet.properties 文件中得知。HandlerMapping 默认引入三个类BeanNameUrlHandlerMapping、RequestMappingHandlerMapping、RouterFunctionMapping"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-rrr1p00",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-rrr1p00",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "org.springframework.web.servlet.HandlerMapping=org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,\\\n\torg.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping,\\\n\torg.springframework.web.servlet.function.support.RouterFunctionMapping\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-rpsxtjg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-rpsxtjg",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们来看看他们的区别："
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-93q738g",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331085026-93q738g",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"ID": "20230331085026-e04y6ma",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085026-e04y6ma",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-457ws1f",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-457ws1f",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanNameUrlHandlerMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ：以beanName 作为key值"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-vcflrzs",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085026-vcflrzs",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-teibp1k",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-teibp1k",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RequestMappingHandlerMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ：完成"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@Controller"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​和"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@RequestMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的解析，并将解析保存。请求发送时与请求路径进行匹配对应找到合适的Handler。"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RequestMappingHandlerMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 实现了 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "InitializingBean"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 接口，会在"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "afterPropertiesSet"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法中。\n调用时机: 解析"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@Controller"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​和"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@RequestMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​注解是在 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "afterPropertiesSet"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​方法中进行的。匹配调用则是在 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DispatcherServlet doDispatch"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​方法中的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "getHandler"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​中调用了"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "HandlerMapper"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​中的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "getHandler"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​中的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "getHandlerInternal"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​方法。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-phz6zwh",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085026-phz6zwh",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-rw8ee54",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-rw8ee54",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "SimpleUrlHandlerMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ :基本逻辑是通过注入"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "SimpleurlHandlerMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "mapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​属性，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "mapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ key为url, value为"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "handler(beanName)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。这里需要注意"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "Controller"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​必须要实现"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "org.springframework.web.servlet.mvc.Controller"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​接口。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-n3hrsqe",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085026-n3hrsqe",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-0psfabi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-0psfabi",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RouterFunctionMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RouterFunctionMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​是检索"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RouterFunction"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​应用程序上下文中创建的所有bean 的类。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-06c8u30",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085026-06c8u30",
+				"updated": "20230331085026"
+			}
+		},
+		{
+			"ID": "20230331085026-eb5np8m",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-eb5np8m",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "在 Spring mvc 加载 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "HandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 的代码分析中，我们知道，Spring 默认会加载 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "DispatcherServlet.properties"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 中的所有的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "HandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "。同时我们可以通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "DispatcherServlet.detectAllHandlerMappings"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 属性来控制是否加载所有的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "HandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "，还是只加载唯一的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "HandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-rfdlyua",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-rfdlyua",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "为了方便，先禁用寻找所有的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "HandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-kgunalw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-kgunalw",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    @Bean\n    public DispatcherServlet dispatcherServlet(){ \n        DispatcherServlet dispatcherServlet = new DispatcherServlet();\n        // 设置false，则只寻找beanName 为 handlerMapping 的类，不加载所有HandlerMapping类\n        dispatcherServlet.setDetectAllHandlerMappings(false);\n        return dispatcherServlet;\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-zh0kmoc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085026-zh0kmoc",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. 常见的 HandlerMapping"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-y728tp6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085026-y728tp6",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1. BeanNameUrlHandlerMapping"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-o4qniso",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-o4qniso",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanNameUrlHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 顾名思义，就是根据beanName 来 进行映射。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-qyyap1a",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-qyyap1a",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们创建一个Controller如下，这里有两点需要注意："
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-sdjyqg9",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331085026-sdjyqg9",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"ID": "20230331085026-dyr8zwa",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331085026-dyr8zwa",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-0yabtz1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-0yabtz1",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "映射的Controller 需要实现 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "org.springframework.web.servlet.mvc.Controller"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 接口。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-4ryuqy5",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331085026-4ryuqy5",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-usze851",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-usze851",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "beanName"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 需要以 ‘/’ 开头。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-yq3343r",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-yq3343r",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component(\"/beanNameSay\")\npublic class BeanNameSayController implements Controller { \n    @Override\n    public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception { \n          return new ModelAndView(\"hello\");\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-g2hrvt9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-g2hrvt9",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "随后我们便可以通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "http://localhost:8080/demo/beanNameSay"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 访问到页面 hello.html 页面。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-yprkwrx",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085026-yprkwrx",
+				"updated": "20230331085026"
+			}
+		},
+		{
+			"ID": "20230331085026-ymdt477",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-ymdt477",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "这里解释分析一下为什么要 beanName 以 ‘/’ 开头。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-nc2g70i",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-nc2g70i",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们来看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanNameUrlHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的源码如下， 可以很清楚的看到这里有对 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "/"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的判断。寻找到以 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "/"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 开头的beanName 并作为url返回。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-jotvt23",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-jotvt23",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class BeanNameUrlHandlerMapping extends AbstractDetectingUrlHandlerMapping { \n\n\t/**\n\t * Checks name and aliases of the given bean for URLs, starting with \"/\".\n\t */\n\t@Override\n\tprotected String[] determineUrlsForHandler(String beanName) { \n\t\tList\u003cString\u003e urls = new ArrayList\u003c\u003e();\n\t\t// 判断 beanName 是否是 / 开头\n\t\tif (beanName.startsWith(\"/\")) { \n\t\t\turls.add(beanName);\n\t\t}\n\t\t// 判断 beanName 的别名是否是 / 开头哦\n\t\tString[] aliases = obtainApplicationContext().getAliases(beanName);\n\t\tfor (String alias : aliases) { \n\t\t\tif (alias.startsWith(\"/\")) { \n\t\t\t\turls.add(alias);\n\t\t\t}\n\t\t}\n\t\t// 将是 / 的beanname 转化成数组并返回。\n\t\treturn StringUtils.toStringArray(urls);\n\t}\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-wja255w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-wja255w",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "返回之后，在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.web.servlet.handler.AbstractDetectingUrlHandlerMapping#detectHandlers"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中完成了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=Handler\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "Handler"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 的注册"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-7gz83qh",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-7gz83qh",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void detectHandlers() throws BeansException { \n\t\tApplicationContext applicationContext = obtainApplicationContext();\n\t\tString[] beanNames = (this.detectHandlersInAncestorContexts ?\n\t\t\t\tBeanFactoryUtils.beanNamesForTypeIncludingAncestors(applicationContext, Object.class) :\n\t\t\t\tapplicationContext.getBeanNamesForType(Object.class));\n\n\t\t// Take any bean name that we can determine URLs for.\n\t\t// 遍历所有的BeanName\n\t\tfor (String beanName : beanNames) { \n\t\t\t// 获取到符合规则的Url\n\t\t\tString[] urls = determineUrlsForHandler(beanName);\n\t\t\tif (!ObjectUtils.isEmpty(urls)) { \n\t\t\t\t// URL paths found: Let's consider it a handler.\n\t\t\t\t// 注册成handler \n\t\t\t\tregisterHandler(urls, beanName);\n\t\t\t}\n\t\t}\n\t\t...\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-5s0erqd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-5s0erqd",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们来进一步看看Handler 注册的流程。注册流程其实很简单，其实就是利用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.web.servlet.handler.AbstractUrlHandlerMapping#handlerMa"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​p 中保存了url 和 Handler。key为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "urlPath"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，value为"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "handler"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实例。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-hzie54n",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-hzie54n",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void registerHandler(String[] urlPaths, String beanName) throws BeansException, IllegalStateException { \n\t\tAssert.notNull(urlPaths, \"URL path array must not be null\");\n\t\tfor (String urlPath : urlPaths) { \n\t\t\tregisterHandler(urlPath, beanName);\n\t\t}\n\t}\n\n\t...\n\n\tprotected void registerHandler(String urlPath, Object handler) throws BeansException, IllegalStateException { \n\t\tAssert.notNull(urlPath, \"URL path must not be null\");\n\t\tAssert.notNull(handler, \"Handler object must not be null\");\n\t\tObject resolvedHandler = handler;\n\n\t\t// Eagerly resolve handler if referencing singleton via name.\n\t\t// 如果不是懒加载 \u0026\u0026 handler 是 String类型。\n\t\tif (!this.lazyInitHandlers \u0026\u0026 handler instanceof String) { \n\t\t\tString handlerName = (String) handler;\n\t\t\tApplicationContext applicationContext = obtainApplicationContext();\n\t\t\t// 如果是handler是单例，则从上下文中根据 beanName 获取handler 对象实例\n\t\t\tif (applicationContext.isSingleton(handlerName)) { \n\t\t\t\tresolvedHandler = applicationContext.getBean(handlerName);\n\t\t\t}\n\t\t}\n\t\t// 判断 handlerMap 中已经保存了该 url\n\t\tObject mappedHandler = this.handlerMap.get(urlPath);\n\t\tif (mappedHandler != null) { \n\t\t\t// 如果该url 对应的两个不同的 handler，则抛出异常\n\t\t\tif (mappedHandler != resolvedHandler) { \n\t\t\t\tthrow new IllegalStateException(\n\t\t\t\t\t\t\"Cannot map \" + getHandlerDescription(handler) + \" to URL path [\" + urlPath +\n\t\t\t\t\t\t\"]: There is already \" + getHandlerDescription(mappedHandler) + \" mapped.\");\n\t\t\t}\n\t\t}\n\t\telse { \n\t\t\t// 如果是  urlPath 是 / 开头。则设置为 根处理器\n\t\t\tif (urlPath.equals(\"/\")) { \n\t\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\t\tlogger.trace(\"Root mapping to \" + getHandlerDescription(handler));\n\t\t\t\t}\n\t\t\t\tsetRootHandler(resolvedHandler);\n\t\t\t}\n\t\t\t// 如果是  urlPath 是 / 开头。则设置为 默认处理器\n\t\t\telse if (urlPath.equals(\"/*\")) { \n\t\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\t\tlogger.trace(\"Default mapping to \" + getHandlerDescription(handler));\n\t\t\t\t}\n\t\t\t\tsetDefaultHandler(resolvedHandler);\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// 否则的话，保存到 handlerMap 中\n\t\t\t\tthis.handlerMap.put(urlPath, resolvedHandler);\n\t\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\t\tlogger.trace(\"Mapped [\" + urlPath + \"] onto \" + getHandlerDescription(handler));\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-bubdst2",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085026-bubdst2",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2. SimpleUrlHandlerMapping"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-dex1kxu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-dex1kxu",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SimpleUrlHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanNameUrlHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 比较类似，但是相较于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanNameUrlHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SimpleUrlHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 显得更加“笨重\"一些。他的映射路径需要我们自己指定。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-jnwq5vk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-jnwq5vk",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "真实的使用场景可以参考下面的文章给予启发。\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://www.cnblogs.com/hujunzheng/p/9902475.html",
+					"TextMarkTextContent": "Springmvc借助SimpleUrlHandlerMapping实现接口开关功能"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-jkqxesa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-jkqxesa",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面只是 一个简单的搭建用于个人记忆。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-thl21jo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-thl21jo",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "xml 中的配置方式。两种方式选一种即可"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-wfdjrmi",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-wfdjrmi",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    \u003c!--    prop key 模式--\u003e\n    \u003cbean name = 'handlerMapping' class=\"org.springframework.web.servlet.handler.SimpleUrlHandlerMapping\"\u003e\n        \u003cproperty name=\"mappings\"\u003e\n            \u003cprops\u003e\n                \u003cprop key=\"/beanNameSay\"\u003ebeanNameSayController\u003c/prop\u003e\n            \u003c/props\u003e\n        \u003c/property\u003e\n    \u003c/bean\u003e\n    \u003c!--    或 value 模式--\u003e\n    \u003cbean class=\"org.springframework.web.servlet.handler.SimpleUrlHandlerMapping\"\u003e\n        \u003cproperty name=\"mappings\"\u003e\n            \u003cvalue\u003e\n                /beanNameSay=beanNameSayController\n            \u003c/value\u003e\n        \u003c/property\u003e\n    \u003c/bean\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-e1wa69l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-e1wa69l",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "配置类配置方式"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-gt4sj8x",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-gt4sj8x",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    @Bean\n    public HandlerMapping handlerAdapter(){ \n        SimpleUrlHandlerMapping simpleUrlHandlerMapping = new SimpleUrlHandlerMapping();\n        Map\u003cString, Object\u003e map = new HashMap\u003c\u003e();\n        map.put(\"/beanNameSay\", \"beanNameSayController\");\n        simpleUrlHandlerMapping.setUrlMap(map);\n        return simpleUrlHandlerMapping;\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-lvpyrer",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-lvpyrer",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面的配置方式，在浏览器访问 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "http://localhost:8080/demo/beanNameSay"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 时可以访问到 beanName 为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "beanNameSayController"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的类\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201027203441803-20230331085026-3sautpv.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-ef8uhfm",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085026-ef8uhfm",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3. RequestMappingHandlerMapping"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-knh148w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-knh148w",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RequestMappingHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，即我们平常最常用的一种形式，通过 @ResquestMapping 注解的方式来执行路径，由于下面有关于"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RequestMappingHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注册流程的分析，这里就不再赘述 。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-xlm5pow",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085026-xlm5pow",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.4. RouterFunctionMapping"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-9rorhgq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-9rorhgq",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "sub",
+					"TextMarkTextContent": "RouterFunctionMapping没用过"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 。参看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.leftso.com/blog/380.html",
+					"TextMarkTextContent": "http://www.leftso.com/blog/380.html"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-nkgpbp1",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085026-nkgpbp1",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、RequestMappingHandlerMapping"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-kdvmwc4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-kdvmwc4",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面的解析以 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RequestMappingHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 为例，因为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RequestMappingHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 也是我们最常使用的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "HandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-uo09u7v",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085026-uo09u7v",
+				"updated": "20230331085026"
+			}
+		},
+		{
+			"ID": "20230331085026-tcocoxz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085026-tcocoxz",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. Handler的注册"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-7t2ewa7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-7t2ewa7",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们首先来看一下 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RequestMappingHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的结构图"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-1gz5j8q",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-1gz5j8q",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2020102720544362-20230331085026-35f1pdz.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-14d9v55",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-14d9v55",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们看到其实现了其实 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RequestMappingHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 实现了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InitializingBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口(实际上是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractHandlerMethodMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 实现的。看了这么久的源码，我们可以大胆的猜测，对 Handler 的解析应该就在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InitializingBean#afterPropertiesSet"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-7g3thw8",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085026-7g3thw8",
+				"updated": "20230331085026"
+			}
+		},
+		{
+			"ID": "20230331085026-ekvxn0x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-ekvxn0x",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们来看一下 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RequestMappingHandlerMapping#afterPropertiesSet"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现如下。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-fuf3qj8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-fuf3qj8",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\t@SuppressWarnings(\"deprecation\")\n\tpublic void afterPropertiesSet() { \n\t\t// 进行 RequestMapping 的配置\n\t\tthis.config = new RequestMappingInfo.BuilderConfiguration();\n\t\tthis.config.setUrlPathHelper(getUrlPathHelper());\n\t\tthis.config.setPathMatcher(getPathMatcher());\n\t\tthis.config.setSuffixPatternMatch(useSuffixPatternMatch());\n\t\tthis.config.setTrailingSlashMatch(useTrailingSlashMatch());\n\t\tthis.config.setRegisteredSuffixPatternMatch(useRegisteredSuffixPatternMatch());\n\t\tthis.config.setContentNegotiationManager(getContentNegotiationManager());\n\t\t// 调用父类的  afterPropertiesSet 方法。\n\t\tsuper.afterPropertiesSet();\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-qxx36ja",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-qxx36ja",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面我们看到，其主要内容还是在父类的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "afterPropertiesSet"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中。因此下面我们来看"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractHandlerMethodMapping#afterPropertiesSet"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-iyn363a",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-iyn363a",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\n\tprivate static final String SCOPED_TARGET_NAME_PREFIX = \"scopedTarget.\";\n\t/**\n\t * Detects handler methods at initialization.\n\t * @see #initHandlerMethods\n\t */\n\t@Override\n\tpublic void afterPropertiesSet() { \n\t\tinitHandlerMethods();\n\t}\n\n\t/**\n\t * Scan beans in the ApplicationContext, detect and register handler methods.\n\t * @see #getCandidateBeanNames()\n\t * @see #processCandidateBean\n\t * @see #handlerMethodsInitialized\n\t */\n\tprotected void initHandlerMethods() { \n\t// getCandidateBeanNames() : 从 Spring 容器中获取所有候选的beanName。\n\t\tfor (String beanName : getCandidateBeanNames()) { \n\t\t\t// 如果beanName 不是以 SCOPED_TARGET_NAME_PREFIX 开头，则进行处理\n\t\t\tif (!beanName.startsWith(SCOPED_TARGET_NAME_PREFIX)) { \n\t\t\t\t// 1. 初始 候选的beanName\n\t\t\t\tprocessCandidateBean(beanName);\n\t\t\t}\n\t\t}\n\t\t// 这里就是打印了一下log日志\n\t\thandlerMethodsInitialized(getHandlerMethods());\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-in7kz6w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-in7kz6w",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们根据 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "initHandlerMethods"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的注释就可以知道 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "initHandlerMethods"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的作用是扫描 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，检测并注册 Handler方法。我们可以看到其中的关键方法就是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "processCandidateBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​(处理候选的Bean。这里实际完成了对 HandlerMethod 的解析和注册)。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-mmivwvf",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085026-mmivwvf",
+				"updated": "20230331085026"
+			}
+		},
+		{
+			"ID": "20230331085026-d3tjokx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-d3tjokx",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "processCandidateBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 方法中，完成了对 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "HandlerMethod"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 的解析和注册 。而"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "processCandidateBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "的具体实现在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "AbstractHandlerMethodMapping#processCandidateBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "中"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-40wicpv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-40wicpv",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们来看看具体实现"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-jlkam0g",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-jlkam0g",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void processCandidateBean(String beanName) { \n\t\tClass\u003c?\u003e beanType = null;\n\t\ttry { \n\t\t\t// 获取beanType\n\t\t\tbeanType = obtainApplicationContext().getType(beanName);\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\t...\n\t\t}\n\t\t// 如果 beanType != null  \u0026\u0026 beanType 是 handler。在 RequestMappingHandlerMapping  中的判断是 bean被 @Controller 或者 @RequestMapping 注解修饰。则会进行bean的handler方法筛选\n\t\tif (beanType != null \u0026\u0026 isHandler(beanType)) { \n\t\t\t// 筛选出合适的 HandlerMethod 注册\n\t\t\tdetectHandlerMethods(beanName);\n\t\t}\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-mcg7xwl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-mcg7xwl",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到其逻辑并不复杂，我们有两个方法需要关注："
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-pu1but8",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331085026-pu1but8",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"ID": "20230331085026-bnssjs6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085026-bnssjs6",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-1xh6f7g",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-1xh6f7g",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "isHandler(beanType)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 判断当前bean是否满足 Handler 条件"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-ulgcsn1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331085026-ulgcsn1",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-9yslrei",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-9yslrei",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "detectHandlerMethods(beanName)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 解析 handler 里面的方法并注册"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-2wsvklz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-2wsvklz",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们来看一看逐一来看一看："
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-8kxcmvx",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085026-8kxcmvx",
+				"updated": "20230331085026"
+			}
+		},
+		{
+			"ID": "20230331085026-50trbcq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085026-50trbcq",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1 isHandler(beanType)"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-a1qvnjm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-a1qvnjm",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个方法在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractHandlerMethodMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 并没有具体实现，是供子类实现，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "目的是判断当前 Bean是否是 Handler (满足Handler 的条件)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。我们这里来看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RequestMappingHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-igu4qoo",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-igu4qoo",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\n\t// RequestMappingHandlerMapping 中 isHandler 的实现\n\t@Override\n\tprotected boolean isHandler(Class\u003c?\u003e beanType) { \n\t\treturn (AnnotatedElementUtils.hasAnnotation(beanType, Controller.class) ||\n\t\t\t\tAnnotatedElementUtils.hasAnnotation(beanType, RequestMapping.class));\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-aoyr1n8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-aoyr1n8",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "RequestMappingHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 中 这里判断当前的bean 是否可以作为handler 的条件是 ： bean被 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "@Controller"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 或者 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "@RequestMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 注解修饰。则会进行bean的handler方法筛选。如果满足，则会通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "AbstractHandlerMethodMapping#detectHandlerMethods"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "方法来进行下一步的筛选Handler的方法筛选。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-xcidlgv",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085026-xcidlgv",
+				"updated": "20230331085026"
+			}
+		},
+		{
+			"ID": "20230331085026-6gs8fiq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085026-6gs8fiq",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2. detectHandlerMethods(beanName)"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-3lhusu7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-3lhusu7",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "detectHandlerMethods"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的作用是筛选出合适的 Handler Method 方法，并进行注册。\n接下来来看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractHandlerMethodMapping#detectHandlerMethods"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法的具体实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-u2grmny",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-u2grmny",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t// 检测 handler 方法并注册\n\tprotected void detectHandlerMethods(Object handler) { \n\t\t// 获取 handlerType。这里传入的 handler如果是  String 就是 beanName，从上下文中获取type，否则就直接认为是 Handler\n\t\tClass\u003c?\u003e handlerType = (handler instanceof String ?\n\t\t\t\tobtainApplicationContext().getType((String) handler) : handler.getClass());\n\n\t\tif (handlerType != null) { \n\t\t\t// 返回给定类的用户定义类：通常只是给定的类，但对于CGLIB生成的子类，则返回原始类\n\t\t\tClass\u003c?\u003e userType = ClassUtils.getUserClass(handlerType);\n\t\t\t// 遍历当前bean的所有方法，筛选出合适的 handler 方法 以及 注解信息\n\t\t\t// 这里需要注意的是   MethodIntrospector.selectMethods 底层将  getMappingForMethod 返回为null 的值给过滤掉了。\n\t\t\tMap\u003cMethod, T\u003e methods = MethodIntrospector.selectMethods(userType,\n\t\t\t\t\t(MethodIntrospector.MetadataLookup\u003cT\u003e) method -\u003e { \n\t\t\t\t\t\ttry { \n\t\t\t\t\t\t\t// 供子类实现\n\t\t\t\t\t\t\treturn getMappingForMethod(method, userType);\n\t\t\t\t\t\t}\n\t\t\t\t\t\tcatch (Throwable ex) { \n\t\t\t\t\t\t\tthrow new IllegalStateException(\"Invalid mapping on handler class [\" +\n\t\t\t\t\t\t\t\t\tuserType.getName() + \"]: \" + method, ex);\n\t\t\t\t\t\t}\n\t\t\t\t\t});\n\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\tlogger.trace(formatMappings(userType, methods));\n\t\t\t}\n\t\t\t// 遍历所有的methods(这里的methods经过上面的筛选后，都是被 @RequestMapping 注解修饰的方法)\n\t\t\tmethods.forEach((method, mapping) -\u003e { \n\t\t\t\t// 这里是针对 cglib 代理特殊处理。\n\t\t\t\tMethod invocableMethod = AopUtils.selectInvocableMethod(method, userType);\n\t\t\t\t//注册 HandlerMethod 。\n\t\t\t\tregisterHandlerMethod(handler, invocableMethod, mapping);\n\t\t\t});\n\t\t}\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-8l8kwvn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-8l8kwvn",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在上述代码中通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodIntrospector#selectMethods(...)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法遍历了当前bean的所有方法，并调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getMappingForMethod"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法进行处理。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getMappingForMethod"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractHandlerMethodMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中并未有具体实现，这里我们看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RequestMappingHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中的实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-nr95k3l",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-nr95k3l",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t\t// RequestMappingHandlerMapping 中的实现\n\t\t@Override\n\t\t@Nullable\n\t\tprotected RequestMappingInfo getMappingForMethod(Method method, Class\u003c?\u003e handlerType) { \n\t\t\t// 转换成 RequestMappingInfo ，如果方法没有被  @RequestMapping 注解修饰，则会返回null\n\t\t\t// 解析出来方法上  @RequestMapping  注解的各种信息\n\t\t\tRequestMappingInfo info = createRequestMappingInfo(method);\n\t\t\tif (info != null) { \n\t\t\t\t// 解析出来 bean 上  @RequestMapping  注解的各种信息\n\t\t\t\tRequestMappingInfo typeInfo = createRequestMappingInfo(handlerType);\n\t\t\t\tif (typeInfo != null) { \n\t\t\t\t\t// 合并类和方法的 @RequestMapping 注解信息\n\t\t\t\t\tinfo = typeInfo.combine(info);\n\t\t\t\t}\n\t\t\t\t// 获取前缀，拼接前缀\n\t\t\t\tString prefix = getPathPrefix(handlerType);\n\t\t\t\tif (prefix != null) { \n\t\t\t\t\tinfo = RequestMappingInfo.paths(prefix).options(this.config).build().combine(info);\n\t\t\t\t}\n\t\t\t}\n\t\t\t// 返回信息\n\t\t\treturn info;\n\t\t}\n\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-dz5ob93",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-dz5ob93",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getMappingForMethod"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法的作用是解析 方法上的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@RequestMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注解的信息并和类上 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@RequestMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注解 的信息相结合。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-b39z4lq",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-b39z4lq",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t \t@Nullable\n\t\tprivate RequestMappingInfo createRequestMappingInfo(AnnotatedElement element) { \n\t\t\t// 获取当前方法上的  @RequestMapping 注解\n\t\t\tRequestMapping requestMapping = AnnotatedElementUtils.findMergedAnnotation(element, RequestMapping.class);\n\t\t\t// 获取自定义的方法条件\n\t\t\tRequestCondition\u003c?\u003e condition = (element instanceof Class ?\n\t\t\t\t\tgetCustomTypeCondition((Class\u003c?\u003e) element) : getCustomMethodCondition((Method) element));\n\t\t\t// 这里可以看到 如果 requestMapping  = null，则会直接返回null，否则会封装成一个 RequestMappingInfo (包含 @RequestMapping 注解的各种参数) 返回。\n\t\t\treturn (requestMapping != null ? createRequestMappingInfo(requestMapping, condition) : null);\n\t\t}\n\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-yc4behm",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085026-yc4behm",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3. registerHandlerMethod(handler, invocableMethod, mapping)"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-4igc0dc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-4igc0dc",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "registerHandlerMethod(handler, invocableMethod, mapping);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 看方法名字就知道 ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "注册 HandlerMethod"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。下面我们看看具体实现"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-gh9oms9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-gh9oms9",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t//  RequestMappingHandlerMapping 中\n\t@Override\n\tpublic void registerMapping(RequestMappingInfo mapping, Object handler, Method method) { \n\t\tsuper.registerMapping(mapping, handler, method);\n\t\tupdateConsumesCondition(mapping, method);\n\t}\n\n\t@Override\n\tprotected void registerHandlerMethod(Object handler, Method method, RequestMappingInfo mapping) { \n\t\tsuper.registerHandlerMethod(handler, method, mapping);\n\t\tupdateConsumesCondition(mapping, method);\n\t}\n\n\t...\n\n\t// 对 @RequestBody 注解进行了进一步解析\n\tprivate void updateConsumesCondition(RequestMappingInfo info, Method method) { \n\t\tConsumesRequestCondition condition = info.getConsumesCondition();\n\t\tif (!condition.isEmpty()) { \n\t\t\tfor (Parameter parameter : method.getParameters()) { \n\t\t\t\tMergedAnnotation\u003cRequestBody\u003e annot = MergedAnnotations.from(parameter).get(RequestBody.class);\n\t\t\t\tif (annot.isPresent()) { \n\t\t\t\t\tcondition.setBodyRequired(annot.getBoolean(\"required\"));\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-6ymcqj9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-6ymcqj9",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "super.registerMapping(mapping, handler, method);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 调用的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractHandlerMethodMapping#registerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 。如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-svz7tco",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-svz7tco",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t// RequestMappingInfo 和 MappingRegistration 的映射关系\n\tprivate final Map\u003cT, MappingRegistration\u003cT\u003e\u003e registry = new HashMap\u003c\u003e();\n\t//  key是 RequestMappingInfo,   value 是 HandlerMethod\n\tprivate final Map\u003cT, HandlerMethod\u003e mappingLookup = new LinkedHashMap\u003c\u003e();\n\t// url 和  RequestMappingInfo 映射起来。\n\tprivate final MultiValueMap\u003cString, T\u003e urlLookup = new LinkedMultiValueMap\u003c\u003e();\n\t// 类名#方法名  和 HandlerMethod 的映射关系\n\tprivate final Map\u003cString, List\u003cHandlerMethod\u003e\u003e nameLookup = new ConcurrentHashMap\u003c\u003e();\n\t// HandlerMethod 和 CorsConfiguration 的映射关系\n\tprivate final Map\u003cHandlerMethod, CorsConfiguration\u003e corsLookup = new ConcurrentHashMap\u003c\u003e();\n\n\tprivate final MappingRegistry mappingRegistry = new MappingRegistry();\n\n\t// super.registerMapping(mapping, handler, method);  调用的是 AbstractHandlerMethodMapping#registerMapping 。如下\n\tpublic void registerMapping(T mapping, Object handler, Method method) { \n\t\tif (logger.isTraceEnabled()) { \n\t\t\tlogger.trace(\"Register \\\"\" + mapping + \"\\\" to \" + method.toGenericString());\n\t\t}\n\t\t// 完成了handler method 的注册\n\t\tthis.mappingRegistry.register(mapping, handler, method);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-xg1mbwq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-xg1mbwq",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们来看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.mappingRegistry.register(mapping, handler, method);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的具体实现 ("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractHandlerMethodMapping.MappingRegistry#register"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​) 如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-39be97h",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-39be97h",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t\tpublic void register(T mapping, Object handler, Method method) { \n\t\t\t// Assert that the handler method is not a suspending one.\n\t\t\tif (KotlinDetector.isKotlinType(method.getDeclaringClass())) { \n\t\t\t\tClass\u003c?\u003e[] parameterTypes = method.getParameterTypes();\n\t\t\t\tif ((parameterTypes.length \u003e 0) \u0026\u0026 \"kotlin.coroutines.Continuation\".equals(parameterTypes[parameterTypes.length - 1].getName())) { \n\t\t\t\t\tthrow new IllegalStateException(\"Unsupported suspending handler method detected: \" + method);\n\t\t\t\t}\n\t\t\t}\n\t\t\t// 加写锁\n\t\t\tthis.readWriteLock.writeLock().lock();\n\t\t\ttry { \n\t\t\t\t// 将 handler 和 method 封装成一个  HandlerMethod  实例\n\t\t\t\tHandlerMethod handlerMethod = createHandlerMethod(handler, method);\n\t\t\t\t// 校验实例的合法性。即唯一性\n\t\t\t\tvalidateMethodMapping(handlerMethod, mapping);\n\t\t\t\t// 保存映射关心， key是 RequestMappingInfo,   value 是 HandlerMethod \n\t\t\t\tthis.mappingLookup.put(mapping, handlerMethod);\n\t\t\t\t// 获取url映射，如果是 restful 请求则获取不到。建立 url 和Mapping 的映射。\n\t\t\t\t// 一个mapping 可以对应多个url\n\t\t\t\tList\u003cString\u003e directUrls = getDirectUrls(mapping);\n\t\t\t\t// 这里将url 和  mapping映射起来\n\t\t\t\t// 在进行匹配的时候，就是先根据url找到合适的mapping，然后根据找到的mapping再去找到HandlerMethod\n\t\t\t\tfor (String url : directUrls) { \n\t\t\t\t\tthis.urlLookup.add(url, mapping);\n\t\t\t\t}\n\t\t\t\t// 保存 类名#方法名 ： HandlerMethod 的映射关系\n\t\t\t\tString name = null;\n\t\t\t\tif (getNamingStrategy() != null) { \n\t\t\t\t\t// 这里解析出来的name 并不是完整的类名，而是类名的首字母组合。比如方法名是 DemoController.say() ，解析出来的name即为 DC#say。如果是 SayController.say()。解析出来则为 name = SC#say\n\t\t\t\t\tname = getNamingStrategy().getName(handlerMethod, mapping);\n\t\t\t\t\taddMappingName(name, handlerMethod);\n\t\t\t\t}\n\t\t\t\t//@CrossOrigin跨域注解请求的初始化配置\n\t\t\t\tCorsConfiguration corsConfig = initCorsConfiguration(handler, method, mapping);\n\t\t\t\tif (corsConfig != null) { \n\t\t\t\t\tthis.corsLookup.put(handlerMethod, corsConfig);\n\t\t\t\t}\n\t\t\t\t// 保存到 registry 中\n\t\t\t\tthis.registry.put(mapping, new MappingRegistration\u003c\u003e(mapping, handlerMethod, directUrls, name));\n\t\t\t}\n\t\t\tfinally { \n\t\t\t\tthis.readWriteLock.writeLock().unlock();\n\t\t\t}\n\t\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-3l1s672",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085026-3l1s672",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.4. 总结"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-gnluhi4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-gnluhi4",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "经过上面的分析我们可以得知："
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-ct5thp6",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331085026-ct5thp6",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"ID": "20230331085026-2u4vrgw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331085026-2u4vrgw",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-znc3un3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-znc3un3",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Spring启动时加载 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RequestMappingHandlerMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RequestMappingHandlerMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​在初始化的时候会从 Spring容器中获取bean"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-claux61",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331085026-claux61",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-p7zz8e3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-p7zz8e3",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "遍历每个bean，判断是否满足成为 Handler 的条件(bean被 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@Controller"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 或者 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@RequestMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 注解修饰)。满足条件的作为 Handler进行下一步处理"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-2yumda2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331085026-2yumda2",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-wnu7ug7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-wnu7ug7",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "通过反射获取每个 Handler 里面的方法，去判断是否被"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@RequestMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 注解修饰，如果被修饰，则获取"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@RequestMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 注解的信息与类上面的 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@RequestMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 注解信息合并后注册HandlerMethod。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-br8ictj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331085026-br8ictj",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. Handler 的筛选"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-ozwur3f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-ozwur3f",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当一个请求过来的的时候，会交由 DispatcherServlet 来进行请求分发。根据请求的 request 查找到对应的 handler。这里来分析一下这个查找过程。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-6z3awlx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-6z3awlx",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DispatcherServlet"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的查找方法是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DispatcherServlet#getHandler"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-w8rfuds",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-w8rfuds",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Nullable\n\tprotected HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception { \n\t\tif (this.handlerMappings != null) { \n\t\t\t// 这里的 HandlerMapping  如果没有特殊操作，则默认是从配置文件中读取并加载的 HandlerMapping\n\t\t\tfor (HandlerMapping mapping : this.handlerMappings) { \n\t\t\t\t// 调用HandlerMapping 的getHandler 方法。\n\t\t\t\tHandlerExecutionChain handler = mapping.getHandler(request);\n\t\t\t\tif (handler != null) { \n\t\t\t\t\treturn handler;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\treturn null;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-5siw5lb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-5siw5lb",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "mapping.getHandler(request);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 调用的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractHandlerMapping#getHandler"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法。其实现如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-whesvof",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-whesvof",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Override\n\t@Nullable\n\tpublic final HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception { \n\t\t// 1. 调用 getHandlerInternal 获取 handler 。该方法供子类实现\n\t\tObject handler = getHandlerInternal(request);\n\t\t// 如果没有获取到 handler。则获取默认的handler\n\t\tif (handler == null) { \n\t\t\thandler = getDefaultHandler();\n\t\t}\n\t\tif (handler == null) { \n\t\t\treturn null;\n\t\t}\n\t\t// Bean name or resolved handler?\n\t\t// 如果 handler  是 String类型，则会认为是 beanName。从Spring容器中获取 bean实例\n\t\tif (handler instanceof String) { \n\t\t\tString handlerName = (String) handler;\n\t\t\thandler = obtainApplicationContext().getBean(handlerName);\n\t\t}\n\t\t// 2. 生成拦截器链路\n\t\tHandlerExecutionChain executionChain = getHandlerExecutionChain(handler, request);\n\n\t\tif (logger.isTraceEnabled()) { \n\t\t\tlogger.trace(\"Mapped to \" + handler);\n\t\t}\n\t\telse if (logger.isDebugEnabled() \u0026\u0026 !request.getDispatcherType().equals(DispatcherType.ASYNC)) { \n\t\t\tlogger.debug(\"Mapped to \" + executionChain.getHandler());\n\t\t}\n\t\n\t\tif (hasCorsConfigurationSource(handler) || CorsUtils.isPreFlightRequest(request)) { \n\t\t\tCorsConfiguration config = (this.corsConfigurationSource != null ? this.corsConfigurationSource.getCorsConfiguration(request) : null);\n\t\t\tCorsConfiguration handlerConfig = getCorsConfiguration(handler, request);\n\t\t\tconfig = (config != null ? config.combine(handlerConfig) : handlerConfig);\n\t\t\texecutionChain = getCorsHandlerExecutionChain(request, executionChain, config);\n\t\t}\n\n\t\treturn executionChain;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-0uswom1",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085026-0uswom1",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1. getHandlerInternal(request)"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-3d9vmrm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-3d9vmrm",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "该方法在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractHandlerMethodMapping#getHandlerInternal"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中没有具体实现，是供不同的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "HandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 子类自己实现的。这里我们直接看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "RequestMappingInfoHandlerMapping#getHandlerInternal"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-6qwzzlt",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-6qwzzlt",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tprotected HandlerMethod getHandlerInternal(HttpServletRequest request) throws Exception { \n\t\trequest.removeAttribute(PRODUCIBLE_MEDIA_TYPES_ATTRIBUTE);\n\t\ttry { \n\t\t\treturn super.getHandlerInternal(request);\n\t\t}\n\t\tfinally { \n\t\t\tProducesRequestCondition.clearMediaTypesAttribute(request);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-wkt5cx6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-wkt5cx6",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "super.getHandlerInternal(request);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 调用的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractHandlerMethodMapping#getHandlerInternal"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。如下"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-uvhlb1r",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-uvhlb1r",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tprotected HandlerMethod getHandlerInternal(HttpServletRequest request) throws Exception { \n\t\t// 从 request 中解析出 请求路径\n\t\tString lookupPath = getUrlPathHelper().getLookupPathForRequest(request);\n\t\trequest.setAttribute(LOOKUP_PATH, lookupPath);\n\t\tthis.mappingRegistry.acquireReadLock();\n\t\ttry { \n\t\t\t// 查找 HandlerMethod\n\t\t\tHandlerMethod handlerMethod = lookupHandlerMethod(lookupPath, request);\n\t\t\treturn (handlerMethod != null ? handlerMethod.createWithResolvedBean() : null);\n\t\t}\n\t\tfinally { \n\t\t\tthis.mappingRegistry.releaseReadLock();\n\t\t}\n\t}\n\n\t...\n\n\t@Nullable\n\tprotected HandlerMethod lookupHandlerMethod(String lookupPath, HttpServletRequest request) throws Exception { \n\t\tList\u003cMatch\u003e matches = new ArrayList\u003c\u003e();\n\t\t// 通过 url 获取匹配路径\n\t\t// springMVC会在初始化的时候建立URL和相应RequestMappingInfo的映射，这点在上面的解析中我们可以知道。如果不是restful接口，这里就可以直接获取到。\n\t\t// 这里是通过 urlLookup 获取的 RequestMappingInfo \n\t\tList\u003cT\u003e directPathMatches = this.mappingRegistry.getMappingsByUrl(lookupPath);\n\t\tif (directPathMatches != null) { \n\t\t\t// 将匹配的 Mapping 保存到 matches 中。\n\t\t\taddMatchingMappings(directPathMatches, matches, request);\n\t\t}\n\t\t// 如果上面没有获取到匹配的路径，则只能遍历所有的 mapping。\n\t\t// 由于会遍历所有的 RequestMapping。所以性能会随着 RequestMapping数量的增加降低\n\t\tif (matches.isEmpty()) { \n\t\t\t// No choice but to go through all mappings...\n\t\t\taddMatchingMappings(this.mappingRegistry.getMappings().keySet(), matches, request);\n\t\t}\n\t\t// 如果 matches 不为空，则说明有匹配的 Mapping\n\t\tif (!matches.isEmpty()) { \n\t\t\tMatch bestMatch = matches.get(0);\n\t\t\t// 如果合适的 Mapping 不止一个，则筛选出最合适的\n\t\t\tif (matches.size() \u003e 1) { \n\t\t\t\tComparator\u003cMatch\u003e comparator = new MatchComparator(getMappingComparator(request));\n\t\t\t\tmatches.sort(comparator);\n\t\t\t\tbestMatch = matches.get(0);\n\t\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\t\tlogger.trace(matches.size() + \" matching mappings: \" + matches);\n\t\t\t\t}\n\t\t\t\tif (CorsUtils.isPreFlightRequest(request)) { \n\t\t\t\t\treturn PREFLIGHT_AMBIGUOUS_MATCH;\n\t\t\t\t}\n\t\t\t\tMatch secondBestMatch = matches.get(1);\n\t\t\t\tif (comparator.compare(bestMatch, secondBestMatch) == 0) { \n\t\t\t\t\tMethod m1 = bestMatch.handlerMethod.getMethod();\n\t\t\t\t\tMethod m2 = secondBestMatch.handlerMethod.getMethod();\n\t\t\t\t\tString uri = request.getRequestURI();\n\t\t\t\t\tthrow new IllegalStateException(\n\t\t\t\t\t\t\t\"Ambiguous handler methods mapped for '\" + uri + \"': {\" + m1 + \", \" + m2 + \"}\");\n\t\t\t\t}\n\t\t\t}\n\t\t\trequest.setAttribute(BEST_MATCHING_HANDLER_ATTRIBUTE, bestMatch.handlerMethod);\n\t\t\thandleMatch(bestMatch.mapping, lookupPath, request);\n\t\t\treturn bestMatch.handlerMethod;\n\t\t}\n\t\telse { \n\t\t\treturn handleNoMatch(this.mappingRegistry.getMappings().keySet(), lookupPath, request);\n\t\t}\n\t}\n\n\t...\n\n\tprivate void addMatchingMappings(Collection\u003cT\u003e mappings, List\u003cMatch\u003e matches, HttpServletRequest request) { \n\t\tfor (T mapping : mappings) { \n\t\t\tT match = getMatchingMapping(mapping, request);\n\t\t\tif (match != null) { \n\t\t\t\tmatches.add(new Match(match, this.mappingRegistry.getMappings().get(mapping)));\n\t\t\t}\n\t\t}\n\t}\n\n\t...\n\n\t//  this.mappingRegistry.getMappingsByUrl(lookupPath);  \n\t// 也就是 AbstractHandlerMethodMapping.MappingRegistry#getMappingsByUrl\n\t@Nullable\n\tpublic List\u003cT\u003e getMappingsByUrl(String urlPath) { \n\t\treturn this.urlLookup.get(urlPath);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-5sgkmb6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085026-5sgkmb6",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2 getHandlerExecutionChain(handler, request)"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-rc7nk3i",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-rc7nk3i",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractHandlerMapping#getHandlerExecutionChain"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。主要目的是将配置中对应的拦截器加入到执行链中，以保证这些拦截器可以有效的作用于目标对象"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-ypuy111",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-ypuy111",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected HandlerExecutionChain getHandlerExecutionChain(Object handler, HttpServletRequest request) { \n\t\t// 构建一个执行链\n\t\tHandlerExecutionChain chain = (handler instanceof HandlerExecutionChain ?\n\t\t\t\t(HandlerExecutionChain) handler : new HandlerExecutionChain(handler));\n\t\t// 解析出来 请求路径\n\t\tString lookupPath = this.urlPathHelper.getLookupPathForRequest(request, LOOKUP_PATH);\n\t\t// 遍历所有的拦截器，如果拦截器匹配符则加入到执行链中。adaptedInterceptors 是在 Mapping 初始化的时候加载的\n\t\tfor (HandlerInterceptor interceptor : this.adaptedInterceptors) { \n\t\t\tif (interceptor instanceof MappedInterceptor) { \n\t\t\t\tMappedInterceptor mappedInterceptor = (MappedInterceptor) interceptor;\n\t\t\t\tif (mappedInterceptor.matches(lookupPath, this.pathMatcher)) { \n\t\t\t\t\tchain.addInterceptor(mappedInterceptor.getInterceptor());\n\t\t\t\t}\n\t\t\t}\n\t\t\telse { \n\t\t\t\tchain.addInterceptor(interceptor);\n\t\t\t}\n\t\t}\n\t\treturn chain;\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-m2sw2w8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-m2sw2w8",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "关于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "adaptedInterceptors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "interceptors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 两个拦截器集合："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "adaptedInterceptors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractHandlerMapping"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 在初始化的时候实现了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ApplicationContextAware"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口，在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ApplicationObjectSupport#setApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "initApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法，进行了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "adaptedInterceptors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的初始化。而 interceptors 则可以通过 set 方法进行注入。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-zm47e82",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331085026-zm47e82",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t// AbstractHandlerMapping \n\t@Override\n\tprotected void initApplicationContext() throws BeansException { \n\t\textendInterceptors(this.interceptors);\n\t\tdetectMappedInterceptors(this.adaptedInterceptors);\n\t\tinitInterceptors();\n\t}\n\t...\n\t// 从容器中 获取所有MappedInterceptor类型的拦截器\n\tprotected void detectMappedInterceptors(List\u003cHandlerInterceptor\u003e mappedInterceptors) { \n\t\tmappedInterceptors.addAll(BeanFactoryUtils.beansOfTypeIncludingAncestors(\n\t\t\t\tobtainApplicationContext(), MappedInterceptor.class, true, false).values());\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-s95ynah",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331085026-s95ynah",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.3 总结"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-xlkq0bo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-xlkq0bo",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结部分，直接复制的这位老哥的： "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/shjhhc/article/details/53261168",
+					"TextMarkTextContent": "springMVC在restful风格的性能优化"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "。有兴趣可以看看原文。"
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-f34bp58",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331085026-f34bp58",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"ID": "20230331085026-cnv8uaf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331085026-cnv8uaf",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-q03mcvt",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-q03mcvt",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "List directPathMatches = this.mappingRegistry.getMappingsByUrl(lookupPath);"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 这个方法是非常直观的根据URL来获取,springMVC会在初始化的时候建立URL和相应"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RequestMappingInfo"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​的映射。如果不是restful接口，这里就可以直接获取到了。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-80rdwqz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331085026-80rdwqz",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-w7e00kl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-w7e00kl",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果1中已经获取到，则调用方法"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "addMatchingMappings(directPathMatches, matches, request)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​进行匹配校验。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-1mptl02",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331085026-1mptl02",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-u3fjvan",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-u3fjvan",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果1中未获取到匹配方法信息，则调用方法"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "addMatchingMappings(this.mappingRegistry.getMappings().keySet(), matches, request);"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 进行全局（all mappings）扫描匹配(this.mappingRegistry.getMappings().keySet())。且会把所有的RequestMappingInfo都遍历完才会停止，也就是说项目中的@RequestMapping方法越多，这个匹配的效率就越低，性能越差。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331085026-n2ufnpu",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331085026-n2ufnpu",
+						"updated": "20230331085026"
+					},
+					"Children": [
+						{
+							"ID": "20230331085026-8t4vz99",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331085026-8t4vz99",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "在遍历过程中，SpringMVC首先会根据"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "@RequestMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​中的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "headers"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​, "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "params"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​, "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "produces"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​, "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "consumes"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​, "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "methods"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​与实际的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "HttpServletRequest"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​中的信息对比，剔除掉一些明显不合格的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RequestMapping"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。 如果以上信息都能够匹配上，那么SpringMVC会对RequestMapping中的path进行正则匹配，剔除不合格的。接下来会对所有留下来的候选@RequestMapping进行评分并排序。最后选择分数最高的那个作为结果。\n"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "评分的优先级为："
+								}
+							]
+						},
+						{
+							"ID": "20230331085026-spjm7ek",
+							"Type": "NodeCodeBlock",
+							"IsFencedCodeBlock": true,
+							"Properties": {
+								"id": "20230331085026-spjm7ek",
+								"updated": "20230331085026"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeBlockFenceOpenMarker",
+									"Data": "```"
+								},
+								{
+									"Type": "NodeCodeBlockFenceInfoMarker",
+									"CodeBlockInfo": "amF2YQ=="
+								},
+								{
+									"Type": "NodeCodeBlockCode",
+									"Data": "path pattern \u003e params \u003e headers \u003e consumes \u003e produces \u003e methods\n"
+								},
+								{
+									"Type": "NodeCodeBlockFenceCloseMarker",
+									"Data": "```"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331085026-kkm4eh9",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331085026-kkm4eh9",
+				"updated": "20230331085026"
+			}
+		},
+		{
+			"ID": "20230331085026-z85thmr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331085026-z85thmr",
+				"updated": "20230331085026"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考《Spring源码深度解析》"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://blog.csdn.net/shjhhc/article/details/53261168",
+					"TextMarkTextContent": "https://blog.csdn.net/shjhhc/article/details/53261168"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

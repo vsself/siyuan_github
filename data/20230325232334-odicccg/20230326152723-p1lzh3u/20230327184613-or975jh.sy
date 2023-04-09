@@ -1,0 +1,267 @@
+{
+	"ID": "20230327184613-or975jh",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230327184613-or975jh",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230327184613-ul1lg5d\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230327184639-cs51gyc\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230327184645-bpgnt30\u0026quot;,\u0026quot;focusStart\u0026quot;:38,\u0026quot;focusEnd\u0026quot;:38}",
+		"title": "容器启动流程",
+		"updated": "20230327184642"
+	},
+	"Children": [
+		{
+			"ID": "20230327184613-ul1lg5d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327184613-ul1lg5d",
+				"updated": "20230327184636"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring容器启动流程是怎样的"
+				}
+			]
+		},
+		{
+			"ID": "20230327184639-cs51gyc",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230327184639-cs51gyc",
+				"updated": "20230327184642"
+			},
+			"Children": [
+				{
+					"ID": "20230327184642-m8blri9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230327184642-m8blri9",
+						"updated": "20230327184642"
+					},
+					"Children": [
+						{
+							"ID": "20230327184642-pj92odc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327184642-pj92odc",
+								"updated": "20230327184642"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "在创建Spring容器，也就是启动Spring时："
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327184645-ufkpz7f",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230327184645-ufkpz7f"
+					},
+					"Children": [
+						{
+							"ID": "20230327184645-bpgnt30",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327184645-bpgnt30",
+								"updated": "20230327184648"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "首先会进行扫描，扫描得到所有的BeanDefinition对象，并存在一个Map中"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327184654-n7zhvdr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230327184654-n7zhvdr"
+					},
+					"Children": [
+						{
+							"ID": "20230327184654-8mm7o7b",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327184654-8mm7o7b"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "然后筛选出非懒加载的单例BeanDfinition进行创建Bean,对于多例Bean不需要在启动过程中去进行创建，对于多例Bean会在每次获取Bean时利用BeanDefinition去创建"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327184700-ae7o7iz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230327184700-ae7o7iz"
+					},
+					"Children": [
+						{
+							"ID": "20230327184700-cucph81",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327184700-cucph81"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "利用BeanDefinition创建Bean就是Bean的创建生命周期，这期间包括了合并BeanDefinition、推断构造方法、实例化、属性填充、初始化前、初始化、初始化后等步骤，其中AOP就是发生在初始化后这一步骤中"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327184704-myp7vn4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230327184704-myp7vn4"
+					},
+					"Children": [
+						{
+							"ID": "20230327184704-lhf89rr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327184704-lhf89rr"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "单例Bean创建完了之后,Spring会发布一个容器启动事件"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327184708-nr81lm2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ni4=",
+						"Num": 6
+					},
+					"Properties": {
+						"id": "20230327184708-nr81lm2"
+					},
+					"Children": [
+						{
+							"ID": "20230327184708-uxw4cy3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327184708-uxw4cy3"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Spring启动结束"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327184720-4rcsdst",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ny4=",
+						"Num": 7
+					},
+					"Properties": {
+						"id": "20230327184720-4rcsdst"
+					},
+					"Children": [
+						{
+							"ID": "20230327184720-8cf3kqc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327184720-8cf3kqc"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "在源码中会更复杂, 比如源码中会提供一些模板方法, 让子类来实现， 比如源码中还涉及到一些BeanFactoryPostProcessor和BeanPostProcessor的注册,Spring的扫描就是通过BenaFactoryPostProcessor来实现的，依赖注入就是通过BeanPostProcessor来实现的"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327184751-21r1i6x",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "OC4=",
+						"Num": 8
+					},
+					"Properties": {
+						"id": "20230327184751-21r1i6x"
+					},
+					"Children": [
+						{
+							"ID": "20230327184751-hkq5ux7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327184751-hkq5ux7"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "在Spring启动过程中还会去处理@Import等注解"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

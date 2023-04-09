@@ -1,0 +1,232 @@
+{
+	"ID": "20230406095116-ezu9t9y",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230406095116-ezu9t9y",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230406095116-87f0sw3\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230406113558-fu3dnuz\u0026quot;,\u0026quot;scrollTop\u0026quot;:900,\u0026quot;focusId\u0026quot;:\u0026quot;20230406113440-oenewal\u0026quot;,\u0026quot;focusStart\u0026quot;:29,\u0026quot;focusEnd\u0026quot;:29}",
+		"title": "配置类",
+		"updated": "20230406114104"
+	},
+	"Children": [
+		{
+			"ID": "20230406095116-87f0sw3",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230406095116-87f0sw3",
+				"updated": "20230406095321"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "spring之配置类"
+				}
+			]
+		},
+		{
+			"ID": "20230406113503-a3bijc1",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230406113503-a3bijc1",
+				"updated": "20230406113537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "@Configuration、@PropertySource、@Value"
+				}
+			]
+		},
+		{
+			"ID": "20230406095328-pomm6gj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406095328-pomm6gj",
+				"updated": "20230406095352"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "spring通过ioc容器管理bean,bean的配置信息可由xml文件，也可以由注解来表示。通常注解表示更简洁方便，但是注解只能加注在自定义的类上，对应第三方的类，spring提供了@Bean注解来实现对象注入。@Component,@Repository,@Controller,@Service这些注解只局限于自己编写的类，而@Bean注解能把第三方库中的类实例加入IOC容器中并交给spring管理。"
+				}
+			]
+		},
+		{
+			"ID": "20230406095355-kv4g4p0",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406095355-kv4g4p0",
+				"updated": "20230406095701"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "//使用@PropertySource读取外部配置文件中的k/v保存到运行的环境变量中；\n//加载完外部的配置文件以后使用$取出配置文件的值\n@PropertySource(value={\"classpath:/person.properties\"})\n@Configuration\npublic class MainConfigOfPropertyValues {\n    @Bean\n    public Person person(){\n        return new Person();\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406095703-xtct475",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406095703-xtct475",
+				"updated": "20230406095714"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上述代码通过person（）方法（加了@Bean注解）往容器注入Person的实例。person实例的属性值怎么设置呢？在定义Person类时，通过注解@Value来赋值："
+				}
+			]
+		},
+		{
+			"ID": "20230406095715-vd62vr8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230406095715-vd62vr8",
+				"updated": "20230406095821"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Person {\n    @Value(\"${person.name}\")\n    private String name;\n    @Value(\"${person.age}\")\n    private Integer age;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230406095827-edkl42e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406095827-edkl42e",
+				"updated": "20230406095842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "使用@Value赋值，可以是："
+				}
+			]
+		},
+		{
+			"ID": "20230406095854-s2peomi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406095854-s2peomi"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、基本数值"
+				}
+			]
+		},
+		{
+			"ID": "20230406095857-kd5apff",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406095857-kd5apff",
+				"updated": "20230406095906"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、可以写SpEL；#{}"
+				}
+			]
+		},
+		{
+			"ID": "20230406095901-noeo8dz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406095901-noeo8dz",
+				"updated": "20230406095945"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、可以写${}; 取出配置文件 【properties】 中的值（在运行环境变量里面的值)"
+				}
+			]
+		},
+		{
+			"ID": "20230406095954-o0wc926",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406095954-o0wc926"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果采用方式3，在@Bean注解前，用注解@PropertySource读取外部配置文件中的k/v保存到运行的环境变量中；加载完外部的配置文件以后使用取出配置文件的值"
+				}
+			]
+		},
+		{
+			"ID": "20230406095935-inq4h9m",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230406095935-inq4h9m",
+				"updated": "20230406113710"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "@ComponentScan还有个父亲是@ComponentScans"
+				}
+			]
+		},
+		{
+			"ID": "20230406113440-oenewal",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406113440-oenewal",
+				"updated": "20230406114104"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "block-ref",
+					"TextMarkBlockRefID": "20230406114032-gfzpdw8",
+					"TextMarkBlockRefSubtype": "d",
+					"TextMarkTextContent": "@ComponentScan注解使用_Splaying的博客-CSDN博客"
+				}
+			]
+		},
+		{
+			"ID": "20230406113558-fu3dnuz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230406113558-fu3dnuz"
+			}
+		}
+	]
+}

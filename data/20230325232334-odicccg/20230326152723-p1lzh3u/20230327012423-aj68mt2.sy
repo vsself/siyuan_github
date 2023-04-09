@@ -1,0 +1,810 @@
+{
+	"ID": "20230327012423-aj68mt2",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230327012423-aj68mt2",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230327012432-k6igjte\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230327114147-qxxmsvx\u0026quot;,\u0026quot;scrollTop\u0026quot;:1220.6666259765625,\u0026quot;focusId\u0026quot;:\u0026quot;20230327101555-8vzbjka\u0026quot;,\u0026quot;focusStart\u0026quot;:51,\u0026quot;focusEnd\u0026quot;:51}",
+		"title": "循环依赖",
+		"updated": "20230330104551"
+	},
+	"Children": [
+		{
+			"ID": "20230327012432-k6igjte",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230327012432-k6igjte",
+				"updated": "20230327080753"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "方法一"
+				}
+			]
+		},
+		{
+			"ID": "20230327080801-276vdty",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327080801-276vdty",
+				"updated": "20230327080821"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三级缓存，用于set方法注入"
+				}
+			]
+		},
+		{
+			"ID": "20230327083003-pt1o3nn",
+			"Type": "NodeSuperBlock",
+			"Properties": {
+				"id": "20230327083003-pt1o3nn",
+				"updated": "20230327082908"
+			},
+			"Children": [
+				{
+					"Type": "NodeSuperBlockOpenMarker"
+				},
+				{
+					"Type": "NodeSuperBlockLayoutMarker",
+					"Data": "col"
+				},
+				{
+					"ID": "20230327080942-cxu6rb4",
+					"Type": "NodeCodeBlock",
+					"IsFencedCodeBlock": true,
+					"Properties": {
+						"id": "20230327080942-cxu6rb4",
+						"style": "width: 75%; flex: 0 0 auto;",
+						"updated": "20230327082908"
+					},
+					"Children": [
+						{
+							"Type": "NodeCodeBlockFenceOpenMarker",
+							"Data": "```"
+						},
+						{
+							"Type": "NodeCodeBlockFenceInfoMarker",
+							"CodeBlockInfo": "amF2YQ=="
+						},
+						{
+							"Type": "NodeCodeBlockCode",
+							"Data": "public class AService {\n\n\tprivate BService bService\n\tprivate CService cService\n\tpublic AService(){}\n\tpublic void setBService(BService bService) { this.bService = bService }\n\tpublic void setCService(CService cService) { this.cService = cService }\n}\n"
+						},
+						{
+							"Type": "NodeCodeBlockFenceCloseMarker",
+							"Data": "```"
+						}
+					]
+				},
+				{
+					"ID": "20230327082957-ghj06qr",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230327082957-ghj06qr",
+						"updated": "20230327083004"
+					}
+				},
+				{
+					"Type": "NodeSuperBlockCloseMarker"
+				}
+			]
+		},
+		{
+			"ID": "20230327080747-1nbnvnm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230327080747-1nbnvnm",
+				"updated": "20230327083100"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class BService {\n\n\tprivate AService aService\n\tpublic AService(){}\n\tpublic void setAService(AService aService) { this.aService = aService }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230327083027-6wm5w1n",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230327083027-6wm5w1n",
+				"updated": "20230327083133"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class CService {\n\n\tprivate CService cService\n\tpublic CService(){}\n\tpublic void setCService(CService cService) { this.cService = cService }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230327083105-5zoq24r",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230327083105-5zoq24r",
+				"updated": "20230330104551"
+			},
+			"Children": [
+				{
+					"ID": "20230327083215-k2vbqci",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230327083215-k2vbqci",
+						"updated": "20230330104551"
+					},
+					"Children": [
+						{
+							"ID": "20230327083215-4ke5f3f",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327083215-4ke5f3f",
+								"updated": "20230330104551"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "创建aservice,放入一个creatingset\u003cAService\u003e表示正在创建---\u003e实例化aservice---\u003e以lambda的形式放入singletonfactory中 Map\u003cbeanname, lamda(beanname, aservice普通对象)\u003e"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327083217-witfvyi",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230327083217-witfvyi",
+						"updated": "20230330104546"
+					},
+					"Children": [
+						{
+							"ID": "20230327083217-rdg5ze7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327083217-rdg5ze7",
+								"updated": "20230327100944"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "注入bservice "
+								}
+							]
+						},
+						{
+							"ID": "20230327101133-8hvx06x",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230327101133-8hvx06x",
+								"updated": "20230330104546"
+							},
+							"Children": [
+								{
+									"ID": "20230327101133-290c5c9",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230327101133-290c5c9",
+										"updated": "20230327101133"
+									},
+									"Children": [
+										{
+											"ID": "20230327101133-xx1r9e5",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230327101133-xx1r9e5",
+												"updated": "20230327101400"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "从singletonobjects中查找bservice---\u003e从earlysingletonobjects中查找---\u003e从singletonfactory中查找---\u003e创建bservice---\u003e以lamda的形式放入singletonfactory中 Map\u003cbeanname, lamda(beanname, bservice普通对象)\u003e"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230327101954-3xat7yr",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "Mi4=",
+										"Num": 2
+									},
+									"Properties": {
+										"id": "20230327101954-3xat7yr",
+										"updated": "20230330104546"
+									},
+									"Children": [
+										{
+											"ID": "20230327101954-1863xu8",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230327101954-1863xu8",
+												"updated": "20230330104546"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "需要注入属性aservice---\u003e从singletonobjects中查找aservice---\u003e从earlysingletonobjects中查找---\u003e从singletonfactory中查找---\u003e找到aservice，执行lambda表达式，在getObject过程中，根据creatingset判断是否循环依赖，从而提前AOP---\u003e AOP代理对象/普通对象---\u003e放入earlysingletonobjects"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230327101555-h0r2ftk",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "My4=",
+										"Num": 3
+									},
+									"Properties": {
+										"id": "20230327101555-h0r2ftk"
+									},
+									"Children": [
+										{
+											"ID": "20230327101555-8vzbjka",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230327101555-8vzbjka",
+												"updated": "20230327102117"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "将aservice代理对象注入bservice---\u003ebservice创建成功---\u003e正常流程执行AOP---\u003e放入singletonobjects中"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327083234-18i24cc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230327083234-18i24cc",
+						"updated": "20230327110604"
+					},
+					"Children": [
+						{
+							"ID": "20230327083234-lt2aard",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327083234-lt2aard",
+								"updated": "20230327083243"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "注入cservice"
+								}
+							]
+						},
+						{
+							"ID": "20230327102207-4lbynk1",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230327102207-4lbynk1",
+								"updated": "20230327110604"
+							},
+							"Children": [
+								{
+									"ID": "20230327102206-n3ogxd0",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230327102206-n3ogxd0"
+									},
+									"Children": [
+										{
+											"ID": "20230327102206-vdqfvys",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230327102206-vdqfvys",
+												"updated": "20230327102239"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "从singletonobjects中查找cservice---\u003e从earlysingletonobjects中查找---\u003e从singletonfactory中查找---\u003e创建cservice---\u003e以lamda的形式放入singletonfactory中 Map\u003cbeanname, lamda(beanname, cservice普通对象)\u003e"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230327102243-vm329i9",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "Mi4=",
+										"Num": 2
+									},
+									"Properties": {
+										"id": "20230327102243-vm329i9"
+									},
+									"Children": [
+										{
+											"ID": "20230327102243-tg5frnf",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230327102243-tg5frnf",
+												"updated": "20230327102345"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "需要注入属性aservice---\u003e从singletonobjects中查找aservice---\u003e从earlysingletonobjects中查找---\u003e找到了已经放入这一缓存的aservice，这样避免的aservice的多次AOP"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230327110456-yuz911j",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "My4=",
+										"Num": 3
+									},
+									"Properties": {
+										"id": "20230327110456-yuz911j",
+										"updated": "20230327110604"
+									},
+									"Children": [
+										{
+											"ID": "20230327110456-c21py9x",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230327110456-c21py9x",
+												"updated": "20230327110604"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "cservice创建成功---\u003e正常执行AOP---\u003e放入singletonobjects中。"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327083243-d7tw9bu",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230327083243-d7tw9bu",
+						"updated": "20230327110945"
+					},
+					"Children": [
+						{
+							"ID": "20230327083243-zk3xl6c",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327083243-zk3xl6c",
+								"updated": "20230327110945"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "AOP---\u003e在执行正常的AOP时，方法是postProcessAfterInitialization()，是会去判断earlyProxyReferences里是否有aservice的代理对象的。如果有就不执行AOP了。earlyProxyReferences这个，是在提前进行AOP是放入的，方法是getEarlyBeanReference()。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327083253-d1mg757",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230327083253-d1mg757"
+					},
+					"Children": [
+						{
+							"ID": "20230327083253-n8d8q2w",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327083253-n8d8q2w",
+								"updated": "20230327083354"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "放入singletonobjects "
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230327083009-v4urooo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327083009-v4urooo"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230327012432-ufd23di.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230327012633-45q7i44",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327012633-45q7i44",
+				"updated": "20230327012636"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230327012633-7iz58av.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230327012638-p9pw8pp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327012638-p9pw8pp"
+			}
+		},
+		{
+			"ID": "20230327111009-56vz11p",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230327111009-56vz11p",
+				"updated": "20230327111012"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "方法二"
+				}
+			]
+		},
+		{
+			"ID": "20230327111016-ixxrfat",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230327111016-ixxrfat",
+				"style": "color: var(--b3-card-error-color); background-color: var(--b3-card-error-background);",
+				"updated": "20230327111142"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class AService {\n\n\tprivate BService bService\n\tpublic AService(BService bService){\n\t\tthis.bService = bService;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230327111039-fil3ypq",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230327111039-fil3ypq",
+				"updated": "20230327113148"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class BService {\n\n\tprivate AService aService\n\tpublic BService(AService aService){\n\t\tthis.aService = aService;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230327113149-xl3c9kx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327113149-xl3c9kx",
+				"updated": "20230327113223"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "构造方法依赖注入，实例化都做不到，所以会出错。"
+				}
+			]
+		},
+		{
+			"ID": "20230327113227-0d48ubh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327113227-0d48ubh",
+				"updated": "20230327113239"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在构造方法上加@Lazy；"
+				}
+			]
+		},
+		{
+			"ID": "20230327113241-jx5ambp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327113241-jx5ambp",
+				"updated": "20230327113320"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这样就会生成一个代理(和AOP无关)"
+				}
+			]
+		},
+		{
+			"ID": "20230327113320-1i9bfk3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327113320-1i9bfk3",
+				"updated": "20230327113415"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "比如AService在创建，在构造是，会生成一个BService的代理，这样Aservice就创建正常，之后正常流程走就好。"
+				}
+			]
+		},
+		{
+			"ID": "20230327113712-g9us76t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327113712-g9us76t",
+				"updated": "20230327114031"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这时如果AService中有一个方法"
+				}
+			]
+		},
+		{
+			"ID": "20230327114038-6frqjpm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230327114038-6frqjpm",
+				"updated": "20230327114146"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class AService {\n\n\tprivate BService bService\n\tpublic AService(BService bService){\n\t\tthis.bService = bService;\n\t}\n\tpublic void test() {\n\t\tbService.xxx();\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230327114147-qxxmsvx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327114147-qxxmsvx",
+				"updated": "20230327114947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里调用bService中的方法，这里调用的是bService代理对象的xxx()方法，而我们真正想要的是bService普通对象的方法。spring的解决逻辑是，在使用test()方法时，Aservice和Bservice都已经创建完成放入singletonobjects中了，那么执行bService.xxx()时，就会找到bservice的普通对象，再执行普通对象的xxx()方法"
+				}
+			]
+		}
+	]
+}

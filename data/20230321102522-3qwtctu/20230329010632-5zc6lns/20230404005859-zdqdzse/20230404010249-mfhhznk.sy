@@ -1,0 +1,646 @@
+{
+	"ID": "20230404010249-mfhhznk",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010249-mfhhznk",
+		"title": "吃透Spring源码（三）：自定义配置文件标签_吃透Java的博客-CSDN博客",
+		"updated": "20230404010249"
+	},
+	"Children": [
+		{
+			"ID": "20230404010249-jetzlla",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010249-jetzlla",
+				"updated": "20230404010249"
+			}
+		},
+		{
+			"ID": "20230404010249-gizkztf",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010249-gizkztf",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"ID": "20230404010249-omhbdwj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010249-omhbdwj",
+						"updated": "20230404010249"
+					},
+					"Children": [
+						{
+							"ID": "20230404010249-ke7ym6s",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010249-ke7ym6s",
+								"updated": "20230404010249"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/109186619",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/109186619"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010249-l5pfpo8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010249-l5pfpo8",
+						"updated": "20230404010249"
+					},
+					"Children": [
+						{
+							"ID": "20230404010249-53kqzxq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010249-53kqzxq",
+								"updated": "20230404010249"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Spring的强大之处不仅仅在于它为Java开发者提供了极大便利，更在于它的开放式架构，使得用户可以拥有最大扩展Spring的能力。我们在用xml定义spring信息时，默认的element只包含beans，bean，import，alias这四个，其它任何标签都属于自定义标签，均需要引入相应的命名空间，如：context，aop标签等。protected void parseBeanDefinitions(Element root, BeanDefinitionParserDelegate del."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010249-sc3wuoo",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010249-sc3wuoo",
+						"updated": "20230404010249"
+					},
+					"Children": [
+						{
+							"ID": "20230404010249-tfjfh78",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010249-tfjfh78",
+								"updated": "20230404010249"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:02:49"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-7op28un",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010249-7op28un",
+				"updated": "20230404010249"
+			}
+		},
+		{
+			"ID": "20230404010249-32pek4e",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230404010249-32pek4e",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230404010249-y8biwyh",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230404010249-y8biwyh",
+						"updated": "20230404010249"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "Spring的强大之处不仅仅在于它为Java开发者提供了极大便利，更在于它的开放式"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "a",
+							"TextMarkAHref": "https://so.csdn.net/so/search?q=%E6%9E%B6%E6%9E%84\u0026spm=1001.2101.3001.7020",
+							"TextMarkTextContent": "架构"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "，使得用户可以拥有最大扩展Spring的能力。"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-s0yag9j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010249-s0yag9j",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们在用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=xml\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "xml"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "定义spring信息时，默认的element只包含beans，bean，import，alias这四个，其它任何标签都属于自定义标签，均需要引入相应的命名空间，如：context，aop标签等。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-z5nmmhy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010249-z5nmmhy",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected void parseBeanDefinitions(Element root, BeanDefinitionParserDelegate delegate) { \n\t\tif (delegate.isDefaultNamespace(root)) { \n\t\t\tNodeList nl = root.getChildNodes();\n\t\t\tfor (int i = 0; i \u003c nl.getLength(); i++) { \n\t\t\t\tNode node = nl.item(i);\n\t\t\t\tif (node instanceof Element) { \n\t\t\t\t\tElement ele = (Element) node;\n\t\t\t\t\tif (delegate.isDefaultNamespace(ele)) { \n\t\t\t\t\t\t//处理默认的标签元素\n\t\t\t\t\t\tparseDefaultElement(ele, delegate);\n\t\t\t\t\t}\n\t\t\t\t\telse { \n\t\t\t\t\t\t//处理自定义的标签元素\n\t\t\t\t\t\tdelegate.parseCustomElement(ele);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\telse { \n\t\t\tdelegate.parseCustomElement(root);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-vgtewhn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010249-vgtewhn",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对应的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E6%BA%90%E7%A0%81\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "源码"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "处理在DefaultBeanDefinitionDocumentReader类的parseBeanDefinitions方法里面。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-n1jt7ol",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010249-n1jt7ol",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "自定义标签元素"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-4bib16d",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010249-4bib16d",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，定义People.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-vxzn9qo",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010249-vxzn9qo",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class People { \n    private String id;\n    private int age;\n    private String name;\n    private String address;\n\n    public People(String id, int age, String name, String address) { \n        this.id = id;\n        this.age = age;\n        this.name = name;\n        this.address = address;\n    }\n\n    public People() { \n    }\n\n    public String getId() { \n        return id;\n    }\n\n    public void setId(String id) { \n        this.id = id;\n    }\n\n    public int getAge() { \n        return age;\n    }\n\n    public void setAge(int age) { \n        this.age = age;\n    }\n\n    public String getName() { \n        return name;\n    }\n\n    public void setName(String name) { \n        this.name = name;\n    }\n\n    public String getAddress() { \n        return address;\n    }\n\n    public void setAddress(String address) { \n        this.address = address;\n    }\n\n    @Override\n    public String toString() { \n        return \"People{\" +\n                \"id='\" + id + '\\'' +\n                \", age=\" + age +\n                \", name='\" + name + '\\'' +\n                \", address='\" + address + '\\'' +\n                '}';\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-vdhu6qr",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010249-vdhu6qr",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，在resources/META-INF目录下定义people.xsd，spring.handlers，spring.schemas文件"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-ywy7qx8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010249-ywy7qx8",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "people.xsd"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-5za5ffd",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010249-5za5ffd",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cschema xmlns=\"http://www.w3.org/2001/XMLSchema\"\n        targetNamespace=\"http://www.bobo.com/schema/people\"\n        xmlns:tns=\"http://www.bobo.com/schema/people\"\n        elementFormDefault=\"qualified\"\u003e\n    \u003celement name=\"people\"\u003e\n        \u003ccomplexType\u003e\n            \u003cattribute name =\"id\" type = \"string\"/\u003e\n            \u003cattribute name =\"age\" type = \"int\"/\u003e\n            \u003cattribute name =\"name\" type = \"string\"/\u003e\n            \u003cattribute name =\"address\" type = \"string\"/\u003e\n        \u003c/complexType\u003e\n    \u003c/element\u003e\n\u003c/schema\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-gufz4ob",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010249-gufz4ob",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "spring.handlers"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-gyhouws",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010249-gyhouws",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "http\\://www.bobo.com/schema/people=com.bobo.custom.PeopleNamespaceHandler\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-zboyl42",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010249-zboyl42",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "spring.schemas"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-g842bsi",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010249-g842bsi",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "http\\://www.bobo.com/schema/people.xsd=META-INF/people.xsd\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-bai5n4x",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010249-bai5n4x",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3，创建对应的namespaceHandler类PeopleNamespaceHandler.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-h0n5g88",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010249-h0n5g88",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.bobo.custom;\n\nimport org.springframework.beans.factory.xml.NamespaceHandlerSupport;\n\n/**\n * @author bobo\n * @date 2020-10-20\n */\n\npublic class PeopleNamespaceHandler extends NamespaceHandlerSupport { \n    @Override\n    public void init() { \n        super.registerBeanDefinitionParser(\"people\",new PeopleBeanDefinitionParser());\n    }\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-8o3cgvt",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010249-8o3cgvt",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4，创建对应的BeanDefinitionParser类PeopleBeanDefinitionParser.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-2o1jdaj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010249-2o1jdaj",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.bobo.custom;\n\nimport org.springframework.beans.factory.support.BeanDefinitionBuilder;\nimport org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser;\nimport org.springframework.util.StringUtils;\nimport org.w3c.dom.Element;\n\n/**\n * @author bobo\n * @date 2020-10-20\n */\n\npublic class PeopleBeanDefinitionParser extends AbstractSingleBeanDefinitionParser { \n    @Override\n    protected Class\u003c?\u003e getBeanClass(Element element) { \n        return People.class;\n    }\n\n    @Override\n    protected void doParse(Element element, BeanDefinitionBuilder builder) { \n        String id = element.getAttribute(\"id\");\n        String age = element.getAttribute(\"age\");\n        String name = element.getAttribute(\"name\");\n        String address = element.getAttribute(\"address\");\n        if (StringUtils.hasLength(id)){ \n            builder.addPropertyValue(\"id\",id);\n        }\n        if (StringUtils.hasLength(age)){ \n            builder.addPropertyValue(\"age\",age);\n        }\n        if (StringUtils.hasLength(name)){ \n            builder.addPropertyValue(\"name\",name);\n        }\n        if (StringUtils.hasLength(address)){ \n            builder.addPropertyValue(\"address\",address);\n        }\n    }\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-jou85gg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010249-jou85gg",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5，创建application-context.xml配置文件"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-kmjt3kx",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010249-kmjt3kx",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:bo=\"http://www.bobo.com/schema/people\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\n            http://www.bobo.com/schema/people http://www.bobo.com/schema/people.xsd\"\u003e\n\n    \u003cbo:people id=\"bo\" age=\"20\" name=\"bobo\" address=\"广东省深圳市\"\u003e\u003c/bo:people\u003e\n\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-s2d6xbt",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010249-s2d6xbt",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "6，创建测试类"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-q0z1w78",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010249-q0z1w78",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.bobo;\n\nimport org.springframework.context.support.ClassPathXmlApplicationContext;\n\npublic class Test { \n\n    public static void main(String[] args) { \n        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(\"application-context.xml\");\n        System.out.println(context.getBean(\"bo\"));\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-rx3yo68",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010249-rx3yo68",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运行输出"
+				}
+			]
+		},
+		{
+			"ID": "20230404010249-aom3kl6",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010249-aom3kl6",
+				"updated": "20230404010249"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "People{ id='bo', age=20, name='bobo', address='广东省深圳市'}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		}
+	]
+}

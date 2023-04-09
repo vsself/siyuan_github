@@ -1,0 +1,977 @@
+{
+	"ID": "20230329005006-z09bbqx",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230329005006-z09bbqx",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230329005035-pzkftxc\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230329005547-q1l03cq\u0026quot;,\u0026quot;scrollTop\u0026quot;:600,\u0026quot;focusId\u0026quot;:\u0026quot;20230329005454-8g7x2pu\u0026quot;,\u0026quot;focusStart\u0026quot;:3,\u0026quot;focusEnd\u0026quot;:62}",
+		"title": "4. Spring Bean初始化阶段",
+		"updated": "20230329005631"
+	},
+	"Children": [
+		{
+			"ID": "20230329005035-pzkftxc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230329005035-pzkftxc",
+				"updated": "20230329005035"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "概述"
+				}
+			]
+		},
+		{
+			"ID": "20230329005105-jxdpxld",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005105-jxdpxld",
+				"updated": "20230329005105"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这篇文章是 spring bean生命周期二---Spring Bean实例化（ Instantiation）阶段 的文章的展开内容。Spring 在 AbstractAutowireCapableBeanFactory#doCreateBean 方法中，完成了bean的完整创建。而在上篇 spring bean生命周期三---Spring Bean populateBean 属性填充阶段 中，完成了Bean的属性注入，表面上看起来 Bean的创建过程已经结束了。实际上还有一些收尾工作没有完成。本文就是完成Bean创建的收尾工作：完成 Aware 接口的功能，调用后处理器的Bean的后置方法，以及指定的init 方法的激活。"
+				}
+			]
+		},
+		{
+			"ID": "20230329005105-lw6imvz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005105-lw6imvz",
+				"updated": "20230329005129"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本阶段主要包括：激活 Aware 方法、Spring Bean 初始化前阶段、Spring Bean 初始化阶段（Initialization）、Spring Bean 初始化后阶段、Spring Bean 初始化完成阶段。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "20210219222224365"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210219222224365-20230329005129-85fu6hc.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230329005137-ml32zrf",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230329005137-ml32zrf",
+				"updated": "20230329005137"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、initializeBean初始化阶段"
+				}
+			]
+		},
+		{
+			"ID": "20230329005143-cmnlzjn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005143-cmnlzjn",
+				"updated": "20230329005143"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "相较于前几篇的内容，本文的内容显得简单了很多。具体代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230329005143-acj9qu8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005143-acj9qu8",
+				"updated": "20230329005143"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面的代码只要完成了 Spring Bean 初始化前阶段、Spring Bean 初始化阶段（Initialization）、Spring Bean 初始化后阶段"
+				}
+			]
+		},
+		{
+			"ID": "20230329005127-2rhnq40",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329005127-2rhnq40",
+				"updated": "20230329005149"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "//初始容器创建的Bean实例对象，为其添加BeanPostProcessor后置处理器\n\tprotected Object initializeBean(final String beanName, final Object bean, @Nullable RootBeanDefinition mbd) {\n\t\t//JDK的安全机制验证权限\n\t\tif (System.getSecurityManager() != null) {\n\t\t\t//实现PrivilegedAction接口的匿名内部类\n\t\t\tAccessController.doPrivileged((PrivilegedAction\u003cObject\u003e) () -\u003e {\n\t\t\t\tinvokeAwareMethods(beanName, bean);\n\t\t\t\treturn null;\n\t\t\t}, getAccessControlContext());\n\t\t}\n\t\telse {\n\t\t\t//为Bean实例对象包装相关属性，如名称，类加载器，所属容器等信息\n\t\t\t//todo Spring Bean Aware 接口回调阶段\n\t\t\tinvokeAwareMethods(beanName, bean);\n\t\t}\n \n\t\tObject wrappedBean = bean;\n\t\t//todo  第七次调用后置处理器 BeanPostProcessor后置处理器的postProcessBeforeInitialization\n\t\t//回调方法的调用，为Bean实例初始化前做一些处理\n\t\tif (mbd == null || !mbd.isSynthetic()) {\n\t\t\twrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);\n\t\t}\n \n\t\t//todo 1、先处理了 InitializingBean#afterPropertiesSet()\n\t\t// 2、调用Bean实例对象初始化的方法，这个初始化方法是在Spring Bean定义配置\n\t\t//文件中通过init-method属性指定的\n\t\ttry {\n\t\t\tinvokeInitMethods(beanName, wrappedBean, mbd);\n\t\t}\n\t\tcatch (Throwable ex) {\n\t\t\tthrow new BeanCreationException(\n\t\t\t\t\t(mbd != null ? mbd.getResourceDescription() : null),\n\t\t\t\t\tbeanName, \"Invocation of init method failed\", ex);\n\t\t}\n\t\t//todo 第八次调用 BeanPostProcessor后置处理器的postProcessAfterInitialization\n\t\t//回调方法的调用，为Bean实例初始化之后做一些处理\n\t\tif (mbd == null || !mbd.isSynthetic()) {\n\t\t\twrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);\n\t\t}\n \n\t\treturn wrappedBean;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329005157-sce41nv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005157-sce41nv",
+				"updated": "20230329005157"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1、invokeAwareMethods - 激活 Aware 方法\n这个方法很简单，完成了 Aware 接口的激活功能。可以简单的说 ："
+				}
+			]
+		},
+		{
+			"ID": "20230329005204-fytl07j",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230329005204-fytl07j",
+				"updated": "20230329005211"
+			},
+			"Children": [
+				{
+					"ID": "20230329005211-to4nuul",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230329005211-to4nuul",
+						"updated": "20230329005211"
+					},
+					"Children": [
+						{
+							"ID": "20230329005211-k617p9q",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230329005211-k617p9q",
+								"updated": "20230329005211"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果bean实现了BeanNameAware 接口，则将 beanName设值进去\n"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230329005214-p4miirf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230329005214-p4miirf"
+					},
+					"Children": [
+						{
+							"ID": "20230329005214-y19gwv5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230329005214-y19gwv5"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果bean实现了BeanClassLoaderAware接口，则将 ClassLoader 设值进去\n"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230329005215-30eixrg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230329005215-30eixrg"
+					},
+					"Children": [
+						{
+							"ID": "20230329005215-mp9kw6z",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230329005215-mp9kw6z"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果bean实现了BeanFactoryAware接口，则将 beanFactory 设值进去"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230329005157-glhz19j",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329005157-glhz19j",
+				"updated": "20230329005205"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "private void invokeAwareMethods(final String beanName, final Object bean) {\n\t\tif (bean instanceof Aware) {\n\t\t\tif (bean instanceof BeanNameAware) {\n\t\t\t\t((BeanNameAware) bean).setBeanName(beanName);\n\t\t\t}\n\t\t\tif (bean instanceof BeanClassLoaderAware) {\n\t\t\t\tClassLoader bcl = getBeanClassLoader();\n\t\t\t\tif (bcl != null) {\n\t\t\t\t\t((BeanClassLoaderAware) bean).setBeanClassLoader(bcl);\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (bean instanceof BeanFactoryAware) {\n\t\t\t\t((BeanFactoryAware) bean).setBeanFactory(AbstractAutowireCapableBeanFactory.this);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329005216-pqv1px9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005216-pqv1px9",
+				"updated": "20230329005222"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里简单解释一下 Aware的作用。从上面的代码可以看到，实现不同类型的 Aware 接口会接受到不同得到初始化数据。"
+				}
+			]
+		},
+		{
+			"ID": "20230329005232-46cgjwa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005232-46cgjwa",
+				"updated": "20230329005232"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "举个例子： 如果bean实现了 BeanFactoryAware 接口，那么他就可以在bean内部获取到beanFacotory。"
+				}
+			]
+		},
+		{
+			"ID": "20230329005232-wpxs9f3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005232-wpxs9f3",
+				"updated": "20230329005244"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其实Aware 接口的作用 我在分析 AutowiredAnnotationBeanPostProcessor 后处理器的时候才突然想明白的。 AutowiredAnnotationBeanPostProcessor 中完成了Bean的属性和方法注入，属性要从BeanFactory 的缓存中获取，那么AutowiredAnnotationBeanPostProcessor 如何得到的beanFactory呢？ 答案是实现了BeanFactoryAware 接口。这样在 AutowiredAnnotationBeanPostProcessor 初始化的时候就通过\nvoid setBeanFactory(BeanFactory beanFactory) 获取到beanFactory。如下图。AutowiredAnnotationBeanPostProcessor 保存了setBeanFactory 带来的beanFactory，并通过此来从容器中获取需要的bean。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "20200530133426965"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200530133426965-20230329005244-nqvf5oy.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230329005250-qw74hhc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230329005250-qw74hhc",
+				"updated": "20230329005250"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2、Spring Bean 初始化前阶段"
+				}
+			]
+		},
+		{
+			"ID": "20230329005255-4c0a3ui",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005255-4c0a3ui",
+				"updated": "20230329005255"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里只要是使用加载处理： BeanPostProcessor#postProcessAfterInitialization的实现类"
+				}
+			]
+		},
+		{
+			"ID": "20230329005301-lth1whj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329005301-lth1whj",
+				"updated": "20230329005303"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "//todo  第七次调用后置处理器 BeanPostProcessor后置处理器的postProcessBeforeInitialization\n//回调方法的调用，为Bean实例初始化前做一些处理\nif (mbd == null || !mbd.isSynthetic()) {\n   wrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);\n}\n————————————————\n版权声明：本文为CSDN博主「大龄码农生活」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n原文链接：https://blog.csdn.net/qq_36697880/article/details/113872776\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329005311-73tiph6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230329005311-73tiph6",
+				"updated": "20230329005311"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "第七次调用后置处理器"
+				}
+			]
+		},
+		{
+			"ID": "20230329005312-o15rswm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329005312-o15rswm",
+				"updated": "20230329005318"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Override\n\t//调用BeanPostProcessor后置处理器实例对象初始化之前的处理方法\n\tpublic Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName)\n\t\t\tthrows BeansException {\n\t\tObject result = existingBean;\n\t\t//遍历容器为所创建的Bean添加的所有BeanPostProcessor后置处理器\n\t\tfor (BeanPostProcessor beanProcessor : getBeanPostProcessors()) {\n\t\t\t//调用Bean实例所有的后置处理中的初始化前处理方法，为Bean实例对象在初始化之前做一些自定义的处理操作\n\t\t\t//\n\t\t\tObject current = beanProcessor.postProcessBeforeInitialization(result, beanName);\n\t\t\tif (current == null) {\n\t\t\t\treturn result;\n\t\t\t}\n\t\t\tresult = current;\n\t\t}\n\t\treturn result;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329005327-qqhwxb7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230329005327-qqhwxb7",
+				"updated": "20230329005327"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.3、 invokeInitMethods - 激活自定义的init方法"
+				}
+			]
+		},
+		{
+			"ID": "20230329005329-ziykxo8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005329-ziykxo8",
+				"updated": "20230329005333"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "首先需要注意的是，Bean 的初始化方法除了可以使用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "init-method"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 属性(或者 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "@Bean(initMethod=''”)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": ")，还可以通过实现"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "InitializingBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "接口，并且在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "afterPropertiesSet"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 方法中实现自己初始化的业务逻辑。"
+				}
+			]
+		},
+		{
+			"ID": "20230329005335-0yg2s4r",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005335-0yg2s4r",
+				"updated": "20230329005339"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "调用顺序则是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "afterPropertiesSet"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 先调用，后面调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "init-method"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 指定的方法。这一点从下面的代码逻辑就能看到。"
+				}
+			]
+		},
+		{
+			"ID": "20230329005343-7auz5op",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329005343-7auz5op",
+				"updated": "20230329005345"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void invokeInitMethods(String beanName, final Object bean, @Nullable RootBeanDefinition mbd)\n\t\t\tthrows Throwable {\n\t\t// 首先检查是否是InitializingBean，如果是的话则需要调用 afterPropertiesSet 方法。\n\t\tboolean isInitializingBean = (bean instanceof InitializingBean);\n\t\tif (isInitializingBean \u0026\u0026 (mbd == null || !mbd.isExternallyManagedInitMethod(\"afterPropertiesSet\"))) {\n\t\t\tif (logger.isTraceEnabled()) {\n\t\t\t\tlogger.trace(\"Invoking afterPropertiesSet() on bean with name '\" + beanName + \"'\");\n\t\t\t}\n\t\t\t// 调用 afterPropertiesSet  方法\n\t\t\tif (System.getSecurityManager() != null) {\n\t\t\t\ttry {\n\t\t\t\t\tAccessController.doPrivileged((PrivilegedExceptionAction\u003cObject\u003e) () -\u003e {\n\t\t\t\t\t\t((InitializingBean) bean).afterPropertiesSet();\n\t\t\t\t\t\treturn null;\n\t\t\t\t\t}, getAccessControlContext());\n\t\t\t\t}\n\t\t\t\tcatch (PrivilegedActionException pae) {\n\t\t\t\t\tthrow pae.getException();\n\t\t\t\t}\n\t\t\t}\n\t\t\telse {\n\t\t\t\t((InitializingBean) bean).afterPropertiesSet();\n\t\t\t}\n\t\t}\n\t\n\t\tif (mbd != null \u0026\u0026 bean.getClass() != NullBean.class) {\n\t\t\t// 从RootBeanDefinition 中获取initMethod 方法名称\n\t\t\tString initMethodName = mbd.getInitMethodName();\n\t\t\t// 调用initMethod 方法。\n\t\t\tif (StringUtils.hasLength(initMethodName) \u0026\u0026\n\t\t\t\t\t!(isInitializingBean \u0026\u0026 \"afterPropertiesSet\".equals(initMethodName)) \u0026\u0026\n\t\t\t\t\t!mbd.isExternallyManagedInitMethod(initMethodName)) {\n\t\t\t\tinvokeCustomInitMethod(beanName, bean, mbd);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329005351-0yqja3c",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230329005351-0yqja3c",
+				"updated": "20230329005351"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.4、Spring Bean 初始化后阶段"
+				}
+			]
+		},
+		{
+			"ID": "20230329005351-na6yg02",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005351-na6yg02",
+				"updated": "20230329005351"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里只要是使用加载处理： BeanPostProcessor#postProcessAfterInitialization 的实现类"
+				}
+			]
+		},
+		{
+			"ID": "20230329005351-0zfs4da",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329005351-0zfs4da",
+				"updated": "20230329005356"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "//todo 第八次调用 BeanPostProcessor后置处理器的postProcessAfterInitialization\n\t\t//回调方法的调用，为Bean实例初始化之后做一些处理\n\t\tif (mbd == null || !mbd.isSynthetic()) {\n\t\t\twrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);\n\t\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329005400-n61wlc7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230329005400-n61wlc7",
+				"updated": "20230329005400"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "第八次调用后置处理器 postProcessAfterInitialization"
+				}
+			]
+		},
+		{
+			"ID": "20230329005401-vlmcwc2",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329005401-vlmcwc2",
+				"updated": "20230329005409"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Override\n\t//调用BeanPostProcessor后置处理器实例对象初始化之后的处理方法\n\tpublic Object applyBeanPostProcessorsAfterInitialization(Object existingBean, String beanName)\n\t\t\tthrows BeansException {\n \n\t\tObject result = existingBean;\n\t\t//TODO 遍历容器为所创建的Bean添加的所有BeanPostProcessor后置处理器\n\t\tfor (BeanPostProcessor beanProcessor : getBeanPostProcessors()) {\n\t\t\t//调用Bean实例所有的后置处理中的初始化后处理方法，为Bean实例对象在\n\t\t\t//初始化之后做一些自定义的处理操作\n\t\t\tObject current = beanProcessor.postProcessAfterInitialization(result, beanName);\n\t\t\tif (current == null) {\n\t\t\t\treturn result;\n\t\t\t}\n\t\t\tresult = current;\n\t\t}\n\t\treturn result;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329005436-z32ztye",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230329005436-z32ztye",
+				"updated": "20230329005436"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、Spring Bean 初始化完成阶段"
+				}
+			]
+		},
+		{
+			"ID": "20230329005433-o291wps",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005433-o291wps"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "主要是回调：SmartInitializingSingleton#afterSingletonsInstantiated"
+				}
+			]
+		},
+		{
+			"ID": "20230329005415-sik2auh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005415-sik2auh",
+				"updated": "20230329005415"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "使用场景：实现SmartInitializingSingleton的接口后，当所有单例 bean 都初始化完成以后， Spring的IOC容器会回调该接口的 afterSingletonsInstantiated()方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230329005443-8qmtcd4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005443-8qmtcd4",
+				"updated": "20230329005443"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "主要应用场合就是在所有单例 bean 创建完成之后，可以在该回调中做一些事情，例如："
+				}
+			]
+		},
+		{
+			"ID": "20230329005415-grahg2s",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329005415-grahg2s",
+				"updated": "20230329005446"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "import org.springframework.beans.factory.ListableBeanFactory;\nimport org.springframework.beans.factory.SmartInitializingSingleton;\nimport org.springframework.stereotype.Component;\n \n@Component\npublic class MyRegister implements SmartInitializingSingleton {\n \n\tprivate ListableBeanFactory beanFactory;\n \n\tpublic MyRegister(ListableBeanFactory beanFactory) {\n\t\tthis.beanFactory = beanFactory;\n\t}\n \n\t@Override\n\tpublic void afterSingletonsInstantiated() {\n\t\tString[] beanNames = beanFactory.getBeanNamesForType(IPerson.class);\n\t\tfor (String s : beanNames) {\n\t\t\tSystem.out.println(s);\n\t\t}\n\t}\n \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329005454-40d43su",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005454-40d43su",
+				"updated": "20230329005454"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在Spring容器启动时，通过SpringApplication.run()--\u003eSpringApplication.refreshContext()--\u003eSpringApplication.refresh() --\u003eAbstractApplicationContext.refresh()，在这个refresh()函数过程中会调用 finishBeanFactoryInitialization(beanFactory)来提前初始化单例bean，具体方法是调用beanFactory.preInstantiateSingletons()，而这里的beanFactory实例实际为接口 ConfigurableListableBeanFactory 的实现类DefaultListableBeanFactory的实例对象。"
+				}
+			]
+		},
+		{
+			"ID": "20230329005454-8g7x2pu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005454-8g7x2pu",
+				"updated": "20230329005505"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "查看到DefaultListableBeanFactory.preInstantiateSingletons()的源码如下：\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "20210219222135181"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210219222135181-20230329005505-1t4pj4d.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230329005507-5ybps31",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005507-5ybps31",
+				"updated": "20230329005512"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "至此 bean对象完成被创建成功。"
+				}
+			]
+		},
+		{
+			"ID": "20230329005517-2yqrn6u",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230329005517-2yqrn6u",
+				"updated": "20230329005517"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四、测试代码案例："
+				}
+			]
+		},
+		{
+			"ID": "20230329005518-v2a1zy2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005518-v2a1zy2",
+				"updated": "20230329005524"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面是创建 UserHolder 初始化已经销毁过程"
+				}
+			]
+		},
+		{
+			"ID": "20230329005525-0eg102y",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329005525-0eg102y",
+				"updated": "20230329005531"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class UserHolder implements BeanNameAware, BeanClassLoaderAware, BeanFactoryAware, EnvironmentAware,\n        InitializingBean, SmartInitializingSingleton, DisposableBean {\n \n    private final User user;\n \n    private Integer number;\n \n    private String description;\n \n    private ClassLoader classLoader;\n \n    private BeanFactory beanFactory;\n \n    private String beanName;\n \n    private Environment environment;\n \n    public UserHolder(User user) {\n        this.user = user;\n    }\n \n    public Integer getNumber() {\n        return number;\n    }\n \n    public void setNumber(Integer number) {\n        this.number = number;\n    }\n \n    public String getDescription() {\n        return description;\n    }\n \n    public void setDescription(String description) {\n        this.description = description;\n    }\n \n    /*****  下面是 Aware 回调方法*** */\n    @Override\n    public void setBeanClassLoader(ClassLoader classLoader) {\n        this.classLoader = classLoader;\n    }\n \n    @Override\n    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {\n        this.beanFactory = beanFactory;\n    }\n \n    @Override\n    public void setBeanName(String name) {\n        this.beanName = name;\n    }\n \n    @Override\n    public void setEnvironment(Environment environment) {\n        this.environment = environment;\n    }\n    /*****  =Aware 回调方法 结束*** */\n    /**\n     * 依赖于注解驱动\n     * 当前场景：BeanFactory\n     */\n    @PostConstruct\n    public void initPostConstruct() {\n        // postProcessBeforeInitialization V3 -\u003e initPostConstruct V4\n        this.description = \"The user holder V4\";\n        System.out.println(\"initPostConstruct() = \" + description);\n    }\n \n    /**\n     * InitializingBean 的初始化话方法\n     * @throws Exception\n     */\n    @Override\n    public void afterPropertiesSet() throws Exception {\n        // initPostConstruct V4 -\u003e afterPropertiesSet V5\n        this.description = \"The user holder V5\";\n        System.out.println(\"afterPropertiesSet() = \" + description);\n    }\n \n    /**\n     * 自定义初始化方法\n     */\n    public void init() {\n        // initPostConstruct V5 -\u003e afterPropertiesSet V6\n        this.description = \"The user holder V6\";\n        System.out.println(\"init() = \" + description);\n    }\n \n    /**\n     * 注解中的销毁方法\n     */\n    @PreDestroy\n    public void preDestroy() {\n        // postProcessBeforeDestruction : The user holder V9\n        this.description = \"The user holder V10\";\n        System.out.println(\"preDestroy() = \" + description);\n    }\n \n    /**\n     * DisposableBean的销毁方法\n     */\n    @Override\n    public void destroy() throws Exception {\n        // preDestroy : The user holder V10\n        this.description = \"The user holder V11\";\n        System.out.println(\"destroy() = \" + description);\n    }\n    /**\n     * 自定义销毁方法\n     */\n    public void doDestroy() {\n        // destroy : The user holder V11\n        this.description = \"The user holder V12\";\n        System.out.println(\"doDestroy() = \" + description);\n    }\n \n \n \n \n    @Override\n    public void afterSingletonsInstantiated() {\n        // postProcessAfterInitialization V7 -\u003e afterSingletonsInstantiated V8\n        this.description = \"The user holder V8\";\n        System.out.println(\"afterSingletonsInstantiated() = \" + description);\n    }\n \n    protected void finalize() throws Throwable {\n        System.out.println(\"The UserHolder is finalized...\");\n    }\n \n \n    @Override\n    public String toString() {\n        return \"UserHolder{\" +\n                \"user=\" + user +\n                \", number=\" + number +\n                \", description='\" + description + '\\'' +\n                \", beanName='\" + beanName + '\\'' +\n                '}';\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329005533-9ot7eeq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005533-9ot7eeq"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InstantiationAwareBeanPostProcessor的自定义实现："
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230329005539-v4fekfx",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329005539-v4fekfx",
+				"updated": "20230329005546"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "class MyInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPostProcessor {\n \n    @Override\n    public Object postProcessBeforeInstantiation(Class\u003c?\u003e beanClass, String beanName) throws BeansException {\n        if (ObjectUtils.nullSafeEquals(\"superUser\", beanName) \u0026\u0026 SuperUser.class.equals(beanClass)) {\n            // 把配置完成 superUser Bean 覆盖\n            return new SuperUser();\n        }\n        return null; // 保持 Spring IoC 容器的实例化操作\n    }\n \n    @Override\n    public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {\n        if (ObjectUtils.nullSafeEquals(\"user\", beanName) \u0026\u0026 User.class.equals(bean.getClass())) {\n            User user = (User) bean;\n            user.setId(2L);\n            user.setName(\"mercyblitz\");\n            // \"user\" 对象不允许属性赋值（填入）（配置元信息 -\u003e 属性值）\n            return false;\n        }\n        return true;\n    }\n \n    // user 是跳过 Bean 属性赋值（填入）\n    // superUser 也是完全跳过 Bean 实例化（Bean 属性赋值（填入））\n    // userHolder\n \n    @Override\n    public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName)\n            throws BeansException {\n        // 对 \"userHolder\" Bean 进行拦截\n        if (ObjectUtils.nullSafeEquals(\"userHolder\", beanName) \u0026\u0026 UserHolder.class.equals(bean.getClass())) {\n            // 假设 \u003cproperty name=\"number\" value=\"1\" /\u003e 配置的话，那么在 PropertyValues 就包含一个 PropertyValue(number=1)\n \n            final MutablePropertyValues propertyValues;\n \n            if (pvs instanceof MutablePropertyValues) {\n                propertyValues = (MutablePropertyValues) pvs;\n            } else {\n                propertyValues = new MutablePropertyValues();\n            }\n \n            // 等价于 \u003cproperty name=\"number\" value=\"1\" /\u003e\n            propertyValues.addPropertyValue(\"number\", \"1\");\n            // 原始配置 \u003cproperty name=\"description\" value=\"The user holder\" /\u003e\n \n            // 如果存在 \"description\" 属性配置的话\n            if (propertyValues.contains(\"description\")) {\n                // PropertyValue value 是不可变的\n//                    PropertyValue propertyValue = propertyValues.getPropertyValue(\"description\");\n                propertyValues.removePropertyValue(\"description\");\n                propertyValues.addPropertyValue(\"description\", \"The user holder V2\");\n            }\n \n            return propertyValues;\n        }\n        return null;\n    }\n \n    @Override\n    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {\n        if (ObjectUtils.nullSafeEquals(\"userHolder\", beanName) \u0026\u0026 UserHolder.class.equals(bean.getClass())) {\n            UserHolder userHolder = (UserHolder) bean;\n            // UserHolder description = \"The user holder V2\"\n            userHolder.setDescription(\"The user holder V3\");\n        }\n        return bean;\n    }\n \n    @Override\n    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {\n        if (ObjectUtils.nullSafeEquals(\"userHolder\", beanName) \u0026\u0026 UserHolder.class.equals(bean.getClass())) {\n            UserHolder userHolder = (UserHolder) bean;\n            // init() = The user holder V6\n            // UserHolder description = \"The user holder V6\"\n            userHolder.setDescription(\"The user holder V7\");\n        }\n        return bean;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329005547-q1l03cq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005547-q1l03cq"
+			}
+		}
+	]
+}

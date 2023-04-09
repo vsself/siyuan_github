@@ -1,0 +1,4253 @@
+{
+	"ID": "20230331090559-0xef27t",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331090559-0xef27t",
+		"title": "Spring源码分析十七：事务实现③ - 事务的创建_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331090559"
+	},
+	"Children": [
+		{
+			"ID": "20230331090559-bknhiwz",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090559-bknhiwz",
+				"updated": "20230331090559"
+			}
+		},
+		{
+			"ID": "20230331090559-4kqaq2z",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090559-4kqaq2z",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"ID": "20230331090559-6xv3sho",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090559-6xv3sho",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-1ns06k8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-1ns06k8",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/107299307"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-oau7h49",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090559-oau7h49",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-97o57u4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-97o57u4",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一、前言1. TransactionSynchronizationManagerTransactionSynchronizationManager。TransactionSynchronizationManager 中使用 ThreadLocal 保存了在不同线程中不同事务的信息。**2.二、事务的创建 - createTransactionIfNecessaryTransactionAspectSupport#createTransactionIfNecessary 中完成了事务的创建，这里面考"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-lhjwlee",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090559-lhjwlee",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-b3fsw4k",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-b3fsw4k",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:05:59"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-rp0z6uo",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090559-rp0z6uo",
+				"updated": "20230331090559"
+			}
+		},
+		{
+			"ID": "20230331090559-i4qv7kj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090559-i4qv7kj",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-2yy5vms",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090559-2yy5vms",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"ID": "20230331090559-gc7tl3w",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090559-gc7tl3w",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-7lwhz70",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-7lwhz70",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307#_4",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-lxs1uwe",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090559-lxs1uwe",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-9ax0dfb",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090559-9ax0dfb",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"ID": "20230331090559-4h24p92",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090559-4h24p92",
+										"updated": "20230331090559"
+									},
+									"Children": [
+										{
+											"ID": "20230331090559-zs4vzrv",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090559-zs4vzrv",
+												"updated": "20230331090559"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307#1_TransactionSynchronizationManager_35",
+													"TextMarkTextContent": "1. TransactionSynchronizationManager"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090559-8e260ue",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090559-8e260ue",
+										"updated": "20230331090559"
+									},
+									"Children": [
+										{
+											"ID": "20230331090559-mgpw96v",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090559-mgpw96v",
+												"updated": "20230331090559"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307#2__65",
+													"TextMarkTextContent": "2. 事务传播属性"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-7y5zv0w",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090559-7y5zv0w",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-fratkh8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-fratkh8",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307#__createTransactionIfNecessary_97",
+									"TextMarkTextContent": "二、事务的创建 - createTransactionIfNecessary"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-r4tl6ew",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090559-r4tl6ew",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-xljdjfm",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090559-xljdjfm",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"ID": "20230331090559-jzxre8h",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090559-jzxre8h",
+										"updated": "20230331090559"
+									},
+									"Children": [
+										{
+											"ID": "20230331090559-fnke24y",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090559-fnke24y",
+												"updated": "20230331090559"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307#1___tmgetTransactiontxAttr_164",
+													"TextMarkTextContent": "1. 获取事务 - tm.getTransaction(txAttr);"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090559-8dl9zgs",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090559-8dl9zgs",
+										"updated": "20230331090559"
+									},
+									"Children": [
+										{
+											"ID": "20230331090559-46ae7k6",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331090559-46ae7k6",
+												"updated": "20230331090559"
+											},
+											"Children": [
+												{
+													"ID": "20230331090559-7qchb3w",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090559-7qchb3w",
+														"updated": "20230331090559"
+													},
+													"Children": [
+														{
+															"ID": "20230331090559-j9bpblm",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090559-j9bpblm",
+																"updated": "20230331090559"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307#11_doGetTransaction_245",
+																	"TextMarkTextContent": "1.1 doGetTransaction();"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090559-zfczgrz",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090559-zfczgrz",
+														"updated": "20230331090559"
+													},
+													"Children": [
+														{
+															"ID": "20230331090559-r5ibxhj",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090559-r5ibxhj",
+																"updated": "20230331090559"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307#12_isExistingTransactiontransaction_262",
+																	"TextMarkTextContent": "1.2 isExistingTransaction(transaction)"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090559-5x1js05",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090559-5x1js05",
+														"updated": "20230331090559"
+													},
+													"Children": [
+														{
+															"ID": "20230331090559-mhyhh96",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090559-mhyhh96",
+																"updated": "20230331090559"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307#13__handleExistingTransactiondef_transaction_debugEnabled_272",
+																	"TextMarkTextContent": "1.3 handleExistingTransaction(def, transaction, debugEnabled);"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090559-4r3jgqk",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090559-4r3jgqk",
+														"updated": "20230331090559"
+													},
+													"Children": [
+														{
+															"ID": "20230331090559-uts6kxj",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090559-uts6kxj",
+																"updated": "20230331090559"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307#14_suspendnull_371",
+																	"TextMarkTextContent": "1.4 suspend(null);"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090559-l0pf87k",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090559-l0pf87k",
+														"updated": "20230331090559"
+													},
+													"Children": [
+														{
+															"ID": "20230331090559-06v6j5s",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090559-06v6j5s",
+																"updated": "20230331090559"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307#15_startTransactiondef_transaction_debugEnabled_suspendedResources_426",
+																	"TextMarkTextContent": "1.5 startTransaction(def, transaction, debugEnabled, suspendedResources);"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090559-0qdccyy",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090559-0qdccyy",
+														"updated": "20230331090559"
+													},
+													"Children": [
+														{
+															"ID": "20230331090559-te3lxpe",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230331090559-te3lxpe",
+																"updated": "20230331090559"
+															},
+															"Children": [
+																{
+																	"ID": "20230331090559-vucmri4",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090559-vucmri4",
+																		"updated": "20230331090559"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090559-7b2285v",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090559-7b2285v",
+																				"updated": "20230331090559"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307#151_doBegintransaction_definition_450",
+																					"TextMarkTextContent": "1.5.1 doBegin(transaction, definition);"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230331090559-z1reqs1",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090559-z1reqs1",
+																		"updated": "20230331090559"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090559-9oucpmc",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090559-9oucpmc",
+																				"updated": "20230331090559"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307#152_prepareSynchronizationstatus_definition_591",
+																					"TextMarkTextContent": "1.5.2 prepareSynchronization(status, definition);"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090559-wmr3xy5",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090559-wmr3xy5",
+										"updated": "20230331090559"
+									},
+									"Children": [
+										{
+											"ID": "20230331090559-ooestsq",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090559-ooestsq",
+												"updated": "20230331090559"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307#2___prepareTransactionInfotm_txAttr_joinpointIdentification_status_611",
+													"TextMarkTextContent": "2. 构建事务信息 - prepareTransactionInfo(tm, txAttr, joinpointIdentification, status);"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-02p46ja",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090559-02p46ja",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-xl86hob",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-xl86hob",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307#_641",
+									"TextMarkTextContent": "三、总结"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-irkag3w",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090559-irkag3w",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-4g3xt4k",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-4g3xt4k",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是笔者阅读Spring源码的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-lcd0y3p",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090559-lcd0y3p",
+				"updated": "20230331090559"
+			}
+		},
+		{
+			"ID": "20230331090559-tighj72",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-tighj72",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于 事务的源码和 前篇的 Aop 源码逻辑很类似，所以本篇中某些内容不会展开去讲解，建议先阅读完 全集目录中的Aop部分，再来阅读本文会更好理解。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-05bvdt5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-05bvdt5",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "全集目录："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106440723",
+					"TextMarkTextContent": "Spring源码分析：全集整理"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-4oqz534",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090559-4oqz534",
+				"updated": "20230331090559"
+			}
+		},
+		{
+			"ID": "20230331090559-jek3741",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-jek3741",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这是一个巨长的篇章…\n全集目录如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-j46w51a",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090559-j46w51a",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"ID": "20230331090559-l1jo5z8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090559-l1jo5z8",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-bv6tyyv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-bv6tyyv",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676116",
+									"TextMarkTextContent": "Spring源码分析十五：事务实现① - AutoProxyRegistrar"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-5m87exx",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090559-5m87exx",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-x8th7wd",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-x8th7wd",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359",
+									"TextMarkTextContent": "Spring源码分析十六：事务实现② - ProxyTransactionManagementConfiguration"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-ik92e1r",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090559-ik92e1r",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-vxxyf1g",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-vxxyf1g",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299307",
+									"TextMarkTextContent": "Spring源码分析十七：事务实现③ - 事务的创建"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-wkih27h",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090559-wkih27h",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-xmaa86d",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-xmaa86d",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299323",
+									"TextMarkTextContent": "Spring源码分析十八：事务实现④ - 事务的回滚"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-d3iydy8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230331090559-d3iydy8",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-l3lk7f3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-l3lk7f3",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107299336",
+									"TextMarkTextContent": "Spring源码分析十九：事务实现⑤ - 事务的提交"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-ddlptm6",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090559-ddlptm6",
+				"updated": "20230331090559"
+			}
+		},
+		{
+			"ID": "20230331090559-m469x0v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-m469x0v",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359",
+					"TextMarkTextContent": "Spring源码分析十六：事务实现② - ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 中，解析了关事务的代理创建过程。但是由于篇幅限制，对于事务的创建还没有具体描述，本文来分析一下Spring 事务的创建过程。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-3uuusad",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-3uuusad",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "需要注意的是：本文虽然叫做事务的创建，但是实际上是 Spring 针对事务开启的一些准备工作（如，事务挂起、事务创建、将事务的提交由自动提交改为手动提交等），真正的事务开启是在Sql 执行时"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-bwamw6r",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090559-bwamw6r",
+				"updated": "20230331090559"
+			}
+		},
+		{
+			"ID": "20230331090559-isejsyh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-isejsyh",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先我们先来了解几个类，以便方便后面分析。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-kf7vxmf",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090559-kf7vxmf",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. TransactionSynchronizationManager"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-xqptybf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-xqptybf",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionSynchronizationManager"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中使用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ThreadLocal"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 保存了在不同线程中不同事务的信息。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-6g0akbi",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090559-6g0akbi",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class TransactionSynchronizationManager { \n\n\tprivate static final Log logger = LogFactory.getLog(TransactionSynchronizationManager.class);\n\n\tprivate static final ThreadLocal\u003cMap\u003cObject, Object\u003e\u003e resources =\n\t\t\tnew NamedThreadLocal\u003c\u003e(\"Transactional resources\");\n\n\tprivate static final ThreadLocal\u003cSet\u003cTransactionSynchronization\u003e\u003e synchronizations =\n\t\t\tnew NamedThreadLocal\u003c\u003e(\"Transaction synchronizations\");\n\n\tprivate static final ThreadLocal\u003cString\u003e currentTransactionName =\n\t\t\tnew NamedThreadLocal\u003c\u003e(\"Current transaction name\");\n\n\tprivate static final ThreadLocal\u003cBoolean\u003e currentTransactionReadOnly =\n\t\t\tnew NamedThreadLocal\u003c\u003e(\"Current transaction read-only status\");\n\n\tprivate static final ThreadLocal\u003cInteger\u003e currentTransactionIsolationLevel =\n\t\t\tnew NamedThreadLocal\u003c\u003e(\"Current transaction isolation level\");\n\n\tprivate static final ThreadLocal\u003cBoolean\u003e actualTransactionActive =\n\t\t\tnew NamedThreadLocal\u003c\u003e(\"Actual transaction active\");\n\t...\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-b30w6mk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-b30w6mk",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们从上面的部分代码可以看到，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "TransactionSynchronizationManager 中保存的是各个线程中的事务信息。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-lp26b1o",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090559-lp26b1o",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. 事务传播属性"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-xm7zaey",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-xm7zaey",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果有不了解 事务传播属性的，也可以先移步观看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/102987032",
+					"TextMarkTextContent": "事务特性原理及其原理、隔离级别和传播属性"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "，否则后面的判断可能不好理解。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-z005wii",
+			"Type": "NodeTable",
+			"TableAligns": [
+				0,
+				0
+			],
+			"Properties": {
+				"colgroup": "|",
+				"id": "20230331090559-z005wii",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeTableHead",
+					"Data": "thead",
+					"Children": [
+						{
+							"Type": "NodeTableRow",
+							"Data": "tr",
+							"Children": [
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "事务传播属性"
+										}
+									]
+								},
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "解释"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "PROPAGATION_REQUIRED"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择。即如果上级具有事务，则使用上级的事务，不具备则自己新建一个事务"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "PROPAGATION_REQUIRES_NEW"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "新建事务，如果当前存在事务，把当前事务挂起。即如果上级存在事务，则挂起上级事务，使用自己新创建的事务"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "PROPAGATION_MANDATORY"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "支持当前事务，如果当前没有事务，就抛出异常。即如果上级具有事务，则使用上级的事务，上级没有事务，则抛出异常"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "PROPAGATION_SUPPORTS"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "支持当前事务，如果当前没有事务，就以非事务方式执行。即如果上级具有事务，则使用上级的事务，如果上级没有事务，则不开启事务"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "PROPAGATION_NOT_SUPPORTED"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。即如果上级具有事务，则使用挂起上级事务，使用非事务方式。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "PROPAGATION_NEVER"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "以非事务方式执行，如果当前存在事务，则抛出异常"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "PROPAGATION_NESTED"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则进行与PROPAGATION_REQUIRED类似的操作。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-yibfoec",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090559-yibfoec",
+				"updated": "20230331090559"
+			}
+		},
+		{
+			"ID": "20230331090559-9b5klxg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-9b5klxg",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "这里解释一下 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "PROPAGATION_NESTED"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "PROPAGATION_REQUIRES_NEW"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 的区别："
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-fewi5u6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-fewi5u6",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PROPAGATION_REQUIRES_NEW"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 启动一个新的, 不依赖于环境的 “内部” 事务. 这个事务将被完全\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "commited"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 或 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "rolledback"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 而不依赖于外部事务,它拥有自己的隔离范围, 自己的锁, 等等.\n当内部事务开始执行时, 外部事务将被挂起, 内务事务结束时, 外部事务将继续执行.\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PROPAGATION_REQUIRES_NEW"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​常用于日志记录,或者交易失败仍需要留痕"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-kg738vx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-kg738vx",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "另一方面, "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PROPAGATION_NESTED"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 开始一个 “嵌套的” 事务, 它是已经存在事务的一个真正\n的子事务. 潜套事务开始执行时, 它将取得一个 savepoint.\n如果这个嵌套事务失败, 我们将回滚到此 savepoint. 潜套事务是外部事务的一部分,\n只有外部事务结束后它才会被提交."
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-t4nfagz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-t4nfagz",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "由此可见, "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "PROPAGATION_REQUIRES_NEW"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 和 PROPAGATION_NESTED 的最大区别在于:"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-5j2z0qa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-5j2z0qa",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "PROPAGATION_REQUIRES_NEW"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 完全是一个新的事务, 而 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "PROPAGATION_NESTED"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 则是外部事务的子事务, 如果外部事务 commit, 潜套事务也会被 commit, 这个规则同样适用于 roll back."
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-2929ecx",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090559-2929ecx",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、事务的创建 - createTransactionIfNecessary"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-i01j8hd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-i01j8hd",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107140359",
+					"TextMarkTextContent": "Spring源码分析十六：事务实现② - ProxyTransactionManagementConfiguration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 中，我们分析到 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAspectSupport#invokeWithinTransaction"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法完成了事务的增强调用。而其中createTransactionIfNecessary 方法则是在需要的时候创建了事务，之所以说需要的时候而不是说直接创建，是因为这里要考虑到事务的传播属性。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-obfuyo9",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090559-obfuyo9",
+				"updated": "20230331090559"
+			}
+		},
+		{
+			"ID": "20230331090559-dt01yh7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-dt01yh7",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "createTransactionIfNecessary"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现是在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAspectSupport#createTransactionIfNecessary"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中，完成了事务的创建，这里面考虑了事务的传播属性的处理，所以并不是一定会创建事务，根据传播属性的不同会有不同的处理。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-g2526mx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-g2526mx",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "详细代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-ocwlf88",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090559-ocwlf88",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t// TransactionAttribute 是解析出来的事务\n\tprotected TransactionInfo createTransactionIfNecessary(@Nullable PlatformTransactionManager tm,\n\t\t\t@Nullable TransactionAttribute txAttr, final String joinpointIdentification) { \n\n\t\t// If no name specified, apply method identification as transaction name.\n\t\t// 如果没有名称指定则使用方法唯一标识，并使用  DelegatingTransactionAttribute 封装 txAttr\n\t\tif (txAttr != null \u0026\u0026 txAttr.getName() == null) { \n\t\t\ttxAttr = new DelegatingTransactionAttribute(txAttr) { \n\t\t\t\t@Override\n\t\t\t\tpublic String getName() { \n\t\t\t\t\treturn joinpointIdentification;\n\t\t\t\t}\n\t\t\t};\n\t\t}\n\n\t\tTransactionStatus status = null;\n\t\tif (txAttr != null) { \n\t\t\tif (tm != null) { \n\t\t\t\t// 获取事务\n\t\t\t\tstatus = tm.getTransaction(txAttr);\n\t\t\t}\n\t\t\telse { \n\t\t\t\tif (logger.isDebugEnabled()) { \n\t\t\t\t\tlogger.debug(\"Skipping transactional joinpoint [\" + joinpointIdentification +\n\t\t\t\t\t\t\t\"] because no transaction manager has been configured\");\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t// 构建事务信息\n\t\treturn prepareTransactionInfo(tm, txAttr, joinpointIdentification, status);\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-d4ffcj2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-d4ffcj2",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里我们可以看到其基本逻辑如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-5ybm7y3",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090559-5ybm7y3",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"ID": "20230331090559-tbtpqqa",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090559-tbtpqqa",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-ddm0g68",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-ddm0g68",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "使用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DelegatingTransactionAttribute"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 封装传入的 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionAttribute"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 实例。对于传入的 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionAttribute"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 类型的参数 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "txAttr"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ，当前实际类型是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "RuleBasedTransactionAttribute"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，是由获取事务属性时生成的，主要用于数据承载，而这里之所以使用"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DelegatingTransactionAttribute"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 进行封装，也是为了提供更多的功能。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-m220du8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090559-m220du8",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-56zyob5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-56zyob5",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "获取事务。即 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "tm.getTransaction(txAttr);"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，事务处理的核心当然是事务，这里获取到了事务。实际上"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "getTransaction"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法返回的是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionStatus"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ (实现类是 DefaultTransactionStatus)。DefaultTransactionStatus 是对事务的进一步封装，包含了当前事务信息、挂起事务信息(如果有)，保存点等信息。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-rb9yciz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090559-rb9yciz",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-1g7lgf2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-1g7lgf2",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "构建事务信息。即"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "prepareTransactionInfo(tm, txAttr, joinpointIdentification, status);"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 。对上面几个步骤获取的信息构建 TransactionInfo 并返回。TransactionInfo 是 DefaultTransactionStatus 更进一步的封装。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-ylrkbvt",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090559-ylrkbvt",
+				"updated": "20230331090559"
+			}
+		},
+		{
+			"ID": "20230331090559-okhuu0a",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-okhuu0a",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "我们来详细看看几个类的具体内容："
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-rzb5d9c",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090559-rzb5d9c",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"ID": "20230331090559-vqiquwd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090559-vqiquwd",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-lme8kil",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-lme8kil",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "关于事务管理器 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionManager"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ，不管是JPA还是JDBC等都实现自接口 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "PlatformTransactionManager"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 如果你添加的是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "spring-boot-starter-jdbc"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 依赖，框架会默认注入 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DataSourceTransactionManager"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 实例。如果你添加的是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "spring-boot-starter-data-jpa"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 依赖，框架会默认注入 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "JpaTransactionManager"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 实例。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-1mi7xqk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090559-1mi7xqk",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-5q62uw5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-5q62uw5",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionStatus"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ (实际上的实现是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DefaultTransactionStatus"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​) 里面包含的内容：\n​"
+								},
+								{
+									"Type": "NodeImage",
+									"Data": "span",
+									"Children": [
+										{
+											"Type": "NodeBang"
+										},
+										{
+											"Type": "NodeOpenBracket"
+										},
+										{
+											"Type": "NodeLinkText",
+											"Data": "在这里插入图片描述"
+										},
+										{
+											"Type": "NodeCloseBracket"
+										},
+										{
+											"Type": "NodeOpenParen"
+										},
+										{
+											"Type": "NodeLinkDest",
+											"Data": "assets/20200712141417889-20230331090559-cwv9y6h.png"
+										},
+										{
+											"Type": "NodeCloseParen"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "\n这里注意"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "suspendedResources"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 实际上保存了是挂起的上层事务的信息。如果没有上层事务(也就是没嵌套事务)，就是null，这里是通过"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "UserProxyServiceImpl#findAll"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​(事务传播属性是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "REQUIRED"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​) 调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "UserServiceImpl#finaAll"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​(事务传播属性是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "REQUIRES_NEW"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​) 的方式挂起来了一个来自 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "com.kingfish.springjdbcdemo.service.UserProxyServiceImpl.findAll"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法的事务信息。 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "savepoint"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 只有在内嵌事务的隔离级别是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "PROPAGATION_NESTED"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 才有可能会保存。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-31pgvju",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090559-31pgvju",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-0b45hcb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-0b45hcb",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionInfo"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 里面包含的内容：\n​"
+								},
+								{
+									"Type": "NodeImage",
+									"Data": "span",
+									"Children": [
+										{
+											"Type": "NodeBang"
+										},
+										{
+											"Type": "NodeOpenBracket"
+										},
+										{
+											"Type": "NodeLinkText",
+											"Data": "在这里插入图片描述"
+										},
+										{
+											"Type": "NodeCloseBracket"
+										},
+										{
+											"Type": "NodeOpenParen"
+										},
+										{
+											"Type": "NodeLinkDest",
+											"Data": "assets/20200712111825533-20230331090558-ovv7joz.png"
+										},
+										{
+											"Type": "NodeCloseParen"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-qd99q4u",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-qd99q4u",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionInfo"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionStatus"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAttribute"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionManager"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 等属性更进一步封装。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-1p03ho4",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090559-1p03ho4",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"ID": "20230331090559-cmuj6a4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090559-cmuj6a4",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-nav9dd2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-nav9dd2",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "关于事务挂起封装成的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "SuspendedResourcesHolder"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。\n​"
+								},
+								{
+									"Type": "NodeImage",
+									"Data": "span",
+									"Children": [
+										{
+											"Type": "NodeBang"
+										},
+										{
+											"Type": "NodeOpenBracket"
+										},
+										{
+											"Type": "NodeLinkText",
+											"Data": "在这里插入图片描述"
+										},
+										{
+											"Type": "NodeCloseBracket"
+										},
+										{
+											"Type": "NodeOpenParen"
+										},
+										{
+											"Type": "NodeLinkDest",
+											"Data": "assets/20200712141325245-20230331090558-kj23nek.png"
+										},
+										{
+											"Type": "NodeCloseParen"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-9mdpunc",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090559-9mdpunc",
+				"updated": "20230331090559"
+			}
+		},
+		{
+			"ID": "20230331090559-vbz73cg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-vbz73cg",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "了解完上述一些类的保存内容后，下面我们来详细分析 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "createTransactionIfNecessary"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中的几个方法"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-dx4c95r",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090559-dx4c95r",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. 获取事务 - tm.getTransaction(txAttr);"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-qa95u6h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-qa95u6h",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "tm.getTransaction(txAttr);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 实际上调用的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractPlatformTransactionManager#getTransaction"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法，在这里面获取了事务(可能是创建新事物，也可能不是)，返回的类型是 TransactionStatus。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-9tkgpl0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-9tkgpl0",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们来看看其代码："
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-v5o9dmz",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090559-v5o9dmz",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic final TransactionStatus getTransaction(@Nullable TransactionDefinition definition)\n\t\t\tthrows TransactionException { \n\n\t\t// Use defaults if no transaction definition given.\n\t\tTransactionDefinition def = (definition != null ? definition : TransactionDefinition.withDefaults());\n\t\t// 1. 获取事务\n\t\tObject transaction = doGetTransaction();\n\t\tboolean debugEnabled = logger.isDebugEnabled();\n\t\t// 2. 判断当前线程是否存在事务，判断依据是当前线程记录的数据库连接不为空，且连接(connectionHolder)中的 transactionActive 属性 为true；\n\t\t// 这个方法的实现在 DataSourceTransactionManager#isExistingTransaction。\n\t\tif (isExistingTransaction(transaction)) { \n\t\t\t// Existing transaction found -\u003e check propagation behavior to find out how to behave.\n\t\t\t// 3.当前线程已经存在事务，则按照嵌套事务的逻辑处理\n\t\t\treturn handleExistingTransaction(def, transaction, debugEnabled);\n\t\t}\n\t\t// 到这里就表明当前线程没有事务存在了，即不会出现嵌套事务的情况了\n\t\t// Check definition settings for new transaction.\n\t\t// 事务超时验证\n\t\tif (def.getTimeout() \u003c TransactionDefinition.TIMEOUT_DEFAULT) { \n\t\t\tthrow new InvalidTimeoutException(\"Invalid transaction timeout\", def.getTimeout());\n\t\t}\n\n\t\t// No existing transaction found -\u003e check propagation behavior to find out how to proceed.\n\t\t// 下面是针对事务传播属性进行处理了\n\t\t// 4. 如果传播属性是 PROPAGATION_MANDATORY 。但是当前线程又不存在事务，则抛出异常\n\t\tif (def.getPropagationBehavior() == TransactionDefinition.PROPAGATION_MANDATORY) { \n\t\t\tthrow new IllegalTransactionStateException(\n\t\t\t\t\t\"No existing transaction found for transaction marked with propagation 'mandatory'\");\n\t\t}\n\t\t// 5. 如果传播属性是PROPAGATION_REQUIRED 、PROPAGATION_REQUIRES_NEW 、PROPAGATION_NESTED 都需要新建事务\n\t\telse if (def.getPropagationBehavior() == TransactionDefinition.PROPAGATION_REQUIRED ||\n\t\t\t\tdef.getPropagationBehavior() == TransactionDefinition.PROPAGATION_REQUIRES_NEW ||\n\t\t\t\tdef.getPropagationBehavior() == TransactionDefinition.PROPAGATION_NESTED) { \n\t\t\t// 5.1. 进行空挂起。为了记录原有事务的状态，便于后续操作对事务的恢复。因为这里原先并不存在事务，所以进行空挂起\n\t\t\tSuspendedResourcesHolder suspendedResources = suspend(null);\n\t\t\tif (debugEnabled) { \n\t\t\t\tlogger.debug(\"Creating new transaction with name [\" + def.getName() + \"]: \" + def);\n\t\t\t}\n\t\t\ttry { \n\t\t\t\t// 5.2.开启事务，并返回了事务状态\n\t\t\t\treturn startTransaction(def, transaction, debugEnabled, suspendedResources);\n\t\t\t}\n\t\t\tcatch (RuntimeException | Error ex) { \n\t\t\t\tresume(null, suspendedResources);\n\t\t\t\tthrow ex;\n\t\t\t}\n\t\t}\n\t\telse { \n\t\t\t// Create \"empty\" transaction: no actual transaction, but potentially synchronization.\n\t\t\tif (def.getIsolationLevel() != TransactionDefinition.ISOLATION_DEFAULT \u0026\u0026 logger.isWarnEnabled()) { \n\t\t\t\tlogger.warn(\"Custom isolation level specified but no actual transaction initiated; \" +\n\t\t\t\t\t\t\"isolation level will effectively be ignored: \" + def);\n\t\t\t}\n\t\t\tboolean newSynchronization = (getTransactionSynchronization() == SYNCHRONIZATION_ALWAYS);\n\t\t\t// 6. 构建事务信息\n\t\t\treturn prepareTransactionStatus(def, null, true, newSynchronization, debugEnabled, null);\n\t\t}\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-wcl7ezw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-wcl7ezw",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到基本逻辑如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-996rxmx",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090559-996rxmx",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"ID": "20230331090559-gvqdnvb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090559-gvqdnvb",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-rh67zvg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-rh67zvg",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "获取事务 : 这里使用的是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DataSourceTransactionManager#doGetTransaction"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。创建基于JDBC 的事务实例。如果当前线程存在关于 dataSource 的连接，那么直接使用。这里有对保存点的一个设置，是否开启允许保存点取决于是否设置了允许嵌入式事务。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-l7zw5xm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090559-l7zw5xm",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-vsufgnu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-vsufgnu",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果当前线程存在事务，则转向嵌套事务的处理"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-hly9f8b",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090559-hly9f8b",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-fwqt0ce",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-fwqt0ce",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "进行事务超时设置的验证"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-0yg5vzh",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090559-0yg5vzh",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-d2nsz6r",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-d2nsz6r",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果传播属性是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "PROPAGATION_MANDATORY"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 。但是当前线程又不存在事务，则抛出异常"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-ghvi3f6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230331090559-ghvi3f6",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-i6wfaxw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-i6wfaxw",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果传播属性是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "PROPAGATION_REQUIRED"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 、"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "PROPAGATION_REQUIRES_NEW"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 、"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "PROPAGATION_NESTED"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 都需要新建事务，通过 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "startTransaction"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 开始事务构建"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-nugvt0y",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ni4=",
+						"Num": 6
+					},
+					"Properties": {
+						"id": "20230331090559-nugvt0y",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-st8fzvl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-st8fzvl",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "不满足上述传播属性，则使用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "prepareTransactionStatus"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 来进行事务构建"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-etrewfc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-etrewfc",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对于一些隔离级别、timeout等功能的设置并不是Spring完成的，而是委托给底层的数据库连接去做的。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-6k9jz31",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090559-6k9jz31",
+				"updated": "20230331090559"
+			}
+		},
+		{
+			"ID": "20230331090559-02leyo2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-02leyo2",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "基于上面的逻辑我们再展开看一些方法："
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-xf978uq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090559-xf978uq",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1 doGetTransaction();"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-sqrc7qq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-sqrc7qq",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "doGetTransaction();"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 实际调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DataSourceTransactionManager#doGetTransaction"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。目的就是获取事务对象。\n其实现逻辑很简单 ：如果当前线程存在关于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "dataSource"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的连接，那么直接使用。这里有对保存点的一个设置，是否开启允许保存点取决于是否设置了允许嵌入式事务。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-p0lughv",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090559-p0lughv",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected Object doGetTransaction() { \n\t\tDataSourceTransactionObject txObject = new DataSourceTransactionObject();\n\t\t// 是否允许设置保存点 ： 决定是否允许嵌套事务的存在\n\t\ttxObject.setSavepointAllowed(isNestedTransactionAllowed());\n\t\t// 如果当前线程已经记录了数据库连接则使用原有连接\n\t\tConnectionHolder conHolder =\n\t\t\t\t(ConnectionHolder) TransactionSynchronizationManager.getResource(obtainDataSource());\n\t\t// false 代表非新创建连接\n\t\ttxObject.setConnectionHolder(conHolder, false);\n\t\treturn txObject;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-d26httz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090559-d26httz",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2 isExistingTransaction(transaction)"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-4xf7jar",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-4xf7jar",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "isExistingTransaction(transaction)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DataSourceTransactionManager#isExistingTransaction"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中。其作用是判断当前线程是否存在事务，判断依据是当前线程记录的数据库连接不为空，且连接("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "connectionHolder"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)中的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "transactionActive"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 属性为"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "true"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-ucboc5j",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090559-ucboc5j",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected boolean isExistingTransaction(Object transaction) { \n\t\tDataSourceTransactionObject txObject = (DataSourceTransactionObject) transaction;\n\t\t// 存在连接，且其 transactionActive 属性不为空，isTransactionActive() 中的返回是  transactionActive = true \n\t\treturn (txObject.hasConnectionHolder() \u0026\u0026 txObject.getConnectionHolder().isTransactionActive());\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-qmu8y8r",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090559-qmu8y8r",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3 handleExistingTransaction(def, transaction, debugEnabled);"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-ew5fj3k",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-ew5fj3k",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "handleExistingTransaction(def, transaction, debugEnabled);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractPlatformTransactionManager#handleExistingTransaction"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中，这里是为了处理嵌套事务,也就是说进入这一步则说明当前线程已经存在了事务。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-uod589h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-uod589h",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里面主要还是根据传播属性的不同而进行不同的逻辑处理。代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-7edykvy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090559-7edykvy",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate TransactionStatus handleExistingTransaction(\n\t\t\tTransactionDefinition definition, Object transaction, boolean debugEnabled)\n\t\t\tthrows TransactionException { \n\t\t// 如果传播属性是 PROPAGATION_NEVER，当时当前线程有事务，则抛出异常\n\t\tif (definition.getPropagationBehavior() == TransactionDefinition.PROPAGATION_NEVER) { \n\t\t\tthrow new IllegalTransactionStateException(\n\t\t\t\t\t\"Existing transaction found for transaction marked with propagation 'never'\");\n\t\t}\n\t\t// 如果传播属性是 PROPAGATION_NOT_SUPPORTED，则需要挂起当前事务。以不使用事务的形式调用\n\t\tif (definition.getPropagationBehavior() == TransactionDefinition.PROPAGATION_NOT_SUPPORTED) { \n\n\t\t\t// 挂起当前事务\n\t\t\tObject suspendedResources = suspend(transaction);\n\t\t\tboolean newSynchronization = (getTransactionSynchronization() == SYNCHRONIZATION_ALWAYS);\n\t\t\t// 准备事务信息\n\t\t\treturn prepareTransactionStatus(\n\t\t\t\t\tdefinition, null, false, newSynchronization, debugEnabled, suspendedResources);\n\t\t}\n\t\t// 如果传播属性是 PROPAGATION_REQUIRES_NEW，则需要挂起当前事务。新创建事务使用\n\t\tif (definition.getPropagationBehavior() == TransactionDefinition.PROPAGATION_REQUIRES_NEW) { \n\n\t\t\t// 挂起当前事务，关于 suspend 方法，我们下面会讲\n\t\t\tSuspendedResourcesHolder suspendedResources = suspend(transaction);\n\t\t\ttry { \n\t\t\t\t// 重新创建事务\n\t\t\t\treturn startTransaction(definition, transaction, debugEnabled, suspendedResources);\n\t\t\t}\n\t\t\tcatch (RuntimeException | Error beginEx) { \n\t\t\t\tresumeAfterBeginException(transaction, suspendedResources, beginEx);\n\t\t\t\tthrow beginEx;\n\t\t\t}\n\t\t}\n\t\t\t// 如果传播属性是 PROPAGATION_NESTED，则如果当前存在事务，则在嵌套事务内执行。否则自己创建事务\n\t\tif (definition.getPropagationBehavior() == TransactionDefinition.PROPAGATION_NESTED) { \n\t\t\tif (!isNestedTransactionAllowed()) { \n\t\t\t\tthrow new NestedTransactionNotSupportedException(\n\t\t\t\t\t\t\"Transaction manager does not allow nested transactions by default - \" +\n\t\t\t\t\t\t\"specify 'nestedTransactionAllowed' property with value 'true'\");\n\t\t\t}\n\t\t\t// 如果可以使用保存点的方式控制事务回滚，则在嵌入式事务的建立时便建立保存点\n\t\t\tif (useSavepointForNestedTransaction()) { \n\t\t\t\t// Create savepoint within existing Spring-managed transaction,\n\t\t\t\t// through the SavepointManager API implemented by TransactionStatus.\n\t\t\t\t// Usually uses JDBC 3.0 savepoints. Never activates Spring synchronization.\n\t\t\t\t// 嵌入式事务的建立时便建立保存点\n\t\t\t\tDefaultTransactionStatus status =\n\t\t\t\t\t\tprepareTransactionStatus(definition, transaction, false, false, debugEnabled, null);\n\t\t\t\t// 创建设置保存点\n\t\t\t\tstatus.createAndHoldSavepoint();\n\t\t\t\treturn status;\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// Nested transaction through nested begin and commit/rollback calls.\n\t\t\t\t// Usually only for JTA: Spring synchronization might get activated here\n\t\t\t\t// in case of a pre-existing JTA transaction.\n\t\t\t\t// 有些情况下是不能使用保存点操作，如 JTA，这时候就需要新建事务\n\t\t\t\treturn startTransaction(definition, transaction, debugEnabled, null);\n\t\t\t}\n\t\t}\n\n\t\t// 进行事务的合法性校验\n\t\tif (isValidateExistingTransaction()) { \n\t\t\tif (definition.getIsolationLevel() != TransactionDefinition.ISOLATION_DEFAULT) { \n\t\t\t\tInteger currentIsolationLevel = TransactionSynchronizationManager.getCurrentTransactionIsolationLevel();\n\t\t\t\tif (currentIsolationLevel == null || currentIsolationLevel != definition.getIsolationLevel()) { \n\t\t\t\t\tConstants isoConstants = DefaultTransactionDefinition.constants;\n\t\t\t\t\tthrow new IllegalTransactionStateException(\"Participating transaction with definition [\" +\n\t\t\t\t\t\t\tdefinition + \"] specifies isolation level which is incompatible with existing transaction: \" +\n\t\t\t\t\t\t\t(currentIsolationLevel != null ?\n\t\t\t\t\t\t\t\t\tisoConstants.toCode(currentIsolationLevel, DefaultTransactionDefinition.PREFIX_ISOLATION) :\n\t\t\t\t\t\t\t\t\t\"(unknown)\"));\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (!definition.isReadOnly()) { \n\t\t\t\tif (TransactionSynchronizationManager.isCurrentTransactionReadOnly()) { \n\t\t\t\t\tthrow new IllegalTransactionStateException(\"Participating transaction with definition [\" +\n\t\t\t\t\t\t\tdefinition + \"] is not marked as read-only but existing transaction is\");\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tboolean newSynchronization = (getTransactionSynchronization() != SYNCHRONIZATION_NEVER);\n\t\treturn prepareTransactionStatus(definition, transaction, false, newSynchronization, debugEnabled, null);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-mvp8qyv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-mvp8qyv",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "需要注意的是："
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-tumd0b4",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090559-tumd0b4",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"ID": "20230331090559-iqfldyv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090559-iqfldyv",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-zsipq5y",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-zsipq5y",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "对于 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "PROPAGATION_REQUIRES_NEW"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 传播属性，其表示当前方法必须要在他自己的事务中运行，一个新的事务被启动，所以原先的事务会被先挂起("
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "suspend"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​)，挂起后作为当前事务 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "TransactionStatus"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的一个属性("
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "suspendedResources"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​)存在。当当前事务执行结束后，再将原事务还原。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-ghjiftz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090559-ghjiftz",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-zhhgtfx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-zhhgtfx",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "对于 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "PROPAGATION_NESTED"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 传播属性，由于其需要的并非是全新的事务，而且当前事务的子事务。Spring考虑了两种情况"
+								}
+							]
+						},
+						{
+							"ID": "20230331090559-yvl9zxb",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090559-yvl9zxb",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"ID": "20230331090559-ppz98lc",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090559-ppz98lc",
+										"updated": "20230331090559"
+									},
+									"Children": [
+										{
+											"ID": "20230331090559-jr9gyoq",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090559-jr9gyoq",
+												"updated": "20230331090559"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "Spring中允许嵌套事务的时候，则首选设置保存点的方式作为异常处理的回滚。"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090559-7a2fpmc",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090559-7a2fpmc",
+										"updated": "20230331090559"
+									},
+									"Children": [
+										{
+											"ID": "20230331090559-lp9l2dg",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090559-lp9l2dg",
+												"updated": "20230331090559"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "对于其他方式，比如 JTA 无法使用保存点的方式，那么处理方式和 "
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "PROPAGATION_REQUIRES_NEW"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​相同，一旦出现异常，则由spring的事务异常处理机制去完成后续操作。"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-qoplakx",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090559-qoplakx",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.4 suspend(null);"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-e7s0iks",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-e7s0iks",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "suspend(null);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 调用的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractPlatformTransactionManager#suspend"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 内容。其主要作用是为了记录原有事务的状态，便于后续操作对事务的恢复，实际上是将原事务的信息封装成 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "SuspendedResourcesHolder"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ ，作为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionStatus"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的一个属性存在。(我们这里的空挂起直接会返回null， 其他情况则会返回一个正常的SuspendedResourcesHolder)。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-huv3dfg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-huv3dfg",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "代码基本逻辑如下:"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-atkxrz6",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090559-atkxrz6",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"ID": "20230331090559-hjhsmzg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090559-hjhsmzg",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-61039cr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-61039cr",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "记录原事务信息"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-h3b8nbk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090559-h3b8nbk",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-f9232t8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-f9232t8",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "清除原事务信息"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-kj1mrwl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090559-kj1mrwl",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-wxi6fna",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-wxi6fna",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "将原事务信息封装成 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "SuspendedResourcesHolder"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 返回，以便于外界恢复事务时使用"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-a2z6kev",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-a2z6kev",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-14n0mvr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090559-14n0mvr",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected final SuspendedResourcesHolder suspend(@Nullable Object transaction) throws TransactionException { \n\t\t// 如果当前事务处于激活状态\n\t\tif (TransactionSynchronizationManager.isSynchronizationActive()) { \n\t\t\tList\u003cTransactionSynchronization\u003e suspendedSynchronizations = doSuspendSynchronization();\n\t\t\ttry { \n\t\t\t\tObject suspendedResources = null;\n\t\t\t\tif (transaction != null) { \n\t\t\t\t\t// 这里主要将当前事务的数据源(ConnectionHolder)解绑\n\t\t\t\t\tsuspendedResources = doSuspend(transaction);\n\t\t\t\t}\n\t\t\t\t// 获取当前事务name、readOnly、isolationLevel 、wasActive  等属性，封装成 SuspendedResourcesHolder 返回\n\t\t\t\t// 同时将当前事务的各种信息重置\n\t\t\t\tString name = TransactionSynchronizationManager.getCurrentTransactionName();\n\t\t\t\tTransactionSynchronizationManager.setCurrentTransactionName(null);\n\t\t\t\tboolean readOnly = TransactionSynchronizationManager.isCurrentTransactionReadOnly();\n\t\t\t\tTransactionSynchronizationManager.setCurrentTransactionReadOnly(false);\n\t\t\t\tInteger isolationLevel = TransactionSynchronizationManager.getCurrentTransactionIsolationLevel();\n\t\t\t\tTransactionSynchronizationManager.setCurrentTransactionIsolationLevel(null);\n\t\t\t\tboolean wasActive = TransactionSynchronizationManager.isActualTransactionActive();\n\t\t\t\tTransactionSynchronizationManager.setActualTransactionActive(false);\n\t\t\t\treturn new SuspendedResourcesHolder(\n\t\t\t\t\t\tsuspendedResources, suspendedSynchronizations, name, readOnly, isolationLevel, wasActive);\n\t\t\t}\n\t\t\tcatch (RuntimeException | Error ex) { \n\t\t\t\t// doSuspend failed - original transaction is still active...\n\t\t\t\tdoResumeSynchronization(suspendedSynchronizations);\n\t\t\t\tthrow ex;\n\t\t\t}\n\t\t}\n\t\t// 如果当前事务并未激活且存在transaction \n\t\telse if (transaction != null) { \n\t\t\t// Transaction active but no synchronization active.\n\t\t\tObject suspendedResources = doSuspend(transaction);\n\t\t\treturn new SuspendedResourcesHolder(suspendedResources);\n\t\t}\n\t\telse { \n\t\t\t// Neither transaction nor synchronization active.\n\t\t\treturn null;\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-5vfoqn2",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090559-5vfoqn2",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.5 startTransaction(def, transaction, debugEnabled, suspendedResources);"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-s4cefay",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-s4cefay",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "startTransaction(def, transaction, debugEnabled, suspendedResources);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractPlatformTransactionManager#startTransaction"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中，主要作用是创建新的事务。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-wjz9ikj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-wjz9ikj",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "经历了上面几步处理，到达这一步的时候说明，当前已经不是嵌套事务。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-wxrzjpp",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090559-wxrzjpp",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate TransactionStatus startTransaction(TransactionDefinition definition, Object transaction,\n\t\t\tboolean debugEnabled, @Nullable SuspendedResourcesHolder suspendedResources) { \n\n\t\tboolean newSynchronization = (getTransactionSynchronization() != SYNCHRONIZATION_NEVER);\n\t\t// 创建一个默认的DefaultTransactionStatus \n\t\tDefaultTransactionStatus status = newTransactionStatus(\n\t\t\t\tdefinition, transaction, true, newSynchronization, debugEnabled, suspendedResources);\n\t\t// 构造 Transaction，包括设置 ConnectionHolder、隔离级别、timeout。\n\t\t// 并且如果是新连接,则绑定当当前线程。\n\t\tdoBegin(transaction, definition);\n\t\t// 新同步事务的设置，针对于当期线程的设置\n\t\tprepareSynchronization(status, definition);\n\t\treturn status;\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-7hk4i6a",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-7hk4i6a",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们详细看下面两个方法:"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-mj8lpry",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090559-mj8lpry",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.5.1 doBegin(transaction, definition);"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-7s9lx5o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-7s9lx5o",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "doBegin(transaction, definition);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DataSourceTransactionManager#doBegin"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中。\n这里的目的是 为了构造 transaction，包括设置 ConnectionHolder、隔离级别、timeout。如果是新连接，则绑定到当前线程。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-q2rylgb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090559-q2rylgb",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void doBegin(Object transaction, TransactionDefinition definition) { \n\t\tDataSourceTransactionObject txObject = (DataSourceTransactionObject) transaction;\n\t\tConnection con = null;\n\n\t\ttry { \n\t\t\t// 如果当前线程中的数据库连接不存在，或者事务同步为true的情况下需要重新获取数据库连接，进行同步\n\t\t\tif (!txObject.hasConnectionHolder() ||\n\t\t\t\t\ttxObject.getConnectionHolder().isSynchronizedWithTransaction()) { \n\t\t\t\tConnection newCon = obtainDataSource().getConnection();\n\t\t\t\tif (logger.isDebugEnabled()) { \n\t\t\t\t\tlogger.debug(\"Acquired Connection [\" + newCon + \"] for JDBC transaction\");\n\t\t\t\t}\n\t\t\t\ttxObject.setConnectionHolder(new ConnectionHolder(newCon), true);\n\t\t\t}\n\t\t\t// 将同步标识设置为 true\n\t\t\ttxObject.getConnectionHolder().setSynchronizedWithTransaction(true);\n\t\t\tcon = txObject.getConnectionHolder().getConnection();\n\t\t\t// 设置事务隔离级别\n\t\t\tInteger previousIsolationLevel = DataSourceUtils.prepareConnectionForTransaction(con, definition);\n\t\t\ttxObject.setPreviousIsolationLevel(previousIsolationLevel);\n\t\t\ttxObject.setReadOnly(definition.isReadOnly());\n\n\t\t\t// Switch to manual commit if necessary. This is very expensive in some JDBC drivers,\n\t\t\t// so we don't want to do it unnecessarily (for example if we've explicitly\n\t\t\t// configured the connection pool to set it already).\n\t\t\t// 更改自动提交，将数据库的自动提交改为 Spring 来控制，否则数据库执行结束sql后自动提交了\n\t\t\tif (con.getAutoCommit()) { \n\t\t\t\ttxObject.setMustRestoreAutoCommit(true);\n\t\t\t\tif (logger.isDebugEnabled()) { \n\t\t\t\t\tlogger.debug(\"Switching JDBC Connection [\" + con + \"] to manual commit\");\n\t\t\t\t}\n\t\t\t\tcon.setAutoCommit(false);\n\t\t\t}\n\t\t\t// 准备事务连接，这里实际上执行了 SET TRANSACTION READ ONLY 的sql 语句\n\t\t\tprepareTransactionalConnection(con, definition);\n\t\t\t// 设置当前线程已经存在事务，这个 transactionActive 属性是判断是否当前线程存在事务的依据\n\t\t\ttxObject.getConnectionHolder().setTransactionActive(true);\n\t\t\t// 设置超时时间\n\t\t\tint timeout = determineTimeout(definition);\n\t\t\tif (timeout != TransactionDefinition.TIMEOUT_DEFAULT) { \n\t\t\t\ttxObject.getConnectionHolder().setTimeoutInSeconds(timeout);\n\t\t\t}\n\n\t\t\t// Bind the connection holder to the thread.\n\t\t\t// 如果是新的连接，则绑定数据库连接到当前线程\n\t\t\tif (txObject.isNewConnectionHolder()) { \n\t\t\t\tTransactionSynchronizationManager.bindResource(obtainDataSource(), txObject.getConnectionHolder());\n\t\t\t}\n\t\t}\n\n\t\tcatch (Throwable ex) { \n\t\t\tif (txObject.isNewConnectionHolder()) { \n\t\t\t\tDataSourceUtils.releaseConnection(con, obtainDataSource());\n\t\t\t\ttxObject.setConnectionHolder(null, false);\n\t\t\t}\n\t\t\tthrow new CannotCreateTransactionException(\"Could not open JDBC Connection for transaction\", ex);\n\t\t}\n\t}\n\n\t...\n\n\tprotected void prepareTransactionalConnection(Connection con, TransactionDefinition definition)\n\t\t\tthrows SQLException { \n\n\t\tif (isEnforceReadOnly() \u0026\u0026 definition.isReadOnly()) { \n\t\t\ttry (Statement stmt = con.createStatement()) { \n\t\t\t\t// 设置事务为只读\n\t\t\t\tstmt.executeUpdate(\"SET TRANSACTION READ ONLY\");\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-iqfweyj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-iqfweyj",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以说事务是从这个函数开始的，因为在这个函数中已经开始尝试对数据库连接的获取，并在在获取数据库连接的同时，也进行了一些必要的设置的同步。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-t6vsh44",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090559-t6vsh44",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"ID": "20230331090559-z5gq9kw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090559-z5gq9kw",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-zjqjk5y",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-zjqjk5y",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "尝试获取连接。但并不是每一次都会获取新的连接，如果当前线程中的 ConnectionHolder 已经存在，则没必要再次获取，或者对事物同步表示设置为true的需要重新获取连接。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-qd76j4m",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090559-qd76j4m",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-j6xblrh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-j6xblrh",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "设置隔离级别和只读标识"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-927m3kv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090559-927m3kv",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-v1pvk09",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-v1pvk09",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "更改事务的默认提交设置。\n如果事务属性是自动提交，那么需要改变这个设置，将操作委托给Spring来处理。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-xb668lq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090559-xb668lq",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-ofz9hvz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-ofz9hvz",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "设置标志位，标识当前连接已经被事务激活。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-mblda78",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230331090559-mblda78",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-ysoohh6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-ysoohh6",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "设置过期时间"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090559-5reaf79",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ni4=",
+						"Num": 6
+					},
+					"Properties": {
+						"id": "20230331090559-5reaf79",
+						"updated": "20230331090559"
+					},
+					"Children": [
+						{
+							"ID": "20230331090559-hdn2u4o",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090559-hdn2u4o",
+								"updated": "20230331090559"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "将"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ConnectionHolder"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 绑定到当前线程"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-rr6lyy6",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090559-rr6lyy6",
+				"updated": "20230331090559"
+			}
+		},
+		{
+			"ID": "20230331090559-ushv8yg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-ushv8yg",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里额外看一下 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DataSourceUtils.prepareConnectionForTransaction"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法是如何设置隔离级别的"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-vyp8f40",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090559-vyp8f40",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic static Integer prepareConnectionForTransaction(Connection con, @Nullable TransactionDefinition definition)\n\t\t\tthrows SQLException { \n\n\t\tAssert.notNull(con, \"No Connection specified\");\n\n\t\tboolean debugEnabled = logger.isDebugEnabled();\n\t\t// Set read-only flag.\n\t\t// 设置属性只读\n\t\tif (definition != null \u0026\u0026 definition.isReadOnly()) { \n\t\t\ttry { \n\t\t\t\tif (debugEnabled) { \n\t\t\t\t\tlogger.debug(\"Setting JDBC Connection [\" + con + \"] read-only\");\n\t\t\t\t}\n\t\t\t\tcon.setReadOnly(true);\n\t\t\t}\n\t\t\tcatch (SQLException | RuntimeException ex) { \n\t\t\t\tThrowable exToCheck = ex;\n\t\t\t\twhile (exToCheck != null) { \n\t\t\t\t\tif (exToCheck.getClass().getSimpleName().contains(\"Timeout\")) { \n\t\t\t\t\t\t// Assume it's a connection timeout that would otherwise get lost: e.g. from JDBC 4.0\n\t\t\t\t\t\tthrow ex;\n\t\t\t\t\t}\n\t\t\t\t\texToCheck = exToCheck.getCause();\n\t\t\t\t}\n\t\t\t\t// \"read-only not supported\" SQLException -\u003e ignore, it's just a hint anyway\n\t\t\t\tlogger.debug(\"Could not set JDBC Connection read-only\", ex);\n\t\t\t}\n\t\t}\n\n\t\t// Apply specific isolation level, if any.\n\t\t// 设置数据库隔离级别\n\t\tInteger previousIsolationLevel = null;\n\t\tif (definition != null \u0026\u0026 definition.getIsolationLevel() != TransactionDefinition.ISOLATION_DEFAULT) { \n\t\t\tif (debugEnabled) { \n\t\t\t\tlogger.debug(\"Changing isolation level of JDBC Connection [\" + con + \"] to \" +\n\t\t\t\t\t\tdefinition.getIsolationLevel());\n\t\t\t}\n\t\t\tint currentIsolation = con.getTransactionIsolation();\n\t\t\tif (currentIsolation != definition.getIsolationLevel()) { \n\t\t\t\tpreviousIsolationLevel = currentIsolation;\n\t\t\t\tcon.setTransactionIsolation(definition.getIsolationLevel());\n\t\t\t}\n\t\t}\n\n\t\treturn previousIsolationLevel;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-1x6wltc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-1x6wltc",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到，在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DataSourceUtils.prepareConnectionForTransaction"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中并没有什么复杂的逻辑，因为其主要实现都交由更底层的 数据库API 来完成了。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-1lg0gtq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090559-1lg0gtq",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.5.2 prepareSynchronization(status, definition);"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-7ysrcsc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-7ysrcsc",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "prepareSynchronization(status, definition);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractPlatformTransactionManager#prepareSynchronization"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中。其目的是将事务信息记录到当前线程中，逻辑很简单，这里不再赘述。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-kztlprn",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090559-kztlprn",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void prepareSynchronization(DefaultTransactionStatus status, TransactionDefinition definition) { \n\t\t// 如果是新的事务，则需要同步信息\n\t\tif (status.isNewSynchronization()) { \n\t\t\t// 下面是对事务的信息的记录，记录到当前线程中。\n\t\t\tTransactionSynchronizationManager.setActualTransactionActive(status.hasTransaction());\n\t\t\tTransactionSynchronizationManager.setCurrentTransactionIsolationLevel(\n\t\t\t\t\tdefinition.getIsolationLevel() != TransactionDefinition.ISOLATION_DEFAULT ?\n\t\t\t\t\t\t\tdefinition.getIsolationLevel() : null);\n\t\t\tTransactionSynchronizationManager.setCurrentTransactionReadOnly(definition.isReadOnly());\n\t\t\tTransactionSynchronizationManager.setCurrentTransactionName(definition.getName());\n\t\t\tTransactionSynchronizationManager.initSynchronization();\n\t\t}\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-ukfo7rb",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090559-ukfo7rb",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. 构建事务信息 - prepareTransactionInfo(tm, txAttr, joinpointIdentification, status);"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-2argo0b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-2argo0b",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "prepareTransactionInfo(tm, txAttr, joinpointIdentification, status);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现是在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAspectSupport#prepareTransactionInfo"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-q1gc9kz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-q1gc9kz",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当已经建立事务连接并完成了事务信息的提取后，我们需要将所有的事务信息统一记录在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionInfo"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类型的实例中，这个实例包含了目标方法开始前的所有状态信息，一旦事务执行失败，Spring会通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionInfo"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类实例中的信息来进行回滚等后续工作。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-515atyx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-515atyx",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "详细代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-o2phdjk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090559-o2phdjk",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\n\tprotected TransactionInfo prepareTransactionInfo(@Nullable PlatformTransactionManager tm,\n\t\t\t@Nullable TransactionAttribute txAttr, String joinpointIdentification,\n\t\t\t@Nullable TransactionStatus status) { \n\t\t// 封装成 TransactionInfo  实例\n\t\tTransactionInfo txInfo = new TransactionInfo(tm, txAttr, joinpointIdentification);\n\t\tif (txAttr != null) { \n\n\t\t\t// 记录事务状态\n\t\t\ttxInfo.newTransactionStatus(status);\n\t\t}\n\t\telse { \n\n\t\t}\n\t\t// 绑定到线程当前上\n\t\ttxInfo.bindToThread();\n\t\treturn txInfo;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-vkm82j9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090559-vkm82j9",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、总结"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-ngvk0hq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-ngvk0hq",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TransactionAspectSupport#createTransactionIfNecessary"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的功能是根据需要创建事务。这里面考虑到嵌套事务的情况，并对事务的传播属性进行了相应的处理，最终处理后。返回的是一个 TransactionInfo 的值，里面封装了事务的各种信息，供给后面的回滚或者提交使用。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090559-casaigm",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090559-casaigm",
+				"updated": "20230331090559"
+			}
+		},
+		{
+			"ID": "20230331090559-g054b3w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090559-g054b3w",
+				"updated": "20230331090559"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考《Spring源码深度解析》如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

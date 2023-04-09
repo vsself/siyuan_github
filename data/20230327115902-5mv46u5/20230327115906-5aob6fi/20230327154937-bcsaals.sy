@@ -1,0 +1,1054 @@
+{
+	"ID": "20230327154937-bcsaals",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230327154937-bcsaals",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230327154947-z2olrio\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230327154947-d8djqw3\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230327154947-sb49gow\u0026quot;,\u0026quot;focusStart\u0026quot;:112,\u0026quot;focusEnd\u0026quot;:112}",
+		"title": "Java同步块",
+		"updated": "20230327155006"
+	},
+	"Children": [
+		{
+			"ID": "20230327154947-z2olrio",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-z2olrio",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Java 同步块（synchronized block）用来标记方法或者代码块是同步的。Java同步块用来避免竞争。本文介绍以下内容："
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-oq874bn",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230327154947-oq874bn",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"ID": "20230327154947-pdyjo3g",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230327154947-pdyjo3g",
+						"updated": "20230327154947"
+					},
+					"Children": [
+						{
+							"ID": "20230327154947-mcmmq8b",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327154947-mcmmq8b",
+								"updated": "20230327154947"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Java同步关键字（synchronzied）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327154947-1b9bxg7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230327154947-1b9bxg7",
+						"updated": "20230327154947"
+					},
+					"Children": [
+						{
+							"ID": "20230327154947-ahnruwy",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327154947-ahnruwy",
+								"updated": "20230327154947"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "实例方法同步"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327154947-hk95cxg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230327154947-hk95cxg",
+						"updated": "20230327154947"
+					},
+					"Children": [
+						{
+							"ID": "20230327154947-o6hfda5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327154947-o6hfda5",
+								"updated": "20230327154947"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "静态方法同步"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327154947-28ohkjb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230327154947-28ohkjb",
+						"updated": "20230327154947"
+					},
+					"Children": [
+						{
+							"ID": "20230327154947-ombo9jl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327154947-ombo9jl",
+								"updated": "20230327154947"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "实例方法中同步块"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327154947-kbe9hit",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230327154947-kbe9hit",
+						"updated": "20230327154947"
+					},
+					"Children": [
+						{
+							"ID": "20230327154947-nid0dsp",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327154947-nid0dsp",
+								"updated": "20230327154947"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "静态方法中同步块"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327154947-zjg5ayt",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230327154947-zjg5ayt",
+						"updated": "20230327154947"
+					},
+					"Children": [
+						{
+							"ID": "20230327154947-m8u65q9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327154947-m8u65q9",
+								"updated": "20230327154947"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Java同步示例"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-xpi4r5i",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-xpi4r5i",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "Java"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "同步关键字（synchronized）"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-liixpb7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-liixpb7",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Java中的同步块用synchronized标记。同步块在Java中是同步在某个对象上。所有同步在一个对象上的同步块在同时只能被一个线程进入并执行操作。所有其他等待进入该同步块的线程将被阻塞，直到执行该同步块中的线程退出。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-knmhynj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-knmhynj",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "有四种不同的同步块："
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-mqnyc84",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230327154947-mqnyc84",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"ID": "20230327154947-ejjyjmn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230327154947-ejjyjmn",
+						"updated": "20230327154947"
+					},
+					"Children": [
+						{
+							"ID": "20230327154947-pweqwd3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327154947-pweqwd3",
+								"updated": "20230327154947"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "实例方法"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327154947-a7vhcx7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230327154947-a7vhcx7",
+						"updated": "20230327154947"
+					},
+					"Children": [
+						{
+							"ID": "20230327154947-y33hc3i",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327154947-y33hc3i",
+								"updated": "20230327154947"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "静态方法"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327154947-4jygjml",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230327154947-4jygjml",
+						"updated": "20230327154947"
+					},
+					"Children": [
+						{
+							"ID": "20230327154947-omgsc87",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327154947-omgsc87",
+								"updated": "20230327154947"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "实例方法中的同步块"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230327154947-hkbelkv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230327154947-hkbelkv",
+						"updated": "20230327154947"
+					},
+					"Children": [
+						{
+							"ID": "20230327154947-rhib41y",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230327154947-rhib41y",
+								"updated": "20230327154947"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "静态方法中的同步块"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-b1o53em",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-b1o53em",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上述同步块都同步在不同对象上。实际需要那种同步块视具体情况而定。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-pyvde4z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-pyvde4z",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "实例方法同步"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-st0axyb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-st0axyb",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面是一个同步的实例方法："
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-4b6blib",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-4b6blib",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[sourcecode language=”java”]\npublic synchronized void add(int value){\nthis.count += value;\n}\n[/sourcecode]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-3zesoc5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-3zesoc5",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注意在方法声明中同步（synchronized ）关键字。这告诉Java该方法是同步的。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-t895e50",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-t895e50",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Java实例方法同步是同步在拥有该方法的对象上。这样，每个实例其方法同步都同步在不同的对象上，即该方法所属的实例。只有一个线程能够在实例方法同步块中运行。如果有多个实例存在，那么一个线程一次可以在一个实例同步块中执行操作。一个实例一个线程。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-7yavvmk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-7yavvmk",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "静态方法同步"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-vqe9jdv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-vqe9jdv",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "静态方法同步和实例方法同步方法一样，也使用synchronized 关键字。Java静态方法同步如下示例："
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-6zeyjia",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-6zeyjia",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[sourcecode language=”java”]public static synchronized void add(int value){\ncount += value;\n}[/sourcecode]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-2mpm3kd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-2mpm3kd",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "同样，这里synchronized 关键字告诉Java这个方法是同步的。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-kiriuvt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-kiriuvt",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "静态方法的同步是指同步在该方法所在的类对象上。因为在Java虚拟机中一个类只能对应一个类对象，所以同时只允许一个线程执行同一个类中的静态同步方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-bj7w44p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-bj7w44p",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对于不同类中的静态同步方法，一个线程可以执行每个类中的静态同步方法而无需等待。不管类中的那个静态同步方法被调用，一个类只能由一个线程同时执行。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-84rdmvz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-84rdmvz",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "实例方法中的同步块"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-xbu6ra1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-xbu6ra1",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "有时你不需要同步整个方法，而是同步方法中的一部分。Java可以对方法的一部分进行同步。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-mguaco7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-mguaco7",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在非同步的Java方法中的同步块的例子如下所示："
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-772v0zs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-772v0zs",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[sourcecode language=”java”]\npublic void add(int value){"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-dcy0535",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-dcy0535",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "synchronized(this){\nthis.count += value;\n}\n}\n[/sourcecode]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-7fklmbt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-7fklmbt",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "示例使用Java同步块构造器来标记一块代码是同步的。该代码在执行时和同步方法一样。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-b58qtg5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-b58qtg5",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注意Java同步块构造器用括号将对象括起来。在上例中，使用了“this”，即为调用add方法的实例本身。在同步构造器中用括号括起来的对象叫做监视器对象。上述代码使用监视器对象同步，同步实例方法使用调用方法本身的实例作为监视器对象。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-yeci7bv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-yeci7bv",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一次只有一个线程能够在同步于同一个监视器对象的Java方法内执行。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-adr9u8x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-adr9u8x",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面两个例子都同步他们所调用的实例对象上，因此他们在同步的执行效果上是等效的。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-rmm4odc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-rmm4odc",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[sourcecode language=”java”]\npublic class MyClass {"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-23jk0ne",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-23jk0ne",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "public synchronized void log1(String msg1, String msg2){\nlog.writeln(msg1);\nlog.writeln(msg2);\n}"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-wc6vxpw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-wc6vxpw",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "public void log2(String msg1, String msg2){\nsynchronized(this){\nlog.writeln(msg1);\nlog.writeln(msg2);\n}\n}\n}\n[/sourcecode]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-i6un1n2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-i6un1n2",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在上例中，每次只有一个线程能够在两个同步块中任意一个方法内执行。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-1vdhc9t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-1vdhc9t",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果第二个同步块不是同步在this实例对象上，那么两个方法可以被线程同时执行。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-gcc2d26",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-gcc2d26",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "静态方法中的同步块"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-meg04xi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-meg04xi",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "和上面类似，下面是两个静态方法同步的例子。这些方法同步在该方法所属的类对象上。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-8m5xxkk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-8m5xxkk",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[sourcecode language=”java”]\npublic class MyClass {\npublic static synchronized void log1(String msg1, String msg2){\nlog.writeln(msg1);\nlog.writeln(msg2);\n}"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-rlokhxf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-rlokhxf",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "public static void log2(String msg1, String msg2){\nsynchronized(MyClass.class){\nlog.writeln(msg1);\nlog.writeln(msg2);\n}\n}\n}\n[/sourcecode]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-tj9uy5e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-tj9uy5e",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这两个方法不允许同时被线程访问。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-wb687dj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-wb687dj",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果第二个同步块不是同步在MyClass.class这个对象上。那么这两个方法可以同时被线程访问。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-885sxwl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-885sxwl",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "Java同步实例"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-v22lfbs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-v22lfbs",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在下面例子中，启动了两个线程，都调用Counter类同一个实例的add方法。因为同步在该方法所属的实例上，所以同时只能有一个线程访问该方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-qm0hto3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-qm0hto3",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[sourcecode language=”java”]\npublic class Counter{\nlong count = 0;"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-ue1oq31",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-ue1oq31",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "public synchronized void add(long value){\nthis.count += value;\n}\n}\npublic class CounterThread extends Thread{"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-bome677",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-bome677",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "protected Counter counter = null;"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-3yp05an",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-3yp05an",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "public CounterThread(Counter counter){\nthis.counter = counter;\n}"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-ewn90t4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-ewn90t4",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "public void run() {\nfor(int i=0; i\u003c10; i++){\ncounter.add(i);\n}\n}\n}\npublic class Example {"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-2lvzujl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-2lvzujl",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "public static void main(String[] args){\nCounter counter = new Counter();\nThread threadA = new CounterThread(counter);\nThread threadB = new CounterThread(counter);"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-k2ov6dz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-k2ov6dz",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "threadA.start();\nthreadB.start();\n}\n}\n[/sourcecode]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-sb49gow",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-sb49gow",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "创建了两个线程。他们的构造器引用同一个Counter实例。Counter.add方法是同步在实例上，是因为add方法是实例方法并且被标记上synchronized关键字。因此每次只允许一个线程调用该方法。另外一个线程必须要等到第一个线程退出add()方法时，才能继续执行方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-a4wjalf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-a4wjalf",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果两个线程引用了两个不同的Counter实例，那么他们可以同时调用add()方法。这些方法调用了不同的对象，因此这些方法也就同步在不同的对象上。这些方法调用将不会被阻塞。如下面这个例子所示："
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-y8y8ueo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-y8y8ueo",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[sourcecode language=”java”]\npublic class Example {"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-qmpegc0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-qmpegc0",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "public static void main(String[] args){\nCounter counterA = new Counter();\nCounter counterB = new Counter();\nThread threadA = new CounterThread(counterA);\nThread threadB = new CounterThread(counterB);"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-q58z6yf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-q58z6yf",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "threadA.start();\nthreadB.start();\n}\n}\n[/sourcecode]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154947-d8djqw3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154947-d8djqw3",
+				"updated": "20230327154947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注意这两个线程，threadA和threadB，不再引用同一个counter实例。CounterA和counterB的add方法同步在他们所属的对象上。调用counterA的add方法将不会阻塞调用counterB的add方法。"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,590 @@
+{
+	"ID": "20230327154625-ngze0ww",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230327154625-ngze0ww",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230327154641-9ouecmz\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230327154638-2udbsco\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230327154641-ayx4tzo\u0026quot;,\u0026quot;focusStart\u0026quot;:122,\u0026quot;focusEnd\u0026quot;:122}",
+		"title": "如何创建并运行java线程",
+		"updated": "20230327154655"
+	},
+	"Children": [
+		{
+			"ID": "20230327154641-9ouecmz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-9ouecmz",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Java线程类也是一个object类,它的实例都继承自java.lang.Thread或其子类。 可以用如下方式用java中创建一个线程："
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-oqnc70l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-oqnc70l",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[code lang=”java”]\nTread thread = new Thread();\n[/code]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-tjcdn9o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-tjcdn9o",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行该线程可以调用该线程的start()方法:"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-xrfbder",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-xrfbder",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[code lang=”java”]\nthread.start();\n[/code]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-33egco3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-33egco3",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在上面的例子中，我们并没有为线程编写运行代码，因此调用该方法后线程就终止了。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-3j7k2mc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-3j7k2mc",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "编写线程运行时执行的代码有两种方式：一种是创建Thread子类的一个实例并重写run方法，第二种是创建类的时候实现Runnable接口。接下来我们会具体讲解这两种方法："
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-oc5e9kg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-oc5e9kg",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "创建Thread的子类"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-a0tygcw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-a0tygcw",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "创建Thread子类的一个实例并重写run方法，run方法会在调用start()方法之后被执行。例子如下："
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-tst7a3r",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-tst7a3r",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[code lang=”java”]\npublic class MyThread extends Thread {\npublic void run(){\nSystem.out.println(\"MyThread running\");\n}\n}\n[/code]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-h0di6c1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-h0di6c1",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以用如下方式创建并运行上述Thread子类"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-8iem7vn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-8iem7vn",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[code lang=”java”]\nMyThread myThread = new MyThread();\nmyTread.start();\n[/code]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-gzikk5t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-gzikk5t",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一旦线程启动后start方法就会立即返回，而不会等待到run方法执行完毕才返回。就好像run方法是在另外一个cpu上执行一样。当run方法执行后，将会打印出字符串MyThread running。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-wjsqp9r",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-wjsqp9r",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "你也可以如下创建一个Thread的匿名子类："
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-4uxc9ep",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-4uxc9ep",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[code lang=”java”]\nThread thread = new Thread(){\npublic void run(){\nSystem.out.println(\"Thread Running\");\n}\n};\nthread.start();\n[/code]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-hksdhtb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-hksdhtb",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当新的线程的run方法执行以后，计算机将会打印出字符串”Thread Running”。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-w4b9py0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-w4b9py0",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "实现Runnable接口"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-2t67gvj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-2t67gvj",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "**        ** 第二种编写线程执行代码的方式是新建一个实现了java.lang.Runnable接口的类的实例，实例中的方法可以被线程调用。下面给出例子："
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-zt9jigf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-zt9jigf",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[code lang=”java”]\npublic class MyRunnable implements Runnable {\npublic void run(){\nSystem.out.println(\"MyRunnable running\");\n}\n}\n[/code]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-2jw7m9t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-2jw7m9t",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "为了使线程能够执行run()方法，需要在Thread类的构造函数中传入 MyRunnable的实例对象。示例如下："
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-8rxc0u9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-8rxc0u9",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[code lang=”java”]\nThread thread = new Thread(new MyRunnable());\nthread.start();\n[/code]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-t6mf5g3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-t6mf5g3",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "**        ** 当线程运行时，它将会调用实现了Runnable接口的run方法。上例中将会打印出”MyRunnable running”。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-qzva2g3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-qzva2g3",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "同样，也可以创建一个实现了Runnable接口的匿名类，如下所示："
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-msamv5z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-msamv5z",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[code lang=”java”]\nRunnable myRunnable = new Runnable(){\npublic void run(){\nSystem.out.println(\"Runnable running\");\n}\n}\nThread thread = new Thread(myRunnable);\nthread.start();\n[/code]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-4c5gqzv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-4c5gqzv",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "创建子类还是实现Runnable接口？"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-1oughfg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-1oughfg",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对于这两种方式哪种好并没有一个确定的答案，它们都能满足要求。就我个人意见，我更倾向于实现Runnable接口这种方法。因为线程池可以有效的管理实现了Runnable接口的线程，如果线程池满了，新的线程就会排队等候执行，直到线程池空闲出来为止。而如果线程是通过实现Thread子类实现的，这将会复杂一些。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-a3w7j23",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-a3w7j23",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "有时我们要同时融合实现Runnable接口和Thread子类两种方式。例如，实现了Thread子类的实例可以执行多个实现了Runnable接口的线程。一个典型的应用就是线程池。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-fbf3uvp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-fbf3uvp",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "常见错误：调用run()方法而非start()方法"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-xg89zi1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-xg89zi1",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "创建并运行一个线程所犯的常见错误是调用线程的run()方法而非start()方法，如下所示："
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-rjm1gqt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-rjm1gqt",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[code lang=”java”]\nThread newThread = new Thread(MyRunnable());\nnewThread.run();  //should be start();\n[/code]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-r4ta9ep",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-r4ta9ep",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "起初你并不会感觉到有什么不妥，因为run()方法的确如你所愿的被调用了。但是，事实上,run()方法并非是由刚创建的新线程所执行的，而是被创建新线程的当前线程所执行了。也就是被执行上面两行代码的线程所执行的。想要让创建的新线程执行run()方法，必须调用新线程的start方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-udt9b2l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-udt9b2l",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "线程名"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-ji4awdo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-ji4awdo",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当创建一个线程的时候，可以给线程起一个名字。它有助于我们区分不同的线程。例如：如果有多个线程写入System.out，我们就能够通过线程名容易的找出是哪个线程正在输出。例子如下："
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-jcqw5en",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-jcqw5en",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[code lang=”java”]\nMyRunnable runnable = new MyRunnable();\nThread thread = new Thread(runnable, \"New Thread\");\nthread.start();\nSystem.out.println(thread.getName());\n[/code]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-wqtov4h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-wqtov4h",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "需要注意的是，因为MyRunnable并非Thread的子类，所以MyRunnable类并没有getName()方法。可以通过以下方式得到当前线程的引用："
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-3pg2fg0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-3pg2fg0",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[code lang=”java”]\nThread.currentThread();\n[/code]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-oknvsw9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-oknvsw9",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因此，通过如下代码可以得到当前线程的名字："
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-h75n9sx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-h75n9sx",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[code lang=”java”]\nString threadName = Thread.currentThread().getName();\n[/code]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-yr2hv3w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-yr2hv3w",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "线程代码举例："
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n这里是一个小小的例子。首先输出执行main()方法线程名字。这个线程JVM分配的。然后开启10个线程，命名为1~10。每个线程输出自己的名字后就退出。"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-nkicd51",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-nkicd51",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "[code lang=”java”]\npublic class ThreadExample {\npublic static void main(String[] args){\nSystem.out.println(Thread.currentThread().getName());\nfor(int i=0; i\u003c10; i++){\nnew Thread(\"\" + i){\npublic void run(){\nSystem.out.println(\"Thread: \" + getName() + \"running\");\n}\n}.start();\n}\n}\n}\n[/code]"
+				}
+			]
+		},
+		{
+			"ID": "20230327154641-ayx4tzo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154641-ayx4tzo",
+				"updated": "20230327154641"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "需要注意的是，尽管启动线程的顺序是有序的，但是执行的顺序并非是有序的。也就是说，1号线程并不一定是第一个将自己名字输出到控制台的线程。这是因为线程是并行执行而非顺序的。Jvm和操作系统一起决定了线程的执行顺序，他和线程的启动顺序并非一定是一致的"
+				}
+			]
+		},
+		{
+			"ID": "20230327154638-2udbsco",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327154638-2udbsco"
+			}
+		}
+	]
+}

@@ -1,0 +1,74 @@
+{
+	"ID": "20230327181010-rj9b106",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230327181010-rj9b106",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230327181010-pxsmv3w\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230327181024-pyv0b3l\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230327181010-pxsmv3w\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "ApplicationContext和BeanFactory",
+		"updated": "20230327181108"
+	},
+	"Children": [
+		{
+			"ID": "20230327181010-pxsmv3w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327181010-pxsmv3w",
+				"updated": "20230327181026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ApplicationContext和BeanFactory有什么区别"
+				}
+			]
+		},
+		{
+			"ID": "20230327181035-bpj8oma",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327181035-bpj8oma"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "BeanFactory是Spring中非常核心的组件，表示Bean工厂,可以生成Bean,维护Bean,"
+				}
+			]
+		},
+		{
+			"ID": "20230327181047-mo0md75",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327181047-mo0md75",
+				"updated": "20230327181108"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ApplicationContext继承了BeanFactory,所以ApplicationContext拥有BeanFactory所有的特点，也是一个Bean工厂,"
+				}
+			]
+		},
+		{
+			"ID": "20230327181108-vdluodx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327181108-vdluodx"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ApplicationContext除开继承了BeanFactory之外，还继承了诸如EnvironmentCapable、MessageSource、ApplicationEventPublisher等接口,从而ApplicationContext还有获取系统环境变量、国际化、事件发布等功能，这是BeanFactory所不具备的"
+				}
+			]
+		},
+		{
+			"ID": "20230327181024-pyv0b3l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230327181024-pyv0b3l"
+			}
+		}
+	]
+}

@@ -1,0 +1,75 @@
+{
+	"ID": "20230404113753-aez65sn",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404113753-aez65sn",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230404113753-13tp19v\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230404114202-smhutfv\u0026quot;,\u0026quot;scrollTop\u0026quot;:200,\u0026quot;focusId\u0026quot;:\u0026quot;20230404114157-k778439\u0026quot;,\u0026quot;focusStart\u0026quot;:98,\u0026quot;focusEnd\u0026quot;:98}",
+		"title": "总结",
+		"updated": "20230404114515"
+	},
+	"Children": [
+		{
+			"ID": "20230404113753-13tp19v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404113753-13tp19v",
+				"updated": "20230404114440"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "回调就是你把你的类传给我，我调用你类中的一个方法，你类中的这个方法就是回调方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230404113844-wr3b6e8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404113844-wr3b6e8",
+				"updated": "20230404113942"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "为了让很多类都能传给我，我就规定你的类必须实现一个接口，我的函数中就用这个接口作为参数，你就可以将类传给我了"
+				}
+			]
+		},
+		{
+			"ID": "20230404114157-k778439",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404114157-k778439",
+				"updated": "20230404114515"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "private void invokeAwareMethods(String beanName, Object bean) {\n\t\t//如果 bean 是 Aware interface的实例\n\t\tif (bean instanceof Aware) {\n\t\t\t//如果bean是BeanNameAware实例\n\t\t\tif (bean instanceof BeanNameAware) {\n\t\t\t\t//调用 bean 的setBeanName方法\n\t\t\t\t((BeanNameAware) bean).setBeanName(beanName);\n\t\t\t}\n\t\t\t//如果bean是 BeanClassLoaderAware 实例\n\t\t\tif (bean instanceof BeanClassLoaderAware) {\n\t\t\t\t//获取此工厂的类加载器以加载Bean类(即使无法使用系统ClassLoader,也只能为null)\n\t\t\t\tClassLoader bcl = getBeanClassLoader();\n\t\t\t\tif (bcl != null) {\n\t\t\t\t\t//调用 bean 的 setBeanClassLoader 方法\n\t\t\t\t\t((BeanClassLoaderAware) bean).setBeanClassLoader(bcl);\n\t\t\t\t}\n\t\t\t}\n\t\t\t//如果bean是 BeanFactoryAware 实例\n\t\t\tif (bean instanceof BeanFactoryAware) {\n\t\t\t\t// //调用 bean 的 setBeanFactory 方法\n\t\t\t\t((BeanFactoryAware) bean).setBeanFactory(AbstractAutowireCapableBeanFactory.this);\n\t\t\t}\n\t\t}\n\t}\n\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404114202-smhutfv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404114202-smhutfv"
+			}
+		}
+	]
+}

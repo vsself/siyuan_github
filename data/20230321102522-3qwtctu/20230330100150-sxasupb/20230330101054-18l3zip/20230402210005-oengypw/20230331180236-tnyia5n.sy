@@ -1,0 +1,633 @@
+{
+	"ID": "20230331180236-tnyia5n",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331180236-tnyia5n",
+		"title": "Spring的bean定义 2 : 通用bean定义逻辑 -- AbstractBeanDefinition_安迪源文的博客-CSDN博客",
+		"updated": "20230331180236"
+	},
+	"Children": [
+		{
+			"ID": "20230331180236-bwtv1i7",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331180236-bwtv1i7",
+				"updated": "20230331180236"
+			}
+		},
+		{
+			"ID": "20230331180236-mrykep1",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331180236-mrykep1",
+				"updated": "20230331180236"
+			},
+			"Children": [
+				{
+					"ID": "20230331180236-n4y36jz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331180236-n4y36jz",
+						"updated": "20230331180236"
+					},
+					"Children": [
+						{
+							"ID": "20230331180236-8klnrzl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331180236-8klnrzl",
+								"updated": "20230331180236"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/andy_zhang2007/article/details/85413055",
+									"TextMarkTextContent": "https://blog.csdn.net/andy_zhang2007/article/details/85413055"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331180236-y2m99yx",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331180236-y2m99yx",
+						"updated": "20230331180236"
+					},
+					"Children": [
+						{
+							"ID": "20230331180236-4lxnaeh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331180236-4lxnaeh",
+								"updated": "20230331180236"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "概述AbstractBeanDefinition是最终全功能BeanDefinition实现类的基类，也就是这些类的共同属性和公用逻辑实现。AbstractBeanDefinition中并没有太复杂的实现逻辑，而是主要是用于：定义共用的构造函数。定义共用BeanDefinition属性以及提供它们的getter/setter方法。其他一些共用工具方法 : 从另外一个bean定义覆盖当前..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331180236-5sbbovg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331180236-5sbbovg",
+						"updated": "20230331180236"
+					},
+					"Children": [
+						{
+							"ID": "20230331180236-eal5moe",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331180236-eal5moe",
+								"updated": "20230331180236"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 18:02:36"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331180236-6wzv1ll",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331180236-6wzv1ll",
+				"updated": "20230331180236"
+			}
+		},
+		{
+			"ID": "20230331180236-jkx4fri",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331180236-jkx4fri",
+				"updated": "20230331180236"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "概述"
+				}
+			]
+		},
+		{
+			"ID": "20230331180236-gx4f4ob",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331180236-gx4f4ob",
+				"updated": "20230331180236"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractBeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​是最终全功能"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实现类的基类，也就是这些类的共同属性和公共逻辑实现。\n​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractBeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中并没有太复杂的实现逻辑，而是主要是用于："
+				}
+			]
+		},
+		{
+			"ID": "20230331180236-ag50jg5",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331180236-ag50jg5",
+				"updated": "20230331180236"
+			},
+			"Children": [
+				{
+					"ID": "20230331180236-jtvrt32",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331180236-jtvrt32",
+						"updated": "20230331180236"
+					},
+					"Children": [
+						{
+							"ID": "20230331180236-e48kvb6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331180236-e48kvb6",
+								"updated": "20230331180236"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "定义共用的构造函数。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331180236-xyx5lno",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331180236-xyx5lno",
+						"updated": "20230331180236"
+					},
+					"Children": [
+						{
+							"ID": "20230331180236-dynmtsv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331180236-dynmtsv",
+								"updated": "20230331180236"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "定义共用"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanDefinition"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​属性以及提供它们的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "getter/setter"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​方法。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331180236-b2h0usp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331180236-b2h0usp",
+						"updated": "20230331180236"
+					},
+					"Children": [
+						{
+							"ID": "20230331180236-kshwv4r",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331180236-kshwv4r",
+								"updated": "20230331180236"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "其他一些共用工具方法 : 从另外一个bean定义覆盖当前bean定义，应用初始值等等。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331180236-x1ywvv8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331180236-x1ywvv8",
+				"updated": "20230331180236"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "另外"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractBeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​继承自"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanMetadataAttributeAccessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanMetadataAttributeAccessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​为"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractBeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​提供了接口"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AttributeAccessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​定义的属性访问能力以及"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanMetadataElement"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​定义的源配置对象设置/获取能力。"
+				}
+			]
+		},
+		{
+			"ID": "20230331180236-iseesnw",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230331180236-iseesnw",
+				"updated": "20230331180236"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230331180236-8iv3ql0",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230331180236-8iv3ql0",
+						"updated": "20230331180236"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "继承自"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "AbstractBeanDefinition"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​的全功能"
+						},
+						{
+							"Type": "NodeTextMark",
+							"TextMarkType": "code",
+							"TextMarkTextContent": "BeanDefinition"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "​实现类有 :"
+						}
+					]
+				},
+				{
+					"ID": "20230331180236-pmfs5u0",
+					"Type": "NodeList",
+					"ListData": {},
+					"Properties": {
+						"id": "20230331180236-pmfs5u0",
+						"updated": "20230331180236"
+					},
+					"Children": [
+						{
+							"ID": "20230331180236-0i7y7t4",
+							"Type": "NodeListItem",
+							"ListData": {
+								"BulletChar": 42,
+								"Marker": "Kg=="
+							},
+							"Properties": {
+								"id": "20230331180236-0i7y7t4",
+								"updated": "20230331180236"
+							},
+							"Children": [
+								{
+									"ID": "20230331180236-1c1gxer",
+									"Type": "NodeParagraph",
+									"Properties": {
+										"id": "20230331180236-1c1gxer",
+										"updated": "20230331180236"
+									},
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "​"
+										},
+										{
+											"Type": "NodeTextMark",
+											"TextMarkType": "code",
+											"TextMarkTextContent": "GenericBeanDefinition"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "​"
+										}
+									]
+								}
+							]
+						},
+						{
+							"ID": "20230331180236-h5nzjvb",
+							"Type": "NodeListItem",
+							"ListData": {
+								"BulletChar": 42,
+								"Marker": "Kg=="
+							},
+							"Properties": {
+								"id": "20230331180236-h5nzjvb",
+								"updated": "20230331180236"
+							},
+							"Children": [
+								{
+									"ID": "20230331180236-b2l9ee0",
+									"Type": "NodeParagraph",
+									"Properties": {
+										"id": "20230331180236-b2l9ee0",
+										"updated": "20230331180236"
+									},
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "​"
+										},
+										{
+											"Type": "NodeTextMark",
+											"TextMarkType": "code",
+											"TextMarkTextContent": "RootBeanDefinition"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "​"
+										}
+									]
+								}
+							]
+						},
+						{
+							"ID": "20230331180236-xvjcxtf",
+							"Type": "NodeListItem",
+							"ListData": {
+								"BulletChar": 42,
+								"Marker": "Kg=="
+							},
+							"Properties": {
+								"id": "20230331180236-xvjcxtf",
+								"updated": "20230331180236"
+							},
+							"Children": [
+								{
+									"ID": "20230331180236-h00ldrx",
+									"Type": "NodeParagraph",
+									"Properties": {
+										"id": "20230331180236-h00ldrx",
+										"updated": "20230331180236"
+									},
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "​"
+										},
+										{
+											"Type": "NodeTextMark",
+											"TextMarkType": "code",
+											"TextMarkTextContent": "ChildBeanDefinition"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "​"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331180236-07h8eaq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331180236-07h8eaq",
+				"updated": "20230331180236"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "源代码解析"
+				}
+			]
+		},
+		{
+			"ID": "20230331180236-lda0vxa",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331180236-lda0vxa",
+				"updated": "20230331180236"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package org.springframework.beans.factory.support;\n\n// 省略imports\n\n/**\n * 最终全功能BeanDefinition实现类的基类，也就是这些类的共同属性和逻辑实现：\n * GenericBeanDefinition,RootBeanDefinition,ChildBeanDefinition.\n *\n */\n@SuppressWarnings(\"serial\")\npublic abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccessor\n\t\timplements BeanDefinition, Cloneable { \n\n\t// 缺省作用域名称常量定义:\"\",等价于 singleton  \n\tpublic static final String SCOPE_DEFAULT = \"\";\n\n\t/**\n\t * Constant that indicates no autowiring at all.\n\t * @see #setAutowireMode\n\t */\n\tpublic static final int AUTOWIRE_NO = AutowireCapableBeanFactory.AUTOWIRE_NO;\n\n\t/**\n\t * Constant that indicates autowiring bean properties by name.\n\t * @see #setAutowireMode\n\t */\n\tpublic static final int AUTOWIRE_BY_NAME = AutowireCapableBeanFactory.AUTOWIRE_BY_NAME;\n\n\t/**\n\t * Constant that indicates autowiring bean properties by type.\n\t * @see #setAutowireMode\n\t */\n\tpublic static final int AUTOWIRE_BY_TYPE = AutowireCapableBeanFactory.AUTOWIRE_BY_TYPE;\n\n\t/**\n\t * Constant that indicates autowiring a constructor.\n\t * @see #setAutowireMode\n\t */\n\tpublic static final int AUTOWIRE_CONSTRUCTOR = AutowireCapableBeanFactory.AUTOWIRE_CONSTRUCTOR;\n\n\t/**\n\t * Constant that indicates determining an appropriate autowire strategy\n\t * through introspection of the bean class.\n\t * @see #setAutowireMode\n\t * @deprecated as of Spring 3.0: If you are using mixed autowiring strategies,\n\t * use annotation-based autowiring for clearer demarcation of autowiring needs.\n\t */\n\t@Deprecated\n\tpublic static final int AUTOWIRE_AUTODETECT = AutowireCapableBeanFactory.AUTOWIRE_AUTODETECT;\n\n\t/**\n\t * Constant that indicates no dependency check at all.\n\t * @see #setDependencyCheck\n\t */\n\tpublic static final int DEPENDENCY_CHECK_NONE = 0;\n\n\t/**\n\t * Constant that indicates dependency checking for object references.\n\t * @see #setDependencyCheck\n\t */\n\tpublic static final int DEPENDENCY_CHECK_OBJECTS = 1;\n\n\t/**\n\t * Constant that indicates dependency checking for \"simple\" properties.\n\t * @see #setDependencyCheck\n\t * @see org.springframework.beans.BeanUtils#isSimpleProperty\n\t */\n\tpublic static final int DEPENDENCY_CHECK_SIMPLE = 2;\n\n\t/**\n\t * Constant that indicates dependency checking for all properties\n\t * (object references as well as \"simple\" properties).\n\t * @see #setDependencyCheck\n\t */\n\tpublic static final int DEPENDENCY_CHECK_ALL = 3;\n\n\t/**\n\t * Constant that indicates the container should attempt to infer the\n\t * #setDestroyMethodName destroy method name for a bean as opposed to\n\t * explicit specification of a method name. The value @value is specifically\n\t * designed to include characters otherwise illegal in a method name, ensuring\n\t * no possibility of collisions with legitimately named methods having the same\n\t * name.\n\t * Currently, the method names detected during destroy method inference\n\t * are \"close\" and \"shutdown\", if present on the specific bean class.\n\t */\n\tpublic static final String INFER_METHOD = \"(inferred)\";\n\n     // 当前bean定义的beanClass属性，注意并不一定是最终生成的bean所使用的class，  \n     // 可能是 String, 也可能是 Class\n\t@Nullable\n\tprivate volatile Object beanClass;\n\n    // 目标 bean 的作用域，初始化为 \"\", 相当于 singleton\n\t@Nullable\n\tprivate String scope = SCOPE_DEFAULT;\n\n    // 是否抽象 bean定义\n\tprivate boolean abstractFlag = false;\n\n    // 是否懒初始化\n\tprivate boolean lazyInit = false;\n\n    // 自动装配模式 : 初始化为不要使用自动装配\n\tprivate int autowireMode = AUTOWIRE_NO;\n\n    // 依赖检查 : 初始化为不要做依赖检查\n\tprivate int dependencyCheck = DEPENDENCY_CHECK_NONE;\n\n    // 被当前bean定义所依赖的bean的名称\n\t@Nullable\n\tprivate String[] dependsOn;\n\n    // 是否作为自动装配候选 ， 初始化为 true\n\tprivate boolean autowireCandidate = true;\n\n    // 作为自动装配候选时，是否作为主要候选, 初始化为 false (不作为主要候选)\n\tprivate boolean primary = false;\n\n\tprivate final Map\u003cString, AutowireCandidateQualifier\u003e qualifiers = new LinkedHashMap\u003c\u003e();\n\n\t@Nullable\n\tprivate Supplier\u003c?\u003e instanceSupplier;\n\n    // 是否允许访问非公开构造函数，非公开方法\n    // 该属性主要用于构造函数解析，初始化方法,析构方法解析，bean属性的set/get方法不受该属性影响\n\tprivate boolean nonPublicAccessAllowed = true;\n\n\t//调用构造函数时，是否采用宽松匹配\n\tprivate boolean lenientConstructorResolution = true;\n\n    // 工厂bean名称\n\t@Nullable\n\tprivate String factoryBeanName;\n\n    // 工厂方法名称\n\t@Nullable\n\tprivate String factoryMethodName;\n\n    // 构造函数参数值\n\t@Nullable\n\tprivate ConstructorArgumentValues constructorArgumentValues;\n\n    // 属性值，注意这里使用了 MutablePropertyValues ， 表示这些属性值在\n    // 最终被设置到 bean实例之前一直是可以被修改的\n\t@Nullable\n\tprivate MutablePropertyValues propertyValues;\n\n\t@Nullable\n\tprivate MethodOverrides methodOverrides;\n\n    // 初始化方法的名称\n\t@Nullable\n\tprivate String initMethodName;\n\n    // 析构方法的名称\n\t@Nullable\n\tprivate String destroyMethodName;\n\n\tprivate boolean enforceInitMethod = true;\n\n\tprivate boolean enforceDestroyMethod = true;\n\n    // 是否是一个合成 BeanDefinition, \n    // 合成 在这里的意思表示这不是一个应用开发人员自己定义的 BeanDefinition, 而是程序\n    // 自己组装而成的一个 BeanDefinition, 例子 :\n    // 1. 自动代理的helper bean，一个基础设施bean，因为使用\u003caop:config\u003e 被自动合成创建;\n    // 2. bean errorPageRegistrarBeanPostProcessor , Spring boot 自动配置针对Web错误页面的\n    // 一个bean，这个bean不需要应用开发人员定义，而是框架根据上下文自动合成组装而成；\n\tprivate boolean synthetic = false;\n\n    // 当前bean 定义的角色，初始化为 ROLE_APPLICATION ， 提示这是一个应用bean\n    // 另外还有基础设施bean（仅供框架内部工作使用），和 支持bean\n\tprivate int role = BeanDefinition.ROLE_APPLICATION;\n\n    // human readable,当前bean定义人类可读的描述文本\n\t@Nullable\n\tprivate String description;\n\n\t@Nullable\n\tprivate Resource resource;\n\n\n\t/**\n\t * Create a new AbstractBeanDefinition with default settings.\n\t */\n\tprotected AbstractBeanDefinition() { \n\t\tthis(null, null);\n\t}\n\n\t/**\n\t * Create a new AbstractBeanDefinition with the given\n\t * constructor argument values and property values.\n\t */\n\tprotected AbstractBeanDefinition(@Nullable ConstructorArgumentValues cargs, \n\t\t@Nullable MutablePropertyValues pvs) { \n\t\tthis.constructorArgumentValues = cargs;\n\t\tthis.propertyValues = pvs;\n\t}\n\n\t/**\n\t * 深度复制给定的bean定义创建一个新的AbstractBeanDefinition\n   \n\t * @param original the original bean definition to copy from\n\t */\n\tprotected AbstractBeanDefinition(BeanDefinition original) { \n\t\tsetParentName(original.getParentName());\n\t\tsetBeanClassName(original.getBeanClassName());\n\t\tsetScope(original.getScope());\n\t\tsetAbstract(original.isAbstract());\n\t\tsetLazyInit(original.isLazyInit());\n\t\tsetFactoryBeanName(original.getFactoryBeanName());\n\t\tsetFactoryMethodName(original.getFactoryMethodName());\n\t\tsetRole(original.getRole());\n\t\tsetSource(original.getSource());\n\t\tcopyAttributesFrom(original);\n\n\t\tif (original instanceof AbstractBeanDefinition) { \n\t\t\tAbstractBeanDefinition originalAbd = (AbstractBeanDefinition) original;\n\t\t\tif (originalAbd.hasBeanClass()) { \n\t\t\t\tsetBeanClass(originalAbd.getBeanClass());\n\t\t\t}\n\t\t\tif (originalAbd.hasConstructorArgumentValues()) { \n\t\t\t\tsetConstructorArgumentValues(\n\t\t\t\t\tnew ConstructorArgumentValues(original.getConstructorArgumentValues()));\n\t\t\t}\n\t\t\tif (originalAbd.hasPropertyValues()) { \n\t\t\t\tsetPropertyValues(new MutablePropertyValues(original.getPropertyValues()));\n\t\t\t}\n\t\t\tif (originalAbd.hasMethodOverrides()) { \n\t\t\t\tsetMethodOverrides(new MethodOverrides(originalAbd.getMethodOverrides()));\n\t\t\t}\n\t\t\tsetAutowireMode(originalAbd.getAutowireMode());\n\t\t\tsetDependencyCheck(originalAbd.getDependencyCheck());\n\t\t\tsetDependsOn(originalAbd.getDependsOn());\n\t\t\tsetAutowireCandidate(originalAbd.isAutowireCandidate());\n\t\t\tsetPrimary(originalAbd.isPrimary());\n\t\t\tcopyQualifiersFrom(originalAbd);\n\t\t\tsetInstanceSupplier(originalAbd.getInstanceSupplier());\n\t\t\tsetNonPublicAccessAllowed(originalAbd.isNonPublicAccessAllowed());\n\t\t\tsetLenientConstructorResolution(originalAbd.isLenientConstructorResolution());\n\t\t\tsetInitMethodName(originalAbd.getInitMethodName());\n\t\t\tsetEnforceInitMethod(originalAbd.isEnforceInitMethod());\n\t\t\tsetDestroyMethodName(originalAbd.getDestroyMethodName());\n\t\t\tsetEnforceDestroyMethod(originalAbd.isEnforceDestroyMethod());\n\t\t\tsetSynthetic(originalAbd.isSynthetic());\n\t\t\tsetResource(originalAbd.getResource());\n\t\t}\n\t\telse { \n\t\t\tsetConstructorArgumentValues(new ConstructorArgumentValues(original.getConstructorArgumentValues()));\n\t\t\tsetPropertyValues(new MutablePropertyValues(original.getPropertyValues()));\n\t\t\tsetResourceDescription(original.getResourceDescription());\n\t\t}\n\t}\n\n\n\t/**\n\t * Override settings in this bean definition (presumably a copied parent\n\t * from a parent-child inheritance relationship) from the given bean\n\t * definition (presumably the child).\n\t * \n\t * 本方法的一个主要用途是用在根据bean定义之间的父子关系生成最终merged的孩子bean定义对象:\n\t * 此时先使用双亲bean定义生成一个RootBeanDefinition,然后调用该RootBeanDefinition\n\t * 对象的overrideFrom(other)方法，这里other就是child bean定义，然后这个RootBeanDefinition\n\t * 就是一个继承自双亲bean定义又符合原始child bean定义的一个最终被使用的BeanDefinition了。\n\t * \n\t * 1. Will override beanClass if specified in the given bean definition.\n\t *\n\t * 2. Will always take abstract, scope,lazyInit, autowireMode, dependencyCheck,\n\t * and dependsOn from the given bean definition.\n\t *\n\t * 3. Will add constructorArgumentValues, propertyValues,\n\t * methodOverrides from the given bean definition to existing ones.\n\t *\n\t * 4. Will override factoryBeanName, factoryMethodName,initMethodName, \n\t * and destroyMethodName if specified in the given bean definition.\n\t * \n\t */\n\tpublic void overrideFrom(BeanDefinition other) { \n\t\tif (StringUtils.hasLength(other.getBeanClassName())) { \n\t\t\tsetBeanClassName(other.getBeanClassName());\n\t\t}\n\t\tif (StringUtils.hasLength(other.getScope())) { \n\t\t\tsetScope(other.getScope());\n\t\t}\n\t\tsetAbstract(other.isAbstract());\n\t\tsetLazyInit(other.isLazyInit());\n\t\tif (StringUtils.hasLength(other.getFactoryBeanName())) { \n\t\t\tsetFactoryBeanName(other.getFactoryBeanName());\n\t\t}\n\t\tif (StringUtils.hasLength(other.getFactoryMethodName())) { \n\t\t\tsetFactoryMethodName(other.getFactoryMethodName());\n\t\t}\n\t\tsetRole(other.getRole());\n\t\tsetSource(other.getSource());\n\t\tcopyAttributesFrom(other);\n\n\t\tif (other instanceof AbstractBeanDefinition) { \n\t\t\tAbstractBeanDefinition otherAbd = (AbstractBeanDefinition) other;\n\t\t\tif (otherAbd.hasBeanClass()) { \n\t\t\t\tsetBeanClass(otherAbd.getBeanClass());\n\t\t\t}\n\t\t\tif (otherAbd.hasConstructorArgumentValues()) { \n\t\t\t\tgetConstructorArgumentValues().addArgumentValues(other.getConstructorArgumentValues());\n\t\t\t}\n\t\t\tif (otherAbd.hasPropertyValues()) { \n\t\t\t\tgetPropertyValues().addPropertyValues(other.getPropertyValues());\n\t\t\t}\n\t\t\tif (otherAbd.hasMethodOverrides()) { \n\t\t\t\tgetMethodOverrides().addOverrides(otherAbd.getMethodOverrides());\n\t\t\t}\n\t\t\tsetAutowireMode(otherAbd.getAutowireMode());\n\t\t\tsetDependencyCheck(otherAbd.getDependencyCheck());\n\t\t\tsetDependsOn(otherAbd.getDependsOn());\n\t\t\tsetAutowireCandidate(otherAbd.isAutowireCandidate());\n\t\t\tsetPrimary(otherAbd.isPrimary());\n\t\t\tcopyQualifiersFrom(otherAbd);\n\t\t\tsetInstanceSupplier(otherAbd.getInstanceSupplier());\n\t\t\tsetNonPublicAccessAllowed(otherAbd.isNonPublicAccessAllowed());\n\t\t\tsetLenientConstructorResolution(otherAbd.isLenientConstructorResolution());\n\t\t\tif (otherAbd.getInitMethodName() != null) { \n\t\t\t\tsetInitMethodName(otherAbd.getInitMethodName());\n\t\t\t\tsetEnforceInitMethod(otherAbd.isEnforceInitMethod());\n\t\t\t}\n\t\t\tif (otherAbd.getDestroyMethodName() != null) { \n\t\t\t\tsetDestroyMethodName(otherAbd.getDestroyMethodName());\n\t\t\t\tsetEnforceDestroyMethod(otherAbd.isEnforceDestroyMethod());\n\t\t\t}\n\t\t\tsetSynthetic(otherAbd.isSynthetic());\n\t\t\tsetResource(otherAbd.getResource());\n\t\t}\n\t\telse { \n\t\t\tgetConstructorArgumentValues().addArgumentValues(other.getConstructorArgumentValues());\n\t\t\tgetPropertyValues().addPropertyValues(other.getPropertyValues());\n\t\t\tsetResourceDescription(other.getResourceDescription());\n\t\t}\n\t}\n\n\t/**\n\t * Apply the provided default values to this bean.\n\t * 使用缺省值定义进行当前bean定义的初始化   \n\t * @param defaults the defaults to apply\n\t */\n\tpublic void applyDefaults(BeanDefinitionDefaults defaults) { \n\t\tsetLazyInit(defaults.isLazyInit());\n\t\tsetAutowireMode(defaults.getAutowireMode());\n\t\tsetDependencyCheck(defaults.getDependencyCheck());\n\t\tsetInitMethodName(defaults.getInitMethodName());\n\t\tsetEnforceInitMethod(false);\n\t\tsetDestroyMethodName(defaults.getDestroyMethodName());\n\t\tsetEnforceDestroyMethod(false);\n\t}\n\n\n\t/**\n\t * Specify the bean class name of this bean definition.\n\t */\n\t@Override\n\tpublic void setBeanClassName(@Nullable String beanClassName) { \n\t\tthis.beanClass = beanClassName;\n\t}\n\n\t/**\n\t * Return the current bean class name of this bean definition.\n\t */\n\t@Override\n\t@Nullable\n\tpublic String getBeanClassName() { \n\t\tObject beanClassObject = this.beanClass;\n\t\tif (beanClassObject instanceof Class) { \n\t\t\treturn ((Class\u003c?\u003e) beanClassObject).getName();\n\t\t}\n\t\telse { \n\t\t\treturn (String) beanClassObject;\n\t\t}\n\t}\n\n\t/**\n\t * Specify the class for this bean.\n\t */\n\tpublic void setBeanClass(@Nullable Class\u003c?\u003e beanClass) { \n\t\tthis.beanClass = beanClass;\n\t}\n\n\t/**\n\t * Return the class of the wrapped bean, if already resolved.\n\t * @return the bean class, or  null if none defined\n\t * @throws IllegalStateException if the bean definition does not define a bean class,\n\t * or a specified bean class name has not been resolved into an actual Class\n\t */\n\tpublic Class\u003c?\u003e getBeanClass() throws IllegalStateException { \n\t\tObject beanClassObject = this.beanClass;\n\t\tif (beanClassObject == null) { \n\t\t\tthrow new IllegalStateException(\"No bean class specified on bean definition\");\n\t\t}\n\t\tif (!(beanClassObject instanceof Class)) { \n\t\t\tthrow new IllegalStateException(\n\t\t\t\t\t\"Bean class name [\" + beanClassObject + \"] has not been resolved into an actual Class\");\n\t\t}\n\t\treturn (Class\u003c?\u003e) beanClassObject;\n\t}\n\n\t/**\n\t * Return whether this definition specifies a bean class.\n\t */\n\tpublic boolean hasBeanClass() { \n\t\treturn (this.beanClass instanceof Class);\n\t}\n\n\t/**\n\t * Determine the class of the wrapped bean, resolving it from a\n\t * specified class name if necessary. Will also reload a specified\n\t * Class from its name when called with the bean class already resolved.\n\t * @param classLoader the ClassLoader to use for resolving a (potential) class name\n\t * @return the resolved bean class\n\t * @throws ClassNotFoundException if the class name could be resolved\n\t */\n\t@Nullable\n\tpublic Class\u003c?\u003e resolveBeanClass(@Nullable ClassLoader classLoader) throws ClassNotFoundException { \n\t\tString className = getBeanClassName();\n\t\tif (className == null) { \n\t\t\treturn null;\n\t\t}\n\t\tClass\u003c?\u003e resolvedClass = ClassUtils.forName(className, classLoader);\n\t\tthis.beanClass = resolvedClass;\n\t\treturn resolvedClass;\n\t}\n\n\t/**\n\t * Set the name of the target scope for the bean.\n\t * The default is singleton status, although this is only applied once\n\t * a bean definition becomes active in the containing factory. A bean\n\t * definition may eventually inherit its scope from a parent bean definition.\n\t * For this reason, the default scope name is an empty string (i.e., \"\"),\n\t * with singleton status being assumed until a resolved scope is set.\n\t * @see #SCOPE_SINGLETON\n\t * @see #SCOPE_PROTOTYPE\n\t */\n\t@Override\n\tpublic void setScope(@Nullable String scope) { \n\t\tthis.scope = scope;\n\t}\n\n\t/**\n\t * Return the name of the target scope for the bean.\n\t */\n\t@Override\n\t@Nullable\n\tpublic String getScope() { \n\t\treturn this.scope;\n\t}\n\n\t/**\n\t * Return whether this a Singleton, with a single shared instance\n\t * returned from all calls. 作用域是否单例 singleton \n\t * @see #SCOPE_SINGLETON\n\t */\n\t@Override\n\tpublic boolean isSingleton() { \n\t\treturn SCOPE_SINGLETON.equals(this.scope) || SCOPE_DEFAULT.equals(this.scope);\n\t}\n\n\t/**\n\t * Return whether this a Prototype, with an independent instance\n\t * returned for each call. 作用域是否 prototype， 每次调用getBean()生成一个新的bean实例\n\t * @see #SCOPE_PROTOTYPE\n\t */\n\t@Override\n\tpublic boolean isPrototype() { \n\t\treturn SCOPE_PROTOTYPE.equals(this.scope);\n\t}\n\n\t/**\n\t * Set if this bean is \"abstract\", i.e. not meant to be instantiated itself but\n\t * rather just serving as parent for concrete child bean definitions.\n\t * \u003cp\u003eDefault is \"false\". Specify true to tell the bean factory to not try to\n\t * instantiate that particular bean in any case.\n\t */\n\tpublic void setAbstract(boolean abstractFlag) { \n\t\tthis.abstractFlag = abstractFlag;\n\t}\n\n\t/**\n\t * Return whether this bean is \"abstract\", i.e. not meant to be instantiated\n\t * itself but rather just serving as parent for concrete child bean definitions.\n\t * 是否抽象bean定义，抽象bean定义表示该bean定义不用于被实例化，而仅仅作为\n\t * 最终实现子bean定义的双亲。   \n\t */\n\t@Override\n\tpublic boolean isAbstract() { \n\t\treturn this.abstractFlag;\n\t}\n\n\t/**\n\t * Set whether this bean should be lazily initialized.\n\t * If  false, the bean will get instantiated on startup by bean\n\t * factories that perform eager initialization of singletons.\n\t */\n\t@Override\n\tpublic void setLazyInit(boolean lazyInit) { \n\t\tthis.lazyInit = lazyInit;\n\t}\n\n\t/**\n\t * Return whether this bean should be lazily initialized, i.e. not\n\t * eagerly instantiated on startup. Only applicable to a singleton bean.\n\t */\n\t@Override\n\tpublic boolean isLazyInit() { \n\t\treturn this.lazyInit;\n\t}\n\n\t/**\n\t * Set the autowire mode. This determines whether any automagical detection\n\t * and setting of bean references will happen. Default is AUTOWIRE_NO,\n\t * which means there's no autowire.\n\t * @param autowireMode the autowire mode to set.\n\t * Must be one of the constants defined in this class.\n\t * @see #AUTOWIRE_NO\n\t * @see #AUTOWIRE_BY_NAME\n\t * @see #AUTOWIRE_BY_TYPE\n\t * @see #AUTOWIRE_CONSTRUCTOR\n\t * @see #AUTOWIRE_AUTODETECT\n\t */\n\tpublic void setAutowireMode(int autowireMode) { \n\t\tthis.autowireMode = autowireMode;\n\t}\n\n\t/**\n\t * Return the autowire mode as specified in the bean definition.\n\t */\n\tpublic int getAutowireMode() { \n\t\treturn this.autowireMode;\n\t}\n\n\t/**\n\t * Return the resolved autowire code,\n\t * (resolving AUTOWIRE_AUTODETECT to AUTOWIRE_CONSTRUCTOR or AUTOWIRE_BY_TYPE).\n\t * @see #AUTOWIRE_AUTODETECT\n\t * @see #AUTOWIRE_CONSTRUCTOR\n\t * @see #AUTOWIRE_BY_TYPE\n\t */\n\tpublic int getResolvedAutowireMode() { \n\t\tif (this.autowireMode == AUTOWIRE_AUTODETECT) { \n\t\t\t// Work out whether to apply setter autowiring or constructor autowiring.\n\t\t\t// If it has a no-arg constructor it's deemed to be setter autowiring,\n\t\t\t// otherwise we'll try constructor autowiring.\n\t\t\tConstructor\u003c?\u003e[] constructors = getBeanClass().getConstructors();\n\t\t\tfor (Constructor\u003c?\u003e constructor : constructors) { \n\t\t\t\tif (constructor.getParameterCount() == 0) { \n\t\t\t\t\treturn AUTOWIRE_BY_TYPE;\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn AUTOWIRE_CONSTRUCTOR;\n\t\t}\n\t\telse { \n\t\t\treturn this.autowireMode;\n\t\t}\n\t}\n\n\t/**\n\t * Set the dependency check code.\n\t * @param dependencyCheck the code to set.\n\t * Must be one of the four constants defined in this class.\n\t * @see #DEPENDENCY_CHECK_NONE\n\t * @see #DEPENDENCY_CHECK_OBJECTS\n\t * @see #DEPENDENCY_CHECK_SIMPLE\n\t * @see #DEPENDENCY_CHECK_ALL\n\t */\n\tpublic void setDependencyCheck(int dependencyCheck) { \n\t\tthis.dependencyCheck = dependencyCheck;\n\t}\n\n\t/**\n\t * Return the dependency check code.\n\t */\n\tpublic int getDependencyCheck() { \n\t\treturn this.dependencyCheck;\n\t}\n\n\t/**\n\t * Set the names of the beans that this bean depends on being initialized.\n\t * The bean factory will guarantee that these beans get initialized first.\n\t * \u003cp\u003eNote that dependencies are normally expressed through bean properties or\n\t * constructor arguments. This property should just be necessary for other kinds\n\t * of dependencies like statics (*ugh*) or database preparation on startup.\n\t */\n\t@Override\n\tpublic void setDependsOn(@Nullable String... dependsOn) { \n\t\tthis.dependsOn = dependsOn;\n\t}\n\n\t/**\n\t * Return the bean names that this bean depends on.\n\t */\n\t@Override\n\t@Nullable\n\tpublic String[] getDependsOn() { \n\t\treturn this.dependsOn;\n\t}\n\n\t/**\n\t * Set whether this bean is a candidate for getting autowired into some other bean.\n\t * \u003cp\u003eNote that this flag is designed to only affect type-based autowiring.\n\t * It does not affect explicit references by name, which will get resolved even\n\t * if the specified bean is not marked as an autowire candidate. As a consequence,\n\t * autowiring by name will nevertheless inject a bean if the name matches.\n\t * @see #AUTOWIRE_BY_TYPE\n\t * @see #AUTOWIRE_BY_NAME\n\t */\n\t@Override\n\tpublic void setAutowireCandidate(boolean autowireCandidate) { \n\t\tthis.autowireCandidate = autowireCandidate;\n\t}\n\n\t/**\n\t * Return whether this bean is a candidate for getting autowired into some other bean.\n\t */\n\t@Override\n\tpublic boolean isAutowireCandidate() { \n\t\treturn this.autowireCandidate;\n\t}\n\n\t/**\n\t * Set whether this bean is a primary autowire candidate.\n\t * \u003cp\u003eIf this value is  true for exactly one bean among multiple\n\t * matching candidates, it will serve as a tie-breaker.\n\t */\n\t@Override\n\tpublic void setPrimary(boolean primary) { \n\t\tthis.primary = primary;\n\t}\n\n\t/**\n\t * Return whether this bean is a primary autowire candidate.\n\t */\n\t@Override\n\tpublic boolean isPrimary() { \n\t\treturn this.primary;\n\t}\n\n\t/**\n\t * Register a qualifier to be used for autowire candidate resolution,\n\t * keyed by the qualifier's type name.\n\t * @see AutowireCandidateQualifier#getTypeName()\n\t */\n\tpublic void addQualifier(AutowireCandidateQualifier qualifier) { \n\t\tthis.qualifiers.put(qualifier.getTypeName(), qualifier);\n\t}\n\n\t/**\n\t * Return whether this bean has the specified qualifier.\n\t */\n\tpublic boolean hasQualifier(String typeName) { \n\t\treturn this.qualifiers.keySet().contains(typeName);\n\t}\n\n\t/**\n\t * Return the qualifier mapped to the provided type name.\n\t */\n\t@Nullable\n\tpublic AutowireCandidateQualifier getQualifier(String typeName) { \n\t\treturn this.qualifiers.get(typeName);\n\t}\n\n\t/**\n\t * Return all registered qualifiers.\n\t * @return the Set of  AutowireCandidateQualifier objects.\n\t */\n\tpublic Set\u003cAutowireCandidateQualifier\u003e getQualifiers() { \n\t\treturn new LinkedHashSet\u003c\u003e(this.qualifiers.values());\n\t}\n\n\t/**\n\t * Copy the qualifiers from the supplied AbstractBeanDefinition to this bean definition.\n\t * @param source the AbstractBeanDefinition to copy from\n\t */\n\tpublic void copyQualifiersFrom(AbstractBeanDefinition source) { \n\t\tAssert.notNull(source, \"Source must not be null\");\n\t\tthis.qualifiers.putAll(source.qualifiers);\n\t}\n\n\t/**\n\t * Specify a callback for creating an instance of the bean,\n\t * as an alternative to a declaratively specified factory method.\n\t * If such a callback is set, it will override any other constructor\n\t * or factory method metadata. However, bean property population and\n\t * potential annotation-driven injection will still apply as usual.\n\t * @since 5.0\n\t * @see #setConstructorArgumentValues(ConstructorArgumentValues)\n\t * @see #setPropertyValues(MutablePropertyValues)\n\t */\n\tpublic void setInstanceSupplier(@Nullable Supplier\u003c?\u003e instanceSupplier) { \n\t\tthis.instanceSupplier = instanceSupplier;\n\t}\n\n\t/**\n\t * Return a callback for creating an instance of the bean, if any.\n\t * @since 5.0\n\t */\n\t@Nullable\n\tpublic Supplier\u003c?\u003e getInstanceSupplier() { \n\t\treturn this.instanceSupplier;\n\t}\n\n\t/**\n\t * Specify whether to allow access to non-public constructors and methods,\n\t * for the case of externalized metadata pointing to those. The default is\n\t * true; switch this to  false for public access only.\n\t * This applies to constructor resolution, factory method resolution,\n\t * and also init/destroy methods. Bean property accessors have to be public\n\t * in any case and are not affected by this setting.\n\t * Note that annotation-driven configuration will still access non-public\n\t * members as far as they have been annotated. This setting applies to\n\t * externalized metadata in this bean definition only.\n\t */\n\tpublic void setNonPublicAccessAllowed(boolean nonPublicAccessAllowed) { \n\t\tthis.nonPublicAccessAllowed = nonPublicAccessAllowed;\n\t}\n\n\t/**\n\t * Return whether to allow access to non-public constructors and methods.\n\t */\n\tpublic boolean isNonPublicAccessAllowed() { \n\t\treturn this.nonPublicAccessAllowed;\n\t}\n\n\t/**\n\t * Specify whether to resolve constructors in lenient mode ( true,\n\t * which is the default) or to switch to strict resolution (throwing an exception\n\t * in case of ambiguous constructors that all match when converting the arguments,\n\t * whereas lenient mode would use the one with the 'closest' type matches).\n\t */\n\tpublic void setLenientConstructorResolution(boolean lenientConstructorResolution) { \n\t\tthis.lenientConstructorResolution = lenientConstructorResolution;\n\t}\n\n\t/**\n\t * Return whether to resolve constructors in lenient mode or in strict mode.\n\t */\n\tpublic boolean isLenientConstructorResolution() { \n\t\treturn this.lenientConstructorResolution;\n\t}\n\n\t/**\n\t * Specify the factory bean to use, if any.\n\t * This the name of the bean to call the specified factory method on.\n\t * @see #setFactoryMethodName\n\t */\n\t@Override\n\tpublic void setFactoryBeanName(@Nullable String factoryBeanName) { \n\t\tthis.factoryBeanName = factoryBeanName;\n\t}\n\n\t/**\n\t * Return the factory bean name, if any.\n\t */\n\t@Override\n\t@Nullable\n\tpublic String getFactoryBeanName() { \n\t\treturn this.factoryBeanName;\n\t}\n\n\t/**\n\t * Specify a factory method, if any. This method will be invoked with\n\t * constructor arguments, or with no arguments if none are specified.\n\t * The method will be invoked on the specified factory bean, if any,\n\t * or otherwise as a static method on the local bean class.\n\t * @see #setFactoryBeanName\n\t * @see #setBeanClassName\n\t */\n\t@Override\n\tpublic void setFactoryMethodName(@Nullable String factoryMethodName) { \n\t\tthis.factoryMethodName = factoryMethodName;\n\t}\n\n\t/**\n\t * Return a factory method, if any.\n\t */\n\t@Override\n\t@Nullable\n\tpublic String getFactoryMethodName() { \n\t\treturn this.factoryMethodName;\n\t}\n\n\t/**\n\t * Specify constructor argument values for this bean.\n\t */\n\tpublic void setConstructorArgumentValues(ConstructorArgumentValues constructorArgumentValues) { \n\t\tthis.constructorArgumentValues = constructorArgumentValues;\n\t}\n\n\t/**\n\t * Return constructor argument values for this bean (never  null).\n\t */\n\t@Override\n\tpublic ConstructorArgumentValues getConstructorArgumentValues() { \n\t\tif (this.constructorArgumentValues == null) { \n\t\t\tthis.constructorArgumentValues = new ConstructorArgumentValues();\n\t\t}\n\t\treturn this.constructorArgumentValues;\n\t}\n\n\t/**\n\t * Return if there are constructor argument values defined for this bean.\n\t */\n\t@Override\n\tpublic boolean hasConstructorArgumentValues() { \n\t\treturn (this.constructorArgumentValues != null \u0026\u0026 !this.constructorArgumentValues.isEmpty());\n\t}\n\n\t/**\n\t * Specify property values for this bean, if any.\n\t */\n\tpublic void setPropertyValues(MutablePropertyValues propertyValues) { \n\t\tthis.propertyValues = propertyValues;\n\t}\n\n\t/**\n\t * Return property values for this bean (never  null).\n\t */\n\t@Override\n\tpublic MutablePropertyValues getPropertyValues() { \n\t\tif (this.propertyValues == null) { \n\t\t\tthis.propertyValues = new MutablePropertyValues();\n\t\t}\n\t\treturn this.propertyValues;\n\t}\n\n\t/**\n\t * Return if there are property values values defined for this bean.\n\t * @since 5.0.2\n\t */\n\t@Override\n\tpublic boolean hasPropertyValues() { \n\t\treturn (this.propertyValues != null \u0026\u0026 !this.propertyValues.isEmpty());\n\t}\n\n\t/**\n\t * Specify method overrides for the bean, if any.\n\t */\n\tpublic void setMethodOverrides(MethodOverrides methodOverrides) { \n\t\tthis.methodOverrides = methodOverrides;\n\t}\n\n\t/**\n\t * Return information about methods to be overridden by the IoC\n\t * container. This will be empty if there are no method overrides.\n\t * \u003cp\u003eNever returns  null.\n\t */\n\tpublic MethodOverrides getMethodOverrides() { \n\t\tif (this.methodOverrides == null) { \n\t\t\tthis.methodOverrides = new MethodOverrides();\n\t\t}\n\t\treturn this.methodOverrides;\n\t}\n\n\t/**\n\t * Return if there are method overrides defined for this bean.\n\t * @since 5.0.2\n\t */\n\tpublic boolean hasMethodOverrides() { \n\t\treturn (this.methodOverrides != null \u0026\u0026 !this.methodOverrides.isEmpty());\n\t}\n\n\t/**\n\t * Set the name of the initializer method.\n\t * \u003cp\u003eThe default is null in which case there is no initializer method.\n\t */\n\t@Override\n\tpublic void setInitMethodName(@Nullable String initMethodName) { \n\t\tthis.initMethodName = initMethodName;\n\t}\n\n\t/**\n\t * Return the name of the initializer method.\n\t */\n\t@Override\n\t@Nullable\n\tpublic String getInitMethodName() { \n\t\treturn this.initMethodName;\n\t}\n\n\t/**\n\t * Specify whether or not the configured init method is the default.\n\t * The default value is false.\n\t * @see #setInitMethodName\n\t */\n\tpublic void setEnforceInitMethod(boolean enforceInitMethod) { \n\t\tthis.enforceInitMethod = enforceInitMethod;\n\t}\n\n\t/**\n\t * Indicate whether the configured init method is the default.\n\t * @see #getInitMethodName()\n\t */\n\tpublic boolean isEnforceInitMethod() { \n\t\treturn this.enforceInitMethod;\n\t}\n\n\t/**\n\t * Set the name of the destroy method.\n\t * The default is null in which case there is no destroy method.\n\t */\n\t@Override\n\tpublic void setDestroyMethodName(@Nullable String destroyMethodName) { \n\t\tthis.destroyMethodName = destroyMethodName;\n\t}\n\n\t/**\n\t * Return the name of the destroy method.\n\t */\n\t@Override\n\t@Nullable\n\tpublic String getDestroyMethodName() { \n\t\treturn this.destroyMethodName;\n\t}\n\n\t/**\n\t * Specify whether or not the configured destroy method is the default.\n\t * The default value is false.\n\t * @see #setDestroyMethodName\n\t */\n\tpublic void setEnforceDestroyMethod(boolean enforceDestroyMethod) { \n\t\tthis.enforceDestroyMethod = enforceDestroyMethod;\n\t}\n\n\t/**\n\t * Indicate whether the configured destroy method is the default.\n\t * @see #getDestroyMethodName\n\t */\n\tpublic boolean isEnforceDestroyMethod() { \n\t\treturn this.enforceDestroyMethod;\n\t}\n\n\t/**\n\t * Set whether this bean definition is 'synthetic', that is, not defined\n\t * by the application itself (for example, an infrastructure bean such\n\t * as a helper for auto-proxying, created through \u003caop:config\u003e).\n\t */\n\tpublic void setSynthetic(boolean synthetic) { \n\t\tthis.synthetic = synthetic;\n\t}\n\n\t/**\n\t * Return whether this bean definition is 'synthetic', that is,\n\t * not defined by the application itself.\n\t */\n\tpublic boolean isSynthetic() { \n\t\treturn this.synthetic;\n\t}\n\n\t/**\n\t * Set the role hint for this BeanDefinition.\n\t */\n\t@Override\n\tpublic void setRole(int role) { \n\t\tthis.role = role;\n\t}\n\n\t/**\n\t * Return the role hint for this BeanDefinition.\n\t */\n\t@Override\n\tpublic int getRole() { \n\t\treturn this.role;\n\t}\n\n\t/**\n\t * Set a human-readable description of this bean definition.\n\t */\n\t@Override\n\tpublic void setDescription(@Nullable String description) { \n\t\tthis.description = description;\n\t}\n\n\t/**\n\t * Return a human-readable description of this bean definition.\n\t */\n\t@Override\n\t@Nullable\n\tpublic String getDescription() { \n\t\treturn this.description;\n\t}\n\n\t/**\n\t * Set the resource that this bean definition came from\n\t * (for the purpose of showing context in case of errors).\n\t */\n\tpublic void setResource(@Nullable Resource resource) { \n\t\tthis.resource = resource;\n\t}\n\n\t/**\n\t * Return the resource that this bean definition came from.\n\t */\n\t@Nullable\n\tpublic Resource getResource() { \n\t\treturn this.resource;\n\t}\n\n\t/**\n\t * Set a description of the resource that this bean definition\n\t * came from (for the purpose of showing context in case of errors).\n\t */\n\tpublic void setResourceDescription(@Nullable String resourceDescription) { \n\t\tthis.resource = (resourceDescription != null ? new DescriptiveResource(resourceDescription) : null);\n\t}\n\n\t/**\n\t * Return a description of the resource that this bean definition\n\t * came from (for the purpose of showing context in case of errors).\n\t */\n\t@Override\n\t@Nullable\n\tpublic String getResourceDescription() { \n\t\treturn (this.resource != null ? this.resource.getDescription() : null);\n\t}\n\n\t/**\n\t * Set the originating (e.g. decorated) BeanDefinition, if any.\n\t */\n\tpublic void setOriginatingBeanDefinition(BeanDefinition originatingBd) { \n\t\tthis.resource = new BeanDefinitionResource(originatingBd);\n\t}\n\n\t/**\n\t * Return the originating BeanDefinition, or null if none.\n\t * Allows for retrieving the decorated bean definition, if any.\n\t * Note that this method returns the immediate originator. Iterate through the\n\t * originator chain to find the original BeanDefinition as defined by the user.\n\t */\n\t@Override\n\t@Nullable\n\tpublic BeanDefinition getOriginatingBeanDefinition() { \n\t\treturn (this.resource instanceof BeanDefinitionResource ?\n\t\t\t\t((BeanDefinitionResource) this.resource).getBeanDefinition() : null);\n\t}\n\n\t/**\n\t * Validate this bean definition.\n\t * @throws BeanDefinitionValidationException in case of validation failure\n\t */\n\tpublic void validate() throws BeanDefinitionValidationException { \n\t\tif (hasMethodOverrides() \u0026\u0026 getFactoryMethodName() != null) { \n\t\t\tthrow new BeanDefinitionValidationException(\n\t\t\t\t\t\"Cannot combine static factory method with method overrides: \" +\n\t\t\t\t\t\"the static factory method must create the instance\");\n\t\t}\n\n\t\tif (hasBeanClass()) { \n\t\t\tprepareMethodOverrides();\n\t\t}\n\t}\n\n\t/**\n\t * Validate and prepare the method overrides defined for this bean.\n\t * Checks for existence of a method with the specified name.\n\t * @throws BeanDefinitionValidationException in case of validation failure\n\t */\n\tpublic void prepareMethodOverrides() throws BeanDefinitionValidationException { \n\t\t// Check that lookup methods exists.\n\t\tif (hasMethodOverrides()) { \n\t\t\tSet\u003cMethodOverride\u003e overrides = getMethodOverrides().getOverrides();\n\t\t\tsynchronized (overrides) { \n\t\t\t\tfor (MethodOverride mo : overrides) { \n\t\t\t\t\tprepareMethodOverride(mo);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n\t/**\n\t * Validate and prepare the given method override.\n\t * Checks for existence of a method with the specified name,\n\t * marking it as not overloaded if none found.\n\t * @param mo the MethodOverride object to validate\n\t * @throws BeanDefinitionValidationException in case of validation failure\n\t */\n\tprotected void prepareMethodOverride(MethodOverride mo) throws BeanDefinitionValidationException { \n\t\tint count = ClassUtils.getMethodCountForName(getBeanClass(), mo.getMethodName());\n\t\tif (count == 0) { \n\t\t\tthrow new BeanDefinitionValidationException(\n\t\t\t\t\t\"Invalid method override: no method with name '\" + mo.getMethodName() +\n\t\t\t\t\t\"' on class [\" + getBeanClassName() + \"]\");\n\t\t}\n\t\telse if (count == 1) { \n\t\t\t// Mark override as not overloaded, to avoid the overhead of arg type checking.\n\t\t\tmo.setOverloaded(false);\n\t\t}\n\t}\n\n\n\t/**\n\t * Public declaration of Object's clone() method.\n\t * Delegates to #cloneBeanDefinition().\n\t * @see Object#clone()\n\t */\n\t@Override\n\tpublic Object clone() { \n\t\treturn cloneBeanDefinition();\n\t}\n\n\t/**\n\t * Clone this bean definition.\n\t * To be implemented by concrete subclasses.\n\t * @return the cloned bean definition object\n\t */\n\tpublic abstract AbstractBeanDefinition cloneBeanDefinition();\n\n\t@Override\n\tpublic boolean equals(Object other) { \n\t\tif (this == other) { \n\t\t\treturn true;\n\t\t}\n\t\tif (!(other instanceof AbstractBeanDefinition)) { \n\t\t\treturn false;\n\t\t}\n\t\tAbstractBeanDefinition that = (AbstractBeanDefinition) other;\n\t\tboolean rtn = ObjectUtils.nullSafeEquals(getBeanClassName(), that.getBeanClassName());\n\t\trtn = rtn \u0026= ObjectUtils.nullSafeEquals(this.scope, that.scope);\n\t\trtn = rtn \u0026= this.abstractFlag == that.abstractFlag;\n\t\trtn = rtn \u0026= this.lazyInit == that.lazyInit;\n\t\trtn = rtn \u0026= this.autowireMode == that.autowireMode;\n\t\trtn = rtn \u0026= this.dependencyCheck == that.dependencyCheck;\n\t\trtn = rtn \u0026= Arrays.equals(this.dependsOn, that.dependsOn);\n\t\trtn = rtn \u0026= this.autowireCandidate == that.autowireCandidate;\n\t\trtn = rtn \u0026= ObjectUtils.nullSafeEquals(this.qualifiers, that.qualifiers);\n\t\trtn = rtn \u0026= this.primary == that.primary;\n\t\trtn = rtn \u0026= this.nonPublicAccessAllowed == that.nonPublicAccessAllowed;\n\t\trtn = rtn \u0026= this.lenientConstructorResolution == that.lenientConstructorResolution;\n\t\trtn = rtn \u0026= ObjectUtils.nullSafeEquals(this.constructorArgumentValues, that.constructorArgumentValues);\n\t\trtn = rtn \u0026= ObjectUtils.nullSafeEquals(this.propertyValues, that.propertyValues);\n\t\trtn = rtn \u0026= ObjectUtils.nullSafeEquals(this.methodOverrides, that.methodOverrides);\n\t\trtn = rtn \u0026= ObjectUtils.nullSafeEquals(this.factoryBeanName, that.factoryBeanName);\n\t\trtn = rtn \u0026= ObjectUtils.nullSafeEquals(this.factoryMethodName, that.factoryMethodName);\n\t\trtn = rtn \u0026= ObjectUtils.nullSafeEquals(this.initMethodName, that.initMethodName);\n\t\trtn = rtn \u0026= this.enforceInitMethod == that.enforceInitMethod;\n\t\trtn = rtn \u0026= ObjectUtils.nullSafeEquals(this.destroyMethodName, that.destroyMethodName);\n\t\trtn = rtn \u0026= this.enforceDestroyMethod == that.enforceDestroyMethod;\n\t\trtn = rtn \u0026= this.synthetic == that.synthetic;\n\t\trtn = rtn \u0026= this.role == that.role;\n\t\treturn rtn \u0026\u0026 super.equals(other);\n\t}\n\n\t@Override\n\tpublic int hashCode() { \n\t\tint hashCode = ObjectUtils.nullSafeHashCode(getBeanClassName());\n\t\thashCode = 29 * hashCode + ObjectUtils.nullSafeHashCode(this.scope);\n\t\thashCode = 29 * hashCode + ObjectUtils.nullSafeHashCode(this.constructorArgumentValues);\n\t\thashCode = 29 * hashCode + ObjectUtils.nullSafeHashCode(this.propertyValues);\n\t\thashCode = 29 * hashCode + ObjectUtils.nullSafeHashCode(this.factoryBeanName);\n\t\thashCode = 29 * hashCode + ObjectUtils.nullSafeHashCode(this.factoryMethodName);\n\t\thashCode = 29 * hashCode + super.hashCode();\n\t\treturn hashCode;\n\t}\n\n\t@Override\n\tpublic String toString() { \n\t\tStringBuilder sb = new StringBuilder(\"class [\");\n\t\tsb.append(getBeanClassName()).append(\"]\");\n\t\tsb.append(\"; scope=\").append(this.scope);\n\t\tsb.append(\"; abstract=\").append(this.abstractFlag);\n\t\tsb.append(\"; lazyInit=\").append(this.lazyInit);\n\t\tsb.append(\"; autowireMode=\").append(this.autowireMode);\n\t\tsb.append(\"; dependencyCheck=\").append(this.dependencyCheck);\n\t\tsb.append(\"; autowireCandidate=\").append(this.autowireCandidate);\n\t\tsb.append(\"; primary=\").append(this.primary);\n\t\tsb.append(\"; factoryBeanName=\").append(this.factoryBeanName);\n\t\tsb.append(\"; factoryMethodName=\").append(this.factoryMethodName);\n\t\tsb.append(\"; initMethodName=\").append(this.initMethodName);\n\t\tsb.append(\"; destroyMethodName=\").append(this.destroyMethodName);\n\t\tif (this.resource != null) { \n\t\t\tsb.append(\"; defined in \").append(this.resource.getDescription());\n\t\t}\n\t\treturn sb.toString();\n\t}\n\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331180236-o6l433k",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331180236-o6l433k",
+				"updated": "20230331180236"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "相关文章"
+				}
+			]
+		},
+		{
+			"ID": "20230331180236-ea2o3ra",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331180236-ea2o3ra",
+				"updated": "20230331180236"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/andy_zhang2007/article/details/85381148",
+					"TextMarkTextContent": "Spring的bean定义 1 : 基础建模–接口BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/andy_zhang2007/article/details/85413055",
+					"TextMarkTextContent": "Spring的bean定义 2 : 通用bean定义逻辑 – AbstractBeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/andy_zhang2007/article/details/85421417",
+					"TextMarkTextContent": "Spring的bean定义 3 : BeanDefinition实现类例子演示"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/andy_zhang2007/article/details/86514320",
+					"TextMarkTextContent": "Spring的bean定义 4 : 合并了的bean定义–MergedBeanDefinition"
+				}
+			]
+		}
+	]
+}

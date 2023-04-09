@@ -1,0 +1,1303 @@
+{
+	"ID": "20230330100150-sxasupb",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230330100150-sxasupb",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230330100202-gndrt92\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230330101024-ditm8vm\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230330101024-ditm8vm\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "概念",
+		"updated": "20230402210205"
+	},
+	"Children": [
+		{
+			"ID": "20230330100202-gndrt92",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100202-gndrt92",
+				"updated": "20230330100214"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				}
+			]
+		},
+		{
+			"ID": "20230330100244-10ee4sj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230330100244-10ee4sj",
+				"updated": "20230330100244"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ – "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E6%A1%86%E6%9E%B6\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "框架"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "留给使用者实现应用业务的概念"
+				}
+			]
+		},
+		{
+			"ID": "20230330100248-3f9ocfl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100248-3f9ocfl",
+				"updated": "20230330100648"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以是任何"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "POJO"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类型，通常指运行时的某个对象。从使用者角度讲，被"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Spring"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​容器管理的对象通常都是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，而且一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​一般都来自某个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​定义。"
+				}
+			]
+		},
+		{
+			"ID": "20230330100248-x1wpqt6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100248-x1wpqt6",
+				"updated": "20230330100655"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​一般应用于开发人员最关注的业务逻辑，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Spring"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​框架对"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​没有相应的接口建模，换句话讲，没有要求开发人员实现某个接口才能使一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "POJO"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​成为"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​,这正是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Spring"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的从一开始就存在的优点:尽量无侵入式地简化和支持"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Java"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​开发，而非强求或者添麻烦。\n"
+				}
+			]
+		},
+		{
+			"ID": "20230330100253-hav5m3g",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230330100253-hav5m3g",
+				"updated": "20230330100253"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ – "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean定义"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230330100443-bl0jlt8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100443-bl0jlt8",
+				"updated": "20230330100636"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "开发人员或者框架自身对"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的定义的抽象建模。框架基于此定义和其他配置信息，比如"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AOP"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​配置，生成最终运行时使用的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实例。​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​定义可能来自某个开发人员或者框架的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "XML"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​配置或者注解，也可能由框架通过程序方式生成。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean定义"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​会注册到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinitionRegistry"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​用于"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实例的创建。"
+				}
+			]
+		},
+		{
+			"ID": "20230330100318-xt0m55b",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230330100318-xt0m55b",
+				"updated": "20230330100318"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ConfigurationClass"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ – "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "配置类"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230330100322-umwvfl1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100322-umwvfl1",
+				"updated": "20230330100323"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "开发人员通过使用注解"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Component"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​,"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Configuration"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​定义的类，本身会作为一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​注册到容器，这些类的主要目的是可以通过"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​注解的成员方法及其内置类定义更多的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230330100327-tl6gllg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230330100327-tl6gllg",
+				"updated": "20230330100327"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ – "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean工厂"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean容器"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230330100330-zknh5lk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100330-zknh5lk",
+				"updated": "20230330100718"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以简单地将"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​理解成"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​工厂，用于(根据"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean定义"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)生产"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实例，也可以理解为"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​容器，因为工厂所生产的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​(缺省情况下指单例"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)都会被该工厂保持一个引用清单。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Spring"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​提供了多个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实现类,比如"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DefaultListableBeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230330100715-gnq7oiv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230330100715-gnq7oiv",
+				"updated": "20230330100715"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinitionRegistry"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ – "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean定义注册表"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230330100700-pxsz714",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100700-pxsz714",
+				"updated": "20230330100727"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通常一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实现类也可以实现"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanDefinitionRegistry"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​接口。简单点讲，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​容器即是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​定义容器又是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实例容器,比如"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DefaultListableBeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230330100736-rvort3d",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230330100736-rvort3d",
+				"updated": "20230330100736"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ – "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "应用上下文"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230330100737-nphnf01",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100737-nphnf01",
+				"updated": "20230330100746"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的增强。通常可以理解为这是 : 一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​(用于管理"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​定义和"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实例) + 文本信息解析功能 + 国际化/本地化支持 + 资源加载 + 环境信息管理 + 向注册为监听器的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​发送事件等扩展功能。"
+				}
+			]
+		},
+		{
+			"ID": "20230330100748-9b7rjxs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100748-9b7rjxs",
+				"updated": "20230330100752"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一些"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Spring"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​框架自己提供的实现类有如下等等:"
+				}
+			]
+		},
+		{
+			"ID": "20230330100753-zuim93e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100753-zuim93e"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ClassPathXmlApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230330100809-hrqdgub",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100809-hrqdgub"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "FileSystemXmlApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230330100814-ezdfstn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100814-ezdfstn"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotationConfigServletWebServerApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230330100820-vvlbxs8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100820-vvlbxs8"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotationConfigReactiveWebServerApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230330100825-g7o05wh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230330100825-g7o05wh",
+				"updated": "20230330100825"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotationMetadata"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ – 注解元数据"
+				}
+			]
+		},
+		{
+			"ID": "20230330100827-btdsccc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100827-btdsccc",
+				"updated": "20230330100833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Spring"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​对于某个类上的注解的抽象建模接口。也包含了类的每个方法的元数据和注解信息"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodMetadata"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。可以这么简单的理解 :"
+				}
+			]
+		},
+		{
+			"ID": "20230330100838-9pd40x1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100838-9pd40x1",
+				"updated": "20230330100839"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotationMetadata"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ = 类本身元数据 + 类上的注解信息 + Set(每个方法的元数据 + 注解信息)"
+				}
+			]
+		},
+		{
+			"ID": "20230330100844-q7c9uje",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100844-q7c9uje",
+				"updated": "20230330100844"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里面 :"
+				}
+			]
+		},
+		{
+			"ID": "20230330100844-gpaapat",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230330100844-gpaapat",
+				"updated": "20230330100844"
+			},
+			"Children": [
+				{
+					"ID": "20230330100844-ueyo4t4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230330100844-ueyo4t4",
+						"updated": "20230330100844"
+					},
+					"Children": [
+						{
+							"ID": "20230330100844-eddc4sa",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230330100844-eddc4sa",
+								"updated": "20230330100844"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "类本身元数据的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "Spring"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​抽象建模接口是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ClassMetadata"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230330100844-tchig0w",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230330100844-tchig0w",
+						"updated": "20230330100844"
+					},
+					"Children": [
+						{
+							"ID": "20230330100844-u70r376",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230330100844-u70r376",
+								"updated": "20230330100844"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "方法的元数据 + 注解信息对应的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "Spring"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​抽象建模接口是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MethodMetadata"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230330100856-9k6cjm7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230330100856-9k6cjm7",
+				"updated": "20230330100856"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ClassMetadata"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ – 类元数据"
+				}
+			]
+		},
+		{
+			"ID": "20230330100901-656ctwl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100901-656ctwl",
+				"updated": "20230330100901"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Spring"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​对类本身元数据的抽象建模接口。类名称，是否是一个接口，是否是一个注解，是否为抽象类，是否实现类("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "concrete"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)，是否"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "final"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，是否被另外一个类包含(嵌套类的情况)，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "super"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类信息，所实现的接口的信息，内嵌类的信息。"
+				}
+			]
+		},
+		{
+			"ID": "20230330100906-r6nru7x",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230330100906-r6nru7x",
+				"updated": "20230330100906"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodMetadata"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ – 方法元数据"
+				}
+			]
+		},
+		{
+			"ID": "20230330100910-0lx3l6y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330100910-0lx3l6y",
+				"updated": "20230330100910"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Spring"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​对某个方法元数据的抽象建模接口。包含方法名称，方法所属声明类，返回类型，是否抽象方法，是否"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "final"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​,是否静态函数,是否可以重载等方法基本信息。以及方法上的注解的信息。"
+				}
+			]
+		},
+		{
+			"ID": "20230330100914-to9qk6y",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230330100914-to9qk6y",
+				"updated": "20230330100914"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InjectionMetadata"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​/"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InjectedElement"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ – 注入元数据/注入元素"
+				}
+			]
+		},
+		{
+			"ID": "20230330101008-38dz6iy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330101008-38dz6iy",
+				"updated": "20230330101034"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Spring"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​内部对注入元数据的抽象建模，不用于应用开发。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InjectionMetadata"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​表示针对某个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类的注入元数据，是若干个注入元素"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InjectedElement"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的集合，每个注入元素"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InjectedElement"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​对应一个实例成员属性，方法或者构造函数。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InjectionMetadata"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​/"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InjectedElement"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​被​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AutowiredAnnotationBeanPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​/"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "CommonAnnotationBeanPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​/"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PersistenceAnnotationBeanPostProcessor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​用于搜集"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "bean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​定义上的注入元数据和完成注入。"
+				}
+			]
+		},
+		{
+			"ID": "20230330101024-ditm8vm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230330101024-ditm8vm"
+			}
+		}
+	]
+}

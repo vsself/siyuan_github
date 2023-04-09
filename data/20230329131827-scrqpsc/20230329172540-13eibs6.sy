@@ -1,0 +1,288 @@
+{
+	"ID": "20230329172540-13eibs6",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230329172540-13eibs6",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230329172540-7ozseqb\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230329173901-a2pshwy\u0026quot;,\u0026quot;scrollTop\u0026quot;:1764,\u0026quot;focusId\u0026quot;:\u0026quot;20230329173901-a2pshwy\u0026quot;,\u0026quot;focusStart\u0026quot;:19,\u0026quot;focusEnd\u0026quot;:19}",
+		"title": "泛型",
+		"updated": "20230329173928"
+	},
+	"Children": [
+		{
+			"ID": "20230329172540-7ozseqb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329172540-7ozseqb",
+				"updated": "20230329172706"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "泛型有三种使用方式，分别为："
+				},
+				{
+					"Type": "NodeTextMark",
+					"Properties": {
+						"style": "color: var(--b3-font-color4);"
+					},
+					"TextMarkType": "text",
+					"TextMarkTextContent": "泛型类、泛型接口、泛型方法。"
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"color: var(--b3-font-color4);\"}"
+				}
+			]
+		},
+		{
+			"ID": "20230329172706-5j5c3a4",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230329172706-5j5c3a4",
+				"updated": "20230329173605"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "泛型类"
+				}
+			]
+		},
+		{
+			"ID": "20230329173611-h6m0ixt",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329173611-h6m0ixt",
+				"updated": "20230329173614"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "class Point\u003cT\u003e{         // 此处可以随便写标识符号，T是type的简称  \n    private T var ;     // var的类型由T指定，即：由外部指定  \n    public T getVar(){  // 返回值的类型由外部决定  \n        return var ;  \n    }  \n    public void setVar(T var){  // 设置的类型也由外部决定  \n        this.var = var ;  \n    }  \n}  \npublic class GenericsDemo06{  \n    public static void main(String args[]){  \n        Point\u003cString\u003e p = new Point\u003cString\u003e() ;     // 里面的var类型为String类型  \n        p.setVar(\"it\") ;                            // 设置字符串  \n        System.out.println(p.getVar().length()) ;   // 取得字符串的长度  \n    }  \n}\n------\n著作权归@pdai所有\n原文链接：https://pdai.tech/md/java/basic/java-basic-x-generic.html\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329173616-ft89e0p",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230329173616-ft89e0p",
+				"updated": "20230329173632"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "泛型接口"
+				}
+			]
+		},
+		{
+			"ID": "20230329173634-z9lmxbl",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329173634-z9lmxbl",
+				"updated": "20230329173649"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "interface Info\u003cT\u003e{        // 在接口上定义泛型  \n    public T getVar() ; // 定义抽象方法，抽象方法的返回值就是泛型类型  \n}  \nclass InfoImpl\u003cT\u003e implements Info\u003cT\u003e{   // 定义泛型接口的子类  \n    private T var ;             // 定义属性  \n    public InfoImpl(T var){     // 通过构造方法设置属性内容  \n        this.setVar(var) ;  \n    }  \n    public void setVar(T var){  \n        this.var = var ;  \n    }  \n    public T getVar(){  \n        return this.var ;  \n    }  \n} \npublic class GenericsDemo24{  \n    public static void main(String arsg[]){  \n        Info\u003cString\u003e i = null;        // 声明接口对象  \n        i = new InfoImpl\u003cString\u003e(\"汤姆\") ;  // 通过子类实例化对象  \n        System.out.println(\"内容：\" + i.getVar()) ;  \n    }  \n} \n------\n著作权归@pdai所有\n原文链接：https://pdai.tech/md/java/basic/java-basic-x-generic.html\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329173650-r8rtcgp",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230329173650-r8rtcgp",
+				"updated": "20230329173655"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "泛型方法"
+				}
+			]
+		},
+		{
+			"ID": "20230329173703-m3tci6o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329173703-m3tci6o",
+				"updated": "20230329173703"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "java-basic-generic-4"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/java-basic-generic-4-20230329173703-89m4vad.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230329173713-9ypaj3n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329173713-9ypaj3n",
+				"updated": "20230329173720"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "调用泛型方法"
+				}
+			]
+		},
+		{
+			"ID": "20230329173709-b22e0mf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329173709-b22e0mf",
+				"updated": "20230329173709"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "java-basic-generic-5"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/java-basic-generic-5-20230329173709-2hiwyiz.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230329173727-e339mt0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230329173727-e339mt0",
+				"updated": "20230329173734"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "泛型限定"
+				}
+			]
+		},
+		{
+			"ID": "20230329173901-a2pshwy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329173901-a2pshwy",
+				"updated": "20230329173928"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?\u003e 无限制通配符\n\u003c? extends E\u003e extends 关键字声明了类型的上界，表示参数化的类型可能是所指定的类型，或者是此类型的子类\n\u003c? super E\u003e super 关键字声明了类型的下界，表示参数化的类型可能是指定的类型，或者是此类型的父类\n------\n// 使用原则《Effictive Java》\n// 为了获得最大限度的灵活性，要在表示 生产者或者消费者 的输入参数上使用通配符，使用的规则就是：生产者有上限、消费者有下限\n1. 如果参数化类型表示一个 T 的生产者，使用 \u003c ? extends T\u003e;\n2. 如果它表示一个 T 的消费者，就使用 \u003c ? super T\u003e；\n3. 如果既是生产又是消费，那使用通配符就没什么意义了，因为你需要的是精确的参数类型。\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		}
+	]
+}

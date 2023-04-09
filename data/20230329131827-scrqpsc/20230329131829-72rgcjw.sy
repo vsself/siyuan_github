@@ -1,0 +1,959 @@
+{
+	"ID": "20230329131829-72rgcjw",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230329131829-72rgcjw",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230329131842-3xpv21y\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230329131842-rc4yhqx\u0026quot;,\u0026quot;scrollTop\u0026quot;:7948,\u0026quot;focusId\u0026quot;:\u0026quot;20230329131842-rc4yhqx\u0026quot;,\u0026quot;focusStart\u0026quot;:115,\u0026quot;focusEnd\u0026quot;:115}",
+		"title": "callback 回调",
+		"updated": "20230331104024"
+	},
+	"Children": [
+		{
+			"ID": "20230329131842-3xpv21y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-3xpv21y",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "开始之前，先想象一个场景：幼稚园的小朋友刚刚学习了10以内的加法。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-eav81dl",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230329131842-eav81dl",
+				"updated": "20230329132026"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "第1章 故事的缘起"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-8hnu092",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-8hnu092",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "幼师在黑板上写一个式子 “1 + 1 = ”，由小明同学来填空。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-4rlvhua",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-4rlvhua",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于已经学习了10以内的加法，小明同学可以完全靠自己来计算这个题目，模拟该过程的代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-5d0x0e5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-5d0x0e5",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": " 1 public class Student\n 2 {\n 3     private String name = null;\n 4\n 5     public Student(String name)\n 6     {\n 7         // TODO Auto-generated constructor stub\n 8         this.name = name;\n 9     }\n10"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "11     public void setName(String name)\n12     {\n13         this.name = name;\n14     }\n15"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "16     private int calcADD(int a, int b)\n17     {\n18         return a + b;\n19     }\n20"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "21     public void fillBlank(int a, int b)\n22     {\n23         int result = calcADD(a, b);\n24         System.out.println(name + \"心算:\" + a + \" + \" + b + \" = \" + result);\n25     }\n26 }"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-p3c0h6h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-p3c0h6h",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "小明同学在填空(fillBalnk)的时候，直接心算(clacADD)了一下，得出结果是2，并将结果写在空格里。测试代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-qrfbepp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-qrfbepp",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": " 1 public class Test\n 2 {\n 3     public static void main(String[] args)\n 4     {\n 5         int a = 1;\n 6         int b = 1;\n 7         Student s = new Student(\"小明\");\n 8         s.fillBlank(a, b);\n 9     }\n10 }"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-ebvirxa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-ebvirxa",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运行结果如下："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-5nmpbxi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-5nmpbxi",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "小明心算:1 + 1 = 2\n该过程完全由Student类的实例对象单独完成，并未涉及回调机制。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-mq14t0t",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230329131842-mq14t0t",
+				"updated": "20230329132019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "第2章 幼师的找茬"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-t6ttbbo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-t6ttbbo",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "课间，幼师突发奇想在黑板上写了“168 + 291 = ”让小明完成，然后回办公室了。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-oyv2bpf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-oyv2bpf",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "花擦！为什么所有老师都跟小明过不去啊？明明超纲了好不好！这时候小明同学明显不能再像上面那样靠心算来完成了，正在懵逼的时候，班上的小红同学递过来一个只能计算加法的计算器（奸商啊）！！！！而小明同学恰好知道怎么用计算器，于是通过计算器计算得到结果并完成了填空。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-t4tx6bx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-t4tx6bx",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "计算器的代码为："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-5od62u7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-5od62u7",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1 public class Calculator\n2 {\n3     public int add(int a, int b)\n4     {\n5         return a + b;\n6     }\n7 }"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-mh0uoty",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-mh0uoty",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "修改Student类，添加使用计算器的方法："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-hzepss7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-hzepss7",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": " 1 public class Student\n 2 {\n 3     private String name = null;\n 4\n 5     public Student(String name)\n 6     {\n 7         // TODO Auto-generated constructor stub\n 8         this.name = name;\n 9     }\n10"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "11     public void setName(String name)\n12     {\n13         this.name = name;\n14     }\n15"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "16     @SuppressWarnings(\"unused\")\n17     private int calcADD(int a, int b)\n18     {\n19         return a + b;\n20     }\n21"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "22     private int useCalculator(int a, int b)\n23     {\n24         return new Calculator().add(a, b);\n25     }\n26"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "27     public void fillBlank(int a, int b)\n28     {\n29         int result = useCalculator(a, b);\n30         System.out.println(name + \"使用计算器:\" + a + \" + \" + b + \" = \" + result);\n31     }\n32 }"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-us3q9jn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-us3q9jn",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "测试代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-lsqrj64",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-lsqrj64",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": " 1 public class Test\n 2 {\n 3     public static void main(String[] args)\n 4     {\n 5         int a = 168;\n 6         int b = 291;\n 7         Student s = new Student(\"小明\");\n 8         s.fillBlank(a, b);\n 9     }\n10 }"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-k5xxfst",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-k5xxfst",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运行结果如下："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-xirn4ao",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-xirn4ao",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "小明使用计算器:168 + 291 = 459\n该过程中仍未涉及到回调机制，但是部分小明的部分工作已经实现了转移，由计算器来协助实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-jpzxzx9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230329131842-jpzxzx9",
+				"updated": "20230329132007"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "第三章 幼师回来了"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-tv22u1p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-tv22u1p",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "发现小明完成了3位数的加法，老师觉得小明很聪明，是个可塑之才。于是又在黑板上写下了“26549 + 16487 = ”，让小明上课之前完成填空，然后又回办公室了。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-0fz4unn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-0fz4unn",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "小明看着教室外面撒欢儿的小伙伴，不禁悲从中来。再不出去玩，这个课间就要废了啊！！！！ 看着小红再一次递上来的计算器，小明心生一计：让小红代劳。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-1vi3axu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-1vi3axu",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "小明告诉小红题目是“26549 + 16487 = ”，然后指出填写结果的具体位置，然后就出去快乐的玩耍了。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-alapl5n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-alapl5n",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里，不把小红单独实现出来，而是把这个只能算加法的计算器和小红看成一个整体，一个会算结果还会填空的超级计算器。这个超级计算器需要传的参数是两个加数和要填空的位置，而这些内容需要小明提前告知，也就是小明要把自己的一部分方法暴漏给小红，最简单的方法就是把自己的引用和两个加数一块告诉小红。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-9cxomyu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-9cxomyu",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因此，超级计算器的add方法应该包含两个操作数和小明自身的引用，代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-e7x0yw5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-e7x0yw5",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1 public class SuperCalculator\n2 {\n3     public void add(int a, int b, Student  xiaoming)\n4     {\n5         int result = a + b;\n6         xiaoming.fillBlank(a, b, result);\n7     }\n8 }"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-h2wj6eu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-h2wj6eu",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "小明这边现在已经不需要心算，也不需要使用计算器了，因此只需要有一个方法可以向小红寻求帮助就行了，代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-pk2gog5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-pk2gog5",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": " 1 public class Student\n 2 {\n 3     private String name = null;\n 4\n 5     public Student(String name)\n 6     {\n 7         // TODO Auto-generated constructor stub\n 8         this.name = name;\n 9     }\n10"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "11     public void setName(String name)\n12     {\n13         this.name = name;\n14     }\n15"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "16     public void callHelp (int a, int b)\n17     {\n18         new SuperCalculator().add(a, b, this);\n19     }\n20"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "21     public void fillBlank(int a, int b, int result)\n22     {\n23         System.out.println(name + \"求助小红计算:\" + a + \" + \" + b + \" = \" + result);\n24     }\n25 }"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-pb150md",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-pb150md",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "测试代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-2u7iycz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-2u7iycz",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": " 1 public class Test\n 2 {\n 3     public static void main(String[] args)\n 4     {\n 5         int a = 26549;\n 6         int b = 16487;\n 7         Student s = new Student(\"小明\");\n 8         s.callHelp(a, b);\n 9     }\n10 }"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-6k5p1fc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-6k5p1fc",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运行结果为："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-y5kq7r5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-y5kq7r5",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "小明求助小红计算:26549 + 16487 = 43036\n执行流程为：小明通过自身的callHelp方法调用了小红（new SuperCalculator()）的add方法，在调用的时候将自身的引用（this）当做参数一并传入，小红在使用计算器得出结果之后，回调了小明的fillBlank方法，将结果填在了黑板上的空格里。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-f67kbg5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-f67kbg5",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "灯灯灯！到这里，回调功能就正式登场了，小明的fillBlank方法就是我们常说的回调函数。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-6x11yaj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-6x11yaj",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通过这种方式，可以很明显的看出，对于完成老师的填空题这个任务上，小明已经不需要等待到加法做完且结果填写在黑板上才能去跟小伙伴们撒欢了，填空这个工作由超级计算器小红来做了。回调的优势已经开始体现了。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-kod63en",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230329131842-kod63en",
+				"updated": "20230329132034"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "第4章 门口的婆婆"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-kyeg5x9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-kyeg5x9",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "幼稚园的门口有一个头发花白的老婆婆，每天风雨无阻在那里摆着地摊卖一些快过期的垃圾食品。由于年纪大了，脑子有些糊涂，经常算不清楚自己挣了多少钱。有一天，她无意间听到了小明跟小伙伴们吹嘘自己如何在小红的帮助下与幼师斗智斗勇。于是，婆婆决定找到小红牌超级计算器来做自己的小帮手，并提供一包卫龙辣条作为报酬。小红经不住诱惑，答应了。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-iowenpj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-iowenpj",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "回看一下上一章的代码，我们发现小红牌超级计算器的add方法需要的参数是两个整型变量和一个Student对象，但是老婆婆她不是学生，是个小商贩啊，这里肯定要做修改。这种情况下，我们很自然的会想到继承和多态。如果让小明这个学生和老婆婆这个小商贩从一个父类进行继承，那么我们只需要给小红牌超级计算器传入一个父类的引用就可以啦。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-27xkp2o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-27xkp2o",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "不过，实际使用中，考虑到java的单继承，以及不希望把自身太多东西暴漏给别人，这里使用从接口继承的方式配合内部类来做。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-z7devt0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-z7devt0",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "换句话说，小红希望以后继续向班里的小朋友们提供计算服务，同时还能向老婆婆提供算账服务，甚至以后能够拓展其他人的业务，于是她向所有的顾客约定了一个办法，用于统一的处理，也就是自己需要的操作数和做完计算之后应该怎么做。这个统一的方法，小红做成了一个接口，提供给了大家，代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-voerdh8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-voerdh8",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1 public interface doJob\n2 {\n3     public void fillBlank(int a, int b, int result);\n4 }\n因为灵感来自帮小明填空，因此小红保留了初心，把所有业务都当做填空（fillBlank）来做。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-b559ebe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-b559ebe",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "同时，小红修改了自己的计算器，使其可以同时处理不同的实现了doJob接口的人，代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-pjmcwtc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-pjmcwtc",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1 public class SuperCalculator\n2 {\n3     public void add(int a, int b, doJob  customer)\n4     {\n5         int result = a + b;\n6         customer.fillBlank(a, b, result);\n7     }\n8 }"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-0t29jq8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-0t29jq8",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "小明和老婆婆拿到这个接口之后，只要实现了这个接口，就相当于按照统一的模式告诉小红得到结果之后的处理办法，按照之前说的使用内部类来做，代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-zogro09",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-zogro09",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "小明的："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-5wjref3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-5wjref3",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": " 1 public class Student\n 2 {\n 3     private String name = null;\n 4\n 5     public Student(String name)\n 6     {\n 7         // TODO Auto-generated constructor stub\n 8         this.name = name;\n 9     }\n10"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "11     public void setName(String name)\n12     {\n13         this.name = name;\n14     }\n15"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "16     public class doHomeWork implements doJob\n17     {\n18\n19         @Override\n20         public void fillBlank(int a, int b, int result)\n21         {\n22             // TODO Auto-generated method stub\n23             System.out.println(name + \"求助小红计算:\" + a + \" + \" + b + \" = \" + result);\n24         }\n25"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "26     }\n27"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "28     public void callHelp (int a, int b)\n29     {\n30         new SuperCalculator().add(a, b, new doHomeWork());\n31     }\n32 }"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-t9z60mn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-t9z60mn",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "老婆婆的："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-hq1qepe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-hq1qepe",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": " 1 public class Seller\n 2 {\n 3     private String name = null;\n 4\n 5     public Seller(String name)\n 6     {\n 7         // TODO Auto-generated constructor stub\n 8         this.name = name;\n 9     }\n10"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "11     public void setName(String name)\n12     {\n13         this.name = name;\n14     }\n15"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "16     public class doHomeWork implements doJob\n17     {\n18\n19         @Override\n20         public void fillBlank(int a, int b, int result)\n21         {\n22             // TODO Auto-generated method stub\n23             System.out.println(name + \"求助小红算账:\" + a + \" + \" + b + \" = \" + result + \"元\");\n24         }\n25"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "26     }\n27"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "28     public void callHelp (int a, int b)\n29     {\n30         new SuperCalculator().add(a, b, new doHomeWork());\n31     }\n32 }"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-mp95lcv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-mp95lcv",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "测试程序如下："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-24mq7vl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-24mq7vl",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": " 1 public class Test\n 2 {\n 3     public static void main(String[] args)\n 4     {\n 5         int a = 56;\n 6         int b = 31;\n 7         int c = 26497;\n 8         int d = 11256;\n 9         Student s1 = new Student(\"小明\");\n10         Seller s2 = new Seller(\"老婆婆\");\n11"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "12         s1.callHelp(a, b);\n13         s2.callHelp(c, d);\n14     }\n15 }"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-i1etrua",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-i1etrua",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运行结果如下："
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-wjmchpl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-wjmchpl",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "小明求助小红计算:56 + 31 = 87\n老婆婆求助小红算账:26497 + 11256 = 37753元\n最后的话"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-vo0bd6b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-vo0bd6b",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以很明显的看到，小红已经把这件事情当做一个事业来做了，看她给接口命的名字doJob就知道了。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-a1tewgb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-a1tewgb",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "有人也许会问，为什么老婆婆摆摊能挣那么多钱？ 你的关注点有问题好吗！！这里聊的是回调机制啊！！"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-4cj9jxl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-4cj9jxl",
+				"updated": "20230329131842"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我只知道，后来小红的业务不断扩大，终于在幼稚园毕业之前，用挣到的钱买了人生的第一套房子。"
+				}
+			]
+		},
+		{
+			"ID": "20230329131842-rc4yhqx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329131842-rc4yhqx",
+				"updated": "20230331104024"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "完！！！\n————————————————\n版权声明：本文为CSDN博主「java111112313213」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n原文链接："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/java111112313213/article/details/120267063",
+					"TextMarkTextContent": "https://blog.csdn.net/java111112313213/article/details/120267063"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,3178 @@
+{
+	"ID": "20230331090430-ktx4w9y",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331090430-ktx4w9y",
+		"title": "Spring源码分析十三：@Aspect方式的AOP中篇 - getAdvicesAndAdvisorsForBean_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331090430"
+	},
+	"Children": [
+		{
+			"ID": "20230331090430-ys10c28",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090430-ys10c28",
+				"updated": "20230331090430"
+			}
+		},
+		{
+			"ID": "20230331090430-r4uk3gd",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090430-r4uk3gd",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"ID": "20230331090430-d5if1ec",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090430-d5if1ec",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-8vwu5tq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-8vwu5tq",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107070159",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/107070159"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-yv2full",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090430-yv2full",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-8mfcmbz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-8mfcmbz",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一、前言这个方法的实现在 AbstractAdvisorAutoProxyCreator 类中。getAdvicesAndAdvisorsForBean 的作用是获取所有适用于当前Bean 的 Advisors 。因为并不是所有的规则都适用于当前bean，所有会有一个筛选的过程。这个方法的逻辑分为两步：寻找所有的顾问(Advisors) – findCandidateAdvisors寻找所有顾问(Advisors) 中适用于bean 的增强并应用 – findAdvisorsThatCanApp"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-jfltyad",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090430-jfltyad",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-vvviwut",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-vvviwut",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:04:30"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-cnc3yt0",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090430-cnc3yt0",
+				"updated": "20230331090430"
+			}
+		},
+		{
+			"ID": "20230331090430-7l0soag",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090430-7l0soag",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-yob6nop",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090430-yob6nop",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"ID": "20230331090430-s09f3s3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090430-s09f3s3",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-e5j2cxu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-e5j2cxu",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107070159#_5",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-k173slc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090430-k173slc",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-vlfjq8a",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-vlfjq8a",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107070159#Advisors__findCandidateAdvisors_70",
+									"TextMarkTextContent": "二、寻找所有Advisors - findCandidateAdvisors"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-372zyie",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090430-372zyie",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-ovgo7bd",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090430-ovgo7bd",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"ID": "20230331090430-aibafeo",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090430-aibafeo",
+										"updated": "20230331090430"
+									},
+									"Children": [
+										{
+											"ID": "20230331090430-coy4vx4",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090430-coy4vx4",
+												"updated": "20230331090430"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107070159#1__superfindCandidateAdvisors_98",
+													"TextMarkTextContent": "1. super.findCandidateAdvisors();"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090430-osb4483",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090430-osb4483",
+										"updated": "20230331090430"
+									},
+									"Children": [
+										{
+											"ID": "20230331090430-awkzbyx",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090430-awkzbyx",
+												"updated": "20230331090430"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107070159#2__thisaspectJAdvisorsBuilderbuildAspectJAdvisors_167",
+													"TextMarkTextContent": "2. this.aspectJAdvisorsBuilder.buildAspectJAdvisors()"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090430-68jx8wt",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090430-68jx8wt",
+										"updated": "20230331090430"
+									},
+									"Children": [
+										{
+											"ID": "20230331090430-hmgztvb",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331090430-hmgztvb",
+												"updated": "20230331090430"
+											},
+											"Children": [
+												{
+													"ID": "20230331090430-89y4x9o",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090430-89y4x9o",
+														"updated": "20230331090430"
+													},
+													"Children": [
+														{
+															"ID": "20230331090430-qsjjj1m",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090430-qsjjj1m",
+																"updated": "20230331090430"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107070159#21_thisadvisorFactorygetAdvisorsfactory_270",
+																	"TextMarkTextContent": "2.1. this.advisorFactory.getAdvisors(factory);"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090430-qto5np4",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090430-qto5np4",
+														"updated": "20230331090430"
+													},
+													"Children": [
+														{
+															"ID": "20230331090430-t32ly5q",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230331090430-t32ly5q",
+																"updated": "20230331090430"
+															},
+															"Children": [
+																{
+																	"ID": "20230331090430-4bh0r2r",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090430-4bh0r2r",
+																		"updated": "20230331090430"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090430-gnzx200",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090430-gnzx200",
+																				"updated": "20230331090430"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107070159#211___getPointcut_345",
+																					"TextMarkTextContent": "2.1.1. 切点信息的获取 - getPointcut"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230331090430-tn5po96",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090430-tn5po96",
+																		"updated": "20230331090430"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090430-rnuw051",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090430-rnuw051",
+																				"updated": "20230331090430"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107070159#212____InstantiationModelAwarePointcutAdvisorImpl_388",
+																					"TextMarkTextContent": "2.1.2. 根据切点信息封装成增强器 - InstantiationModelAwarePointcutAdvisorImpl"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-07wcl68",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090430-07wcl68",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-vtxrntp",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-vtxrntp",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107070159#Advisors__findAdvisorsThatCanApply_559",
+									"TextMarkTextContent": "三、筛选合适的Advisors - findAdvisorsThatCanApply"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-hf4r5qy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090430-hf4r5qy",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-tmbn0ky",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-tmbn0ky",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107070159#_686",
+									"TextMarkTextContent": "四、总结"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-ns666kk",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090430-ns666kk",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-ccdfrzl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-ccdfrzl",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是笔者阅读Spring源码的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-rkjxt84",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-rkjxt84",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "全集目录："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106440723",
+					"TextMarkTextContent": "Spring源码分析：全集整理"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-2jo3ira",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090430-2jo3ira",
+				"updated": "20230331090430"
+			}
+		},
+		{
+			"ID": "20230331090430-153dl60",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-153dl60",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文系列："
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-b4g33oc",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090430-b4g33oc",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"ID": "20230331090430-j36yixw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090430-j36yixw",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-papz7iz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-papz7iz",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106745317",
+									"TextMarkTextContent": "Spring源码分析十一：@Aspect方式的AOP上篇 - @EnableAspectJAutoProxy"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-7h86ug8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090430-7h86ug8",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-gpx06ng",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-gpx06ng",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107070159",
+									"TextMarkTextContent": "Spring源码分析十二：@Aspect方式的AOP中篇 - getAdvicesAndAdvisorsForBean"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-tjso6k8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090430-tjso6k8",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-dsesgr1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-dsesgr1",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934",
+									"TextMarkTextContent": "Spring源码分析十三：@Aspect方式的AOP下篇 - createProxy"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-94vvibh",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090430-94vvibh",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-u6qeeeg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-u6qeeeg",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/119823785",
+									"TextMarkTextContent": "Spring源码分析二十四：cglib 的代理过程"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-mla8dx3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-mla8dx3",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文衍生篇："
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-j81e5a7",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090430-j81e5a7",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"ID": "20230331090430-sgsx94s",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090430-sgsx94s",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-adl3348",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-adl3348",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984",
+									"TextMarkTextContent": "Spring 源码分析衍生篇九 ： AOP源码分析 - 基础篇"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-0w2q2cj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090430-0w2q2cj",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-4rii7xn",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-4rii7xn",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/119874208",
+									"TextMarkTextContent": "Spring 源码分析衍生篇十二 ：AOP 中的引介增强"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-gginiko",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-gginiko",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "补充篇："
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-oni2let",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090430-oni2let",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"ID": "20230331090430-uv4smoe",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090430-uv4smoe",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-nb6hz3z",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-nb6hz3z",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863",
+									"TextMarkTextContent": "Spring 源码分析补充篇三 ：Spring Aop 的关键类"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-02fw0h6",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090430-02fw0h6",
+				"updated": "20230331090430"
+			}
+		},
+		{
+			"ID": "20230331090430-6qsmyf8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-6qsmyf8",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在上篇中我们概述了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=Aop\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "Aop"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 实现的逻辑，但是由于篇幅原因，我们将一部分内容拆成了中篇和下篇内容。本篇即中篇，内容主要是讲述 ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "在 Bean创建过程中Aop 挑选适用于当前Bean的增强Advisor。准备用于代理使用"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。由于篇幅连贯性，建议看完上篇后再来看本篇内容。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-f6hhqmv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-f6hhqmv",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getAdvicesAndAdvisorsForBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAdvisorAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类中。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "getAdvicesAndAdvisorsForBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 的作用是获取所有适用于当前Bean 的 Advisors 。因为并不是所有的规则都适用于当前bean，所有会有一个筛选的过程。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-2oz251f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-2oz251f",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个方法的逻辑分为两步："
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-63r55tc",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090430-63r55tc",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"ID": "20230331090430-rpve4d9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090430-rpve4d9",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-b993ggw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-b993ggw",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "寻找所有的顾问(Advisors)， 这个方法在 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AnnotationAwareAspectJAutoProxyCreator"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中被重写了，为了可以的动态生成 Advisor – "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "findCandidateAdvisors"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-vzrwfsb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090430-vzrwfsb",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-g5te8fh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-g5te8fh",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "寻找所有顾问(Advisors) 中适用于当前 bean 的增强并应用 – "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "findAdvisorsThatCanApply"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-re3q2yk",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090430-re3q2yk",
+				"updated": "20230331090430"
+			}
+		},
+		{
+			"ID": "20230331090430-5p3c4yg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-5p3c4yg",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们来看详细代码："
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-02fyzyz",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090430-02fyzyz",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\t@Nullable\n\tprotected Object[] getAdvicesAndAdvisorsForBean(\n\t\t\tClass\u003c?\u003e beanClass, String beanName, @Nullable TargetSource targetSource) { \n\t\t// 主要逻辑还是在 findEligibleAdvisors 中完成。\n\t\tList\u003cAdvisor\u003e advisors = findEligibleAdvisors(beanClass, beanName);\n\t\t//如果没有增强点则不需要代理。\n\t\tif (advisors.isEmpty()) { \n\t\t\treturn DO_NOT_PROXY;\n\t\t}\n\t\treturn advisors.toArray();\n\t}\n\n   \t...\n\tprotected List\u003cAdvisor\u003e findEligibleAdvisors(Class\u003c?\u003e beanClass, String beanName) { \n\t\t// 1. 寻找所有的增强\n\t\tList\u003cAdvisor\u003e candidateAdvisors = findCandidateAdvisors();\n\t\t// 2. 寻找所有增强中适用于bean 的增强并应用\n\t\tList\u003cAdvisor\u003e eligibleAdvisors = findAdvisorsThatCanApply(candidateAdvisors, beanClass, beanName);\n\t\textendAdvisors(eligibleAdvisors);\n\t\tif (!eligibleAdvisors.isEmpty()) { \n\t\t\teligibleAdvisors = sortAdvisors(eligibleAdvisors);\n\t\t}\n\t\treturn eligibleAdvisors;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-699zwyk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-699zwyk",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到两个核心方法 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "findCandidateAdvisors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "findAdvisorsThatCanApply"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 。下面我们一个一个来分析。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-0v58ai9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090430-0v58ai9",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、寻找所有Advisors - findCandidateAdvisors"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-gz4lw0z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-gz4lw0z",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "前文讲过，Spring aop 注入的自动代理创建器是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotationAwareAspectJAutoProxyCreator"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，所以"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AnnotationAwareAspectJAutoProxyCreator#findCandidateAdvisors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-l356r54",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090430-l356r54",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tprotected List\u003cAdvisor\u003e findCandidateAdvisors() { \n\t\t// Add all the Spring advisors found according to superclass rules.\n\t\t// 1. 这里是从BeanFactory 中找出来 所有 Advisor 类型的bean。即找到所有配置的Advisor。\n\t\tList\u003cAdvisor\u003e advisors = super.findCandidateAdvisors();\n\t\t// Build Advisors for all AspectJ aspects in the bean factory.\n\t\tif (this.aspectJAdvisorsBuilder != null) { \n\t\t\t// 2. buildAspectJAdvisors() 从代码中动态找到了需要的增强点\n\t\t\tadvisors.addAll(this.aspectJAdvisorsBuilder.buildAspectJAdvisors());\n\t\t}\n\t\treturn advisors;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-6c1d4me",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-6c1d4me",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里可以看到，AnnotationAwareAspectJAutoProxyCreator#findCandidateAdvisors 中通过"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-ffml7n0",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090430-ffml7n0",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"ID": "20230331090430-tov7xxm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090430-tov7xxm",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-c6bb5nc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-c6bb5nc",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "super.findCandidateAdvisors();"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 调用了父类的 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AbstractAdvisorAutoProxyCreator#findCandidateAdvisors"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 的方法来获取 Advisor"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-zukg59t",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090430-zukg59t",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-vnzsk6p",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-vnzsk6p",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "this.aspectJAdvisorsBuilder.buildAspectJAdvisors()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法来获取Advisor"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-ghoudqd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-ghoudqd",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "这两个方法都是为了获取 Advisor，区别在于"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-n8xjez6",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090430-n8xjez6",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"ID": "20230331090430-y997doq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090430-y997doq",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-7omdfyu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-7omdfyu",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "super.findCandidateAdvisors();"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 一般获取的都是通过直接注册的 Advisors。比如事务的顾问，直接通过 @Bean 注入到Spring容器中。\n​"
+								},
+								{
+									"Type": "NodeImage",
+									"Data": "span",
+									"Children": [
+										{
+											"Type": "NodeBang"
+										},
+										{
+											"Type": "NodeOpenBracket"
+										},
+										{
+											"Type": "NodeLinkText",
+											"Data": "在这里插入图片描述"
+										},
+										{
+											"Type": "NodeCloseBracket"
+										},
+										{
+											"Type": "NodeOpenParen"
+										},
+										{
+											"Type": "NodeLinkDest",
+											"Data": "assets/20200701190109867-20230331090430-o8hl29a.png"
+										},
+										{
+											"Type": "NodeCloseParen"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-2ie2n91",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090430-2ie2n91",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-rnasfiz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-rnasfiz",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "this.aspectJAdvisorsBuilder.buildAspectJAdvisors()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 主要获取我们通过注解方式动态注册的 Advisors。比如 在 Aop 中根据不同的表达式，每个@Pointcut 注解的切点不同，也就会对不同的Bean起作用，并且对于每个@Pointcut来说都有@Before、@After 等不同的操作，那么每个@Pointcut 以及其对应的操作都会被封装成一个一个的Advisor 返回。下面会有详细解读。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-52g7z3i",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090430-52g7z3i",
+				"updated": "20230331090430"
+			}
+		},
+		{
+			"ID": "20230331090430-ipbvukj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090430-ipbvukj",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. super.findCandidateAdvisors();"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-y472byj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-y472byj",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "super.findCandidateAdvisors();"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 说白了就是直接获取 容器中的 Advisor 类型的Bean。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-m4eg15t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-m4eg15t",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "super.findCandidateAdvisors();"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 这里调用的实际上是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAdvisorAutoProxyCreator 中的findCandidateAdvisors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法。这一步最终会调用如下的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "findAdvisorBeans"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法。其作用根据注释也能明白。获取所有合格的 Advisor Bean(合格并不代表适用当前bean)，忽略了FactoryBean 和创建中的bean。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-6h9nuq5",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090430-6h9nuq5",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t // org.springframework.aop.framework.autoproxy.BeanFactoryAdvisorRetrievalHelper#findAdvisorBeans\n\tpublic List\u003cAdvisor\u003e findAdvisorBeans() { \n\t\t// Determine list of advisor bean names, if not cached already.\n\t\t// 从缓存中获取 advisorNames。因为每个Bean创建的时候都会进行一次获取，所以对增强的缓存是必须的\n\t\tString[] advisorNames = this.cachedAdvisorBeanNames;\n\t\tif (advisorNames == null) { \n\t\t\t// Do not initialize FactoryBeans here: We need to leave all regular beans\n\t\t\t// uninitialized to let the auto-proxy creator apply to them!\n\t\t\t// 注释： 不要在这里初始化FactoryBeans：我们需要保留所有未初始化的常规bean，以使自动代理创建者对其应用！  个人理解是防止有的FactoryBean可能会被增强代理，而在这里初始化，则会没有办法进行代理\n\t\t\t// 从 Spring 中获取 Advisor 类型的 beanname 。这里获取到的一般都是硬编码注入的 Advisors \n\t\t\tadvisorNames = BeanFactoryUtils.beanNamesForTypeIncludingAncestors(\n\t\t\t\t\tthis.beanFactory, Advisor.class, true, false);\n\t\t\tthis.cachedAdvisorBeanNames = advisorNames;\n\t\t}\n\t\t// 如果没有获取到 Advisors  ，直接返回\n\t\tif (advisorNames.length == 0) { \n\t\t\treturn new ArrayList\u003c\u003e();\n\t\t}\n\t\t// 到这一步必定有Advisors ，我们需要通过name来获取到bean的实例 \n\t\tList\u003cAdvisor\u003e advisors = new ArrayList\u003c\u003e();\n\t\tfor (String name : advisorNames) { \n\t\t\t// 当前Bean 是否合格，这里调用的是 AbstractAdvisorAutoProxyCreator#isEligibleAdvisorBean 直接返回true，供子类扩展。\n\t\t\tif (isEligibleBean(name)) { \n\t\t\t\t// 如果 name 指向的 bean 正在创建中则跳过\n\t\t\t\tif (this.beanFactory.isCurrentlyInCreation(name)) { \n\t\t\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\t\t\tlogger.trace(\"Skipping currently created advisor '\" + name + \"'\");\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\telse { \n\t\t\t\t\ttry { \n\t\t\t\t\t\t// 否则从容器中根据name 和 类型获取到 Advisor 实例，添加到 advisors 集合中\n\t\t\t\t\t\tadvisors.add(this.beanFactory.getBean(name, Advisor.class));\n\t\t\t\t\t}\n\t\t\t\t\tcatch (BeanCreationException ex) { \n\t\t\t\t\t\tThrowable rootCause = ex.getMostSpecificCause();\n\t\t\t\t\t\t// 如果是异常时因为bean正在创建引起的在，则 continue\n\t\t\t\t\t\tif (rootCause instanceof BeanCurrentlyInCreationException) { \n\t\t\t\t\t\t\tBeanCreationException bce = (BeanCreationException) rootCause;\n\t\t\t\t\t\t\tString bceBeanName = bce.getBeanName();\n\t\t\t\t\t\t\tif (bceBeanName != null \u0026\u0026 this.beanFactory.isCurrentlyInCreation(bceBeanName)) { \n\t\t\t\t\t\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\t\t\t\t\t\tlogger.trace(\"Skipping advisor '\" + name +\n\t\t\t\t\t\t\t\t\t\t\t\"' with dependency on currently created bean: \" + ex.getMessage());\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t// Ignore: indicates a reference back to the bean we're trying to advise.\n\t\t\t\t\t\t\t\t// We want to find advisors other than the currently created bean itself.\n\t\t\t\t\t\t\t\tcontinue;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t\tthrow ex;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t// 返回得到的合格的 Advisor 集合\n\t\treturn advisors;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-qfgsn2l",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090430-qfgsn2l",
+				"updated": "20230331090430"
+			}
+		},
+		{
+			"ID": "20230331090430-qmlaokm",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090430-qmlaokm",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. this.aspectJAdvisorsBuilder.buildAspectJAdvisors()"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-s6fiw8b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-s6fiw8b",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.aspectJAdvisorsBuilder.buildAspectJAdvisors()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的作用就是 ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "在当前的bean工厂中查找带有AspectJ注解的 Aspect bean，并封装成代表他们的Spring Aop Advisor，注入到Spring 中"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-7awl03c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-7awl03c",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "基本的思路如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-cu22l9d",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090430-cu22l9d",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"ID": "20230331090430-ohjid9i",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090430-ohjid9i",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-onm79gx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-onm79gx",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "获取所有beanName，这一步所有在beanFactory中注册的bean都会被提取出来"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-cwhqcry",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090430-cwhqcry",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-km5hxf8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-km5hxf8",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "遍历所有的beanName, 找出声明AspectJ注解的类，进行进一步处理"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-e9vzmf0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090430-e9vzmf0",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-1jwjnto",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-1jwjnto",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "对标记为AspectJ注解的类进行Advisors 提取"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-m2wun0k",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090430-m2wun0k",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-k41x46b",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-k41x46b",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "将提取的结果保存到缓存中。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-08cnqev",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090430-08cnqev",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic List\u003cAdvisor\u003e buildAspectJAdvisors() { \n\t\t// aspectBeanNames 中缓存了被 @Aspect 修饰的 bean的name\n\t\tList\u003cString\u003e aspectNames = this.aspectBeanNames;\n\t\t// 如果为空表示尚未缓存，进行缓存解析。这里用了DLC 方式来进行判断\n\t\tif (aspectNames == null) { \n\t\t\tsynchronized (this) { \n\t\t\t\taspectNames = this.aspectBeanNames;\n\t\t\t\tif (aspectNames == null) { \n\t\t\t\t\tList\u003cAdvisor\u003e advisors = new ArrayList\u003c\u003e();\n\t\t\t\t\taspectNames = new ArrayList\u003c\u003e();\n\t\t\t\t\t// 1. 获取所有的beanName。从容器中获取所有的BeanName\n\t\t\t\t\tString[] beanNames = BeanFactoryUtils.beanNamesForTypeIncludingAncestors(\n\t\t\t\t\t\t\tthis.beanFactory, Object.class, true, false);\n\t\t\t\t\t// 遍历beanname, 找出对应的增强方法\n\t\t\t\t\tfor (String beanName : beanNames) { \n\t\t\t\t\t\t// 不合法的bean略过，由子类定义规则，默认true\n\t\t\t\t\t\tif (!isEligibleBean(beanName)) { \n\t\t\t\t\t\t\tcontinue;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t// 注释 ：我们必须小心，不要急于实例化bean，因为在这种情况下，它们将由Spring容器缓存，但不会被编织。\n\t\t\t\t\t\t// We must be careful not to instantiate beans eagerly as in this case they\n\t\t\t\t\t\t// would be cached by the Spring container but would not have been weaved.\n\t\t\t\t\t\t// 获取对应 bean 的类型\n\t\t\t\t\t\tClass\u003c?\u003e beanType = this.beanFactory.getType(beanName);\n\t\t\t\t\t\tif (beanType == null) { \n\t\t\t\t\t\t\tcontinue;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t// 2. 如果bean 被 @AspectJ 注解修饰 且不是Ajc 编译, 则进一步处理\n\t\t\t\t\t\tif (this.advisorFactory.isAspect(beanType)) { \n\t\t\t\t\t\t\t// 添加到缓存中\n\t\t\t\t\t\t\taspectNames.add(beanName);\n\t\t\t\t\t\t\t// 封装成AspectMetadata \n\t\t\t\t\t\t\tAspectMetadata amd = new AspectMetadata(beanType, beanName);\n\t\t\t\t\t\t\t// aspect 存在 SINGLETON、PERTHIS、PERTARGET、PERCFLOW、PERCFLOWBELOW、PERTYPEWITHIN模式。默认为SINGLETON 。暂不明白意义\n\t\t\t\t\t\t\tif (amd.getAjType().getPerClause().getKind() == PerClauseKind.SINGLETON) { \n\t\t\t\t\t\t\t\tMetadataAwareAspectInstanceFactory factory =\n\t\t\t\t\t\t\t\t\t\tnew BeanFactoryAspectInstanceFactory(this.beanFactory, beanName);\n\t\t\t\t\t\t\t\t// 3. 解析标记AspectJ注解中的增强方法，也就是被 @Before、@Around 等注解修饰的方法，并将其封装成 Advisor\n\t\t\t\t\t\t\t\tList\u003cAdvisor\u003e classAdvisors = this.advisorFactory.getAdvisors(factory);\n\t\t\t\t\t\t\t\tif (this.beanFactory.isSingleton(beanName)) { \n\t\t\t\t\t\t\t\t\tthis.advisorsCache.put(beanName, classAdvisors);\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\telse { \n\t\t\t\t\t\t\t\t\tthis.aspectFactoryCache.put(beanName, factory);\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t// 保存 Advisor \n\t\t\t\t\t\t\t\tadvisors.addAll(classAdvisors);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\telse { \n\t\t\t\t\t\t\t\t// Per target or per this.\n\t\t\t\t\t\t\t\t// 如果当前Bean是单例，但是 Aspect 不是单例则抛出异常\n\t\t\t\t\t\t\t\tif (this.beanFactory.isSingleton(beanName)) { \n\t\t\t\t\t\t\t\t\tthrow new IllegalArgumentException(\"Bean with name '\" + beanName +\n\t\t\t\t\t\t\t\t\t\t\t\"' is a singleton, but aspect instantiation model is not singleton\");\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\tMetadataAwareAspectInstanceFactory factory =\n\t\t\t\t\t\t\t\t\t\tnew PrototypeAspectInstanceFactory(this.beanFactory, beanName);\n\t\t\t\t\t\t\t\tthis.aspectFactoryCache.put(beanName, factory);\n\t\t\t\t\t\t\t\tadvisors.addAll(this.advisorFactory.getAdvisors(factory));\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tthis.aspectBeanNames = aspectNames;\n\t\t\t\t\treturn advisors;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif (aspectNames.isEmpty()) { \n\t\t\treturn Collections.emptyList();\n\t\t}\n\t\t// 4. 将所有的增强方法保存到缓存中。\n\t\tList\u003cAdvisor\u003e advisors = new ArrayList\u003c\u003e();\n\t\tfor (String aspectName : aspectNames) { \n\t\t\tList\u003cAdvisor\u003e cachedAdvisors = this.advisorsCache.get(aspectName);\n\t\t\tif (cachedAdvisors != null) { \n\t\t\t\tadvisors.addAll(cachedAdvisors);\n\t\t\t}\n\t\t\telse { \n\t\t\t\tMetadataAwareAspectInstanceFactory factory = this.aspectFactoryCache.get(aspectName);\n\t\t\t\tadvisors.addAll(this.advisorFactory.getAdvisors(factory));\n\t\t\t}\n\t\t}\n\t\treturn advisors;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-db1hahf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-db1hahf",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面的方法一句话总结 ： 获取容器中所有被 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Aspect 修饰 \u0026amp;\u0026amp; 不是 Ajc 编译"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的类，动态解析内容，封装成 Advisor保存到对应集合中。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-vrpf4oe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-vrpf4oe",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们来详细看看具体实现："
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-1881q9f",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090430-1881q9f",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1. this.advisorFactory.getAdvisors(factory);"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-samt81r",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-samt81r",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在上述代码中，最为复杂的就是增强器("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Advisors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)获取，也就是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.advisorFactory.getAdvisors(factory);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 这一步，\n具体的实现是在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ReflectiveAspectJAdvisorFactory#getAdvisors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中。下面我们具体来看代码"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-vgurzfs",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090430-vgurzfs",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic List\u003cAdvisor\u003e getAdvisors(MetadataAwareAspectInstanceFactory aspectInstanceFactory) { \n\t\t// 获取标记为 AspectJ 的类\n\t\tClass\u003c?\u003e aspectClass = aspectInstanceFactory.getAspectMetadata().getAspectClass();\n\t\t// 获取标记为 AspectJ 的名字\n\t\tString aspectName = aspectInstanceFactory.getAspectMetadata().getAspectName();\n\t\t// 进行合法性验证\n\t\tvalidate(aspectClass);\n\n\t\t// We need to wrap the MetadataAwareAspectInstanceFactory with a decorator\n\t\t// so that it will only instantiate once.\n\t\t// 这里需要 MetadataAwareAspectInstanceFactory  ，所以这里初始化了一次\n\t\tMetadataAwareAspectInstanceFactory lazySingletonAspectInstanceFactory =\n\t\t\t\tnew LazySingletonAspectInstanceFactoryDecorator(aspectInstanceFactory);\n\n\t\tList\u003cAdvisor\u003e advisors = new ArrayList\u003c\u003e();\n\t\t// getAdvisorMethods(aspectClass) 获取 aspectClass 中没有被 @PointCut 注解修饰的方法\n\t\tfor (Method method : getAdvisorMethods(aspectClass)) { \n\t\t\t// 将方法封装成 Advisor 。如果找不到@PointCut 的信息，则会返回 null。下面详解\n\t\t\tAdvisor advisor = getAdvisor(method, lazySingletonAspectInstanceFactory, advisors.size(), aspectName);\n\t\t\tif (advisor != null) { \n\t\t\t\tadvisors.add(advisor);\n\t\t\t}\n\t\t}\n\n\t\t// If it's a per target aspect, emit the dummy instantiating aspect.\n\t\tif (!advisors.isEmpty() \u0026\u0026 lazySingletonAspectInstanceFactory.getAspectMetadata().isLazilyInstantiated()) { \n\t\t// 如果寻找的增强器不为空而且有配置了增强延迟初始化，则需要在首位加入同步实例化增强器\n\t\t\tAdvisor instantiationAdvisor = new SyntheticInstantiationAdvisor(lazySingletonAspectInstanceFactory);\n\t\t\tadvisors.add(0, instantiationAdvisor);\n\t\t}\n\n\t\t// Find introduction fields.\n\t\t// 获取 DeclaredParents 注解并处理。@DeclaredParents  注解可以实现指定某些代理类是某些接口的实现。\n\t\tfor (Field field : aspectClass.getDeclaredFields()) { \n\t\t\tAdvisor advisor = getDeclareParentsAdvisor(field);\n\t\t\tif (advisor != null) { \n\t\t\t\tadvisors.add(advisor);\n\t\t\t}\n\t\t}\n\n\t\treturn advisors;\n\t}\n\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-mno4fvt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-mno4fvt",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "这里根据 切点信息来动态生成了增强器，也就是 Advisor。是根据AOP 的注解解析来的动态生成的。"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 可以看到，封装的关键的操作还是在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getAdvisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法 中，下面我们来详细分析："
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-qos2j8w",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090430-qos2j8w",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t// 筛选出合适的方法，并封装成 Advisor 。这里返回的都是 InstantiationModelAwarePointcutAdvisorImpl\n\tpublic Advisor getAdvisor(Method candidateAdviceMethod, MetadataAwareAspectInstanceFactory aspectInstanceFactory,\n\t\t\tint declarationOrderInAspect, String aspectName) { \n\t\t// 又进行一次合法性校验\n\t\tvalidate(aspectInstanceFactory.getAspectMetadata().getAspectClass());\n\t\t// 1. 切点信息的获取。这里如果没有被Aspect 系列注解(Pointcut、Around、Before等)修饰会返回null\n\t\tAspectJExpressionPointcut expressionPointcut = getPointcut(\n\t\t\t\tcandidateAdviceMethod, aspectInstanceFactory.getAspectMetadata().getAspectClass());\n\t\t// 如果获取不到相关信息直接返回null\n\t\tif (expressionPointcut == null) { \n\t\t\treturn null;\n\t\t}\n\t\t// 2. 根据切点信息封装成增强器\n\t\treturn new InstantiationModelAwarePointcutAdvisorImpl(expressionPointcut, candidateAdviceMethod,\n\t\t\t\tthis, aspectInstanceFactory, declarationOrderInAspect, aspectName);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-pajp7gc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-pajp7gc",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到在 getAdvisor 方法中的关键两步： "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "切点信息的获取"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 和 ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "根据切点信息封装成增强器"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。下面我们来继续分析"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-cwqojd4",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090430-cwqojd4",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1.1. 切点信息的获取 - getPointcut"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-mcmkvgo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-mcmkvgo",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "getPointcut 方法的实现很简单，就是判断方法上是否有 AspectJ系列的注解，有则封装。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-q5xy0pl",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090430-q5xy0pl",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate AspectJExpressionPointcut getPointcut(Method candidateAdviceMethod, Class\u003c?\u003e candidateAspectClass) { \n\t\t// 获取方法上的注解，包括 Pointcut.class, Around.class, Before.class, After.class, AfterReturning.class, AfterThrowing.class\n\t\tAspectJAnnotation\u003c?\u003e aspectJAnnotation =\n\t\t\t\tAbstractAspectJAdvisorFactory.findAspectJAnnotationOnMethod(candidateAdviceMethod);\n\t\tif (aspectJAnnotation == null) { \n\t\t\treturn null;\n\t\t}\n\t\t// 到这里必然有 AspectJ系列的注解了\n\t\t// 使用 AspectJExpressionPointcut 实例封装获取的信息\n\t\tAspectJExpressionPointcut ajexp =\n\t\t\t\tnew AspectJExpressionPointcut(candidateAspectClass, new String[0], new Class\u003c?\u003e[0]);\n\t\t// 提取出的得到的注解中的表达式\n\t\t// 如  @Pointcut(\"execution(* com.kingfish.aopdemo.controller.AopController.hello(String))\") 中的 execution(* com.kingfish.aopdemo.controller.AopController.hello(String))\n\t\t// 对于 @Before(\"pointCut()\") 获取的则是 pointCut()\n\t\tajexp.setExpression(aspectJAnnotation.getPointcutExpression());\n\t\tif (this.beanFactory != null) { \n\t\t\tajexp.setBeanFactory(this.beanFactory);\n\t\t}\n\t\treturn ajexp;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-tfyyypn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-tfyyypn",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAspectJAdvisorFactory.findAspectJAnnotationOnMethod(candidateAdviceMethod);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-l0syi32",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090430-l0syi32",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate static final Class\u003c?\u003e[] ASPECTJ_ANNOTATION_CLASSES = new Class\u003c?\u003e[] { \n\t\t\tPointcut.class, Around.class, Before.class, After.class, AfterReturning.class, AfterThrowing.class};\n\n\t// 获取指定方法上的注解并使用  AspectJAnnotation 封装\n\tprotected static AspectJAnnotation\u003c?\u003e findAspectJAnnotationOnMethod(Method method) { \n\t\tfor (Class\u003c?\u003e clazz : ASPECTJ_ANNOTATION_CLASSES) { \n\t\t\tAspectJAnnotation\u003c?\u003e foundAnnotation = findAnnotation(method, (Class\u003cAnnotation\u003e) clazz);\n\t\t\tif (foundAnnotation != null) { \n\t\t\t\treturn foundAnnotation;\n\t\t\t}\n\t\t}\n\t\treturn null;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-s18gpf4",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090430-s18gpf4",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1.2. 根据切点信息封装成增强器 - InstantiationModelAwarePointcutAdvisorImpl"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-gqyrfe0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-gqyrfe0",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在上面的代码中我们看到，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ReflectiveAspectJAdvisorFactory#getAdvisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 最终封装成了一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InstantiationModelAwarePointcutAdvisorImpl"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 返回。实际上，在 Aop 中所有的增强都由 Advisor 的实现类"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InstantiationModelAwarePointcutAdvisorImpl"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 统一封装。我们来看看"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InstantiationModelAwarePointcutAdvisorImpl"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中做了什么事"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-no06n3w",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090430-no06n3w",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic InstantiationModelAwarePointcutAdvisorImpl(AspectJExpressionPointcut declaredPointcut,\n\t\t\tMethod aspectJAdviceMethod, AspectJAdvisorFactory aspectJAdvisorFactory,\n\t\t\tMetadataAwareAspectInstanceFactory aspectInstanceFactory, int declarationOrder, String aspectName) { \n\t\t// 信息的基础赋值\n\t\tthis.declaredPointcut = declaredPointcut;\n\t\tthis.declaringClass = aspectJAdviceMethod.getDeclaringClass();\n\t\tthis.methodName = aspectJAdviceMethod.getName();\n\t\tthis.parameterTypes = aspectJAdviceMethod.getParameterTypes();\n\t\tthis.aspectJAdviceMethod = aspectJAdviceMethod;\n\t\tthis.aspectJAdvisorFactory = aspectJAdvisorFactory;\n\t\tthis.aspectInstanceFactory = aspectInstanceFactory;\n\t\tthis.declarationOrder = declarationOrder;\n\t\tthis.aspectName = aspectName;\n\t\t// 懒加载实例\n\t\tif (aspectInstanceFactory.getAspectMetadata().isLazilyInstantiated()) { \n\t\t\t// Static part of the pointcut is a lazy type.\n\t\t\tPointcut preInstantiationPointcut = Pointcuts.union(\n\t\t\t\t\taspectInstanceFactory.getAspectMetadata().getPerClausePointcut(), this.declaredPointcut);\n\n\t\t\t// Make it dynamic: must mutate from pre-instantiation to post-instantiation state.\n\t\t\t// If it's not a dynamic pointcut, it may be optimized out\n\t\t\t// by the Spring AOP infrastructure after the first evaluation.\n\t\t\tthis.pointcut = new PerTargetInstantiationModelPointcut(\n\t\t\t\t\tthis.declaredPointcut, preInstantiationPointcut, aspectInstanceFactory);\n\t\t\tthis.lazy = true;\n\t\t}\n\t\telse { \n\t\t\t// A singleton aspect.\n\t\t\t// 我们一般走到这里\n\t\t\tthis.pointcut = this.declaredPointcut;\n\t\t\tthis.lazy = false;\n\t\t\tthis.instantiatedAdvice = instantiateAdvice(this.declaredPointcut);\n\t\t}\n\t}\n\n\t...\n\n\tprivate Advice instantiateAdvice(AspectJExpressionPointcut pointcut) { \n\t\tAdvice advice = this.aspectJAdvisorFactory.getAdvice(this.aspectJAdviceMethod, pointcut,\n\t\t\t\tthis.aspectInstanceFactory, this.declarationOrder, this.aspectName);\n\t\treturn (advice != null ? advice : EMPTY_ADVICE);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-sfefu7z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-sfefu7z",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InstantiationModelAwarePointcutAdvisorImpl"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 在封装过程中只是简单的将信息封装在类的实例中，所有的信息只是单纯的赋值。但是需要注意的是，在信息赋值结束后调用了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "instantiateAdvice(this.declaredPointcut);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法，这个方法完成了对于增强器的处理。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-g395rqu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-g395rqu",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因为不同的增强体现的逻辑是不同的，简单来说就是不同的切点信息的动作是不同的，比如 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Before"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@After"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 注解的动作就不同， "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@Before"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 需要在切点方法前调用， "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@After"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 需要在切点方法后调用。这里根据不同的注解封装成了不同的 Advice，用以区分在适当的时候调用适当的方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-vf0uv14",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-vf0uv14",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "而根据注解中的信息初始化对应的增强器就是在instantiateAdvice 中实现。而instantiateAdvice 中主要还是调用了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.aspectJAdvisorFactory.getAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，因此我们来看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.aspectJAdvisorFactory.getAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的代码:"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-l6d8rv4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090430-l6d8rv4",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public Advice getAdvice(Method candidateAdviceMethod, AspectJExpressionPointcut expressionPointcut,\n\t\t\tMetadataAwareAspectInstanceFactory aspectInstanceFactory, int declarationOrder, String aspectName) { \n\n\t\tClass\u003c?\u003e candidateAspectClass = aspectInstanceFactory.getAspectMetadata().getAspectClass();\n\t\tvalidate(candidateAspectClass);\n\n\t\tAspectJAnnotation\u003c?\u003e aspectJAnnotation =\n\t\t\t\tAbstractAspectJAdvisorFactory.findAspectJAnnotationOnMethod(candidateAdviceMethod);\n\t\tif (aspectJAnnotation == null) { \n\t\t\treturn null;\n\t\t}\n\n\t\t// If we get here, we know we have an AspectJ method.\n\t\t// Check that it's an AspectJ-annotated class\n\t\tif (!isAspect(candidateAspectClass)) { \n\t\t\tthrow new AopConfigException(\"Advice must be declared inside an aspect type: \" +\n\t\t\t\t\t\"Offending method '\" + candidateAdviceMethod + \"' in class [\" +\n\t\t\t\t\tcandidateAspectClass.getName() + \"]\");\n\t\t}\n\n\t\tif (logger.isDebugEnabled()) { \n\t\t\tlogger.debug(\"Found AspectJ method: \" + candidateAdviceMethod);\n\t\t}\n\n\t\tAbstractAspectJAdvice springAdvice;\n\t\t// 根据不同的注解生成不同的通知(增强)\n\t\tswitch (aspectJAnnotation.getAnnotationType()) { \n\t\t\tcase AtPointcut:\n\t\t\t\tif (logger.isDebugEnabled()) { \n\t\t\t\t\tlogger.debug(\"Processing pointcut '\" + candidateAdviceMethod.getName() + \"'\");\n\t\t\t\t}\n\t\t\t\treturn null;\n\t\t\tcase AtAround:\n\t\t\t\tspringAdvice = new AspectJAroundAdvice(\n\t\t\t\t\t\tcandidateAdviceMethod, expressionPointcut, aspectInstanceFactory);\n\t\t\t\tbreak;\n\t\t\tcase AtBefore:\n\t\t\t\tspringAdvice = new AspectJMethodBeforeAdvice(\n\t\t\t\t\t\tcandidateAdviceMethod, expressionPointcut, aspectInstanceFactory);\n\t\t\t\tbreak;\n\t\t\tcase AtAfter:\n\t\t\t\tspringAdvice = new AspectJAfterAdvice(\n\t\t\t\t\t\tcandidateAdviceMethod, expressionPointcut, aspectInstanceFactory);\n\t\t\t\tbreak;\n\t\t\tcase AtAfterReturning:\n\t\t\t\tspringAdvice = new AspectJAfterReturningAdvice(\n\t\t\t\t\t\tcandidateAdviceMethod, expressionPointcut, aspectInstanceFactory);\n\t\t\t\tAfterReturning afterReturningAnnotation = (AfterReturning) aspectJAnnotation.getAnnotation();\n\t\t\t\tif (StringUtils.hasText(afterReturningAnnotation.returning())) { \n\t\t\t\t\tspringAdvice.setReturningName(afterReturningAnnotation.returning());\n\t\t\t\t}\n\t\t\t\tbreak;\n\t\t\tcase AtAfterThrowing:\n\t\t\t\tspringAdvice = new AspectJAfterThrowingAdvice(\n\t\t\t\t\t\tcandidateAdviceMethod, expressionPointcut, aspectInstanceFactory);\n\t\t\t\tAfterThrowing afterThrowingAnnotation = (AfterThrowing) aspectJAnnotation.getAnnotation();\n\t\t\t\tif (StringUtils.hasText(afterThrowingAnnotation.throwing())) { \n\t\t\t\t\tspringAdvice.setThrowingName(afterThrowingAnnotation.throwing());\n\t\t\t\t}\n\t\t\t\tbreak;\n\t\t\tdefault:\n\t\t\t\tthrow new UnsupportedOperationException(\n\t\t\t\t\t\t\"Unsupported advice type on method: \" + candidateAdviceMethod);\n\t\t}\n\n\t\t// Now to configure the advice...\n\t\tspringAdvice.setAspectName(aspectName);\n\t\tspringAdvice.setDeclarationOrder(declarationOrder);\n\t\tString[] argNames = this.parameterNameDiscoverer.getParameterNames(candidateAdviceMethod);\n\t\tif (argNames != null) { \n\t\t\tspringAdvice.setArgumentNamesFromStringArray(argNames);\n\t\t}\n\t\tspringAdvice.calculateArgumentBindings();\n\n\t\treturn springAdvice;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-hei88u9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-hei88u9",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到，Spring会根据不同的注解生成不同的增强器(通知)。比如 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJAroundAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJMethodBeforeAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 等，从而完成不同的注解所需的动作。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-cg07f0x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-cg07f0x",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里举个简单例子总结一下：\n如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-txirvtv",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090430-txirvtv",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\n@Aspect\npublic class AopDemo { \n  \n    @Pointcut(\"execution(* com.kingfish.aopdemo.controller.AopController.hello(String)) \u0026\u0026 args(msg)\")\n    public void pointCut(String msg) { \n        System.out.println(\"AopDemo.pointCut : msg = \" + msg);\n    }\n\n    @After(\"pointCut(msg)\")\n    public void after(String msg) { \n        System.out.println(\"after msg = \" + msg);\n    }\n\n\n    @Before(\"pointCut(msg)\")\n    public void before(String msg) { \n        System.out.println(\"before msg = \" + msg);\n    }\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-xhoui1d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-xhoui1d",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如上一个类，"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-uxiu94k",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090430-uxiu94k",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"ID": "20230331090430-vd93nj2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090430-vd93nj2",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-9eckxsv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-9eckxsv",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "容器启动后会加载硬编码注入的Advisor，加载结束后扫描 @Aspect 注解类。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-2retyw4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090430-2retyw4",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-5t64teh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-5t64teh",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "解析注解类里面的非 @PointCut 方法。即after、before 方法，对其注解进行信息进行解析，封装成 InstantiationModelAwarePointcutAdvisorImpl"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-n7tvv6n",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090430-n7tvv6n",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-cd3nd4m",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-cd3nd4m",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "InstantiationModelAwarePointcutAdvisorImpl"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 中存在的 PointCut 和 Advice 两大属性，PointCut 代表切入点，Advice 代表增强的具体操作，根据不同的注解类型，加载不同的Advice 实现类。如下\n​"
+								},
+								{
+									"Type": "NodeImage",
+									"Data": "span",
+									"Children": [
+										{
+											"Type": "NodeBang"
+										},
+										{
+											"Type": "NodeOpenBracket"
+										},
+										{
+											"Type": "NodeLinkText",
+											"Data": "在这里插入图片描述"
+										},
+										{
+											"Type": "NodeCloseBracket"
+										},
+										{
+											"Type": "NodeOpenParen"
+										},
+										{
+											"Type": "NodeLinkDest",
+											"Data": "assets/20210305112513266-20230331090430-8l3qdoa.png"
+										},
+										{
+											"Type": "NodeCloseParen"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-pdnb3v0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090430-pdnb3v0",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-z9djawz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-z9djawz",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "最终会封装成两个 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "InstantiationModelAwarePointcutAdvisorImpl"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ，After 方法对应 是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AspectJAfterAdvice"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，Before 方法对应的是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AspectJMethodBeforeAdvice"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，Pointcut 都是 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "pointCut(msg)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-w39idkz",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090430-w39idkz",
+				"updated": "20230331090430"
+			}
+		},
+		{
+			"ID": "20230331090430-bob5w66",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090430-bob5w66",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、筛选合适的Advisors - findAdvisorsThatCanApply"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-f392r7o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-f392r7o",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "经历了第一步，也仅仅是将所有的顾问(Advisors)，也就是增强器，全部查找出来。但是并非所有的Advisors 都适用于当前bean。所以这一步的目的是为了过滤出适合当前bean的增强器。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-p3mcohu",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090430-p3mcohu",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected List\u003cAdvisor\u003e findAdvisorsThatCanApply(\n\t\t\tList\u003cAdvisor\u003e candidateAdvisors, Class\u003c?\u003e beanClass, String beanName) { \n\n\t\tProxyCreationContext.setCurrentProxiedBeanName(beanName);\n\t\ttry { \n\t\t\treturn AopUtils.findAdvisorsThatCanApply(candidateAdvisors, beanClass);\n\t\t}\n\t\tfinally { \n\t\t\tProxyCreationContext.setCurrentProxiedBeanName(null);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-p7fcwbw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-p7fcwbw",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到关键内容还是在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AopUtils.findAdvisorsThatCanApply(candidateAdvisors, beanClass);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​\n所以我们继续往下看。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AopUtils.findAdvisorsThatCanApply(candidateAdvisors, beanClass);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-r9kx1d7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090430-r9kx1d7",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic static List\u003cAdvisor\u003e findAdvisorsThatCanApply(List\u003cAdvisor\u003e candidateAdvisors, Class\u003c?\u003e clazz) { \n\t\tif (candidateAdvisors.isEmpty()) { \n\t\t\treturn candidateAdvisors;\n\t\t}\n\t\tList\u003cAdvisor\u003e eligibleAdvisors = new ArrayList\u003c\u003e();\n\t\t// 首先处理引介增强\n\t\tfor (Advisor candidate : candidateAdvisors) { \n\t\t\tif (candidate instanceof IntroductionAdvisor \u0026\u0026 canApply(candidate, clazz)) { \n\t\t\t\teligibleAdvisors.add(candidate);\n\t\t\t}\n\t\t}\n\t\tboolean hasIntroductions = !eligibleAdvisors.isEmpty();\n\t\tfor (Advisor candidate : candidateAdvisors) { \n\t\t\t// 引介增强已处理\n\t\t\tif (candidate instanceof IntroductionAdvisor) { \n\t\t\t\t// already processed\n\t\t\t\tcontinue;\n\t\t\t}\n\t\t\t// 对于普通bean 的处理\n\t\t\tif (canApply(candidate, clazz, hasIntroductions)) { \n\t\t\t\teligibleAdvisors.add(candidate);\n\t\t\t}\n\t\t}\n\t\treturn eligibleAdvisors;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-apofs8h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-apofs8h",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "引介增强和普通的增强处理是不同的，所以需要分开处理。而通过上面的代码，我们可以看到关键逻辑在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "canApply"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​函数中，因此我们直接看这个函数。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-ft5g30k",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090430-ft5g30k",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic static boolean canApply(Advisor advisor, Class\u003c?\u003e targetClass) { \n\t\treturn canApply(advisor, targetClass, false);\n\t}\n\n\t....\n\n\tpublic static boolean canApply(Advisor advisor, Class\u003c?\u003e targetClass, boolean hasIntroductions) { \n\t\t// 基础篇曾介绍过，IntroductionAdvisor 和 PointcutAdvisor 的区别在于 PointcutAdvisor 的切入点更细。我们这里的Advisor都是PointcutAdvisor 类型\n\t\tif (advisor instanceof IntroductionAdvisor) { \n\t\t\treturn ((IntroductionAdvisor) advisor).getClassFilter().matches(targetClass);\n\t\t}\n\t\telse if (advisor instanceof PointcutAdvisor) { \n\t\t\tPointcutAdvisor pca = (PointcutAdvisor) advisor;\n\t\t\treturn canApply(pca.getPointcut(), targetClass, hasIntroductions);\n\t\t}\n\t\telse { \n\t\t\t// It doesn't have a pointcut so we assume it applies.\n\t\t\treturn true;\n\t\t}\n\t}\n\n\t....\n\n\tpublic static boolean canApply(Pointcut pc, Class\u003c?\u003e targetClass, boolean hasIntroductions) { \n\t\tAssert.notNull(pc, \"Pointcut must not be null\");\n\t\tif (!pc.getClassFilter().matches(targetClass)) { \n\t\t\treturn false;\n\t\t}\n\t\t// 获取切点的方法匹配器\n\t\tMethodMatcher methodMatcher = pc.getMethodMatcher();\n\t\tif (methodMatcher == MethodMatcher.TRUE) { \n\t\t\t// No need to iterate the methods if we're matching any method anyway...\n\t\t\treturn true;\n\t\t}\n\t\t// 这里 introductionAwareMethodMatcher  的实现是 AspectJExpressionPointcut\n\t\tIntroductionAwareMethodMatcher introductionAwareMethodMatcher = null;\n\t\tif (methodMatcher instanceof IntroductionAwareMethodMatcher) { \n\t\t\tintroductionAwareMethodMatcher = (IntroductionAwareMethodMatcher) methodMatcher;\n\t\t}\n\n\t\tSet\u003cClass\u003c?\u003e\u003e classes = new LinkedHashSet\u003c\u003e();\n\t\tif (!Proxy.isProxyClass(targetClass)) { \n\t\t\tclasses.add(ClassUtils.getUserClass(targetClass));\n\t\t}\n\t\tclasses.addAll(ClassUtils.getAllInterfacesForClassAsSet(targetClass));\n\n\t\tfor (Class\u003c?\u003e clazz : classes) { \n\t\t\t// 获取当前bean的所有方法\n\t\t\tMethod[] methods = ReflectionUtils.getAllDeclaredMethods(clazz);\n\t\t\tfor (Method method : methods) { \n\t\t\t\t// 在这里判断方法是否匹配\n\t\t\t\tif (introductionAwareMethodMatcher != null ?\n\t\t\t\t\t\t// 这里调用 AspectJExpressionPointcut#matches\n\t\t\t\t\t\tintroductionAwareMethodMatcher.matches(method, targetClass, hasIntroductions) :\n\t\t\t\t\t\tmethodMatcher.matches(method, targetClass)) { \n\t\t\t\t\treturn true;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\treturn false;\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-e8d9u76",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-e8d9u76",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "注："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "introductionAwareMethodMatcher.matches(method, targetClass, hasIntroductions)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 实际上调用的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJExpressionPointcut#matches"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，该方法中会通过 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJExpressionPointcut#getTargetShadowMatch 调用 AspectJExpressionPointcut#getShadowMatch"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ ,在该方法中对表达式进行了校验，并返回了一个 ShadowMatch 类，包含了校验后的结果信息。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-7i5h8tc",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090430-7i5h8tc",
+				"updated": "20230331090430"
+			}
+		},
+		{
+			"ID": "20230331090430-81z5fnb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-81z5fnb",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从上面我们可以看到 Pointcut 匹配的需要满足下面两个条件:"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-yhmtard",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090430-yhmtard",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"ID": "20230331090430-9pqk64l",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090430-9pqk64l",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-66eyyab",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-66eyyab",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "pc.getClassFilter().matches(targetClass)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 返回true"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-7wpst3n",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090430-7wpst3n",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-8fqyvdj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-8fqyvdj",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "pc.getMethodMatcher().matches(method, targetClass)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 返回true"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-wedus47",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090430-wedus47",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四、总结"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-urkltvx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-urkltvx",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getAdvicesAndAdvisorsForBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法的作用就是筛选出适用于当前bean的Advisor。\n简单来说就是两步"
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-hx2wy3d",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090430-hx2wy3d",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"ID": "20230331090430-bdfanf6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090430-bdfanf6",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-djxc12y",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-djxc12y",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AnnotationAwareAspectJAutoProxyCreator#findCandidateAdvisors"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 挑选出所有的 Advisor。在 其中 通过 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "super.findCandidateAdvisors()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 调用了 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AbstractAdvisorAutoProxyCreator#findCandidateAdvisors"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 来完成了对硬编码注入的Advisor 的获取解析返回。随后通过 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "this.aspectJAdvisorsBuilder.buildAspectJAdvisors()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方式解析了 Aop 注解方式动态封装的 Advisor 并保存。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090430-kynncut",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090430-kynncut",
+						"updated": "20230331090430"
+					},
+					"Children": [
+						{
+							"ID": "20230331090430-lpezy7h",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090430-lpezy7h",
+								"updated": "20230331090430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "findAdvisorsThatCanApply"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 通过 Advisor 中的Pointcut 筛选出适合当前bean的 Advisor。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090430-a4e5fu5",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090430-a4e5fu5",
+				"updated": "20230331090430"
+			}
+		},
+		{
+			"ID": "20230331090430-3tmr6fe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090430-3tmr6fe",
+				"updated": "20230331090430"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考《Spring实战》《Spring源码深度解析》"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://www.cnblogs.com/cheng21553516/p/12190008.html",
+					"TextMarkTextContent": "https://www.cnblogs.com/cheng21553516/p/12190008.html"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://blog.csdn.net/wyl6019/article/details/80136000",
+					"TextMarkTextContent": "https://blog.csdn.net/wyl6019/article/details/80136000"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

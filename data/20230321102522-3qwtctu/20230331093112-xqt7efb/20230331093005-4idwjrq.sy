@@ -1,0 +1,942 @@
+{
+	"ID": "20230331093005-4idwjrq",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331093005-4idwjrq",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230331093005-vcrulsl\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230331093005-zmebnz7\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230331093336-jkg6xga\u0026quot;,\u0026quot;focusStart\u0026quot;:2,\u0026quot;focusEnd\u0026quot;:2}",
+		"title": "Spring框架中的设计模式(三)_observer register_安迪源文的博客-CSDN博客",
+		"updated": "20230331093340"
+	},
+	"Children": [
+		{
+			"ID": "20230331093005-vcrulsl",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331093005-vcrulsl",
+				"updated": "20230331093005"
+			}
+		},
+		{
+			"ID": "20230331093336-jkg6xga",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230331093336-jkg6xga",
+				"updated": "20230331093340"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "prototype"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​,"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "object pool"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​,"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "observer"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-cmqeg3u",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331093005-cmqeg3u",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"ID": "20230331093005-3fvyofi",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331093005-3fvyofi",
+						"updated": "20230331093005"
+					},
+					"Children": [
+						{
+							"ID": "20230331093005-oddi7ka",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331093005-oddi7ka",
+								"updated": "20230331093005"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/andy_zhang2007/article/details/79778899",
+									"TextMarkTextContent": "https://blog.csdn.net/andy_zhang2007/article/details/79778899"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331093005-eah1s24",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331093005-eah1s24",
+						"updated": "20230331093005"
+					},
+					"Children": [
+						{
+							"ID": "20230331093005-z7rayeo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331093005-z7rayeo",
+								"updated": "20230331093005"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "前两篇文章我们看到了Spring框架实现的一些模式，这次我们再讲解这个流行框架使用的另外三个模式。这篇文章会从两个对象创建模式开始:原型模式(prototype)和对象池(object pool)。最后我们会聚焦在一个行为模式 : 观察者(observer)。Spring 设计模式 - 原型模式 prototype本文首先谈原型模式(prototype)。在Spring关于bean..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331093005-9dwr1e1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331093005-9dwr1e1",
+						"updated": "20230331093005"
+					},
+					"Children": [
+						{
+							"ID": "20230331093005-k1d44o0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331093005-k1d44o0",
+								"updated": "20230331093005"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:30:05"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-b8j47el",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331093005-b8j47el",
+				"updated": "20230331093005"
+			}
+		},
+		{
+			"ID": "20230331093005-y2sh7x8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093005-y2sh7x8",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "前两篇文章我们看到了Spring框架实现的一些模式，这次我们再讲解这个流行框架使用的另外三个模式。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-zsrvolh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093005-zsrvolh",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这篇文章会从两个对象创建模式开始:"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "原型模式"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "prototype"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)和对象池("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "object pool"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)。最后我们会聚焦在一个行为模式 : 观察者("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "observer"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-ssgdmvw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093005-ssgdmvw",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 设计模式 - 原型模式 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "prototype"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-46bkyhy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093005-46bkyhy",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文首先谈原型模式("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "prototype"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)。在Spring关于bean作用域的文章中，Spring也用了类似的名字\"原型\"("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "prototype"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)用于描述一种bean的作用域。原型设计模式看起来和同名的作用域接近。这个模式用于从已经存在的对象复制创建新的对象实例。这个复制要是一个真正的复制。意思是所有新对象的属性都必须和来源对象的一模一样(译注:但不是同一个对象)。如果不清楚这个概念，用一个JUnit例子做个演示："
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-9uc6cor",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093005-9uc6cor",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class PrototypeTest { \n \n  @Test\n  public void test() { \n    Robot firstRobot = new Robot(\"Droid#1\");\n    Robot secondRobot = (Robot) firstRobot.clone();\n    assertTrue(\"Cloned robot's instance can't be the same as the\"\n      +\" source robot instance\", \n      firstRobot != secondRobot);\n    assertTrue(\"Cloned robot's name should be '\"+firstRobot.getName()+\"'\"\n      +\" but was '\"+secondRobot.getName()+\"'\", \n      secondRobot.getName().equals(firstRobot.getName()));\n  }\n \n}\n \n \nclass Robot implements Cloneable { \n  private String name;\n   \n  public Robot(String name) { \n    this.name = name;\n  }\n   \n  public String getName() { \n    return this.name;\n  }\n \n  protected Object clone() throws CloneNotSupportedException { \n    return super.clone();\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-6etxj0x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093005-6etxj0x",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring中，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.beans.factory.support.AbstractBeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中使用了这样一种特定的原型设计模式来初始化作用域为原型("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "prototype"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)的bean。新的对象基于配置文件中的bean定义创建出来。看下面的例子："
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-9q4i6b7",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230331093005-9q4i6b7",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230331093005-7o82iqz",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230331093005-7o82iqz",
+						"updated": "20230331093005"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "首先是配置文件"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-zapvma4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093005-zapvma4",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c!--注意下面bean定义中作用域指定为原型 prototype--\u003e\n\u003cbean id=\"shoppingCart\" class=\"com.waitingforcode.data.ShoppingCart\" scope=\"prototype\"\u003e\n  \u003cproperty name=\"id\" value=\"9\"\u003e\n\u003c/property\u003e\u003c/bean\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-7i84rnh",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230331093005-7i84rnh",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230331093005-qrg4c56",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230331093005-qrg4c56",
+						"updated": "20230331093005"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "然后是测试用例"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-9isl53p",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093005-9isl53p",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@RunWith(SpringJUnit4ClassRunner.class)\n@ContextConfiguration(locations={ \"applicationContext-test.xml\"})\npublic class SpringPrototypeTest { \n \n  @Autowired\n  private BeanFactory beanFactory;\n   \n  @Test\n  public void test() { \n    ShoppingCart cart1 = (ShoppingCart) beanFactory.getBean(\"shoppingCart\");\n    assertTrue(\"Id of cart1 should be 9 but was \"+cart1.getId(), \n      cart1.getId() == 9);\n    cart1.setId(100);\n    ShoppingCart cart2 = (ShoppingCart) beanFactory.getBean(\"shoppingCart\");\n    assertTrue(\"Id of cart2 should be 9 but was \"+cart2.getId(), \n      cart2.getId() == 9);\n    assertTrue(\"Id of second cart (\"+cart2.getId()+\n\t    \") shouldn't be the same as the first one: \"+cart1.getId(), \n      cart1.getId() != cart2.getId());\n    cart2.setId(cart1.getId());\n    assertTrue(\"Now (after cart2.setId(cart1.getId())), the id of second cart (\"\n\t    +cart2.getId()+\") should be the same as the first one: \"\n      +cart1.getId(), cart1.getId() == cart2.getId());\n    assertTrue(\"Both instance shouldn't be the same\", cart1 != cart2);\n  }\n \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-hsdkprn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093005-hsdkprn",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从上面的例子可以看到，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ShoppingCart"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实例直接从bean定义中创建。所有两个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ShoppingCart"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实例,"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "cart1"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​和"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "cart2"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​,创建后属性"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "id"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​初始值都是9。测试方法中"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "cart1"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的属性"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "id"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​修改成了和"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "cart2"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的属性"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "id"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​不同，最后两个对象的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "id"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​属性又设置为了相同。这个测试证明了两个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ShoppingCart"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​实例指向两个不同的对象。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-4zjx3wd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093005-4zjx3wd",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring设计模式-对象池"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "object pool"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-h76af7v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093005-h76af7v",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring中使用的另外一种设计模式是对象池。其主要目的是维持一个包含特定数量对象的池子，然后按需重用池中这些对象。通过该机制，我们可以在使用\"贪心对象\"(greedy object)时提升响应时间。这里”贪心“指的是这些对象的构建需要很长的时间（比如：数据库连接池持有对象），所以最好重用这些已经存在的对象而不是创建新对象。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-ayucsdq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093005-ayucsdq",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring也使用了线程池管理它的调度部分。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.scheduling.concurrent"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​包里面有一些例子。Spring将该思路抽取到了数据库项目Spring JDBC中。数据库连接池并不直接由Spring实现，而是采用了一些可以适配到Spring工作的项目，比如C3P0或者Jakarta Commons DBCP连接池。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-26r96se",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093005-26r96se",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring设计模式-观察者"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "observer"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-37rin8a",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093005-37rin8a",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文要讲的最后一个设计模式是观察者模式"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "observer"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。当一个或者多个类在等待一个具体的事件时会使用到该设计模式。观察者模式由一个主题对象(被观察者)和一系列观察者对象组成。一个很好的例子是GUI界面上的一个按钮点击(按钮就是一个被观察的主题对象)会引起监听者(观察者)启动一些动作。比如打开一个新的页面。你可以从下面的例子中看它是怎么工作的:"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-tejec9r",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093005-tejec9r",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class ObserverTest { \n \n  @Test\n  public void test() { \n    Observer pageOpener = new PageOpener();\n    Observer register = new Register();\n    Button btn = new Button();\n    btn.addListener(pageOpener);\n    btn.addListener(register);\n    btn.clickOn();\n    assertTrue(\"Button should be clicked but it wasn't\", \n      btn.wasClicked());\n    assertTrue(\"Page opener should be informed about click but it wasn't\", \n      pageOpener.wasInformed());\n    assertTrue(\"Register should be informed about click but it wasn't\", \n      register.wasInformed());\n  }\n \n}\n \nclass Button { \n       \n  private boolean clicked;\n  private List\u003cobserver\u003e listeners;\n   \n  public List\u003cobserver\u003e getListeners() { \n    if (this.listeners == null) { \n      this.listeners = new ArrayList\u003cobserver\u003e();\n    }\n    return this.listeners;\n  }\n   \n  public void addListener(Observer observer) { \n    getListeners().add(observer);\n  }\n   \n  public boolean wasClicked() { \n    return this.clicked;\n  }\n   \n  public void clickOn() { \n    this.clicked = true;\n    informAll();\n  }\n   \n  private void informAll() { \n    for (Observer observer : getListeners()) { \n      observer.informAboutEvent();\n    }\n  }\n       \n}\n \nabstract class Observer { \n  protected boolean informed;\n   \n  public void informAboutEvent() { \n    this.informed = true;\n  }\n   \n  public boolean wasInformed() { \n    return this.informed;\n  }\n}\n \nclass PageOpener extends Observer { \n       \n  @Override\n  public void informAboutEvent() { \n    System.out.println(\"Preparing download of new page\");\n    super.informAboutEvent();\n  }\n       \n}\n \nclass Register extends Observer { \n \n  @Override\n  public void informAboutEvent() { \n    System.out.println(\"Adding the action to register\");\n    super.informAboutEvent();\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-a1gm3bq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093005-a1gm3bq",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "正如你看到的，我们按钮实例上的点击传播到了观察者对象中。这些对象中，一个开始下载页面内容，另外一个将事件信息保存到注册表。Spring中，观察者设计模式用于传播应用上下文关联事件到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.context.ApplicationListener"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​接口的实现。想知道它是怎么工作的，看看类"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​:"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-cm3a6yo",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093005-cm3a6yo",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class AbstractApplicationContext extends DefaultResourceLoader\n  implements ConfigurableApplicationContext, DisposableBean { \n  /** Statically specified listeners */\n  private Set\u003capplicationlistener\u003c?\u003e\u003e applicationListeners = \n\t  new LinkedHashSet\u003capplicationlistener\u003c?\u003e\u003e();\n   \n  // some other fields and methods\n  @Override\n  public void addApplicationListener(ApplicationListener\u003c!--?--\u003e listener) { \n    if (this.applicationEventMulticaster != null) { \n      this.applicationEventMulticaster.addApplicationListener(listener);\n    }\n    else { \n      this.applicationListeners.add(listener);\n    }\n  }\n \n  /**\n    * Return the list of statically specified ApplicationListeners.\n    */\n  public Collection\u003capplicationlistener\u003c?\u003e\u003e getApplicationListeners() { \n    return this.applicationListeners;\n  }\n \n  /**\n    * Add beans that implement ApplicationListener as listeners.\n    * Doesn't affect other listeners, which can be added without being beans.\n    */\n  protected void registerListeners() { \n    // Register statically specified listeners first.\n    for (ApplicationListener\u003c!--?--\u003e listener : getApplicationListeners()) { \n      getApplicationEventMulticaster().addApplicationListener(listener);\n    }\n    // Do not initialize FactoryBeans here: We need to leave all regular beans\n    // uninitialized to let post-processors apply to them!\n    String[] listenerBeanNames = getBeanNamesForType(\n\t\t\t\t\t\t\t    ApplicationListener.class, true, false);\n    for (String lisName : listenerBeanNames) { \n      getApplicationEventMulticaster().addApplicationListenerBean(lisName);\n    }\n  }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-rk11bx4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093005-rk11bx4",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在这段代码中，监听器从内部被添加到了应用上下文，并且后来在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "registerListeners"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法里，监听器被注册到相应的事件多播器，由"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.context.event.ApplicationEventMulticaster"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​代表。事件多播器负责管理不同的监听器和向他们传播事件。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-oaldg0d",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093005-oaldg0d",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-a2mvqws",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093005-a2mvqws",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这部分我们讲了三种设计模式 ： 原型模式("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "prototype"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)，用于创建同名作用域的bean；对象池("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "object pool"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)，避免重复创建贪心对象；观察者("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "observer"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)，将应用上下文事件分发到正确的监听器。"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-v1thrht",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093005-v1thrht",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-framework-part-3/read",
+					"TextMarkTextContent": "英文原文"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-889p2xv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093005-889p2xv",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "该系列文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331093005-zmebnz7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093005-zmebnz7",
+				"updated": "20230331093005"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-5/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(五)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-4/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(四)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-3/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(三)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-2/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(二)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-1/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(一)"
+				}
+			]
+		}
+	]
+}

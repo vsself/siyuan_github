@@ -1,0 +1,3910 @@
+{
+	"ID": "20230331090450-ttpmm23",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331090450-ttpmm23",
+		"title": "Spring源码分析十四：@Aspect方式的AOP下篇 - createProxy_createaopproxy_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331090450"
+	},
+	"Children": [
+		{
+			"ID": "20230331090450-9pu7ff3",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090450-9pu7ff3",
+				"updated": "20230331090450"
+			}
+		},
+		{
+			"ID": "20230331090450-qbu9gn0",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090450-qbu9gn0",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"ID": "20230331090450-dwrg7oe",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090450-dwrg7oe",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-waz3q94",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-waz3q94",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/107164934"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-nv0ndtt",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090450-nv0ndtt",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-xlg60xb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-xlg60xb",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "文章目录一、前言1.  ProxyFactory二、创建代理类 - createProxy1. buildAdvisors(beanName, specificInterceptors);2. proxyFactory.getProxy(getProxyClassLoader());2.1 ProxyCreatorSupport#createAopProxy2.2  getProxy(classLoader)五、总结一、前言本文是笔者阅读Spring源码的记录文章，由于本人技术水平有限，在文章中难免出现"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-3z7y9n9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090450-3z7y9n9",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-lcw4894",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-lcw4894",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:04:50"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-7fgfvso",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090450-7fgfvso",
+				"updated": "20230331090450"
+			}
+		},
+		{
+			"ID": "20230331090450-nhycqgj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090450-nhycqgj",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-y6r4lqa",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090450-y6r4lqa",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"ID": "20230331090450-jtq8g0r",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090450-jtq8g0r",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-ob4n71i",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-ob4n71i",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#_4",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-nxsak1m",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090450-nxsak1m",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-11bz92a",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090450-11bz92a",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"ID": "20230331090450-je21q89",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090450-je21q89",
+										"updated": "20230331090450"
+									},
+									"Children": [
+										{
+											"ID": "20230331090450-lama7m7",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090450-lama7m7",
+												"updated": "20230331090450"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#1__ProxyFactory_32",
+													"TextMarkTextContent": "1. ProxyFactory"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-hnqo0rb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090450-hnqo0rb",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-td8ie1o",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-td8ie1o",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#__AbstractAutoProxyCreatorcreateProxy_38",
+									"TextMarkTextContent": "二、创建代理类 - AbstractAutoProxyCreator#createProxy"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-w0xokyp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090450-w0xokyp",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-40v5hdm",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090450-40v5hdm",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"ID": "20230331090450-jjlqse3",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090450-jjlqse3",
+										"updated": "20230331090450"
+									},
+									"Children": [
+										{
+											"ID": "20230331090450-ysz0ua9",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090450-ysz0ua9",
+												"updated": "20230331090450"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#1_buildAdvisorsbeanName_specificInterceptors_95",
+													"TextMarkTextContent": "1. buildAdvisors(beanName, specificInterceptors);"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090450-vy9yvdb",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090450-vy9yvdb",
+										"updated": "20230331090450"
+									},
+									"Children": [
+										{
+											"ID": "20230331090450-kejuqrp",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090450-kejuqrp",
+												"updated": "20230331090450"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#2_proxyFactorygetProxygetProxyClassLoader_180",
+													"TextMarkTextContent": "2. proxyFactory.getProxy(getProxyClassLoader());"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090450-4r1bnr3",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090450-4r1bnr3",
+										"updated": "20230331090450"
+									},
+									"Children": [
+										{
+											"ID": "20230331090450-iighbch",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331090450-iighbch",
+												"updated": "20230331090450"
+											},
+											"Children": [
+												{
+													"ID": "20230331090450-bwjy8jq",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090450-bwjy8jq",
+														"updated": "20230331090450"
+													},
+													"Children": [
+														{
+															"ID": "20230331090450-5x81pry",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090450-5x81pry",
+																"updated": "20230331090450"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#21_ProxyCreatorSupportcreateAopProxy_198",
+																	"TextMarkTextContent": "2.1 ProxyCreatorSupport#createAopProxy"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090450-cnt98t3",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090450-cnt98t3",
+														"updated": "20230331090450"
+													},
+													"Children": [
+														{
+															"ID": "20230331090450-603u5mv",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090450-603u5mv",
+																"updated": "20230331090450"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#22__getProxyclassLoader_250",
+																	"TextMarkTextContent": "2.2 getProxy(classLoader)"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-7554jjz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090450-7554jjz",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-hwxq7tb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-hwxq7tb",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#_254",
+									"TextMarkTextContent": "三、代理对象"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-q8is1qz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090450-q8is1qz",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-cx5vyio",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090450-cx5vyio",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"ID": "20230331090450-mstzjby",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090450-mstzjby",
+										"updated": "20230331090450"
+									},
+									"Children": [
+										{
+											"ID": "20230331090450-8n95vi1",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090450-8n95vi1",
+												"updated": "20230331090450"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#1_JdkDynamicAopProxy_256",
+													"TextMarkTextContent": "1. JdkDynamicAopProxy"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090450-8q7ltsn",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090450-8q7ltsn",
+										"updated": "20230331090450"
+									},
+									"Children": [
+										{
+											"ID": "20230331090450-7f86xta",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331090450-7f86xta",
+												"updated": "20230331090450"
+											},
+											"Children": [
+												{
+													"ID": "20230331090450-f2c4ve1",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090450-f2c4ve1",
+														"updated": "20230331090450"
+													},
+													"Children": [
+														{
+															"ID": "20230331090450-jwdrdc3",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090450-jwdrdc3",
+																"updated": "20230331090450"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#11_JdkDynamicAopProxygetProxy_264",
+																	"TextMarkTextContent": "1.1 JdkDynamicAopProxy#getProxy"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090450-jqcs4vy",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090450-jqcs4vy",
+														"updated": "20230331090450"
+													},
+													"Children": [
+														{
+															"ID": "20230331090450-r84rlj0",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090450-r84rlj0",
+																"updated": "20230331090450"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#12_JdkDynamicAopProxyinvoke_285",
+																	"TextMarkTextContent": "1.2 JdkDynamicAopProxy#invoke"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090450-u5jzr9o",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090450-u5jzr9o",
+														"updated": "20230331090450"
+													},
+													"Children": [
+														{
+															"ID": "20230331090450-9ciury7",
+															"Type": "NodeList",
+															"ListData": {},
+															"Properties": {
+																"id": "20230331090450-9ciury7",
+																"updated": "20230331090450"
+															},
+															"Children": [
+																{
+																	"ID": "20230331090450-4hn2i85",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090450-4hn2i85",
+																		"updated": "20230331090450"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090450-yz6p09v",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090450-yz6p09v",
+																				"updated": "20230331090450"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#121_thisadvisedgetInterceptorsAndDynamicInterceptionAdvicemethod_targetClass_391",
+																					"TextMarkTextContent": "1.2.1. this.advised.getInterceptorsAndDynamicInterceptionAdvice(method, targetClass);"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"ID": "20230331090450-7o5fx9o",
+																	"Type": "NodeListItem",
+																	"ListData": {
+																		"BulletChar": 42,
+																		"Marker": "Kg=="
+																	},
+																	"Properties": {
+																		"id": "20230331090450-7o5fx9o",
+																		"updated": "20230331090450"
+																	},
+																	"Children": [
+																		{
+																			"ID": "20230331090450-fd29c6e",
+																			"Type": "NodeParagraph",
+																			"Properties": {
+																				"id": "20230331090450-fd29c6e",
+																				"updated": "20230331090450"
+																			},
+																			"Children": [
+																				{
+																					"Type": "NodeTextMark",
+																					"TextMarkType": "a",
+																					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#122_retVal__invocationproceed_512",
+																					"TextMarkTextContent": "1.2.2. retVal = invocation.proceed();"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090450-uobdl6q",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090450-uobdl6q",
+														"updated": "20230331090450"
+													},
+													"Children": [
+														{
+															"ID": "20230331090450-nfzv0jh",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090450-nfzv0jh",
+																"updated": "20230331090450"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#13__562",
+																	"TextMarkTextContent": "1.3 总结"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090450-z0fr7ic",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090450-z0fr7ic",
+										"updated": "20230331090450"
+									},
+									"Children": [
+										{
+											"ID": "20230331090450-ejwj4xs",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090450-ejwj4xs",
+												"updated": "20230331090450"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#2_ObjenesisCglibAopProxy_591",
+													"TextMarkTextContent": "2. ObjenesisCglibAopProxy"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090450-31hh1r5",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090450-31hh1r5",
+										"updated": "20230331090450"
+									},
+									"Children": [
+										{
+											"ID": "20230331090450-ausovz6",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331090450-ausovz6",
+												"updated": "20230331090450"
+											},
+											"Children": [
+												{
+													"ID": "20230331090450-6ygy82i",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090450-6ygy82i",
+														"updated": "20230331090450"
+													},
+													"Children": [
+														{
+															"ID": "20230331090450-cgs14rr",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090450-cgs14rr",
+																"updated": "20230331090450"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934#21_ObjenesisCglibAopProxygetProxy_592",
+																	"TextMarkTextContent": "2.1 ObjenesisCglibAopProxy#getProxy"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-riojbbo",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090450-riojbbo",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-jbos8u6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-jbos8u6",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是笔者阅读Spring源码的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-gxcsjrq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-gxcsjrq",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "全集目录："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106440723",
+					"TextMarkTextContent": "Spring源码分析：全集整理"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-1euqwbm",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090450-1euqwbm",
+				"updated": "20230331090450"
+			}
+		},
+		{
+			"ID": "20230331090450-3rumvt9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-3rumvt9",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文系列："
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-ngpl7au",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090450-ngpl7au",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"ID": "20230331090450-fjtd6lw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090450-fjtd6lw",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-cg61180",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-cg61180",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106745317",
+									"TextMarkTextContent": "Spring源码分析十一：@Aspect方式的AOP上篇 - @EnableAspectJAutoProxy"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-y7visv8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090450-y7visv8",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-39ys5i7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-39ys5i7",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107070159",
+									"TextMarkTextContent": "Spring源码分析十二：@Aspect方式的AOP中篇 - getAdvicesAndAdvisorsForBean"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-eh4ntac",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090450-eh4ntac",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-1mcro07",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-1mcro07",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107164934",
+									"TextMarkTextContent": "Spring源码分析十三：@Aspect方式的AOP下篇 - createProxy"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-rj192tp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090450-rj192tp",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-qgwdiyi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-qgwdiyi",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/119823785",
+									"TextMarkTextContent": "Spring源码分析二十四：cglib 的代理过程"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-nss1jkr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-nss1jkr",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文衍生篇："
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-atp4vb5",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090450-atp4vb5",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"ID": "20230331090450-m2265ff",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090450-m2265ff",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-xxz3nux",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-xxz3nux",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/105464984",
+									"TextMarkTextContent": "Spring 源码分析衍生篇九 ： AOP源码分析 - 基础篇"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-wfur7l1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090450-wfur7l1",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-a91kn2k",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-a91kn2k",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/119874208",
+									"TextMarkTextContent": "Spring 源码分析衍生篇十二 ：AOP 中的引介增强"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-5fsduhv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-5fsduhv",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "补充篇："
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-8vpkgbp",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090450-8vpkgbp",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"ID": "20230331090450-hkua3hy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090450-hkua3hy",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-6ewk4en",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-6ewk4en",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117568863",
+									"TextMarkTextContent": "Spring 源码分析补充篇三 ：Spring Aop 的关键类"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-n598yfs",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090450-n598yfs",
+				"updated": "20230331090450"
+			}
+		},
+		{
+			"ID": "20230331090450-lfcrcl3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-lfcrcl3",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们上篇已经分析到了 Spring将已经找到所有适用于当前bean 的Advisor 集合。下面就要创建代理对象了，而代理对象的创建是从 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAutoProxyCreator#createProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 开始。下面我们就来看看代理对象的创建过程。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-q4sg8rf",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090450-q4sg8rf",
+				"updated": "20230331090450"
+			}
+		},
+		{
+			"ID": "20230331090450-9h8djnd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090450-9h8djnd",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. ProxyFactory"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-50rhpjt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-50rhpjt",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的结构图如下：\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200706181028512-20230331090450-ds37ohr.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n在代理对象的创建过程中，实际上是委托给 ProxyFactory 来完成的。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 在创建过程中保存了筛选后的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Advisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 集合以及其他的一些属性。而在后面创建代理类的时候，将 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 作为参数传递给了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "JdkDynamicAopProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ObjenesisCglibAopProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。这个在后面的代码分析中会有详细说明。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-hcqknlc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090450-hcqknlc",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、创建代理类 - AbstractAutoProxyCreator#createProxy"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-hj79o0b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-hj79o0b",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AbstractAutoProxyCreator#createProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-lrez6to",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090450-lrez6to",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t// 这里的入参 beanClass ：当前BeanClass, \n\t// beanName : 当前BeanName\n\t// specificInterceptors ： 中篇中寻找出来的 Advisor\n\t// targetSource : SingletonTargetSource 目标类是单例 拥有给定对象的TargetSource接口的实现。 这是Spring AOP框架使用的TargetSource接口的默认实现。 通常不需要在应用程序代码中创建此类的对象。\n\tprotected Object createProxy(Class\u003c?\u003e beanClass, @Nullable String beanName,\n\t\t\t@Nullable Object[] specificInterceptors, TargetSource targetSource) { \n\n\t\tif (this.beanFactory instanceof ConfigurableListableBeanFactory) { \n\t\t\tAutoProxyUtils.exposeTargetClass((ConfigurableListableBeanFactory) this.beanFactory, beanName, beanClass);\n\t\t}\n\n\t\tProxyFactory proxyFactory = new ProxyFactory();\n\t\t// 获取当前类的相关属性\n\t\tproxyFactory.copyFrom(this);\n\t\t// 判断当前bean 是使用 TargetClass 代理还是接口代理\n\t\tif (!proxyFactory.isProxyTargetClass()) { \n\t\t\t// 检查 proxyTargeClass设置以及preservetargetClass 属性\n\t\t\tif (shouldProxyTargetClass(beanClass, beanName)) { \n\t\t\t\tproxyFactory.setProxyTargetClass(true);\n\t\t\t}\n\t\t\telse { \n\t\t\t\tevaluateProxyInterfaces(beanClass, proxyFactory);\n\t\t\t}\n\t\t}\n\t\t// 将拦截器 Interceptors 封装成增强器 Advisor\n\t\tAdvisor[] advisors = buildAdvisors(beanName, specificInterceptors);\n\t\t// 加入增强器\n\t\tproxyFactory.addAdvisors(advisors);\n\t\tproxyFactory.setTargetSource(targetSource);\n\t\t// 定制代理\n\t\tcustomizeProxyFactory(proxyFactory);\n\t\tproxyFactory.setFrozen(this.freezeProxy);\n\t\tif (advisorsPreFiltered()) { \n\t\t\tproxyFactory.setPreFiltered(true);\n\t\t}\n\t\t// 在这里面就封装出了ProxyFactory，并交由其来完成剩下的代理工作。\n\t\treturn proxyFactory.getProxy(getProxyClassLoader());\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-9edy00r",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-9edy00r",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "代码中已经有详细的注释了，可以看到代理类的创建Spring委托给 ProxyFactory 去处理，而在此函数中主要是对 ProxyFactory 的初始化操作："
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-c660xap",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090450-c660xap",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"ID": "20230331090450-n44t6j8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090450-n44t6j8",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-kvwsnod",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-kvwsnod",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "获取当前类的属性"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-h5jcaxz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090450-h5jcaxz",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-865whmy",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-865whmy",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "添加代理接口"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-njggnme",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090450-njggnme",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-t4r7bdi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-t4r7bdi",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "封装Advisor 并加入到ProxyFactory 中"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-kaq310b",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090450-kaq310b",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-epcsfts",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-epcsfts",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "设置要代理的类"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-svvwb6x",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230331090450-svvwb6x",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-y8wagw8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-y8wagw8",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "通过customizeProxyFactory定制代理类 ，对ProxyFactory 进一步封装"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-b7mucrj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ni4=",
+						"Num": 6
+					},
+					"Properties": {
+						"id": "20230331090450-b7mucrj",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-i9egxkc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-i9egxkc",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "进行获取代理操作"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-zg307wm",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090450-zg307wm",
+				"updated": "20230331090450"
+			}
+		},
+		{
+			"ID": "20230331090450-fuwxhz9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-fuwxhz9",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们主要下面两个方法："
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-iyb4eqc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090450-iyb4eqc",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. buildAdvisors(beanName, specificInterceptors);"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-nmd6tb1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-nmd6tb1",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这一步的目的是将 Interceptors 封装成增强器 Advisor。虽然我们之前动态解析的都是 Advisor ，但是保不齐用户自己注入的并不是Advisor 类型，所以这里需要一个转换。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-g1l0g9n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-g1l0g9n",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "需要注意的是：这里的参数 就是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Object[] specificInterceptors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 就是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getAdvicesAndAdvisorsForBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法返回的 Advisor，通过对 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getAdvicesAndAdvisorsForBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法的分析我们可以得知， "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "specificInterceptors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 应该全是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InstantiationModelAwarePointcutAdvisorImpl"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类型。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-tqks69d",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090450-tqks69d",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected Advisor[] buildAdvisors(@Nullable String beanName, @Nullable Object[] specificInterceptors) { \n\t\t// Handle prototypes correctly...\n\t\t// 解析注册的所有 Interceptor Name。即我们可以手动添加一些 拦截器，这里将手动添加的拦截器保存到commonInterceptors  中\n\t\tAdvisor[] commonInterceptors = resolveInterceptorNames();\n\n\t\tList\u003cObject\u003e allInterceptors = new ArrayList\u003c\u003e();\n\t\tif (specificInterceptors != null) { \n\t\t\t// 加入拦截器\n\t\t\tallInterceptors.addAll(Arrays.asList(specificInterceptors));\n\t\t\tif (commonInterceptors.length \u003e 0) { \n\t\t\t\tif (this.applyCommonInterceptorsFirst) { \n\t\t\t\t\tallInterceptors.addAll(0, Arrays.asList(commonInterceptors));\n\t\t\t\t}\n\t\t\t\telse { \n\t\t\t\t\tallInterceptors.addAll(Arrays.asList(commonInterceptors));\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t// ... 日志打印\n\n\t\tAdvisor[] advisors = new Advisor[allInterceptors.size()];\n\t\tfor (int i = 0; i \u003c allInterceptors.size(); i++) { \n\t\t\t// 拦截器进行转化为 Advisor\n\t\t\tadvisors[i] = this.advisorAdapterRegistry.wrap(allInterceptors.get(i));\n\t\t}\n\t\treturn advisors;\n\t}\n\n...\n\t//  this.interceptorNames 是自己通过set设置的属性。在基础篇中Advice 有过类似的设置。我们这里是没有的\n\tprivate Advisor[] resolveInterceptorNames() { \n\t\tBeanFactory bf = this.beanFactory;\n\t\tConfigurableBeanFactory cbf = (bf instanceof ConfigurableBeanFactory ? (ConfigurableBeanFactory) bf : null);\n\t\tList\u003cAdvisor\u003e advisors = new ArrayList\u003c\u003e();\n\t\t// 将 interceptorNames 获取到的拦截器保存起来，并返回。\n\t\tfor (String beanName : this.interceptorNames) { \n\t\t\tif (cbf == null || !cbf.isCurrentlyInCreation(beanName)) { \n\t\t\t\tAssert.state(bf != null, \"BeanFactory required for resolving interceptor names\");\n\t\t\t\tObject next = bf.getBean(beanName);\n\t\t\t\tadvisors.add(this.advisorAdapterRegistry.wrap(next));\n\t\t\t}\n\t\t}\n\t\treturn advisors.toArray(new Advisor[0]);\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-d5qvfd2",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090450-d5qvfd2",
+				"updated": "20230331090450"
+			}
+		},
+		{
+			"ID": "20230331090450-bc7ahem",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-bc7ahem",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们下面来看一下 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.advisorAdapterRegistry.wrap(allInterceptors.get(i));"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-lqbdypm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090450-lqbdypm",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic Advisor wrap(Object adviceObject) throws UnknownAdviceTypeException { \n\t\t// 如果 adviceObject  本身就是 Advisor则不需进一步操作\n\t\tif (adviceObject instanceof Advisor) { \n\t\t\treturn (Advisor) adviceObject;\n\t\t}\n\t\t// 此封装方法只能处理Advisor 和 Advice两种类型，如果不是将不能封装\n\t\tif (!(adviceObject instanceof Advice)) { \n\t\t\tthrow new UnknownAdviceTypeException(adviceObject);\n\t\t}\n\t\tAdvice advice = (Advice) adviceObject;\n\t\tif (advice instanceof MethodInterceptor) { \n\t\t\t// So well-known it doesn't even need an adapter.\n\t\t\t// 如果是MethodInterceptor 类型则使用 DefaultPointcutAdvisor 封装\n\t\t\treturn new DefaultPointcutAdvisor(advice);\n\t\t}\n\t\t// 如果存在 Advisor 的适配器则同样需要进行封装。\n\t\tfor (AdvisorAdapter adapter : this.adapters) { \n\t\t\t// Check that it is supported.\n\t\t\tif (adapter.supportsAdvice(advice)) { \n\t\t\t\treturn new DefaultPointcutAdvisor(advice);\n\t\t\t}\n\t\t}\n\t\tthrow new UnknownAdviceTypeException(advice);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-4eapgt3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-4eapgt3",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DefaultAdvisorAdapterRegistry#wrap 方法也很简单，就是将 adviceObject 包装成 Advisor 。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-sahruah",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090450-sahruah",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. proxyFactory.getProxy(getProxyClassLoader());"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-bzh03i7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-bzh03i7",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "上述代码中 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "proxyFactory.getProxy(getProxyClassLoader());"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 会继续调用到 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "DefaultAopProxyFactory#createAopProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "因此我们来看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "DefaultAopProxyFactory#createAopProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-nghae9n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-nghae9n",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先我们来看一下 proxyFactory.getProxy 方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-3d1bivr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090450-3d1bivr",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic Object getProxy(@Nullable ClassLoader classLoader) { \n\t\treturn createAopProxy().getProxy(classLoader);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-mj04f41",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-mj04f41",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "显然意见我们需要将这个内容分为两步： "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "createAopProxy()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "getProxy(classLoader)"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-2wnm045",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090450-2wnm045",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1 ProxyCreatorSupport#createAopProxy"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-v5uh998",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-v5uh998",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyCreatorSupport#createAopProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 代码如下，这里我们可以看到，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyCreatorSupport#createAopProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 会调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DefaultAopProxyFactory#createAopProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，并且将"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​作为参数传递了过去。而此时的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，正是上面提到的创建的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-feu8qcx",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090450-feu8qcx",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected final synchronized AopProxy createAopProxy() { \n\t\tif (!this.active) { \n\t\t\tactivate();\n\t\t}\n\t\t// 这里我们需要注意的是 ，这里 createAopProxy 传入的是 this。也就是说这里参数传递实际上是ProxyFactroy\n\t\treturn getAopProxyFactory().createAopProxy(this);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-fu3burq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-fu3burq",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里我们再来看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DefaultAopProxyFactory#createAopProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的实现"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-v8oui2e",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090450-v8oui2e",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\t// 这里的参数 AdvisedSupport config 即是之前创建的ProxyFactory。这里又将其传递给了AopProxy \n\tpublic AopProxy createAopProxy(AdvisedSupport config) throws AopConfigException { \n\t\tif (config.isOptimize() || config.isProxyTargetClass() || hasNoUserSuppliedProxyInterfaces(config)) { \n\t\t\tClass\u003c?\u003e targetClass = config.getTargetClass();\n\t\t\tif (targetClass == null) { \n\t\t\t\tthrow new AopConfigException(\"TargetSource cannot determine target class: \" +\n\t\t\t\t\t\t\"Either an interface or a target is required for proxy creation.\");\n\t\t\t}\n\t\t\tif (targetClass.isInterface() || Proxy.isProxyClass(targetClass)) { \n\t\t\t\treturn new JdkDynamicAopProxy(config);\n\t\t\t}\n\t\t\treturn new ObjenesisCglibAopProxy(config);\n\t\t}\n\t\telse { \n\t\t\treturn new JdkDynamicAopProxy(config);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-ktqxc9d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-ktqxc9d",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "在这个方法中我们可以看到 Aop代理使用了 JDK动态代理和 Cglib动态代理两种动态代理模式，并根据某些参数来进行选择代理方式"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-lt1gdl5",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090450-lt1gdl5",
+				"updated": "20230331090450"
+			}
+		},
+		{
+			"ID": "20230331090450-wdyzbd3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-wdyzbd3",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "createAopProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 代码中我们可以看到几个参数："
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-82ud7wa",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090450-82ud7wa",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"ID": "20230331090450-upe3se8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090450-upe3se8",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-mfi53o4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-mfi53o4",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "optimize"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 用来控制通过CGlib 创建的代理是否使用激进的优化策略，一般默认false，对JDK动态代理无效。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-75wtp9e",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090450-75wtp9e",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-ve9w3e7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-ve9w3e7",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "proxyTargetClass"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​：若为true，则目标类本身被代理，而不是代理目标类的接口，创建 cglib代理。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-cbidwf8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090450-cbidwf8",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-weyhlyv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-weyhlyv",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "hasNoUserSuppliedProxyInterfaces"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​：是否存在代理接口"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-8a6xkxy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-8a6xkxy",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "即："
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-nirjhez",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090450-nirjhez",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"ID": "20230331090450-r2is295",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090450-r2is295",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-513vd47",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-513vd47",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果目标对象实现了接口，默认会采用JDK动态代理实现AOP"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-h65t536",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090450-h65t536",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-jmqfmop",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-jmqfmop",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果目标对象实现了接口，可以强制使用CGLIB动态代理实现AOP"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-bxtyxdn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090450-bxtyxdn",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-krr697i",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-krr697i",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果目标对象没有实现接口，必须采用CGLIB代理，Spring会自动在JDK动态代理和CGLIB代理之前切换。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-dcmsx2p",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090450-dcmsx2p",
+				"updated": "20230331090450"
+			}
+		},
+		{
+			"ID": "20230331090450-dba5k7g",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090450-dba5k7g",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2 getProxy("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=classLoader\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "classLoader"
+				},
+				{
+					"Type": "NodeText",
+					"Data": ")"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-6vqowg4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-6vqowg4",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先我们需要知道的是，调用这个方法的是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "createAopProxy()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法的返回值，那么就可能是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "JdkDynamicAopProxy.getProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 或者 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ObjenesisCglibAopProxy.getProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。下面我们来详细分析一下代理生成的过程。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-uzyboih",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090450-uzyboih",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、代理对象"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-jwc8fkx",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090450-jwc8fkx",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. JdkDynamicAopProxy"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-7sdrwkh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-7sdrwkh",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面代码省略了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "JdkDynamicAopProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 部分无关代码。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-pwvj4wg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-pwvj4wg",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "对于JDK 动态代理来说，实际调用代理方法是在 java.lang.reflect.InvocationHandler"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong tag",
+					"TextMarkTextContent": "invoke 中，因此 JdkDynamicAopProxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "invoke是我们的重点关注对象"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-xnzxv9c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-xnzxv9c",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210309112603531-20230331090450-ctl1zob.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-pu7a27b",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090450-pu7a27b",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1 JdkDynamicAopProxy#getProxy"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-lv94f8g",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090450-lv94f8g",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Override\n\tpublic Object getProxy() { \n\t\treturn getProxy(ClassUtils.getDefaultClassLoader());\n\t}\n\n\t@Override\n\tpublic Object getProxy(@Nullable ClassLoader classLoader) { \n\t\tif (logger.isTraceEnabled()) { \n\t\t\tlogger.trace(\"Creating JDK dynamic proxy: \" + this.advised.getTargetSource());\n\t\t}\n\t\t// 获取代理接口，因为是jdk代理，所以需要获取代理接口\n\t\tClass\u003c?\u003e[] proxiedInterfaces = AopProxyUtils.completeProxiedInterfaces(this.advised, true);\n\t\t// 发现 equals 和 hashCode 方法，如果发现，则改变 equalsDefined = true; 和 \thashCodeDefined = true;\n\t\tfindDefinedEqualsAndHashCodeMethods(proxiedInterfaces);\n\t\treturn Proxy.newProxyInstance(classLoader, proxiedInterfaces, this);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-y71vopu",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090450-y71vopu",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2 JdkDynamicAopProxy#invoke"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-fw6pn7t",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090450-fw6pn7t",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\t@Nullable\n\tpublic Object invoke(Object proxy, Method method, Object[] args) throws Throwable { \n\t\tObject oldProxy = null;\n\t\tboolean setProxyContext = false;\n\t\t// 获取目标源\n\t\tTargetSource targetSource = this.advised.targetSource;\n\t\tObject target = null;\n\n\t\ttry { \n\t\t\t// 处理 equals 方法\n\t\t\tif (!this.equalsDefined \u0026\u0026 AopUtils.isEqualsMethod(method)) { \n\t\t\t\t// The target does not implement the equals(Object) method itself.\n\t\t\t\treturn equals(args[0]);\n\t\t\t}\n\t\t\t// 处理 hashCode 方法\n\t\t\telse if (!this.hashCodeDefined \u0026\u0026 AopUtils.isHashCodeMethod(method)) { \n\t\t\t\t// The target does not implement the hashCode() method itself.\n\t\t\t\treturn hashCode();\n\t\t\t}\n\t\t\t// 处理 DecoratingProxy 类\n\t\t\telse if (method.getDeclaringClass() == DecoratingProxy.class) { \n\t\t\t\t// There is only getDecoratedClass() declared -\u003e dispatch to proxy config.\n\t\t\t\treturn AopProxyUtils.ultimateTargetClass(this.advised);\n\t\t\t}\n\t\t\t// 处理 Class类的isAssignableFrom(Class cls) 方法\n\t\t\telse if (!this.advised.opaque \u0026\u0026 method.getDeclaringClass().isInterface() \u0026\u0026\n\t\t\t\t\tmethod.getDeclaringClass().isAssignableFrom(Advised.class)) { \n\t\t\t\t// Service invocations on ProxyConfig with the proxy config...\n\t\t\t\treturn AopUtils.invokeJoinpointUsingReflection(this.advised, method, args);\n\t\t\t}\n\n\t\t\tObject retVal;\n\t\t\t// 是否暴露代理对象。有时候目标对象内部的自我调用将无法实施切面中的增强，则需要通过此属性暴露\n\t\t\tif (this.advised.exposeProxy) { \n\t\t\t\t// Make invocation available if necessary.\n\t\t\t\toldProxy = AopContext.setCurrentProxy(proxy);\n\t\t\t\tsetProxyContext = true;\n\t\t\t}\n\n\t\t\t// Get as late as possible to minimize the time we \"own\" the target,\n\t\t\t// in case it comes from a pool.\n\t\t\ttarget = targetSource.getTarget();\n\t\t\tClass\u003c?\u003e targetClass = (target != null ? target.getClass() : null);\n\n\t\t\t// Get the interception chain for this method.\n\t\t\t//  获取当前方法的拦截链路，其中包括将AspectJMethodBeforeAdvice、AspectJAfterAdvice、AspectJAfterReturningAdvice 转换成合适的类型(InterceptorAndDynamicMethodMatcher)\n\t\t\tList\u003cObject\u003e chain = this.advised.getInterceptorsAndDynamicInterceptionAdvice(method, targetClass);\n\n\n\t\t\tif (chain.isEmpty()) { \n\t\t\t\t// 拦截链路为空则直接调用切点方法\n\t\t\t\tObject[] argsToUse = AopProxyUtils.adaptArgumentsIfNecessary(method, args);\n\t\t\t\tretVal = AopUtils.invokeJoinpointUsingReflection(target, method, argsToUse);\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// We need to create a method invocation...\n\t\t\t\t// 否则构建一个新的 方法调用对象 ReflectiveMethodInvocation\n\t\t\t\t// 以便于使用proceed 方法进行链接表用拦截器\n\t\t\t\tMethodInvocation invocation =\n\t\t\t\t\t\tnew ReflectiveMethodInvocation(proxy, target, method, args, targetClass, chain);\n\t\t\t\t// Proceed to the joinpoint through the interceptor chain.\n\t\t\t\t// 调用方法，执行拦截器链路\n\t\t\t\tretVal = invocation.proceed();\n\t\t\t}\n\n\t\t\t// Massage return value if necessary.\n\t\t\t// 返回结果\n\t\t\tClass\u003c?\u003e returnType = method.getReturnType();\n\t\t\tif (retVal != null \u0026\u0026 retVal == target \u0026\u0026\n\t\t\t\t\treturnType != Object.class \u0026\u0026 returnType.isInstance(proxy) \u0026\u0026\n\t\t\t\t\t!RawTargetAccess.class.isAssignableFrom(method.getDeclaringClass())) { \n\t\t\t\t// Special case: it returned \"this\" and the return type of the method\n\t\t\t\t// is type-compatible. Note that we can't help if the target sets\n\t\t\t\t// a reference to itself in another returned object.\n\t\t\t\tretVal = proxy;\n\t\t\t}\n\t\t\telse if (retVal == null \u0026\u0026 returnType != Void.TYPE \u0026\u0026 returnType.isPrimitive()) { \n\t\t\t\tthrow new AopInvocationException(\n\t\t\t\t\t\t\"Null return value from advice does not match primitive return type for: \" + method);\n\t\t\t}\n\t\t\treturn retVal;\n\t\t}\n\t\tfinally { \n\t\t\tif (target != null \u0026\u0026 !targetSource.isStatic()) { \n\t\t\t\t// Must have come from TargetSource.\n\t\t\t\ttargetSource.releaseTarget(target);\n\t\t\t}\n\t\t\tif (setProxyContext) { \n\t\t\t\t// Restore old proxy.\n\t\t\t\tAopContext.setCurrentProxy(oldProxy);\n\t\t\t}\n\t\t}\n\t}\n\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-sm7cnzf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-sm7cnzf",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面我们有两个方法需要注意："
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-wmty8u0",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090450-wmty8u0",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"ID": "20230331090450-6ueqh7k",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090450-6ueqh7k",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-6tikouo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-6tikouo",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "List\u0026lt;Object\u0026gt; chain = this.advised.getInterceptorsAndDynamicInterceptionAdvice(method, targetClass);"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。这一句将 获取当前方法的拦截链路，其中包括将AspectJMethodBeforeAdvice、AspectJAfterAdvice、AspectJAfterReturningAdvice 转换成 拦截器，用于后面的调用。\n​"
+								},
+								{
+									"Type": "NodeImage",
+									"Data": "span",
+									"Children": [
+										{
+											"Type": "NodeBang"
+										},
+										{
+											"Type": "NodeOpenBracket"
+										},
+										{
+											"Type": "NodeLinkText",
+											"Data": "在这里插入图片描述"
+										},
+										{
+											"Type": "NodeCloseBracket"
+										},
+										{
+											"Type": "NodeOpenParen"
+										},
+										{
+											"Type": "NodeLinkDest",
+											"Data": "assets/20210309111635754-20230331090450-vbg5egr.png"
+										},
+										{
+											"Type": "NodeCloseParen"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-xo5a03s",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090450-xo5a03s",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-9rt1vdr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-9rt1vdr",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "retVal = invocation.proceed();"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ : 对增强方法的调用"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-0tg52z7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090450-0tg52z7",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2.1. this.advised.getInterceptorsAndDynamicInterceptionAdvice(method, targetClass);"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-ka0oyon",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-ka0oyon",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在中篇中我们讲了在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "InstantiationModelAwarePointcutAdvisorImpl"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中，Spring根据Aspect系列注解的不同将方法封装成了不同的Advice ："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJAroundAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJMethodBeforeAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJAfterAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJAfterReturningAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJAfterThrowingAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-g0oaq2g",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-g0oaq2g",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invocation.proceed()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的分析中我们会发现最终调用的增强方法为 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodInterceptor#invoke"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法(这个就是2.2.2 的部分)。但是在上述五个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Advice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中，只有"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJAroundAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJAfterAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 实现了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口，其余的并没有实现 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口，那么这时候就需要进行一个转换，将 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Advice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 转换成 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类型，该转换就是在此方法中完成。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-q6cyw98",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090450-q6cyw98",
+				"updated": "20230331090450"
+			}
+		},
+		{
+			"ID": "20230331090450-lr30fyy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-lr30fyy",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.advised.getInterceptorsAndDynamicInterceptionAdvice(method, targetClass);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法最终会调用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DefaultAdvisorChainFactory#getInterceptorsAndDynamicInterceptionAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，所以我们这里直接看该方法"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-4abmcma",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090450-4abmcma",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic List\u003cObject\u003e getInterceptorsAndDynamicInterceptionAdvice(\n\t\t\tAdvised config, Method method, @Nullable Class\u003c?\u003e targetClass) { \n\n\t\t// This is somewhat tricky... We have to process introductions first,\n\t\t// but we need to preserve order in the ultimate list.\n\t\tAdvisorAdapterRegistry registry = GlobalAdvisorAdapterRegistry.getInstance();\n\t\tAdvisor[] advisors = config.getAdvisors();\n\t\tList\u003cObject\u003e interceptorList = new ArrayList\u003c\u003e(advisors.length);\n\t\tClass\u003c?\u003e actualClass = (targetClass != null ? targetClass : method.getDeclaringClass());\n\t\tBoolean hasIntroductions = null;\n\n\t\tfor (Advisor advisor : advisors) { \n\t\t\t// 我们这里的Advisor 都是 PointcutAdvisor 所以这里只分析该内容\n\t\t\tif (advisor instanceof PointcutAdvisor) { \n\t\t\t\t// Add it conditionally.\n\t\t\t\tPointcutAdvisor pointcutAdvisor = (PointcutAdvisor) advisor;\n\t\t\t\n\t\t\t\tif (config.isPreFiltered() || pointcutAdvisor.getPointcut().getClassFilter().matches(actualClass)) { \n\t\t\t\t\tMethodMatcher mm = pointcutAdvisor.getPointcut().getMethodMatcher();\n\t\t\t\t\tboolean match;\n\t\t\t\t\tif (mm instanceof IntroductionAwareMethodMatcher) { \n\t\t\t\t\t\tif (hasIntroductions == null) { \n\t\t\t\t\t\t\thasIntroductions = hasMatchingIntroductions(advisors, actualClass);\n\t\t\t\t\t\t}\n\t\t\t\t\t\tmatch = ((IntroductionAwareMethodMatcher) mm).matches(method, actualClass, hasIntroductions);\n\t\t\t\t\t}\n\t\t\t\t\telse { \n\t\t\t\t\t\tmatch = mm.matches(method, actualClass);\n\t\t\t\t\t}\n\t\t\t\t\t//如果代理规则与当前类匹配\n\t\t\t\t\tif (match) { \n\t\t\t\t\t\t// 进行转化注册\n\t\t\t\t\t\tMethodInterceptor[] interceptors = registry.getInterceptors(advisor);\n\t\t\t\t\t\tif (mm.isRuntime()) { \n\t\t\t\t\t\t\t// Creating a new object instance in the getInterceptors() method\n\t\t\t\t\t\t\t// isn't a problem as we normally cache created chains.\n\t\t\t\t\t\t\tfor (MethodInterceptor interceptor : interceptors) { \n\t\t\t\t\t\t\t\t// 封装成 InterceptorAndDynamicMethodMatcher\n\t\t\t\t\t\t\t\tinterceptorList.add(new InterceptorAndDynamicMethodMatcher(interceptor, mm));\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse { \n\t\t\t\t\t\t\tinterceptorList.addAll(Arrays.asList(interceptors));\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\telse if (advisor instanceof IntroductionAdvisor) { \n\t\t\t\tIntroductionAdvisor ia = (IntroductionAdvisor) advisor;\n\t\t\t\tif (config.isPreFiltered() || ia.getClassFilter().matches(actualClass)) { \n\t\t\t\t\tInterceptor[] interceptors = registry.getInterceptors(advisor);\n\t\t\t\t\tinterceptorList.addAll(Arrays.asList(interceptors));\n\t\t\t\t}\n\t\t\t}\n\t\t\telse { \n\t\t\t\tInterceptor[] interceptors = registry.getInterceptors(advisor);\n\t\t\t\tinterceptorList.addAll(Arrays.asList(interceptors));\n\t\t\t}\n\t\t}\n\t\t// 返回最终的拦截器集合\n\t\treturn interceptorList;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-gm5ovem",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-gm5ovem",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们可以看到关键的代码就是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "registry.getInterceptors(advisor);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，所以我们这里来看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DefaultAdvisorAdapterRegistry#getInterceptors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的 实现，其目的是将所有的Advisor中的Advice 转换成 MethodInterceptor"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-9ns16fw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090450-9ns16fw",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic MethodInterceptor[] getInterceptors(Advisor advisor) throws UnknownAdviceTypeException { \n\t\tList\u003cMethodInterceptor\u003e interceptors = new ArrayList\u003c\u003e(3);\n\t\tAdvice advice = advisor.getAdvice();\n\t\t// 如果 Advice 就是MethodInterceptor 类型，则直接保存\n\t\tif (advice instanceof MethodInterceptor) { \n\t\t\tinterceptors.add((MethodInterceptor) advice);\n\t\t}\n\t\t// 否则寻找合适的适配器进行转换。\n\t\t// 这里的适配器有三个，分别是`AfterReturningAdviceAdapter`、`MethodBeforeAdviceAdapter`、`ThrowsAdviceAdapter`\n\t\tfor (AdvisorAdapter adapter : this.adapters) { \n\t\t\tif (adapter.supportsAdvice(advice)) { \n\t\t\t\tinterceptors.add(adapter.getInterceptor(advisor));\n\t\t\t}\n\t\t}\n\t\tif (interceptors.isEmpty()) { \n\t\t\tthrow new UnknownAdviceTypeException(advisor.getAdvice());\n\t\t}\n\t\treturn interceptors.toArray(new MethodInterceptor[0]);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-ywkp6ki",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-ywkp6ki",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里的适配器有三个，分别是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AfterReturningAdviceAdapter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodBeforeAdviceAdapter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​、"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ThrowsAdviceAdapter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。很明显就是为了上面的三个Advice类型准备的。经历过此步骤，所有的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Advice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 都转换为了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-zapsmln",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090450-zapsmln",
+				"updated": "20230331090450"
+			}
+		},
+		{
+			"ID": "20230331090450-v19exwl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-v19exwl",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里挑选其中一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ThrowsAdviceAdapter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 看："
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-gloedr0",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090450-gloedr0",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "class ThrowsAdviceAdapter implements AdvisorAdapter, Serializable { \n\n\t@Override\n\tpublic boolean supportsAdvice(Advice advice) { \n\t\treturn (advice instanceof ThrowsAdvice);\n\t}\n\n\t@Override\n\tpublic MethodInterceptor getInterceptor(Advisor advisor) { \n\t\treturn new ThrowsAdviceInterceptor(advisor.getAdvice());\n\t}\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-hl8ukvk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-hl8ukvk",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "逻辑很简答，就是将 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ThrowsAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 封装成了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ThrowsAdviceInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。\n其他两个以此类推。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-0buo94w",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090450-0buo94w",
+				"updated": "20230331090450"
+			}
+		},
+		{
+			"ID": "20230331090450-a0pk4sw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230331090450-a0pk4sw",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2.2. retVal = invocation.proceed();"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-8yqtb1m",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-8yqtb1m",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "我们来看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "ReflectiveMethodInvocation#proceed"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 的实现，上面说过增强方法的调用实际上是在此完成的。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-e5y70v7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090450-e5y70v7",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic Object proceed() throws Throwable { \n\t\t// We start with an index of -1 and increment early.\n\t\t// 如果所有的增强器已经执行完了，则调用实际方法\n\t\t// interceptorsAndDynamicMethodMatchers 是在2.2.1 中解析出来的动态拦截器集合\n\t\tif (this.currentInterceptorIndex == this.interceptorsAndDynamicMethodMatchers.size() - 1) { \n\t\t\t// 这里调用了真正的方法  通过Method.invoke 方法\n\t\t\treturn invokeJoinpoint();\n\t\t}\n\t\t// 获取下一个要调用的增强拦截器\n\t\tObject interceptorOrInterceptionAdvice =\n\t\t\t\tthis.interceptorsAndDynamicMethodMatchers.get(++this.currentInterceptorIndex);\n\t\tif (interceptorOrInterceptionAdvice instanceof InterceptorAndDynamicMethodMatcher) { \n\t\t\t// Evaluate dynamic method matcher here: static part will already have\n\t\t\t// been evaluated and found to match.\n\t\t\t// 动态匹配\n\t\t\tInterceptorAndDynamicMethodMatcher dm =\n\t\t\t\t\t(InterceptorAndDynamicMethodMatcher) interceptorOrInterceptionAdvice;\n\t\t\tClass\u003c?\u003e targetClass = (this.targetClass != null ? this.targetClass : this.method.getDeclaringClass());\n\t\t\t// 如果当前增强匹配当前的方法，则调用增强\n\t\t\tif (dm.methodMatcher.matches(this.method, targetClass, this.arguments)) { \n\t\t\t\t// 调用 拦截器的 invoke 方法\n\t\t\t\treturn dm.interceptor.invoke(this);\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// Dynamic matching failed.\n\t\t\t\t// Skip this interceptor and invoke the next in the chain.\n\t\t\t\t// 不匹配则不执行拦截器，递归调用，遍历下一个拦截器\n\t\t\t\treturn proceed();\n\t\t\t}\n\t\t}\n\t\telse { \n\t\t\t// It's an interceptor, so we just invoke it: The pointcut will have\n\t\t\t// been evaluated statically before this object was constructed.\n\t\t\t// 普通的拦截器，直接调用拦截器。我们一般都走这里\n\t\t\t// 将this 作为参数传递以保证当前实力中的调用链路的执行\n\t\t\t// 直接调用 Advice 的 invoke 方法\n\t\t\treturn ((MethodInterceptor) interceptorOrInterceptionAdvice).invoke(this);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-cozigmj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-cozigmj",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ReflectiveMethodInvocation#process"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法中的逻辑并不复杂。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ReflectiveMethodInvocation"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 中的主要职责是维护了链接调用的计数器，记录着当前调用链接的位置，以便链可以有序的进行下去，在这个方法中并没有维护各种增强的顺序，而是将此工作委托给了各个增强器，使各个增强器在内部进行逻辑实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-d4jx8de",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090450-d4jx8de",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3 总结"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-v85c7a5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-v85c7a5",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 JdkDynamicAopProxy#invoke 方法中："
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-nln3z29",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090450-nln3z29",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"ID": "20230331090450-q3e9g44",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090450-q3e9g44",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-zwxwiku",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-zwxwiku",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "首先处理equals 和hashcode 等方法。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-uo8nsts",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090450-uo8nsts",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-6hmamlt",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-6hmamlt",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "随后调用 "
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "this.advised.getInterceptorsAndDynamicInterceptionAdvice(method, targetClass);"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 方法将获取到拦截器。"
+								}
+							]
+						},
+						{
+							"ID": "20230331090450-taayvdv",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230331090450-taayvdv",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"ID": "20230331090450-gw1nvaj",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230331090450-gw1nvaj",
+										"updated": "20230331090450"
+									},
+									"Children": [
+										{
+											"ID": "20230331090450-ftcwe4b",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090450-ftcwe4b",
+												"updated": "20230331090450"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "因为Jdk动态代理在调用增强方法时，是通过 MethodInterceptor#invoke 方法来调用，但对于"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "AspectJAroundAdvice"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​、"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "AspectJMethodBeforeAdvice"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​、"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "AspectJAfterAdvice"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​、"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "AspectJAfterReturningAdvice"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​、"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "AspectJAfterThrowingAdvice"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​来说，只有"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "AspectJAroundAdvice"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ 和 "
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "AspectJAfterAdvice"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ 实现了"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "MethodInterceptor"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ 接口，其余的并没有实现 "
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "code",
+													"TextMarkTextContent": "MethodInterceptor"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​ 接口。"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "strong",
+													"TextMarkTextContent": "所以在 "
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "strong code",
+													"TextMarkTextContent": "registry.getInterceptors(advisor)"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "​"
+												},
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "strong",
+													"TextMarkTextContent": " 中，将Advisor中的 Advice 都封装成 MethodInterceptor，以便后面方法增强调用。"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090450-irfefxp",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "Mi4=",
+										"Num": 2
+									},
+									"Properties": {
+										"id": "20230331090450-irfefxp",
+										"updated": "20230331090450"
+									},
+									"Children": [
+										{
+											"ID": "20230331090450-515miwc",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090450-515miwc",
+												"updated": "20230331090450"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "strong",
+													"TextMarkTextContent": "随后MethodInterceptor 封装成 InterceptorAndDynamicMethodMatcher，其实就是一个简单的封装，以便后面处理。"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "\n关于 InterceptorAndDynamicMethodMatcher 的实现如下 ，可以看到其逻辑很简单："
+												}
+											]
+										},
+										{
+											"ID": "20230331090450-9j7ortn",
+											"Type": "NodeCodeBlock",
+											"IsFencedCodeBlock": true,
+											"Properties": {
+												"id": "20230331090450-9j7ortn",
+												"updated": "20230331090450"
+											},
+											"Children": [
+												{
+													"Type": "NodeCodeBlockFenceOpenMarker",
+													"Data": "```"
+												},
+												{
+													"Type": "NodeCodeBlockFenceInfoMarker",
+													"CodeBlockInfo": "amF2YQ=="
+												},
+												{
+													"Type": "NodeCodeBlockCode",
+													"Data": "class InterceptorAndDynamicMethodMatcher { \n\t// MethodInterceptor  方法拦截器，这里保存了针对于该方法的增强实现\n\tfinal MethodInterceptor interceptor;\n\t// 方法匹配器，用来匹配当前拦截器是否适用于当前方法\n\tfinal MethodMatcher methodMatcher;\n\n\tpublic InterceptorAndDynamicMethodMatcher(MethodInterceptor interceptor, MethodMatcher methodMatcher) { \n\t\tthis.interceptor = interceptor;\n\t\tthis.methodMatcher = methodMatcher;\n\t}\n\n}\n"
+												},
+												{
+													"Type": "NodeCodeBlockFenceCloseMarker",
+													"Data": "```"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090450-b1rrdhg",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "My4=",
+										"Num": 3
+									},
+									"Properties": {
+										"id": "20230331090450-b1rrdhg",
+										"updated": "20230331090450"
+									},
+									"Children": [
+										{
+											"ID": "20230331090450-14sizsg",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090450-14sizsg",
+												"updated": "20230331090450"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "至此，@Aspect 系列注解修饰的方法从 Advisor 转换成了 InterceptorAndDynamicMethodMatcher。"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090450-2s7sl57",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090450-2s7sl57",
+						"updated": "20230331090450"
+					},
+					"Children": [
+						{
+							"ID": "20230331090450-oj6jes6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090450-oj6jes6",
+								"updated": "20230331090450"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "在调用 invocation.proceed(); 方法时，针对 InterceptorAndDynamicMethodMatcher 类型，会通过InterceptorAndDynamicMethodMatcher"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong tag",
+									"TextMarkTextContent": "methodMatcher 判断是否适用于当前方法，如果适用则调用InterceptorAndDynamicMethodMatcher"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "interceptor 的 invoke 方法来执行增强方法"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-2vap6nx",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090450-2vap6nx",
+				"updated": "20230331090450"
+			}
+		},
+		{
+			"ID": "20230331090450-2tbhqpw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090450-2tbhqpw",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. ObjenesisCglibAopProxy"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-tzygjq8",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090450-tzygjq8",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1 ObjenesisCglibAopProxy#getProxy"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-i1w4bzh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-i1w4bzh",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于篇幅所限，本文只展示 Cglib 部分代码，关于 Cglib 的代理的过程，这里新开了衍生篇，如有需要，详参 ： "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/119823785",
+					"TextMarkTextContent": "Spring源码分析二十四 ： cglib 的代理过程"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-l6uarnr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090450-l6uarnr",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic Object getProxy(@Nullable ClassLoader classLoader) { \n\t\ttry { \n\t\t\tClass\u003c?\u003e rootClass = this.advised.getTargetClass();\n\t\t\tAssert.state(rootClass != null, \"Target class must be available for creating a CGLIB proxy\");\n\n\t\t\tClass\u003c?\u003e proxySuperClass = rootClass;\n\t\t\t// 如果当前类名中包含 “$$” 则被认定为是 cglib 类。\n\t\t\tif (rootClass.getName().contains(ClassUtils.CGLIB_CLASS_SEPARATOR)) { \n\t\t\t\tproxySuperClass = rootClass.getSuperclass();\n\t\t\t\tClass\u003c?\u003e[] additionalInterfaces = rootClass.getInterfaces();\n\t\t\t\tfor (Class\u003c?\u003e additionalInterface : additionalInterfaces) { \n\t\t\t\t\tthis.advised.addInterface(additionalInterface);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\t// Validate the class, writing log messages as necessary.\n\t\t\t// 校验方法的合法性，但仅仅打印了日志\n\t\t\tvalidateClassIfNecessary(proxySuperClass, classLoader);\n\n\t\t\t// Configure CGLIB Enhancer...\n\t\t\t// 配置 Enhancer\n\t\t\tEnhancer enhancer = createEnhancer();\n\t\t\tif (classLoader != null) { \n\t\t\t\tenhancer.setClassLoader(classLoader);\n\t\t\t\tif (classLoader instanceof SmartClassLoader \u0026\u0026\n\t\t\t\t\t\t((SmartClassLoader) classLoader).isClassReloadable(proxySuperClass)) { \n\t\t\t\t\tenhancer.setUseCache(false);\n\t\t\t\t}\n\t\t\t}\n\t\t\tenhancer.setSuperclass(proxySuperClass);\n\t\t\tenhancer.setInterfaces(AopProxyUtils.completeProxiedInterfaces(this.advised));\n\t\t\tenhancer.setNamingPolicy(SpringNamingPolicy.INSTANCE);\n\t\t\tenhancer.setStrategy(new ClassLoaderAwareGeneratorStrategy(classLoader));\n\t\t\t// 获取代理的回调方法\n\t\t\tCallback[] callbacks = getCallbacks(rootClass);\n\t\t\tClass\u003c?\u003e[] types = new Class\u003c?\u003e[callbacks.length];\n\t\t\tfor (int x = 0; x \u003c types.length; x++) { \n\t\t\t\ttypes[x] = callbacks[x].getClass();\n\t\t\t}\n\t\t\t// fixedInterceptorMap only populated at this point, after getCallbacks call above\n\t\t\tenhancer.setCallbackFilter(new ProxyCallbackFilter(\n\t\t\t\t\tthis.advised.getConfigurationOnlyCopy(), this.fixedInterceptorMap, this.fixedInterceptorOffset));\n\t\t\tenhancer.setCallbackTypes(types);\n\n\t\t\t// Generate the proxy class and create a proxy instance.\n\t\t\t// 创建代理对象\n\t\t\treturn createProxyClassAndInstance(enhancer, callbacks);\n\t\t}\n\t\tcatch (CodeGenerationException | IllegalArgumentException ex) { \n\t\t\tthrow new AopConfigException(\"Could not generate CGLIB subclass of \" + this.advised.getTargetClass() +\n\t\t\t\t\t\": Common causes of this problem include using a final class or a non-visible class\",\n\t\t\t\t\tex);\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\t// TargetSource.getTarget() failed\n\t\t\tthrow new AopConfigException(\"Unexpected AOP exception\", ex);\n\t\t}\n\t}\n\n....\n\t// 上面可以很明显知道，CallBack是代理增强的关键实现。\n\tprivate Callback[] getCallbacks(Class\u003c?\u003e rootClass) throws Exception { \n\t\t// Parameters used for optimization choices...\n\t\t// 是否暴露代理类\n\t\tboolean exposeProxy = this.advised.isExposeProxy();\n\t\t// 是否被冻结\n\t\tboolean isFrozen = this.advised.isFrozen();\n\t\t// 是否静态\n\t\tboolean isStatic = this.advised.getTargetSource().isStatic();\n\n\t\t// Choose an \"aop\" interceptor (used for AOP calls).\n\t\t// 创建 Aop 拦截器\n\t\tCallback aopInterceptor = new DynamicAdvisedInterceptor(this.advised);\n\n\t\t// Choose a \"straight to target\" interceptor. (used for calls that are\n\t\t// unadvised but can return this). May be required to expose the proxy.\n\t\tCallback targetInterceptor;\n\t\t// 根据是否包括和 师傅静态，来生成不同的拦截器\n\t\tif (exposeProxy) { \n\t\t\ttargetInterceptor = (isStatic ?\n\t\t\t\t\tnew StaticUnadvisedExposedInterceptor(this.advised.getTargetSource().getTarget()) :\n\t\t\t\t\tnew DynamicUnadvisedExposedInterceptor(this.advised.getTargetSource()));\n\t\t}\n\t\telse { \n\t\t\ttargetInterceptor = (isStatic ?\n\t\t\t\t\tnew StaticUnadvisedInterceptor(this.advised.getTargetSource().getTarget()) :\n\t\t\t\t\tnew DynamicUnadvisedInterceptor(this.advised.getTargetSource()));\n\t\t}\n\n\t\t// Choose a \"direct to target\" dispatcher (used for\n\t\t// unadvised calls to static targets that cannot return this).\n\t\tCallback targetDispatcher = (isStatic ?\n\t\t\t\tnew StaticDispatcher(this.advised.getTargetSource().getTarget()) : new SerializableNoOp());\n\t\t// 回调集合。其中包含aopInterceptor 中包含了 Aspect 的增强\n\t\t//  advisedDispatcher 用于判断如果method是Advised.class声明的，则使用AdvisedDispatcher进行分发\n\t\tCallback[] mainCallbacks = new Callback[] { \n\t\t\t\taopInterceptor,  // for normal advice\n\t\t\t\ttargetInterceptor,  // invoke target without considering advice, if optimized\n\t\t\t\tnew SerializableNoOp(),  // no override for methods mapped to this\n\t\t\t\ttargetDispatcher, this.advisedDispatcher,\n\t\t\t\tnew EqualsInterceptor(this.advised),\n\t\t\t\tnew HashCodeInterceptor(this.advised)\n\t\t};\n\n\t\tCallback[] callbacks;\n\n\t\t// If the target is a static one and the advice chain is frozen,\n\t\t// then we can make some optimizations by sending the AOP calls\n\t\t// direct to the target using the fixed chain for that method.\n\t\tif (isStatic \u0026\u0026 isFrozen) { \n\t\t\tMethod[] methods = rootClass.getMethods();\n\t\t\tCallback[] fixedCallbacks = new Callback[methods.length];\n\t\t\tthis.fixedInterceptorMap = new HashMap\u003c\u003e(methods.length);\n\n\t\t\t// TODO: small memory optimization here (can skip creation for methods with no advice)\n\t\t\tfor (int x = 0; x \u003c methods.length; x++) { \n\t\t\t\tMethod method = methods[x];\n\t\t\t\tList\u003cObject\u003e chain = this.advised.getInterceptorsAndDynamicInterceptionAdvice(method, rootClass);\n\t\t\t\tfixedCallbacks[x] = new FixedChainStaticTargetInterceptor(\n\t\t\t\t\t\tchain, this.advised.getTargetSource().getTarget(), this.advised.getTargetClass());\n\t\t\t\tthis.fixedInterceptorMap.put(method, x);\n\t\t\t}\n\n\t\t\t// Now copy both the callbacks from mainCallbacks\n\t\t\t// and fixedCallbacks into the callbacks array.\n\t\t\tcallbacks = new Callback[mainCallbacks.length + fixedCallbacks.length];\n\t\t\tSystem.arraycopy(mainCallbacks, 0, callbacks, 0, mainCallbacks.length);\n\t\t\tSystem.arraycopy(fixedCallbacks, 0, callbacks, mainCallbacks.length, fixedCallbacks.length);\n\t\t\tthis.fixedInterceptorOffset = mainCallbacks.length;\n\t\t}\n\t\telse { \n\t\t\tcallbacks = mainCallbacks;\n\t\t}\n\t\treturn callbacks;\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090450-rjuir6o",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090450-rjuir6o",
+				"updated": "20230331090450"
+			}
+		},
+		{
+			"ID": "20230331090450-p09vb3b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090450-p09vb3b",
+				"updated": "20230331090450"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考《Spring实战》《Spring源码深度解析》"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://www.cnblogs.com/cheng21553516/p/12190008.html",
+					"TextMarkTextContent": "https://www.cnblogs.com/cheng21553516/p/12190008.html"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://blog.csdn.net/wyl6019/article/details/80136000",
+					"TextMarkTextContent": "https://blog.csdn.net/wyl6019/article/details/80136000"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://blog.csdn.net/aipiannian6725/article/details/101157890",
+					"TextMarkTextContent": "https://blog.csdn.net/aipiannian6725/article/details/101157890"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://www.cnblogs.com/nullllun/p/9222627.html",
+					"TextMarkTextContent": "https://www.cnblogs.com/nullllun/p/9222627.html"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

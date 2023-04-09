@@ -1,0 +1,180 @@
+{
+	"ID": "20230326154720-s2sxgj4",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230326154720-s2sxgj4",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230326164706-l7boqv8\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230403121844-6xj6khw\u0026quot;,\u0026quot;scrollTop\u0026quot;:300,\u0026quot;focusId\u0026quot;:\u0026quot;20230326164706-lbilfpw\u0026quot;,\u0026quot;focusStart\u0026quot;:51,\u0026quot;focusEnd\u0026quot;:51}",
+		"title": "属性填充是bytype还是byname",
+		"updated": "20230403121844"
+	},
+	"Children": [
+		{
+			"ID": "20230326164706-l7boqv8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326164706-l7boqv8",
+				"updated": "20230326164706"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注入时，先bytype查找，找到多个bean，在byname找到对应的bean"
+				}
+			]
+		},
+		{
+			"ID": "20230326164706-3zliiwo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326164706-3zliiwo",
+				"updated": "20230326164706"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230326154817-dl6eiab.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230326164706-lilih6m",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326164706-lilih6m",
+				"updated": "20230326164706"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Properties": {
+						"parent-style": "width: 50%;",
+						"style": "width: 10000px;"
+					},
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230326155015-ok1sblz.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeKramdownSpanIAL",
+					"Data": "{: style=\"width: 10000px;\" parent-style=\"width: 50%;\"}"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230326164706-0jyrfzs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326164706-0jyrfzs",
+				"updated": "20230326164706"
+			}
+		},
+		{
+			"ID": "20230326164706-lbilfpw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326164706-lbilfpw",
+				"updated": "20230326164706"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "案例中，SingletonObject中有三个OrderService类型的bean，属性填充是要求来一个beanName是XXX的，这个就不行。改成orderservice2就可以了"
+				}
+			]
+		},
+		{
+			"ID": "20230326164706-ymdfo38",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230326164706-ymdfo38",
+				"updated": "20230326164706"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "或者，如果SingletonObject中只有一个OrderService类型的bean，比如orderservice1，这样用xxx也可以注入进来"
+				}
+			]
+		},
+		{
+			"ID": "20230403121844-6xj6khw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230403121844-6xj6khw"
+			}
+		}
+	]
+}

@@ -1,0 +1,1399 @@
+{
+	"ID": "20230331092956-5bv557u",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331092956-5bv557u",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230331092956-63xajit\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230331092956-pnclr6y\u0026quot;,\u0026quot;scrollTop\u0026quot;:0,\u0026quot;focusId\u0026quot;:\u0026quot;20230331093312-kv6ipev\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "Spring框架中的设计模式(二)_安迪源文的博客-CSDN博客",
+		"updated": "20230331093318"
+	},
+	"Children": [
+		{
+			"ID": "20230331092956-63xajit",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331092956-63xajit",
+				"updated": "20230331092956"
+			}
+		},
+		{
+			"ID": "20230331093312-kv6ipev",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230331093312-kv6ipev",
+				"updated": "20230331093318"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "proxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​,"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "composite"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​,"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "strategy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​,"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "template method"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​​"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-tnn1mz6",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331092956-tnn1mz6",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"ID": "20230331092956-74c6g31",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331092956-74c6g31",
+						"updated": "20230331092956"
+					},
+					"Children": [
+						{
+							"ID": "20230331092956-iee0xzf",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092956-iee0xzf",
+								"updated": "20230331092956"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/andy_zhang2007/article/details/79775745",
+									"TextMarkTextContent": "https://blog.csdn.net/andy_zhang2007/article/details/79775745"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331092956-hve99rk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331092956-hve99rk",
+						"updated": "20230331092956"
+					},
+					"Children": [
+						{
+							"ID": "20230331092956-dq9jscj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092956-dq9jscj",
+								"updated": "20230331092956"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "上一部分我们谈Spring中的设计模式，讲了三种对象创建模式(生成器builder，工厂方法factory method，抽象工厂abstract factory)和一种行为模式(解释器interpreter)，这一部分我们会聚焦在更多结构和行为模式上面。这部分我们分别看两种结构模式(structural)和两种行为(behavioral)模式。前两个会是结构化设计模式：代理模式(proxy)..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331092956-yuxa6ka",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331092956-yuxa6ka",
+						"updated": "20230331092956"
+					},
+					"Children": [
+						{
+							"ID": "20230331092956-iu4m7az",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331092956-iu4m7az",
+								"updated": "20230331092956"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:29:56"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-r7wbc5b",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331092956-r7wbc5b",
+				"updated": "20230331092956"
+			}
+		},
+		{
+			"ID": "20230331092956-da1c62y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-da1c62y",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "上一部分我们谈Spring中的设计模式，讲了三种对象创建模式(生成器"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "builder"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "，工厂方法"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "factory method"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "，抽象工厂"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "abstract factory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": ")和一种行为模式(解释器"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "interpreter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": ")，这一部分我们会聚焦在更多结构和行为模式上面。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-eeao9q2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-eeao9q2",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这部分我们分别看两种结构模式("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "structural"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)和两种行为("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "behavioral"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)模式。前两个会是结构化设计模式：代理模式("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "proxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)和组合模式("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "composite"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)。后两个例子是行为模式：策略("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "strategy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)和模板方法("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "template method"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-y9ie5gr",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331092956-y9ie5gr",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 设计模式 - 代理模式 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "proxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-13p345c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-13p345c",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "面向对象("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "OOP"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)可能成编程中最流行的概念了。然而，Spring引入了另外一种编码范例，面向切面编程("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AOP"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)。简单点儿来定义，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AOP"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​是一种面向一些系统特定点的编程，比如异常抛出，特定类别方法的执行等等。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AOP"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​允许我们在系统的这些点的执行前后执行一些额外的动作。怎样才能做到这一点呢 ？可以通过监听器("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "listener"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)。但这种做法里，我们在每个地方都得定义任何一个可能的监听器调用(比如在方法开头)。正是因为这个原因，Spring没有使用这个思路。相反，Spring实现了另外一种设计模式，能够通过额外的方法调用完成该任务，这就是代理设计模式("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "proxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-glphxdp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-glphxdp",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "\"代理\"工作起来像是对象的一面镜子。通过代理模式，代理对象不仅可以覆盖原对象，而且可以扩展它们的功能。因此，对于一个只能在屏幕上打印一些文本的某个对象，我们可以为其增加一个对象来过滤显示出来的文字。对第二个对象的调用就可以通过代理来定义。代理是一个封装了真实的原对象的对象。比如，如果你想调用bean "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Waiter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，你可以调用这个bean的代理对象，而其代理对象的行为表现跟原对象一模一样（译注：可以理解成二者实现了同样的接口）。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-otslcro",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-otslcro",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "代理模式一个好的例子是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.aop.framework.ProxyFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。这个工厂构造了Spring bean的AOP代理。该类实现了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "FactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​接口，该接口中定义了一个方法"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getObject()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。这个方法用于返回向bean工厂所请求的bean实例。应用这种模式的情况下，该方法返回的不是一个原bean对象本身，而是bean对象的AOP代理对象。该代理对象跟背后的bean对象相比，除了具备相同的行为外，还可以增加一些修饰，可以在被代理bean对象的方法执行前执行一些额外的方法。\n使用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ProxyFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的一个例子 :"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-zbbm9ue",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092956-zbbm9ue",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class TestProxyAop { \n \n  @Test\n  public void test() { \n\t// new House()是将要被代理的对象,House类实现了接口Construction\n    ProxyFactory factory = new ProxyFactory(new House());\n    // 告诉代理工厂代理对象和被代理对象哪些行为必须保持一致，通过接口Construction定义告知\n    factory.addInterface(Construction.class);\n    // 在调用被代理对象的方法之前，需要额外调用的逻辑\n    factory.addAdvice(new BeforeConstructAdvice());\n    factory.setExposeProxy(true);\n \n    Construction construction = (Construction) factory.getProxy();\n    construction.construct();\n    assertTrue(\"Construction is illegal. \"\n      + \"Supervisor didn't give a permission to build \"\n      + \"the house\", construction.isPermitted());\n  }\n \n}\n \ninterface Construction { \n  public void construct();\n  public void givePermission();\n  public boolean isPermitted();\n}\n \nclass House implements Construction{ \n       \n  private boolean permitted = false;\n   \n  @Override\n  public boolean isPermitted() { \n    return this.permitted;\n  }\n   \n  @Override\n  public void construct() { \n    System.out.println(\"I'm constructing a house\");\n  }\n \n  @Override\n  public void givePermission() { \n    System.out.println(\"Permission is given to construct a simple house\");\n    this.permitted = true;\n  }\n}\n \nclass BeforeConstructAdvice implements MethodBeforeAdvice { \n \n  @Override\n  public void before(Method method, Object[] arguments, Object target) throws Throwable { \n\t// 该方法会在被代理对象的每个方法调用之前被调用\n    if (method.getName().equals(\"construct\")) { \n\t  // 该分支在被代理对象的 construct 方法被调用之前被调用  ， 授权可以盖房\n      ((Construction) target).givePermission();\n    }\n  }\n       \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-e4t09pa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-e4t09pa",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "该测试会通过，因为我们并不直接在原House对象实例上操作而是在代理对象上操作。在调用原对象"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "House"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的目标方法"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "construct"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​前，代理对象会首先调用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeforeConstructAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "before"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法,在这个方法中，它会对原对象"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "House"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​做一个\"授权\"(译注:通过调用原"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "House"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​对象上的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "givePermission()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法)。因为代理层能够很简单地把请求分发给其他对象，所以它为目标对象提供了额外的功能补充。想做到这一点，我们可以只修改"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "before"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法中的过滤条件。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-aryia22",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331092956-aryia22",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 设计模式 - 组合模式 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "composite"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-ltpuw3t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-ltpuw3t",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "另外一种结构设计模式是组合模式"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "composite"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。在上一部分中，我们使用生成器"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "builder"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​来构造复杂对象。另外一种构造复杂对象的方式就是组合模式"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "composite"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。该模式基于多个已经存在的具备同样行为的对象，然后构造一个更大的对象。这个更大的对象仍然具备每个小对象的同样的特征，比如有同样的行为方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-0xcrkv8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-0xcrkv8",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "组合模式一个非Spring的例子，比如写一段"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "HTML"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​文本，这段"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "HTML"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​文本由段落组成，这些段落可以是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "HTML"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​标签"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "span"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​或者"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "em"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​："
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-8kfp8cv",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092956-8kfp8cv",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class CompositeTest { \n \n  @Test\n  public void test() { \n    TextTagComposite composite = new PTag();\n    composite.addTag(new SpanTag());\n    composite.addTag(new EmTag());\n   \n    // sample client code\n    composite.startWrite();\n    for (TextTag leaf : composite.getTags()) { \n      leaf.startWrite();\n      leaf.endWrite();\n    }\n    composite.endWrite();\n    assertTrue(\"Composite should contain 2 tags but it contains \"+\n\t    composite.getTags().size(), composite.getTags().size() == 2);\n  }\n \n}\n \n \ninterface TextTag { \n  public void startWrite();\n  public void endWrite();\n}\n \ninterface TextTagComposite extends TextTag { \n  public List\u003ctexttag\u003e getTags();\n  public void addTag(TextTag tag);\n}\n \nclass PTag implements TextTagComposite { \n  private List\u003ctexttag\u003e tags = new ArrayList\u003ctexttag\u003e();\n       \n  @Override\n  public void startWrite() { \n    System.out.println(\"\u003cp\u003e\");\n  }\n \n  @Override\n  public void endWrite() { \n    System.out.println(\"\u003c/p\u003e\");\n  }\n \n  @Override\n  public List\u003ctexttag\u003e getTags() { \n    return tags;\n  }\n   \n  @Override\n  public void addTag(TextTag tag) { \n    tags.add(tag);\n  }\n}\n \nclass SpanTag implements TextTag { \n \n  @Override\n  public void startWrite() { \n    System.out.println(\"\u003cspan\u003e\");\n  }\n \n  @Override\n  public void endWrite() { \n    System.out.println(\"\u003c/span\u003e\");\n  }\n \n}\n \nclass EmTag implements TextTag { \n \n  @Override\n  public void startWrite() { \n    System.out.println(\"\u003cem\u003e\");\n  }\n \n  @Override\n  public void endWrite() { \n    System.out.println(\"\u003c/em\u003e\");\n  }\n       \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-uxtskna",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-uxtskna",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个例子中，一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PTag"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​对象是一个组合对象。我们能区分组合对象和非组合对象是因为"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PTag"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​能够包含一个或者多个非组合对象("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "PTag"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中的私有属性 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "List tags"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)。非组合对象被称作叶子。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "TextTag"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​被称作组件，因为它提供了两类对象的共同的行为。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-orxw8rs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-orxw8rs",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring中，我们抽取组合对象的概念到了接口"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.beans.BeanMetadataElement"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​,用于配置bean对象。它是所有对象继承自的基础接口。现在，我们一方面有了叶子，通过"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.beans.factory.parsing.BeanComponentDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​来表示，另一方面，我们有了组合"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.beans.factory.parsing.CompositeComponentDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "CompositeComponentDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​充当了组件因为它包含了一个方法"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "addNestedComponent(ComponentDefinition component)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​,该方法允许向"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "private final List nestedComponents"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​属性中增加叶子。从这个列表你可以看出，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "BeanComponentDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​和"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "CompositeComponentDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的组件是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.beans.factory.parsing.ComponentDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。\n#Spring 设计模式 - 策略模式 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "strategy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​\n这篇文章里我们描述的第三个概念是策略模式。策略定义了使用不同方式完成同一件事的多个对象。完成这件事的方式取决于所采用的策略。作为例子，我们可以看一下去国外的方式。可以是坐公共汽车，飞机，轮船甚至是自驾。所有这些方法都能把我们带到目的地国家。但是，我们一定会先检查我们银行账号，再去决定最合适的方式。如果有足够的钱，我们会采用最快的方式（可能是私人飞机）。如果没那么多钱，那就最慢的（公共汽车，自驾）。这里，银行账号扮演了所选择的策略的一个定义因子。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-hvee14s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-hvee14s",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在类"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.web.servlet.mvc.multiaction.MethodNameResolver"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中，Spring使用了策略模式。其实现的目的是参数化"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MultiActionController"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。看是讲解该策略之前，我们需要理解一下工具类"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MultiActionController"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。该类允许在同一个类中处理多种类型的请求。向Spring中的每个控制器一样，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MultiActionController"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​执行响应所提供的请求的方法。决定哪个方法将被调用采用了策略。对应的决策过程在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodNameResolver"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的实现中，同一个包中的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ParameterMethodNameResolver"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​就是一个这样的例子。决定调用哪个方法可以有多个标准 ： 属性映射关系，HTTP请求参数或者URL路径。这个策略实现例子是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ParameterMethodNameResolver"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类的方法"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getHandlerMethodName"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​："
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-aklnknz",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092956-aklnknz",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Override\npublic String getHandlerMethodName(HttpServletRequest request) \n\t\t\tthrows NoSuchRequestHandlingMethodException { \n  String methodName = null;\n \n  // Check parameter names where the very existence of each parameter\n  // means that a method of the same name should be invoked, if any.\n  if (this.methodParamNames != null) { \n    for (String candidate : this.methodParamNames) { \n      if (WebUtils.hasSubmitParameter(request, candidate)) { \n        methodName = candidate;\n        if (logger.isDebugEnabled()) { \n          logger.debug(\"Determined handler method '\" + methodName +\n            \"' based on existence of explicit request parameter of same name\");\n        }\n        break;\n      }\n    }\n  }\n \n  // Check parameter whose value identifies the method to invoke, if any.\n  if (methodName == null \u0026\u0026 this.paramName != null) { \n    methodName = request.getParameter(this.paramName);\n    if (methodName != null) { \n      if (logger.isDebugEnabled()) { \n        logger.debug(\"Determined handler method '\" + methodName +\n          \"' based on value of request parameter '\" + this.paramName + \"'\");\n      }\n    }\n  }\n \n  if (methodName != null \u0026\u0026 this.logicalMappings != null) { \n    // Resolve logical name into real method name, if appropriate.\n    String originalName = methodName;\n    methodName = this.logicalMappings.getProperty(methodName, methodName);\n    if (logger.isDebugEnabled()) { \n      logger.debug(\"Resolved method name '\" + originalName + \"' to handler method '\" + \n      methodName + \"'\");\n    }\n  }\n \n  if (methodName != null \u0026\u0026 !StringUtils.hasText(methodName)) { \n    if (logger.isDebugEnabled()) { \n\t\t+ \"' is empty: treating it as no method name found\");\n    }\n    methodName = null;\n  }\n \n  if (methodName == null) { \n    if (this.defaultMethodName != null) { \n      // No specific method resolved: use default method.\n      methodName = this.defaultMethodName;\n      if (logger.isDebugEnabled()) { \n        logger.debug(\"Falling back to default handler method '\" + \n\t        this.defaultMethodName + \"'\");\n      }\n    }\n    else { \n      // If resolution failed completely, throw an exception.\n      throw new NoSuchRequestHandlingMethodException(request);\n    }\n  }\n \n  return methodName;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-0wscj5m",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-0wscj5m",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从上面的代码我们可以看出，目标方法的名字是通过所提供的参数映射，预先定义的属性或者URL中参数的存在性决定的。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-v764gaf",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331092956-v764gaf",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 设计模式 - 模板方法 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "template method"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-iqdgtrh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-iqdgtrh",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这一部分我们要讲的最后一个设计模式是模板方法。这个模式定义了类的行为的一个骨架，然后把一些步骤的执行延迟到了子类中。通常会有一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "final"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法扮演同步器的角色。它按照给定的顺序执行子类定义的方法。在真实世界中，我们可以把模板方法跟盖房子作比较。在盖房子过程中，不管是哪个建筑公司，总是需要从打地基开始，然后才能做其他事情。这个执行逻辑会被某个方法掌握而且我们不能修改它。而其他的方法，不管是打地基方法，刷墙方法都是模板方法，都跟实际盖这个房子的公司有关。从下面的例子中我们来看这一点:"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-fwrsrc7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092956-fwrsrc7",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class TemplateMethod { \n \n  public static void main(String[] args) { \n    HouseAbstract house = new SeaHouse();\n    house.construct();\n  }\n \n}\n \nabstract class HouseAbstract { \n  protected abstract void constructFoundations();\n  protected abstract void constructWall();\n   \n  // template method\n  public final void construct() { \n    constructFoundations();\n    constructWall();\n  }\n}\n \nclass EcologicalHouse extends HouseAbstract { \n \n  @Override\n  protected void constructFoundations() { \n    System.out.println(\"Making foundations with wood\");\n  }\n \n  @Override\n  protected void constructWall() { \n    System.out.println(\"Making wall with wood\");\n  }\n       \n}\n \nclass SeaHouse extends HouseAbstract { \n \n  @Override\n  protected void constructFoundations() { \n    System.out.println(\"Constructing very strong foundations\");\n  }\n \n  @Override\n  protected void constructWall() { \n    System.out.println(\"Constructing very strong wall\");\n  }\n       \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-8lawbvp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-8lawbvp",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个代码会输出 :"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-1w4cf6t",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230331092956-1w4cf6t",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230331092956-2ct18eu",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230331092956-2ct18eu",
+						"updated": "20230331092956"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "Constructing very strong foundations\nConstructing very strong wall"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-q54h6v5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-q54h6v5",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在类"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "org.springframework.context.support.AbstractApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中，Spring使用了模板方法。他不是一个模板方法(像我们上面例子所举的)，而是多个模板方法。比如，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "obtainFreshBeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​通过调用两个抽象方法"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "refreshBeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ (用于刷新bean工厂) and "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "getBeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ (用于获取bean工厂)返回最新版本的内部bean工厂。这个方法，还有其他一些方法，会被用于构建应用上下文对象的公开方法"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "public void refresh() throws BeansException, IllegalStateException"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​使用。这两个抽象方法的实现的具体例子你可以参考同一包下面的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "GenericApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，它对这两个抽象方法是这么定义的："
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-q8u8urx",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331092956-q8u8urx",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "/**\n  * Do nothing: We hold a single internal BeanFactory and rely on callers\n  * to register beans through our public methods (or the BeanFactory's).\n  * @see #registerBeanDefinition\n  */\n@Override\nprotected final void refreshBeanFactory() throws IllegalStateException { \n  if (this.refreshed) { \n    throw new IllegalStateException(\n\t\t\"GenericApplicationContext does not support multiple refresh attempts: \"\n\t\t+\"just call 'refresh' once\");\n  }\n  this.beanFactory.setSerializationId(getId());\n  this.refreshed = true;\n}\n \n@Override\nprotected void cancelRefresh(BeansException ex) { \n  this.beanFactory.setSerializationId(null);\n  super.cancelRefresh(ex);\n}\n \n/**\n  * Not much to do: We hold a single internal BeanFactory that will never\n  * get released.\n  */\n@Override\nprotected final void closeBeanFactory() { \n  this.beanFactory.setSerializationId(null);\n}\n \n/**\n  * Return the single internal BeanFactory held by this context\n  * (as ConfigurableListableBeanFactory).\n  */\n@Override\npublic final ConfigurableListableBeanFactory getBeanFactory() { \n  return this.beanFactory;\n}\n \n/**\n  * Return the underlying bean factory of this context,\n  * available for registering bean definitions.\n  * \u003cp\u003e\u003cb\u003eNOTE:\u003c/b\u003e You need to call {@link #refresh()} to initialize the\n  * bean factory and its contained beans with application context semantics\n  * (autodetecting BeanFactoryPostProcessors, etc).\n  * @return the internal bean factory (as DefaultListableBeanFactory)\n  */\npublic final DefaultListableBeanFactory getDefaultListableBeanFactory() { \n  return this.beanFactory;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-xouvn0j",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331092956-xouvn0j",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-2esb6zc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-2esb6zc",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这次我们讲解了Spring如何使用行为设计模式来更好地组织上下文(模板方法"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "template method"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​),如何决定要执行的方法(策略模式"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "strategy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)。还有两个结构化设计模式用来简化AOP部分(代理模式"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "proxy"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)和构造复杂对象(组合模式"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "composite"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​)。"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-vhlmo51",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331092956-vhlmo51",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-2/read",
+					"TextMarkTextContent": "英文原文"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-93a02hu",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331092956-93a02hu",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "该系列文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331092956-pnclr6y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331092956-pnclr6y",
+				"updated": "20230331092956"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-5/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(五)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-4/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(四)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-3/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(三)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-2/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(二)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\n"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "http://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-1/read",
+					"TextMarkTextContent": "Spring框架中的设计模式(一)"
+				}
+			]
+		}
+	]
+}

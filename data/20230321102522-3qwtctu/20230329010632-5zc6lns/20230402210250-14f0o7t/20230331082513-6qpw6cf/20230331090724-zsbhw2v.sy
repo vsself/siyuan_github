@@ -1,0 +1,1326 @@
+{
+	"ID": "20230331090724-zsbhw2v",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331090724-zsbhw2v",
+		"title": "Spring源码分析二十三：动态数据源的实现_spring数据源实现类_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331090724"
+	},
+	"Children": [
+		{
+			"ID": "20230331090724-you1l5w",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090724-you1l5w",
+				"updated": "20230331090724"
+			}
+		},
+		{
+			"ID": "20230331090724-o4y86kn",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090724-o4y86kn",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"ID": "20230331090724-42r0ky7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090724-42r0ky7",
+						"updated": "20230331090724"
+					},
+					"Children": [
+						{
+							"ID": "20230331090724-skbydna",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090724-skbydna",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117462822",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/117462822"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090724-cqr17l7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090724-cqr17l7",
+						"updated": "20230331090724"
+					},
+					"Children": [
+						{
+							"ID": "20230331090724-ilforu9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090724-ilforu9",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一、前言二、演示Demo三、源码分析1. AbstractRoutingDataSource动态数据源的核心类是 AbstractRoutingDataSource"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090724-yqli35k",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090724-yqli35k",
+						"updated": "20230331090724"
+					},
+					"Children": [
+						{
+							"ID": "20230331090724-em8rqn4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090724-em8rqn4",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:07:24"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-svg0ieb",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090724-svg0ieb",
+				"updated": "20230331090724"
+			}
+		},
+		{
+			"ID": "20230331090724-xbb67jd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090724-xbb67jd",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-oa8rsgh",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090724-oa8rsgh",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"ID": "20230331090724-bp0trv5",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090724-bp0trv5",
+						"updated": "20230331090724"
+					},
+					"Children": [
+						{
+							"ID": "20230331090724-ofsyl7c",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090724-ofsyl7c",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117462822#_2",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090724-vlm16gl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090724-vlm16gl",
+						"updated": "20230331090724"
+					},
+					"Children": [
+						{
+							"ID": "20230331090724-r17hhpu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090724-r17hhpu",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117462822#Demo_7",
+									"TextMarkTextContent": "二、演示Demo"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090724-4n1glt3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090724-4n1glt3",
+						"updated": "20230331090724"
+					},
+					"Children": [
+						{
+							"ID": "20230331090724-d31we5j",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090724-d31we5j",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117462822#_243",
+									"TextMarkTextContent": "三、源码分析"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090724-tk6jl6p",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090724-tk6jl6p",
+						"updated": "20230331090724"
+					},
+					"Children": [
+						{
+							"ID": "20230331090724-xg7uhdm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090724-xg7uhdm",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/117462822#_404",
+									"TextMarkTextContent": "四、总结"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-xpfukan",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090724-xpfukan",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-uefqr14",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-uefqr14",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是笔者工作过程中突发奇想缩写，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-kbt0v30",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090724-kbt0v30",
+				"updated": "20230331090724"
+			}
+		},
+		{
+			"ID": "20230331090724-ers50o3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-ers50o3",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring全集目录："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106440723",
+					"TextMarkTextContent": "Spring源码分析：全集整理"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-koj2ux0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090724-koj2ux0",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、演示Demo"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-zejxfmn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-zejxfmn",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因为Demo不是本文重点，并且经历所限( = "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "sub",
+					"TextMarkTextContent": "懒"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " )，所以Demo写的很简单，搭建过程中部分内容参考了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/hacker_lees/article/details/70005984",
+					"TextMarkTextContent": "https://blog.csdn.net/hacker_lees/article/details/70005984"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 的内容。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-jgtssrf",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090724-jgtssrf",
+				"updated": "20230331090724"
+			}
+		},
+		{
+			"ID": "20230331090724-yrccxwk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-yrccxwk",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "application.yml 配置"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-mpptmq3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090724-mpptmq3",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eWFtbA=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "# mybatis 配置\nmybatis:\n  mapper-locations: classpath*:mapper/*/*.xml #注意：一定要对应mapper映射xml文件的所在路径\n  type-aliases-package: com.kingfish.dao  # 注意：对应实体类的路径\n  \n# 自定义动态数据源配置，可在这里自动增删数据源(因为懒这里就写)\ndynamic:\n  datasources:\n    - name: master\n      url: jdbc:mysql://ip:port/demo?useUnicode=true\u0026characterEncoding=utf8\u0026autoReconnect=true\u0026allowMultiQueries=true\n      username: root\n      password: 123456\n      driverClassName: com.mysql.jdbc.Driver\n    - name: slave\n      url: jdbc:mysql://ip:port/demo?useUnicode=true\u0026characterEncoding=utf8\u0026autoReconnect=true\u0026allowMultiQueries=true\n      username: root\n      password: 123456\n      driverClassName: com.mysql.jdbc.Driver\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-5fz9vsk",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090724-5fz9vsk",
+				"updated": "20230331090724"
+			}
+		},
+		{
+			"ID": "20230331090724-k5eh9cj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-k5eh9cj",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "DynamicProperties ：用于读取 上面 yml 的 dynamic 的 配置"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-q95k4rb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090724-q95k4rb",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Data\n@Component\n@ConfigurationProperties(prefix = \"dynamic\")\npublic class DynamicProperties { \n    // 这里直接使用 DataSourceProperties 来接受 yml 中的配置\n    private List\u003cDataSourceProperties\u003e datasources;\n//    map 形式也可以接收属性\n//    private List\u003cMap\u003cString, String\u003e\u003e datasources;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-qm7zi31",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-qm7zi31",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "DynamicDataSource ：必须继承 AbstractRoutingDataSource 抽象类。用于完成动态数据源切换"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-u11cmnb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090724-u11cmnb",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class DynamicDataSource extends AbstractRoutingDataSource { \n\t// 根据返回值切换 数据源\n    @Override\n    protected Object determineCurrentLookupKey() { \n        return DynamicDataSourceHolder.getDataSourceKey();\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-va82vm5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-va82vm5",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "DynamicDataSourceHolder ：持有每个线程(请求)所要切换的数据源信息"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-mhdf9gc",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090724-mhdf9gc",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class DynamicDataSourceHolder { \n\n    //写库对应的数据源key\n    public static final String MASTER = \"master\";\n\n    //读库对应的数据源key\n    public static final String SLAVE = \"slave\";\n\n    //使用ThreadLocal记录当前线程的数据源key\n    private static final ThreadLocal\u003cString\u003e holder = new ThreadLocal\u003cString\u003e();\n\n    private static final String[] slaveOperation = new String[]{ \"find\", \"get\", \"query\", \"list\"};\n  \n    /**\n     * 设置数据源key\n     *\n     * @param key\n     */\n    public static void setDataSourceKey(String key) { \n        holder.set(key);\n    }\n\n    /**\n     * 获取数据源key\n     *\n     * @return\n     */\n    public static String getDataSourceKey() { \n        return holder.get();\n    }\n\n    public static void removeDataSource() { \n        holder.remove();\n    }\n\n    public static void dynamicMark(String methodName) { \n        if (StringUtils.startsWithAny(methodName.toLowerCase(Locale.ROOT), slaveOperation)) { \n            setDataSourceKey(SLAVE);\n        } else { \n            setDataSourceKey(MASTER);\n        }\n    }\n  \n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-7t3fy8n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-7t3fy8n",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DynamicDataSourceAop ：动态数据源 AOP，用于切换数据源"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-9nebnb2",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090724-9nebnb2",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "// 自定义 切换数据源的注解\n@Retention(RetentionPolicy.RUNTIME)\n@Target({ ElementType.TYPE, ElementType.METHOD})\n@Documented\npublic @interface Dynamic { \n    String value() default \"\";\n}\n\n\n@Aspect\n@Component\npublic class DynamicDataSourceAop { \n\n    @Pointcut(\"execution(* com.kingfish.service.impl.*.*(..))\")\n    public void pointCut() { \n    }\n\n    @Before(\"pointCut()\")\n    public void before(JoinPoint point) { \n        MethodSignature signature = (MethodSignature) point.getSignature();\n        Method method = signature.getMethod();\n\t\t// 获取 Dynamic  注解\n        Dynamic dynamic = method.getAnnotation(Dynamic.class);\n        if (dynamic == null) { \n            Class\u003c?\u003e targetClass = point.getTarget().getClass();\n            dynamic = targetClass.getAnnotation(Dynamic.class);\n            if (dynamic == null) { \n                for (Class\u003c?\u003e targetInterface : targetClass.getInterfaces()) { \n                    dynamic = targetInterface.getAnnotation(Dynamic.class);\n                }\n            }\n        }\n        if (dynamic == null) { \n        \t// 如果没有 Dynamic 注解，则按照默认规则切换数据源\n            DynamicDataSourceHolder.dynamicMark(method.getName());\n        } else { \n        \t// 否则按照指定的数据源切换\n            DynamicDataSourceHolder.setDataSourceKey(dynamic.value());\n        }\n    }\n\t// 方法执行结束，清除当前线程的数据源信息\n    @After(\"pointCut()\")\n    public void after() { \n        DynamicDataSourceHolder.removeDataSource();\n    }\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-d5h4fe2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-d5h4fe2",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "DataSourceConfig ： 数据源的配置类"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-vqesc0y",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090724-vqesc0y",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Configuration\npublic class DataSourceConfig { \n    @Autowired\n    private DynamicProperties dynamicProperties;\n\n    @Bean\n    public DynamicDataSource dynamicDataSource() { \n        Map\u003cObject, Object\u003e map = Maps.newHashMap();\n        DynamicDataSource dynamicDataSource = new DynamicDataSource();\n        // 解析 DynamicDataSource。转换成 DataSource\n        dynamicProperties.getDatasources().forEach(properties -\u003e { \n            map.put(properties.getName(), properties.initializeDataSourceBuilder().build());\n        });\n        dynamicDataSource.setTargetDataSources(map);\n        if (map.containsKey(DynamicDataSourceHolder.MASTER)) { \n            dynamicDataSource.setDefaultTargetDataSource(map.get(DynamicDataSourceHolder.MASTER));\n        }\n        return dynamicDataSource;\n    }\n\n    @Bean\n    public SqlSessionFactory dynamicSqlSessionFactory(DataSource dataSource) throws Exception { \n        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();\n        bean.setDataSource(dataSource);\n        // mapper的xml形式文件位置必须要配置，不然将报错：no statement （这种错误也可能是mapper的xml中，namespace与项目的路径不一致导致）\n        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(\"classpath*:mapper/*.xml\"));\n        return bean.getObject();\n    }\n\n    @Bean\n    public SqlSessionTemplate dynamicSqlSessionTemplate(SqlSessionFactory sqlSessionFactory) { \n        return new SqlSessionTemplate(sqlSessionFactory);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-k0ko55w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-k0ko55w",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "测试相关"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-2176ket",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090724-2176ket",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@RestController\n@RequestMapping(\"user\")\npublic class UserController { \n    @Autowired\n    private UserService userService;\n\n    @RequestMapping(\"selectAll\")\n    public Object selectAll() { \n        return userService.selectAll();\n    }\n}\n\n\n@Service\npublic class UserServiceImpl implements UserService { \n    @Autowired\n    private UserMapper userMapper;\n\t// 读走从库\n    @Dynamic(\"slave\")\n    @Override\n    public Object selectAll() { \n        return userMapper.selectAll();\n    }\n    // 写走主库\n    @Override\n    public int insert(User user) { \n        return userMapper.insert(user);\n    }\n}\n// user 表对应 model\n@Data\npublic class User { \n    private Integer id;\n    private String name;\n}\n\n@Mapper\npublic interface UserMapper { \n    @Select(\"select * from user\")\n    List\u003cUser\u003e selectAll();\n  \n    @Insert(\"insert into user(name) value(#{user.name})\")\n    int insert(@Param(\"user\") User user);\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-q8xmphb",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090724-q8xmphb",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、源码分析"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-wtai4oj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-wtai4oj",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Springboot 中动态数据源的实现的核心类是 AbstractRoutingDataSource。AbstractRoutingDataSource 的结构如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-zdzndqp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-zdzndqp",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210602172251507-20230331090724-os6xywx.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-tcmt935",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-tcmt935",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里我们注意到了 AbstractRoutingDataSource 实现了 InitializingBean 接口，这就注定了我们需要去看一看 AbstractRoutingDataSource#afterPropertiesSet方法的实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-5892a41",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-5892a41",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "不过在此之前，我们先看一下 AbstractRoutingDataSource 中的属性，如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-p0s7qco",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090724-p0s7qco",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class AbstractRoutingDataSource extends AbstractDataSource implements InitializingBean { \n\t/***************** 1. 相关属性  ****************/\n\t// 1. 目标数据源。通过相应的 sett 方法进行赋值，在 afterPropertiesSet 中有校验不可为空。\n\t// 需要注意，此时的 value并不一定是 DataSource 类型。targetDataSources 经过解析后会保存到 resolvedDataSources 中\n\t@Nullable\n\tprivate Map\u003cObject, Object\u003e targetDataSources;\n\t// 2. 默认数据源， 可通过相应的 sett 方法进行赋值\n\t@Nullable\n\tprivate Object defaultTargetDataSource;\n\t// 3. 是否启用宽容规则 ：如果为true，当找不到合适的数据源时会使用默认的数据源\n\tprivate boolean lenientFallback = true;\n\t// 4. 查找数据源的策略接口\n\t// 当argetDataSources 中的value 为 String时使用该属性用于查找对应的DataSource\n\tprivate DataSourceLookup dataSourceLookup = new JndiDataSourceLookup();\n\t// 5. 解析后的数据源集合\n\t@Nullable\n\tprivate Map\u003cObject, DataSource\u003e resolvedDataSources;\n\t// 6. 解析的默认的数据源，由defaultTargetDataSource 解析而来。\n\t@Nullable\n\tprivate DataSource resolvedDefaultDataSource;\n\t...\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-v6wrvxm",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090724-v6wrvxm",
+				"updated": "20230331090724"
+			}
+		},
+		{
+			"ID": "20230331090724-evygmpz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-evygmpz",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "了解了上述属性的作用后，我们来看 AbstractRoutingDataSource#afterPropertiesSet 的实现 :"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-iitdnqb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090724-iitdnqb",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t@Override\n\tpublic void afterPropertiesSet() { \n\t\t// 如果目标数据源为空则直接抛出异常\n\t\tif (this.targetDataSources == null) { \n\t\t\tthrow new IllegalArgumentException(\"Property 'targetDataSources' is required\");\n\t\t}\n\t\tthis.resolvedDataSources = new HashMap\u003c\u003e(this.targetDataSources.size());\n\t\t// 对 targetDataSources  进行解析，解析后的结果保存到resolvedDataSources 中。\n\t\tthis.targetDataSources.forEach((key, value) -\u003e { \n\t\t\t// 获取数据源的 key。默认直接将 key返回。\n\t\t\tObject lookupKey = resolveSpecifiedLookupKey(key);\n\t\t\t// 对value 进行解析，获取到 DataSource 保存到 resolvedDataSources中\n\t\t\tDataSource dataSource = resolveSpecifiedDataSource(value);\n\t\t\tthis.resolvedDataSources.put(lookupKey, dataSource);\n\t\t});\n\t\t// 对默认数据源的解析\n\t\tif (this.defaultTargetDataSource != null) { \n\t\t\tthis.resolvedDefaultDataSource = resolveSpecifiedDataSource(this.defaultTargetDataSource);\n\t\t}\n\t}\n\t// 解析数据源的key\n\tprotected Object resolveSpecifiedLookupKey(Object lookupKey) { \n\t\treturn lookupKey;\n\t}\n\n\t// 解析数据源\n\tprotected DataSource resolveSpecifiedDataSource(Object dataSource) throws IllegalArgumentException { \n\t\t//如果value 直接是 DataSource类型则直接返回即可\n\t\tif (dataSource instanceof DataSource) { \n\t\t\treturn (DataSource) dataSource;\n\t\t}\n\t\t// 如果是 String类型，则通过 dataSourceLookup (默认实现是JndiDataSourceLookup) 根据 value 去寻找\n\t\telse if (dataSource instanceof String) { \n\t\t\treturn this.dataSourceLookup.getDataSource((String) dataSource);\n\t\t}\n\t\telse { \n\t\t\tthrow new IllegalArgumentException(\n\t\t\t\t\t\"Illegal data source value - only [javax.sql.DataSource] and String supported: \" + dataSource);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-iwn2nme",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-iwn2nme",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这边整理一下 AbstractRoutingDataSource 初始化流程："
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-s2kjnqv",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090724-s2kjnqv",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"ID": "20230331090724-svfd6bo",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090724-svfd6bo",
+						"updated": "20230331090724"
+					},
+					"Children": [
+						{
+							"ID": "20230331090724-uu77vnm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090724-uu77vnm",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "校验 targetDataSources 是否为空，为空抛出异常。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090724-b893sve",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090724-b893sve",
+						"updated": "20230331090724"
+					},
+					"Children": [
+						{
+							"ID": "20230331090724-swgu3eg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090724-swgu3eg",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "解析 targetDataSources ，并将解析结果放入resolvedDataSources 中。对于 targetDataSources 和 resolvedDataSources 来说，其中每个DataSource 对应一个 唯一的key。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090724-kir1111",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090724-kir1111",
+						"updated": "20230331090724"
+					},
+					"Children": [
+						{
+							"ID": "20230331090724-g37wmak",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090724-g37wmak",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果指定了默认数据源，则解析后赋值给 resolvedDefaultDataSource。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-mnkp2o5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-mnkp2o5",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里需要注意：\n由于AbstractRoutingDataSource 在 afterPropertiesSet 方法中对 targetDataSources 中进行校验。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-09b8let",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090724-09b8let",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"ID": "20230331090724-cg22qck",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090724-cg22qck",
+						"updated": "20230331090724"
+					},
+					"Children": [
+						{
+							"ID": "20230331090724-s13mq6i",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090724-s13mq6i",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果Bean 通过 @Component 注解修饰注入，afterPropertiesSet 会在 Bean 调用构造函数后调用，所以我们可以在构造函数中对 defaultTargetDataSource 赋值 或重写 afterPropertiesSet 方法进行赋值。"
+								}
+							]
+						},
+						{
+							"ID": "20230331090724-hvf2jsz",
+							"Type": "NodeCodeBlock",
+							"IsFencedCodeBlock": true,
+							"Properties": {
+								"id": "20230331090724-hvf2jsz",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeBlockFenceOpenMarker",
+									"Data": "```"
+								},
+								{
+									"Type": "NodeCodeBlockFenceInfoMarker",
+									"CodeBlockInfo": "amF2YQ=="
+								},
+								{
+									"Type": "NodeCodeBlockCode",
+									"Data": "    public DynamicDataSource() { \n        Map\u003cObject, Object\u003e map = Maps.newHashMap();\n        map.put(\"master\", masterDataSource());\n        map.put(\"slave\", slaveDataSource());\n        setDefaultTargetDataSource(masterDataSource());\n        setTargetDataSources(map);\n    }\n    // 或者重写 afterPropertiesSet 方法，在最后调用 super.afterPropertiesSet();\n    @Override\n    public void afterPropertiesSet() { \n        Map\u003cObject, Object\u003e map = Maps.newHashMap();\n        map.put(\"master\", masterDataSource());\n        map.put(\"slave\", slaveDataSource());\n        setDefaultTargetDataSource(masterDataSource());\n        setTargetDataSources(map);\n        super.afterPropertiesSet();\n    }\n"
+								},
+								{
+									"Type": "NodeCodeBlockFenceCloseMarker",
+									"Data": "```"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090724-8ujkkln",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090724-8ujkkln",
+						"updated": "20230331090724"
+					},
+					"Children": [
+						{
+							"ID": "20230331090724-99kcz71",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090724-99kcz71",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果Bean 通过 @Bean 修饰注入, afterPropertiesSet 会在 获取到 @Bean 方法返回的结果后调用。所以我们可以在 @Bean 方法中完成 defaultTargetDataSource 的赋值。其中 DynamicDataSource 是AbstractRoutingDataSource 的自定义子类。"
+								}
+							]
+						},
+						{
+							"ID": "20230331090724-nr5qmj8",
+							"Type": "NodeCodeBlock",
+							"IsFencedCodeBlock": true,
+							"Properties": {
+								"id": "20230331090724-nr5qmj8",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeBlockFenceOpenMarker",
+									"Data": "```"
+								},
+								{
+									"Type": "NodeCodeBlockFenceInfoMarker",
+									"CodeBlockInfo": "amF2YQ=="
+								},
+								{
+									"Type": "NodeCodeBlockCode",
+									"Data": "    @Bean\n    public DynamicDataSource dynamicDataSource() { \n        Map\u003cObject, Object\u003e map = Maps.newHashMap();\n        map.put(\"master\", masterDataSource());\n        map.put(\"slave\", slaveDataSource());\n        DynamicDataSource dynamicDataSource = new DynamicDataSource();\n        dynamicDataSource.setDefaultTargetDataSource(masterDataSource());\n        dynamicDataSource.setTargetDataSources(map);\n        return dynamicDataSource;\n    }\n"
+								},
+								{
+									"Type": "NodeCodeBlockFenceCloseMarker",
+									"Data": "```"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-538pnx4",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090724-538pnx4",
+				"updated": "20230331090724"
+			}
+		},
+		{
+			"ID": "20230331090724-0i2r42s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-0i2r42s",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当服务进行数据库操作时，Spring会从容器中获取到 DataSource 实现类并调用 DataSource"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "tag",
+					"TextMarkTextContent": "getConnection 方法来获取数据库连接。而为了实现动态数据源，我们注入Spring容器的DataSource 实现类为 AbstractRoutingDataSource 的子类.AbstractRoutingDataSource"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​getConnection 则是通过 determineTargetDataSource 方法来选择合适的数据源。如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-o88qorb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090724-o88qorb",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected DataSource determineTargetDataSource() { \n\t\tAssert.notNull(this.resolvedDataSources, \"DataSource router not initialized\");\n\t\t// 此方法供子类实现，用于获取当前获取的数据源的 key，会根据此key来从resolvedDataSources 中获取数据源\n\t\tObject lookupKey = determineCurrentLookupKey();\n\t\tDataSource dataSource = this.resolvedDataSources.get(lookupKey);\n\t\t// 如果没有获取到对应数据源 \u0026\u0026 (开启宽容后备 || lookupKey == null)。则使用默认的数据源\n\t\tif (dataSource == null \u0026\u0026 (this.lenientFallback || lookupKey == null)) { \n\t\t\tdataSource = this.resolvedDefaultDataSource;\n\t\t}\n\t\tif (dataSource == null) { \n\t\t\tthrow new IllegalStateException(\"Cannot determine target DataSource for lookup key [\" + lookupKey + \"]\");\n\t\t}\n\t\treturn dataSource;\n\t}\n\t// 供子类实现，获取数据源的key\n\tprotected abstract Object determineCurrentLookupKey();\n\n\t// 从数据源中获取连接\n\t@Override\n\tpublic Connection getConnection() throws SQLException { \n\t\treturn determineTargetDataSource().getConnection();\n\t}\n\n\t// 从数据源中获取连接\n\t@Override\n\tpublic Connection getConnection(String username, String password) throws SQLException { \n\t\treturn determineTargetDataSource().getConnection(username, password);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-9jtykap",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090724-9jtykap",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四、总结"
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-9ech8iu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-9ech8iu",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "动态数据源的整个流程很简单："
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-gtk3pa3",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090724-gtk3pa3",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"ID": "20230331090724-s58g9rz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090724-s58g9rz",
+						"updated": "20230331090724"
+					},
+					"Children": [
+						{
+							"ID": "20230331090724-1vw8fen",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090724-1vw8fen",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Spring 在获取数据库连接时会调用 DataSource#getConnection 方法。而对于动态数据源，我们注入的是DataSource 为 AbstractRoutingDataSource 子类，需要注意的是，AbstractRoutingDataSource 在初始化的时候需要指定候选的数据源集合, AbstractRoutingDataSource 中会以 key：value 的形式保存这些候选的数据源集合。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090724-8svhbn6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090724-8svhbn6",
+						"updated": "20230331090724"
+					},
+					"Children": [
+						{
+							"ID": "20230331090724-qcry0bz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090724-qcry0bz",
+								"updated": "20230331090724"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "当通过 AbstractRoutingDataSource"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "tag",
+									"TextMarkTextContent": "getConnection 来获取数据库连接时， AbstractRoutingDataSource"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​getConnection 方法中会通过 AbstractRoutingDataSource#determineCurrentLookupKey 方法获取key，并根据key值获取到对应的数据源，并从中获取到数据库连接。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090724-xkmh3n8",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090724-xkmh3n8",
+				"updated": "20230331090724"
+			}
+		},
+		{
+			"ID": "20230331090724-3v8zzob",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090724-3v8zzob",
+				"updated": "20230331090724"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://www.jianshu.com/p/b2f818b742a2",
+					"TextMarkTextContent": "https://www.jianshu.com/p/b2f818b742a2"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong a",
+					"TextMarkAHref": "https://blog.csdn.net/hacker_lees/article/details/70005984",
+					"TextMarkTextContent": "https://blog.csdn.net/hacker_lees/article/details/70005984"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

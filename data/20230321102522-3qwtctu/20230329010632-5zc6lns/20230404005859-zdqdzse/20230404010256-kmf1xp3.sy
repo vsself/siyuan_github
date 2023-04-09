@@ -1,0 +1,1268 @@
+{
+	"ID": "20230404010256-kmf1xp3",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010256-kmf1xp3",
+		"title": "吃透Spring源码（七）：自定义类型转换器_defaultconversionservice_吃透Java的博客-CSDN博客",
+		"updated": "20230404010256"
+	},
+	"Children": [
+		{
+			"ID": "20230404010256-frixmd4",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010256-frixmd4",
+				"updated": "20230404010256"
+			}
+		},
+		{
+			"ID": "20230404010256-t69j5v6",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010256-t69j5v6",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"ID": "20230404010256-isbn87v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010256-isbn87v",
+						"updated": "20230404010256"
+					},
+					"Children": [
+						{
+							"ID": "20230404010256-lzogk30",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010256-lzogk30",
+								"updated": "20230404010256"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/109726758",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/109726758"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010256-ap5cnqd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010256-ap5cnqd",
+						"updated": "20230404010256"
+					},
+					"Children": [
+						{
+							"ID": "20230404010256-1yjd5rp",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010256-1yjd5rp",
+								"updated": "20230404010256"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一，ConversionService转换服务一般来说，用户可以使⽤用内置的或者⾃己实现Converter接⼝来实现类型转换，ConversionService类接口内部调用Converter接口实现类来实现类型转换。1，ConversionService接口类型转换的服务接口，这是转换系统的入口，调用convert(Object, Class)进行一次线程安全的类型转换。public interface ConversionService {\t// 判断能否进行类型转换\tboolean c"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010256-vupakwc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010256-vupakwc",
+						"updated": "20230404010256"
+					},
+					"Children": [
+						{
+							"ID": "20230404010256-05i05yw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010256-05i05yw",
+								"updated": "20230404010256"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:02:56"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-grqacxv",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010256-grqacxv",
+				"updated": "20230404010256"
+			}
+		},
+		{
+			"ID": "20230404010256-q12kd45",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010256-q12kd45",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一，ConversionService转换服务"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-jtxd0de",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-jtxd0de",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一般来说，用户可以使⽤用内置的或者⾃己实现Converter接⼝来实现类型转换，ConversionService类接口内部调用Converter接口实现类来实现类型转换。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201116182109614-20230404010256-9e37qwt.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-q6h3btu",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010256-q6h3btu",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，ConversionService接口"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-rqc3hzc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-rqc3hzc",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "类型转换的服务接口，这是转换系统的入口，调用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "convert(Object, Class)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​进行一次"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "线程安全"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "的类型转换。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-cyi3fl0",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-cyi3fl0",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public interface ConversionService { \n\n\t// 判断能否进行类型转换\n\tboolean canConvert(@Nullable Class\u003c?\u003e sourceType, Class\u003c?\u003e targetType);\n\tboolean canConvert(@Nullable TypeDescriptor sourceType, TypeDescriptor targetType);\n  \n\t// 类型转换，获取合适的转换器进行类型的转换，默认是DefaultConversionService，也可以是自定义的\n\t@Nullable\n\t\u003cT\u003e T convert(@Nullable Object source, Class\u003cT\u003e targetType);\n\t@Nullable\n\tObject convert(@Nullable Object source, @Nullable TypeDescriptor sourceType, TypeDescriptor targetType);\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-hex6uwy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010256-hex6uwy",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，ConverterRegistry接口"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-6rztzmc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-6rztzmc",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对转换器进行注册（完成类型转换器的增删操作）："
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-03xdp21",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-03xdp21",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public interface ConverterRegistry { \n\n\t// 添加转换器\n\tvoid addConverter(Converter\u003c?, ?\u003e converter);\n\t\u003cS, T\u003e void addConverter(Class\u003cS\u003e sourceType, Class\u003cT\u003e targetType, Converter\u003c? super S, ? extends T\u003e converter);\n\tvoid addConverter(GenericConverter converter);\n\n\t// 增加转换器的工厂类\n\tvoid addConverterFactory(ConverterFactory\u003c?, ?\u003e factory);\n\n    // 移除转换器\n\tvoid removeConvertible(Class\u003c?\u003e sourceType, Class\u003c?\u003e targetType);\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-jsrz4ia",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010256-jsrz4ia",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3，ConfigurableConversionService接口"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-99w9dac",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-99w9dac",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "此接口集成了ConversionService和ConverterRegistry两个接口，集成两个接口的功能："
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-d71emgb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-d71emgb",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public interface ConfigurableConversionService extends ConversionService, ConverterRegistry { \n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-vn7d3iz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010256-vn7d3iz",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4，GenericConversionService类"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-zg39kso",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-zg39kso",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通用的类型转换实现类,适用于大部分的转换情况，转换器服务类的骨干实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-q8uo0cc",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-q8uo0cc",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class GenericConversionService implements ConfigurableConversionService { \n  \n    // 省略部分代码\n  \n    private final Converters converters = new Converters();\n  \n    // 管理在服务中注册的所有转换器\n    private static class Converters { \n        private final Map\u003cConvertiblePair, ConvertersForPair\u003e converters = new LinkedHashMap\u003c\u003e(36);\n      \n        // 省略部分代码\n    }\n  \n    // 组建一个源到目的的组合\n    final class ConvertiblePair { \n      \n\t\tprivate final Class\u003c?\u003e sourceType;\n\t\tprivate final Class\u003c?\u003e targetType;\n  \n        // 省略部分代码\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-mwabwhd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-mwabwhd",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "GenericConversionService"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类是类型转换服务的具体核心实现，其管理了所有注册的类型转换器Converter，对外提供了注册，转换等核心接口，是具体功能的实现者。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-deyhcej",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010256-deyhcej",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5，DefaultConversionService类"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-cox4sls",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-cox4sls",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "封装了系统的默认"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Converter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​注册："
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-nfxq4a4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-nfxq4a4",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "// 对一系列的converter进行注册\npublic class DefaultConversionService extends GenericConversionService { \n\n\t@Nullable\n\tprivate static volatile DefaultConversionService sharedInstance;\n\n\n\t/**\n\t * Create a new {@code DefaultConversionService} with the set of\n\t * {@linkplain DefaultConversionService#addDefaultConverters(ConverterRegistry) default converters}.\n\t */\n\tpublic DefaultConversionService() { \n\t\taddDefaultConverters(this);\n\t}\n\n\n\t/**\n\t * Return a shared default {@code ConversionService} instance,\n\t * lazily building it once needed.\n\t */\n\tpublic static ConversionService getSharedInstance() { \n\t\tDefaultConversionService cs = sharedInstance;\n\t\tif (cs == null) { \n\t\t\tsynchronized (DefaultConversionService.class) { \n\t\t\t\tcs = sharedInstance;\n\t\t\t\tif (cs == null) { \n\t\t\t\t\tcs = new DefaultConversionService();\n\t\t\t\t\tsharedInstance = cs;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\treturn cs;\n\t}\n\n\t/**\n\t * Add converters appropriate for most environments.\n\t */\n\tpublic static void addDefaultConverters(ConverterRegistry converterRegistry) { \n\t\taddScalarConverters(converterRegistry);\n\t\taddCollectionConverters(converterRegistry);\n\n\t\tconverterRegistry.addConverter(new ByteBufferConverter((ConversionService) converterRegistry));\n\t\tconverterRegistry.addConverter(new StringToTimeZoneConverter());\n\t\tconverterRegistry.addConverter(new ZoneIdToTimeZoneConverter());\n\t\tconverterRegistry.addConverter(new ZonedDateTimeToCalendarConverter());\n\n\t\tconverterRegistry.addConverter(new ObjectToObjectConverter());\n\t\tconverterRegistry.addConverter(new IdToEntityConverter((ConversionService) converterRegistry));\n\t\tconverterRegistry.addConverter(new FallbackObjectToStringConverter());\n\t\tconverterRegistry.addConverter(new ObjectToOptionalConverter((ConversionService) converterRegistry));\n\t}\n\n\t/**\n\t * Add common collection converters.\n\t */\n\tpublic static void addCollectionConverters(ConverterRegistry converterRegistry) { \n\t\tConversionService conversionService = (ConversionService) converterRegistry;\n\n\t\tconverterRegistry.addConverter(new ArrayToCollectionConverter(conversionService));\n\t\tconverterRegistry.addConverter(new CollectionToArrayConverter(conversionService));\n\n\t\tconverterRegistry.addConverter(new ArrayToArrayConverter(conversionService));\n\t\tconverterRegistry.addConverter(new CollectionToCollectionConverter(conversionService));\n\t\tconverterRegistry.addConverter(new MapToMapConverter(conversionService));\n\n\t\tconverterRegistry.addConverter(new ArrayToStringConverter(conversionService));\n\t\tconverterRegistry.addConverter(new StringToArrayConverter(conversionService));\n\n\t\tconverterRegistry.addConverter(new ArrayToObjectConverter(conversionService));\n\t\tconverterRegistry.addConverter(new ObjectToArrayConverter(conversionService));\n\n\t\tconverterRegistry.addConverter(new CollectionToStringConverter(conversionService));\n\t\tconverterRegistry.addConverter(new StringToCollectionConverter(conversionService));\n\n\t\tconverterRegistry.addConverter(new CollectionToObjectConverter(conversionService));\n\t\tconverterRegistry.addConverter(new ObjectToCollectionConverter(conversionService));\n\n\t\tconverterRegistry.addConverter(new StreamConverter(conversionService));\n\t}\n\n\tprivate static void addScalarConverters(ConverterRegistry converterRegistry) { \n\t\tconverterRegistry.addConverterFactory(new NumberToNumberConverterFactory());\n\n\t\tconverterRegistry.addConverterFactory(new StringToNumberConverterFactory());\n\t\tconverterRegistry.addConverter(Number.class, String.class, new ObjectToStringConverter());\n\n\t\tconverterRegistry.addConverter(new StringToCharacterConverter());\n\t\tconverterRegistry.addConverter(Character.class, String.class, new ObjectToStringConverter());\n\n\t\tconverterRegistry.addConverter(new NumberToCharacterConverter());\n\t\tconverterRegistry.addConverterFactory(new CharacterToNumberFactory());\n\n\t\tconverterRegistry.addConverter(new StringToBooleanConverter());\n\t\tconverterRegistry.addConverter(Boolean.class, String.class, new ObjectToStringConverter());\n\n\t\tconverterRegistry.addConverterFactory(new StringToEnumConverterFactory());\n\t\tconverterRegistry.addConverter(new EnumToStringConverter((ConversionService) converterRegistry));\n\n\t\tconverterRegistry.addConverterFactory(new IntegerToEnumConverterFactory());\n\t\tconverterRegistry.addConverter(new EnumToIntegerConverter((ConversionService) converterRegistry));\n\n\t\tconverterRegistry.addConverter(new StringToLocaleConverter());\n\t\tconverterRegistry.addConverter(Locale.class, String.class, new ObjectToStringConverter());\n\n\t\tconverterRegistry.addConverter(new StringToCharsetConverter());\n\t\tconverterRegistry.addConverter(Charset.class, String.class, new ObjectToStringConverter());\n\n\t\tconverterRegistry.addConverter(new StringToCurrencyConverter());\n\t\tconverterRegistry.addConverter(Currency.class, String.class, new ObjectToStringConverter());\n\n\t\tconverterRegistry.addConverter(new StringToPropertiesConverter());\n\t\tconverterRegistry.addConverter(new PropertiesToStringConverter());\n\n\t\tconverterRegistry.addConverter(new StringToUUIDConverter());\n\t\tconverterRegistry.addConverter(UUID.class, String.class, new ObjectToStringConverter());\n\t}\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-m0eh0i5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010256-m0eh0i5",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二，自定义ConversionService"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-iyoq7j4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-iyoq7j4",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一般系统会默认使用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DefaultConversionService"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，来提供类型转换功能，我们也可以自定义"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ConversionService"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-6bwfgk1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-6bwfgk1",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "创建"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MyConersionService"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​："
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-kc6i072",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-kc6i072",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class MyConversionService extends DefaultConversionService { \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-k694tvr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-k694tvr",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "xml配置，注意：​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "这里id必须是conversionService"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，否则spring源码识别不到。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-qju1xte",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-qju1xte",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xmlns:context=\"http://www.springframework.org/schema/context\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd\"\u003e\n    \u003cbean id=\"conversionService\" class=\"com.bobo.MyConversionService\"\u003e\u003c/bean\u003e\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-t0whqzg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-t0whqzg",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "spring源码：spring会在refresh()方法的finishBeanFactoryInitialization(beanFactory)方法的开头对自定义的MyConversionService进行注册："
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-5vvdoma",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-5vvdoma",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public abstract class AbstractApplicationContext extends DefaultResourceLoader\n\t\timplements ConfigurableApplicationContext { \n  \n    protected void finishBeanFactoryInitialization(ConfigurableListableBeanFactory beanFactory) { \n\t\t// Initialize conversion service for this context.\n\t\t// 为上下文初始化类型转换器\n\t\tif (beanFactory.containsBean(CONVERSION_SERVICE_BEAN_NAME) \u0026\u0026\n\t\t\t\tbeanFactory.isTypeMatch(CONVERSION_SERVICE_BEAN_NAME, ConversionService.class)) { \n\t\t\tbeanFactory.setConversionService(\n\t\t\t\t\tbeanFactory.getBean(CONVERSION_SERVICE_BEAN_NAME, ConversionService.class));\n\t\t}\n    }\n  \n    // 省略部分代码\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-rdnvfmy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010256-rdnvfmy",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三，Converter转换器"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-huslqb4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-huslqb4",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ConversionService"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​只是个Service，对于每个类型转换的操作，它并不是最终的操作者，它会将相应操作交给对应类型的转换器。而在实际项目中，由于业务复杂，对类型转换的要求也不一样，因此spring提供了几个接口来方便自定义转换器。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-5g2kd1u",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010256-5g2kd1u",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"ID": "20230404010256-xwv3cof",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010256-xwv3cof",
+						"updated": "20230404010256"
+					},
+					"Children": [
+						{
+							"ID": "20230404010256-8oij77m",
+							"Type": "NodeHeading",
+							"HeadingLevel": 4,
+							"Properties": {
+								"id": "20230404010256-8oij77m",
+								"updated": "20230404010256"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Converter\u003cS, T\u003e：一对一的转换，将S类型转换为T类型；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010256-dclx2j6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010256-dclx2j6",
+						"updated": "20230404010256"
+					},
+					"Children": [
+						{
+							"ID": "20230404010256-n3xjee1",
+							"Type": "NodeHeading",
+							"HeadingLevel": 4,
+							"Properties": {
+								"id": "20230404010256-n3xjee1",
+								"updated": "20230404010256"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ConverterFactory\u003cS, R\u003e：一对多的转换，将S类型转换为R的子类；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010256-n2xizvi",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010256-n2xizvi",
+						"updated": "20230404010256"
+					},
+					"Children": [
+						{
+							"ID": "20230404010256-vykmp2w",
+							"Type": "NodeHeading",
+							"HeadingLevel": 4,
+							"Properties": {
+								"id": "20230404010256-vykmp2w",
+								"updated": "20230404010256"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "GenericConverter：多对多的转换，用于两种或者更多种类型之间转换的通用转换器接口。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-mf5iqkv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010256-mf5iqkv",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，Converter\u003cS, T\u003e"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-jnjgse1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-jnjgse1",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一对一的转换，将S类型转换为T类型；"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-9en882c",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-9en882c",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@FunctionalInterface\npublic interface Converter\u003cS, T\u003e { \n\n\t// 将S类型转换成T类型\n\t@Nullable\n\tT convert(S source);\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-134qpp8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-134qpp8",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "起一个SpringBoot项目，定义MyConverter定义String到Person的转换："
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-531dxhm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-531dxhm",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Person.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-zgh7g6z",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-zgh7g6z",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Data\n@ToString\n@NoArgsConstructor\npublic class Person { \n    private String name;\n    private int age;\n\n    public Person(String name, int age) { \n        this.name = name;\n        this.age = age;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-hwrbcpx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-hwrbcpx",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "MyConverter.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-af72trv",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-af72trv",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class MyConverter implements Converter\u003cString, Person\u003e { \n    @Override\n    public Person convert(String source) { \n        System.out.println(\"----------------------\"+source+\"---------------\");\n        String[] split = source.split(\"-\");\n        return new Person(split[0], Integer.valueOf(split[1]));\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-0n5ntwu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-0n5ntwu",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "HelloController.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-07k51ob",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-07k51ob",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@RestController\npublic class HelloController { \n\n    @RequestMapping(\"/hello\")\n    @ResponseBody\n    public String hello(@RequestParam(\"name\") Person person){ \n        System.out.println(person);\n        return person.toString();\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-ckmt3a5",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-ckmt3a5",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "输入地址：http://localhost:8080/hello?name=bo-12\n返回：Person(name=bo, age=12)\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-z6uciai",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010256-z6uciai",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，ConverterFactory\u003cS, R\u003e"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-3h5y0vn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-3h5y0vn",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一对多的转换，将S类型转换为R的子类："
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-3k52qcu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-3k52qcu",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "MyConverterFactory.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-1mp3c9l",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-1mp3c9l",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MyConverterFactory implements ConverterFactory\u003cString, Person\u003e { \n\n    @Override\n    public \u003cT extends Person\u003e Converter\u003cString, T\u003e getConverter(Class\u003cT\u003e targetType) { \n        System.out.println(\"targetType:\" + targetType);\n        return new StringToPerson\u003c\u003e(targetType);\n    }\n\n    private static final class StringToPerson\u003cT extends Person\u003e implements Converter\u003cString, T\u003e { \n\n        private final Class\u003cT\u003e targetType;\n\n        public StringToPerson(Class\u003cT\u003e targetType) { \n            this.targetType = targetType;\n        }\n\n        @Override\n        public T convert(String source) { \n            String[] split = source.split(\"-\");\n            if (Man.class == targetType) { \n                return (T) new Man(split[0], Integer.valueOf(split[1]));\n            } else if (Woman.class == targetType) { \n                return (T) new Woman(split[0], Integer.valueOf(split[1]));\n            }\n            return null;\n        }\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-j5o3id7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-j5o3id7",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "MySpringBootApplication.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-a0e3uxk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-a0e3uxk",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@SpringBootApplication\npublic class MySpringBootApplication { \n\n    public static void main(String[] args) { \n        SpringApplication.run(MySpringBootApplication.class, args);\n    }\n\n    @Bean\n    public GenericConversionService getDefaultConversionService(@Autowired GenericConversionService genericConversionService) { \n        genericConversionService.addConverterFactory(new MyConverterFactory());\n        System.out.println(\"类型转换已加入！\");\n        return genericConversionService;\n    }\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-7xmjclm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-7xmjclm",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "HelloControll.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-6x7s282",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-6x7s282",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@RestController\npublic class HelloController { \n\n    @RequestMapping(\"/hello\")\n    @ResponseBody\n    public Object hello(@RequestParam(\"name\") Man person){ \n        System.out.println(person);\n        return person.toString();\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-ggujz1n",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010256-ggujz1n",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "输入：http://localhost:8080/hello?name=bo-12\n输出：Person(name=bo, age=12)\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-ilgmnns",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010256-ilgmnns",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3，GenericConverter"
+				}
+			]
+		},
+		{
+			"ID": "20230404010256-m4d9vo2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010256-m4d9vo2",
+				"updated": "20230404010256"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "GenericConverter接口是所有的Converter接口中最灵活也是最复杂的一个类型转换接口。像我们之前介绍的Converter接口只支持从一个原类型转换为一个目标类型；ConverterFactory接口只支持从一个原类型转换为一个目标类型对应的子类型；而GenericConverter接口支持在多个不同的原类型和目标类型之间进行转换，这也就是GenericConverter接口灵活和复杂的地方。"
+				}
+			]
+		}
+	]
+}

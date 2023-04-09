@@ -1,0 +1,2705 @@
+{
+	"ID": "20230331090638-kzqi8l7",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331090638-kzqi8l7",
+		"title": "Spring源码分析二十：Spring MVC① 搭建_springmvc源码分析_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331090638"
+	},
+	"Children": [
+		{
+			"ID": "20230331090638-bj7lvxd",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090638-bj7lvxd",
+				"updated": "20230331090638"
+			}
+		},
+		{
+			"ID": "20230331090638-9j48kvx",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090638-9j48kvx",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"ID": "20230331090638-7dmuu0h",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-7dmuu0h",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-afi9c7r",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-afi9c7r",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/106676125"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-kdudv50",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-kdudv50",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-ajoa44m",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-ajoa44m",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "文章目录一、前言二、一、前言本文是笔者阅读Spring源码的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。二、..."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-0fkxf16",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-0fkxf16",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-eyuge9w",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-eyuge9w",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:06:38"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-37jkwia",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090638-37jkwia",
+				"updated": "20230331090638"
+			}
+		},
+		{
+			"ID": "20230331090638-thykanh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090638-thykanh",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-4ekkras",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090638-4ekkras",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"ID": "20230331090638-t3l112y",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-t3l112y",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-5tfe5kz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-5tfe5kz",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125#_1",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-p2b3q3d",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-p2b3q3d",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-vefvvyj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-vefvvyj",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125#_26",
+									"TextMarkTextContent": "二、搭建"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-drvodr8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-drvodr8",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-uym5sip",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331090638-uym5sip",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"ID": "20230331090638-6hm37li",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090638-6hm37li",
+										"updated": "20230331090638"
+									},
+									"Children": [
+										{
+											"ID": "20230331090638-wk2jaij",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090638-wk2jaij",
+												"updated": "20230331090638"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125#1__53",
+													"TextMarkTextContent": "1. 各个上下文的区别"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090638-pa05axr",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090638-pa05axr",
+										"updated": "20230331090638"
+									},
+									"Children": [
+										{
+											"ID": "20230331090638-ngmnq4q",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090638-ngmnq4q",
+												"updated": "20230331090638"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125#2Servlet__74",
+													"TextMarkTextContent": "2、Servlet 的生命周期"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090638-gssfps1",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090638-gssfps1",
+										"updated": "20230331090638"
+									},
+									"Children": [
+										{
+											"ID": "20230331090638-7ne9zhb",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331090638-7ne9zhb",
+												"updated": "20230331090638"
+											},
+											"Children": [
+												{
+													"ID": "20230331090638-2ienzu3",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090638-2ienzu3",
+														"updated": "20230331090638"
+													},
+													"Children": [
+														{
+															"ID": "20230331090638-r5jhlgb",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090638-r5jhlgb",
+																"updated": "20230331090638"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125#11__80",
+																	"TextMarkTextContent": "1.1. 初始化阶段"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090638-buyfhjk",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090638-buyfhjk",
+														"updated": "20230331090638"
+													},
+													"Children": [
+														{
+															"ID": "20230331090638-2yi4m2p",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090638-2yi4m2p",
+																"updated": "20230331090638"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125#12__86",
+																	"TextMarkTextContent": "1.2. 运行阶段"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090638-9hya4qt",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090638-9hya4qt",
+														"updated": "20230331090638"
+													},
+													"Children": [
+														{
+															"ID": "20230331090638-75fbp7g",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090638-75fbp7g",
+																"updated": "20230331090638"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125#13__88",
+																	"TextMarkTextContent": "1.3. 销毁阶段"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090638-2pvhphq",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090638-2pvhphq",
+										"updated": "20230331090638"
+									},
+									"Children": [
+										{
+											"ID": "20230331090638-d3ndduk",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331090638-d3ndduk",
+												"updated": "20230331090638"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125#3_Demo_91",
+													"TextMarkTextContent": "3. 简单Demo"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331090638-4ar6ssx",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331090638-4ar6ssx",
+										"updated": "20230331090638"
+									},
+									"Children": [
+										{
+											"ID": "20230331090638-5455mv5",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230331090638-5455mv5",
+												"updated": "20230331090638"
+											},
+											"Children": [
+												{
+													"ID": "20230331090638-s0qfao4",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090638-s0qfao4",
+														"updated": "20230331090638"
+													},
+													"Children": [
+														{
+															"ID": "20230331090638-59oheh3",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090638-59oheh3",
+																"updated": "20230331090638"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125#31_webxml_95",
+																	"TextMarkTextContent": "3.1 web.xml"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090638-br0numf",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090638-br0numf",
+														"updated": "20230331090638"
+													},
+													"Children": [
+														{
+															"ID": "20230331090638-nvroyll",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090638-nvroyll",
+																"updated": "20230331090638"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125#32_applicationContextxml_144",
+																	"TextMarkTextContent": "3.2 applicationContext.xml"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230331090638-q4i1qtz",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230331090638-q4i1qtz",
+														"updated": "20230331090638"
+													},
+													"Children": [
+														{
+															"ID": "20230331090638-dc53wgz",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230331090638-dc53wgz",
+																"updated": "20230331090638"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125#33_SayController__172",
+																	"TextMarkTextContent": "3.3 SayController 以及静态页面"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-vy0rjyl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-vy0rjyl",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-dma7ipb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-dma7ipb",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125#ContextLoaderListener_202",
+									"TextMarkTextContent": "三、ContextLoaderListener"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-tbyzglg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090638-tbyzglg",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-ys3lt3c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-ys3lt3c",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是笔者阅读Spring源码的记录文章，由于本人技术水平有限，在文章中难免出现错误，如有发现，感谢各位指正。在阅读过程中也创建了一些衍生文章，衍生文章的意义是因为自己在看源码的过程中，部分知识点并不了解或者对某些知识点产生了兴趣，所以为了更好的阅读源码，所以开设了衍生篇的文章来更好的对这些知识点进行进一步的学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-mk7wd0g",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090638-mk7wd0g",
+				"updated": "20230331090638"
+			}
+		},
+		{
+			"ID": "20230331090638-657e9k2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-657e9k2",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring全集目录："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106440723",
+					"TextMarkTextContent": "Spring源码分析：全集整理"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-vi7bzd4",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090638-vi7bzd4",
+				"updated": "20230331090638"
+			}
+		},
+		{
+			"ID": "20230331090638-cfufh7v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-cfufh7v",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本系列目录如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-522n5gw",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090638-522n5gw",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"ID": "20230331090638-e07r4i9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090638-e07r4i9",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-ay69im7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-ay69im7",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106676125",
+									"TextMarkTextContent": "Spring源码分析二十：Spring MVC① 搭建"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-dtty7mf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090638-dtty7mf",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-5gbhjrf",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-5gbhjrf",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/107434181",
+									"TextMarkTextContent": "Spring源码分析二十一：Spring MVC② DispatcherServlet的初始化"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-ywp274w",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090638-ywp274w",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-y4pe6v2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-y4pe6v2",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175204",
+									"TextMarkTextContent": "Spring源码分析二十二：Spring MVC③ DispatcherServlet的逻辑"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-p8iwotn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-p8iwotn",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "衍生篇目录如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-xbt03k6",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090638-xbt03k6",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"ID": "20230331090638-324jyqc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090638-324jyqc",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-z3234m7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-z3234m7",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109515781",
+									"TextMarkTextContent": "Spring 源码分析衍生篇十 ：Last-Modified 缓存机制"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-vgj86h9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090638-vgj86h9",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-w4rtmbc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-w4rtmbc",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/109175480",
+									"TextMarkTextContent": "Spring 源码分析衍生篇十一 ：HandlerMapping"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-nk90l6i",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090638-nk90l6i",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、搭建"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-5y2xjq1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-5y2xjq1",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring 的 Mvc 基于 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Servlet"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 功能实现的，通过实现"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Servlet"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口的 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "DispatcherServlet"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 来封装其核心功能实现，通过将请求分派给处理程序，同时带有可配置的处理程序映射、视图解析、本地语言、主题解析以及上载文件的支持。默认的处理程序是非常简单的Controller 接口"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-0p3471o",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090638-0p3471o",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@FunctionalInterface\npublic interface Controller { \n    @Nullable\n    ModelAndView handleRequest(HttpServletRequest var1, HttpServletResponse var2) throws Exception;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-ny4poo5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-ny4poo5",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对Spring mvc 或者其他成熟的MVC 框架而言，解决的问题无外乎以下几点"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-3v05p3c",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090638-3v05p3c",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"ID": "20230331090638-pz08car",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-pz08car",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-6py7iwj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-6py7iwj",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "将web 页面的请求传给服务器"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-k51ok58",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-k51ok58",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-7i5odxq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-7i5odxq",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "根据不同得到请求处理不同的逻辑单元"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-sg18sge",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-sg18sge",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-qbpisgt",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-qbpisgt",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "返回处理结果数据并跳转至相应页面"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-6izrix0",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090638-6izrix0",
+				"updated": "20230331090638"
+			}
+		},
+		{
+			"ID": "20230331090638-4y6fhgy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090638-4y6fhgy",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. 各个上下文的区别"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-whk52tn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-whk52tn",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在开始前，我们首先需要了解 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ServletContext、ServletConfig、BeanFactory、ApplicationContext、WebApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的区别。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-zskw4fj",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090638-zskw4fj",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"ID": "20230331090638-fgz364s",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-fgz364s",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-zktuiiw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-zktuiiw",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ServletContext"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ：应该说是Serlvet层面的上下文。包含了"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "WebApplicationContext"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。Servlet规范中的概念,本质上并不是Spring的概念。他是servlet用来和容器间进行交互的接口的组合。也就是说,这个接口定 义了一系列的方法, servlet通过这些方法可以很方便地与自己所在的容器进行一些交互,比如通过"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "getMajorVersion"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​与"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "getMinorVersion"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​来获取容器的版本信息等.从它的定 义中也可以看出,在一个应用中(一个JVM)只有一个ServletContext,换句话说,容器中所有的servlet都共享同一个ServletContext."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-rxyp0fm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-rxyp0fm",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-00wftg9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-00wftg9",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ServletConfig"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ：它与"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ServletContext"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​的区别在于，servletConfig是针对servlet而言的，每个servlet都有它独有的serveltConfig信息，相互之间不共享."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-ryhggx0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-ryhggx0",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-4m3ik6n",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-4m3ik6n",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactory"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ：Spring 中最基础的容器， 提供了最简单的 IOC 功能。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-gs9zxw4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-gs9zxw4",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-dhfl5dm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-dhfl5dm",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ApplicationContext"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ：这个类是Spring实现容器功能的核心接口，它也是Spring实现IoC功能中最重要的接口，从它的名字中可以看出，它维护了整个程序运行期间所需要的上下文信息， 注意这里的应用程序并不一定是web程序，也可能是其它类型的应用. 在Spring中允许存在多个applicationContext，这些context相互之间还形成了父与子，继承与被继承的关系，这也是通常我们所说的，在spring中存在两个context,一个是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "root context"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，一个是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "servlet applicationContext"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​的意思. 这点后面会进一步阐述."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-61i3s6j",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-61i3s6j",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-gwg0qsi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-gwg0qsi",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "WebApplicationContext"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 其实这个接口不过是applicationContext接口的一个子接口罢了，只不过说它的应用形式是web罢了. 它在ApplicationContext的基础上，添加了对ServletContext的引用，即getServletContext方法."
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-v7vway5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-v7vway5",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "他们四者的关系如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-y0vz7ue",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331090638-y0vz7ue",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"ID": "20230331090638-68jwyus",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331090638-68jwyus",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-c8jbk20",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-c8jbk20",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ServletContext"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​针对Servlet来说,是Servlet的全局上下文。目前看到应该是作用于最大的，可以在前后端传递数据"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-firvl0q",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331090638-firvl0q",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-7slsj66",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-7slsj66",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ServletConfig"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ 针对的每个Servlet ,是每个Servlet的配置内容,即"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "init-param"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​标签内容"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-5w6ka9v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331090638-5w6ka9v",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-36n0h1x",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-36n0h1x",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactory"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​提供了最基础的SpringIOC功能."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-zg26btz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230331090638-zg26btz",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-zmjhn0e",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-zmjhn0e",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ApplicationContext"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​在"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactory"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​的基础.上增加了更多的功能。这里实际上是"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ApplicationContext"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​中有"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactory"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​变量而并非"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ApplicationContext"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​继承了"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactory"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。 关于IOC的–些功能,"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ApplicationContext"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​实际.上还是委托给了"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactory"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​完成,即调用"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "BeanFactory"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​的方法。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-ellczkw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090638-ellczkw",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、Servlet 的生命周期"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-f0uohqz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-f0uohqz",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Java Servlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-k8norp6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-k8norp6",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Servlet 是一个java 编写的程序，此程序基于http 协议，在服务端运行达到是按照servlet 规范编写的一个类。主要处理客户端的请求并将结果发送到客户端。Servlet 的生命周期是由Servlet 容器来控制的，可以分为三个阶段。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-wpd9tnv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090638-wpd9tnv",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1. 初始化阶段"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-59k8ypj",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090638-59k8ypj",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"ID": "20230331090638-e66tmxu",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-e66tmxu",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-1el9weu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-1el9weu",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "servlet容器加载 servlet类， 把 servlet 类的 .class 文件中的数据读取到内存中"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-21ar2y0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-21ar2y0",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-qsc71fq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-qsc71fq",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "servlet 容器创建了一个ServletConfig对象。ServletConfig 对象包含了 servlet 的初始化配置信息"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-44s6fsc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-44s6fsc",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-md7nx20",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-md7nx20",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "servlet 容器创建了一个servlet 对象"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-t7ylzh6",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-t7ylzh6",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-vhlo277",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-vhlo277",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "servlet 容器调用 servlet 对象的 init 方法进行初始化。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-2sg4x5u",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090638-2sg4x5u",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2. 运行阶段"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-wfao3dm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-wfao3dm",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当一个 servlet 容器收到一个请求后，servlet容器会针对这个请求创建一个 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "servletRequest"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 和 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "servletResponse"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 对象，然后调用service 方法。并将这两个参数传递给 service 方法。service 方法通过 servletRequest 对象获取请求的信息，并处理该请求再通过 servletResponse 对象生成这个请求的相应结果。然后销毁servletRequest 和 servletResponse 对象。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-4yl9ptq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090638-4yl9ptq",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3. 销毁阶段"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-uo8i1qc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-uo8i1qc",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当web应用被终止时，servlet 容器会先调用servlet对象的destory 方法，然后再销毁servlet 对象，同时也会销毁与 servlet 对象想关联的servletConfig 对象。我们可以在destory 方法的实现中，释放servlet 所占用的资源，如关闭数据库连接等。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-kxg3a64",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090638-kxg3a64",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3. 简单Demo"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-ztppeie",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-ztppeie",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本来想直接上 SpringBoot 。但是还是求稳一下，我们这里用最基础的xml配置方式来搭建一个简单的Demo。("
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "sub",
+					"TextMarkTextContent": "都忘了怎么搭的了，搭了一个小时，Spring mvc 真难搞"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " )"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-lxa6vna",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090638-lxa6vna",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.1 web.xml"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-xmx13cr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090638-xmx13cr",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c!DOCTYPE web-app PUBLIC\n        \"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN\"\n        \"http://java.sun.com/dtd/web-app_2_3.dtd\" \u003e\n\n\u003cweb-app\u003e\n    \u003cdisplay-name\u003eArchetype Created Web Application\u003c/display-name\u003e\n    \u003c!--    配置 --\u003e\n    \u003ccontext-param\u003e\n        \u003cparam-name\u003econtextConfigLocation\u003c/param-name\u003e\n        \u003c!--        指定配置文件--\u003e\n        \u003cparam-value\u003eclasspath:applicationContext.xml\u003c/param-value\u003e\n    \u003c/context-param\u003e\n    \u003c!--  配置监听器--\u003e\n    \u003clistener\u003e\n        \u003clistener-class\u003eorg.springframework.web.context.ContextLoaderListener\u003c/listener-class\u003e\n    \u003c/listener\u003e\n    \u003c!--    配置默认的使用Default的 servlet 来处理 .html 的静态静态资源--\u003e\n    \u003c!--    这个一定要放在DispatcherServlet 的前面，先于DispatcherServlet 拦截 --\u003e\n    \u003cservlet-mapping\u003e\n        \u003cservlet-name\u003edefault\u003c/servlet-name\u003e\n        \u003curl-pattern\u003e*.html\u003c/url-pattern\u003e\n    \u003c/servlet-mapping\u003e\n\n    \u003c!--  配置 DispatcherServlet 及其映射地址--\u003e\n    \u003cservlet\u003e\n        \u003cservlet-name\u003espringmvc\u003c/servlet-name\u003e\n        \u003cservlet-class\u003eorg.springframework.web.servlet.DispatcherServlet\u003c/servlet-class\u003e\n        \u003c!--   init-param配合的既是 ServerConfig--\u003e\n        \u003cinit-param\u003e\n            \u003cparam-name\u003econtextConfigLocation\u003c/param-name\u003e\n            \u003cparam-value\u003eclasspath:applicationContext.xml\u003c/param-value\u003e\n        \u003c/init-param\u003e\n    \u003c/servlet\u003e\n    \u003cservlet-mapping\u003e\n        \u003cservlet-name\u003espringmvc\u003c/servlet-name\u003e\n        \u003curl-pattern\u003e/\u003c/url-pattern\u003e\n    \u003c/servlet-mapping\u003e\n\u003c/web-app\u003e\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-2kunglo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-2kunglo",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring mvc 之所以要配置 web.xml，关键在于"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-dg44tqv",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331090638-dg44tqv",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"ID": "20230331090638-d4szqrh",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-d4szqrh",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-gvm8u8i",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-gvm8u8i",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "contextConfigLocation"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： Spring的核心就是配置文件，可以说Spring中必不可少的就是配置文件，而这个参数就是使 web 和 Spring的配置文件相结合的一个关键配置。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331090638-dj30xm7",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331090638-dj30xm7",
+						"updated": "20230331090638"
+					},
+					"Children": [
+						{
+							"ID": "20230331090638-gec9pb4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331090638-gec9pb4",
+								"updated": "20230331090638"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "DispatcherServlet"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​ ： 包含了 Springmvc的请求逻辑，Spring 使用此类拦截web请求并进行相应的逻辑处理。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-76rc9rt",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090638-76rc9rt",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.2 applicationContext.xml"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-5uamwwo",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090638-5uamwwo",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xmlns:context=\"http://www.springframework.org/schema/context\"\n       xmlns:mvc=\"http://www.springframework.org/schema/mvc\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd\"\u003e\n    \u003c!--    配置 扫描路径 --\u003e\n    \u003ccontext:component-scan base-package=\"com.kingfish.springmvcdemo\"/\u003e\n    \u003c!--    配置视图解析器 --\u003e\n    \u003cbean id=\"viewResolver\" class=\"org.springframework.web.servlet.view.InternalResourceViewResolver\"\u003e\n        \u003cproperty name=\"prefix\" value=\"/WEB-INF/static/\"\u003e\u003c/property\u003e\n        \u003cproperty name=\"suffix\" value=\".html\"\u003e\u003c/property\u003e\n    \u003c/bean\u003e\n  \n\u003c!-- 配置拦截器 --\u003e\n\u003c!--    \u003cmvc:interceptors\u003e--\u003e\n\u003c!--        \u003cmvc:interceptor\u003e--\u003e\n\u003c!--            \u003cmvc:mapping path=\"/**\"/\u003e--\u003e\n\u003c!--            \u003cmvc:exclude-mapping path=\"/say/hello\"/\u003e--\u003e\n\u003c!--            \u003cbean class=\"com.kingfish.springmvcdemo.interceptor.DemoHandlerInterceptor\"/\u003e--\u003e\n\u003c!--        \u003c/mvc:interceptor\u003e--\u003e\n\u003c!--    \u003c/mvc:interceptors\u003e--\u003e\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-umu54jo",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331090638-umu54jo",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.3 SayController 以及静态页面"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-p7f86ha",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090638-p7f86ha",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Controller\n@RequestMapping(\"say\")\npublic class SayController { \n\n    @RequestMapping(\"hello\")\n    public String hello() { \n        return \"hello\";\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-y498vk3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090638-y498vk3",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"en\"\u003e\n\t\u003chead\u003e\n\t    \u003cmeta charset=\"UTF-8\"\u003e\n\t    \u003ctitle\u003eTitle\u003c/title\u003e\n\t\u003c/head\u003e\n\t\u003cbody\u003e\n\t\u003ch1\u003eHello\u003c/h1\u003e\n\t\u003c/body\u003e\n\u003c/html\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-6t1uwaw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-6t1uwaw",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里的配置问题我们暂时不过多解释，后面在下面分析过程中会一一进行解释。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-dkmj8e8",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331090638-dkmj8e8",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、ContextLoaderListener"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-ti4g6y1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-ti4g6y1",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们看到在web.xml 中有一个监听器的配置，即 ContextLoaderListener，如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-9gztbwy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090638-9gztbwy",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    \u003clistener\u003e\n        \u003clistener-class\u003eorg.springframework.web.context.ContextLoaderListener\u003c/listener-class\u003e\n    \u003c/listener\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-ymecxqb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-ymecxqb",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ContextLoaderListener"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 的结构：\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20200715212809413-20230331090638-4wgcdc2.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-ynz1r7j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-ynz1r7j",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "可以看到 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ContextLoaderListener"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 实现了 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ServletContextListener"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 接口。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-pn296c6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-pn296c6",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "ServletContextListener"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 的作用是监听容器启动，并在容器启动时调用"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "ServletContextListener#contextInitialized"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 方法，在容器销毁时调用 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "ServletContextListener#contextDestroyed"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-zyw9x8q",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-zyw9x8q",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所以下面我们来看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ContextLoaderListener#contextInitialized"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法："
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-prszq6y",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090638-prszq6y",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\n\t@Override\n\tpublic void contextInitialized(ServletContextEvent event) { \n\t\tinitWebApplicationContext(event.getServletContext());\n\t}\n\t...\n\t// 初始化 webApplicationContext\n\tpublic WebApplicationContext initWebApplicationContext(ServletContext servletContext) { \n\t\t// 初始化完成的 webApplicationContext 会被保存到  servletContext 的属性中，key 为 ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE\n\t\t// 所以这里是判断是否已经初始化了webApplicationContext，就抛出异常(web.xml 中声明了多次ContextLoader 的定义)，不可重复初始化。\n\t\tif (servletContext.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE) != null) { \n\t\t\tthrow new IllegalStateException(\n\t\t\t\t\t\"Cannot initialize context because there is already a root application context present - \" +\n\t\t\t\t\t\"check whether you have multiple ContextLoader* definitions in your web.xml!\");\n\t\t}\n\n\t\tservletContext.log(\"Initializing Spring root WebApplicationContext\");\n\t\tLog logger = LogFactory.getLog(ContextLoader.class);\n\t\tif (logger.isInfoEnabled()) { \n\t\t\tlogger.info(\"Root WebApplicationContext: initialization started\");\n\t\t}\n\t\tlong startTime = System.currentTimeMillis();\n\n\t\ttry { \n\t\t\t// Store context in local instance variable, to guarantee that\n\t\t\t// it is available on ServletContext shutdown.\n\t\t\tif (this.context == null) { \n\t\t\t\t// 创建 WebApplicationContext\n\t\t\t\tthis.context = createWebApplicationContext(servletContext);\n\t\t\t}\n\t\t\tif (this.context instanceof ConfigurableWebApplicationContext) { \n\t\t\t\tConfigurableWebApplicationContext cwac = (ConfigurableWebApplicationContext) this.context;\n\t\t\t\tif (!cwac.isActive()) { \n\t\t\t\t\t// The context has not yet been refreshed -\u003e provide services such as\n\t\t\t\t\t// setting the parent context, setting the application context id, etc\n\t\t\t\t\tif (cwac.getParent() == null) { \n\t\t\t\t\t\t// The context instance was injected without an explicit parent -\u003e\n\t\t\t\t\t\t// determine parent for root web application context, if any.\n\t\t\t\t\t\tApplicationContext parent = loadParentContext(servletContext);\n\t\t\t\t\t\tcwac.setParent(parent);\n\t\t\t\t\t}\n\t\t\t\t\t// 刷新上下文环境\n\t\t\t\t\tconfigureAndRefreshWebApplicationContext(cwac, servletContext);\n\t\t\t\t}\n\t\t\t}\n\t\t//  将创建好的 WebApplicationContext 保存到 servletContext 中\n\t\t\tservletContext.setAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE, this.context);\n\t\t\t// 映射当前的类加载器 与 创建的实例到全局变量 currentContextPerThread 中。\n\t\t\tClassLoader ccl = Thread.currentThread().getContextClassLoader();\n\t\t\tif (ccl == ContextLoader.class.getClassLoader()) { \n\t\t\t\tcurrentContext = this.context;\n\t\t\t}\n\t\t\telse if (ccl != null) { \n\t\t\t\tcurrentContextPerThread.put(ccl, this.context);\n\t\t\t}\n\n\t\t\tif (logger.isInfoEnabled()) { \n\t\t\t\tlong elapsedTime = System.currentTimeMillis() - startTime;\n\t\t\t\tlogger.info(\"Root WebApplicationContext initialized in \" + elapsedTime + \" ms\");\n\t\t\t}\n\n\t\t\treturn this.context;\n\t\t}\n\t\tcatch (RuntimeException | Error ex) { \n\t\t\tlogger.error(\"Context initialization failed\", ex);\n\t\t\tservletContext.setAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE, ex);\n\t\t\tthrow ex;\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-item9ol",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-item9ol",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们再来看看 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "this.context = createWebApplicationContext(servletContext);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 方法的实现，其实现是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ContextLoader#createWebApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​。代码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-st6xsqa",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331090638-st6xsqa",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprivate static final String DEFAULT_STRATEGIES_PATH = \"ContextLoader.properties\";\n\t...\n\t// 静态代码块\n\tstatic { \n\t\t// Load default strategy implementations from properties file.\n\t\t// This is currently strictly internal and not meant to be customized\n\t\t// by application developers.\n\t\ttry { \n\t\t\tClassPathResource resource = new ClassPathResource(DEFAULT_STRATEGIES_PATH, ContextLoader.class);\n\t\t\tdefaultStrategies = PropertiesLoaderUtils.loadProperties(resource);\n\t\t}\n\t\tcatch (IOException ex) { \n\t\t\tthrow new IllegalStateException(\"Could not load 'ContextLoader.properties': \" + ex.getMessage());\n\t\t}\n\t}\n\n\t// 创建 webApplicationContext\n\tprotected WebApplicationContext createWebApplicationContext(ServletContext sc) { \n\t\tClass\u003c?\u003e contextClass = determineContextClass(sc);\n\t\tif (!ConfigurableWebApplicationContext.class.isAssignableFrom(contextClass)) { \n\t\t\tthrow new ApplicationContextException(\"Custom context class [\" + contextClass.getName() +\n\t\t\t\t\t\"] is not of type [\" + ConfigurableWebApplicationContext.class.getName() + \"]\");\n\t\t}\n\t\treturn (ConfigurableWebApplicationContext) BeanUtils.instantiateClass(contextClass);\n\t}\n\n\t...\n\n\tprotected Class\u003c?\u003e determineContextClass(ServletContext servletContext) { \n\t\t// 这里获取 contextClassName。默认情况下没有配置则为null。我们自然是没有配置，所以这里为null\n\t\tString contextClassName = servletContext.getInitParameter(CONTEXT_CLASS_PARAM);\n\t\tif (contextClassName != null) { \n\t\t\ttry { \n\t\t\t\treturn ClassUtils.forName(contextClassName, ClassUtils.getDefaultClassLoader());\n\t\t\t}\n\t\t\tcatch (ClassNotFoundException ex) { \n\t\t\t\tthrow new ApplicationContextException(\n\t\t\t\t\t\t\"Failed to load custom context class [\" + contextClassName + \"]\", ex);\n\t\t\t}\n\t\t}\n\t\telse { \n\t\t\t// 默认策略获取  contextClassName 。通过上面的静态代码块我们可以知道defaultStrategies 读取的是 ContextLoader.properties 文件中的内容\n\t\t\tcontextClassName = defaultStrategies.getProperty(WebApplicationContext.class.getName());\n\t\t\ttry { \n\t\t\t\t// 通过反射获取到实例\n\t\t\t\treturn ClassUtils.forName(contextClassName, ContextLoader.class.getClassLoader());\n\t\t\t}\n\t\t\tcatch (ClassNotFoundException ex) { \n\t\t\t\tthrow new ApplicationContextException(\n\t\t\t\t\t\t\"Failed to load default context class [\" + contextClassName + \"]\", ex);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-fi5ow3n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-fi5ow3n",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们这里可以知道：在没有配置 contextClassName 的情况下，ContextLoader 会加载同级目录下的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ContextLoader.properties"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 文件，并以 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "WebApplicationContext.class.getName()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 作为key值来获取value。\n我们这里可以看到，默认的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "WebApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 是 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "XmlWebApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2020071522223421-20230331090638-6yjawmb.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-7cz5wu0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-7cz5wu0",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "也就是说，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "createWebApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 在Spring mvc 默认情况下获取的是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "WebApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 类型实际上是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "XmlWebApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​ 。"
+				}
+			]
+		},
+		{
+			"ID": "20230331090638-rf27wxq",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331090638-rf27wxq",
+				"updated": "20230331090638"
+			}
+		},
+		{
+			"ID": "20230331090638-00kbyou",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331090638-00kbyou",
+				"updated": "20230331090638"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "我们到此也可以知道 ，我们配置 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "ContextLoaderListener"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 监听器的作用就是在启动Web容器的时候，自动装配 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "WebApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 的配置信息，但这里仅仅是创建了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "WebApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 实例，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "WebApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": " 具体的初始化过程在"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong code",
+					"TextMarkTextContent": "DispatcherServlet"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "的init 方法中。在后续文章中会介绍"
+				}
+			]
+		}
+	]
+}

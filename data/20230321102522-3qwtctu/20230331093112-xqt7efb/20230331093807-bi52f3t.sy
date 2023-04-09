@@ -1,0 +1,920 @@
+{
+	"ID": "20230331093807-bi52f3t",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331093807-bi52f3t",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230331093807-s00xp9r\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230331093807-yrfvx7e\u0026quot;,\u0026quot;scrollTop\u0026quot;:159.3333282470703,\u0026quot;focusId\u0026quot;:\u0026quot;20230331093807-s00xp9r\u0026quot;,\u0026quot;focusStart\u0026quot;:0,\u0026quot;focusEnd\u0026quot;:0}",
+		"title": "Design patterns in Spring Framework - part 2",
+		"updated": "20230331093928"
+	},
+	"Children": [
+		{
+			"ID": "20230331093807-s00xp9r",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331093807-s00xp9r",
+				"updated": "20230331093807"
+			}
+		},
+		{
+			"ID": "20230331093807-tv5kh5h",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331093807-tv5kh5h",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"ID": "20230331093807-r2phk2n",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331093807-r2phk2n",
+						"updated": "20230331093807"
+					},
+					"Children": [
+						{
+							"ID": "20230331093807-1ptq6vw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331093807-1ptq6vw",
+								"updated": "20230331093807"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-2/read",
+									"TextMarkTextContent": "https://www.waitingforcode.com/spring-framework/design-patterns-in-spring-Framework-part-2/read"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331093807-200t9r4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331093807-200t9r4",
+						"updated": "20230331093807"
+					},
+					"Children": [
+						{
+							"ID": "20230331093807-l460cva",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331093807-l460cva",
+								"updated": "20230331093807"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "The last time we talked about design patterns in Spring, we discovered 3 creational and 1 behavioral patterns. This time we'll focus more on structural and behavioral ones."
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331093807-7ykbsr9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331093807-7ykbsr9",
+						"updated": "20230331093807"
+					},
+					"Children": [
+						{
+							"ID": "20230331093807-7fhq9h6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331093807-7fhq9h6",
+								"updated": "20230331093807"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 09:38:07"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-z37e2c6",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331093807-z37e2c6",
+				"updated": "20230331093807"
+			}
+		},
+		{
+			"ID": "20230331093807-70e4kqe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-70e4kqe",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "The last time we talked about design patterns in Spring, we discovered 3 creational and 1 behavioral patterns. This time we'll focus more on structural and behavioral ones."
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-aybdc2v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-aybdc2v",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/deponc_book-20230331093807-ruc25d6.jpg"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-pq362rm",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331093807-pq362rm",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "New ebook 🔥"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-jnlb9q5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-jnlb9q5",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "Data engineering patterns on the cloud"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-w9zszyr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-w9zszyr",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Learn 84 ways to solve common data engineering problems with cloud services."
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-yrm9mha",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-yrm9mha",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "👉 "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://dataengineeringpatternsonthecloud.com/#form-section",
+					"TextMarkTextContent": "I want my copy"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-x93dd0o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-x93dd0o",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "In this article we'll see 2 patterns of each family. The two first will concern the family of structural design patterns. It will be proxy and composite. Two next samples will present the behavioral patterns: strategy and template method."
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-uiqsxhn",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093807-uiqsxhn",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring design pattern - proxy"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-k7homkr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-k7homkr",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Object-Oriented Programming (OOP) is maybe the most popular concept in programming. However, Spring introduces another paradigm of coding, "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "Aspect-Oriented Programming"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " (AOP). To simplify the definition, AOP is a kind of programming oriented to specific points of the system, as: exception throwing, execution of specific category of methods etc. AOP allows to execute supplementary actions before or after the execution of these specific points. How this manipulation can be achieved ? It could be make through listeners. But in this case, we should define everywhere the possible invocations of listeners (for example at the begin of one method). It's why Spring doesn't privilege this idea. Instead, Spring implements a design pattern able to accomplish the tasks with supplementary methods invocation - ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "proxy design pattern"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​."
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-6kn08wd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-6kn08wd",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Proxy works like a mirror for objects. Thanks to it, proxy objects can not only override the real objects, but also extend theirs features. So, for one object which can only print some text at the screen, we could add another object to filter displaying words. The invocation of the second object could be defined through proxy.  Proxy is an object that encapsulates the real object. For example, if you try to invoke Waiter bean, you'll invoke the proxy of this bean which acts exactly at the same manner."
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-x17qhy8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-x17qhy8",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "A good example of proxy design pattern is ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "org.springframework.aop.framework.ProxyFactoryBean"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​. This factory constructs AOP proxy based on Spring beans. This class implements FactoryBean interface which defines "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "getObject()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " method. This method is used to return an instance of demanded bean to beans factory. In this case, it's not an instance which is returned, but AOP proxy. This proxy object can be further \"decorated\" with invocations of supplementary methods before executing the method of proxied object."
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-h9ug0s5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-h9ug0s5",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "An example of use of ProxyFactory is:"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-b94s2he",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093807-b94s2he",
+				"updated": "20230331093907"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class TestProxyAop {\n\n  @Test\n  public void test() {\n    ProxyFactory factory = new ProxyFactory(new House());\n    factory.addInterface(Construction.class);\n    factory.addAdvice(new BeforeConstructAdvice());\n    factory.setExposeProxy(true);\n\n    Construction construction = (Construction) factory.getProxy();\n    construction.construct();\n    assertTrue(\"Construction is illegal. \"\n      + \"Supervisor didn't give a permission to build \"\n      + \"the house\", construction.isPermitted());\n  }\n\n}\n\ninterface Construction {\n  public void construct();\n  public void givePermission();\n  public boolean isPermitted();\n}\n\nclass House implements Construction{\n    \n  private boolean permitted = false;\n  \n  @Override\n  public boolean isPermitted() {\n    return this.permitted;\n  }\n  \n  @Override\n  public void construct() {\n    System.out.println(\"I'm constructing a house\");\n  }\n\n  @Override\n  public void givePermission() {\n    System.out.println(\"Permission is given to construct a simple house\");\n    this.permitted = true;\n  }\n}\n\nclass BeforeConstructAdvice implements MethodBeforeAdvice {\n\n  @Override\n  public void before(Method method, Object[] arguments, Object target) throws Throwable {\n    if (method.getName().equals(\"construct\")) {\n      ((Construction) target).givePermission();\n    }\n  }\n    \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-5x6gx7l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-5x6gx7l",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "This test should pass because we don't operate directly on House instance but on its proxy. The proxy invokes first BeforeConstructAdvice's before method (point to execute before executing the target method, construct() in our case). Thanks to it, a \"permission\" is given to construct the object's field (house). A proxy layer provides a supplementary feature because it can be simply dispatched to another objects. To do that, we can only modify the filter in before method."
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-q377gsx",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093807-q377gsx",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring design pattern - composite"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-o8tsdsf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-o8tsdsf",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Another structural pattern is ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "composite"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​. In the first article about "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://www.waitingforcode.com/spring-framework/design-patterns-in-spring-framework-part-1/read",
+					"TextMarkTextContent": "design patterns in Spring"
+				},
+				{
+					"Type": "NodeText",
+					"Data": ", we used builder to construct complex objects. Another way to achieve that is the use of composite. This pattern is based on the existence of multiple objects with common behavior, which are used to construct a bigger object. The bigger object will still have the same characteristics as the smallest ones, ie. it will define the same behavior."
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-9wl1pxa",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-9wl1pxa",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "An non-Spring example of composite object could be the writting of a HTML text, composed by paragraphs which can contain spans or em tags:"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-95edvs9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093807-95edvs9",
+				"updated": "20230331093911"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class CompositeTest {\n\n  @Test\n  public void test() {\n    TextTagComposite composite = new PTag();\n    composite.addTag(new SpanTag());\n    composite.addTag(new EmTag());\n  \n    // sample client code\n    composite.startWrite();\n    for (TextTag leaf : composite.getTags()) {\n      leaf.startWrite();\n      leaf.endWrite();\n    }\n    composite.endWrite();\n    assertTrue(\"Composite should contain 2 tags but it contains \"+composite.getTags().size(), composite.getTags().size() == 2);\n  }\n\n}\n\n\ninterface TextTag {\n  public void startWrite();\n  public void endWrite();\n}\n\ninterface TextTagComposite extends TextTag {\n  public List\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-ajne6tf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-ajne6tf",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "In this case,"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-dsnau6q",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-dsnau6q",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "is a composite object. We can distinguish a composite from non-composite objects because the first one is able to hold one or more non-composite objects (private List tags field in PTag class). Non-composite objects are called the leafs. TextTag interface is called component because it provides common behavior for two object types."
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-nknn1g7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-nknn1g7",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "In Spring world we retrieve the concept of composite objects is the "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "org.springframework.beans.BeanMetadataElement"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " interface, used to configure bean objects. It's the basic interface for all inheriting objects. Now, in one side we have the leafs, represented by ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "org.springframework.beans.factory.parsing.BeanComponentDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​, and in another side the composite ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "org.springframework.beans.factory.parsing.CompositeComponentDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​. CompositeComponentDefinition acts like component because it contains "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "addNestedComponent(ComponentDefinition component)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " method which allows to add leafs into private final List nestedComponents. As you can see thanks to this list, component for BeanComponentDefinition and CompositeComponentDefinition is ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "org.springframework.beans.factory.parsing.ComponentDefinition"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​."
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-4q04lnk",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093807-4q04lnk",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring design pattern - strategy"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-8qms5ms",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-8qms5ms",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "The third concept described in this article is ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "strategy design pattern"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​. Strategy defines several objects that accomplish the same thing by in different ways. The way of accomplish given thing depends on adopted strategy. As example to illustrate that, we can take the way to go to one foreign country. We can go there by bus, airplane, boat or even by car. All of these methods will transport us to the destination country. But we we'll choose the most adapted way by checking our bank account. If we've a lot of money, we'll take the fastest way (probably the private fly). If we don't have it enough, we'll take the slowest (bus, car). This bank account acts as a factor defining adapted strategy."
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-16u5o8u",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-16u5o8u",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring uses strategy design pattern in "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "org.springframework.web.servlet.mvc.multiaction.MethodNameResolver"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " class. Its implementations are destined to parameterize MultiActionController. Before starting to explain the strategy, we need to understand the utility of MultiActionController. This class allows to handle several types of requests by the same class. As every controller in Spring, MultiActionController executes method to respond to provided request. Strategy is used to detect which method should be used. The resolving process is implemented in MethodNameResolver implementations, as for example in "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "ParameterMethodNameResolver"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " from the same package. Method can be resolved through multiple criteria: properties mapping, HTTP request parameters or URL path. The example of this strategy implementation is the getHandlerMethodName from ParameterMethodNameResolver class:"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-qovner2",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093807-qovner2",
+				"updated": "20230331093915"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Override\npublic String getHandlerMethodName(HttpServletRequest request) throws NoSuchRequestHandlingMethodException {\n  String methodName = null;\n\n  // Check parameter names where the very existence of each parameter\n  // means that a method of the same name should be invoked, if any.\n  if (this.methodParamNames != null) {\n    for (String candidate : this.methodParamNames) {\n      if (WebUtils.hasSubmitParameter(request, candidate)) {\n        methodName = candidate;\n        if (logger.isDebugEnabled()) {\n          logger.debug(\"Determined handler method '\" + methodName +\n            \"' based on existence of explicit request parameter of same name\");\n        }\n        break;\n      }\n    }\n  }\n\n  // Check parameter whose value identifies the method to invoke, if any.\n  if (methodName == null \u0026\u0026 this.paramName != null) {\n    methodName = request.getParameter(this.paramName);\n    if (methodName != null) {\n      if (logger.isDebugEnabled()) {\n        logger.debug(\"Determined handler method '\" + methodName +\n          \"' based on value of request parameter '\" + this.paramName + \"'\");\n      }\n    }\n  }\n\n  if (methodName != null \u0026\u0026 this.logicalMappings != null) {\n    // Resolve logical name into real method name, if appropriate.\n    String originalName = methodName;\n    methodName = this.logicalMappings.getProperty(methodName, methodName);\n    if (logger.isDebugEnabled()) {\n      logger.debug(\"Resolved method name '\" + originalName + \"' to handler method '\" + methodName + \"'\");\n    }\n  }\n\n  if (methodName != null \u0026\u0026 !StringUtils.hasText(methodName)) {\n    if (logger.isDebugEnabled()) {\n      logger.debug(\"Method name '\" + methodName + \"' is empty: treating it as no method name found\");\n    }\n    methodName = null;\n  }\n\n  if (methodName == null) {\n    if (this.defaultMethodName != null) {\n      // No specific method resolved: use default method.\n      methodName = this.defaultMethodName;\n      if (logger.isDebugEnabled()) {\n        logger.debug(\"Falling back to default handler method '\" + this.defaultMethodName + \"'\");\n      }\n    }\n    else {\n      // If resolution failed completely, throw an exception.\n      throw new NoSuchRequestHandlingMethodException(request);\n    }\n  }\n\n  return methodName;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-s3vi968",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-s3vi968",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "As we can see in previous code, the method's name is resolved by provided parameters mapping, predefined properties or parameter existence in URL (by default, the name of this parameter is action)."
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-4zv927t",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331093807-4zv927t",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring design pattern - template method"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-saxnz0g",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-saxnz0g",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "The last design pattern presented in this article is ​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "template method"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​. This pattern defines a skeleton for class behavior and defers the execution of some steps to subclasses. One method, usually final, plays the role of synchronizer. It executes methods defined by subclasses in given order. In the real world, we can compare template method to house construction. Independently on company which constructs the house, we need to start by make the foundations and only after we can make the rest. This execution logic will be hold in one method which we can't change. The other methods, as foundation construction or wall color, will be template methods, specific to the company constructing the house. We can see it in given example:"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-aldv71i",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093807-aldv71i",
+				"updated": "20230331093919"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class TemplateMethod {\n\n  public static void main(String[] args) {\n    HouseAbstract house = new SeaHouse();\n    house.construct();\n  }\n\n}\n\nabstract class HouseAbstract {\n  protected abstract void constructFoundations();\n  protected abstract void constructWall();\n  \n  // template method\n  public final void construct() {\n    constructFoundations();\n    constructWall();\n  }\n}\n\nclass EcologicalHouse extends HouseAbstract {\n\n  @Override\n  protected void constructFoundations() {\n    System.out.println(\"Making foundations with wood\");\n  }\n\n  @Override\n  protected void constructWall() {\n    System.out.println(\"Making wall with wood\");\n  }\n    \n}\n\nclass SeaHouse extends HouseAbstract {\n\n  @Override\n  protected void constructFoundations() {\n    System.out.println(\"Constructing very strong foundations\");\n  }\n\n  @Override\n  protected void constructWall() {\n    System.out.println(\"Constructing very strong wall\");\n  }\n    \n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-xl5abrw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-xl5abrw",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "This code should output:"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-9f4z7ac",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093807-9f4z7ac",
+				"updated": "20230331093928"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Constructing very strong foundations\nConstructing very strong wall\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-5mk1dr4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-5mk1dr4",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring uses template method in "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "org.springframework.context.support.AbstractApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " class. They're no one template method (as construct in our example), but multiple. For example, "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "obtainFreshBeanFactory"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " returning fresh version of internal bean factory, calls two abstract methods: refreshBeanFactory (to refresh the factory bean) and getBeanFactory (to get refreshed factory bean). This method, as some others, is used in "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "public void refresh() throws BeansException, IllegalStateException"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " method which constructs the application context (you can read more about it in the article consacred to "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://www.waitingforcode.com/spring-framework/application-context-in-spring/read",
+					"TextMarkTextContent": "application context in Spring"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "). The sample implementation of abstract methods used by template method can be "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "em",
+					"TextMarkTextContent": "GenericApplicationContext"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " from the same package, which defines them as below:"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-bcs5qno",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331093807-bcs5qno",
+				"updated": "20230331093925"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "/**\n  * Do nothing: We hold a single internal BeanFactory and rely on callers\n  * to register beans through our public methods (or the BeanFactory's).\n  * @see #registerBeanDefinition\n  */\n@Override\nprotected final void refreshBeanFactory() throws IllegalStateException {\n  if (this.refreshed) {\n    throw new IllegalStateException(\n      \"GenericApplicationContext does not support multiple refresh attempts: just call 'refresh' once\");\n  }\n  this.beanFactory.setSerializationId(getId());\n  this.refreshed = true;\n}\n\n@Override\nprotected void cancelRefresh(BeansException ex) {\n  this.beanFactory.setSerializationId(null);\n  super.cancelRefresh(ex);\n}\n\n/**\n  * Not much to do: We hold a single internal BeanFactory that will never\n  * get released.\n  */\n@Override\nprotected final void closeBeanFactory() {\n  this.beanFactory.setSerializationId(null);\n}\n\n/**\n  * Return the single internal BeanFactory held by this context\n  * (as ConfigurableListableBeanFactory).\n  */\n@Override\npublic final ConfigurableListableBeanFactory getBeanFactory() {\n  return this.beanFactory;\n}\n\n/**\n  * Return the underlying bean factory of this context,\n  * available for registering bean definitions.\n  * NOTE: You need to call {@link #refresh()} to initialize the\n  * bean factory and its contained beans with application context semantics\n  * (autodetecting BeanFactoryPostProcessors, etc).\n  * @return the internal bean factory (as DefaultListableBeanFactory)\n  */\npublic final DefaultListableBeanFactory getDefaultListableBeanFactory() {\n  return this.beanFactory;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-lyu5cgz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-lyu5cgz",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "This time we discovered how Spring uses behavioral and structural design patterns to better organize the context ionization (template method), to resolve method to execute (strategy). Two structural design patterns are used by it to simplify AOP part (proxy) and construct complex objects (composite)."
+				}
+			]
+		},
+		{
+			"ID": "20230331093807-yrfvx7e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331093807-yrfvx7e",
+				"updated": "20230331093807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "The comments are moderated. I publish them when I answer, so don't worry if you don't see yours immediately :)"
+				}
+			]
+		}
+	]
+}

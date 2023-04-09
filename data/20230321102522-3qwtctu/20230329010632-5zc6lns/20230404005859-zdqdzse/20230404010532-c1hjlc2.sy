@@ -1,0 +1,3841 @@
+{
+	"ID": "20230404010532-c1hjlc2",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010532-c1hjlc2",
+		"title": "吃透Spring源码（二十）：AOP拦截器链执行过程_吃透Java的博客-CSDN博客",
+		"updated": "20230404010532"
+	},
+	"Children": [
+		{
+			"ID": "20230404010532-ovq9vo6",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010532-ovq9vo6",
+				"updated": "20230404010532"
+			}
+		},
+		{
+			"ID": "20230404010532-fnopb69",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010532-fnopb69",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"ID": "20230404010532-agmm4ki",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010532-agmm4ki",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-3u1on1s",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-3u1on1s",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/114739792"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-orlycgj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010532-orlycgj",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-135zsse",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-135zsse",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "文章目录例子准备一，执行流程二，获取拦截器链三，执行拦截器链1，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ExposeInvocationInterceptor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​2，AspectJAfterThrowingAdvice3，AfterReturningAdviceInterceptor4，AspectJAfterAdvice5，AspectJAroundAdvice6，MethodBeforeAdviceInterceptor7，返回到AspectJAroundAdvice8，返回到AspectJAfterAdvice9，返回到AfterRetur"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-eagk8ys",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010532-eagk8ys",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-bynvie9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-bynvie9",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:05:32"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-zy0ra60",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010532-zy0ra60",
+				"updated": "20230404010532"
+			}
+		},
+		{
+			"ID": "20230404010532-xvyo885",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010532-xvyo885",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-9b5icqa",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010532-9b5icqa",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"ID": "20230404010532-m3pvw72",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010532-m3pvw72",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-dfej3r5",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230404010532-dfej3r5",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"ID": "20230404010532-onow4mn",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010532-onow4mn",
+										"updated": "20230404010532"
+									},
+									"Children": [
+										{
+											"ID": "20230404010532-mbu40cm",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404010532-mbu40cm",
+												"updated": "20230404010532"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#_1",
+													"TextMarkTextContent": "例子准备"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404010532-va6995m",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010532-va6995m",
+										"updated": "20230404010532"
+									},
+									"Children": [
+										{
+											"ID": "20230404010532-32icd4m",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404010532-32icd4m",
+												"updated": "20230404010532"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#_120",
+													"TextMarkTextContent": "一，执行流程"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404010532-8ao04v9",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010532-8ao04v9",
+										"updated": "20230404010532"
+									},
+									"Children": [
+										{
+											"ID": "20230404010532-6k14nn3",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404010532-6k14nn3",
+												"updated": "20230404010532"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#_292",
+													"TextMarkTextContent": "二，获取拦截器链"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404010532-9b394ud",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010532-9b394ud",
+										"updated": "20230404010532"
+									},
+									"Children": [
+										{
+											"ID": "20230404010532-gznj0b3",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404010532-gznj0b3",
+												"updated": "20230404010532"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#_428",
+													"TextMarkTextContent": "三，执行拦截器链"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404010532-gzs9b78",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010532-gzs9b78",
+										"updated": "20230404010532"
+									},
+									"Children": [
+										{
+											"ID": "20230404010532-eo848te",
+											"Type": "NodeList",
+											"ListData": {},
+											"Properties": {
+												"id": "20230404010532-eo848te",
+												"updated": "20230404010532"
+											},
+											"Children": [
+												{
+													"ID": "20230404010532-lvow3fp",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404010532-lvow3fp",
+														"updated": "20230404010532"
+													},
+													"Children": [
+														{
+															"ID": "20230404010532-bzqggy2",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404010532-bzqggy2",
+																"updated": "20230404010532"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#1ExposeInvocationInterceptor_471",
+																	"TextMarkTextContent": "1，ExposeInvocationInterceptor"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404010532-qduueo8",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404010532-qduueo8",
+														"updated": "20230404010532"
+													},
+													"Children": [
+														{
+															"ID": "20230404010532-j4pssic",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404010532-j4pssic",
+																"updated": "20230404010532"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#2AspectJAfterThrowingAdvice_496",
+																	"TextMarkTextContent": "2，AspectJAfterThrowingAdvice"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404010532-aitco81",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404010532-aitco81",
+														"updated": "20230404010532"
+													},
+													"Children": [
+														{
+															"ID": "20230404010532-r0akzuy",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404010532-r0akzuy",
+																"updated": "20230404010532"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#3AfterReturningAdviceInterceptor_523",
+																	"TextMarkTextContent": "3，AfterReturningAdviceInterceptor"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404010532-f6s70xq",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404010532-f6s70xq",
+														"updated": "20230404010532"
+													},
+													"Children": [
+														{
+															"ID": "20230404010532-wzz07i1",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404010532-wzz07i1",
+																"updated": "20230404010532"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#4AspectJAfterAdvice_542",
+																	"TextMarkTextContent": "4，AspectJAfterAdvice"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404010532-fgh7y5r",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404010532-fgh7y5r",
+														"updated": "20230404010532"
+													},
+													"Children": [
+														{
+															"ID": "20230404010532-bbwez0p",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404010532-bbwez0p",
+																"updated": "20230404010532"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#5AspectJAroundAdvice_565",
+																	"TextMarkTextContent": "5，AspectJAroundAdvice"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404010532-t0tsku6",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404010532-t0tsku6",
+														"updated": "20230404010532"
+													},
+													"Children": [
+														{
+															"ID": "20230404010532-i8rlhlz",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404010532-i8rlhlz",
+																"updated": "20230404010532"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#6MethodBeforeAdviceInterceptor_627",
+																	"TextMarkTextContent": "6，MethodBeforeAdviceInterceptor"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404010532-91x6nne",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404010532-91x6nne",
+														"updated": "20230404010532"
+													},
+													"Children": [
+														{
+															"ID": "20230404010532-fldawhc",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404010532-fldawhc",
+																"updated": "20230404010532"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#7AspectJAroundAdvice_675",
+																	"TextMarkTextContent": "7，返回到AspectJAroundAdvice"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404010532-ew6mo76",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404010532-ew6mo76",
+														"updated": "20230404010532"
+													},
+													"Children": [
+														{
+															"ID": "20230404010532-6rwff5w",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404010532-6rwff5w",
+																"updated": "20230404010532"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#8AspectJAfterAdvice_689",
+																	"TextMarkTextContent": "8，返回到AspectJAfterAdvice"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404010532-k9em11m",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404010532-k9em11m",
+														"updated": "20230404010532"
+													},
+													"Children": [
+														{
+															"ID": "20230404010532-s3osx84",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404010532-s3osx84",
+																"updated": "20230404010532"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#9AfterReturningAdviceInterceptor_713",
+																	"TextMarkTextContent": "9，返回到AfterReturningAdviceInterceptor"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404010532-j7y01w2",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404010532-j7y01w2",
+														"updated": "20230404010532"
+													},
+													"Children": [
+														{
+															"ID": "20230404010532-83hn2xc",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404010532-83hn2xc",
+																"updated": "20230404010532"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#10AspectJAfterThrowingAdvice_738",
+																	"TextMarkTextContent": "10，返回到AspectJAfterThrowingAdvice"
+																}
+															]
+														}
+													]
+												},
+												{
+													"ID": "20230404010532-ey3qwju",
+													"Type": "NodeListItem",
+													"ListData": {
+														"BulletChar": 42,
+														"Marker": "Kg=="
+													},
+													"Properties": {
+														"id": "20230404010532-ey3qwju",
+														"updated": "20230404010532"
+													},
+													"Children": [
+														{
+															"ID": "20230404010532-c4r1wuy",
+															"Type": "NodeParagraph",
+															"Properties": {
+																"id": "20230404010532-c4r1wuy",
+																"updated": "20230404010532"
+															},
+															"Children": [
+																{
+																	"Type": "NodeTextMark",
+																	"TextMarkType": "a",
+																	"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#11ExposeInvocationInterceptor_765",
+																	"TextMarkTextContent": "11，返回到ExposeInvocationInterceptor"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230404010532-qk4hpou",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230404010532-qk4hpou",
+										"updated": "20230404010532"
+									},
+									"Children": [
+										{
+											"ID": "20230404010532-r9jk48n",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230404010532-r9jk48n",
+												"updated": "20230404010532"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/114739792#_774",
+													"TextMarkTextContent": "四，总结"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-3koi335",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010532-3koi335",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "例子准备"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-quzhwlf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-quzhwlf",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "LogUtil.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-6du83ku",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-6du83ku",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class LogUtil { \n\n    private int start(JoinPoint joinPoint){ \n        //获取方法签名\n        Signature signature = joinPoint.getSignature();\n        //获取参数信息\n        Object[] args = joinPoint.getArgs();\n        System.out.println(\"log---\"+signature.getName()+\"方法开始执行：参数是\"+Arrays.asList(args));\n        return 100;\n    }\n\n    public static void stop(JoinPoint joinPoint,Object result){ \n        Signature signature = joinPoint.getSignature();\n        System.out.println(\"log---\"+signature.getName()+\"方法执行结束，结果是：\"+result);\n    }\n\n    public static void logException(JoinPoint joinPoint,Exception e){ \n        Signature signature = joinPoint.getSignature();\n        System.out.println(\"log---\"+signature.getName()+\"方法抛出异常：\"+e.getMessage());\n    }\n\n    public static void logFinally(JoinPoint joinPoint){ \n        Signature signature = joinPoint.getSignature();\n        System.out.println(\"log---\"+signature.getName()+\"方法执行结束。。。。。over\");\n\n    }\n\n    public Object around(ProceedingJoinPoint pjp) throws Throwable { \n        Signature signature = pjp.getSignature();\n        Object[] args = pjp.getArgs();\n        Object result = null;\n        try { \n            System.out.println(\"log---环绕通知start：\"+signature.getName()+\"方法开始执行，参数为：\"+Arrays.asList(args));\n            result = pjp.proceed(args);\n            System.out.println(\"log---环绕通知stop\"+signature.getName()+\"方法执行结束\");\n        } catch (Throwable throwable) { \n            System.out.println(\"log---环绕异常通知：\"+signature.getName()+\"出现异常\");\n            throw throwable;\n        }finally { \n            System.out.println(\"log---环绕返回通知：\"+signature.getName()+\"方法返回结果是：\"+result);\n        }\n        return result;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-63kfglr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-63kfglr",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "MyCalculator.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-p9lmipe",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-p9lmipe",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MyCalculator{ \n    public Integer add(Integer i, Integer j){ \n        Integer result = i+j;\n        return result;\n    }\n\n    public Integer sub(Integer i, Integer j){ \n        Integer result = i-j;\n        return result;\n    }\n\n    public Integer mul(Integer i, Integer j){ \n        Integer result = i*j;\n        return result;\n    }\n\n    public Integer div(Integer i, Integer j){ \n        Integer result = i/j;\n        return result;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-f893t9x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-f893t9x",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "boboAopXmlTest.xml"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-4cwcj0o",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-4cwcj0o",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xmlns:aop=\"http://www.springframework.org/schema/aop\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans\n       http://www.springframework.org/schema/beans/spring-beans.xsd\n       http://www.springframework.org/schema/aop\n       http://www.springframework.org/schema/aop/spring-aop.xsd\n\"\u003e\n    \u003cbean id=\"logUtil\" class=\"com.bobo.aop.xml.LogUtil\"\u003e\u003c/bean\u003e\n    \u003cbean id=\"myCalculator\" class=\"com.bobo.aop.xml.MyCalculator\" \u003e\u003c/bean\u003e\n    \u003caop:config\u003e\n        \u003caop:aspect ref=\"logUtil\"\u003e\n            \u003caop:pointcut id=\"myPoint\" expression=\"execution( Integer com.bobo.aop.xml.MyCalculator.*  (..))\"/\u003e\n            \u003caop:around method=\"around\" pointcut-ref=\"myPoint\"\u003e\u003c/aop:around\u003e\n            \u003caop:before method=\"start\" pointcut-ref=\"myPoint\"\u003e\u003c/aop:before\u003e\n            \u003caop:after method=\"logFinally\" pointcut-ref=\"myPoint\"\u003e\u003c/aop:after\u003e\n            \u003caop:after-returning method=\"stop\" pointcut-ref=\"myPoint\" returning=\"result\"\u003e\u003c/aop:after-returning\u003e\n            \u003caop:after-throwing method=\"logException\" pointcut-ref=\"myPoint\" throwing=\"e\"\u003e\u003c/aop:after-throwing\u003e\n        \u003c/aop:aspect\u003e\n    \u003c/aop:config\u003e\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-6p7jvw3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-6p7jvw3",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "测试类"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-91o6jiw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-91o6jiw",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MyTest { \n    public static void main(String[] args) { \n        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, \"/home/bobo\");\n        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(\"boboAopXmlTest.xml\");\n        MyCalculator bean = context.getBean(MyCalculator.class);\n        bean.add(1, 1);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-yl0octu",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010532-yl0octu",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一，执行流程"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-g8p0gbr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-g8p0gbr",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们还是用之前xml配置"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=aop\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "aop"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "方式的例子演示："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-wvcckqk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-wvcckqk",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MyTest { \n    public static void main(String[] args) { \n        // 输出生成的代理类到/home/bobo 目录\n        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, \"/home/bobo\");\n        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(\"boboAopXmlTest.xml\");\n        MyCalculator bean = context.getBean(MyCalculator.class);\n        bean.add(1, 1);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-ee5zbnz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-ee5zbnz",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们调试可以看到，获取到的bean是cglib生成的动态代理对象："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-kd8do2k",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-kd8do2k",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313121913548-20230404010532-e8bev91.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-2r5m0sc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-2r5m0sc",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们先来看一下代理类"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MyCalculator$$EnhancerBySpringCGLIB$$cfa21dd"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​（我们删除了大量代码，只保留部分与add()方法相关的）："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-mjkhvx3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-mjkhvx3",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MyCalculator$$EnhancerBySpringCGLIB$$cfa21dd extends MyCalculator implements SpringProxy, Advised, Factory { \n  \n    private static final Method CGLIB$add$3$Method;\n    private static final MethodProxy CGLIB$add$3$Proxy;\n  \n    static void CGLIB$STATICHOOK1() { \n        CGLIB$emptyArgs = new Object[0];\n        Class var0 = Class.forName(\"com.bobo.aop.xml.MyCalculator$$EnhancerBySpringCGLIB$$cfa21dd\");\n   \n     \tvar10000 = ReflectUtils.findMethods(new String[]{ \"sub\", \"(Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;\", \"mul\", \"(Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;\", \"div\", \"(Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;\", \"add\", \"(Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;\"}, (var1 = Class.forName(\"com.bobo.aop.xml.MyCalculator\")).getDeclaredMethods());\n\n        CGLIB$add$3$Method = var10000[3];\n        CGLIB$add$3$Proxy = MethodProxy.create(var1, var0, \"(Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;\", \"add\", \"CGLIB$add$3\");\n    }\n\n  \n    final Integer CGLIB$add$3(Integer var1, Integer var2) { \n        return super.add(var1, var2);\n    }\n\n    public final Integer add(Integer var1, Integer var2) { \n        MethodInterceptor var10000 = this.CGLIB$CALLBACK_0;\n        if (var10000 == null) { \n            CGLIB$BIND_CALLBACKS(this);\n            var10000 = this.CGLIB$CALLBACK_0;\n        }\n\n        return var10000 != null ? (Integer)var10000.intercept(this, CGLIB$add$3$Method, new Object[]{ var1, var2}, CGLIB$add$3$Proxy) : super.add(var1, var2);\n    }\n\n  \n\n    public static MethodProxy CGLIB$findMethodProxy(Signature var0) { \n        String var10000 = var0.toString();\n        switch(var10000.hashCode()) { \n\n        case 720618747:\n            if (var10000.equals(\"add(Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;\")) { \n                return CGLIB$add$3$Proxy;\n            }\n            break;\n        }\n\n        return null;\n    }\n\n\n    public void setCallbacks(Callback[] var1) { \n        this.CGLIB$CALLBACK_0 = (MethodInterceptor)var1[0];\n        this.CGLIB$CALLBACK_1 = (MethodInterceptor)var1[1];\n        this.CGLIB$CALLBACK_2 = (NoOp)var1[2];\n        this.CGLIB$CALLBACK_3 = (Dispatcher)var1[3];\n        this.CGLIB$CALLBACK_4 = (Dispatcher)var1[4];\n        this.CGLIB$CALLBACK_5 = (MethodInterceptor)var1[5];\n        this.CGLIB$CALLBACK_6 = (MethodInterceptor)var1[6];\n    }\n\n    static { \n        CGLIB$STATICHOOK1();\n    }\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-c3i2hed",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-c3i2hed",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们来看上面代理类的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "add()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法，会调用到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "CGLIB$CALLBACK_0"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "intercept()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-adexpqo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-adexpqo",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由上图可知道，"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "CGLIB$CALLBACK_0"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "CglibAopProxy$DynamicAdvisedInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，所以回调到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "CglibAopProxy$DynamicAdvisedInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​类的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "intercept()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法中："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-7390ohi",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-7390ohi",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "/**\n * AopProxy的子类。使用Cglib的方法创建代理对象。它持有Advised对象。\n */\n@SuppressWarnings(\"serial\")\nclass CglibAopProxy implements AopProxy, Serializable { \n  \n    private static class DynamicAdvisedInterceptor implements MethodInterceptor, Serializable { \n\n\t\tprivate final AdvisedSupport advised;\n\n\t\tpublic DynamicAdvisedInterceptor(AdvisedSupport advised) { \n\t\t\tthis.advised = advised;\n\t\t}\n\n\t\t@Override\n\t\t@Nullable\n\t\tpublic Object intercept(Object proxy, Method method, Object[] args, MethodProxy methodProxy) throws Throwable { \n\t\t\tObject oldProxy = null;\n\t\t\tboolean setProxyContext = false;\n\t\t\tObject target = null;\n\t\t\tTargetSource targetSource = this.advised.getTargetSource();\n\t\t\ttry { \n\t\t\t\tif (this.advised.exposeProxy) { \n\t\t\t\t\toldProxy = AopContext.setCurrentProxy(proxy);\n\t\t\t\t\tsetProxyContext = true;\n\t\t\t\t}\n\n\t\t\t\ttarget = targetSource.getTarget();\n\t\t\t\tClass\u003c?\u003e targetClass = (target != null ? target.getClass() : null);\n\t\t\t\t// 获取拦截器通知链\n\t\t\t\tList\u003cObject\u003e chain = this.advised.getInterceptorsAndDynamicInterceptionAdvice(method, targetClass);\n\t\t\t\tObject retVal;\n\n\t\t\t\t// 如果没有aop通知配置，那么直接调用target对象的调用方法\n\t\t\t\tif (chain.isEmpty() \u0026\u0026 Modifier.isPublic(method.getModifiers())) { \n\t\t\t\t\t// 如果拦截器链为空则直接激活原方法\n\t\t\t\t\tretVal = methodProxy.invoke(target, argsToUse);\n\t\t\t\t}\n\t\t\t\telse { \n\t\t\t\t\t// 通过cglibMethodInvocation来启动advice通知\n\t\t\t\t\tretVal = new CglibMethodInvocation(proxy, target, method, args, targetClass, chain, methodProxy).proceed();\n\t\t\t\t}\n\t\t\t\tretVal = processReturnType(proxy, target, method, retVal);\n\t\t\t\treturn retVal;\n\t\t\t}\n\t\t}\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-v28ptmb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-v28ptmb",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "intercept()：方法参数："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-aqdk3du",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010532-aqdk3du",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"ID": "20230404010532-lzcdyej",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010532-lzcdyej",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-ci1easw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-ci1easw",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "proxy：代理类对象："
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-fdly95w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-fdly95w",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313121943797-20230404010532-nvh618w.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-ouuqqpx",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010532-ouuqqpx",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"ID": "20230404010532-viletz3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010532-viletz3",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-pdmk9j9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-pdmk9j9",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "method：实际类方法，"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-6h0gzn0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-6h0gzn0",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313121955722-20230404010532-r2o5f4m.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-x8w9fnj",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010532-x8w9fnj",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"ID": "20230404010532-uzzi7et",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010532-uzzi7et",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-8kkzpcu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-8kkzpcu",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "args：参数"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-zqf62pz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-zqf62pz",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313122008618-20230404010532-jqkjm96.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-dr9nzvl",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010532-dr9nzvl",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"ID": "20230404010532-iknjccb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010532-iknjccb",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-osaqgdi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-osaqgdi",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "methodProxy：代理类方法"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-3fe084p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-3fe084p",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313122021756-20230404010532-0ze7ovu.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-oj69zdl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-oj69zdl",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "intercept()方法主要完成如下步骤："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-u7mvryw",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010532-u7mvryw",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"ID": "20230404010532-e1j6w4e",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010532-e1j6w4e",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-6b0au64",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-6b0au64",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "获取适合当前方法的拦截器链"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-exkluob",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010532-exkluob",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-cm374e0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-cm374e0",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果拦截器链为空，则直接通过反射执行目标方法"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-xlk7bs8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010532-xlk7bs8",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-6goqzji",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-6goqzji",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "若拦截器链不为空，则创建方法调用 ReflectiveMethodInvocation 对象的 proceed() 方法启动拦截器链"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-0hgwee4",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010532-0hgwee4",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二，获取"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E6%8B%A6%E6%88%AA%E5%99%A8\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "拦截器"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "链"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-bst4hou",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-bst4hou",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class DefaultAdvisorChainFactory implements AdvisorChainFactory, Serializable { \n\n\t@Override\n\tpublic List\u003cObject\u003e getInterceptorsAndDynamicInterceptionAdvice(\n\t\t\tAdvised config, Method method, @Nullable Class\u003c?\u003e targetClass) { \n\n\t\t// AdvisorAdapterRegistry这个类的主要作用是将Advice适配为Advisor 将Advisor适配为对应的MethodInterceptor\n\t\tAdvisorAdapterRegistry registry = GlobalAdvisorAdapterRegistry.getInstance();\n\t\tAdvisor[] advisors = config.getAdvisors();\n\t\t// 创建一个初始大小为 之前获取到的 通知个数的集合\n\t\tList\u003cObject\u003e interceptorList = new ArrayList\u003c\u003e(advisors.length);\n\t\t// 如果目标类为null的话，则从方法签名中获取目标类\n\t\tClass\u003c?\u003e actualClass = (targetClass != null ? targetClass : method.getDeclaringClass());\n\n\t\t// 循环目标方法匹配的通知\n\t\tfor (Advisor advisor : advisors) { \n\t\t\t// 如果是PointcutAdvisor类型的实例\n\t\t\tif (advisor instanceof PointcutAdvisor) { \n\t\t\t\t// Add it conditionally.\n\t\t\t\tPointcutAdvisor pointcutAdvisor = (PointcutAdvisor) advisor;\n\t\t\t\t// 如果提前进行过切点的匹配了或者当前的Advisor适用于目标类\n\t\t\t\tif (config.isPreFiltered() || pointcutAdvisor.getPointcut().getClassFilter().matches(actualClass)) { \n\t\t\t\t\tMethodMatcher mm = pointcutAdvisor.getPointcut().getMethodMatcher();\n\t\t\t\t\tboolean match;\n\t\t\t\t\t//检测Advisor是否适用于此目标方法\n\t\t\t\t\tif (mm instanceof IntroductionAwareMethodMatcher) { \n\t\t\t\t\t\tif (hasIntroductions == null) { \n\t\t\t\t\t\t\thasIntroductions = hasMatchingIntroductions(advisors, actualClass);\n\t\t\t\t\t\t}\n\t\t\t\t\t\tmatch = ((IntroductionAwareMethodMatcher) mm).matches(method, actualClass, hasIntroductions);\n\t\t\t\t\t}\n\t\t\t\t\telse { \n\t\t\t\t\t\tmatch = mm.matches(method, actualClass);\n\t\t\t\t\t}\n\t\t\t\t\tif (match) { \n\t\t\t\t\t\t// 拦截器链是通过AdvisorAdapterRegistry来加入的，这个AdvisorAdapterRegistry对advice织入具备很大的作用\n\t\t\t\t\t\tMethodInterceptor[] interceptors = registry.getInterceptors(advisor);\n\t\t\t\t\t\t// 使用MethodMatchers的matches方法进行匹配判断\n\t\t\t\t\t\tif (mm.isRuntime()) { \n\t\t\t\t\t\t\t// 动态切入点则会创建一个InterceptorAndDynamicMethodMatcher对象\n\t\t\t\t\t\t\t// 这个对象包含MethodInterceptor和MethodMatcher的实例\n\t\t\t\t\t\t\tfor (MethodInterceptor interceptor : interceptors) { \n\t\t\t\t\t\t\t\tinterceptorList.add(new InterceptorAndDynamicMethodMatcher(interceptor, mm));\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse { \n\t\t\t\t\t\t\t// 添加到列表中\n\t\t\t\t\t\t\tinterceptorList.addAll(Arrays.asList(interceptors));\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\treturn interceptorList;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-7givo77",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-7givo77",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里先要拿到之前我们创建好的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "advisors"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，在创建的时候已经执行"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "sortAdvisors()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法进行排序，这里拿过来的是已经排好序列的列表："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-m6detwf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-m6detwf",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313122037208-20230404010532-dyuer3k.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-bq1ggtr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-bq1ggtr",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面会去循环遍历每个advisor，判断"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "advisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​是否和当前方法"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "add(1,1)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​匹配，先匹配类，再匹配方法，如果都能匹配就把当前"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Advisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​转化为"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，加入到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "interceptorList"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​集合里面并返回。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-varh8qf",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-varh8qf",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class DefaultAdvisorAdapterRegistry implements AdvisorAdapterRegistry, Serializable { \n    /**\n\t * 此方法把已有的advice实现的adapter加入进来\n\t *\n\t * Create a new DefaultAdvisorAdapterRegistry, registering well-known adapters.\n\t */\n\tpublic DefaultAdvisorAdapterRegistry() { \n\t\tregisterAdvisorAdapter(new MethodBeforeAdviceAdapter());\n\t\tregisterAdvisorAdapter(new AfterReturningAdviceAdapter());\n\t\tregisterAdvisorAdapter(new ThrowsAdviceAdapter());\n\t}\n  \n    // 将 Advisor转换为 MethodInterceptor\n\t@Override\n\tpublic MethodInterceptor[] getInterceptors(Advisor advisor) throws UnknownAdviceTypeException { \n\t\tList\u003cMethodInterceptor\u003e interceptors = new ArrayList\u003c\u003e(3);\n\t\t// 从Advisor中获取 Advice\n\t\tAdvice advice = advisor.getAdvice();\n\t\tif (advice instanceof MethodInterceptor) { \n\t\t\tinterceptors.add((MethodInterceptor) advice);\n\t\t}\n\t\tfor (AdvisorAdapter adapter : this.adapters) { \n\t\t\tif (adapter.supportsAdvice(advice)) { \n\t\t\t\t// 转换为对应的 MethodInterceptor类型\n\t\t\t\t// AfterReturningAdviceInterceptor MethodBeforeAdviceInterceptor  ThrowsAdviceInterceptor\n\t\t\t\tinterceptors.add(adapter.getInterceptor(advisor));\n\t\t\t}\n\t\t}\n\t\tif (interceptors.isEmpty()) { \n\t\t\tthrow new UnknownAdviceTypeException(advisor.getAdvice());\n\t\t}\n\t\treturn interceptors.toArray(new MethodInterceptor[0]);\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-jqncjk8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-jqncjk8",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "以上源码是把"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Advisor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​转化为"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​过程："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-9ujw7vy",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010532-9ujw7vy",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"ID": "20230404010532-o8gejuh",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010532-o8gejuh",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-hcv7wzo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-hcv7wzo",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "其中"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AspectJAfterAdvice"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AspectJAfterThrowingAdvice"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​和"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AspectJAroundAdvice"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​都实现了"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "MethodInterceptor"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​接口，可以直接强转。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-cxoxybh",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010532-cxoxybh",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-0wh5vwl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-0wh5vwl",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "而"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AspectJMethodBeforeAdvice"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​和"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AspecrtJAfterReturningAdvice"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​实现了"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "AdvisorAdapter"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​接口，需要从"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "Adapter"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​中获取。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-2gjqmpl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-2gjqmpl",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们可以看一下"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodBeforeAdviceAdapter"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​源码："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-gkh1a95",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-gkh1a95",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "class MethodBeforeAdviceAdapter implements AdvisorAdapter, Serializable { \n\n\t@Override\n\tpublic boolean supportsAdvice(Advice advice) { \n\t\treturn (advice instanceof MethodBeforeAdvice);\n\t}\n\n\t@Override\n\tpublic MethodInterceptor getInterceptor(Advisor advisor) { \n\t\tMethodBeforeAdvice advice = (MethodBeforeAdvice) advisor.getAdvice();\n\t\treturn new MethodBeforeAdviceInterceptor(advice);\n\t}\n\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-rflf1nk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-rflf1nk",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其实从Adapter中也是new了一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​返回，没有啥区别，为什么要用Adapter呢？其实就是为了方便扩展而已。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-rgfasiq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-rgfasiq",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "最后返回匹配到的拦截器链："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-hx9k187",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-hx9k187",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313122054711-20230404010531-u93i0dk.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-cx7ji29",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010532-cx7ji29",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三，执行拦截器链"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-702qjgn",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-702qjgn",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class ReflectiveMethodInvocation implements ProxyMethodInvocation, Cloneable { \n    /**\n\t * 递归获取通知，然后执行\n\t */\n\t@Override\n\t@Nullable\n\tpublic Object proceed() throws Throwable { \n\n\t\t// 从索引为-1的拦截器开始调用，并按序递增，如果拦截器链中的拦截器迭代调用完毕，开始调用target的函数，这个函数是通过反射机制完成的\n\t\t// 具体实现在AopUtils.invokeJoinpointUsingReflection方法中\n\t\tif (this.currentInterceptorIndex == this.interceptorsAndDynamicMethodMatchers.size() - 1) { \n\t\t\treturn invokeJoinpoint();\n\t\t}\n\n\t\t// 获取下一个要执行的拦截器，沿着定义好的interceptorOrInterceptionAdvice链进行处理\n\t\tObject interceptorOrInterceptionAdvice =\n\t\t\t\tthis.interceptorsAndDynamicMethodMatchers.get(++this.currentInterceptorIndex);\n\t\tif (interceptorOrInterceptionAdvice instanceof InterceptorAndDynamicMethodMatcher) { \n\t\t\t// 这里对拦截器进行动态匹配的判断，这里是对pointcut触发进行匹配的地方，如果和定义的pointcut匹配，那么这个advice将会得到执行\n\t\t\tInterceptorAndDynamicMethodMatcher dm =\n\t\t\t\t\t(InterceptorAndDynamicMethodMatcher) interceptorOrInterceptionAdvice;\n\t\t\tClass\u003c?\u003e targetClass = (this.targetClass != null ? this.targetClass : this.method.getDeclaringClass());\n\t\t\tif (dm.methodMatcher.matches(this.method, targetClass, this.arguments)) { \n\t\t\t\treturn dm.interceptor.invoke(this);\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// 如果不匹配，那么proceed会被递归调用，知道所有的拦截器都被运行过位置\n\t\t\t\treturn proceed();\n\t\t\t}\n\t\t}\n\t\telse { \n\t\t\t// 普通拦截器，直接调用拦截器，将this作为参数传递以保证当前实例中调用链的执行\n\t\t\treturn ((MethodInterceptor) interceptorOrInterceptionAdvice).invoke(this);\n\t\t}\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-g93zxhu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-g93zxhu",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "拦截器链的执行过程是按照下标从"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "0--N"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​一个个的拦截器获取并执行的："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-1z5cljh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010532-1z5cljh",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，ExposeInvocationInterceptor"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-1pfr6dg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-1pfr6dg",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先执行"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "ExposeInvocationInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​，也就是拦截器链中下标为 0 的拦截器，执行其"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "invoke()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-hgqy3ch",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-hgqy3ch",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public final class ExposeInvocationInterceptor implements MethodInterceptor, PriorityOrdered, Serializable { \n    @Override\n\tpublic Object invoke(MethodInvocation mi) throws Throwable { \n\t\tMethodInvocation oldInvocation = invocation.get();\n\t\tinvocation.set(mi);\n\t\ttry { \n            // 返回\n\t\t\treturn mi.proceed();\n\t\t}\n\t\tfinally { \n\t\t\tinvocation.set(oldInvocation);\n\t\t}\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-i7iah5z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-i7iah5z",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "发现并没有执行什么，直接返回。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-ouimbvk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-ouimbvk",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "此时开始处理拦截器链中下标为 1 的拦截器，也就是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJAfterThrowingAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-couh5nh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010532-couh5nh",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，AspectJAfterThrowingAdvice"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-wsnslr9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-wsnslr9",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class AspectJAfterThrowingAdvice extends AbstractAspectJAdvice\n\t\timplements MethodInterceptor, AfterAdvice, Serializable { \n    @Override\n\tpublic Object invoke(MethodInvocation mi) throws Throwable { \n\t\ttry { \n\t\t\t// 返回\n\t\t\treturn mi.proceed();\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\t// 抛出异常\n\t\t\tif (shouldInvokeOnThrowing(ex)) { \n\t\t\t\t// 执行异常通知\n\t\t\t\tinvokeAdviceMethod(getJoinPointMatch(), null, ex);\n\t\t\t}\n\t\t\tthrow ex;\n\t\t}\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-i9c2qzx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-i9c2qzx",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行第一行代码又返回回去了。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-x7grrai",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-x7grrai",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "此时开始处理拦截器链中下标为 2 的拦截器，也就是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AfterReturningAdviceInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-h6yzkp5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010532-h6yzkp5",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3，AfterReturningAdviceInterceptor"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-qultedn",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-qultedn",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class AfterReturningAdviceInterceptor implements MethodInterceptor, AfterAdvice, Serializable { \n    @Override\n\tpublic Object invoke(MethodInvocation mi) throws Throwable { \n\t\t// 返回\n\t\tObject retVal = mi.proceed();\n\t\t// 返回通知方法\n\t\tthis.advice.afterReturning(retVal, mi.getMethod(), mi.getArguments(), mi.getThis());\n\t\treturn retVal;\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-yh0vwgf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-yh0vwgf",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行第一行代码又返回回去了。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-44u5xpg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-44u5xpg",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "此时开始处理拦截器链中下标为 3 的拦截器，也就是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJAfterAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-pfsj0zr",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010532-pfsj0zr",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4，AspectJAfterAdvice"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-t247r5z",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-t247r5z",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class AspectJAfterAdvice extends AbstractAspectJAdvice\n\t\timplements MethodInterceptor, AfterAdvice, Serializable { \n    @Override\n\tpublic Object invoke(MethodInvocation mi) throws Throwable { \n\t\ttry { \n\t\t\t// 执行下一个通知/拦截器\n\t\t\treturn mi.proceed();\n\t\t}\n\t\tfinally { \n\t\t\t// 后置通知的方法总是会被执行,原因就在这finally\n\t\t\tinvokeAdviceMethod(getJoinPointMatch(), null, null);\n\t\t}\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-na431yi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-na431yi",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行第一行代码又返回回去了。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-x1pkr9c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-x1pkr9c",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "此时开始处理拦截器链中下标为 4 的拦截器，也就是"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "AspectJAroundAdvice"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-mig9ll2",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010532-mig9ll2",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5，AspectJAroundAdvice"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-k16b3az",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-k16b3az",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class AspectJAroundAdvice extends AbstractAspectJAdvice implements MethodInterceptor, Serializable { \n    @Override\n\tpublic Object invoke(MethodInvocation mi) throws Throwable { \n\t\tProxyMethodInvocation pmi = (ProxyMethodInvocation) mi;\n\t\tProceedingJoinPoint pjp = lazyGetProceedingJoinPoint(pmi);\n\t\tJoinPointMatch jpm = getJoinPointMatch(pmi);\n\t\treturn invokeAdviceMethod(pjp, jpm, null, null);\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-rw2r9v6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-rw2r9v6",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面调用around方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-2nafr9c",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-2nafr9c",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected Object invokeAdviceMethodWithGivenArgs(Object[] args) throws Throwable { \n\t\tObject[] actualArgs = args;\n\t\ttry { \n\t\t\tReflectionUtils.makeAccessible(this.aspectJAdviceMethod);\n\n\t\t\t// 反射调用通知方法\n\t\t\treturn this.aspectJAdviceMethod.invoke(this.aspectInstanceFactory.getAspectInstance(), actualArgs);\n\t\t}\n\t\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-f0y5wcu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-f0y5wcu",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "最后调用到Logutil.java的around()方法中："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-r2jpmak",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-r2jpmak",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class LogUtil { \n    // 省略部分代码...\n    public Object around(ProceedingJoinPoint pjp) throws Throwable { \n        Signature signature = pjp.getSignature();\n        Object[] args = pjp.getArgs();\n        Object result = null;\n        try { \n            System.out.println(\"log---环绕通知start：\"+signature.getName()+\"方法开始执行，参数为：\"+Arrays.asList(args));\n            result = pjp.proceed(args);\n            System.out.println(\"log---环绕通知stop\"+signature.getName()+\"方法执行结束\");\n        } catch (Throwable throwable) { \n            System.out.println(\"log---环绕异常通知：\"+signature.getName()+\"出现异常\");\n            throw throwable;\n        }finally { \n            System.out.println(\"log---环绕返回通知：\"+signature.getName()+\"方法返回结果是：\"+result);\n        }\n        return result;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-d6fkfp9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-d6fkfp9",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们看到，执行了第一个打引之后，又调用了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "pjp.proceed(args)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法进行返回，此时我们看到控制台只有第一行打印输出："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-or2lo4e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-or2lo4e",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313122120743-20230404010532-vgfs4la.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-9h875zj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-9h875zj",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "调用了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "pjp.proceed(args)"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法进行返回"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-fatpr2d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-fatpr2d",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "此时开始处理拦截器链中下标为 5 的拦截器，也就是最后一个拦截器了"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "MethodBeforeAdviceInterceptor"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-lc8853h",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010532-lc8853h",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "6，MethodBeforeAdviceInterceptor"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-nt6v198",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-nt6v198",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MethodBeforeAdviceInterceptor implements MethodInterceptor, BeforeAdvice, Serializable { \n    public Object invoke(MethodInvocation mi) throws Throwable { \n\t\t// 执行前置通知的方法\n\t\tthis.advice.before(mi.getMethod(), mi.getArguments(), mi.getThis());\n\t\t// 执行下一个通知/拦截器，但是该拦截器是最后一个了，所以会调用目标方法\n\t\treturn mi.proceed();\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-p5obyhy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-p5obyhy",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "before()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法，会调用到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Logutil"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​的before()方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-in35ztk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-in35ztk",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class LogUtil { \n    private int start(JoinPoint joinPoint){ \n        //获取方法签名\n        Signature signature = joinPoint.getSignature();\n        //获取参数信息\n        Object[] args = joinPoint.getArgs();\n        System.out.println(\"log---\"+signature.getName()+\"方法开始执行：参数是\"+Arrays.asList(args));\n        return 100;\n    }\n  \n    // 省略部分代码...\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-cru50yw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-cru50yw",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行完这个方法之后，控制台会把当前打引出来："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-btrum65",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-btrum65",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313122136526-20230404010531-2rsu1ez.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-g27r60o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-g27r60o",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "接下来会执行"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "mi.proceed()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​方法继续返回：由于已经执行到了最后一个方法了，所以会调用目标方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-buoktfj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-buoktfj",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MyCalculator{ \n    public Integer add(Integer i, Integer j){ \n        Integer result = i+j;\n        return result;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-7iwcion",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-7iwcion",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行完目标方法之后会沿着上面执行流程一个个的返回回去。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-3awf278",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010532-3awf278",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "7，返回到AspectJAroundAdvice"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-mt26nb5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-mt26nb5",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "继续执行LogUtil的around()方法的后面部分："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-3sdpbuq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-3sdpbuq",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313122149283-20230404010532-sa9jv55.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-z9qzvyo",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-z9qzvyo",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行完之后，控制台会打印出："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-vlozsir",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-vlozsir",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313122202581-20230404010532-ced1t19.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-nv8hnzv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-nv8hnzv",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "继续返回"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-yxober0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010532-yxober0",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "8，返回到AspectJAfterAdvice"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-7x92204",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-7x92204",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行后面finally中的方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-nucuvd0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-nucuvd0",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313122218409-20230404010532-28miaop.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-uc10wj7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-uc10wj7",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "会执行到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "LogUtil"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​中的"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@After"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​标注的方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-e120tbn",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-e120tbn",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class LogUtil { \n    public static void logFinally(JoinPoint joinPoint){ \n        Signature signature = joinPoint.getSignature();\n        System.out.println(\"log---\"+signature.getName()+\"方法执行结束。。。。。over\");\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-7v2vlsc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-7v2vlsc",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行完之后控制台会输出当前打印："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-6f53o69",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-6f53o69",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313122232515-20230404010531-9jecznc.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-ux0a9rh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-ux0a9rh",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "继续返回"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-d7vj42o",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010532-d7vj42o",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "9，返回到AfterReturningAdviceInterceptor"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-2juyf5d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-2juyf5d",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行后面的方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-tqlm0hf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-tqlm0hf",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313122244713-20230404010532-8v35qfn.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-lmk6dbi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-lmk6dbi",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "会执行到LogUtil中的被"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "@AfterReturning"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​标注的方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-eekf3s3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-eekf3s3",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class LogUtil { \n    public static void stop(JoinPoint joinPoint,Object result){ \n        Signature signature = joinPoint.getSignature();\n        System.out.println(\"log---\"+signature.getName()+\"方法执行结束，结果是：\"+result);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-yh6zv5f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-yh6zv5f",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "执行完之后，控制台会输出："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-f8fy0x9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-f8fy0x9",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2021031312225676-20230404010531-s9ff6kn.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-q7wpaey",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-q7wpaey",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "继续返回"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-dwnkyug",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010532-dwnkyug",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "10，返回到AspectJAfterThrowingAdvice"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-cs6ysf8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-cs6ysf8",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class AspectJAfterThrowingAdvice extends AbstractAspectJAdvice\n\t\timplements MethodInterceptor, AfterAdvice, Serializable { \n    @Override\n\tpublic Object invoke(MethodInvocation mi) throws Throwable { \n\t\ttry { \n\t\t\t// 执行下一个通知/拦截器  methodInvocation\n\t\t\treturn mi.proceed();\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\t// 抛出异常\n\t\t\tif (shouldInvokeOnThrowing(ex)) { \n\t\t\t\t// 执行异常通知\n\t\t\t\tinvokeAdviceMethod(getJoinPointMatch(), null, ex);\n\t\t\t}\n\t\t\tthrow ex;\n\t\t}\n\t}\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-lx7kmvs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-lx7kmvs",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "没有任何异常，所以不输出。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-7vpqe52",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-7vpqe52",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "继续返回"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-dn1n3yf",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010532-dn1n3yf",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "11，返回到ExposeInvocationInterceptor"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-thhv4z3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-thhv4z3",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313122310361-20230404010532-uixxe76.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-5weqx0x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-5weqx0x",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "设置一个空值，然后继续返回"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-8cbtuye",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-8cbtuye",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "然后执行完毕，以上就是拦截器链的执行过程。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-bstkglt",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010532-bstkglt",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四，总结"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-w6hf75v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-w6hf75v",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "用一张图总结拦截器链的执行过程："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-jmu1m76",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-jmu1m76",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210313122322850-20230404010531-tmcv8ac.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		}
+	]
+}

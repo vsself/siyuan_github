@@ -1,0 +1,1067 @@
+{
+	"ID": "20230331084833-od4asb0",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230331084833-od4asb0",
+		"title": "Spring源码分析衍生篇六：Spring监听事件_猫吻鱼的博客-CSDN博客",
+		"updated": "20230331084833"
+	},
+	"Children": [
+		{
+			"ID": "20230331084833-nx853i8",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331084833-nx853i8",
+				"updated": "20230331084833"
+			}
+		},
+		{
+			"ID": "20230331084833-xlq7fxo",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331084833-xlq7fxo",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"ID": "20230331084833-9aygivg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084833-9aygivg",
+						"updated": "20230331084833"
+					},
+					"Children": [
+						{
+							"ID": "20230331084833-c7svvel",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084833-c7svvel",
+								"updated": "20230331084833"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106532790",
+									"TextMarkTextContent": "https://blog.csdn.net/qq_36882793/article/details/106532790"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084833-zeq2vhl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084833-zeq2vhl",
+						"updated": "20230331084833"
+					},
+					"Children": [
+						{
+							"ID": "20230331084833-4ylqeug",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084833-4ylqeug",
+								"updated": "20230331084833"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "本文是 Spring源码分析："
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106441853",
+									"TextMarkTextContent": "Spring源码分析六：Spring 的刷新 - refresh()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": " 的衍生文章。主要是因为本人菜鸡，在分析源码的过程中还有一些其他的内容不理解，故开设衍生篇来完善内容以学习。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084833-vzssfwl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084833-vzssfwl",
+						"updated": "20230331084833"
+					},
+					"Children": [
+						{
+							"ID": "20230331084833-j3ar3r6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084833-j3ar3r6",
+								"updated": "20230331084833"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-03-31 08:48:33"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-yla2jzc",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331084833-yla2jzc",
+				"updated": "20230331084833"
+			}
+		},
+		{
+			"ID": "20230331084833-bump3qz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230331084833-bump3qz",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "文章目录"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-vn2sssb",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230331084833-vn2sssb",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"ID": "20230331084833-96n4ojv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084833-96n4ojv",
+						"updated": "20230331084833"
+					},
+					"Children": [
+						{
+							"ID": "20230331084833-y5bulhb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084833-y5bulhb",
+								"updated": "20230331084833"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106532790#_1",
+									"TextMarkTextContent": "一、前言"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084833-jt6pmbd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084833-jt6pmbd",
+						"updated": "20230331084833"
+					},
+					"Children": [
+						{
+							"ID": "20230331084833-s247fgv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084833-s247fgv",
+								"updated": "20230331084833"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106532790#_3",
+									"TextMarkTextContent": "二、简单使用"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084833-moowhf4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084833-moowhf4",
+						"updated": "20230331084833"
+					},
+					"Children": [
+						{
+							"ID": "20230331084833-4frxs3b",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084833-4frxs3b",
+								"updated": "20230331084833"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106532790#_60",
+									"TextMarkTextContent": "三、源码分析"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084833-vrq1wcr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230331084833-vrq1wcr",
+						"updated": "20230331084833"
+					},
+					"Children": [
+						{
+							"ID": "20230331084833-cmbnq6y",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20230331084833-cmbnq6y",
+								"updated": "20230331084833"
+							},
+							"Children": [
+								{
+									"ID": "20230331084833-avf8apa",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331084833-avf8apa",
+										"updated": "20230331084833"
+									},
+									"Children": [
+										{
+											"ID": "20230331084833-xlckofv",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331084833-xlckofv",
+												"updated": "20230331084833"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106532790#1_____initApplicationEventMulticaster_64",
+													"TextMarkTextContent": "1. 初始化 事件广播器 - initApplicationEventMulticaster();"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331084833-mkjxvke",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331084833-mkjxvke",
+										"updated": "20230331084833"
+									},
+									"Children": [
+										{
+											"ID": "20230331084833-s3tp5kk",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331084833-s3tp5kk",
+												"updated": "20230331084833"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106532790#2____registerListeners_96",
+													"TextMarkTextContent": "2. 注册监听器 - registerListeners();"
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230331084833-ur2tkvj",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20230331084833-ur2tkvj",
+										"updated": "20230331084833"
+									},
+									"Children": [
+										{
+											"ID": "20230331084833-qvs3jhx",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230331084833-qvs3jhx",
+												"updated": "20230331084833"
+											},
+											"Children": [
+												{
+													"Type": "NodeTextMark",
+													"TextMarkType": "a",
+													"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106532790#3_____publishEvent_126",
+													"TextMarkTextContent": "3. 事件的发布 - publishEvent"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-xq7hk2b",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084833-xq7hk2b",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-gqhacjf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084833-gqhacjf",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "本文是 Spring"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E6%BA%90%E7%A0%81\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "源码"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "分析："
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/qq_36882793/article/details/106441853",
+					"TextMarkTextContent": "Spring源码分析一：容器的刷新 - refresh()"
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 的衍生文章。主要是因为本人菜鸡，在分析源码的过程中还有一些其他的内容不理解，故开设衍生篇来完善内容以学习。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-gqz8n2j",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084833-gqz8n2j",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、简单使用"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-itofza4",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331084833-itofza4",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"ID": "20230331084833-9xcc5ia",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331084833-9xcc5ia",
+						"updated": "20230331084833"
+					},
+					"Children": [
+						{
+							"ID": "20230331084833-jbhfzl4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084833-jbhfzl4",
+								"updated": "20230331084833"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "自定义监听事件"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-ed4huhk",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084833-ed4huhk",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class DemoEvent  extends ApplicationEvent { \n    private String msg;\n    public DemoEvent(Object source) { \n        super(source);\n    }\n\n    public DemoEvent(Object source, String msg) { \n        super(source);\n        this.msg = msg;\n    }\n\n    public void printMsg(){ \n        System.out.println(\"msg = \" + msg);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-1a59tvb",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331084833-1a59tvb",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"ID": "20230331084833-iyuqe0m",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331084833-iyuqe0m",
+						"updated": "20230331084833"
+					},
+					"Children": [
+						{
+							"ID": "20230331084833-gil4822",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084833-gil4822",
+								"updated": "20230331084833"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "自定义监听器"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-6dxym7b",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084833-6dxym7b",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class DemoListener implements ApplicationListener\u003cDemoEvent\u003e { \n    @Override\n    public void onApplicationEvent(DemoEvent event) { \n        event.printMsg();\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-law8p4m",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331084833-law8p4m",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"ID": "20230331084833-p7jear0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230331084833-p7jear0",
+						"updated": "20230331084833"
+					},
+					"Children": [
+						{
+							"ID": "20230331084833-e0mgz15",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084833-e0mgz15",
+								"updated": "20230331084833"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "测试"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-oj4btbm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084833-oj4btbm",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@SpringBootApplication\npublic class SpringbootDemoApplication implements ApplicationRunner { \n\n    public static void main(String[] args) { \n        ConfigurableApplicationContext run = SpringApplication.run(SpringbootDemoApplication.class, args);\n        DemoEvent demoEvent = new DemoEvent(\"\", \"world\");\n        run.publishEvent(demoEvent);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-yvs9nkx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084833-yvs9nkx",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运行后看到如下：\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/2020060422012362-20230331084833-law75t4.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-d00032q",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331084833-d00032q",
+				"updated": "20230331084833"
+			}
+		},
+		{
+			"ID": "20230331084833-m2vxnvb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084833-m2vxnvb",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当程序运行时，Spring 将会发出 DemoEvent 事件转给DemoListener "
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E7%9B%91%E5%90%AC\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "监听"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "器，进行进一步的处理。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-51ut6rd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084833-51ut6rd",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "实际上，Spring是将所有的事件都发送给所有的监听者，这一点在后面的源码分析中可以看出来。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-aqt8tc6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084833-aqt8tc6",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、源码分析"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-ho6id5d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084833-ho6id5d",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "整个监听事件的流程其实很简单"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-nbrgcl9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084833-nbrgcl9",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1. 初始化 事件广播器 - initApplicationEventMulticaster();"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-qs9qu54",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084833-qs9qu54",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "initApplicationEventMulticaster 的方法比较简单，考虑了两种情况"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-jemu367",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230331084833-jemu367",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"ID": "20230331084833-6sxkikf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230331084833-6sxkikf",
+						"updated": "20230331084833"
+					},
+					"Children": [
+						{
+							"ID": "20230331084833-0a68d8h",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084833-0a68d8h",
+								"updated": "20230331084833"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果用户自定义了事件广播器，在使用用户自定义的事件广播器"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230331084833-csuyycb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230331084833-csuyycb",
+						"updated": "20230331084833"
+					},
+					"Children": [
+						{
+							"ID": "20230331084833-g7ydjjo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230331084833-g7ydjjo",
+								"updated": "20230331084833"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果用户没有自定义事件广播器，则使用默认的 ApplicationEventMulticaster"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-4ojhucr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084833-4ojhucr",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void initApplicationEventMulticaster() { \n\t\tConfigurableListableBeanFactory beanFactory = getBeanFactory();\n\t\t// 如果用户自定义了事件广播器，则使用用户自定义\n\t\tif (beanFactory.containsLocalBean(APPLICATION_EVENT_MULTICASTER_BEAN_NAME)) { \n\t\t\tthis.applicationEventMulticaster =\n\t\t\t\t\tbeanFactory.getBean(APPLICATION_EVENT_MULTICASTER_BEAN_NAME, ApplicationEventMulticaster.class);\n\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\tlogger.trace(\"Using ApplicationEventMulticaster [\" + this.applicationEventMulticaster + \"]\");\n\t\t\t}\n\t\t}\n\t\telse { \n\t\t\t// 否则使用默认的事件广播器 SimpleApplicationEventMulticaster\n\t\t\tthis.applicationEventMulticaster = new SimpleApplicationEventMulticaster(beanFactory);\n\t\t\tbeanFactory.registerSingleton(APPLICATION_EVENT_MULTICASTER_BEAN_NAME, this.applicationEventMulticaster);\n\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\tlogger.trace(\"No '\" + APPLICATION_EVENT_MULTICASTER_BEAN_NAME + \"' bean, using \" +\n\t\t\t\t\t\t\"[\" + this.applicationEventMulticaster.getClass().getSimpleName() + \"]\");\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-tvssays",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084833-tvssays",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面的代码看起来很简单，一般情况下我们都是使用默认的事件广播器SimpleApplicationEventMulticaster"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-uwctzpq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084833-uwctzpq",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. 注册监听器 - registerListeners();"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-yhzidci",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084833-yhzidci",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void registerListeners() { \n\t\t// Register statically specified listeners first.\n\t\t// 硬编码方式注册的监听器处理\n\t\tfor (ApplicationListener\u003c?\u003e listener : getApplicationListeners()) { \n\t\t\tgetApplicationEventMulticaster().addApplicationListener(listener);\n\t\t}\n\n\t\t// Do not initialize FactoryBeans here: We need to leave all regular beans\n\t\t// uninitialized to let post-processors apply to them!\n\t\t// 配置文件注册的监听处理器\n\t\tString[] listenerBeanNames = getBeanNamesForType(ApplicationListener.class, true, false);\n\t\tfor (String listenerBeanName : listenerBeanNames) { \n\t\t\tgetApplicationEventMulticaster().addApplicationListenerBean(listenerBeanName);\n\t\t}\n\n\t\t// Publish early application events now that we finally have a multicaster...\n\t\t// 发布一个早期的Application 事件\n\t\tSet\u003cApplicationEvent\u003e earlyEventsToProcess = this.earlyApplicationEvents;\n\t\tthis.earlyApplicationEvents = null;\n\t\tif (earlyEventsToProcess != null) { \n\t\t\tfor (ApplicationEvent earlyEvent : earlyEventsToProcess) { \n\t\t\t\tgetApplicationEventMulticaster().multicastEvent(earlyEvent);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-dc2dph3",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230331084833-dc2dph3",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3. 事件的发布 - publishEvent"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-7cfgpgh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084833-7cfgpgh",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们在 上面的Demo 中， 通过 run.publishEvent(demoEvent); 发布的事件最终会执行如下方法："
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-4pimbvi",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084833-4pimbvi",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected void publishEvent(Object event, @Nullable ResolvableType eventType) { \n\t\tAssert.notNull(event, \"Event must not be null\");\n\n\t\t// Decorate event as an ApplicationEvent if necessary\n\t\t// 分析事件类型\n\t\tApplicationEvent applicationEvent;\n\t\tif (event instanceof ApplicationEvent) { \n\t\t\tapplicationEvent = (ApplicationEvent) event;\n\t\t}\n\t\telse { \n\t\t\tapplicationEvent = new PayloadApplicationEvent\u003c\u003e(this, event);\n\t\t\tif (eventType == null) { \n\t\t\t\teventType = ((PayloadApplicationEvent\u003c?\u003e) applicationEvent).getResolvableType();\n\t\t\t}\n\t\t}\n\n\t\t// Multicast right now if possible - or lazily once the multicaster is initialized\n\t\tif (this.earlyApplicationEvents != null) { \n\t\t\tthis.earlyApplicationEvents.add(applicationEvent);\n\t\t}\n\t\telse { \n\t\t\t// 获取事件广播器进行广播事件广播。我们上面说了一般我们使用默认的事件广播器即 SimpleApplicationEventMulticaster \n\t\t\tgetApplicationEventMulticaster().multicastEvent(applicationEvent, eventType);\n\t\t}\n\n\t\t// Publish event via parent context as well...\n\t\t// 寻找父类BeanFactory，继续发布消息\n\t\tif (this.parent != null) { \n\t\t\tif (this.parent instanceof AbstractApplicationContext) { \n\t\t\t\t((AbstractApplicationContext) this.parent).publishEvent(event, eventType);\n\t\t\t}\n\t\t\telse { \n\t\t\t\tthis.parent.publishEvent(event);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-sflzka3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084833-sflzka3",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们继续看 multicastEvent 方法如下，可以看到，当Spring事件产生的时候，默认会使用SimpleApplicationEventMulticaster#multicastEvent 方法来广播事件，遍历所有的监听器，并使用监听器中的 onApplicationEvent 方法来进行监听事件的处理。而对于每个监听器来说，其实都可以获取到产生的事件，但使用进行处理由监听器自己决定。"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-brkhyfc",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230331084833-brkhyfc",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic void multicastEvent(final ApplicationEvent event, @Nullable ResolvableType eventType) { \n\t\tResolvableType type = (eventType != null ? eventType : resolveDefaultEventType(event));\n\t\tExecutor executor = getTaskExecutor();\n\t\t// 获取匹配事件类型的事件事件监听器。比如上面Demo中DemoListener 监听的是DemoEvent 事件类型，这里就是筛选出接受 DemoEvent 类型的监听器。\n\t\n\t\tfor (ApplicationListener\u003c?\u003e listener : getApplicationListeners(event, type)) { \n\t\t\tif (executor != null) { \n\t\t\t\t//  在invokeListener 方法中激活调用事件监听器的onApplicationEvent方法\n\t\t\t\texecutor.execute(() -\u003e invokeListener(listener, event));\n\t\t\t}\n\t\t\telse { \n\t\t\t\tinvokeListener(listener, event);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230331084833-mr8so16",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230331084833-mr8so16",
+				"updated": "20230331084833"
+			}
+		},
+		{
+			"ID": "20230331084833-83gfou0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230331084833-83gfou0",
+				"updated": "20230331084833"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "以上：内容部分参考《Spring源码深度解析》如有侵扰，联系删除。 内容仅用于自我记录学习使用。如有错误，欢迎指正"
+				}
+			]
+		}
+	]
+}

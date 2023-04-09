@@ -1,0 +1,546 @@
+{
+	"ID": "20230329005604-6jmjn9o",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230329005604-6jmjn9o",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230329005654-ctnqz8e\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230329010012-dnkl93p\u0026quot;,\u0026quot;scrollTop\u0026quot;:3452.666748046875,\u0026quot;focusId\u0026quot;:\u0026quot;20230329005714-79qjkwm\u0026quot;,\u0026quot;focusStart\u0026quot;:519,\u0026quot;focusEnd\u0026quot;:529}",
+		"title": "5. Spring Bean销毁",
+		"updated": "20230329010012"
+	},
+	"Children": [
+		{
+			"ID": "20230329005654-ctnqz8e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005654-ctnqz8e",
+				"updated": "20230329005654"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个阶段比较简单。分析Bean的销毁阶段-和Bean 的初始化对应！"
+				}
+			]
+		},
+		{
+			"ID": "20230329005654-rxu1k38",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005654-rxu1k38",
+				"updated": "20230329005654"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里主要分为：Spring Bean 销毁前阶段、销毁阶段。"
+				}
+			]
+		},
+		{
+			"ID": "20230329005702-voprjzn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005702-voprjzn",
+				"updated": "20230329005702"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "20210219223718781"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210219223718781-20230329005702-i9sf66n.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230329005708-u3qr8uf",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230329005708-u3qr8uf",
+				"updated": "20230329005708"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、Spring Bean 销毁前阶段"
+				}
+			]
+		},
+		{
+			"ID": "20230329005712-l4ktftk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005712-l4ktftk",
+				"updated": "20230329005712"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里主要是处理 DestructionAwareBeanPostProcessor#postProcessBeforeDestruction的实现类回调"
+				}
+			]
+		},
+		{
+			"ID": "20230329005712-fmn70ax",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005712-fmn70ax",
+				"updated": "20230329005712"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如自己实现："
+				}
+			]
+		},
+		{
+			"ID": "20230329005714-79qjkwm",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329005714-79qjkwm",
+				"updated": "20230329005719"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MyDestructionAwareBeanPostProcessor implements DestructionAwareBeanPostProcessor {\n \n    @Override\n    public void postProcessBeforeDestruction(Object bean, String beanName) throws BeansException {\n        if (ObjectUtils.nullSafeEquals(\"userHolder\", beanName) \u0026\u0026 UserHolder.class.equals(bean.getClass())) {\n            UserHolder userHolder = (UserHolder) bean;\n            // afterSingletonsInstantiated() = The user holder V8\n            // UserHolder description = \"The user holder V8\"\n            userHolder.setDescription(\"The user holder V9\");\n            System.out.println(\"postProcessBeforeDestruction() : \" + userHolder.getDescription());\n        }\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329005725-6rktri6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230329005725-6rktri6",
+				"updated": "20230329005725"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、Spring Bean 销毁阶段"
+				}
+			]
+		},
+		{
+			"ID": "20230329005728-bi8on6z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005728-bi8on6z",
+				"updated": "20230329005728"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Bean的销毁方式也有三种"
+				}
+			]
+		},
+		{
+			"ID": "20230329005845-s41hzcf",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230329005845-s41hzcf",
+				"updated": "20230329005851"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "注解标注  @preDestory 标注方法\n\n实现 DisposableBean 接口的destroy()方法\n\n自定义销毁方法\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230329005911-0gdwcx0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005911-0gdwcx0",
+				"updated": "20230329005911"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中可以看到@preDestory Java 标准注解销毁，按照字面意思就是按照我们之前的来进行操作。这里的Destory 和我们的这里的销毁其实有点冲突。@preDestpry 主要是指Bean 对象被销毁，也就是说Bean对象被回收之前，也就是被Java GC 之后才被操作。"
+				}
+			]
+		},
+		{
+			"ID": "20230329005911-vam3307",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005911-vam3307",
+				"updated": "20230329005911"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "思考：假设以上三种方式均在同一Bean中定义，那么这些方法的执行顺序是怎样？"
+				}
+			]
+		},
+		{
+			"ID": "20230329005911-86n6ah7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005911-86n6ah7",
+				"updated": "20230329005911"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "案例分析"
+				}
+			]
+		},
+		{
+			"ID": "20230329005911-hr15l2v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005911-hr15l2v",
+				"updated": "20230329005911"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其实这里我们可以大胆猜测，Bean 的销毁和 Bean 初始化顺序对应  注解标注\u003e 接口实现 \u003e 自定义"
+				}
+			]
+		},
+		{
+			"ID": "20230329005911-quurop2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005911-quurop2",
+				"updated": "20230329005924"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "注解标注  @preDestory 标注方法\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "20210219224125938"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210219224125938-20230329005924-zy8ied2.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230329005926-r2uxj0k",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005926-r2uxj0k",
+				"updated": "20230329005930"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "实现 DisposableBean 接口的destroy()方法"
+				}
+			]
+		},
+		{
+			"ID": "20230329005938-1z7a3f2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005938-1z7a3f2",
+				"updated": "20230329005938"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "20210219224151726"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210219224151726-20230329005938-3pmp2s4.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230329005940-ow2kdgf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005940-ow2kdgf",
+				"updated": "20230329005944"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "自定义方式实现【这里以Java 注解为案例】"
+				}
+			]
+		},
+		{
+			"ID": "20230329005952-0pbdw93",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005952-0pbdw93",
+				"updated": "20230329005952"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "20210219224208925"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210219224208925-20230329005952-9r7ac62.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230329005958-1wmwstm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005958-1wmwstm",
+				"updated": "20230329005958"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "执行结果分析和猜测结果一样"
+				}
+			]
+		},
+		{
+			"ID": "20230329005958-uw36r3i",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329005958-uw36r3i",
+				"updated": "20230329005958"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当我们输出应用上下文准备关闭的时候和已关闭之间，也就是我们调用close()方法的过程中上述方法会被逐一关闭掉"
+				}
+			]
+		},
+		{
+			"ID": "20230329010005-x09su81",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010005-x09su81",
+				"updated": "20230329010005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "20210219224225498"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20210219224225498-20230329010005-ptrh26m.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230329010012-i8bppy7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010012-i8bppy7",
+				"updated": "20230329010012"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "总结"
+				}
+			]
+		},
+		{
+			"ID": "20230329010012-dnkl93p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230329010012-dnkl93p",
+				"updated": "20230329010012"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通过三种不同的Bean的销毁方案，同时也对比初始化三种方案来做一个参照，会发现注解总是优先，就是Java 标注注解优化；然后Spring 里面DisposableBean 接口是第二位，第三位就是我们自定义的实现方式！这三种方式可以和Bean 的初始化过程一起去对照了解～"
+				}
+			]
+		}
+	]
+}

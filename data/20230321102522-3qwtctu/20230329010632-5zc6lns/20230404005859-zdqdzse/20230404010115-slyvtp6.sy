@@ -1,0 +1,1457 @@
+{
+	"ID": "20230404010115-slyvtp6",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010115-slyvtp6",
+		"title": "吃透Spring源码（十）：Spring实例化Bean的五种方式源码解析_spring根据报文不同 实例化不同对象_吃透Java的博客-CSDN博客",
+		"updated": "20230404010115"
+	},
+	"Children": [
+		{
+			"ID": "20230404010115-jgjfctj",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010115-jgjfctj",
+				"updated": "20230404010115"
+			}
+		},
+		{
+			"ID": "20230404010115-mttr6io",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010115-mttr6io",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"ID": "20230404010115-03t3mxj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010115-03t3mxj",
+						"updated": "20230404010115"
+					},
+					"Children": [
+						{
+							"ID": "20230404010115-yg10eie",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010115-yg10eie",
+								"updated": "20230404010115"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/109804892",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/109804892"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010115-mkuepax",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010115-mkuepax",
+						"updated": "20230404010115"
+					},
+					"Children": [
+						{
+							"ID": "20230404010115-at2fzjr",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010115-at2fzjr",
+								"updated": "20230404010115"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一，概述对于我们Java来说，创建对象无非就是new或者通过反射两种方式。Spring中实例化对象一般是通过反射来实现的，但是Spring的强大之处不仅仅在于它为Java开发者提供了极大便利，更在于它的开放式架构，使得用户可以拥有最大扩展Spring的能力。我们大致可以总结出以下五种实例化bean的方式：实现InstantiationAwareBeanPostProcessor接口实现FactoryBean接口通过Supplier接口工厂方法factory-method通过反射二，实现"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010115-j8rrwfs",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010115-j8rrwfs",
+						"updated": "20230404010115"
+					},
+					"Children": [
+						{
+							"ID": "20230404010115-vmllltp",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010115-vmllltp",
+								"updated": "20230404010115"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:01:15"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-7diqxvq",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010115-7diqxvq",
+				"updated": "20230404010115"
+			}
+		},
+		{
+			"ID": "20230404010115-k5hqpdj",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010115-k5hqpdj",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一，概述"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-9qiu4z1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-9qiu4z1",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "对于我们Java来说，创建对象无非就是new或者通过"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E5%8F%8D%E5%B0%84\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "反射"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "两种方式。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-97jyb95",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-97jyb95",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring中实例化对象一般是通过反射来实现的，但是Spring的强大之处不仅仅在于它为Java开发者提供了极大便利，更在于它的开放式"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=%E6%9E%B6%E6%9E%84\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "架构"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "，使得用户可以拥有最大扩展Spring的能力。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-ib2t06b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-ib2t06b",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们大致可以总结出以下五种实例化bean的方式："
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-tifje6u",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010115-tifje6u",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"ID": "20230404010115-5v98n1m",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010115-5v98n1m",
+						"updated": "20230404010115"
+					},
+					"Children": [
+						{
+							"ID": "20230404010115-irtiiof",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010115-irtiiof",
+								"updated": "20230404010115"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "实现InstantiationAwareBeanPostProcessor接口"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010115-nszcgr3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010115-nszcgr3",
+						"updated": "20230404010115"
+					},
+					"Children": [
+						{
+							"ID": "20230404010115-luekt4v",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010115-luekt4v",
+								"updated": "20230404010115"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "实现FactoryBean接口"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010115-n1ggj2m",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010115-n1ggj2m",
+						"updated": "20230404010115"
+					},
+					"Children": [
+						{
+							"ID": "20230404010115-k698i46",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010115-k698i46",
+								"updated": "20230404010115"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "通过Supplier接口"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010115-kz5cqgi",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010115-kz5cqgi",
+						"updated": "20230404010115"
+					},
+					"Children": [
+						{
+							"ID": "20230404010115-cqfvzun",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010115-cqfvzun",
+								"updated": "20230404010115"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "工厂方法factory-method"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010115-mqd15uz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230404010115-mqd15uz",
+						"updated": "20230404010115"
+					},
+					"Children": [
+						{
+							"ID": "20230404010115-fxjocg0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010115-fxjocg0",
+								"updated": "20230404010115"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "通过反射"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-91o7crp",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010115-91o7crp",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二，实现InstantiationAwareBeanPostProcessor接口"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-y8syn9p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-y8syn9p",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "MyInstantiationAwareBeanPostProcessor.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-6nxitj3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-6nxitj3",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MyInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPostProcessor { \n    @Override\n    public Object postProcessBeforeInstantiation(Class\u003c?\u003e beanClass, String beanName) throws BeansException { \n        if (beanName.equals(\"a\")) { \n            return new B();\n        }\n        return null;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-qs8ud5s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-qs8ud5s",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "applicationContext.xml"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-oh7uon3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-oh7uon3",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xmlns:context=\"http://www.springframework.org/schema/context\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd\"\u003e\n    \u003cbean id=\"a\" class=\"com.bobo.A\"\u003e\u003c/bean\u003e\n    \u003cbean class=\"com.bobo.MyInstantiationAwareBeanPostProcessor\"\u003e\u003c/bean\u003e\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-t1qx7kk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-t1qx7kk",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "测试代码："
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-lz3emps",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-lz3emps",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Test { \n    public static void main(String[] args) { \n        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(\"boboTest.xml\");\n        System.out.println(context.getBean(\"a\"));\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-0y3y9dh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-0y3y9dh",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运行输出："
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-mf33ato",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-mf33ato",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "com.bobo.B@490ab905\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-8xv2t4k",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010115-8xv2t4k",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三，实现FactoryBean接口"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-a94lqxw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-a94lqxw",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "MyFactoryBean.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-5bz3won",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-5bz3won",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class MyFactoryBean implements FactoryBean\u003cA\u003e { \n    @Override\n    public A getObject() throws Exception { \n        return new A();\n    }\n\n    @Override\n    public Class\u003c?\u003e getObjectType() { \n        return A.class;\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-t4jzyxy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-t4jzyxy",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "测试代码"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-ko3uzfy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-ko3uzfy",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Test { \n    public static void main(String[] args) { \n        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(\"boboTest.xml\");\n        System.out.println(context.getBean(\"myFactoryBean\"));\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-wl3js9x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-wl3js9x",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运行输出："
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-1vkhsp4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-1vkhsp4",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "com.bobo.A@61230f6a\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-knaoc95",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-knaoc95",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "原理：请移步到这里查看："
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-rvq20cc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-rvq20cc",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/109742074",
+					"TextMarkTextContent": "Spring中FactoryBean真相揭秘"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-p1bon39",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010115-p1bon39",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四，通过Supplier接口"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-z6o8m73",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-z6o8m73",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "CreateSupplierB.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-3ajigpy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-3ajigpy",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class CreateSupplierB { \n    public static B createB(){ \n        return new B();\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-154p74h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-154p74h",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "MyBeanFactoryPostProcessor.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-gutdxh4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-gutdxh4",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor { \n    @Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException { \n        BeanDefinition beanDefinition = beanFactory.getBeanDefinition(\"a\");\n        GenericBeanDefinition genericBeanDefinition = (GenericBeanDefinition) beanDefinition;\n        genericBeanDefinition.setInstanceSupplier(CreateSupplierB::createB);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-culpqn2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-culpqn2",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "测试代码："
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-r1e9qbw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-r1e9qbw",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Test { \n    public static void main(String[] args) { \n        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(\"boboTest.xml\");\n        System.out.println(context.getBean(\"a\"));\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-wmnsv4o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-wmnsv4o",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运行输出："
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-bpea0zz",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-bpea0zz",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "com.bobo.B@cd3fee8\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-pxh9vqt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-pxh9vqt",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "原理：请移步这里"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-lkt7p0b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-lkt7p0b",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/109780513",
+					"TextMarkTextContent": "Spring实例化(createBeanInstance)源码解析"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-98211fc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010115-98211fc",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "五，工厂方法factory-method"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-w24xls3",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010115-w24xls3",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，静态工厂"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-j18kdwi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-j18kdwi",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "MyStaticFactory.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-xtjdcpa",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-xtjdcpa",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MyStaticFactory { \n    public static A getA() { \n        return new A();\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-ffgvnce",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-ffgvnce",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "applicationContext.xml"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-snmnhgv",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-snmnhgv",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xmlns:context=\"http://www.springframework.org/schema/context\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd\"\u003e\n    \u003cbean id=\"a\" class=\"com.bobo.MyStaticFactory\" factory-method=\"getA\"\u003e\u003c/bean\u003e\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-j76hw25",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-j76hw25",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "测试："
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-jr7rhjo",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-jr7rhjo",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Test { \n    public static void main(String[] args) { \n        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(\"boboTest.xml\");\n        System.out.println(context.getBean(\"a\"));\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-lbjw7ob",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-lbjw7ob",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运行输出："
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-6nvu9pt",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-6nvu9pt",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "com.bobo.A@5702b3b1\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-h0zqgbh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010115-h0zqgbh",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，实例工厂"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-6qaky09",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-6qaky09",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "MyInstanceFactory.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-vy3u5sp",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-vy3u5sp",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MyInstanceFactory { \n    public A getA() { \n        return new A();\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-784ilnx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-784ilnx",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "aoolicationContext.xml"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-ai7o0vg",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-ai7o0vg",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd\"\u003e\n    \u003cbean id=\"myInstanceFactory\" class=\"com.bobo.MyInstanceFactory\"\u003e\u003c/bean\u003e\n    \u003cbean id=\"a\" class=\"com.bobo.MyStaticFactory\" factory-bean=\"myInstanceFactory\" factory-method=\"getA\"\u003e\u003c/bean\u003e\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-35fo6d9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-35fo6d9",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "测试代码："
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-829qqu1",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-829qqu1",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Test { \n    public static void main(String[] args) { \n        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(\"boboTest.xml\");\n        System.out.println(context.getBean(\"a\"));\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-nqa8sv4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-nqa8sv4",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运行输出："
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-ckrks81",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-ckrks81",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "com.bobo.A@5702b3b1\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-9r7eqhg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010115-9r7eqhg",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3，原理"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-kxqpf89",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-kxqpf89",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "请移步这里："
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-z52eif8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-z52eif8",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/109780513",
+					"TextMarkTextContent": "Spring实例化(createBeanInstance)源码解析"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-yuhguia",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010115-yuhguia",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "六，通过反射"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-sstx8m0",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-sstx8m0",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd\"\u003e\n    \u003cbean id=\"a\" class=\"com.bobo.A\"\u003e\u003c/bean\u003e\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-lrghsbw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-lrghsbw",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "测试代码："
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-zn5b3j9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-zn5b3j9",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Test { \n    public static void main(String[] args) { \n        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(\"boboTest.xml\");\n        System.out.println(context.getBean(\"a\"));\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-bj6e8iq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010115-bj6e8iq",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运行输出："
+				}
+			]
+		},
+		{
+			"ID": "20230404010115-07fz3tb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010115-07fz3tb",
+				"updated": "20230404010115"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "com.bobo.A@5bcab519\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		}
+	]
+}

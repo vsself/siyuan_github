@@ -1,0 +1,1690 @@
+{
+	"ID": "20230404010532-z8qi3r4",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010532-z8qi3r4",
+		"title": "吃透Spring源码（十一）：Spring属性填充populateBean源码分析_吃透Java的博客-CSDN博客",
+		"updated": "20230404010532"
+	},
+	"Children": [
+		{
+			"ID": "20230404010532-21ilkmg",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010532-21ilkmg",
+				"updated": "20230404010532"
+			}
+		},
+		{
+			"ID": "20230404010532-i24hr2e",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010532-i24hr2e",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"ID": "20230404010532-6k9gl84",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010532-6k9gl84",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-fu1msds",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-fu1msds",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/110235934",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/110235934"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-k5b88jv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010532-k5b88jv",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-aeogmrx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-aeogmrx",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "一，属性填充分类Spring实例化前面我们已经分析过了，实例化之后，紧接着就是对属性进行填充了，属性填充主要是对自动注入(autowired)的处理，我们大致可以把他分为三类：autowireByName：通过名字对属性填充。autowireByType：通过类型对属性填充。@Autowired：通过bean的后置处理器AutowiredAnnotationBeanPostProcessor对@Autowired注解属性填充我们来看一下具体源码：\tprotected void populat"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-hisk7hn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010532-hisk7hn",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-ijb9bw8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-ijb9bw8",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:05:31"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-o9nsl3h",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010532-o9nsl3h",
+				"updated": "20230404010532"
+			}
+		},
+		{
+			"ID": "20230404010532-4i08o2z",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010532-4i08o2z",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一，属性填充分类"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-k52vduv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-k52vduv",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Spring实例化前面我们已经分析过了，实例化之后，紧接着就是对属性进行填充了，属性填充主要是对自动注入(autowired)的处理，我们大致可以把他分为三类："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-kac6wej",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010532-kac6wej",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"ID": "20230404010532-maphf01",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010532-maphf01",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-d7x8ei4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-d7x8ei4",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "autowireByName：通过名字对属性填充。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-clqyobq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010532-clqyobq",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-f87ybmg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-f87ybmg",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "autowireByType：通过类型对属性填充。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-vcosp9d",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010532-vcosp9d",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-r62a2u5",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-r62a2u5",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "@Autowired：通过bean的后置处理器AutowiredAnnotationBeanPostProcessor对@Autowired注解属性填充"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-suhk6as",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-suhk6as",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们来看一下具体源码："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-xkox4df",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-xkox4df",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable BeanWrapper bw) { \n\n    \t// 省略部分代码.......\n  \n\t\t// 获取 mbd 的 自动装配模式\n\t\tint resolvedAutowireMode = mbd.getResolvedAutowireMode();\n\t\t// 如果 自动装配模式 为 按名称自动装配bean属性 或者 按类型自动装配bean属性\n\t\tif (resolvedAutowireMode == AUTOWIRE_BY_NAME || resolvedAutowireMode == AUTOWIRE_BY_TYPE) { \n\t\t\t/**\n\t\t\t *\t1,根据属性名进行注入\n\t\t\t */\n\t\t\tif (resolvedAutowireMode == AUTOWIRE_BY_NAME) { \n\t\t\t\t//通过bw的PropertyDescriptor属性名，查找出对应的Bean对象，将其添加到newPvs中\n\t\t\t\tautowireByName(beanName, mbd, bw, newPvs);\n\t\t\t}\n\t\t\n\t\t\t/**\n\t\t\t *\t2，根据属性类型进行注入\n\t\t\t */\n\t\t\tif (resolvedAutowireMode == AUTOWIRE_BY_TYPE) { \n\t\t\t\t//通过bw的PropertyDescriptor属性类型，查找出对应的Bean对象，将其添加到newPvs中\n\t\t\t\tautowireByType(beanName, mbd, bw, newPvs);\n\t\t\t}\n\t\t\n\t\t}\n\n\t\t\n\t\t\t/**\n\t\t\t *\t3，通过遍历到AutowiredAnnotationBeanPostProcessor执行postProcessProperties()方法\n\t\t\t *\t来实现对@Autowired注解进行注入\n\t\t\t */\n\t\t\tfor (BeanPostProcessor bp : getBeanPostProcessors()) { \n\t\t\t\tif (bp instanceof InstantiationAwareBeanPostProcessor) { \n\t\t\t\t\tInstantiationAwareBeanPostProcessor ibp = (InstantiationAwareBeanPostProcessor) bp;\n\t\t\t\t\tPropertyValues pvsToUse = ibp.postProcessProperties(pvs, bw.getWrappedInstance(), beanName);\n\t\t\t\t\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\t// 上面只是把属性所对应得object保存到pvs中，并没有给属性赋值\n\t\t// 这里会调用类得set方法给属性赋值\n\t\tif (pvs != null) { \n\t\t\t//应用给定的属性值，解决任何在这个bean工厂运行时其他bean的引用。必须使用深拷贝，所以我们 不会永久地修改这个属性\n\t\t\tapplyPropertyValues(beanName, mbd, bw, pvs);\n\t\t}\n\n\t\t// 省略部分代码...\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-u6ez3wp",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010532-u6ez3wp",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二，autowireByName通过名字对属性填充"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-vmiiyfg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-vmiiyfg",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "定义person然后指定byName注入："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-gk7n41d",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-gk7n41d",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd\"\u003e\n    \u003cbean id=\"person\" class=\"com.bobo.selfAutowired.Person\" autowire=\"byName\"\u003e\u003c/bean\u003e\n\u003c/beans\u003e\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-tfyk8u3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-tfyk8u3",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AbstractAutowireCapableBeanFactory#populateBean()：完成属性得自动注入。通过属性得name找到对应得obj对象，保存到pvs的propertyValueList里面，然后再遍历propertyValueList，通过反射调用当前对象得set方法给属性赋值。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-wbcuuhz",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-wbcuuhz",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable BeanWrapper bw) { \n      \n    // 省略部分代码....\n      \n\tif (resolvedAutowireMode == AUTOWIRE_BY_NAME) { \n\t\t//通过bw的PropertyDescriptor属性名，查找出对应的Bean对象，将其添加到newPvs中\n\t\tautowireByName(beanName, mbd, bw, newPvs);\n\t}\n\n\t// 上面只是把属性所对应得object保存到pvs中，并没有给属性赋值\n\t// 这里会调用类得set方法给属性赋值\n\tif (pvs != null) { \n\t\t//应用给定的属性值，解决任何在这个bean工厂运行时其他bean的引用。必须使用深拷贝，所以我们 不会永久地修改这个属性\n\t\tapplyPropertyValues(beanName, mbd, bw, pvs);\n\t}\n\n\t// 省略部分代码...\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-r9inp10",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-r9inp10",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AbstractAutowireCapableBeanFactory#autowireByName()：获取当前beanName得非简单类型属性名，并且遍历这些属性名，能在容器中找到当前属性名得对象，则添加到pvs的propertyValueList中。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-hjirth7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-hjirth7",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void autowireByName(\n\t\t\tString beanName, AbstractBeanDefinition mbd, BeanWrapper bw, MutablePropertyValues pvs) { \n\n\t\t//获取bw中有setter方法 \u0026\u0026 非简单类型属性 \u0026\u0026 mbd的PropertyValues中没有该pd的属性名的 PropertyDescriptor 属性名数组\n\t\tString[] propertyNames = unsatisfiedNonSimpleProperties(mbd, bw);\n\t\t//遍历属性名\n\t\tfor (String propertyName : propertyNames) { \n\t\t\t//如果该bean工厂有propertyName的beanDefinition或外部注册的singleton实例\n\t\t\tif (containsBean(propertyName)) { \n\t\t\t\t//获取该工厂中propertyName的bean对象\n\t\t\t\tObject bean = getBean(propertyName);\n\t\t\t\t//将propertyName,bean添加到pvs中\n\t\t\t\tpvs.add(propertyName, bean);\n\t\t\t\t//注册propertyName与beanName的依赖关系\n\t\t\t\tregisterDependentBean(propertyName, beanName);\n\t\t\t\n\t\t\t}\n\t\t}\n\t}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-pyny0nk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-pyny0nk",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AbstractAutowireCapableBeanFactory#unsatisfiedNonSimpleProperties()：遍历所有属性值，获取非简单类型的属性名数组并且返回。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-46jxoba",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-46jxoba",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected String[] unsatisfiedNonSimpleProperties(AbstractBeanDefinition mbd, BeanWrapper bw) { \n\t\t//TreeSet:TreeSet底层是二叉树，可以对对象元素进行排序，但是自定义类需要实现comparable接口，重写comparaTo()方法。\n\t\tSet\u003cString\u003e result = new TreeSet\u003c\u003e();\n\t\t//获取mdbd的所有属性值\n\t\tPropertyValues pvs = mbd.getPropertyValues();\n\t\t//PropertyDescriptor:表示JavaBean类通过存储器导出一个属性，获取bw的所有属性描述对象\n\t\tPropertyDescriptor[] pds = bw.getPropertyDescriptors();\n\t\t//遍历属性描述对象\n\t\tfor (PropertyDescriptor pd : pds) { \n\t\t\t//如果 pd有写入属性方法 \u0026\u0026 该pd不是被排除在依赖项检查之外 \u0026\u0026 pvs没有该pd的属性名 \u0026\u0026 pd的属性类型不是\"简单值类型\"\n\t\t\tif (pd.getWriteMethod() != null \u0026\u0026 !isExcludedFromDependencyCheck(pd) \u0026\u0026 !pvs.contains(pd.getName()) \u0026\u0026\n\t\t\t\t\t!BeanUtils.isSimpleProperty(pd.getPropertyType())) { \n\t\t\t\t//将pdd的属性名添加到result中\n\t\t\t\tresult.add(pd.getName());\n\t\t\t}\n\t\t}\n\t\t//将result装换成数组\n\t\treturn StringUtils.toStringArray(result);\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-x2rn54e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-x2rn54e",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "BeanUtils#isSimpleProperty()：返回当前属性类型是否是简单类型："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-5uu1ydn",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-5uu1ydn",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic static boolean isSimpleProperty(Class\u003c?\u003e type) { \n\t\treturn isSimpleValueType(type) || (type.isArray() \u0026\u0026 isSimpleValueType(type.getComponentType()));\n\t}\n\n\tpublic static boolean isSimpleValueType(Class\u003c?\u003e type) { \n\t\treturn (Void.class != type \u0026\u0026 void.class != type \u0026\u0026\n\t\t\t\t(ClassUtils.isPrimitiveOrWrapper(type) ||\n\t\t\t\tEnum.class.isAssignableFrom(type) ||\n\t\t\t\tCharSequence.class.isAssigna总结：autowireByName主要完成以下逻辑：bleFrom(type) ||\n\t\t\t\tNumber.class.isAssignableFrom(type) ||\n\t\t\t\tDate.class.isAssignableFrom(type) ||\n\t\t\t\tTemporal.class.isAssignableFrom(type) ||\n\t\t\t\tURI.class == type ||\n\t\t\t\tURL.class == type ||\n\t\t\t\tLocale.class == type ||\n\t\t\t\tClass.class == type));\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-55g9ph7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-55g9ph7",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "总结：autowireByName主要完成以下逻辑："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-cmr2twz",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010532-cmr2twz",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"ID": "20230404010532-2n4ybpn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010532-2n4ybpn",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-i1djtpg",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-i1djtpg",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "获取需要填充对象得非简单类型得属性名；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-26xkz8a",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010532-26xkz8a",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-q1a3jws",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-q1a3jws",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "遍历第一步获取得属性名，调用getBean方法从容器中获取此属性名对应的object；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-alilmfd",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010532-alilmfd",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-646yg03",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-646yg03",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "然后，如果能找到，则把此属性名和object对象保存到pvs的propertyValueList里面。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-qb903l3",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010532-qb903l3",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三，autowireByType：通过类型对属性填充"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-3kv154x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-3kv154x",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "applicationContext.xml：定义person中的属性通过byType自动注入"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-ys267bq",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-ys267bq",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd\"\u003e\n    \u003cbean id=\"person\" class=\"com.bobo.selfAutowired.Person\" autowire=\"byType\"\u003e\u003c/bean\u003e\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-nubwsho",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-nubwsho",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AbstractAutowireCapableBeanFactory#populateBean()：完成属性的自动注入，通过bw的PropertyDescriptor属性类型，查找出对应的Bean对象，将其添加到pvs的propertyValueList中，然后遍历propertyValueList通过反射调用当前对象得set方法给属性赋值。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-lontg2d",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-lontg2d",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable BeanWrapper bw) { \n      \n    // 省略部分代码....\n      \n\tif (resolvedAutowireMode == AUTOWIRE_BY_TYPE) { \n\t\t//通过bw的PropertyDescriptor属性类型，查找出对应的Bean对象，将其添加到newPvs中\n\t\tautowireByType(beanName, mbd, bw, newPvs);\n\t}\n\n\t// 上面只是把属性所对应得object保存到pvs中，并没有给属性赋值\n\t// 这里会调用类得set方法给属性赋值\n\tif (pvs != null) { \n\t\t//应用给定的属性值，解决任何在这个bean工厂运行时其他bean的引用。必须使用深拷贝，所以我们 不会永久地修改这个属性\n\t\tapplyPropertyValues(beanName, mbd, bw, pvs);\n\t}\n\n\t// 省略部分代码...\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-csd2gbp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-csd2gbp",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AbstractAutowireCapableBeanFactory#autowireByType()："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-yizfj9n",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010532-yizfj9n",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"ID": "20230404010532-o46ocjn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010532-o46ocjn",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-7cg89v4",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-7cg89v4",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "获取当前对象的非简单类型的属性名数组propertyNames；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-fbln09y",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010532-fbln09y",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-cw36p58",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-cw36p58",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "遍历属性名数组propertyNames，获取当前属性名多对应的类型filedType；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-7j394tr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010532-7j394tr",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-5xvj5v9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-5xvj5v9",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "通过filedType找到匹配的候选Bean对象；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-6xew1q3",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010532-6xew1q3",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-n4w6h4z",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-n4w6h4z",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "把属性名以及bean对象添加到pvs的propertyValueList里面。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-h03xka0",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-h03xka0",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void autowireByType(\n\t\t\tString beanName, AbstractBeanDefinition mbd, BeanWrapper bw, MutablePropertyValues pvs) { \n\n\t\t//获取工厂的自定义类型转换器\n\t\tTypeConverter converter = getCustomTypeConverter();\n\t\t//如果没有配置自定义类型转换器\n\t\tif (converter == null) { \n\t\t\t//使用bw作为类型转换器\n\t\t\tconverter = bw;\n\t\t}\n\t\t//存放所有候选Bean名的集合\n\t\tSet\u003cString\u003e autowiredBeanNames = new LinkedHashSet\u003c\u003e(4);\n\t\t//获取bw中有setter方法 \u0026\u0026 非简单类型属性 \u0026\u0026 mbd的PropertyValues中没有该pd的属性名的 PropertyDescriptor 属性名数组\n\t\tString[] propertyNames = unsatisfiedNonSimpleProperties(mbd, bw);\n\t\t//遍历属性名数组\n\t\tfor (String propertyName : propertyNames) { \n\t\t\ttry { \n\t\t\t\t//PropertyDescriptor:表示JavaBean类通过存储器导出一个属性\n\t\t\t\t//从bw中获取propertyName对应的PropertyDescriptor\n\t\t\t\tPropertyDescriptor pd = bw.getPropertyDescriptor(propertyName);\n\t\t\t\t// Don't try autowiring by type for type Object: never makes sense,\n\t\t\t\t// even if it technically is a unsatisfied, non-simple property.\n\t\t\t\t// 不要尝试按类型自动装配对象：永远是有意义的，即使它在技术上是一个不满意，复杂属性\n\t\t\t\t//如果pd的属性值类型不是 Object\n\t\t\t\tif (Object.class != pd.getPropertyType()) { \n\t\t\t\t\t//获取pd属性的Setter方法的方法参数包装对象\n\t\t\t\t\tMethodParameter methodParam = BeanUtils.getWriteMethodParameter(pd);\n\t\t\t\t\t// Do not allow eager init for type matching in case of a prioritized post-processor.\n\t\t\t\t\t//判断bean对象是否是PriorityOrder实例，如果不是就允许急于初始化来进行类型匹配。\n\t\t\t\t\t//eager为true时会导致初始化lazy-init单例和由FactoryBeans(或带有\"factory-bean\"引用的工厂方法)创建 的对象以进行类型检查\n\t\t\t\t\tboolean eager = !(bw.getWrappedInstance() instanceof PriorityOrdered);\n\t\t\t\t\t//AutowireByTypeDependencyDescriptor:根据类型依赖自动注入的描述符，重写了 getDependencyName() 方法，使其永远返回null\n\t\t\t\t\t//将 methodParam 封装包装成AutowireByTypeDependencyDescriptor对象\n\t\t\t\t\tDependencyDescriptor desc = new AutowireByTypeDependencyDescriptor(methodParam, eager);\n\t\t\t\t\t//根据据desc的依赖类型解析出与descriptor所包装的对象匹配的候选Bean对象\n\t\t\t\t\tObject autowiredArgument = resolveDependency(desc, beanName, autowiredBeanNames, converter);\n\t\t\t\t\t//如果autowiredArgument不为null\n\t\t\t\t\tif (autowiredArgument != null) { \n\t\t\t\t\t\t//将proeprtyName.autowireArgument作为键值添加到pvs中\n\t\t\t\t\t\tpvs.add(propertyName, autowiredArgument);\n\t\t\t\t\t}\n\t\t\t\t\t//遍历所有候选Bean名集合\n\t\t\t\t\tfor (String autowiredBeanName : autowiredBeanNames) { \n\t\t\t\t\t\t//注册beanName与dependentBeanNamed的依赖关系\n\t\t\t\t\t\tregisterDependentBean(autowiredBeanName, beanName);\n\t\t\t\t\t\t//打印跟踪日志\n\t\t\t\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\t\t\t\tlogger.trace(\"Autowiring by type from bean name '\" + beanName + \"' via property '\" +\n\t\t\t\t\t\t\t\t\tpropertyName + \"' to bean named '\" + autowiredBeanName + \"'\");\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\t//将候选Bean名集合清空\n\t\t\t\t\tautowiredBeanNames.clear();\n\t\t\t\t}\n\t\t\t}\n\t\t\tcatch (BeansException ex) { \n\t\t\t\t//捕捉自动装配时抛出的Bean异常，重新抛出 不满足依赖异常\n\t\t\t\tthrow new UnsatisfiedDependencyException(mbd.getResourceDescription(), beanName, propertyName, ex);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-34lm8e4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-34lm8e4",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DefaultListableBeanFactory#resolveDependency()：根据注入属性的类型descriptor.getDependencyType()，去找合适的对象。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-8yuuw5m",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-8yuuw5m",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic Object resolveDependency(DependencyDescriptor descriptor, @Nullable String requestingBeanName,\n\t\t\t@Nullable Set\u003cString\u003e autowiredBeanNames, @Nullable TypeConverter typeConverter) throws BeansException { \n\n\t\t//获取工厂的参数名发现器，设置到descriptor中。使得descriptor初始化基础方法参数的参数名发现。此时，该方法实际上\n\t\t// 并没有尝试检索参数名称；它仅允许发现再应用程序调用getDependencyName时发生\n\t\tdescriptor.initParameterNameDiscovery(getParameterNameDiscoverer());\n\t\t//如果descriptor的依赖类型为Optional类\n\t\tif (Optional.class == descriptor.getDependencyType()) { \n\t\t\t//创建Optional类型的符合descriptor要求的候选Bean对象\n\t\t\treturn createOptionalDependency(descriptor, requestingBeanName);\n\t\t}\n\t\t// 是对象工厂类型或者对象提供者\n\t\telse if (ObjectFactory.class == descriptor.getDependencyType() ||\n\t\t\t\tObjectProvider.class == descriptor.getDependencyType()) { \n\t\t\t//DependencyObjectProvider:依赖对象提供者,用于延迟解析依赖项\n\t\t\t//新建一个DependencyObjectProvider的实例\n\t\t\treturn new DependencyObjectProvider(descriptor, requestingBeanName);\n\t\t}\n\t\t// javaxInjectProviderClass有可能导致空指针，不过一般情况下，我们引用Spirng包的时候都有引入该类以防止空旨在\n\t\t//如果依赖类型是javax.inject.Provider类。\n\t\telse if (javaxInjectProviderClass == descriptor.getDependencyType()) { \n\n\t\t\t//Jse330Provider:javax.inject.Provider实现类.与DependencyObjectProvoid作用一样，也是用于延迟解析依赖\n\t\t\t// \t项，但它是使用javax.inject.Provider作为依赖 对象，以减少与Springd耦合\n\t\t\t//新建一个专门用于构建javax.inject.Provider对象的工厂来构建创建Jse330Provider对象\n\t\t\treturn new Jsr330Factory().createDependencyProvider(descriptor, requestingBeanName);\n\t\t}\n\t\telse { \n\t\t\t//尝试获取延迟加载代理对象\n\t\t\tObject result = getAutowireCandidateResolver().getLazyResolutionProxyIfNecessary(\n\t\t\t\t\tdescriptor, requestingBeanName);\n\t\t\t//如果result为null，即表示现在需要得到候选Bean对象\n\t\t\tif (result == null) { \n\t\t\t\t//解析出与descriptor所包装的对象匹配的候选Bean对象\n\t\t\t\tresult = doResolveDependency(descriptor, requestingBeanName, autowiredBeanNames, typeConverter);\n\t\t\t}\n\t\t\t//将与descriptor所包装的对象匹配的候选Bean对象【result】返回出去\n\t\t\treturn result;\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-sj6nzmi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-sj6nzmi",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DefaultListableBeanFactory#doResolveDependency()：根据属性类型去查找合适的候选bean对象。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-logag9b",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010532-logag9b",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"ID": "20230404010532-sehmgmn",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010532-sehmgmn",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-lcs9gnu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-lcs9gnu",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "首先考虑以下预先解决的信息尝试调用该工厂解决这种依赖关系的快捷方式来获取beanName对应的bean对象；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-gpjlqo0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010532-gpjlqo0",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-ttxhwce",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-ttxhwce",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "尝试使用descriptor的默认值作为最近候选Bean对象；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-n1ovu5o",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010532-n1ovu5o",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-xp3ibkj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-xp3ibkj",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "针对类型是 stream,数组,Collection类型且对象类型是接口,Map类型 进行解析与依赖类型匹配的 候选Bean对象；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-kjll6wj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010532-kjll6wj",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-qkz04w9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-qkz04w9",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "查找与type匹配的候选bean对象；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-ftswfks",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20230404010532-ftswfks",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-jivlxhw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-jivlxhw",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果以上都没找到，则抛出异常。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-fzh0trb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-fzh0trb",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public Object doResolveDependency(DependencyDescriptor descriptor, @Nullable String beanName,\n\t\t\t@Nullable Set\u003cString\u003e autowiredBeanNames, @Nullable TypeConverter typeConverter) throws BeansException { \n\n\t\t//设置新得当前切入点对象，得到旧的当前切入点对象\n\t\tInjectionPoint previousInjectionPoint = ConstructorResolver.setCurrentInjectionPoint(descriptor);\n\t\ttry { \n\t\t\t/**\n\t\t\t * 1，考虑一些预先解决的信息尝试调用该工厂解决这种依赖关系的快捷方式来获取beanName对应的bean对象,默认返回null\n\t\t\t */\n\t\t\tObject shortcut = descriptor.resolveShortcut(this);\n\t\t\tif (shortcut != null) { \n\t\t\t\treturn shortcut;\n\t\t\t}\n\n\t\t\t//获取descriptor的依赖类型\n\t\t\tClass\u003c?\u003e type = descriptor.getDependencyType();\n          \n\t\t\t/**\n\t\t\t * 2，尝试使用descriptor的默认值作为最近候选Bean对象\n\t\t\t */\n\t\t\tObject value = getAutowireCandidateResolver().getSuggestedValue(descriptor);\n\t\t\t//如果默认值不为null\n\t\t\tif (value != null) { \n\t\t\t\t//如果value是String类型\n\t\t\t\tif (value instanceof String) { \n\t\t\t\t\t//解析嵌套的值(如果value是表达式会解析出该表达式的值)\n\t\t\t\t\tString strVal = resolveEmbeddedValue((String) value);\n\t\t\t\t\t//获取beanName的合并后RootBeanDefinition\n\t\t\t\t\tBeanDefinition bd = (beanName != null \u0026\u0026 containsBean(beanName) ?\n\t\t\t\t\t\t\tgetMergedBeanDefinition(beanName) : null);\n\t\t\t\t\t//评估bd中包含的value,如果strVal是可解析表达式，会对其进行解析.\n\t\t\t\t\tvalue = evaluateBeanDefinitionString(strVal, bd);\n\t\t\t\t}\n\t\t\t\t//如果没有传入typeConverter,则引用工厂的类型转换器\n\t\t\t\tTypeConverter converter = (typeConverter != null ? typeConverter : getTypeConverter());\n\t\t\t\ttry { \n\t\t\t\t\t//将value转换为type的实例对象\n\t\t\t\t\treturn converter.convertIfNecessary(value, type, descriptor.getTypeDescriptor());\n\t\t\t\t}\n\t\t\t\t//捕捉 不支持操作异常\n\t\t\t\tcatch (UnsupportedOperationException ex) { \n\t\t\t\t\t// A custom TypeConverter which does not support TypeDescriptor resolution...\n\t\t\t\t\treturn (descriptor.getField() != null ?\n\t\t\t\t\t\t\tconverter.convertIfNecessary(value, type, descriptor.getField()) :\n\t\t\t\t\t\t\tconverter.convertIfNecessary(value, type, descriptor.getMethodParameter()));\n\t\t\t\t}\n\t\t\t}\n\n\t\t\n            /**\n             * 3，针对desciptor所包装的对象类型是[stream,数组,Collection类型且对象类型是接口,Map]\n             * 的情况，进行解析与依赖类型匹配的 候选Bean对象，并将其封装成相应的依赖类型对象\n             */\n\t\t\tObject multipleBeans = resolveMultipleBeans(descriptor, beanName, autowiredBeanNames, typeConverter);\n\t\t\t//如果multpleBeans不为null\n\t\t\tif (multipleBeans != null) { \n\t\t\t\t//将multipleBeans返回出去\n\t\t\t\treturn multipleBeans;\n\t\t\t}\n\n\t\t\t/**\n\t\t\t * 4，查找与type匹配的候选bean对象,构建成Map，key=bean名,val=Bean对象\n\t\t\t */\n\t\t\tMap\u003cString, Object\u003e matchingBeans = findAutowireCandidates(beanName, type, descriptor);\n\t\t\t//如果没有候选bean对象\n\t\t\tif (matchingBeans.isEmpty()) { \n\t\t\t\t//如果descriptor需要注入\n\t\t\t\tif (isRequired(descriptor)) { \n\t\t\t\t\t//抛出NoSuchBeanDefinitionException或BeanNotOfRequiredTypeException以解决不可 解决的依赖关系\n\t\t\t\t\traiseNoMatchingBeanFound(type, descriptor.getResolvableType(), descriptor);\n\t\t\t\t}\n\t\t\t\t//返回null，表示么有找到候选Bean对象\n\t\t\t\treturn null;\n\t\t\t}\n\n\t\t\t//定义用于存储唯一的候选Bean名变量\n\t\t\tString autowiredBeanName;\n\t\t\t//定义用于存储唯一的候选Bean对象变量\n\t\t\tObject instanceCandidate;\n\n\t\t\t//如果候选Bean对象Map不止有一个\n\t\t\tif (matchingBeans.size() \u003e 1) { \n\t\t\t\t//确定candidates中可以自动注入的最佳候选Bean名称\n\t\t\t\tautowiredBeanName = determineAutowireCandidate(matchingBeans, descriptor);\n\t\t\t\t//如果autowiredBeanName为null\n\t\t\t\tif (autowiredBeanName == null) { \n\t\t\t\t\t//descriptor需要注入 或者 type不是数组/集合类型\n\t\t\t\t\tif (isRequired(descriptor) || !indicatesMultipleBeans(type)) { \n\t\t\t\t\t\t//让descriptor尝试选择其中一个实例，默认实现是抛出NoUniqueBeanDefinitionException.\n\t\t\t\t\t\treturn descriptor.resolveNotUnique(descriptor.getResolvableType(), matchingBeans);\n\t\t\t\t\t}\n\t\t\t\t\telse { \n\t\t\t\t\t\t// In case of an optional Collection/Map, silently ignore a non-unique case:\n\t\t\t\t\t\t// possibly it was meant to be an empty collection of multiple regular beans\n\t\t\t\t\t\t// (before 4.3 in particular when we didn't even look for collection beans).\n\t\t\t\t\t\t// 如果是可选的Collection/Map,则静默忽略一个非唯一情况：\n\t\t\t\t\t\t// 可能是多个常规bean的空集合\n\t\t\t\t\t\t// (尤其是在4.3之前，设置在我们没有寻找collection bean的时候 )\n\t\t\t\t\t\treturn null;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t//获取autowiredBeanName对应的候选Bean对象\n\t\t\t\tinstanceCandidate = matchingBeans.get(autowiredBeanName);\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// We have exactly one match.\n\t\t\t\t//这个时候matchingBeans不会没有元素的，因为前面已经检查了\n\t\t\t\t//获取machingBeans唯一的元素\n\t\t\t\tMap.Entry\u003cString, Object\u003e entry = matchingBeans.entrySet().iterator().next();\n\t\t\t\t//让autowireBeanName引用该元素的候选bean名\n\t\t\t\tautowiredBeanName = entry.getKey();\n\t\t\t\t//让instanceCandidate引用该元素的候选bean对象\n\t\t\t\tinstanceCandidate = entry.getValue();\n\t\t\t}\n\n\t\t\t//如果候选bean名不为null，\n\t\t\tif (autowiredBeanNames != null) { \n\t\t\t\t//将autowiredBeanName添加到autowiredBeanNames中，又添加一次\n\t\t\t\tautowiredBeanNames.add(autowiredBeanName);\n\t\t\t}\n\t\t\t//如果instanceCandidate是Class实例\n\t\t\tif (instanceCandidate instanceof Class) { \n\t\t\t\t//让instanceCandidate引用 descriptor对autowiredBeanName解析为该工厂的Bean实例\n\t\t\t\tinstanceCandidate = descriptor.resolveCandidate(autowiredBeanName, type, this);\n\t\t\t}\n\t\t\t//定义一个result变量，用于存储最佳候选Bean对象\n\t\t\tObject result = instanceCandidate;\n\t\t\t//如果reuslt是NullBean的实例\n\t\t\tif (result instanceof NullBean) { \n\t\t\t\t//如果descriptor需要注入\n\t\t\t\tif (isRequired(descriptor)) { \n\t\t\t\t\t//抛出NoSuchBeanDefinitionException或BeanNotOfRequiredTypeException以解决不可 解决的依赖关系\n\t\t\t\t\traiseNoMatchingBeanFound(type, descriptor.getResolvableType(), descriptor);\n\t\t\t\t}\n\t\t\t\t//返回null，表示找不到最佳候选Bean对象\n\t\t\t\tresult = null;\n\t\t\t}\n\t\t\t//如果result不是type的实例\n\t\t\tif (!ClassUtils.isAssignableValue(type, result)) { \n\t\t\t\t//抛出Bean不是必需类型异常\n\t\t\t\tthrow new BeanNotOfRequiredTypeException(autowiredBeanName, type, instanceCandidate.getClass());\n\t\t\t}\n\t\t\t//返回最佳候选Bean对象【result】\n\t\t\treturn result;\n\t\t}\n\t\tfinally { \n\t\t\t//设置上一个切入点对象\n\t\t\tConstructorResolver.setCurrentInjectionPoint(previousInjectionPoint);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-76e8pb5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-76e8pb5",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DefaultListableBeanFactory#resolveMultipleBeans()：需要注入的类型是stream，array，collection，map类型的话，解析出来他们的引用类型（如List则会解析出people类型），然后从beanFactory中查找所有是people类型的对象组成相应的集合返回（如，List会查找出所有的people对象组装成List类型返回）"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-4gfzi7i",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010532-4gfzi7i",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"ID": "20230404010532-6kyjq8m",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010532-6kyjq8m",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-2yzu368",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-2yzu368",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "stream类型：调用findAutowireCandidates查找出beanFactory中所有符合类型的bean组装成stream返回；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-xlkfwn9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010532-xlkfwn9",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-5af20yb",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-5af20yb",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "array类型：调用findAutowireCandidates查找出beanFactory中所有符合类型的bean组装成array返回；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-fp9bpbv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010532-fp9bpbv",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-h1f9k27",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-h1f9k27",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "collection类型：调用findAutowireCandidates查找出beanFactory中所有符合类型的bean组装成Collection返回；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010532-leqqkta",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010532-leqqkta",
+						"updated": "20230404010532"
+					},
+					"Children": [
+						{
+							"ID": "20230404010532-1o6t66u",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010532-1o6t66u",
+								"updated": "20230404010532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Map类型：调用findAutowireCandidates查找出beanFactory中所有符合类型的bean组装成Map返回。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-nsans42",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-nsans42",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "private Object resolveMultipleBeans(DependencyDescriptor descriptor, @Nullable String beanName,\n\t\t\t@Nullable Set\u003cString\u003e autowiredBeanNames, @Nullable TypeConverter typeConverter) { \n\n\t\tClass\u003c?\u003e type = descriptor.getDependencyType();\n\t\t// stream\n\t\tif (descriptor instanceof StreamDependencyDescriptor) { \n\t\t\tMap\u003cString, Object\u003e matchingBeans = findAutowireCandidates(beanName, type, descriptor);\n\t\t\tif (autowiredBeanNames != null) { \n\t\t\t\tautowiredBeanNames.addAll(matchingBeans.keySet());\n\t\t\t}\n\t\t\tStream\u003cObject\u003e stream = matchingBeans.keySet().stream()\n\t\t\t\t\t.map(name -\u003e descriptor.resolveCandidate(name, type, this))\n\t\t\t\t\t.filter(bean -\u003e !(bean instanceof NullBean));\n\t\t\tif (((StreamDependencyDescriptor) descriptor).isOrdered()) { \n\t\t\t\tstream = stream.sorted(adaptOrderComparator(matchingBeans));\n\t\t\t}\n\t\t\treturn stream;\n\t\t}\n\t\t// 属性是数组类型\n\t\telse if (type.isArray()) { \n\t\t\tClass\u003c?\u003e componentType = type.getComponentType();\n\t\t\tResolvableType resolvableType = descriptor.getResolvableType();\n\t\t\tClass\u003c?\u003e resolvedArrayType = resolvableType.resolve(type);\n\t\t\tif (resolvedArrayType != type) { \n\t\t\t\tcomponentType = resolvableType.getComponentType().resolve();\n\t\t\t}\n\t\t\tif (componentType == null) { \n\t\t\t\treturn null;\n\t\t\t}\n\t\t\t// 根据属性类型找到BeanFactory中所有类型的匹配bean\n\t\t\tMap\u003cString, Object\u003e matchingBeans = findAutowireCandidates(beanName, componentType,\n\t\t\t\t\tnew MultiElementDescriptor(descriptor));\n\t\t\tif (matchingBeans.isEmpty()) { \n\t\t\t\treturn null;\n\t\t\t}\n\t\t\tif (autowiredBeanNames != null) { \n\t\t\t\tautowiredBeanNames.addAll(matchingBeans.keySet());\n\t\t\t}\n\t\t\tTypeConverter converter = (typeConverter != null ? typeConverter : getTypeConverter());\n\t\t\t// 通过转换器将bean的值转换为对应的type类型\n\t\t\tObject result = converter.convertIfNecessary(matchingBeans.values(), resolvedArrayType);\n\t\t\tif (result instanceof Object[]) { \n\t\t\t\tComparator\u003cObject\u003e comparator = adaptDependencyComparator(matchingBeans);\n\t\t\t\tif (comparator != null) { \n\t\t\t\t\tArrays.sort((Object[]) result, comparator);\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn result;\n\t\t}\n\t\t// 属性是Collection类型\n\t\telse if (Collection.class.isAssignableFrom(type) \u0026\u0026 type.isInterface()) { \n\t\t\tClass\u003c?\u003e elementType = descriptor.getResolvableType().asCollection().resolveGeneric();\n\t\t\tif (elementType == null) { \n\t\t\t\treturn null;\n\t\t\t}\n\t\t\tMap\u003cString, Object\u003e matchingBeans = findAutowireCandidates(beanName, elementType,\n\t\t\t\t\tnew MultiElementDescriptor(descriptor));\n\t\t\tif (matchingBeans.isEmpty()) { \n\t\t\t\treturn null;\n\t\t\t}\n\t\t\tif (autowiredBeanNames != null) { \n\t\t\t\tautowiredBeanNames.addAll(matchingBeans.keySet());\n\t\t\t}\n\t\t\tTypeConverter converter = (typeConverter != null ? typeConverter : getTypeConverter());\n\t\t\tObject result = converter.convertIfNecessary(matchingBeans.values(), type);\n\t\t\tif (result instanceof List) { \n\t\t\t\tif (((List\u003c?\u003e) result).size() \u003e 1) { \n\t\t\t\t\tComparator\u003cObject\u003e comparator = adaptDependencyComparator(matchingBeans);\n\t\t\t\t\tif (comparator != null) { \n\t\t\t\t\t\t((List\u003c?\u003e) result).sort(comparator);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn result;\n\t\t}\n\t\t// 属性是map类型\n\t\telse if (Map.class == type) { \n\t\t\tResolvableType mapType = descriptor.getResolvableType().asMap();\n\t\t\tClass\u003c?\u003e keyType = mapType.resolveGeneric(0);\n\t\t\tif (String.class != keyType) { \n\t\t\t\treturn null;\n\t\t\t}\n\t\t\tClass\u003c?\u003e valueType = mapType.resolveGeneric(1);\n\t\t\tif (valueType == null) { \n\t\t\t\treturn null;\n\t\t\t}\n\t\t\tMap\u003cString, Object\u003e matchingBeans = findAutowireCandidates(beanName, valueType,\n\t\t\t\t\tnew MultiElementDescriptor(descriptor));\n\t\t\tif (matchingBeans.isEmpty()) { \n\t\t\t\treturn null;\n\t\t\t}\n\t\t\tif (autowiredBeanNames != null) { \n\t\t\t\tautowiredBeanNames.addAll(matchingBeans.keySet());\n\t\t\t}\n\t\t\treturn matchingBeans;\n\t\t}\n\t\telse { \n\t\t\treturn null;\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-75uszf0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-75uszf0",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DefaultListableBeanFactory#findAutowireCandidates()：从beanFactory中获取所有requiredType类型的对象，组装成\u003c K:beanName,V:beanObject \u003e形式返回。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-uti7bth",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-uti7bth",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected Map\u003cString, Object\u003e findAutowireCandidates(\n\t\t\t@Nullable String beanName, Class\u003c?\u003e requiredType, DependencyDescriptor descriptor) { \n\n\t\t// 获取requiredType对应的bean名字数组\n\t\tString[] candidateNames = BeanFactoryUtils.beanNamesForTypeIncludingAncestors(\n\t\t\t\tthis, requiredType, true, descriptor.isEager());\n\t\tMap\u003cString, Object\u003e result = new LinkedHashMap\u003c\u003e(candidateNames.length);\n\t\tfor (Map.Entry\u003cClass\u003c?\u003e, Object\u003e classObjectEntry : this.resolvableDependencies.entrySet()) { \n\t\t\tClass\u003c?\u003e autowiringType = classObjectEntry.getKey();\n\t\t\tif (autowiringType.isAssignableFrom(requiredType)) { \n\t\t\t\tObject autowiringValue = classObjectEntry.getValue();\n\t\t\t\tautowiringValue = AutowireUtils.resolveAutowiringValue(autowiringValue, requiredType);\n\t\t\t\tif (requiredType.isInstance(autowiringValue)) { \n\t\t\t\t\tresult.put(ObjectUtils.identityToString(autowiringValue), autowiringValue);\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t// 自定义的相关处理\n\t\tfor (String candidate : candidateNames) { \n\t\t\tif (!isSelfReference(beanName, candidate) \u0026\u0026 isAutowireCandidate(candidate, descriptor)) { \n\t\t\t\taddCandidateEntry(result, candidate, descriptor, requiredType);\n\t\t\t}\n\t\t}\n\t\t// 空的处理\n\t\tif (result.isEmpty()) { \n\t\t\tboolean multiple = indicatesMultipleBeans(requiredType);\n\t\t\t// Consider fallback matches if the first pass failed to find anything...\n\t\t\tDependencyDescriptor fallbackDescriptor = descriptor.forFallbackMatch();\n\t\t\tfor (String candidate : candidateNames) { \n\t\t\t\tif (!isSelfReference(beanName, candidate) \u0026\u0026 isAutowireCandidate(candidate, fallbackDescriptor) \u0026\u0026\n\t\t\t\t\t\t(!multiple || getAutowireCandidateResolver().hasQualifier(descriptor))) { \n\t\t\t\t\taddCandidateEntry(result, candidate, descriptor, requiredType);\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (result.isEmpty() \u0026\u0026 !multiple) { \n\t\t\t\t// Consider self references as a final pass...\n\t\t\t\t// but in the case of a dependency collection, not the very same bean itself.\n\t\t\t\tfor (String candidate : candidateNames) { \n\t\t\t\t\tif (isSelfReference(beanName, candidate) \u0026\u0026\n\t\t\t\t\t\t\t(!(descriptor instanceof MultiElementDescriptor) || !beanName.equals(candidate)) \u0026\u0026\n\t\t\t\t\t\t\tisAutowireCandidate(candidate, fallbackDescriptor)) { \n\t\t\t\t\t\taddCandidateEntry(result, candidate, descriptor, requiredType);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\treturn result;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-591qh02",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010532-591qh02",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四，@Autowired：通过bean的后置处理器AutowiredAnnotationBeanPostProcessor对@Autowired注解属性填充"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-zt5kh83",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-zt5kh83",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Person.java"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-fcemo9e",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-fcemo9e",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Component\npublic class Person { \n    @Autowired\n    private People people;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-lss807j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-lss807j",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "applicationContext.xml"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-ul5rek7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-ul5rek7",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xmlns:context=\"http://www.springframework.org/schema/context\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd\"\u003e\n    \u003ccontext:component-scan base-package=\"com.bobo.selfAutowired.annotation\"/\u003e\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-1bbrmix",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-1bbrmix",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AutowiredAnnotationBeanPostProcessor#postProcessProperties()：从缓存中取出这个bean对应的依赖注入的元信息InjectionMetadata：其中属性injectedElements记录了当前类需要注入的所有属性："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-mpvtrzk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-mpvtrzk",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201127163206105-20230404010531-5kfo3vr.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-29kzx16",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-29kzx16",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) { \n\t\t// 从缓存中取出这个bean对应的依赖注入的元信息~\n\t\tInjectionMetadata metadata = findAutowiringMetadata(beanName, bean.getClass(), pvs);\n\t\ttry { \n\t\t\t// 进行属性注入\n\t\t\tmetadata.inject(bean, beanName, pvs);\n\t\t}\n\t\tcatch (BeanCreationException ex) { \n\t\t\tthrow ex;\n\t\t}\n\t\tcatch (Throwable ex) { \n\t\t\tthrow new BeanCreationException(beanName, \"Injection of autowired dependencies failed\", ex);\n\t\t}\n\t\treturn pvs;\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-59pg6tw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-59pg6tw",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "InjectionMetadata#inject()：遍历需要注入的所有属性elementsToIterate，一个一个属性注入"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-docwywu",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-docwywu",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic void inject(Object target, @Nullable String beanName, @Nullable PropertyValues pvs) throws Throwable { \n\t\tCollection\u003cInjectedElement\u003e checkedElements = this.checkedElements;\n\t\tCollection\u003cInjectedElement\u003e elementsToIterate =\n\t\t\t\t(checkedElements != null ? checkedElements : this.injectedElements);\n\t\tif (!elementsToIterate.isEmpty()) { \n\t\t\tfor (InjectedElement element : elementsToIterate) { \n\t\t\t\tif (logger.isTraceEnabled()) { \n\t\t\t\t\tlogger.trace(\"Processing injected element of bean '\" + beanName + \"': \" + element);\n\t\t\t\t}\n\t\t\t\telement.inject(target, beanName, pvs);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-22r58b1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-22r58b1",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AutowiredAnnotationBeanPostProcessor#inject()：调用beanFactory.resolveDependency()方法找出所要注入的候选bean然后通过反射给属性赋值，beanFactory.resolveDependency()方法上面已经分析过了，此处省略。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-v5nicvz",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-v5nicvz",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void inject(Object bean, @Nullable String beanName, @Nullable PropertyValues pvs) throws Throwable { \n\t\t\tField field = (Field) this.member;\n\t\t\tObject value;\n\t\t\t// 如果缓存，从缓存中获取\n\t\t\tif (this.cached) { \n\t\t\t\t// 如果  cachedFieldValue instanceof DependencyDescriptor。则调用 resolveDependency 方法重新加载。\n\t\t\t\tvalue = resolvedCachedArgument(beanName, this.cachedFieldValue);\n\t\t\t}\n\t\t\telse { \n\t\t\t\t// 否则调用了 resolveDependency 方法。这个在前篇讲过，在 populateBean 方法中按照类型注入的时候就是通过此方法，\n\t\t\t\t// 也就是说明了 @Autowired 和 @Inject默认是 按照类型注入的\n\t\t\t\tDependencyDescriptor desc = new DependencyDescriptor(field, this.required);\n\t\t\t\tdesc.setContainingClass(bean.getClass());\n\t\t\t\tSet\u003cString\u003e autowiredBeanNames = new LinkedHashSet\u003c\u003e(1);\n\t\t\t\tAssert.state(beanFactory != null, \"No BeanFactory available\");\n\t\t\t\t// 转换器使用的bean工厂的转换器\n\t\t\t\tTypeConverter typeConverter = beanFactory.getTypeConverter();\n\t\t\t\ttry { \n\t\t\t\t\t// 获取依赖的value值的工作  最终还是委托给beanFactory.resolveDependency()去完成的\n\t\t\t\t\t// 这个接口方法由AutowireCapableBeanFactory提供，它提供了从bean工厂里获取依赖值的能力\n\t\t\t\t\tvalue = beanFactory.resolveDependency(desc, beanName, autowiredBeanNames, typeConverter);\n\t\t\t\t}\n\t\t\t\tcatch (BeansException ex) { \n\t\t\t\t\tthrow new UnsatisfiedDependencyException(null, beanName, new InjectionPoint(field), ex);\n\t\t\t\t}\n\t\t\t\t// 把缓存值缓存起来\n\t\t\t\tsynchronized (this) { \n\t\t\t\t\t// 如果没有缓存，则开始缓存\n\t\t\t\t\tif (!this.cached) { \n\t\t\t\t\t\t// 可以看到value！=null并且required=true才会进行缓存的处理\n\t\t\t\t\t\tif (value != null || this.required) { \n\t\t\t\t\t\t\t// 这里先缓存一下 desc，如果下面 utowiredBeanNames.size() \u003e 1。则在上面从缓存中获取的时候会重新获取。\n\t\t\t\t\t\t\tthis.cachedFieldValue = desc;\n\t\t\t\t\t\t\t// 注册依赖bean\n\t\t\t\t\t\t\tregisterDependentBeans(beanName, autowiredBeanNames);\n\t\t\t\t\t\t\t// autowiredBeanNames里可能会有别名的名称,所以size可能大于1\n\t\t\t\t\t\t\tif (autowiredBeanNames.size() == 1) { \n\t\t\t\t\t\t\t\t// beanFactory.isTypeMatch挺重要的,因为@Autowired是按照类型注入的\n\t\t\t\t\t\t\t\tString autowiredBeanName = autowiredBeanNames.iterator().next();\n\t\t\t\t\t\t\t\tif (beanFactory.containsBean(autowiredBeanName) \u0026\u0026\n\t\t\t\t\t\t\t\t\t\tbeanFactory.isTypeMatch(autowiredBeanName, field.getType())) { \n\t\t\t\t\t\t\t\t\tthis.cachedFieldValue = new ShortcutDependencyDescriptor(\n\t\t\t\t\t\t\t\t\t\t\tdesc, autowiredBeanName, field.getType());\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse { \n\t\t\t\t\t\t\tthis.cachedFieldValue = null;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tthis.cached = true;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (value != null) { \n\t\t\t\t// 通过反射，给属性赋值\n\t\t\t\tReflectionUtils.makeAccessible(field);\n\t\t\t\tfield.set(bean, value);\n\t\t\t}\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-hj52a8v",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010532-hj52a8v",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "五，applyPropertyValues()给放入pvs中的属性赋值"
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-nm4i59f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010532-nm4i59f",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面我们分析过，通过autowireByName，autowireByType注入时都会把找到的属性和对象放入到pvs的propertyValueList，所以此处applyPropertyValues()方法是对里面的属性进行赋值操作的："
+				}
+			]
+		},
+		{
+			"ID": "20230404010532-riuz15a",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010532-riuz15a",
+				"updated": "20230404010532"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tprotected void applyPropertyValues(String beanName, BeanDefinition mbd, BeanWrapper bw, PropertyValues pvs) { \n\t\t// 为空，直接返回\n\t\tif (pvs.isEmpty()) { \n\t\t\treturn;\n\t\t}\n\n\t\t// 如果有安全管理器，且bw是BeanWrapperImpl的实例\n\t\tif (System.getSecurityManager() != null \u0026\u0026 bw instanceof BeanWrapperImpl) { \n\t\t\t// 设置bw的安全上下文为工厂的访问控制上下文\n\t\t\t((BeanWrapperImpl) bw).setSecurityContext(getAccessControlContext());\n\t\t}\n\n\t\t//MutablePropertyValues：PropertyValues接口的默认实现。允许对属性进行简单操作，并提供构造函数来支持从映射 进行深度复制和构造\n\t\tMutablePropertyValues mpvs = null;\n\t\t// 原始属性列表\n\t\tList\u003cPropertyValue\u003e original;\n\n\t\t// 如果pvs是MutablePropertyValues\n\t\tif (pvs instanceof MutablePropertyValues) { \n\t\t\t// 类型强制转换\n\t\t\tmpvs = (MutablePropertyValues) pvs;\n\t\t\t//isConverted:返回该holder是否只包含转换后的值(true),或者是否仍然需要转换这些值\n\t\t\t//如果mpvs只包含转换后的值\n\t\t\tif (mpvs.isConverted()) { \n\t\t\t\t// Shortcut: use the pre-converted values as-is.\n\t\t\t\ttry { \n\t\t\t\t\t// 已完成，直接返回\n\t\t\t\t\tbw.setPropertyValues(mpvs);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tcatch (BeansException ex) { \n\t\t\t\t\t//捕捉Bean异常，重新抛出Bean创佳异常：错误设置属性值。\n\t\t\t\t\tthrow new BeanCreationException(\n\t\t\t\t\t\t\tmbd.getResourceDescription(), beanName, \"Error setting property values\", ex);\n\t\t\t\t}\n\t\t\t}\n\t\t\t// 获取mpvs的PropertyValue列表\n\t\t\toriginal = mpvs.getPropertyValueList();\n\t\t}\n\t\telse { \n\t\t\t//获取pvs的PropertyValue对象数组，并将其转换成列表\n\t\t\toriginal = Arrays.asList(pvs.getPropertyValues());\n\t\t}\n\n\t\t// 获取用户自定义类型转换器\n\t\tTypeConverter converter = getCustomTypeConverter();\n\t\t// 如果转换器为空，则直接把包装类赋值给converter\n\t\tif (converter == null) { \n\t\t\tconverter = bw;\n\t\t}\n\t\t//BeanDefinitionValueResolver:在bean工厂实现中使用Helper类，它将beanDefinition对象中包含的值解析为应用于 目标bean实例的实际值\n\t\tBeanDefinitionValueResolver valueResolver = new BeanDefinitionValueResolver(this, beanName, mbd, converter);\n\n\t\t// Create a deep copy, resolving any references for values.\n\t\t// 创建一个深拷贝，解析任何值引用\n\t\tList\u003cPropertyValue\u003e deepCopy = new ArrayList\u003c\u003e(original.size());\n\t\t//是否还需要解析标记\n\t\tboolean resolveNecessary = false;\n\t\t// 遍历属性，将属性转换为对应类的对应属性的类型\n\t\tfor (PropertyValue pv : original) { \n\t\t\t// 如果该属性已经解析过\n\t\t\tif (pv.isConverted()) { \n\t\t\t\t//将pv添加到deepCopy中\n\t\t\t\tdeepCopy.add(pv);\n\t\t\t}\n\t\t\t// 如果属性没有被解析过\n\t\t\telse { \n\t\t\t\t// 获取属性的名字\n\t\t\t\tString propertyName = pv.getName();\n\t\t\t\t// 获取未经类型转换的值\n\t\t\t\tObject originalValue = pv.getValue();\n\t\t\t\t//AutowiredPropertyMarker.INSTANCE：自动生成标记的规范实例\n\t\t\t\tif (originalValue == AutowiredPropertyMarker.INSTANCE) { \n\t\t\t\t\t//获取propertyName在bw中的setter方法\n\t\t\t\t\tMethod writeMethod = bw.getPropertyDescriptor(propertyName).getWriteMethod();\n\t\t\t\t\t//如果setter方法为null\n\t\t\t\t\tif (writeMethod == null) { \n\t\t\t\t\t\t//抛出非法参数异常：自动装配标记属性没有写方法。\n\t\t\t\t\t\tthrow new IllegalArgumentException(\"Autowire marker for property without write method: \" + pv);\n\t\t\t\t\t}\n\t\t\t\t\t//将writerMethod封装到DependencyDescriptor对象\n\t\t\t\t\toriginalValue = new DependencyDescriptor(new MethodParameter(writeMethod, 0), true);\n\t\t\t\t}\n\t\t\t\t//交由valueResolver根据pv解析出originalValue所封装的对象\n\t\t\t\tObject resolvedValue = valueResolver.resolveValueIfNecessary(pv, originalValue);\n\t\t\t\t//默认转换后的值是刚解析出来的值\n\t\t\t\tObject convertedValue = resolvedValue;\n\t\t\t\t//可转换标记: propertyName是否bw中的可写属性 \u0026\u0026 prepertyName不是表示索引属性或嵌套属性（如果propertyName中有'.'||'['就认为是索引属性或嵌套属性）\n\t\t\t\tboolean convertible = bw.isWritableProperty(propertyName) \u0026\u0026\n\t\t\t\t\t\t!PropertyAccessorUtils.isNestedOrIndexedProperty(propertyName);\n\t\t\t\t//如果可转换\n\t\t\t\tif (convertible) { \n\t\t\t\t\t//将resolvedValue转换为指定的目标属性对象\n\t\t\t\t\tconvertedValue = convertForProperty(resolvedValue, propertyName, bw, converter);\n\t\t\t\t}\n\t\t\t\t// Possibly store converted value in merged bean definition,\n\t\t\t\t// in order to avoid re-conversion for every created bean instance.\n\t\t\t\t// 可以将转换后的值存储合并后BeanDefinition中，以避免对每个创建的Bean实例进行重新转换\n\t\t\t\t//如果resolvedValue与originalValue是同一个对象\n\t\t\t\tif (resolvedValue == originalValue) { \n\t\t\t\t\t//如果可转换\n\t\t\t\t\tif (convertible) { \n\t\t\t\t\t\t//将convertedValue设置到pv中\n\t\t\t\t\t\tpv.setConvertedValue(convertedValue);\n\t\t\t\t\t}\n\t\t\t\t\t//将pv添加到deepCopy中\n\t\t\t\t\tdeepCopy.add(pv);\n\t\t\t\t}\n\t\t\t\t//TypedStringValue:类型字符串的Holder,这个holder将只存储字符串值和目标类型。实际得转换将由Bean工厂执行\n\t\t\t\t//如果可转换 \u0026\u0026 originalValue是TypedStringValue的实例 \u0026\u0026 orginalValue不是标记为动态【即不是一个表达式】\u0026\u0026\n\t\t\t\t// \tconvertedValue不是Collection对象 或 数组\n\t\t\t\telse if (convertible \u0026\u0026 originalValue instanceof TypedStringValue \u0026\u0026\n\t\t\t\t\t\t!((TypedStringValue) originalValue).isDynamic() \u0026\u0026\n\t\t\t\t\t\t!(convertedValue instanceof Collection || ObjectUtils.isArray(convertedValue))) { \n\t\t\t\t\t//将convertedValue设置到pv中\n\t\t\t\t\tpv.setConvertedValue(convertedValue);\n\t\t\t\t\t//将pv添加到deepCopy中\n\t\t\t\t\tdeepCopy.add(pv);\n\t\t\t\t}\n\t\t\t\telse { \n\t\t\t\t\t//标记还需要解析\n\t\t\t\t\tresolveNecessary = true;\n\t\t\t\t\t//根据pv,convertedValue构建PropertyValue对象，并添加到deepCopy中\n\t\t\t\t\tdeepCopy.add(new PropertyValue(pv, convertedValue));\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t//mpvs不为null \u0026\u0026 已经不需要解析\n\t\tif (mpvs != null \u0026\u0026 !resolveNecessary) { \n\t\t\t//将此holder标记为只包含转换后的值\n\t\t\tmpvs.setConverted();\n\t\t}\n\n\t\t// Set our (possibly massaged) deep copy.\n\t\ttry { \n\t\t\t//按原样使用deepCopy构造一个新的MutablePropertyValues对象然后设置到bw中以对bw的属性值更新\n\t\t\tbw.setPropertyValues(new MutablePropertyValues(deepCopy));\n\t\t}\n\t\tcatch (BeansException ex) { \n\t\t\tthrow new BeanCreationException(\n\t\t\t\t\tmbd.getResourceDescription(), beanName, \"Error setting property values\", ex);\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		}
+	]
+}

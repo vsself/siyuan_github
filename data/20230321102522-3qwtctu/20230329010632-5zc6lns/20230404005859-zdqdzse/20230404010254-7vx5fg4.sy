@@ -1,0 +1,1120 @@
+{
+	"ID": "20230404010254-7vx5fg4",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010254-7vx5fg4",
+		"scroll": "{\u0026quot;startId\u0026quot;:\u0026quot;20230404010254-b9tqclg\u0026quot;,\u0026quot;endId\u0026quot;:\u0026quot;20230404010254-snl6hyc\u0026quot;,\u0026quot;scrollTop\u0026quot;:5188,\u0026quot;focusId\u0026quot;:\u0026quot;20230404010254-3aohkxp\u0026quot;,\u0026quot;focusStart\u0026quot;:4,\u0026quot;focusEnd\u0026quot;:4}",
+		"title": "吃透Spring源码（五）：spring中Beanefinition完全解析_吃透Java的博客-CSDN博客",
+		"updated": "20230404010254"
+	},
+	"Children": [
+		{
+			"ID": "20230404010254-b9tqclg",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010254-b9tqclg",
+				"updated": "20230404010254"
+			}
+		},
+		{
+			"ID": "20230404010254-9yro7je",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010254-9yro7je",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"ID": "20230404010254-db0h61z",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010254-db0h61z",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"ID": "20230404010254-ezyael6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010254-ezyael6",
+								"updated": "20230404010254"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/109487922",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/109487922"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010254-5j1j6ek",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010254-5j1j6ek",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"ID": "20230404010254-2ucshy9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010254-2ucshy9",
+								"updated": "20230404010254"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "大家用过spring的应该都知道BeanDefinition是记录bean的定义信息的，但是我们看源码时会发现，源码中通过BeanDefinition接口派生出来好多类，比如GenericBeanDefinition,AnnotatedGenericBeanDefinition,RootBeanDefinition等等，那么他们之间有什么区别，都是在什么情况下用到的呢？这篇文章就带大家一起探讨。1，BeanDefinition常用类关系图2，BeanDefinition接口BeanDefinitio"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010254-c5rqrd0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010254-c5rqrd0",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"ID": "20230404010254-3ueqyp9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010254-3ueqyp9",
+								"updated": "20230404010254"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:02:54"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-vkkfgk6",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010254-vkkfgk6",
+				"updated": "20230404010254"
+			}
+		},
+		{
+			"ID": "20230404010254-7y9m7n4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-7y9m7n4",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "大家用过spring的应该都知道BeanDefinition是记录bean的定义信息的，但是我们看源码时会发现，源码中通过BeanDefinition接口派生出来好多类，比如GenericBeanDefinition,AnnotatedGenericBeanDefinition,RootBeanDefinition等等，那么他们之间有什么区别，都是在什么情况下用到的呢？这篇文章就带大家一起探讨。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-g9y8ei3",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-g9y8ei3",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，BeanDefinition常用类关系图"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-cwnxg47",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-cwnxg47",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201104153706698-20230404010254-tocqm84.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-gjq21oa",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-gjq21oa",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，BeanDefinition接口"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-11snptf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-11snptf",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "BeanDefinition是一个接口，定义了修改和获取Bean属性值和元数据信息。在DefaultListableBeanFactory中定义了BeanDefinitionMap来记录解析的BeanDefinition，定义了beanDefinitionNames来记录BeanDefinition名字列表："
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-so4ce7a",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-so4ce7a",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "/** Map of bean definition objects, keyed by bean name. */\nprivate final Map\u003cString, BeanDefinition\u003e beanDefinitionMap = new ConcurrentHashMap\u003c\u003e(256);\n/** List of bean definition names, in registration order. */\nprivate volatile List\u003cString\u003e beanDefinitionNames = new ArrayList\u003c\u003e(256);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-r45hd3t",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-r45hd3t",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3，AbstractBeanDefinition"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-tuncy2p",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-tuncy2p",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\t\tnew AbstractBeanDefinition() { \n            @Override\n            public void setParentName(String parentName) { \n\n            }\n\n            @Override\n            public String getParentName() { \n                return null;\n            }\n\n            @Override\n            public AbstractBeanDefinition cloneBeanDefinition() { \n                return null;\n            }\n        };\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-yoihxlb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-yoihxlb",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AbstractBeanDefinition是BeanDefinition接口的抽象实现，除了BeanDefinition中的以上三个方法没实现，其余的全部实现了。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-jvb6oiu",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-jvb6oiu",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4，GenericBeanDefinition"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-6yuxj0t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-6yuxj0t",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "GenericBeanDefinition类是AbstractBeanDefinition类的具体实现，义为通用的BeanDefinition。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-vj3qnb8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-vj3qnb8",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "strong",
+					"TextMarkTextContent": "一般我们通过xml定义的普通bean在源码中会被解析为GenericBeanDefinition。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-z6j452y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-z6j452y",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如下xml"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-j3yhsc7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-j3yhsc7",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbeans xmlns=\"http://www.springframework.org/schema/beans\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"\u003e\n    \u003cbean id=\"a\" class=\"com.mashibing.A\"\u003e\u003c/bean\u003e\n\u003c/beans\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-gfmju3h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-gfmju3h",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "调试信息"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-8c123l6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-8c123l6",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201104122643600-20230404010254-dnhdh9l.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-1c6imqh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-1c6imqh",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5，RootBeanDefinition"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-p0cvesq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-p0cvesq",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "RootBeanDefinition也是AbstractBeanDefinition的其中一个实现类，它可以单独作为一个BeanDefinition，也可以作为其他 BeanDefinition 的父类。RootBeanDefinition 在 AbstractBeanDefinition 的基础上定义了更多属性。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-wye68ud",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-wye68ud",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在spring源码的refresh方法中的invokeBeanFactoryPostProcessors(beanFactory)去执行所有的BeanFactoryPostProcessor时会通过去遍历beanDefinitionNames集合，然后把beanDefinitionMap中的BeanDefinition全部合并为RootBeanDefinition，并且缓存到mergedBeanDefinitions中，这样在实例化bean时，通过getMergedLocalBeanDefinition直接从mergedBeanDefinitions中取出来即可。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-tvyt5x8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-tvyt5x8",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "/** Map from bean name to merged RootBeanDefinition. */\nprivate final Map\u003cString, RootBeanDefinition\u003e mergedBeanDefinitions = new ConcurrentHashMap\u003c\u003e(256);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-uuh1bw1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-uuh1bw1",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201104122721185-20230404010254-olbnalm.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-x901mw2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-x901mw2",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201104122819579-20230404010254-r19qhi7.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-3aohkxp",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-3aohkxp",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "protected RootBeanDefinition getMergedBeanDefinition(\n\t\t\tString beanName, BeanDefinition bd, @Nullable BeanDefinition containingBd)\n\t\t\tthrows BeanDefinitionStoreException { \n\n\t\tsynchronized (this.mergedBeanDefinitions) { \n\t\t\t// 用于存储bd的MergedBeanDefinition\n\t\t\tRootBeanDefinition mbd = null;\n\t\t\tRootBeanDefinition previous = null;\n\n\t\t\t// Check with full lock now in order to enforce the same merged instance.\n\t\t\t// 检查beanName对应的MergedBeanDefinition是否存在于缓存中\n\t\t\tif (containingBd == null) { \n\t\t\t\tmbd = this.mergedBeanDefinitions.get(beanName);\n\t\t\t}\n\n\t\t\t// 如果缓存中没有\n\t\t\tif (mbd == null || mbd.stale) { \n\t\t\t\tprevious = mbd;\n\t\t\t\t// 如果bd的parentName为空，代表bd没有父定义，无需与父定义进行合并操作\n\t\t\t\tif (bd.getParentName() == null) { \n\t\t\t\t\t// Use copy of given root bean definition.\n\t\t\t\t\t// 如果bd的类型为RootBeanDefinition，则bd的MergedBeanDefinition就是bd本身，则直接克隆一个副本\n\t\t\t\t\tif (bd instanceof RootBeanDefinition) { \n\t\t\t\t\t\tmbd = ((RootBeanDefinition) bd).cloneBeanDefinition();\n\t\t\t\t\t}\n\t\t\t\t\telse { \n\t\t\t\t\t\t// 否则，将bd作为参数，构建一个RootBeanDefinition。\n\t\t\t\t\t\t// 正常使用下，BeanDefinition在被加载后是GenericBeanDefinition或ScannedGenericBeanDefinition\n\t\t\t\t\t\tmbd = new RootBeanDefinition(bd);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\telse { \n\t\t\t\t\t// Child bean definition: needs to be merged with parent.\n\t\t\t\t\t// bd存在父定义，需要与父定义合并\n\t\t\t\t\tBeanDefinition pbd;\n\t\t\t\t\ttry { \n\t\t\t\t\t\t// 获取父bean的名称，并进行转换\n\t\t\t\t\t\tString parentBeanName = transformedBeanName(bd.getParentName());\n\t\t\t\t\t\t// 如果当前beanName和父beanName不相同，那么递归调用合并方法\n\t\t\t\t\t\tif (!beanName.equals(parentBeanName)) { \n\t\t\t\t\t\t\tpbd = getMergedBeanDefinition(parentBeanName);\n\t\t\t\t\t\t}\n\t\t\t\t\t\t// 如果父定义的beanName与bd的beanName相同，则拿到父BeanFactory，\n\t\t\t\t\t\t// 只有在存在父BeanFactory的情况下，才允许父定义beanName与自己相同，否则就是将自己设置为父定义\n\t\t\t\t\t\telse { \n\t\t\t\t\t\t\tBeanFactory parent = getParentBeanFactory();\n\t\t\t\t\t\t\t// 如果父BeanFactory是ConfigurableBeanFactory，则通过父BeanFactory获取父定义的MergedBeanDefinition\n\t\t\t\t\t\t\tif (parent instanceof ConfigurableBeanFactory) { \n\t\t\t\t\t\t\t\tpbd = ((ConfigurableBeanFactory) parent).getMergedBeanDefinition(parentBeanName);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\telse { \n\t\t\t\t\t\t\t\t// 如果父BeanFactory不是ConfigurableBeanFactory，则抛异常\n\t\t\t\t\t\t\t\tthrow new NoSuchBeanDefinitionException(parentBeanName,\n\t\t\t\t\t\t\t\t\t\t\"Parent name '\" + parentBeanName + \"' is equal to bean name '\" + beanName +\n\t\t\t\t\t\t\t\t\t\t\"': cannot be resolved without a ConfigurableBeanFactory parent\");\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tcatch (NoSuchBeanDefinitionException ex) { \n\t\t\t\t\t\tthrow new BeanDefinitionStoreException(bd.getResourceDescription(), beanName,\n\t\t\t\t\t\t\t\t\"Could not resolve p标注 @Bean 注解的类会使用构造方法自动装配\n\narent bean definition '\" + bd.getParentName() + \"'\", ex);\n\t\t\t\t\t}\n\t\t\t\t\t// Deep copy with overridden values.\n\t\t\t\t\t// 使用父定义pbd构建一个新的RootBeanDefinition对象\n\t\t\t\t\tmbd = new RootBeanDefinition(pbd);\n\t\t\t\t\t// 使用bd覆盖父定义\n\t\t\t\t\tmbd.overrideFrom(bd);\n\t\t\t\t}\n\n\t\t\t\t// Set default singleton scope, if not configured before.\n\t\t\t\t// 如果没有指定scope，那么设置默认的scope为单例\n\t\t\t\tif (!StringUtils.hasLength(mbd.getScope())) { \n\t\t\t\t\tmbd.setScope(SCOPE_SINGLETON);\n\t\t\t\t}\n\n\t\t\t\t// A bean contained in a non-singleton bean cannot be a singleton itself.\n\t\t\t\t// Let's correct this on the fly here, since this might be the result of\n\t\t\t\t// parent-child merging for the outer bean, in which case the original inner bean\n\t\t\t\t// definition will not have inherited the merged outer bean's singleton status.\n\t\t\t\t// 如果containingBd不为空 \u0026\u0026 containingBd不为singleton \u0026\u0026 mbd为singleton，则将mdb的scope设置为containingBd的scope\n\t\t\t\tif (containingBd != null \u0026\u0026 !containingBd.isSingleton() \u0026\u0026 mbd.isSingleton()) { \n\t\t\t\t\tmbd.setScope(containingBd.getScope());\n\t\t\t\t}\n\n\t\t\t\t// Cache the merged bean definition for the time being\n\t\t\t\t// (it might still get re-merged later on in order to pick up metadata changes)\n\t\t\t\t// 将beanName与mbd放到mergedBeanDefinitions缓存，以便之后可以直接使用\n\t\t\t\tif (containingBd == null \u0026\u0026 isCacheBeanMetadata()) { \n\t\t\t\t\tthis.mergedBeanDefinitions.put(beanName, mbd);\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (previous != null) { \n\t\t\t\tcopyRelevantMergedBeanDefinitionCaches(previous, mbd);\n\t\t\t}\n\t\t\t// 返回MergedBeanDefinition\n\t\t\treturn mbd;\n\t\t}\n\t}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-4xje63y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-4xje63y",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "实例化Bean时，从mergedBeanDefinitions缓存中直接取到RootBeanDefinition"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201104123139775-20230404010254-3tmrlpg.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-w7r6vbz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-w7r6vbz",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "6，ChildBeanDefinition"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-utzdnng",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-utzdnng",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ChildBeanDefinition继承自 AbstractBeanDefinition。其相当于一个子类，不可以单独存在，必须依赖一个父 BeanDetintion，构造 ChildBeanDefinition 时，通过构造方法传入父 BeanDetintion 的名称或通过 setParentName 设置父名称。它可以从父类继承方法参数、属性值，并可以重写父类的方法，同时也可以增加新的属性或者方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-82sdslr",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230404010254-82sdslr",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230404010254-vdew9yx",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230404010254-vdew9yx",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "从 Spring 2.5 开始，以编程方式注册 Bean 定义的首选方法是 GenericBeanDefinition，GenericBeanDefinition 可以有效替代 ChildBeanDefinition 的绝大分部使用场合。"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-uxiwamk",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-uxiwamk",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "7，AnnotatedBeanDefinition"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-crsx30z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-crsx30z",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AnnotatedBeanDefinition 是 BeanDefinition 子接口之一，该接口扩展了 BeanDefinition 的功能，其用来操作注解元数据。一般情况下，通过注解方式得到的 Bean（@Component、@Bean），其 BeanDefinition 类型都是该接口的实现类。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-ynad19i",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010254-ynad19i",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public interface AnnotatedBeanDefinition extends BeanDefinition { \n\n\t// 获得当前 Bean 的注解元数据\n\tAnnotationMetadata getMetadata();\n\n\t// 获得当前 Bean 的工厂方法上的元数据\n\tMethodMetadata getFactoryMethodMetadata();\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-nbsa60h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-nbsa60h",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "该接口可以返回两个元数据的类："
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-9gpjfb5",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010254-9gpjfb5",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"ID": "20230404010254-8s6ijzy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010254-8s6ijzy",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"ID": "20230404010254-85bwwhi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010254-85bwwhi",
+								"updated": "20230404010254"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "AnnotationMetadata：主要对 Bean 的注解信息进行操作，如：获取当前 Bean 标注的所有注解、判断是否包含指定注解。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010254-iqjnu8t",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010254-iqjnu8t",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"ID": "20230404010254-uyb6bse",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010254-uyb6bse",
+								"updated": "20230404010254"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "MethodMetadata：方法的元数据类。提供获取方法名称、此方法所属类的全类名、是否是抽象方法、判断是否是静态方法、判断是否是final方法等。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-153ifyo",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-153ifyo",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "8，ScannedGenericBeanDefinition"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-4mvw5ef",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-4mvw5ef",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ScannedGenericBeanDefinition继承自 GenericBeanDefinition ，并实现了 AnnotatedBeanDefinition 接口。这个 BeanDefinition 用来描述标注 @Component 注解的 Bean，其派生注解如 @Service、@Controller 也同理。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-17i2dwx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-17i2dwx",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其在源码中是在loadBeanDefinition时解析xml配置文件，如果包含component-scan标签，就扫描component-scan的base-package指定的包下包含@Component注解（当然包括@Service，@Controller）的类，添加的beanDefinitionMap中注入进来。\n​"
+				},
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "在这里插入图片描述"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/20201104144852245-20230404010254-murifg2.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-sxaqr00",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-sxaqr00",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "9，AnnotatedGenericBeanDefinition"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-5i6amr7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-5i6amr7",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "AnnotatedGenericBeanDefinition继承自 GenericBeanDefinition ，并实现了 AnnotatedBeanDefinition 接口。这个 BeanDefinition 用来描述通过@Import注解方式注入的 Bean。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-l0razgz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010254-l0razgz",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "10，ConfigurationClassBeanDefinition"
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-1m19r0z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010254-1m19r0z",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ConfigurationClassBeanDefinition继承自 RootBeanDefinition ，并实现了 AnnotatedBeanDefinition 接口。这个 BeanDefinition 用来描述在标注 @Configuration 注解的类中，通过 @Bean 注解实例化的 Bean。\n其功能特点如下："
+				}
+			]
+		},
+		{
+			"ID": "20230404010254-snl6hyc",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010254-snl6hyc",
+				"updated": "20230404010254"
+			},
+			"Children": [
+				{
+					"ID": "20230404010254-viy19jr",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010254-viy19jr",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"ID": "20230404010254-t95wlsx",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010254-t95wlsx",
+								"updated": "20230404010254"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果 @Bean 注解没有指定 Bean 的名字，默认会用方法的名字命名 Bean。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010254-t5wpp7t",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010254-t5wpp7t",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"ID": "20230404010254-ka55oe6",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010254-ka55oe6",
+								"updated": "20230404010254"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "标注 @Configuration 注解的类会成为一个工厂类，而标注 @Bean 注解的方法会成为工厂方法，通过工厂方法实例化 Bean，而不是直接通过构造方法初始化。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010254-9k71diz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010254-9k71diz",
+						"updated": "20230404010254"
+					},
+					"Children": [
+						{
+							"ID": "20230404010254-z8cz5fm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010254-z8cz5fm",
+								"updated": "20230404010254"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "标注 @Bean 注解的类会使用构造方法自动装配。"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,1607 @@
+{
+	"ID": "20230404010537-0b33tbj",
+	"Spec": "1",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230404010537-0b33tbj",
+		"title": "吃透Spring源码（十四）：动态代理JDK实现方式源码分析_吃透Java的博客-CSDN博客",
+		"updated": "20230404010537"
+	},
+	"Children": [
+		{
+			"ID": "20230404010537-tufm635",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010537-tufm635",
+				"updated": "20230404010537"
+			}
+		},
+		{
+			"ID": "20230404010537-2vbhtus",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010537-2vbhtus",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"ID": "20230404010537-vt95a80",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010537-vt95a80",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-dy6extd",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-dy6extd",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "a",
+									"TextMarkAHref": "https://blog.csdn.net/u013277209/article/details/111593453",
+									"TextMarkTextContent": "https://blog.csdn.net/u013277209/article/details/111593453"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010537-eq641rs",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010537-eq641rs",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-o04vz01",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-o04vz01",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "JDK动态代理"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "strong",
+									"TextMarkTextContent": "所谓动态代理是指：在程序运行期间根据需要动态创建代理类及其实例来完成具体的功能。"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "动态代理主要分为JDK动态代理和cglib动态代理两大类，本文主要对JDK动态代理进行探讨。使用步骤新建接口新建一个接口实现类实现代理类回调接口InvocationHandler通过Proxy.newProxyInstance()方法创建代理类使用案例1，新建HelloWord接口public interface HelloWord {    void sayHello();"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010537-010p8tq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010537-010p8tq",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-44dermq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-44dermq",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "2023-04-04 01:05:37"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-s43c7ua",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230404010537-s43c7ua",
+				"updated": "20230404010537"
+			}
+		},
+		{
+			"ID": "20230404010537-ke7a83w",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010537-ke7a83w",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "JDK动态代理"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-8kzwsg9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010537-8kzwsg9",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所谓动态代理是指：在程序运行期间根据需要动态创建代理类及其实例来完成具体的功能，动态代理主要分为JDK动态代理和"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "a",
+					"TextMarkAHref": "https://so.csdn.net/so/search?q=cglib\u0026spm=1001.2101.3001.7020",
+					"TextMarkTextContent": "cglib"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "动态代理两大类，本文主要对JDK动态代理进行探讨。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-7qok6a7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010537-7qok6a7",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "使用步骤"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-ej50q2z",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010537-ej50q2z",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"ID": "20230404010537-czjv6g1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010537-czjv6g1",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-fbd6f3t",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-fbd6f3t",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "新建接口"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010537-mq1r8ah",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010537-mq1r8ah",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-dl1ntbo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-dl1ntbo",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "新建一个接口实现类"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010537-ulj0k01",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010537-ulj0k01",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-c9xt9uy",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-c9xt9uy",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "实现代理类回调接口InvocationHandler"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010537-j4qgrss",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010537-j4qgrss",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-fqp1cvk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-fqp1cvk",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "通过Proxy.newProxyInstance()方法创建代理类"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-ov8xdla",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230404010537-ov8xdla",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "使用案例"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-0uesbqo",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010537-0uesbqo",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1，新建HelloWord接口"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-ikj5h93",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010537-ikj5h93",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public interface HelloWord { \n    void sayHello();\n    void sayGoodBye();\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-2f0qi54",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010537-2f0qi54",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2，HelloWord接口实现类HelloWordImpl"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-0nudmnd",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010537-0nudmnd",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class HelloWordImpl implements HelloWord { \n    @Override\n    public void sayHello() { \n        System.out.println(\"Hello\");\n    }\n\n    @Override\n    public void sayGoodBye() { \n        System.out.println(\"GoodBye\");\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-njtu6ch",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010537-njtu6ch",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3，InvokeHandler接口实现类"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-uj2kfto",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010537-uj2kfto",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic static class HelloWordInvokeHandler implements InvocationHandler { \n\n        private Object target;\n\n        public HelloWordInvokeHandler(HelloWord helloWord) { \n            this.target = helloWord;\n        }\n\n        @Override\n        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable { \n            System.out.println(\"执行前\");\n            Object invoke = method.invoke(target, args);\n            System.out.println(\"执行后\");\n            return invoke;\n        }\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-5d49h5l",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010537-5d49h5l",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4，创建代理类，并调用代理类"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-bru00fd",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010537-bru00fd",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class MyTest { \n    public static void main(String[] args) { \n        // 被代理实例\n        HelloWordImpl helloWord = new HelloWordImpl();\n        // 获取classLoader\n        ClassLoader classLoader = helloWord.getClass().getClassLoader();\n        // 获取接口数组\n        Class\u003c?\u003e[] interfaces = helloWord.getClass().getInterfaces();\n        // 创建代理类\n        HelloWord proxyInstance = (HelloWord) Proxy.newProxyInstance(classLoader, interfaces, new HelloWordInvokeHandler(helloWord));\n        // 调用代理类\n        proxyInstance.sayHello();\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-b0jpmgp",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010537-b0jpmgp",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5，运行输出"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-a2ijypd",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010537-a2ijypd",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "执行前\nHello\n执行后\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-afjya3i",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230404010537-afjya3i",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "JDK动态代理源码分析"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-l09ch0o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010537-l09ch0o",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "分析Proxy.newProxyInstance()创建代理类的过程，大致分为以下步骤："
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-bs049rx",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010537-bs049rx",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"ID": "20230404010537-90nh2t1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010537-90nh2t1",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-7acz15i",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-7acz15i",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "为接口创建代理类的字节码文件"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010537-zlde0in",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010537-zlde0in",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-eqw2s1l",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-eqw2s1l",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "使用ClassLoader将字节码文件加载到 JVM"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010537-rdn8o8u",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010537-rdn8o8u",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-o0yvybo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-o0yvybo",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "创建代理类实例对象"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-ihfknjs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010537-ihfknjs",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "创建完代理类，通过调用代理类方法，回调到InvokeHander实例，利用反射实现被代理类方法的调用。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-akdcllo",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010537-akdcllo",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Proxy.newProxyInstance()源码入手"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-5nns3ur",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010537-5nns3ur",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Proxy implements java.io.Serializable { \n  \n    // 创建的代理类的构造函数参数，为InvocationHandler对象\n    private static final Class\u003c?\u003e[] constructorParams =\n        {  InvocationHandler.class };\n  \n    @CallerSensitive\n    public static Object newProxyInstance(ClassLoader loader,\n                                          Class\u003c?\u003e[] interfaces,\n                                          InvocationHandler h)\n        throws IllegalArgumentException\n    { \n        // 要求InvocationHandler不等于null，这里很好理解，因为主要靠InvocationHandler回调来实现对被代理类的调用。\n        Objects.requireNonNull(h);\n\t\t// 接口数组拷贝一份\n        final Class\u003c?\u003e[] intfs = interfaces.clone();\n        // 安全检查\n        final SecurityManager sm = System.getSecurityManager();\n        if (sm != null) { \n            checkProxyAccess(Reflection.getCallerClass(), loader, intfs);\n        }\n\n        // 如果缓存中存在直接获取，或者创建新的代理类class对象\n        Class\u003c?\u003e cl = getProxyClass0(loader, intfs);\n\n        /*\n         * Invoke its constructor with the designated invocation handler.\n         */\n        try { \n            if (sm != null) { \n                checkNewProxyPermission(Reflection.getCallerClass(), cl);\n            }\n\t\t\t// 得到代理类对象的构造函数，这个构造函数的参数由constructorParams指定\n            // 参数constructorParames为常量值：private static final Class\u003c?\u003e[] constructorParams = { InvocationHandler.class };\n            final Constructor\u003c?\u003e cons = cl.getConstructor(constructorParams);\n            final InvocationHandler ih = h;\n            if (!Modifier.isPublic(cl.getModifiers())) { \n                AccessController.doPrivileged(new PrivilegedAction\u003cVoid\u003e() { \n                    public Void run() { \n                        cons.setAccessible(true);\n                        return null;\n                    }\n                });\n            }\n            // 创建代理类的对象\n            return cons.newInstance(new Object[]{ h});\n        } catch (IllegalAccessException|InstantiationException e) { \n            throw new InternalError(e.toString(), e);\n        } catch (InvocationTargetException e) { \n            Throwable t = e.getCause();\n            if (t instanceof RuntimeException) { \n                throw (RuntimeException) t;\n            } else { \n                throw new InternalError(t.toString(), t);\n            }\n        } catch (NoSuchMethodException e) { \n            throw new InternalError(e.toString(), e);\n        }\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-l5iuu59",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010537-l5iuu59",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "以上源码完成了代理类的创建："
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-kq0spoc",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010537-kq0spoc",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"ID": "20230404010537-ej771aa",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010537-ej771aa",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-h0ozy7c",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-h0ozy7c",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "getProxyClass0()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​方法：为接口创建代理类的字节码文件，并使用ClassLoader将字节妈文件加载到JVM，返回代理类的Class对象"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010537-rvksj5m",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010537-rvksj5m",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-ietwac1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-ietwac1",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "cl.getConstructor(constructorParams)"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​方法：获得代理类指定的构造函数"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010537-dvtwtbp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010537-dvtwtbp",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-3abawlc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-3abawlc",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "​"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "cons.newInstance(new Object[]{h})"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​方法：通过反射创建代理类对象"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-k8cgr18",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010537-k8cgr18",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "最重要的是第一步getProxyClass0()方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-6s3ua65",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010537-6s3ua65",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Proxy implements java.io.Serializable { \n    private static final WeakCache\u003cClassLoader, Class\u003c?\u003e[], Class\u003c?\u003e\u003e\n        proxyClassCache = new WeakCache\u003c\u003e(new KeyFactory(), new ProxyClassFactory());\n  \n    //此方法也是Proxy类下的方法\n    private static Class\u003c?\u003e getProxyClass0(ClassLoader loader,\n                                           Class\u003c?\u003e... interfaces) { \n        // 接口个数超过65535个，直接抛出异常。\n        if (interfaces.length \u003e 65535) { \n            throw new IllegalArgumentException(\"interface limit exceeded\");\n        }\n\n        // 如果代理类被指定的类加载器loader定义了，并实现了给定的接口interfaces，\n        // 那么就返回缓存的代理类对象，否则使用ProxyClassFactory创建代理类。\n        return proxyClassCache.get(loader, interfaces);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-petbblm",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010537-petbblm",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "proxyClassCache介绍"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-x10k263",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010537-x10k263",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "private static final WeakCache\u003cClassLoader, Class\u003c?\u003e[], Class\u003c?\u003e\u003e\n        proxyClassCache = new WeakCache\u003c\u003e(new KeyFactory(), new ProxyClassFactory());\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-s3gwoj5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010537-s3gwoj5",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "proxyClassCache"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​是个WeakCache类的对象，调用proxyClassCache.get(loader, interfaces); 可以得到缓存的代理类或创建代理类（没有缓存的情况）。说明WeakCache中有"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "get"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​这个方法。先看下WeakCache类的定义（这里先只给出变量的定义和构造函数）："
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-f2jszde",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010537-f2jszde",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "// K代表key的类型，P代表参数的类型，V代表value的类型。\n// WeakCache\u003cClassLoader, Class\u003c?\u003e[], Class\u003c?\u003e\u003e  proxyClassCache  说明proxyClassCache存的值是Class\u003c?\u003e对象，正是我们需要的代理类对象。\nfinal class WeakCache\u003cK, P, V\u003e { \n    private final ConcurrentMap\u003cObject, ConcurrentMap\u003cObject, Supplier\u003cV\u003e\u003e\u003e map = new ConcurrentHashMap\u003c\u003e();\n    private final BiFunction\u003cK, P, ?\u003e subKeyFactory;\n    private final BiFunction\u003cK, P, V\u003e valueFactory;\n  \n    public WeakCache(BiFunction\u003cK, P, ?\u003e subKeyFactory,BiFunction\u003cK, P, V\u003e valueFactory) { \n        this.subKeyFactory = Objects.requireNonNull(subKeyFactory);\n        this.valueFactory = Objects.requireNonNull(valueFactory);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-vxmyuvt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010537-vxmyuvt",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其中map变量是实现缓存的核心变量，其可以翻译为：ConcurrentMap\u003ckey, ConcurrentMap\u003csubKey, value\u003e\u003e"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-1shsduo",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230404010537-1shsduo",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"ID": "20230404010537-pvbz03m",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010537-pvbz03m",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-se5dzyz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-se5dzyz",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "key：是传进来的Classloader进行包装后的对象，"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "cacheKey"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010537-7yciot1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010537-7yciot1",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-giak23d",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-giak23d",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "subKey：是由WeakCache构造函数传人的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "KeyFactory()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​生成的。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010537-fxtqyna",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230404010537-fxtqyna",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-gs9mpke",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-gs9mpke",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "value：是产生代理类的对象，是由WeakCache构造函数传人的"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "ProxyClassFactory()"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​生成的。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-3eza2eh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010537-3eza2eh",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通过sub-key拿到一个"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "Supplier\u0026lt;Class\u0026lt;?\u0026gt;\u0026gt;"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​对象，然后调用这个对象的get方法，最终得到代理类的Class对象。"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-vpfo6zy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010537-vpfo6zy",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "回到"
+				},
+				{
+					"Type": "NodeTextMark",
+					"TextMarkType": "code",
+					"TextMarkTextContent": "proxyClassCache.get(loader, interfaces);"
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​源码"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-1zsldhh",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010537-1zsldhh",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "final class WeakCache\u003cK, P, V\u003e { \n\n    private final ReferenceQueue\u003cK\u003e refQueue = new ReferenceQueue\u003c\u003e();\n    private final ConcurrentMap\u003cObject, ConcurrentMap\u003cObject, Supplier\u003cV\u003e\u003e\u003e map\n        = new ConcurrentHashMap\u003c\u003e();\n    private final ConcurrentMap\u003cSupplier\u003cV\u003e, Boolean\u003e reverseMap\n        = new ConcurrentHashMap\u003c\u003e();\n    private final BiFunction\u003cK, P, ?\u003e subKeyFactory;\n    private final BiFunction\u003cK, P, V\u003e valueFactory;\n\n    public WeakCache(BiFunction\u003cK, P, ?\u003e subKeyFactory,BiFunction\u003cK, P, V\u003e valueFactory) { \n        this.subKeyFactory = Objects.requireNonNull(subKeyFactory);\n        this.valueFactory = Objects.requireNonNull(valueFactory);\n    }\n\n    // K和P就是WeakCache定义中的泛型，key是类加载器，parameter是接口类数组\n    public V get(K key, P parameter) { \n        // 检查parameter不为空\n        Objects.requireNonNull(parameter);\n\t\t// 清除无效的缓存\n        expungeStaleEntries();\n\t\t// cacheKey就是刚才提到的key，也就是一级key\n        Object cacheKey = CacheKey.valueOf(key, refQueue);\n\n        // 根据key获取到ConcurrentMap\u003cObject, Supplier\u003cV\u003e\u003e valuesMap对象\n        // 如果valuesMap之前不存在，则新创建一个对象放进去\n        ConcurrentMap\u003cObject, Supplier\u003cV\u003e\u003e valuesMap = map.get(cacheKey);\n        if (valuesMap == null) { \n            ConcurrentMap\u003cObject, Supplier\u003cV\u003e\u003e oldValuesMap\n                = map.putIfAbsent(cacheKey,\n                                  valuesMap = new ConcurrentHashMap\u003c\u003e());\n            if (oldValuesMap != null) { \n                valuesMap = oldValuesMap;\n            }\n        }\n\n        // 生成subKey\n        Object subKey = Objects.requireNonNull(subKeyFactory.apply(key, parameter));\n        // 通过subKey获取supplier对象\n        Supplier\u003cV\u003e supplier = valuesMap.get(subKey);\n        // supplier实际上就是这个factory\n        Factory factory = null;\n\n        while (true) { \n            // 如果缓存里有supplier ，那就直接通过get方法，得到代理类对象，返回，就结束了\n            if (supplier != null) { \n                V value = supplier.get();\n                if (value != null) { \n                    return value;\n                }\n            }\n            // 下面的所有代码目的就是：如果缓存中没有supplier，则创建一个Factory对象，把factory对象在多线程的环境下安全的赋给supplier。\n            // 因为是在while（true）中，赋值成功后又回到上面去调get方法，返回才结束。\n            if (factory == null) { \n                factory = new Factory(key, parameter, subKey, valuesMap);\n            }\n\n            if (supplier == null) { \n                supplier = valuesMap.putIfAbsent(subKey, factory);\n                if (supplier == null) { \n                    // successfully installed Factory\n                    supplier = factory;\n                }\n                // else retry with winning supplier\n            } else { \n                if (valuesMap.replace(subKey, supplier, factory)) { \n                    // successfully replaced\n                    // cleared CacheEntry / unsuccessful Factory\n                    // with our Factory\n                    supplier = factory;\n                } else { \n                    // retry with current supplier\n                    supplier = valuesMap.get(subKey);\n                }\n            }\n        }\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-94zgwn7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010537-94zgwn7",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所以接下来我们看Factory类中的get方法："
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-7zj7tzn",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010537-7zj7tzn",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "private final class Factory implements Supplier\u003cV\u003e { \n\n        private final K key;\n        private final P parameter;\n        private final Object subKey;\n        private final ConcurrentMap\u003cObject, Supplier\u003cV\u003e\u003e valuesMap;\n\n        Factory(K key, P parameter, Object subKey,\n                ConcurrentMap\u003cObject, Supplier\u003cV\u003e\u003e valuesMap) { \n            this.key = key;\n            this.parameter = parameter;\n            this.subKey = subKey;\n            this.valuesMap = valuesMap;\n        }\n\n        @Override\n        public synchronized V get() {  // serialize access\n            // 重新检查得到的supplier是不是当前对象\n            Supplier\u003cV\u003e supplier = valuesMap.get(subKey);\n            if (supplier != this) { \n                return null;\n            }\n            // else still us (supplier == this)\n\n            // create new value\n            V value = null;\n            try { \n                // 代理类就是在这个位置调用valueFactory生成的\n                // valueFactory就是我们传入的 new ProxyClassFactory()\n                // 一会我们分析ProxyClassFactory()的apply方法\n                value = Objects.requireNonNull(valueFactory.apply(key, parameter));\n            } finally { \n                if (value == null) {  // remove us on failure\n                    valuesMap.remove(subKey, this);\n                }\n            }\n            // the only path to reach here is with non-null value\n            assert value != null;\n\n            // 把value包装成弱引用\n            CacheValue\u003cV\u003e cacheValue = new CacheValue\u003c\u003e(value);\n\n            // reverseMap是用来实现缓存的有效性\n            reverseMap.put(cacheValue, Boolean.TRUE);\n\n            // try replacing us with CacheValue (this should always succeed)\n            if (!valuesMap.replace(subKey, this, cacheValue)) { \n                throw new AssertionError(\"Should not reach here\");\n            }\n\n            // successfully replaced us with new CacheValue -\u003e return the value\n            // wrapped by it\n            return value;\n        }\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-q98jtg0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010537-q98jtg0",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "接下来到ProxyClassFactory的apply方法，代理类就是在这里生成的："
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-p3t2qp5",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010537-p3t2qp5",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "// 这里的BiFunction\u003cT, U, R\u003e是个函数式接口，可以理解为用T，U两种类型做参数，得到R类型的返回值\nprivate static final class ProxyClassFactory\n        implements BiFunction\u003cClassLoader, Class\u003c?\u003e[], Class\u003c?\u003e\u003e\n    { \n        // 所有代理类名字的前缀\n        private static final String proxyClassNamePrefix = \"$Proxy\";\n\n        // 用于生成代理类名字的计数器\n        private static final AtomicLong nextUniqueNumber = new AtomicLong();\n\n        @Override\n        public Class\u003c?\u003e apply(ClassLoader loader, Class\u003c?\u003e[] interfaces) { \n\n            Map\u003cClass\u003c?\u003e, Boolean\u003e interfaceSet = new IdentityHashMap\u003c\u003e(interfaces.length);\n            // 验证代理接口，可不看\n            for (Class\u003c?\u003e intf : interfaces) { \n                /*\n                 * Verify that the class loader resolves the name of this\n                 * interface to the same Class object.\n                 */\n                Class\u003c?\u003e interfaceClass = null;\n                try { \n                    interfaceClass = Class.forName(intf.getName(), false, loader);\n                } catch (ClassNotFoundException e) { \n                }\n                if (interfaceClass != intf) { \n                    throw new IllegalArgumentException(\n                        intf + \" is not visible from class loader\");\n                }\n                /*\n                 * Verify that the Class object actually represents an\n                 * interface.\n                 */\n                if (!interfaceClass.isInterface()) { \n                    throw new IllegalArgumentException(\n                        interfaceClass.getName() + \" is not an interface\");\n                }\n                /*\n                 * Verify that this interface is not a duplicate.\n                 */\n                if (interfaceSet.put(interfaceClass, Boolean.TRUE) != null) { \n                    throw new IllegalArgumentException(\n                        \"repeated interface: \" + interfaceClass.getName());\n                }\n            }\n\t\t\t// 生成的代理类的包名 \n            String proxyPkg = null;     // package to define proxy class in\n            // 代理类访问控制符: public ,final\n            int accessFlags = Modifier.PUBLIC | Modifier.FINAL;\n\n            // 验证所有非公共的接口在同一个包内；公共的就无需处理\n            // 生成包名和类名的逻辑，包名默认是com.sun.proxy，类名默认是$Proxy 加上一个自增的整数值\n            // 如果被代理类是 non-public proxy interface ，则用和被代理类接口一样的包名\n            for (Class\u003c?\u003e intf : interfaces) { \n                int flags = intf.getModifiers();\n                if (!Modifier.isPublic(flags)) { \n                    accessFlags = Modifier.FINAL;\n                    String name = intf.getName();\n                    int n = name.lastIndexOf('.');\n                    String pkg = ((n == -1) ? \"\" : name.substring(0, n + 1));\n                    if (proxyPkg == null) { \n                        proxyPkg = pkg;\n                    } else if (!pkg.equals(proxyPkg)) { \n                        throw new IllegalArgumentException(\n                            \"non-public interfaces from different packages\");\n                    }\n                }\n            }\n\n            if (proxyPkg == null) { \n                // if no non-public proxy interfaces, use com.sun.proxy package\n                proxyPkg = ReflectUtil.PROXY_PACKAGE + \".\";\n            }\n\n            /*\n             * Choose a name for the proxy class to generate.\n             */\n            long num = nextUniqueNumber.getAndIncrement();\n            // 代理类的完全限定名，如com.sun.proxy.$Proxy0.class\n            String proxyName = proxyPkg + proxyClassNamePrefix + num;\n\n            // 核心部分，生成代理类的字节码\n            byte[] proxyClassFile = ProxyGenerator.generateProxyClass(\n                proxyName, interfaces, accessFlags);\n            try { \n                // 把代理类加载到JVM中，返回代理类的class对象，至此动态代理过程基本结束了\n                return defineClass0(loader, proxyName,\n                                    proxyClassFile, 0, proxyClassFile.length);\n            } catch (ClassFormatError e) { \n                throw new IllegalArgumentException(e.toString());\n            }\n        }\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-4nhx6wf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010537-4nhx6wf",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "实际生成的字节码的方法是：ProxyGenerator.generateProxyClass(proxyName, interfaces, accessFlags);"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-t567emq",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010537-t567emq",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "\tpublic static byte[] generateProxyClass(final String var0, Class\u003c?\u003e[] var1, int var2) { \n        ProxyGenerator var3 = new ProxyGenerator(var0, var1, var2);\n        final byte[] var4 = var3.generateClassFile();\n    \t// 将要生成代理类的字节码文件保存在磁盘中\n        if (saveGeneratedFiles) { \n            AccessController.doPrivileged(new PrivilegedAction\u003cVoid\u003e() { \n                public Void run() { \n                    try { \n                        int var1 = var0.lastIndexOf(46);\n                        Path var2;\n                        if (var1 \u003e 0) { \n                            Path var3 = Paths.get(var0.substring(0, var1).replace('.', File.separatorChar));\n                            Files.createDirectories(var3);\n                            var2 = var3.resolve(var0.substring(var1 + 1, var0.length()) + \".class\");\n                        } else { \n                            var2 = Paths.get(var0 + \".class\");\n                        }\n\n                        Files.write(var2, var4, new OpenOption[0]);\n                        return null;\n                    } catch (IOException var4x) { \n                        throw new InternalError(\"I/O exception saving generated file: \" + var4x);\n                    }\n                }\n            });\n        }\n\n        return var4;\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-fql7gdb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010537-fql7gdb",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果想要生成的话可以添加如下参数："
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-ucdisv1",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010537-ucdisv1",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "System.getProperties().put(\"sun.misc.ProxyGenerator.saveGeneratedFiles\", \"true\");\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-erkdgs5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010537-erkdgs5",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "生成的代理类字节码如下："
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-sf906qi",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230404010537-sf906qi",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "package com.sun.proxy;\n\nimport com.bobo.proxy.HelloWord;\nimport java.lang.reflect.InvocationHandler;\nimport java.lang.reflect.Method;\nimport java.lang.reflect.Proxy;\nimport java.lang.reflect.UndeclaredThrowableException;\n\npublic final class $Proxy0 extends Proxy implements HelloWord { \n    private static Method m1;\n    private static Method m3;\n    private static Method m2;\n    private static Method m4;\n    private static Method m0;\n\n    public $Proxy0(InvocationHandler var1) throws  { \n        super(var1);\n    }\n\n    public final boolean equals(Object var1) throws  { \n        try { \n            return (Boolean)super.h.invoke(this, m1, new Object[]{ var1});\n        } catch (RuntimeException | Error var3) { \n            throw var3;\n        } catch (Throwable var4) { \n            throw new UndeclaredThrowableException(var4);\n        }\n    }\n\n    public final void sayHello() throws  { \n        try { \n            super.h.invoke(this, m3, (Object[])null);\n        } catch (RuntimeException | Error var2) { \n            throw var2;\n        } catch (Throwable var3) { \n            throw new UndeclaredThrowableException(var3);\n        }\n    }\n\n    public final String toString() throws  { \n        try { \n            return (String)super.h.invoke(this, m2, (Object[])null);\n        } catch (RuntimeException | Error var2) { \n            throw var2;\n        } catch (Throwable var3) { \n            throw new UndeclaredThrowableException(var3);\n        }\n    }\n\n    public final void sayGoodBye() throws  { \n        try { \n            super.h.invoke(this, m4, (Object[])null);\n        } catch (RuntimeException | Error var2) { \n            throw var2;\n        } catch (Throwable var3) { \n            throw new UndeclaredThrowableException(var3);\n        }\n    }\n\n    public final int hashCode() throws  { \n        try { \n            return (Integer)super.h.invoke(this, m0, (Object[])null);\n        } catch (RuntimeException | Error var2) { \n            throw var2;\n        } catch (Throwable var3) { \n            throw new UndeclaredThrowableException(var3);\n        }\n    }\n\n    static { \n        try { \n            m1 = Class.forName(\"java.lang.Object\").getMethod(\"equals\", Class.forName(\"java.lang.Object\"));\n            m3 = Class.forName(\"com.bobo.proxy.HelloWord\").getMethod(\"sayHello\");\n            m2 = Class.forName(\"java.lang.Object\").getMethod(\"toString\");\n            m4 = Class.forName(\"com.bobo.proxy.HelloWord\").getMethod(\"sayGoodBye\");\n            m0 = Class.forName(\"java.lang.Object\").getMethod(\"hashCode\");\n        } catch (NoSuchMethodException var2) { \n            throw new NoSuchMethodError(var2.getMessage());\n        } catch (ClassNotFoundException var3) { \n            throw new NoClassDefFoundError(var3.getMessage());\n        }\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-45sgp5j",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230404010537-45sgp5j",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结："
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-9fbllll",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230404010537-9fbllll",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通过上面生成的代理类我们很清晰的看到："
+				}
+			]
+		},
+		{
+			"ID": "20230404010537-lfa1ll7",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20230404010537-lfa1ll7",
+				"updated": "20230404010537"
+			},
+			"Children": [
+				{
+					"ID": "20230404010537-amjqacj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20230404010537-amjqacj",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-boh3zve",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-boh3zve",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "代理类继承"
+								},
+								{
+									"Type": "NodeTextMark",
+									"TextMarkType": "code",
+									"TextMarkTextContent": "java.lang.reflect.Proxy"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "​类，并实现了并实现了我们定义的HelloWord接口"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010537-dew58d1",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20230404010537-dew58d1",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-jk4wkwq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-jk4wkwq",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "通过反射获取被代理类每个方法的Method对象，定义成m1，m2，m3，m4，m5"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010537-l4m74m5",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20230404010537-l4m74m5",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-4lb2p3r",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-4lb2p3r",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "代理类通过执行InvokeHandler的invoke方法，把被代理类的method对象和参数回调到InvokeHandler里面"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230404010537-hbvbz9b",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20230404010537-hbvbz9b",
+						"updated": "20230404010537"
+					},
+					"Children": [
+						{
+							"ID": "20230404010537-xmuiqnl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230404010537-xmuiqnl",
+								"updated": "20230404010537"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "最终通过我们在InvokeHandler里面的回调来实现对被代理类的调用，并且在调用被代理类时，可对其调用前后增强。"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
